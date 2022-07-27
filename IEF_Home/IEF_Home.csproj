@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{793D3C56-3758-461B-81B1-63727BDD0699}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IEF_Home</RootNamespace>
+    <AssemblyName>IEF_Home</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.20.0.103, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.20.0\lib\net452\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.20.0.103, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.20.0\lib\net452\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.20.0.103, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.20.0\lib\net452\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.20.0.103, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.20.0\lib\net452\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.20.0.103, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.20.0\lib\net452\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.20.0.103, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.20.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.8\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="circomod.aspx" />
+    <Content Include="Content\IEooc_Logo_V2.png" />
+    <Content Include="css\master.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
+    <Content Include="internal.aspx" />
+    <Content Include="internal_login.aspx" />
+    <Content Include="legal.aspx" />
+    <Content Include="odym-recc.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="research\research.aspx" />
+    <Content Include="resources\flag-england.png" />
+    <Content Include="resources\flag-germany.png" />
+    <Content Include="resources\Global_2007.png" />
+    <Content Include="resources\Login_Button.jpg" />
+    <Content Include="resources\pexels-photo-209137.jpeg" />
+    <Content Include="resources\sampleSankey_final.png" />
+    <Content Include="resources\sampleSankey_raw.png" />
+    <Content Include="resources\SankeySample1.png" />
+    <Content Include="resources\StarSchema_ODYM.png" />
+    <Content Include="resources\SteelSankey_2008_Global_V1.png" />
+    <Content Include="resources\SysDef_General.png" />
+    <Content Include="resources\SysDef_Model_v2_4.png" />
+    <Content Include="resources\SystemDef_MaterialStockModelling_Mueller2006.png" />
+    <Content Include="Site1.Master" />
+    <Content Include="main.aspx" />
+    <Content Include="Content\IEooc_Application1_Exercise1_Area_Constraints.pdf" />
+    <Content Include="Content\IEooc_Application1_Exercise1_Area_Constraints_Solution.pdf" />
+    <Content Include="Content\IEooc_Application1_Exercise1_Area_Constraints_Solution.xlsx" />
+    <Content Include="Content\IEooc_Application1_Exercise2_IPAT_Equation.pdf" />
+    <Content Include="Content\IEooc_Application1_Exercise2_IPAT_Equation_Solution.pdf" />
+    <Content Include="Content\IEooc_Application1_Exercise3_CO2_Tax.pdf" />
+    <Content Include="Content\IEooc_Application1_Exercise3_CO2_Tax.xlsx" />
+    <Content Include="Content\IEooc_Application1_Exercise3_CO2_Tax_Solution.xlsx" />
+    <Content Include="Content\IEooc_Application2_Reading2_CE_Review.pdf" />
+    <Content Include="Content\IEooc_Application3_Exercise1a.pdf" />
+    <Content Include="Content\IEooc_Application3_Exercise1a_SampleSolution.xlsx" />
+    <Content Include="Content\IEooc_Application3_Exercise1_IoC.pdf" />
+    <Content Include="Content\IEooc_Application3_Exercise1_IoC_Data.xlsx" />
+    <Content Include="Content\IEooc_Application3_Exercise1_IoC_Solution.pdf" />
+    <Content Include="Content\IEooc_Application3_Exercise1_IoC_Solution.xlsx" />
+    <Content Include="Content\IEooc_Application3_Reading3_Neuhoff_et_al_ClimateStrategies_2016.pdf" />
+    <Content Include="Content\IEooc_Application3_Reading4_Pauliuk_Neuhoff_et_al_IoC_DP1570.pdf" />
+    <Content Include="Content\IEooc_Application3_Software1.ipynb" />
+    <Content Include="Content\IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" />
+    <Content Include="Content\IEooc_Application4_Exercise1_EnergySufficiency.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise1_EnergySufficiency_SampleSolution.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise2_Area_Density_Energy.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise2_Area_Density_Energy_SampleSolution.xlsx" />
+    <Content Include="Content\IEooc_Application4_Exercise3_Energy_Efficiency.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise3_Energy_Efficiency_ideas.pptx" />
+    <Content Include="Content\IEooc_Application4_Exercise3_Energy_Efficiency_ideas.zip" />
+    <Content Include="Content\IEooc_Application4_Exercise3_Energy_Efficiency_SampleSolution.xlsx" />
+    <Content Include="Content\IEooc_Application4_Exercise4_Energy_Demand_Scenario.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution.xlsx" />
+    <Content Include="Content\IEooc_Application4_Exercise5_Energy_Supply_Scenario.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution.xlsx" />
+    <Content Include="Content\IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" />
+    <Content Include="Content\IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" />
+    <Content Include="Content\IEooc_Background1_Reading1_Framing.pdf" />
+    <Content Include="Content\IEooc_Background1_Reading2_Boulding_SpaceshipEarth.pdf" />
+    <Content Include="Content\IEooc_Background1_Reading3_Strategies_For_Manufacturing_Sci_American_1989.pdf" />
+    <Content Include="Content\IEooc_Background2_Exercise1_RenewableEnergy_IPCC.pdf" />
+    <Content Include="Content\IEooc_Background2_Exercise1_RenewableEnergy_IPCC_Solution.pdf" />
+    <Content Include="Content\IEooc_Background3_Reading2_OpenSoftwareIndustrialEcology - Kopie.pdf" />
+    <Content Include="Content\IEooc_Background3_Reading2_OpenSoftwareIndustrialEcology.pdf" />
+    <Content Include="Content\IEooc_Methods1_Exercise1_Indicator_Definition.pdf" />
+    <Content Include="Content\IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods1_Exercise2_Data_Reconciliation.pdf" />
+    <Content Include="Content\IEooc_Methods1_Exercise2_Data_Reconciliation_Data.xlsx" />
+    <Content Include="Content\IEooc_Methods1_Exercise2_Data_Reconciliation_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods1_Lecture1.pdf" />
+    <Content Include="Content\IEooc_Methods1_Reading3_Accounting_Framework_SEM_2015.pdf" />
+    <Content Include="Content\IEooc_Methods1_Reading4_SEM_DataModel.pdf" />
+    <Content Include="Content\IEooc_Methods2_Exercise1_Cement.pdf" />
+    <Content Include="Content\IEooc_Methods2_Exercise1_Cement_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods2_Exercise1_Cement_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods2_Exercise2_Cycle.pdf" />
+    <Content Include="Content\IEooc_Methods2_Exercise2_Cycle_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods3_Exercise1_RawData.xlsx" />
+    <Content Include="Content\IEooc_Methods3_Exercise1_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods3_Exercise1_Stockmodeling_Steel.pdf" />
+    <Content Include="Content\IEooc_Methods3_Exercise1_Stockmodelling_Steel_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods3_Exercise2_Technical_Lifetime.pdf" />
+    <Content Include="Content\IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods3_Lecture1_Corrected_Cencic.pdf" />
+    <Content Include="Content\IEooc_Methods3_Lecture2_Corrected_Cencic.pdf" />
+    <Content Include="Content\IEooc_Methods3_Lecture3_Corrected_Cencic.pdf" />
+    <Content Include="Content\IEooc_Methods3_Software1.ipynb" />
+    <Content Include="Content\IEooc_Methods3_Software1_Data.xlsx" />
+    <Content Include="Content\IEooc_Methods3_Software2.ipynb" />
+    <Content Include="Content\IEooc_Methods3_Software2_GlobalCarFleetData.xlsx" />
+    <Content Include="Content\IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip" />
+    <Content Include="Content\IEooc_Methods3_Software3_ODYM_Tutorial_1.ipynb" />
+    <Content Include="Content\IEooc_Methods3_Software4_ODYM_Tutorial_2.ipynb" />
+    <Content Include="Content\IEooc_Methods3_Software5_ODYM_Tutorial_3.ipynb" />
+    <Content Include="Content\IEooc_Methods3_Software6_ODYM_Tutorial_4.ipynb" />
+    <Content Include="Content\IEooc_Methods3_Software7_ODYM_Tutorial_5.ipynb" />
+    <Content Include="Content\IEooc_Methods3_Software8_ODYM_Tutorial_6.ipynb" />
+    <Content Include="Content\IEooc_Methods3_Software9.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise10_MatrixMethods.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise10_MatrixMethods_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise1_ElectricVehicles.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise1_ElectricVehicles_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise2_LifeCycle.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise2_LifeCycle_Data.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise2_LifeCycle_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise3_Matrices_Paper.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise3_Matrices_Paper_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise4_LCA_Excel.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise4_LCA_Excel.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise4_LCA_Excel_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise5_LCIA.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise5_LCIA.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise5_LCIA_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise5_LCIA_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods4_Exercise6_openLCA.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise7_Process_Modification.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise7_Process_Modification_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise8_Recycling_Allocation.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise8_Recycling_Allocation_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods4_Exercise9_Reading.pdf" />
+    <Content Include="Content\IEooc_Methods5_Exercise1_IO_Basics.pdf" />
+    <Content Include="Content\IEooc_Methods5_Exercise1_IO_Basics.xlsx" />
+    <Content Include="Content\IEooc_Methods5_Exercise1_IO_Basics_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods5_Exercise1_IO_Basics_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods5_Exercise2_MRIO.pdf" />
+    <Content Include="Content\IEooc_Methods5_Exercise2_MRIO_Data.xls" />
+    <Content Include="Content\IEooc_Methods5_Exercise2_MRIO_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods5_Exercise2_MRIO_Solution.xls" />
+    <Content Include="Content\IEooc_Methods5_Software1.ipynb" />
+    <Content Include="Content\IEooc_Methods5_Software1_Data_EXIOBASEv3_3R_11P_ITC.mat" />
+    <Content Include="Content\IEooc_Methods5_Software2.ipynb" />
+    <Content Include="Content\IEooc_Methods5_Software2_MRIO_Results.zip" />
+    <Content Include="Content\IEooc_Methods6_Exercise1_CoupledSectors.pdf" />
+    <Content Include="Content\IEooc_Methods6_Exercise1_CoupledSectors_Solution.pdf" />
+    <Content Include="Content\IEooc_Methods6_Exercise1_CoupledSectors_Solution.xlsx" />
+    <Content Include="Content\IEooc_Methods_Good_Scientific_Practice.pdf" />
+    <Content Include="data_indecol_205939343242\2017_Alex_Buchholz_Footprint_Germany.zip" />
+    <Content Include="data_indecol_205939343242\2017_Digital appendix_Anabell Friedrich.zip" />
+    <Content Include="data_indecol_205939343242\2017_Masterarbeit_Lara_Wiechert_Digitaler_Anhang.zip" />
+    <Content Include="data_indecol_205939343242\4773626_hovmand_sofie.pdf" />
+    <Content Include="data_indecol_205939343242\Alatrash_IEF_REM_Master_Thesis.pdf" />
+    <Content Include="data_indecol_205939343242\AlLahham_Muhanad_MasterThesis.pdf" />
+    <Content Include="data_indecol_205939343242\Bachelorarbeit Hilzendegen 4525471.pdf" />
+    <Content Include="data_indecol_205939343242\BSc_Thesis_2016_Martin_Remler.pdf" />
+    <Content Include="data_indecol_205939343242\BSc_Thesis_2018_Alina_Hilzinger.pdf" />
+    <Content Include="data_indecol_205939343242\BSc_Thesis_2018_Jessica_Moersdorf.pdf" />
+    <Content Include="data_indecol_205939343242\Darwish_Abunofal_Master_Thesis_REM_29.09.2020.pdf" />
+    <Content Include="data_indecol_205939343242\Digital Appendix MT Edenhofer.zip" />
+    <Content Include="data_indecol_205939343242\Dollinger_MA_ELV.pdf" />
+    <Content Include="data_indecol_205939343242\Dutta_Kapish_MasterThesis_REM.pdf" />
+    <Content Include="data_indecol_205939343242\ecoinvent_34_cutoff_unit_20180314_LCIA_final.zip" />
+    <Content Include="data_indecol_205939343242\Final sheets_MasterThesis_FabioBallasina.zip" />
+    <Content Include="data_indecol_205939343242\Lindemann_Katrina_LCA_Thesis.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Fischer-Kowalski, Haberl_1998_Sustainable development socio-economic metabolism and colonization of nature.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Fischer-Kowalski_1998_Society’s Metabolism The Intellectual History of Materials Flow Analysis, Part I, I 860- I 970.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Goedkoop, Huijbregts_2013_ReCiPe 2008.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Graedel et al._2011_What Do We Know About Metal Recycling Rates.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Haas et al_2015.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Hawkins et al._2013_Comparative Environmental Life Cycle Assessment of Conventional and Electric Vehicles.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Hellweg, Mila i Canals_2014_Emerging approaches, challenges and opportunities in life cycle assessment.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Hertwich et al._2015_Integrated life-cycle assessment of electricity-supply scenarios confirms global environmental benefit of low-carbo.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Hertwich, Peters_2009_Carbon footprint of nations a global, trade-linked analysis.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\IEooc_Background1_Reading1_Framing.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\IEooc_Background1__Reading2_Boulding_SpaceshipEarth.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\IEooc_Background1__Reading3_Strategies_For_Manufacturing_Sci_American_1989.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Ivanova et al._2014_Environmental impact assessment of household consumption.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\LCA_Allocation_Schrijvers_2016.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Minx et al._2011_A “Carbonizing Dragon” China’s Fast Growing CO2 Emissions Revisited.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Morton_Chapter7_Nitrogen.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Nakamura, Kondo_2002_Input-Output Analysis of Waste Management.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Pauliuk_2014_Role_of_Stocks.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\Peters_2008_From production-based to consumption-based national emission inventories.pdf" />
+    <Content Include="data_indecol_205939343242\Literature\PNAS-2017-Krausmann-1880-5.pdf" />
+    <Content Include="data_indecol_205939343242\Luis_Thesis_Comparative LCA HTC Plant_LMGR.pdf" />
+    <Content Include="data_indecol_205939343242\Master Thesis_Izzatjon_Asadov.pdf" />
+    <Content Include="data_indecol_205939343242\Master Thesis_Johannes_Jung.pdf" />
+    <Content Include="data_indecol_205939343242\Master Thesis_MSc_REM_Kritesh Shridhar.pdf" />
+    <Content Include="data_indecol_205939343242\Master Thesis_Sophia_Fehrenbach.pdf" />
+    <Content Include="data_indecol_205939343242\Masterarbeit_Dmytro_Demenchuk.pdf" />
+    <Content Include="data_indecol_205939343242\Masterarbeit_Schmolck_Suffizienz.pdf" />
+    <Content Include="data_indecol_205939343242\MasterThesis_FabioBallasinaMEG13.pdf" />
+    <Content Include="data_indecol_205939343242\Master_Thesis_Zaehringer_Pius.pdf" />
+    <Content Include="data_indecol_205939343242\MSc REMThesis_Mariana Acosta_4368510.pdf" />
+    <Content Include="data_indecol_205939343242\MSc._Thesis_2020_Eichler_MRIO_ALUF2017.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2017_Bonneau_Carbon Accounting.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2017_Buchholz_Alexander.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2017_Canan_GÜMÜSAY.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2017_Christian_Hauenstein.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2017_Jan_Streeck.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2017_Kavya_Madhu.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2017_Lara_Wiechert.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Christian_Buschbeck.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Eric_Card.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Eric_Card_Supporting_Material.zip" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Gizem_Erdogmus.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Ina_Helfrich.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Kai_Bekel.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Mahadi_Hasan.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Ombeni_Ranzmeyer.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2018_Simon_Schulte.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2019_Elizalde_OLCA_ALUF.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2019_Sumukha_Dhathri.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_2019_Torralva_Diego.pdf" />
+    <Content Include="data_indecol_205939343242\MSc_Thesis_Kai_Bekel.zip" />
+    <Content Include="data_indecol_205939343242\MT_Edenhofer.pdf" />
+    <Content Include="data_indecol_205939343242\oekobaudat_method_en_191115.zip" />
+    <Content Include="data_indecol_205939343242\Okwa_Adakole_Daniel_Master_Thesis.pdf" />
+    <Content Include="data_indecol_205939343242\Paula_Vollmer_Masterthesis.pdf" />
+    <Content Include="data_indecol_205939343242\Proposal_MSc_thesis_Example_1.pdf" />
+    <Content Include="data_indecol_205939343242\Proposal_MSc_thesis_Example_2.pdf" />
+    <Content Include="data_indecol_205939343242\search_ecoinvent_3_2.zip" />
+    <Content Include="data_indecol_205939343242\search_ecoinvent_3_3.zip" />
+    <Content Include="data_indecol_205939343242\search_ecoinvent_3_4.zip" />
+    <Content Include="data_indecol_205939343242\SGudivada_MasterThesis.pdf" />
+    <Content Include="data_indecol_205939343242\SGudivada_MasterThesis_Supporting Information.zip" />
+    <Content Include="data_indecol_205939343242\Standards\BS_8001_2017.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN 15643-1 %282010-12-00%29.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN 15643-2 %282011-05-00%29.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN 15643-3 %282012-04-00%29.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN 15643-4 %282012-04-00%29.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN 15804 %282014-07-00%29.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN 15978 %282012-10-00%29.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN ISO 14001.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN ISO 14040.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN ISO 14044.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN EN ISO 9001.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN_CEN_ISO_TS_14067.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN_EN_ISO_14064-1.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN_EN_ISO_14064-1_2012.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN_EN_ISO_14064-2.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN_EN_ISO_14064-3.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN_EN_ISO_14064-3_2012.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\DIN_EN_ISO_14065.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\PAS 2060_2014.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\SIA 2032.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\SIA 2040.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\VDI 4600 Blatt 1 %282015-08-00%29 .pdf" />
+    <Content Include="data_indecol_205939343242\Standards\VDI 4600.pdf" />
+    <Content Include="data_indecol_205939343242\Standards\VDI 4605 %282017-10-00%29.pdf" />
+    <Content Include="data_indecol_205939343242\Utamaru,A_Thesis.pdf" />
+    <Content Include="data_indecol_205939343242\Vanry-Thesis-4561599.pdf" />
+    <Content Include="data_indecol_205939343242\Yash Thesis final 1.pdf" />
+    <Content Include="research\Documents\14-JIE-4700_R2_SUBMIT_Self_Archive.pdf" />
+    <Content Include="research\Documents\19-JIE-6182_SelfArchive.pdf" />
+    <Content Include="research\Documents\Aryapratama_Pauliuk_WoodStocksIndonesia_SI.zip" />
+    <Content Include="research\Documents\Aryapratama_Wood_Stocks_Indonesia_Revised_Accepted.pdf" />
+    <Content Include="research\Documents\ChinaSteel_Input.xls" />
+    <Content Include="research\Documents\Chinese_Steel_Cycle_Self-archive.pdf" />
+    <Content Include="research\Documents\Energy_Buildings_self_archive.pdf" />
+    <Content Include="research\Documents\Energy_Cars_China-Self-archive.pdf" />
+    <Content Include="research\Documents\es-2012-031424_Self-archive.pdf" />
+    <Content Include="research\Documents\GEC-D-13-00391_Self_Archive.pdf" />
+    <Content Include="research\Documents\IoC_WP2_Supplementary_Material_20160421.zip" />
+    <Content Include="research\Documents\MaTrace_Global_Manuscript_R2_SUBMIT.pdf" />
+    <Content Include="research\Documents\Pauliuk_et_al_2015_System_Structure_Self_archive.pdf" />
+    <Content Include="research\Documents\Pauliuk_et_al_Dynamic_Stocks_and_IE_SUBMIT.pdf" />
+    <Content Include="research\Documents\Pauliuk_et_al_IndEcol_Software_2015_Self_archive.pdf" />
+    <Content Include="research\Documents\Pauliuk_Hertwich_2015_SEM_Paradigm_Self_Archive.pdf" />
+    <Content Include="research\Documents\Pauliuk_PipeNetworksPaper_Version3.pdf" />
+    <Content Include="research\Documents\PhD_Thesis_Stefan_Pauliuk_FINAL_Electronic.pdf" />
+    <Content Include="research\Documents\RECYCL-D-12-00359_Self_Archive.pdf" />
+    <Content Include="research\Documents\Software\Norway_Dwelling_Stock_Code_Archive.zip" />
+    <Content Include="research\Documents\The steel scrap age_Self-archive.pdf" />
+    <Content Include="research\Documents\Tisserant_et_al_2017_WasteAccountsFootprints_PrePrint.pdf" />
+    <Content Include="resources\Example_data.xlsx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\59small.jpg" />
+    <Content Include="resources\HP_Main_V1.png" />
+    <Content Include="resources\IEF_Logo.png" />
+    <Content Include="resources\uni_freiburg.png" />
+    <Content Include="resources\Uni_Logo.png" />
+    <Content Include="scripts\jquery-3.1.1.min.js" />
+    <Content Include="teaching.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="circomod.aspx.cs">
+      <DependentUpon>circomod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="circomod.aspx.designer.cs">
+      <DependentUpon>circomod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cls\clsCommon.cs" />
+    <Compile Include="cls\DbConnect.cs" />
+    <Compile Include="cls\Hash.cs" />
+    <Compile Include="internal.aspx.cs">
+      <DependentUpon>internal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="internal.aspx.designer.cs">
+      <DependentUpon>internal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="internal_login.aspx.cs">
+      <DependentUpon>internal_login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="internal_login.aspx.designer.cs">
+      <DependentUpon>internal_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="legal.aspx.cs">
+      <DependentUpon>legal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="legal.aspx.designer.cs">
+      <DependentUpon>legal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="odym-recc.aspx.cs">
+      <DependentUpon>odym-recc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odym-recc.aspx.designer.cs">
+      <DependentUpon>odym-recc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="research\research.aspx.cs">
+      <DependentUpon>research.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="research\research.aspx.designer.cs">
+      <DependentUpon>research.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="teaching.aspx.cs">
+      <DependentUpon>teaching.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teaching.aspx.designer.cs">
+      <DependentUpon>teaching.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3019</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3019/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.20.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.20.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.20.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.20.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.20.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.20.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.20.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.20.0\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.20.0\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.20.0\build\Microsoft.ApplicationInsights.Web.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.20.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.20.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.20.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.20.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.20.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.20.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.20.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.20.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.20.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.20.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,213 @@
+﻿body {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 13px;
+    background-color: #f2f2f2;
+}
+
+.jumbotron {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+/* Remove the navbar's default rounded borders and increase the bottom margin */
+.navbar {
+    border-radius: 0;
+    background-color: #215daa;
+    border: none;
+    color: #215daa;
+    min-height: inherit;
+}
+
+    .navbar ul li {
+        color: #215daa;
+    }
+/* Remove the jumbotron's default bottom margin */
+.jumbotron {
+    margin-bottom: 0;
+    background-color: #ccdff5;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #f2f2f2;
+    padding: 15px;
+}
+
+.col-md-9 {
+    padding-right: 10%;
+    text-align: justify;
+}
+
+.caption {
+    text-align: center;
+}
+/*.row{
+        background-color: #ffffff;
+    }*/
+.col-md-3 {
+    background-color: #CCDFF5;
+    
+} 
+
+footer a {
+    text-align: left;
+}
+
+.container {
+    text-align: justify;
+    text-justify: inter-word;
+    padding-left: 0px;
+    margin-right: 10%;
+    margin-left: 0px;
+}
+
+.navbar-custom {
+    background-color: #229922;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+    .navbar-custom .navbar-nav > li > a {
+        color: #fff;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .navbar-custom .navbar-nav > .active > a {
+        color: #ffffff;
+        background-color: #33aa33;
+    }
+
+        .navbar-custom .navbar-nav > li > a:hover,
+        .navbar-custom .navbar-nav > li > a:focus,
+        .navbar-custom .navbar-nav > .active > a:hover,
+        .navbar-custom .navbar-nav > .active > a:focus,
+        .navbar-custom .navbar-nav > .open > a {
+            text-decoration: none;
+            background-color: #33aa33;
+        }
+
+    .navbar-custom .navbar-brand {
+        color: #eeeeee;
+    }
+
+    .navbar-custom .navbar-toggle {
+        background-color: #eeeeee;
+    }
+
+    .navbar-custom .icon-bar {
+        background-color: #33aa33;
+    }
+
+main {
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+
+
+footer {
+    background-color: #ccdff5;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    font: 14px sans-serif;
+    margin-top: 30px;
+    text-align: left;
+    width: 100%;
+}
+
+    footer a {
+        display: inline-block;
+        line-height: 1.8;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    footer div {
+        display: block;
+        text-align: center;
+    }
+
+    /* The company logo */
+
+    footer h3 {
+        font: normal 16px 'Cookie', cursive;
+        margin: 0;
+    }
+
+        footer h3 span {
+            color: #33aa33;
+        }
+
+label.lbl-toggle, input#collapsible {
+    display: none;
+}
+
+thead td {
+    font-weight: bold;
+}
+
+table td {
+    padding: 5px;
+}
+
+.table-container {
+    max-width: 100%;
+    overflow: auto;
+}
+
+header div div div {
+    display: inline-block;
+}
+
+.lang-changer {
+    text-align: right;
+}
+
+.lang-changer img {
+    cursor: pointer;
+}
+
+.centered {
+    text-align: center;
+}
+
+.login-warning {
+    color: red;
+    font-weight: bolder;
+}
+
+/**
+    Media queries for responsive design
+*/
+@media screen and (max-width: 768px) {
+    label.lbl-toggle {
+        line-height: 20px;
+        padding: 10px 0;
+        margin: 0;
+        display: inline-block;
+    }
+
+    #collapsible:checked + div {
+        display: block;
+    }
+
+    footer {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        margin: 0;
+    }
+
+    .navbar {
+        margin-bottom: 0;
+    }
+
+    header div div:nth-child(3) {
+        display: none;
+    }
+}
+

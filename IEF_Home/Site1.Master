@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="IEF_Home.privacy.Site1" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <title></title>
+    <!--<link href="/css/jquery-ui.css" rel="stylesheet" />-->
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/master.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/resources/IEF_Logo.png">
+    <script src="/scripts/jquery-3.1.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <div class="jumbotron">
+                <div class="container-fluid">
+
+                    <div class="col-md-2">
+                        <img src="/resources/IEF_Logo.png" style="padding-left: 10px;" width="150px" height="150px">
+                    </div>
+
+                    <div class="col-md-8" style="padding-left: 30px; height: 0px;">
+                        <h2>Industrial Ecology Freiburg</h2>
+                        <p style="font-size: 16px;">Research group at the Faculty of Environment and Natural Resources</p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <img src="/resources/uni_freiburg.png" width="120px" height="150px">
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-default navbar-custom navbar">
+                <div class="container-fluid">
+                    <label for="collapsible" class="lbl-toggle">&equiv;</label>
+                    <input id="collapsible" class="toggle" type="checkbox">
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
+                      <!--  <li><a href="/research/research">Research</a></li>-->
+                            <li><a href="/odym-recc">Odym-Recc</a></li>
+                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Database</a></li>
+                            <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">Visualisation</a></li>
+
+                            
+                            <li><a href="/teaching">Teaching</a></li>
+                            <li><a href="/internal">Internal</a></li>
+                      <!--  <li><a href="/privacy">Privacy</a></li> -->
+                            <li><a href="/circomod">Circomod</a></li>
+                            <!--<li><a href="/legal">Legal Notes</a></li>-->
+                            
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server"></asp:ContentPlaceHolder>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+        <footer>
+            <div>
+                <a href="/">Home</a> &#9679;
+                <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a> &#9679;
+            <!--<a href="research/research">Research</a> &#9679; -->
+                <a href="/odym-recc">Odym-Recc</a> &#9679;
+                <a href="https://www.database.industrialecology.uni-freiburg.de">Database</a> &#9679;
+                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">Visualisation</a> &#9679;
+                <a href="/internal">Internal</a> &#9679;
+                <a href="/teaching">Teaching</a> &#9679;
+          <!--  <a href="/privacy">Privacy</a> &#9679; -->
+                <a href="/circomod">Circomod</a><br/>
+                <a href="/legal">Legal Notes & Privacy</a>
+                
+            </div>
+            <div>
+                <h3>Industrial Ecology <span>Freiburg</span></h3>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>

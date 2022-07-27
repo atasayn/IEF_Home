@@ -1,0 +1,13 @@
+# Data directories
+# IEF_Home/resources
+IEF_HOME/Content
+IEF_HOME/research/Documents
+IEF_HOME/data_indecol_205939343242
+
+# Auto-generated files
+IEF_HOME/bin
+IEF_HOME/obj
+packages/*
+
+# VS files
+.vs
