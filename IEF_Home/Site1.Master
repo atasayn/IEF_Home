@@ -3,13 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <meta charset="utf-8">
+    <%-- ReSharper disable once EmptyTitleTag --%>
     <title></title>
-    <!--<link href="/css/jquery-ui.css" rel="stylesheet" />-->
+    <meta charset="utf-8">
     <link href="/css/bootstrap.css" rel="stylesheet" />
     <link href="/css/master.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/resources/IEF_Logo.png">
-    <script src="/scripts/jquery-3.1.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
@@ -22,7 +21,7 @@
                 <div class="container-fluid">
 
                     <div class="col-md-2">
-                        <img src="/resources/IEF_Logo.png" style="padding-left: 10px;" width="150px" height="150px">
+                        <img src="/resources/IEF_Logo.png" style="padding-left: 10px;" width="150" height="150" alt="IEF logo">
                     </div>
 
                     <div class="col-md-8" style="padding-left: 30px; height: 0px;">
@@ -31,7 +30,7 @@
                     </div>
 
                     <div class="col-md-2">
-                        <img src="/resources/uni_freiburg.png" width="120px" height="150px">
+                        <img src="/resources/uni_freiburg.png" width="120" height="150" alt="Uni Freiburg logo">
                     </div>
                 </div>
             </div>
@@ -51,10 +50,7 @@
                             
                             <li><a href="/teaching">Teaching</a></li>
                             <li><a href="/internal">Internal</a></li>
-                      <!--  <li><a href="/privacy">Privacy</a></li> -->
                             <li><a href="/circomod">Circomod</a></li>
-                            <!--<li><a href="/legal">Legal Notes</a></li>-->
-                            
                             <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server"></asp:ContentPlaceHolder>
                         </ul>
 
@@ -76,7 +72,6 @@
                 <a href="https://www.visualisation.industrialecology.uni-freiburg.de">Visualisation</a> &#9679;
                 <a href="/internal">Internal</a> &#9679;
                 <a href="/teaching">Teaching</a> &#9679;
-          <!--  <a href="/privacy">Privacy</a> &#9679; -->
                 <a href="/circomod">Circomod</a><br/>
                 <a href="/legal">Legal Notes & Privacy</a>
                 

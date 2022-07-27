@@ -112,7 +112,6 @@
     <Content Include="Content\IEooc_Logo_V2.png" />
     <Content Include="css\master.css" />
     <Content Include="css\bootstrap.css" />
-    <Content Include="css\jquery-ui.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
@@ -395,7 +394,6 @@
     <Content Include="resources\IEF_Logo.png" />
     <Content Include="resources\uni_freiburg.png" />
     <Content Include="resources\Uni_Logo.png" />
-    <Content Include="scripts\jquery-3.1.1.min.js" />
     <Content Include="teaching.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
