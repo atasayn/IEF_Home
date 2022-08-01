@@ -9,7 +9,7 @@
             <center>
                 <br>
                 <br>
-                <img src="Content\IEooc_Logo_V2.png" width="250">
+                <img src="/Content/IEooc_Logo_V2.png" width="250">
                 <h2>Industrial Ecology Open Online Course </h2>
                 <h4>Online since January 2018 </h4>
                 <br>
@@ -60,12 +60,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="Content\440px-Global_Open_Educational_Resources_Logo.svg.png" width="200"></td>
+                        <img src="/Content/440px-Global_Open_Educational_Resources_Logo.svg.png" width="200"></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. The left logo is CC BY 3.0 by Jonathas Mello, 2012, and can be found on https://commons.wikimedia.org/wiki/File:Global_Open_Educational_Resources_Logo_-_White_background_variation.svg </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
-                        <img src="Content\OER.png" width="250"></td>
+                        <img src="/Content/OER.png" width="250"></td>
                 </tr>
             </table>
         </div>
@@ -100,7 +100,7 @@
                     <td width="70%">
                         <b>Introductory text about systems thinking:</b> "Quantitative Analysis of Industrial Systems: Intellectual Framing". The text (16 pages) gives a brief introduction to systems thinking, contains a general theory for analysing coupled human-environment systems, and provides an explanation of what industrial ecology exactly is.
                         <br>
-                        <a href="Content/IEooc_Background1_Reading1_Framing.pdf" target="new">IEooc_Background1_Reading1</a>
+                        <a href="/Content/IEooc_Background1_Reading1_Framing.pdf" target="new">IEooc_Background1_Reading1</a>
                         <br>
                         <br>
                         <b>Introductory video: </b>17 min video lecture about industrial ecology:
@@ -110,12 +110,12 @@
                         <br>
                         <b>Classical reading: "The Economics of the Coming Spaceship Earth"</b>, by Kenneth E Boulding (1968):
                         <br>
-                        <a href="Content/IEooc_Background1_Reading2_Boulding_SpaceshipEarth.pdf" target="new">IEooc_Background1_Reading2</a>
+                        <a href="/Content/IEooc_Background1_Reading2_Boulding_SpaceshipEarth.pdf" target="new">IEooc_Background1_Reading2</a>
                         <br>
                         <br>
                         <b>Classical reading: "Strategies for Manufacturing"</b>, by Frosch and Gallopoulus (1989):
                         <br>
-                        <a href="Content/IEooc_Background1_Reading3_Strategies_For_Manufacturing_Sci_American_1989.pdf" target="new">IEooc_Background1_Reading3</a>
+                        <a href="/Content/IEooc_Background1_Reading3_Strategies_For_Manufacturing_Sci_American_1989.pdf" target="new">IEooc_Background1_Reading3</a>
                         <br>
                         <br>
                         <b>Theory lecture: </b>24 min video lecture on industrial ecology as systems science, metabolism of socio-ecological systems, the central system linkages studied by industrial ecology, and the relation between industrial ecology and its neighbouring disciplines:
@@ -188,10 +188,10 @@
                         <br>
 
                         <b>Link to methodology exercise on the practicalities of quantitative systems analysis: Locating data in a system definition and indicator development.</b> Learn how to establish a system definition to allocate quantitative information that is given as text. Define and calculate indicators based on the system definition. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Methods1_Exercise1_Indicator_Definition.pdf" target="new">IEooc_Methods1_Exercise1</a>.
+                        <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition.pdf" target="new">IEooc_Methods1_Exercise1</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
 
@@ -202,23 +202,23 @@
                         <br>
 
                         <b>Exercise: Systems thinking for renewable energy.</b> Learn about the main types of renewable energy, the main barriers for their implementation, and the system linkages that determine their future contribution to climate change mitigation by reading the relevant chapter of the IPCC 5th Assessment Report. <b>Prerequisites:</b> None. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC.pdf" target="new">IEooc_Background2_Exercise1</a>.
+                        <a href="/Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC.pdf" target="new">IEooc_Background2_Exercise1</a>.
                         <br>
                         Chapter 7 of part III of the IPCC 4th Assessment report is the reading material for this exercise:<br>
                         <a href="http://www.ipcc.ch/pdf/assessment-report/ar5/wg3/ipcc_wg3_ar5_chapter7.pdf" target="new">Reading material: Chapter 7 of part III of the IPCC 4th assessment report (pdf)</a>
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC_Solution.pdf" target="new">IEooc_Background2_Exercise1_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC_Solution.pdf" target="new">IEooc_Background2_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
 
                         <b>Exercise: Global Warming Potential (GWP) calculations.</b> Understand and replicate central calculations of the atmospheric physics of greenhouse gases
 (GHG) and the global warming potential to compare the impact of different GHG on global warming. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Background2_Exercise2_GWP.pdf" target="new">IEooc_Background2_Exercise2</a>.
+                        <a href="/Content/IEooc_Background2_Exercise2_GWP.pdf" target="new">IEooc_Background2_Exercise2</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Background2_Exercise2_GWP_Sample_Solution.pdf" target="new">IEooc_Background2_Exercise2_GWP_Sample_Solution (pdf)</a><br>
-                        <a href="Content/IEooc_Background2_Exercise2_GWP_Sample_Solution.xlsx" target="new">IEooc_Background2_Exercise2_GWP Workbook (xlsx)</a>
+                        <a href="/Content/IEooc_Background2_Exercise2_GWP_Sample_Solution.pdf" target="new">IEooc_Background2_Exercise2_GWP_Sample_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Background2_Exercise2_GWP_Sample_Solution.xlsx" target="new">IEooc_Background2_Exercise2_GWP Workbook (xlsx)</a>
                         <br>
                         <br>
                     </td>
@@ -303,11 +303,11 @@ The following topics are covered:
                         In this lecture, the definitions and basic methodology for material and energy flow accounting are presented, including the basic elements of the quantitative system definition, the process balancing equations, indicator elements, units of measurement, multi-layer system descriptions, and a number of examples. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b>
                         <br>
                         NOTE: An update of the slides with minor corrections is available here:<br>
-                        <a href="Content/IEooc_Methods1_Lecture1.pdf" target="new">IEooc_Methods1_Lecture1_CorrectedSlides</a>
+                        <a href="/Content/IEooc_Methods1_Lecture1.pdf" target="new">IEooc_Methods1_Lecture1_CorrectedSlides</a>
                         <br>
                         <br>
                         <b>Exercise: Locating data in a system definition and indicator development.</b> Learn how to establish a system definition to allocate quantitative information that is given as text. Define and calculate indicators based on the system definition. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Methods1_Exercise1_Indicator_Definition.pdf" target="new">IEooc_Methods1_Exercise1</a>.
+                        <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition.pdf" target="new">IEooc_Methods1_Exercise1</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
                         <a href="Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
@@ -325,7 +325,7 @@ The following topics are covered:
                         <br>
                         <b>Reading:</b> A more theoretical paper explains the underlying system structure of material and energy flow analysis, life cycle assessment, and input-output analysis: <b>Level of 
 difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods1_Reading3_Accounting_Framework_SEM_2015.pdf" target="new">IEooc_Methods1_Reading3</a>
+                        <a href="/Content/IEooc_Methods1_Reading3_Accounting_Framework_SEM_2015.pdf" target="new">IEooc_Methods1_Reading3</a>
                         <br>
                         Related video lecture (17 minutes)<br>
                         <a href="https://www.youtube.com/watch?v=19f4tG6pyRk " target="new">IEooc_Methods1_Lecture2</a>
@@ -337,18 +337,18 @@ difficulty: (++)</b><br>
                         <br>
                         In this lecture, a general data model for locating data in the systems context is presented. It allows researchers to format data describing stocks, flows, material composition of products, lifetimes, prices, life cycle inventories, IO tables, etc. in a common structure. The data model can be used to build databases that combine data that are commonly associated with specific methods, but which are of use to many researchers. It can also be used to develop data sharing infrastructure for research groups, institutions, and the entire community.
                         <br>
-                        <a href="Content/IEooc_Methods1_Reading4_SEM_DataModel.pdf" target="new">IEooc_Methods1_Reading4 (related journal article)</a>
+                        <a href="/Content/IEooc_Methods1_Reading4_SEM_DataModel.pdf" target="new">IEooc_Methods1_Reading4 (related journal article)</a>
                         <br>
                         <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (++)</b>
                         <br>
                         <br>
                         <b>Exercise: Basic data reconciliation.</b> You will learn about the principles of data reconciliation and apply data reconciliation to a simple system. You will make use of the mass balance to formulate constraints and to determine non-measured variables. You will understand the basics of the maximum entropy principle. Note: For this exercise a copy of "Data Reconciliation and Gross Error Detection. An Intelligent Use of Process Data" by Shankar Narasimhan and Cornelius Jordache, ISBN: <a href="https://www.sciencedirect.com/science/book/9780884152552" target="new">978-0-88415-255-2</a>, is required. <b>Prerequisites:</b> Linear programming and its application in Excel. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods1_Exercise2_Data_Reconciliation.pdf" target="new">IEooc_Methods1_Exercise2 (pdf)</a>.
+                        <a href="/Content/IEooc_Methods1_Exercise2_Data_Reconciliation.pdf" target="new">IEooc_Methods1_Exercise2 (pdf)</a>.
                         <br>
-                        <a href="Content/IEooc_Methods1_Exercise2_Data_Reconciliation_Data.xlsx" target="new">IEooc_Methods1_Exercise2 (data)</a>.
+                        <a href="/Content/IEooc_Methods1_Exercise2_Data_Reconciliation_Data.xlsx" target="new">IEooc_Methods1_Exercise2 (data)</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods1_Exercise2_Data_Reconciliation_Solution.xlsx" target="new">IEooc_Methods1_Exercise2_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods1_Exercise2_Data_Reconciliation_Solution.xlsx" target="new">IEooc_Methods1_Exercise2_Solution (xlsx)</a>
                         <br>
                         <br>
                     </td>
@@ -377,11 +377,11 @@ difficulty: (++)</b><br>
                         <br>
                         <br>
                         <b>Exercise: Cement production, efficiency strategies and related indicators:</b> The goal of this exercise is to consolidate your understanding of basic quantitative system analysis. Also, to get some detailed knowledge about energy use and greenhouse gas emissions of the cement industry. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods2_Exercise1_Cement.pdf" target="new">IEooc_Methods2_Exercise1</a>.
+                        <a href="/Content/IEooc_Methods2_Exercise1_Cement.pdf" target="new">IEooc_Methods2_Exercise1</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods2_Exercise1_Cement_Solution.pdf" target="new">IEooc_Methods2_Exercise1_Solution (pdf)</a><br>
-                        <a href="Content/IEooc_Methods2_Exercise1_Cement_Solution.xlsx" target="new">IEooc_Methods2_Exercise1_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods2_Exercise1_Cement_Solution.pdf" target="new">IEooc_Methods2_Exercise1_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods2_Exercise1_Cement_Solution.xlsx" target="new">IEooc_Methods2_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
 
@@ -389,19 +389,19 @@ difficulty: (++)</b><br>
 and recycling systems using the example of beverage cans in Germany. You will conduct a sensitivity analysis, error propagation and calculation of result 
 elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical error propagation. <b>Level of difficulty: (+++)</b>
                         <br>
-                        <a href="Content/IEooc_Methods2_Exercise2_Cycle.pdf" target="new">IEooc_Methods2_Exercise2</a>.
+                        <a href="/Content/IEooc_Methods2_Exercise2_Cycle.pdf" target="new">IEooc_Methods2_Exercise2</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods2_Exercise2_Cycle_Solution.pdf" target="new">IEooc_Methods2_Exercise2_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Methods2_Exercise2_Cycle_Solution.pdf" target="new">IEooc_Methods2_Exercise2_Solution (pdf)</a>
                         <br>
                         <br>
                         Check also this <b>exercise from the application section, which contains a Monte-Carlo Simulation:</b> "Inclusion of Consumption of carbon intensive materials in emissions trading. You will gain a basic systems understanding  of  material  markets, learn about the material  content  of  merchandise  groups,  error propagation, and the application of Monte-Carlo-Simulation in material flow analysis." <b>Prerequisites:</b> Calculus. Random variables, discrete and continuous probability distributions, Monte-Carlo-Simulation. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Application3_Exercise1_IoC.pdf" target="new">IEooc_Application3_Exercise1 (pdf)</a><br>
-                        <a href="Content/IEooc_Application3_Exercise1_IoC_Data.xlsx" target="new">IEooc_Application3_Exercise1 (data and workbook)</a><br>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC.pdf" target="new">IEooc_Application3_Exercise1 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Data.xlsx" target="new">IEooc_Application3_Exercise1 (data and workbook)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application3_Exercise1_IoC_Solution.pdf" target="new">IEooc_Application3_Exercise1_Solution (pdf)</a> and
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Solution.pdf" target="new">IEooc_Application3_Exercise1_Solution (pdf)</a> and
                         <br>
-                        <a href="Content/IEooc_Application3_Exercise1_IoC_Solution.xlsx" target="new">IEooc_Application3_Exercise1_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Solution.xlsx" target="new">IEooc_Application3_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Video lecture</b> on the concept 'urban metabolism' and how it can be useful to local governments. Urban metabolism studies help cities and city regions assess current resource use and identify pathways for improvement. (from UN Environment):
@@ -440,7 +440,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="https://youtu.be/ba7ykRIrih0" target="new">IEooc_Methods3_Lecture1</a>
                         <br>
                         NOTE: An update of the slides with minor fixes to the notation is available here:<br>
-                        <a href="Content/IEooc_Methods3_Lecture1_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture1_CorrectedSlides</a><br>
+                        <a href="/Content/IEooc_Methods3_Lecture1_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture1_CorrectedSlides</a><br>
                         Thanks to Oliver Cencic (TU  Vienna) for the feedback!
                         <br>
                         <br>
@@ -449,7 +449,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="https://youtu.be/PfRCTW5U7dk" target="new">IEooc_Methods3_Lecture2</a>
                         <br>
                         NOTE: An update of the slides with minor fixes to the notation is available here:<br>
-                        <a href="Content/IEooc_Methods3_Lecture2_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture2_CorrectedSlides</a><br>
+                        <a href="/Content/IEooc_Methods3_Lecture2_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture2_CorrectedSlides</a><br>
                         Thanks to Oliver Cencic (TU  Vienna) for the feedback!
                         <br>
                         <br>
@@ -457,17 +457,17 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="https://youtu.be/dZamxAXDOtY" target="new">IEooc_Methods3_Lecture3</a>
                         <br>
                         NOTE: An update of the slides with minor fixes to the notation and a better distinction between discrete and continuous models is available here:<br>
-                        <a href="Content/IEooc_Methods3_Lecture3_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture3_CorrectedSlides</a><br>
+                        <a href="/Content/IEooc_Methods3_Lecture3_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture3_CorrectedSlides</a><br>
                         Thanks to Oliver Cencic (TU  Vienna) for the feedback!
                         <br>
                         <br>
                         <b>Exercise: "Dynamic model of the German steel cycle, 1800-2008."</b> The goals of this exercise are twofold: first, to develop a systems understanding  regarding  the  development  of  flows  and  stocks  in  material cycles, using the example of the steel cycle in Germany. Second, to estimate steel stocks using dynamic stock modelling. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods3_Exercise1_Stockmodeling_Steel.pdf" target="new">IEooc_Methods3_Exercise1 (pdf)</a><br>
-                        <a href="Content/IEooc_Methods3_Exercise1_RawData.xlsx" target="new">IEooc_Methods3_Exercise1 (Data, xlsx)</a><br>
+                        <a href="/Content/IEooc_Methods3_Exercise1_Stockmodeling_Steel.pdf" target="new">IEooc_Methods3_Exercise1 (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods3_Exercise1_RawData.xlsx" target="new">IEooc_Methods3_Exercise1 (Data, xlsx)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods3_Exercise1_Stockmodelling_Steel_Solution.pdf" target="new">IEooc_Methods3_Exercise1_Solution (pdf)</a> and
+                        <a href="/Content/IEooc_Methods3_Exercise1_Stockmodelling_Steel_Solution.pdf" target="new">IEooc_Methods3_Exercise1_Solution (pdf)</a> and
                         <br>
-                        <a href="Content/IEooc_Methods3_Exercise1_Solution.xlsx" target="new">IEooc_Methods3_Exercise1_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods3_Exercise1_Solution.xlsx" target="new">IEooc_Methods3_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Blog entry: "The lifetime of materials in the technosphere"</b> introducing a simple dynamic MFA model of a material cycle to study the dispersion of materials in the technosphere. <b>Prerequisites:</b> Analytical solution of MFA systems, geometric series. <b>Level of difficulty: (++)</b><br>
@@ -475,30 +475,30 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         <b>Exercise on estimating the number of life cycles of metals:</b> Goal of this exercise is to develop and solve a basic model of the recycling loop, to define and calculate the lifetime of a material in the technosphere and the average number of life cycles. <b>Prerequisites:</b> Analytical solution of MFA systems, geometric series. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods3_Exercise2_Technical_Lifetime.pdf" target="new">IEooc_Methods3_Exercise2</a>.
+                        <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime.pdf" target="new">IEooc_Methods3_Exercise2</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods3_Software1.ipynb" target="new">IEooc_Methods3_Software1 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods3_Software1_Data.xlsx" target="new">IEooc_Methods3_Software1 (data file)</a>
+                        <a href="/Content/IEooc_Methods3_Software1.ipynb" target="new">IEooc_Methods3_Software1 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software1_Data.xlsx" target="new">IEooc_Methods3_Software1 (data file)</a>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on stock-driven modelling for material stocks in products, using the dynamic_stock_model class in Python and the global passenger vehicle fleet as an example:</b> In this workbook it is shown how stock-driven modelling can be implemented in Python using the dynamic_stock_model class and applied to calculate the material flows and stocks in the products that we use. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods3_Software2.ipynb" target="new">IEooc_Methods3_Software2 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods3_Software2_GlobalCarFleetData.xlsx" target="new">IEooc_Methods3_Software2 (data file)</a>
+                        <a href="/Content/IEooc_Methods3_Software2.ipynb" target="new">IEooc_Methods3_Software2 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software2_GlobalCarFleetData.xlsx" target="new">IEooc_Methods3_Software2 (data file)</a>
                         <br>
                         <br>
                         <b>Jupyter notebooks containting tutorials and examples for conducting material flow analysis research with ODYM (Open Dynamic Material Systems Model),</b> which is an open software library for dynamic material flow analysis (MFA) that contains a framework for modeling biophysical stock-flow relations in socioeconomic metabolism. ODYM is available and documented in a <a href="https://github.com/IndEcol/ODYM" target="new">GitHub repo</a>. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Good programming and data visualisation skills in Python. Note that in order to run some of the tutorials, you need to download and extract the zip archive IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip linked below. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods3_Software3_ODYM_Tutorial_1.ipynb" target="new">IEooc_Methods3_Software3 (Jupyter notebook)</a> System with two processes, two parameters, one material. (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods3_Software4_ODYM_Tutorial_2.ipynb" target="new">IEooc_Methods3_Software4 (Jupyter notebook)</a> Alloying elements in recycling. (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods3_Software5_ODYM_Tutorial_3.ipynb" target="new">IEooc_Methods3_Software5 (Jupyter notebook)</a> Dynamic stock modelling intro. (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods3_Software6_ODYM_Tutorial_4.ipynb" target="new">IEooc_Methods3_Software6 (Jupyter notebook)</a> ODYM classification and database (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods3_Software7_ODYM_Tutorial_5.ipynb" target="new">IEooc_Methods3_Software7 (Jupyter notebook)</a> Estimating the material content of the global vehicle fleet (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods3_Software8_ODYM_Tutorial_6.ipynb" target="new">IEooc_Methods3_Software8 (Jupyter notebook)</a> MaTrace - Tracing material flows through different product lifecycles (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip" target="new">IEooc_Methods3_Software3-8 (data file)</a>
+                        <a href="/Content/IEooc_Methods3_Software3_ODYM_Tutorial_1.ipynb" target="new">IEooc_Methods3_Software3 (Jupyter notebook)</a> System with two processes, two parameters, one material. (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software4_ODYM_Tutorial_2.ipynb" target="new">IEooc_Methods3_Software4 (Jupyter notebook)</a> Alloying elements in recycling. (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software5_ODYM_Tutorial_3.ipynb" target="new">IEooc_Methods3_Software5 (Jupyter notebook)</a> Dynamic stock modelling intro. (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software6_ODYM_Tutorial_4.ipynb" target="new">IEooc_Methods3_Software6 (Jupyter notebook)</a> ODYM classification and database (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software7_ODYM_Tutorial_5.ipynb" target="new">IEooc_Methods3_Software7 (Jupyter notebook)</a> Estimating the material content of the global vehicle fleet (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software8_ODYM_Tutorial_6.ipynb" target="new">IEooc_Methods3_Software8 (Jupyter notebook)</a> MaTrace - Tracing material flows through different product lifecycles (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip" target="new">IEooc_Methods3_Software3-8 (data file)</a>
                         <br>
                         <br>
                         <b>Journal article: "A general framework for stock dynamics of populations and built and natural environments"</b> that introduces a general mathematical framework for dynamic stock models based on balance, intrinsic, and model-approach equations. The framework is used to classify a variety of stock models from different disciplines and discuss their applicability. The paper also introduces a matrix equation for solving stock-lifetime-driven models to determine inflows given the lifetime matrix and the evolution of the stock. <b>Level of difficulty: (++) </b>
@@ -507,7 +507,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         <b>Excel workbook with the matrix equation implementation of stock-driven modelling for material stocks in products presented by Lauinger et al. (see IEooc_Methods3_Reading2) </b>Full implementation is a 200x200 matrix with 200 model time steps (i.e., for a modelling period of 200 years, months, or days) for use in own case studies. <b>Prerequisites:</b> Dynamic stock modelling, stock-driven model, matrix algebra. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods3_Software9.xlsx" target="new">IEooc_Methods3_Software9 (Excel workbook)</a><br>
+                        <a href="/Content/IEooc_Methods3_Software9.xlsx" target="new">IEooc_Methods3_Software9 (Excel workbook)</a><br>
                         <br>
                     </td>
                 </tr>
@@ -534,9 +534,9 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         <b>Exercise (from application section): "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment).<b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
+                        <a href="/Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
+                        <a href="/Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
                         <br>
                         <br>
                         <b>Video lecture from the application section:</b> Bioenergy and Biomaterials from a Life Cycle Perspective.
@@ -553,51 +553,51 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         LCA basics: <b>Simple comparative LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to electric vehicles and electric transportation. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
                         <br>
-                        <a href="Content/IEooc_Methods4_Exercise1_ElectricVehicles.pdf" target="new">IEooc_Methods4_Exercise1</a>.
+                        <a href="/Content/IEooc_Methods4_Exercise1_ElectricVehicles.pdf" target="new">IEooc_Methods4_Exercise1</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods4_Exercise1_ElectricVehicles_Solution.pdf" target="new">IEooc_Methods4_Exercise1_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Methods4_Exercise1_ElectricVehicles_Solution.pdf" target="new">IEooc_Methods4_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
                         LCA basics: <b>Process-based LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to  solar power by conducting a quick process-based LCA of PV module production. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
                         <br>
-                        <a href="Content/IEooc_Methods4_Exercise2_LifeCycle.pdf" target="new">IEooc_Methods4_Exercise2</a>.
+                        <a href="/Content/IEooc_Methods4_Exercise2_LifeCycle.pdf" target="new">IEooc_Methods4_Exercise2</a>.
                         <br>
-                        <a href="Content/IEooc_Methods4_Exercise2_LifeCycle_Data.xlsx" target="new">IEooc_Methods4_Exercise2 (data and workbook)</a><br>
+                        <a href="/Content/IEooc_Methods4_Exercise2_LifeCycle_Data.xlsx" target="new">IEooc_Methods4_Exercise2 (data and workbook)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods4_Exercise2_LifeCycle_Solution.xlsx" target="new">IEooc_Methods4_Exercise2_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods4_Exercise2_LifeCycle_Solution.xlsx" target="new">IEooc_Methods4_Exercise2_Solution (xlsx)</a>
                         <br>
                         <br>
                         LCA basics: <b>Matrix algebra and the LCA master equation:</b> Apply the life cycle perspective, understand the computational structure of LCA, understand and implement basic matrix algebra operations on paper. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b>
                         <br>
-                        <a href="Content/IEooc_Methods4_Exercise3_Matrices_Paper.pdf" target="new">IEooc_Methods4_Exercise3</a>.
+                        <a href="/Content/IEooc_Methods4_Exercise3_Matrices_Paper.pdf" target="new">IEooc_Methods4_Exercise3</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods4_Exercise3_Matrices_Paper_Solution.xlsx" target="new">IEooc_Methods4_Exercise3_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods4_Exercise3_Matrices_Paper_Solution.xlsx" target="new">IEooc_Methods4_Exercise3_Solution (xlsx)</a>
                         <br>
                         <br>
                         LCA basics: <b>LCA with matrix algebra in Excel:</b> Understand the computational structure of LCA, understand and implement basic matrix algebra operations in Excel. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++) </b>
                         <br>
-                        <a href="Content/IEooc_Methods4_Exercise4_LCA_Excel.pdf" target="new">IEooc_Methods4_Exercise4</a>.
+                        <a href="/Content/IEooc_Methods4_Exercise4_LCA_Excel.pdf" target="new">IEooc_Methods4_Exercise4</a>.
                         <br>
-                        <a href="Content/IEooc_Methods4_Exercise4_LCA_Excel.xlsx" target="new">IEooc_Methods4_Exercise4 (data and workbook)</a><br>
+                        <a href="/Content/IEooc_Methods4_Exercise4_LCA_Excel.xlsx" target="new">IEooc_Methods4_Exercise4 (data and workbook)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods4_Exercise4_LCA_Excel_Solution.xlsx" target="new">IEooc_Methods4_Exercise4_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods4_Exercise4_LCA_Excel_Solution.xlsx" target="new">IEooc_Methods4_Exercise4_Solution (xlsx)</a>
                         <br>
                         <br>
                         LCA basics: <b>Life Cycle Impact Assessment:</b> Practice life cycle thinking, work with the LCIA method LC impact, calculate regional endpoint indicators, understand and implement basic matrix algebra operations. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods4_Exercise5_LCIA.pdf" target="new">IEooc_Methods4_Exercise5</a>.
+                        <a href="/Content/IEooc_Methods4_Exercise5_LCIA.pdf" target="new">IEooc_Methods4_Exercise5</a>.
                         <br>
-                        <a href="Content/IEooc_Methods4_Exercise5_LCIA.xlsx" target="new">IEooc_Methods4_Exercise5 (data and workbook)</a><br>
+                        <a href="/Content/IEooc_Methods4_Exercise5_LCIA.xlsx" target="new">IEooc_Methods4_Exercise5 (data and workbook)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods4_Exercise5_LCIA_Solution.pdf" target="new">IEooc_Methods4_Exercise5_Solution (pdf)</a><br>
-                        <a href="Content/IEooc_Methods4_Exercise5_LCIA_Solution.xlsx" target="new">IEooc_Methods4_Exercise5_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods4_Exercise5_LCIA_Solution.pdf" target="new">IEooc_Methods4_Exercise5_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods4_Exercise5_LCIA_Solution.xlsx" target="new">IEooc_Methods4_Exercise5_Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Exercise from the application sectionon the concept of payback time in life cycle thinking and on how to take into account the timing of emissions and sequestration of carbon in the calculation of the global warming potential (GWP) </b>Goal: Get familiar with the carbon intensity of different energy carriers (orders of magnitude), understand the concept of distributing upfront emissions on the subsequently produced output, break-even emissions, and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). This exercise only considers GHG. Biodiversity and economic aspects of land conversion are highly relevant but are not studied here. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Advanced LCA exercises with openLCA. An ecoinvent license is required:</b>
@@ -610,21 +610,21 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <b>Getting started with openLCA:</b> The goal of this tutorial is to install and learn how to use the openLCA software for life cycle assessments using ecoinvent v3.2 
 and several impact assessment methods. The use of parameters, choice of electricity mix, sensitivity analysis, export of data, and a small test case are described. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods4_Exercise6_openLCA.pdf" target="new">IEooc_Methods4_Exercise6</a>. 
+                        <a href="/Content/IEooc_Methods4_Exercise6_openLCA.pdf" target="new">IEooc_Methods4_Exercise6</a>. 
                         <br>
                         <br>
                         <b>Modifying processes in openLCA:</b> Copy processes, modify processes, change the electricity source, and conduct a comparative LCA of different steel recycling routes. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods4_Exercise7_Process_Modification.pdf" target="new">IEooc_Methods4_Exercise7</a>.
+                        <a href="/Content/IEooc_Methods4_Exercise7_Process_Modification.pdf" target="new">IEooc_Methods4_Exercise7</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods4_Exercise7_Process_Modification_Solution.pdf" target="new">IEooc_Methods4_Exercise7_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Methods4_Exercise7_Process_Modification_Solution.pdf" target="new">IEooc_Methods4_Exercise7_Solution (pdf)</a>
                         <br>
                         <br>
                         <b>Allocation and recycling in ecoinvent:</b> Learn how waste treatment, recycling, and allocation are handled in ecoinvent and openLCA. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods4_Exercise8_Recycling_Allocation.pdf" target="new">IEooc_Methods4_Exercise8</a>.
+                        <a href="/Content/IEooc_Methods4_Exercise8_Recycling_Allocation.pdf" target="new">IEooc_Methods4_Exercise8</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods4_Exercise8_Recycling_Allocation_Solution.pdf" target="new">IEooc_Methods4_Exercise8_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Methods4_Exercise8_Recycling_Allocation_Solution.pdf" target="new">IEooc_Methods4_Exercise8_Solution (pdf)</a>
                         <br>
                         <br>
                         <b>Other advanced LCA exercises:</b>
@@ -632,18 +632,18 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <b>Reading exercise on a comparative LCA of electric and conventional passenger vehicles:</b> Understand the content and policy relevance of a recent LCA research article on electric transportation.
                         <br>
-                        <a href="Content/IEooc_Methods4_Exercise9_Reading.pdf" target="new">IEooc_Methods4_Exercise9</a>.<br>
+                        <a href="/Content/IEooc_Methods4_Exercise9_Reading.pdf" target="new">IEooc_Methods4_Exercise9</a>.<br>
                         Material for reading exercise:
                         <br>
                         <a href="https://doi.org/10.1111/j.1530-9290.2012.00532.x" target="new">IEooc_Methods4_Exercise9_Reading</a>.
                         <br>
                         <br>
                         <b>The matrix method for LCA: Equivalence of two approaches:</b> Learn more about the two matrix approaches to LCA: The Heijungs and Suh (2002) technology matrix and the Leontief input-output model. Show that both approaches are equivalent. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods4_Exercise10_MatrixMethods.pdf" target="new">IEooc_Methods4_Exercise10</a>.
+                        <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods.pdf" target="new">IEooc_Methods4_Exercise10</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.pdf" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (pdf)</a><br>
-                        <a href="Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.pdf" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Advanced tutorials and LCA exercises with Brightway2LCA. An ecoinvent license is required:</b>
@@ -689,12 +689,12 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Exercise on IO basics:</b> This is an introductory exercise to IO analysis, covering the mathematical basics of IO modelling and the system structure of IO models. <b>Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods5_Exercise1_IO_Basics.pdf" target="new">IEooc_Methods5_Exercise1</a>.
+                        <a href="/Content/IEooc_Methods5_Exercise1_IO_Basics.pdf" target="new">IEooc_Methods5_Exercise1</a>.
                         <br>
-                        <a href="Content/IEooc_Methods5_Exercise1_IO_Basics.xlsx" target="new">IEooc_Methods5_Exercise1 (data and workbook)</a><br>
+                        <a href="/Content/IEooc_Methods5_Exercise1_IO_Basics.xlsx" target="new">IEooc_Methods5_Exercise1 (data and workbook)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods5_Exercise1_IO_Basics_Solution.pdf" target="new">IEooc_Methods5_Exercise1_Solution (pdf)</a><br>
-                        <a href="Content/IEooc_Methods5_Exercise1_IO_Basics_Solution.xlsx" target="new">IEooc_Methods5_Exercise1_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods5_Exercise1_IO_Basics_Solution.pdf" target="new">IEooc_Methods5_Exercise1_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods5_Exercise1_IO_Basics_Solution.xlsx" target="new">IEooc_Methods5_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Lecture on multiregional input-output analysis.</b>  <b>Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
@@ -702,26 +702,26 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Exercise: "Multiregional input-output analysis (Excel-based)."</b> This exercise contains a simple application of the MRIO analysis: construction of supply chains, carbon footprint calculations of final consumers in the EU, investigation of fine particulate matter and mercury emissions along the supply chain.<b> Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods5_Exercise2_MRIO.pdf" target="new">IEooc_Methods5_Exercise2 (pdf)</a><br>
-                        <a href="Content/IEooc_Methods5_Exercise2_MRIO_Data.xls" target="new">IEooc_Methods5_Exercise2 (data and workbook)</a><br>
+                        <a href="/Content/IEooc_Methods5_Exercise2_MRIO.pdf" target="new">IEooc_Methods5_Exercise2 (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods5_Exercise2_MRIO_Data.xls" target="new">IEooc_Methods5_Exercise2 (data and workbook)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods5_Exercise2_MRIO_Solution.pdf" target="new">IEooc_Methods5_Exercise2_Solution (pdf)</a> and
+                        <a href="/Content/IEooc_Methods5_Exercise2_MRIO_Solution.pdf" target="new">IEooc_Methods5_Exercise2_Solution (pdf)</a> and
                         <br>
-                        <a href="Content/IEooc_Methods5_Exercise2_MRIO_Solution.xls" target="new">IEooc_Methods5_Exercise2_Solution (xls)</a>
+                        <a href="/Content/IEooc_Methods5_Exercise2_MRIO_Solution.xls" target="new">IEooc_Methods5_Exercise2_Solution (xls)</a>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial for calculating consumption-based emissions </b>and breaking them down into products, region, and industry. <b>Prerequisites:</b> Matrix algebra, basic Python programming. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods5_Software1.ipynb" target="new">IEooc_Methods5_Software1 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods5_Software1_Data_EXIOBASEv3_3R_11P_ITC.mat" target="new">IEooc_Methods5_Software1 (data file)</a><br>
+                        <a href="/Content/IEooc_Methods5_Software1.ipynb" target="new">IEooc_Methods5_Software1 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods5_Software1_Data_EXIOBASEv3_3R_11P_ITC.mat" target="new">IEooc_Methods5_Software1 (data file)</a><br>
                         <br>
                         <b>Jupyter notebook with functions and a tutorial for aggregating MRIO results </b>along the products, region, and industry dimensions. A 163 products x 48 regions x 163 industries footprint result is aggregated to 11 product groups, six regions, and five industrial sectors. <b>Prerequisites:</b> Matrix algebra, Python programming. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Methods5_Software2.ipynb" target="new">IEooc_Methods5_Software2 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
-                        <a href="Content/IEooc_Methods5_Software2_MRIO_Results.zip" target="new">IEooc_Methods5_Software2 (data file (.mat) and aggregation table (.xlsx))</a>
+                        <a href="/Content/IEooc_Methods5_Software2.ipynb" target="new">IEooc_Methods5_Software2 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods5_Software2_MRIO_Results.zip" target="new">IEooc_Methods5_Software2 (data file (.mat) and aggregation table (.xlsx))</a>
                         <br>
                         <br>
                         <b>Software tutorial from the application section: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Application3_Software1.ipynb" target="new">IEooc_Application3_Software1 (save link as .ipynb file!)</a><br>
-                        <a href="Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
+                        <a href="/Content/IEooc_Application3_Software1.ipynb" target="new">IEooc_Application3_Software1 (save link as .ipynb file!)</a><br>
+                        <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
                         <br>
                         <br>
                         <br>
@@ -747,15 +747,15 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Reading material:</b><b> "Linking economy-wide material flow accounting to product-level life cycle assessment." </b>This report first explains the methods of material flow acccounting and material footprint calculations and then defines these methods and their central flows and indicators in the system description language of material flow analysis. Finally and mainly, it explains and documents an implementation of the material footprint calculation methodology for life cycle assessment (LCA) studies. With this new characterisation method, all material inflows into LCA product systems can be converted to their respective raw material equivalents and added up to the total extracted or processed material in the supply chain of goods or services. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods6_Reading3_Material_Footprint_LCIA_ecoinvent_3_7__3_8.pdf" target="new">IEooc_Methods6_Reading3</a>
+                        <a href="/Content/IEooc_Methods6_Reading3_Material_Footprint_LCIA_ecoinvent_3_7__3_8.pdf" target="new">IEooc_Methods6_Reading3</a>
                         <br>
                         <br>
                         <b>Exercise: "Passenger vehicle light-weighting. A quantitative analysis of the coupling between the transportation and material production sectors.</b> Application of material flow analysis and life cycle assessment in a common framework." Estimate the system-wide impact of a climate change mitigation strategy in a specific sector. Learn about light-weighting of vehicle as a strategy to reduce GHG emissions on the medium scale. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Methods6_Exercise1_CoupledSectors.pdf" target="new">IEooc_Methods6_Exercise1 (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods6_Exercise1_CoupledSectors.pdf" target="new">IEooc_Methods6_Exercise1 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods6_Exercise1_CoupledSectors_Solution.pdf" target="new">IEooc_Methods6_Exercise1_Solution (pdf)</a> and
+                        <a href="/Content/IEooc_Methods6_Exercise1_CoupledSectors_Solution.pdf" target="new">IEooc_Methods6_Exercise1_Solution (pdf)</a> and
                         <br>
-                        <a href="Content/IEooc_Methods6_Exercise1_CoupledSectors_Solution.xlsx" target="new">IEooc_Methods6_Exercise1_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods6_Exercise1_CoupledSectors_Solution.xlsx" target="new">IEooc_Methods6_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
                     </td>
@@ -796,27 +796,27 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="Content/IEooc_Application1_Exercise1_Area_Constraints.pdf" target="new">IEooc_Application1_Exercise1</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application1_Exercise1_Area_Constraints_Solution.pdf" target="new">IEooc_Application1_Exercise1_Solution (pdf)</a> and
+                        <a href="/Content/IEooc_Application1_Exercise1_Area_Constraints_Solution.pdf" target="new">IEooc_Application1_Exercise1_Solution (pdf)</a> and
                         <br>
-                        <a href="Content/IEooc_Application1_Exercise1_Area_Constraints_Solution.xlsx" target="new">IEooc_Application1_Exercise1_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Application1_Exercise1_Area_Constraints_Solution.xlsx" target="new">IEooc_Application1_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Exercise on decoupling emissions from societal development at the large scale - The IPAT equation:</b> Understand how population, affluence, and a cap for a certain emission to the environment determine how industry must decouple from that emission. Learn about and apply the IPAT equation and link it to global climate and development targets. <b>Prerequisites:</b> Exponential function.  <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Application1_Exercise2_IPAT_Equation.pdf" target="new">IEooc_Application1_Exercise2</a>.
+                        <a href="/Content/IEooc_Application1_Exercise2_IPAT_Equation.pdf" target="new">IEooc_Application1_Exercise2</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application1_Exercise2_IPAT_Equation_Solution.pdf" target="new">IEooc_Application1_Exercise2_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Application1_Exercise2_IPAT_Equation_Solution.pdf" target="new">IEooc_Application1_Exercise2_Solution (pdf)</a>
                         <br>
                         Directly related to this exercise is the following reading material, where the economist Michael Grubb criticises the simple assumption that rates of technological change remain constant over long periods of time, and suggests that more realistic growth and technology diffusion models can lead to temporarily very high rates of change that are needed to transform entire industrial sectors.
                         <a href="https://www.ineteconomics.org/perspectives/blog/growth-with-decarbonization-is-not-an-oxymoron" target="new">IEooc_Application1_Reading1</a>
                         <br>
                         <br>
                         <b>Exercise on current levels of energy taxation and the impact of a tax on CO2 emissions from combustion and material production on prices of energy carriers and bulk materials:</b> A tax on greenhouse gas emissions can establish a price signal for more efficient use and substitution of carbon-intensive energy carriers and materials. Some energy carriers, in particular, gasoline and diesel for road vehicles, have high tax levels already. The tasks here are to find out i) how different fuel types are currently taxed, ii) how current taxation levels translate to carbon prices, and iii) how an additional carbon tax would affect the prices of different energy carriers and bulk materials. <b>Prerequisites:</b> Basic math, working with Excel. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Application1_Exercise3_CO2_Tax.pdf" target="new">IEooc_Application1_Exercise3</a>.
+                        <a href="/Content/IEooc_Application1_Exercise3_CO2_Tax.pdf" target="new">IEooc_Application1_Exercise3</a>.
                         <br>
-                        <a href="Content/IEooc_Application1_Exercise3_CO2_Tax.xlsx" target="new">IEooc_Application1_Exercise3_CO2_Tax (Data, xlsx)</a><br>
+                        <a href="/Content/IEooc_Application1_Exercise3_CO2_Tax.xlsx" target="new">IEooc_Application1_Exercise3_CO2_Tax (Data, xlsx)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application1_Exercise3_CO2_Tax_Solution.xlsx" target="new">IEooc_Application1_Exercise3_CO2_Tax_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Application1_Exercise3_CO2_Tax_Solution.xlsx" target="new">IEooc_Application1_Exercise3_CO2_Tax_Solution (xlsx)</a>
                         <br>
                         <br>
                         <br>
@@ -856,7 +856,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <b>Core reading:</b> "Critical appraisal of the circular economy standard BS 8001:2017 and a dashboard of quantitative system indicators for its implementation in organizations":
                         <br>
-                        <a href="Content/IEooc_Application2_Reading2_CE_Review.pdf" target="new">IEooc_Application2_Reading2</a>
+                        <a href="/Content/IEooc_Application2_Reading2_CE_Review.pdf" target="new">IEooc_Application2_Reading2</a>
                         <br>
                         <br>
                         <b>Lecture: Sustainability in the steel cycle </b>The steel industry is responsible for 7-9% of global CO2 emissions. Reducing these emissions is not the only sustainability challenge in the steel sector but the dominant one. Four different system analysis perspectives are introduced (process/process cluster/material cycle/entire system) and it is shown how future steel demand can be estimated and the entire steel cycle be modelled to describe different sustainable futures for the steel industry. An introduction to material efficiency in the steel cycle is also given.
@@ -872,10 +872,10 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <b>Exercise on estimating the number of life cycles of metals (from methods section):</b> Goal of this exercise is to develop and solve a basic model of the recycling loop, to define and calculate the lifetime of a material in the technosphere and the average number of life cycles. <b>Prerequisites:</b> Analytical solution of MFA systems, geometric series. <b>Level of difficulty: (++)</b>
                         <br>
-                        <a href="Content/IEooc_Methods3_Exercise2_Technical_Lifetime.pdf" target="new">IEooc_Methods3_Exercise2</a>.
+                        <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime.pdf" target="new">IEooc_Methods3_Exercise2</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a><br>
                         <br>
                         <br>
                     </td>
@@ -899,9 +899,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <br>
                         <b>Exercise: "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment). <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
+                        <a href="/Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
+                        <a href="/Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
                         <br>
                         <br>
                         <b>Research article about environmental footprints of households by regions:</b> This study develops an inventory of carbon footprints associated with household consumption for 177 regions in 27 EU countries, thus, making a key contribution for the incorporation of consumption-based accounting into local decision-making.
@@ -915,21 +915,21 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         Related <b>Policy paper about "Inclusion of Consumption of carbon intensive materials in emissions trading":</b>
                         <br>
-                        <a href="Content/IEooc_Application3_Reading3_Neuhoff_et_al_ClimateStrategies_2016.pdf" target="new">IEooc_Application3_Reading3</a>
+                        <a href="/Content/IEooc_Application3_Reading3_Neuhoff_et_al_ClimateStrategies_2016.pdf" target="new">IEooc_Application3_Reading3</a>
                         <br>
                         <br>
                         Related <b>assessment of "Inclusion of Consumption of carbon intensive materials in emissions trading" using material flow cost accounting:</b>
                         <br>
-                        <a href="Content/IEooc_Application3_Reading4_Pauliuk_Neuhoff_et_al_IoC_DP1570.pdf" target="new">IEooc_Application3_Reading4</a>
+                        <a href="/Content/IEooc_Application3_Reading4_Pauliuk_Neuhoff_et_al_IoC_DP1570.pdf" target="new">IEooc_Application3_Reading4</a>
                         <br>
                         <br>
                         <b>Exercise: "Inclusion of Consumption of carbon intensive materials in emissions trading." </b>You will gain a basic systems understanding  of  material  markets, learn about the material  content  of  merchandise  groups,  error propagation, and the application of Monte-Carlo-Simulation in material flow analysis.<b>Prerequisites:</b> Calculus. Random variables, discrete and continuous probability distributions, Monte-Carlo-Simulation. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Application3_Exercise1_IoC.pdf" target="new">IEooc_Application3_Exercise1 (pdf)</a><br>
-                        <a href="Content/IEooc_Application3_Exercise1_IoC_Data.xlsx" target="new">IEooc_Application3_Exercise1 (data and workbook)</a><br>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC.pdf" target="new">IEooc_Application3_Exercise1 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Data.xlsx" target="new">IEooc_Application3_Exercise1 (data and workbook)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application3_Exercise1_IoC_Solution.pdf" target="new">IEooc_Application3_Exercise1_Solution (pdf)</a> and
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Solution.pdf" target="new">IEooc_Application3_Exercise1_Solution (pdf)</a> and
                         <br>
-                        <a href="Content/IEooc_Application3_Exercise1_IoC_Solution.xlsx" target="new">IEooc_Application3_Exercise1_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Solution.xlsx" target="new">IEooc_Application3_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Blog entry about the territorial and consumption-based emissions accounts of the EU:</b> Environmental footprints measure pressure indicators such as greenhouse gases (GHG), material, land, or water use in global supply chains. Here, you can learn how the GHG emissions and material use of the global supply chains of the entire final consumption in all 28 EU countries (almost half or them only joined the EU in 2004 or later) have changed over time. The related software tutorial IEooc_Application3_Software1 contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in this blog entry.<br>
@@ -939,8 +939,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Software tutorial: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 
 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, cf. Methods section 5. Sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Application3_Software1.ipynb" target="new">IEooc_Application3_Software1 (save link as .ipynb file!)</a><br>
-                        <a href="Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
+                        <a href="/Content/IEooc_Application3_Software1.ipynb" target="new">IEooc_Application3_Software1 (save link as .ipynb file!)</a><br>
+                        <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
                         <br>
 
                         <b>Journal article about the unequal distribution of household carbon footprints in Europe and its link to sustainability:</b> The distribution of household carbon footprints is largely unequal within and across countries. Here, Diana Ivanova and Richard Wood explore household-level consumption data to illustrate the distribution of carbon footprints and consumption within 26 European Union countries, regions and social groups. The analysis further sheds light on the relationships between carbon footprints and socially desirable outcomes such as income, equality, education, nutrition, sanitation, employment and adequate living conditions.<br>
@@ -967,20 +967,20 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <br>
                         <b>Exercise from the background sections: Systems thinking for renewable energy.</b> Learn about the main types of renewable energy, the main barriers for their implementation, and the system linkages that determine their future contribution to climate change mitigation by reading the relevant chapter of the IPCC 5th Assessment Report. <b>Prerequisites:</b> None. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC.pdf" target="new">IEooc_Background2_Exercise1</a>.
+                        <a href="/Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC.pdf" target="new">IEooc_Background2_Exercise1</a>.
                         <br>
                         Chapter 7 of part III of the IPCC 4th Assessment report is the reading material for this exercise:<br>
                         <a href="http://www.ipcc.ch/pdf/assessment-report/ar5/wg3/ipcc_wg3_ar5_chapter7.pdf" target="new">Reading material: Chapter 7 of part III of the IPCC 4th assessment report (pdf)</a>
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC_Solution.pdf" target="new">IEooc_Background2_Exercise1_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC_Solution.pdf" target="new">IEooc_Background2_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
 
                         <b>Exercise on energy sufficiency </b>Objective: Understand energy sufficiency as a concept and compare it with energy efficiency; think about ideas to introduce energy sufficiency in households; work with numbers to calculate energy savings potential; think about how energy sufficiency can be implemented on a larger scale. <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Application4_Exercise1_EnergySufficiency.pdf" target="new">IEooc_Application4_Exercise1 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise1_EnergySufficiency.pdf" target="new">IEooc_Application4_Exercise1 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application4_Exercise1_EnergySufficiency_SampleSolution.pdf" target="new">IEooc_Application4_Exercise1_EnergySufficiency_SampleSolution (pdf)</a>
+                        <a href="/Content/IEooc_Application4_Exercise1_EnergySufficiency_SampleSolution.pdf" target="new">IEooc_Application4_Exercise1_EnergySufficiency_SampleSolution (pdf)</a>
                         <br>
                         <br>
 
@@ -1004,10 +1004,10 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
 
                         <b>Link to methodology exercise on the practicalities of quantitative systems analysis: Locating data in a system definition and indicator development.</b> Learn how to establish a system definition to allocate quantitative information that is given as text. Define and calculate indicators based on the system definition. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Methods1_Exercise1_Indicator_Definition.pdf" target="new">IEooc_Methods1_Exercise1</a>.
+                        <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition.pdf" target="new">IEooc_Methods1_Exercise1</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
+                        <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
 
@@ -1018,9 +1018,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
 
                         <b>Exercise on area density of renewable energy </b>Objective: Understand the issue of area need for RE conversion, learn about typical energy densities and make own simple scenario calculation. <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Application4_Exercise2_Area_Density_Energy.pdf" target="new">IEooc_Application4_Exercise2 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise2_Area_Density_Energy.pdf" target="new">IEooc_Application4_Exercise2 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application4_Exercise2_Area_Density_Energy_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise2_Area_Density_Energy_SampleSolution (xlsx)</a>
+                        <a href="/Content/IEooc_Application4_Exercise2_Area_Density_Energy_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise2_Area_Density_Energy_SampleSolution (xlsx)</a>
                         <br>
                         <br>
 
@@ -1036,9 +1036,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
 
                         <b>Cross-link to exercise from the supply chain studies section: "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment). <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
-                        <a href="Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
+                        <a href="/Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
+                        <a href="/Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
                         <br>
                         <br>
 
@@ -1049,19 +1049,19 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
 
                         <b>Cross-link to exercise from the material and energy flow analysis section: Cement production, efficiency strategies and related indicators:</b> The goal of this exercise is to consolidate your understanding of basic quantitative system analysis. Also, to get some detailed knowledge about energy use and greenhouse gas emissions of the cement industry. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Methods2_Exercise1_Cement.pdf" target="new">IEooc_Methods2_Exercise1</a>.
+                        <a href="^/Content/IEooc_Methods2_Exercise1_Cement.pdf" target="new">IEooc_Methods2_Exercise1</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Methods2_Exercise1_Cement_Solution.pdf" target="new">IEooc_Methods2_Exercise1_Solution (pdf)</a><br>
-                        <a href="Content/IEooc_Methods2_Exercise1_Cement_Solution.xlsx" target="new">IEooc_Methods2_Exercise1_Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Methods2_Exercise1_Cement_Solution.pdf" target="new">IEooc_Methods2_Exercise1_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods2_Exercise1_Cement_Solution.xlsx" target="new">IEooc_Methods2_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
 
                         <b>Exercise on energy efficiency </b>Objective: Imagine you are a team of energy efficiency consultants and you are being assigned the task of providing a set of expert recommendations to your client in order to improve the energy efficiency/ performance of his industrial/ commercial facility. TEAM EXERCISE (IDEALLY, FORM GROUPS OF 3 STUDENTS OR WORK IN ANOTHER FORM OF LEARNING GROUP). <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Application4_Exercise3_Energy_Efficiency.pdf" target="new">IEooc_Application4_Exercise3 (pdf)</a><br>
-                        <a href="Content/IEooc_Application4_Exercise3_Energy_Efficiency_ideas.zip" target="new">IEooc_Application4_Exercise3_Energy_Efficiency_ideas (zipped pptx)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise3_Energy_Efficiency.pdf" target="new">IEooc_Application4_Exercise3 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise3_Energy_Efficiency_ideas.zip" target="new">IEooc_Application4_Exercise3_Energy_Efficiency_ideas (zipped pptx)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application4_Exercise3_Energy_Efficiency_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise3_Energy_Efficiency_SampleSolution (xlsx)</a>
+                        <a href="/Content/IEooc_Application4_Exercise3_Energy_Efficiency_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise3_Energy_Efficiency_SampleSolution (xlsx)</a>
                         <br>
                         <br>
 
@@ -1072,18 +1072,18 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
 
                         <b>Exercise on energy demand scenarios </b>Objective: Conduct back-of-the-envelope calculations, estimate energy demand by end-use sector, identify scenario drivers, become comfortable with dealing with very large numbers. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Application4_Exercise4_Energy_Demand_Scenario.pdf" target="new">IEooc_Application4_Exercise4 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise4_Energy_Demand_Scenario.pdf" target="new">IEooc_Application4_Exercise4 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution.pdf" target="new">IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution (pdf)</a><br>
-                        <a href="Content/IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution (xlsx)</a>
+                        <a href="/Content/IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution.pdf" target="new">IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise4_Energy_Demand_Scenario_SampleSolution (xlsx)</a>
                         <br>
                         <br>
 
                         <b>Exercise on energy supply scenarios </b>Objective: Estimate renewable energy (RE) potential and assess how a given energy demand can be met using different RE sources. Estimate the GHG mitigation potential and land use of a given RE scenario. <b>Level of difficulty: (++)</b><br>
-                        <a href="Content/IEooc_Application4_Exercise5_Energy_Supply_Scenario.pdf" target="new">IEooc_Application4_Exercise5 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise5_Energy_Supply_Scenario.pdf" target="new">IEooc_Application4_Exercise5 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution.pdf" target="new">IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution (pdf)</a><br>
-                        <a href="Content/IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution (xlsx)</a>
+                        <a href="/Content/IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution.pdf" target="new">IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise5_Energy_Supply_Scenario_SampleSolution (xlsx)</a>
                         <br>
                         <br>
 
@@ -1100,9 +1100,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
 
                         <b>Exercise on the concept of payback time in life cycle thinking and on how to take into account the timing of emissions and sequestration of carbon in the calculation of the global warming potential (GWP) </b>Goal: Get familiar with the carbon intensity of different energy carriers (orders of magnitude), understand the concept of distributing upfront emissions on the subsequently produced output, break-even emissions, and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). This exercise only considers GHG. Biodiversity and economic aspects of land conversion are highly relevant but are not studied here. <b>Level of difficulty: (+++)</b><br>
-                        <a href="Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
+                        <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
                         <br>
                         <br>
                     </td>
@@ -1119,7 +1119,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <br>
                 <br>
                 <br>
-                <img src="Content\IEooc_Logo_V2.png" width="250">
+                <img src="/Content/IEooc_Logo_V2.png" width="250">
             </center>
 
             <br>
@@ -1151,12 +1151,12 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 </tr>
                 <tr>
                     <td>
-                        <img src="Content\440px-Global_Open_Educational_Resources_Logo.svg.png" width="200"></td>
+                        <img src="/Content/440px-Global_Open_Educational_Resources_Logo.svg.png" width="200"></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. The left logo is CC BY 3.0 by Jonathas Mello, 2012, and can be found on https://commons.wikimedia.org/wiki/File:Global_Open_Educational_Resources_Logo_-_White_background_variation.svg </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
-                        <img src="Content\OER.png" width="250"></td>
+                        <img src="/Content/OER.png" width="250"></td>
                 </tr>
             </table>
 
