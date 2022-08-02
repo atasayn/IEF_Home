@@ -86,8 +86,10 @@
             <a class="twitter-timeline" data-dnt="true" data-height="650" href="https://twitter.com/StefanPauliuk">Tweets by StefanPauliuk</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+
             <h4>Links:</h4>
             <span class="grid-link">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target= "_blank" >website</a>)</span>
+            <span class="grid-link">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target= "_blank" >website</a>)</span>
             
         </div>
     </div>

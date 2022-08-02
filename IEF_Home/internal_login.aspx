@@ -38,7 +38,7 @@
                   <br />
             <br />
 
-            When preparing your work, please check the university’s guidelines for <a href="http://www.uni-freiburg.de/forschung-en/redlichkeit_in_der_wissenschaft" target="new">academic integrity</a>
+            When preparing your work, please check the university’s guidelines for <a href="https://uni-freiburg.de/forschung/redlichkeit-in-der-wissenschaft/" target="new">academic integrity</a>
             and the group's <a href="https://www.indecol.uni-freiburg.de/de/supervision-scheme" target="new">guidelines for good scientific practice and supervision</a>.
                     <br />
             <br />
