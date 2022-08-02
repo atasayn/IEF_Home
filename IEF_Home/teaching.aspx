@@ -109,7 +109,7 @@
                     <td width="70%">
                         <b>Introductory text about systems thinking:</b> "Quantitative Analysis of Industrial Systems: Intellectual Framing". The text (16 pages) gives a brief introduction to systems thinking, contains a general theory for analysing coupled human-environment systems, and provides an explanation of what industrial ecology exactly is.
                         <br>
-                        <a href="//Content/IEooc_Background1_Reading1_Framing.pdf" target="new">IEooc_Background1_Reading1</a>
+                        <a href="/Content/IEooc_Background1_Reading1_Framing.pdf" target="new">IEooc_Background1_Reading1</a>
                         <br>
                         <br>
                         <b>Introductory video: </b>17 min video lecture about industrial ecology:
