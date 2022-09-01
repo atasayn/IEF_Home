@@ -27,11 +27,10 @@
 
         .grid-container {
             display: grid;
-            grid-template-areas:
-                               'main main main main main  twitter twitter twitter'
-                               'main main main main main twitter twitter twitter'
-                               'photo photo photo photo  photo twitter twitter twitter'
-                               'photo photo photo photo  photo twitter twitter twitter';
+            grid-template-areas: 'main  twitter'
+                               'photo twitter';
+            grid-template-rows: auto;
+            grid-auto-columns: auto 500px;
             gap: 10px;
             padding: 10px;
         }

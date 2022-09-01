@@ -335,6 +335,8 @@
     <Content Include="research\Documents\The steel scrap age_Self-archive.pdf" />
     <Content Include="research\Documents\Tisserant_et_al_2017_WasteAccountsFootprints_PrePrint.pdf" />
     <Content Include="resources\Example_data.xlsx" />
+    <Content Include="data_indecol_205939343242\EXIOBASE2_Mon_48R_2017_3_8_ITC.zip" />
+    <Content Include="data_indecol_205939343242\EXIOBASEv3_2011_ITC.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
