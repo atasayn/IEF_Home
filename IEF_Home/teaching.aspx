@@ -4,7 +4,7 @@
     <script>
         function jupyterLink(path, text) {
             document.write(`<a href="${path}" download target="new">${text} (ipynb)</a> | `);
-            document.write(`<a href="https://nbviewer.org/urls/www.industrialecology.uni-freiburg.de${path}">Run externally in nbviewer</a>`);
+            document.write(`<a href="https://nbviewer.org/urls/www.industrialecology.uni-freiburg.de${path}" target="_blank">Run externally in nbviewer</a>`);
         }
     </script>
 </asp:Content>
