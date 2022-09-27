@@ -501,22 +501,22 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods3_Software1.ipynb" target="new">IEooc_Methods3_Software1 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software1.ipynb" download target="new">IEooc_Methods3_Software1 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
                         <a href="/Content/IEooc_Methods3_Software1_Data.xlsx" target="new">IEooc_Methods3_Software1 (data file)</a>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on stock-driven modelling for material stocks in products, using the dynamic_stock_model class in Python and the global passenger vehicle fleet as an example:</b> In this workbook it is shown how stock-driven modelling can be implemented in Python using the dynamic_stock_model class and applied to calculate the material flows and stocks in the products that we use. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods3_Software2.ipynb" target="new">IEooc_Methods3_Software2 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software2.ipynb" download target="new">IEooc_Methods3_Software2 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
                         <a href="/Content/IEooc_Methods3_Software2_GlobalCarFleetData.xlsx" target="new">IEooc_Methods3_Software2 (data file)</a>
                         <br>
                         <br>
                         <b>Jupyter notebooks containting tutorials and examples for conducting material flow analysis research with ODYM (Open Dynamic Material Systems Model),</b> which is an open software library for dynamic material flow analysis (MFA) that contains a framework for modeling biophysical stock-flow relations in socioeconomic metabolism. ODYM is available and documented in a <a href="https://github.com/IndEcol/ODYM" target="new">GitHub repo</a>. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Good programming and data visualisation skills in Python. Note that in order to run some of the tutorials, you need to download and extract the zip archive IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip linked below. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods3_Software3_ODYM_Tutorial_1.ipynb" target="new">IEooc_Methods3_Software3 (Jupyter notebook)</a> System with two processes, two parameters, one material. (Save link as .ipynb file!)<br>
-                        <a href="/Content/IEooc_Methods3_Software4_ODYM_Tutorial_2.ipynb" target="new">IEooc_Methods3_Software4 (Jupyter notebook)</a> Alloying elements in recycling. (Save link as .ipynb file!)<br>
-                        <a href="/Content/IEooc_Methods3_Software5_ODYM_Tutorial_3.ipynb" target="new">IEooc_Methods3_Software5 (Jupyter notebook)</a> Dynamic stock modelling intro. (Save link as .ipynb file!)<br>
-                        <a href="/Content/IEooc_Methods3_Software6_ODYM_Tutorial_4.ipynb" target="new">IEooc_Methods3_Software6 (Jupyter notebook)</a> ODYM classification and database (Save link as .ipynb file!)<br>
-                        <a href="/Content/IEooc_Methods3_Software7_ODYM_Tutorial_5.ipynb" target="new">IEooc_Methods3_Software7 (Jupyter notebook)</a> Estimating the material content of the global vehicle fleet (Save link as .ipynb file!)<br>
-                        <a href="/Content/IEooc_Methods3_Software8_ODYM_Tutorial_6.ipynb" target="new">IEooc_Methods3_Software8 (Jupyter notebook)</a> MaTrace - Tracing material flows through different product lifecycles (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software3_ODYM_Tutorial_1.ipynb" download target="new">IEooc_Methods3_Software3 (Jupyter notebook)</a> System with two processes, two parameters, one material. (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software4_ODYM_Tutorial_2.ipynb" download target="new">IEooc_Methods3_Software4 (Jupyter notebook)</a> Alloying elements in recycling. (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software5_ODYM_Tutorial_3.ipynb" download target="new">IEooc_Methods3_Software5 (Jupyter notebook)</a> Dynamic stock modelling intro. (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software6_ODYM_Tutorial_4.ipynb" download target="new">IEooc_Methods3_Software6 (Jupyter notebook)</a> ODYM classification and database (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software7_ODYM_Tutorial_5.ipynb" download target="new">IEooc_Methods3_Software7 (Jupyter notebook)</a> Estimating the material content of the global vehicle fleet (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods3_Software8_ODYM_Tutorial_6.ipynb" download target="new">IEooc_Methods3_Software8 (Jupyter notebook)</a> MaTrace - Tracing material flows through different product lifecycles (Save link as .ipynb file!)<br>
                         <a href="/Content/IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip" target="new">IEooc_Methods3_Software3-8 (data file)</a>
                         <br>
                         <br>
@@ -684,7 +684,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Brightway2LCA tutorial 2:</b> A comprehensive introductory tutorial for learning Brightway2LCA was developed by Maximilian Koslowski from Uni Freiburg. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb" target="new">New Brightway2 tutorial</a>. 
+                        <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb" download target="new">New Brightway2 tutorial</a>. 
                         <br>
                         <br>
                         <br>
@@ -738,16 +738,16 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial for calculating consumption-based emissions </b>and breaking them down into products, region, and industry. <b>Prerequisites:</b> Matrix algebra, basic Python programming. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods5_Software1.ipynb" target="new">IEooc_Methods5_Software1 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods5_Software1.ipynb" download target="new">IEooc_Methods5_Software1 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
                         <a href="/Content/IEooc_Methods5_Software1_Data_EXIOBASEv3_3R_11P_ITC.mat" target="new">IEooc_Methods5_Software1 (data file)</a><br>
                         <br>
                         <b>Jupyter notebook with functions and a tutorial for aggregating MRIO results </b>along the products, region, and industry dimensions. A 163 products x 48 regions x 163 industries footprint result is aggregated to 11 product groups, six regions, and five industrial sectors. <b>Prerequisites:</b> Matrix algebra, Python programming. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods5_Software2.ipynb" target="new">IEooc_Methods5_Software2 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
+                        <a href="/Content/IEooc_Methods5_Software2.ipynb" download target="new">IEooc_Methods5_Software2 (Jupyter notebook)</a> (Save link as .ipynb file!)<br>
                         <a href="/Content/IEooc_Methods5_Software2_MRIO_Results.zip" target="new">IEooc_Methods5_Software2 (data file (.mat) and aggregation table (.xlsx))</a>
                         <br>
                         <br>
                         <b>Software tutorial from the application section: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Application3_Software1.ipynb" target="new">IEooc_Application3_Software1 (save link as .ipynb file!)</a><br>
+                        <a href="/Content/IEooc_Application3_Software1.ipynb" download target="new">IEooc_Application3_Software1 (save link as .ipynb file!)</a><br>
                         <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
                         <br>
                         <br>
@@ -989,7 +989,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Software tutorial: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 
 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, cf. Methods section 5. Sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Application3_Software1.ipynb" target="new">IEooc_Application3_Software1 (save link as .ipynb file!)</a><br>
+                        <a href="/Content/IEooc_Application3_Software1.ipynb" download target="new">IEooc_Application3_Software1 (save link as .ipynb file!)</a><br>
                         <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
                         <br>
 
