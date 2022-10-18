@@ -917,7 +917,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <b>Lecture: Sustainability in the steel cycle </b>The steel industry is responsible for 7-9% of global CO2 emissions. Reducing these emissions is not the only sustainability challenge in the steel sector but the dominant one. Four different system analysis perspectives are introduced (process/process cluster/material cycle/entire system) and it is shown how future steel demand can be estimated and the entire steel cycle be modelled to describe different sustainable futures for the steel industry. An introduction to material efficiency in the steel cycle is also given.
                         <b>Prerequisites:</b> Dynamic Material Flow Analysis.  <b>Level of difficulty: (++)</b><br>
-                        <a href="https://https://youtu.be/UcWF8UrjwEM" target="new">IEooc_Application2_Lecture2</a>
+                        <a href="https://youtu.be/UcWF8UrjwEM" target="new">IEooc_Application2_Lecture2</a>
 
                         <br>
                         <br>
