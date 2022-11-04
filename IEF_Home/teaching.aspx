@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: August 2nd, 2022.</h4>
+                <h4>Last update: November 1st, 2022.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -668,8 +668,10 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.pdf" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (pdf)</a><br>
-                        <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (xlsx)</a>
-                        <br>
+                        <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (xlsx)</a><br>
+			<b> Related journal paper on the topic by Heijungs et al. (2022):</b> "A or I-A? Unifying the computational structures of process- and IO-based LCA for clarity and consistency.<br>
+			<a href="https://doi.org/10.1111/jiec.13323" target="new">Link to paper (open access).</a>
+			<br>
                         <br>
                         <b>Advanced Life Cycle Impact Assessment:</b> Considering time in life cycle inventories: dynamic characterization factors for greenhouse gases. Goal: Get familiar with the global warming potential of greenhouse gases and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). Apply dynamic GHG accounting to different test cases.<b> Prerequisites:</b> Calculus, global warming potential (see IEooc_Background2_Exercise2). <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise11_dynLCA.pdf" target="new">IEooc_Methods4_Exercise11</a>.
@@ -803,6 +805,11 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods6_Exercise2_Resource_tracing_IO_Solution.xlsx" target="new">IEooc_Methods6_Exercise2_Resource_tracing_IO_Solution (xlsx)</a>
                         <br>
                         <br>
+                        <b>Reading material (blog entry) on the material implications of low-carbon energy supply and use.</b> The text explains the relation between the transition to low-carbon energy and what it means for material consumption. It argues that all forms of energy supply have major downsides, and that the high material consumption of renewables is one potential problem. It quantifies the material footprint of different technologies for the energy transition and shows that while the fossil component of the material footprint declines, the metal ore component sharply rises, largely driven by the increased copper demand of electrification of end-use sectors. See IEooc_Methods2_Reading5 for the methodology of the material footprint applied here.
+                        <br>
+                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2022/10/30/material-footprint-implications-of-low-carbon-technologies/" target="new">IEooc_Methods6_Reading5</a>
+                        <br>
+                        <br>			    
                         <b>From the LCA section: Advanced Life Cycle Impact Assessment:</b> Considering time in life cycle inventories: dynamic characterization factors for greenhouse gases. Goal: Get familiar with the global warming potential of greenhouse gases and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). Apply dynamic GHG accounting to different test cases. <b>Prerequisites:</b> Calculus, global warming potential (see IEooc_Background2_Exercise2). <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise11_dynLCA.pdf" target="new">IEooc_Methods4_Exercise11</a>.
                         <br>
@@ -1163,6 +1170,11 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
                         <br>
                         <br>
+                        <b>Cross-link to reading material (blog entry) from the methods section on the material implications of low-carbon energy supply and use.</b> The text explains the relation between the transition to low-carbon energy and what it means for material consumption. It argues that all forms of energy supply have major downsides, and that the high material consumption of renewables is one potential problem. It quantifies the material footprint of different technologies for the energy transition and shows that while the fossil component of the material footprint declines, the metal ore component sharply rises, largely driven by the increased copper demand of electrification of end-use sectors. See IEooc_Methods2_Reading5 for the methodology of the material footprint applied here.
+                        <br>
+                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2022/10/30/material-footprint-implications-of-low-carbon-technologies/" target="new">IEooc_Methods6_Reading5</a>
+                        <br>
+                        <br>			    			    
                     </td>
                 </tr>
 
