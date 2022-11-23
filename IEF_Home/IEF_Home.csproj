@@ -68,11 +68,14 @@
   <ItemGroup>
     <Content Include="circomod.aspx" />
     <Content Include="Content\IEooc_Logo_V2.png" />
+    <Content Include="css\all.min.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\master.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
+    <Content Include="js\togglePassword.js" />
     <Content Include="legal.aspx" />
     <Content Include="odym-recc.aspx" />
     <Content Include="research\research.aspx" />
@@ -337,12 +340,27 @@
     <Content Include="resources\Example_data.xlsx" />
     <Content Include="data_indecol_205939343242\EXIOBASE2_Mon_48R_2017_3_8_ITC.zip" />
     <Content Include="data_indecol_205939343242\EXIOBASEv3_2011_ITC.zip" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources\59small.jpg" />

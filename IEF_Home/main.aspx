@@ -30,7 +30,7 @@
             grid-template-areas: 'main  twitter'
                                'photo twitter';
             grid-template-rows: auto;
-            grid-auto-columns: auto 500px;
+            grid-auto-columns: auto 400px;
             gap: 10px;
             padding: 10px;
         }

@@ -15,7 +15,7 @@
     <style type="text/css">
         .col-md-7 {
             float: left;
-            background-color: none;
+            background: none;
             padding-bottom: 20px;
         }
 
