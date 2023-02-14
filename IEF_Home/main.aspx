@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="Industrial Ecology Freiburg" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="IEF_Home.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
     <style>
         .grid-main {
@@ -92,6 +91,11 @@
 
             if (document.cookie) {
                 // cookies exist, show the div
+                var scriptElement = document.createElement('script');
+                scriptElement.type = 'text/javascript';
+                scriptElement.src = "https://platform.twitter.com/widgets.js";
+                document.head.appendChild(scriptElement);
+
                 $('.show-twitter').css('display', 'block');
                 $('.not-show-twitter').css('display', 'none');
 
@@ -99,6 +103,11 @@
         }
 
         function displayTwitter() {
+
+            var scriptElement = document.createElement('script');
+            scriptElement.type = 'text/javascript';
+            scriptElement.src = "https://platform.twitter.com/widgets.js";
+            document.head.appendChild(scriptElement);
 
             $('.show-twitter').css('display', 'block');
             $('.not-show-twitter').css('display', 'none');
