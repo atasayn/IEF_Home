@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Industrial Ecology Freiburg" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="IEF_Home.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <style>
         .grid-main {
             grid-area: main;
@@ -9,9 +11,9 @@
             margin: 0 auto;
         }
 
-        .grid-main h3 {
-            margin-top: 0;
-        }
+            .grid-main h3 {
+                margin-top: 0;
+            }
 
         .grid-photo {
             grid-area: photo;
@@ -28,20 +30,55 @@
         .grid-container {
             display: grid;
             grid-template-areas: 'main  twitter'
-                               'photo twitter';
+                'photo twitter';
             grid-template-rows: auto;
-            grid-auto-columns: auto 400px;
+            grid-auto-columns: auto 500px;
             gap: 10px;
             padding: 10px;
+        }
+
+        .not-show-twitter {
+            background-color: white;
+            width: 470px;
+            height: 650px;
+            font-weight: bold;
+            font-size: large;
+            padding: 0.5em 1em;
+            border-radius: 1em;
+        }
+
+        .not-show-twitter-content {
+            font-size: small;
+            line-height: 1.6;
+            text-align: center;
+            margin: auto;
+            padding-top: 20em;
+        }
+
+        .show-twitter {
+            display: none;
+        }
+
+        button {
+            height: 2em;
+            width: 20em;
+            margin: auto;
+        }
+
+        input {
+            margin: auto;
+            vertical-align: middle;
+            position: relative;
+            top: -3px;
         }
 
         .grid-link {
             display: block;
         }
 
-        .grid-link::before {
-            content: "\1F517  ";
-        }
+            .grid-link::before {
+                content: "\1F517  ";
+            }
 
         @media screen and (max-width: 768px) {
             .grid-container {
@@ -49,6 +86,60 @@
             }
         }
     </style>
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            if (document.cookie) {
+                // cookies exist, show the div
+                $('.show-twitter').css('display', 'block');
+                $('.not-show-twitter').css('display', 'none');
+
+            }
+        }
+
+        function displayTwitter() {
+
+            $('.show-twitter').css('display', 'block');
+            $('.not-show-twitter').css('display', 'none');
+
+
+        }
+
+        function setCookie(cname, value, exdays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value = escape(value) + ((exdays == null) ?
+                "" : "; expires=" + exdate.toUTCString());
+            document.cookie = cname + "=" + c_value;
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+
+
+            }
+            return cname;
+        }
+
+        function set_check(me) {
+            setCookie(me.name, me.checked, 60 * 60 * 1);
+            //console.log(me.name);
+            //console.log(me.checked);
+            //console.log(document.cookie);
+        }
+
+
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -81,15 +172,40 @@
         </div>
 
         <div class="grid-twitter">
-            <!--<h3>Twitter Timeline</h3>-->
-            <a class="twitter-timeline" data-dnt="true" data-height="650" href="https://twitter.com/StefanPauliuk">Tweets by StefanPauliuk</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+            <div class="not-show-twitter" >
+                Tweets from @StefanPauliuk
+           
+                <div class="not-show-twitter-content">
+
+                    <button id="twitter-button" type="button" onclick="displayTwitter()" style="display: block">Load Embaded Twitter Timeline</button>
+                    <a href="https://twitter.com/en/privacy" style="display: block">Twitter privacy policy</a>
+
+                    <label>
+                        <input class="cookie-check" type="checkbox" name="twitter-cookie" value="1" onChange="set_check(this)">
+                        Don't ask me again</label>
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="show-twitter" >
+
+                <a class="twitter-timeline" data-dnt="true" data-height="650" href="https://twitter.com/StefanPauliuk">Tweets by StefanPauliuk</a>
+            </div>
+
+
+
+
 
 
             <h4>Links:</h4>
-            <span class="grid-link">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target= "_blank" >website</a>)</span>
-            <span class="grid-link">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target= "_blank" >website</a>)</span>
-            
+            <span class="grid-link">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target="_blank">website</a>)</span>
+            <span class="grid-link">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target="_blank">website</a>)</span>
+
         </div>
     </div>
 
