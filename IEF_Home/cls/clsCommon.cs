@@ -1,12 +1,9 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.Data;
+using System.Web.Services;
+using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Diagnostics;
+using System.Web.UI.WebControls;
 
 namespace IEF_Home.cls
 {
@@ -57,7 +54,7 @@ namespace IEF_Home.cls
                 cmd.Parameters.AddWithValue("@username", userName);
                 var hash = Hash.HashString(password , userName);
                 cmd.Parameters.AddWithValue("@password", hash);
-               // System.Diagnostics.Debug.WriteLine("OUTPUTTTTTTT" + userName + ":" + hash);
+                //System.Diagnostics.Debug.WriteLine("OUTPUTTTTTTT" + userName + ":" + hash);
                 var reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -72,7 +69,8 @@ namespace IEF_Home.cls
             return user_type;
             
         }
-
-
+     
     }
+
+ 
 }

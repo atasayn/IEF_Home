@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace IEF_Home
 {
@@ -12,7 +7,7 @@ namespace IEF_Home
         protected void Page_Load(object sender, EventArgs e)
         {
             var user_name = Session["USER_NAME"] as string;
-            if (user_name == null || user_name == "")
+            if (string.IsNullOrEmpty(user_name))
             {
                 Response.Redirect("/internal_login", false);
             }
