@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
     <style>
         .grid-main {
             grid-area: main;
