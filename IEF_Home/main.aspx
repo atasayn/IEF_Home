@@ -89,7 +89,7 @@
 
         window.onload = function () {
 
-            if (document.cookie) {
+            if (getCookie('twitter-cookie')=='true') {
                 // cookies exist, show the div
                 var scriptElement = document.createElement('script');
                 scriptElement.type = 'text/javascript';
