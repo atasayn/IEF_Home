@@ -653,6 +653,79 @@ For some of the works there is more research material available than what is ava
                         <tr>
                             <td><b>MSc</b></td>
                             <td>REM</td>
+                            <td>Erick Paez Pena</td>
+                            <td><b>A Comparison of Freiburg’s current (2021) and Future (2050) Passengers Vehicles and Tram Systems: A Life Cycle Assessment</b></td>
+                            <td>07.02.2023</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master Thesis_REM_Erick Paez.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>SSE</td>
+                            <td>Alejandro (Alex) Arias Castillo</td>
+                            <td><b>Life Cycle Assessment of an energy-autonomous sensor node</b></td>
+                            <td>11.11.2022</td>
+                            <td>Confidential, available on request</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Jose Joaquin Burbano de Lara Moncayo</td>
+                            <td><b>Detailed Environmental Footprint Analysis of the Global Supply Chain of Textiles Consumed in Europe</b></td>
+                            <td>26.09.2022</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_Joaquin_Burbano.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>UW</td>
+                            <td>Julian Lorenz Kolodziey </td>
+                            <td><b>A Scope 3 Life Cycle Assessment to Reduce Environmental Impacts along a Company’s Value Chain</b></td>
+                            <td>22.12.2022</td>
+                            <td>Confidential</td>
+                            <td></td>
+                        </tr>                        
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>UW</td>
+                            <td>Jasmin Heinz</td>
+                            <td><b>Beurteilung biodiversitätsrelevanter Aspekte in Ökobilanzen am Beispiel von Milchproduktionssystemen</b></td>
+                            <td>September 2022</td>
+                            <td>Available on request</td>
+                            <td>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>SSE</td>
+                            <td>Aditya Chhatre</td>
+                            <td><b>Techno-economic comparison of containerized and outdoor battery energy storage system (BESS) using life cycle costing and life cycle analysis approach</b></td>
+                            <td>September 2022</td>
+                            <td>Confidential</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>MEG</td>
+                            <td>Sara Bejtullahu</td>
+                            <td><b>Is Vertical Farming the Future of Food Production? A Comparative Life Cycle Assessment of Vertical Farming and Conventional Agriculture</b></td>
+                            <td>07.11.2022</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/BEJTULLAHU_Sara_Master_Thesis.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>                        
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
                             <td>Ehab Ahmad Ibrahim Al Atrash</td>
                             <td><b>Timeseries Analysis of Germany’s Ecological Exchange over time – an MRIO analysis</b></td>
                             <td>23.05.2021</td>
