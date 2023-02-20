@@ -15,7 +15,7 @@
             <center>
                 <br>
                 <br>
-                <img src="/Content/IEooc_Logo_V2.png" width="250">
+                <img src="/Content/IEooc_Logo_V2_5yr.png" width="250">
                 <h2>Industrial Ecology Open Online Course </h2>
                 <h4>Online since 2018 </h4>
                 <br>
@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: November 1st, 2022.</h4>
+                <h4>Last update: February 20th, 2023.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -507,8 +507,10 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software1.ipynb", "IEooc_Methods3_Software1");</script><br/>
-                        <a href="/Content/IEooc_Methods3_Software1_Data.xlsx" target="new">IEooc_Methods3_Software1 (data file)</a>
+			    For this notebook, two versions exist: <br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software1_ODYM.ipynb", "IEooc_Methods3_Software1 (ODYM)");</script> for use together with the dynamic MFA library of the <a href="https://github.com/IndEcol/ODYM" target="new">ODYM MFA</a> software. <br/>
+			<script>jupyterLink("/Content/IEooc_Methods3_Software1_old_dMFA_class.ipynb", "IEooc_Methods3_Software1 (old dynamid MFA class)");</script> for use together with the <a href="https://github.com/stefanpauliuk/dynamic_stock_model" target="new">stand-alone dynamic MFA library</a> that is no longer maintained. <br/>
+                        <a href="/Content/IEooc_Methods3_Software1_Data.xlsx" target="new">IEooc_Methods3_Software1 (data file for both versions of the notebook)</a>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on stock-driven modelling for material stocks in products, using the dynamic_stock_model class in Python and the global passenger vehicle fleet as an example:</b> In this workbook it is shown how stock-driven modelling can be implemented in Python using the dynamic_stock_model class and applied to calculate the material flows and stocks in the products that we use. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
@@ -759,6 +761,13 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
                         <br>
                         <br>
+                        <b>Exercise: "Determining Sector Impact in IO Models With the Hypothetical Extraction Method – Hypothetical Extraction Method with Projection Matrices"</b> This exercise shows how to determine the impact or contribution of individual industrial sectors to the total enviromental footprint, an analysis that is increasingly applied in the literature. Topics covered: Understand the power series expansion of the L-matrix. Understand how the contribution of an individual industrial sector to the supply chain of a good or service can be identified by filtering out certain paths in the A matrix power series. Understand how the impact of several industrial sectors in the supply chain of a good or service can be determined without double-counting contribution, using projection matrices.<b> Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO.pdf" target="new">IEooc_Methods5_Exercise3 (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO_Workbook.xlsx" target="new">IEooc_Methods5_Exercise3 (data and workbook)</a><br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO_SampleSolution.xlsx" target="new">IEooc_Methods5_Exercise3_Solution (xlsx)</a>
+                        <br>
+                        <br>			    
                         <br>
                     </td>
                 </tr>
@@ -793,7 +802,8 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods6_Exercise1_CoupledSectors_Solution.xlsx" target="new">IEooc_Methods6_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
-			<b>Reading material: Resource tracing with input output (IO) models – an overview.</b> This reading material explains how to trace resources through input-output tables. First, the differences between Leontief input-output (IO), Leontief price, Ghosh IO and absorbing Markov Chain models are explained. Then, it is shown how they all can be used to determine the distribution of natural resource or value added input into different final demand sectors (so-called end-use shares). This reading material is the supplement of a review, conceptual work, and empirical analysis on estimating end-use shares for material flows (how many % of total steel production go into vehicles, etc.) with monetary input-output tables. [Link to be added after publication.] <br>
+			<b>Reading material: Resource tracing with input output (IO) models – an overview.</b> This reading material explains how to trace resources through input-output tables. First, the differences between Leontief input-output (IO), Leontief price, Ghosh IO and absorbing Markov Chain models are explained. Then, it is shown how they all can be used to determine the distribution of natural resource or value added input into different final demand sectors (so-called end-use shares). This reading material is the supplement of a review, conceptual work, and empirical analysis on estimating end-use shares for material flows (how many % of total steel production go into vehicles, etc.) with monetary input-output tables. 
+		  	 This material is taken from a <a href="https://doi.org/10.1111/jiec.13380" target="new">2023 publication in the Journal of Industrial Ecology by Streeck et al</a>.  <br>
                         <a href="/Content/IEooc_Methods6_Reading4_Resource_Tracing_IO.pdf" target="new">IEooc_Methods6_Reading4_Resource_Tracing_IO</a>.
                         <br>
                         <br>
@@ -1189,7 +1199,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <br>
                 <br>
                 <br>
-                <img src="/Content/IEooc_Logo_V2.png" width="250">
+                <img src="/Content/IEooc_Logo_V2_5yr.png" width="250">
             </center>
 
             <br>
@@ -1204,7 +1214,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <b>Niko Heeren</b>, ETH Zürich, provided detailed feedback on the SEM data model and related software routines.<br>
                 <b>Tomer Fishman</b>, IDC Herzliya, provided detailed feedback and improvement options for dynamic stock model software, which is the basis of the dyn. MFA exercises.<br>
                 <b>Steve Allen</b>, U Bath, provided feedback on IEooc_Methods4_Exercise6.<br>
-                <b>Oskar Wood Hansen, </b> helped debug and update the IO-related exercises and workbooks.
+                <b>Oskar Wood Hansen, </b> helped debug and update the IO-related exercises and workbooks.<br>
+		<b>Martin Hillenbrand, </b> University of Bayreuth, Germany, helped debug and update the dynamic MFA-related exercises and workbooks. <br>
+		<b>Julius Noah Jandl, </b>for spotting and correcting errors in IEooc_Methods3_Software1.<br>
                 <br>
                 <br>
                 <br>
