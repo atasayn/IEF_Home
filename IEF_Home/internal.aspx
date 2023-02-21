@@ -834,7 +834,7 @@ For some of the works there is more research material available than what is ava
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
-                                <input type="button" onclick="download('data_indecol_205939343242/XXX.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Master Thesis_Marie Fischer.pdf', 'This is the content of my file :')" value="Download Thesis" />
                             </td>
                         </tr>
                         <tr>
@@ -846,7 +846,7 @@ For some of the works there is more research material available than what is ava
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
-                                <input type="button" onclick="download('data_indecol_205939343242/XXX.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Msc-Arbeit_Leonid_Krebs.pdf', 'This is the content of my file :')" value="Download Thesis" />
                             </td>
                         </tr>                          
                         <tr>
@@ -858,7 +858,7 @@ For some of the works there is more research material available than what is ava
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
-                                <input type="button" onclick="download('data_indecol_205939343242/XXX.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Master thesis Denis Wheeler.pdf', 'This is the content of my file :')" value="Download Thesis" />
                             </td>
                         </tr>                        
                                                 
