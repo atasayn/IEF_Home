@@ -108,6 +108,7 @@
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
+    <Content Include="js\Chart.min.js" />
     <Content Include="js\dropdownMenu.js" />
     <Content Include="js\jquery-1.6.2.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
