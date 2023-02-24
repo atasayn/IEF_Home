@@ -44,9 +44,7 @@
         }
     </style>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
-
+    <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/dropdownMenu.js"></script>
     <script type="text/javascript" src="js/jquery-1.6.2.js"></script>
     <script src="js/Chart.min.js"></script>
