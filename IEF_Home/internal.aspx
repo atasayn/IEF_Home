@@ -528,9 +528,47 @@
                                 <br />
                                 <a href="https://nexus.openlca.org/ws/files/12232" target="_blank">License</a></td>
                         </tr>
+                        <tr>    
+                            <td> LCA_19</td>
+                            <td> ecoinvent 3.8 CUT-OFF, unit processes</td>
+                            <td> Zolca file with cut-off unit process system model for ecoinvent version 3.8  <br> Note: Rename file extension from .zip to .zolca after downloading!</td>
+                            <td> n.a. </td>
+                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
+                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
+                                    </td>
+                            <td>
+                                <input type="button" onclick="download('data_indecol_205939343242/ecoinvent_38_cutoff_3011_with_methods.zip', 'This is the content of my file :')" value="Download" />
+                                <br /><br /><a href="https://nexus.openlca.org/ws/files/12232" target="_blank">License</a></td>
+                        </tr>
 
+                        <tr>    
+                            <td> LCA_20</td>
+                            <td> ecoinvent 3.8 CONSEQUENTIAL, unit processes</td>
+                            <td> Zolca file with consequential unit process system model for ecoinvent version 3.8  <br> Note: Rename file extension from .zip to .zolca after downloading!</td>
+                            <td> n.a. </td>
+                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
+                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
+                                    </td>
+                            <td>
+                                <input type="button" onclick="download('data_indecol_205939343242/ecoinvent_38_consequential_3011_with_methods.zip', 'This is the content of my file :')" value="Download" />
+                                <br /><br /><a href="https://nexus.openlca.org/ws/files/12232" target="_blank">License</a></td>
+                        </tr>
+
+                        <tr>    
+                            <td> LCA_21</td>
+                            <td> ecoinvent 3.8 LCIA methods</td>
+                            <td> Zolca file with LCIA methods for ecoinvent version 3.8  <br> Note: Do NOT rename file extension from .zip to .zolca after downloading! Instead, import into openLCA via 'Linked Data (JSON-LD)' import option, where you will be asked to provide a .zip file as input.</td>
+                            <td> n.a. </td>
+                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
+                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
+                                    </td>
+                            <td>
+                                <input type="button" onclick="download('data_indecol_205939343242/ecoinvent_38_LCIA_methods_30112021.zip', 'This is the content of my file :')" value="Download" />
+                                <br /><br /><a href="https://nexus.openlca.org/ws/files/12232" target="_blank">License</a></td>
+                        </tr>
+                        
                         <tr>
-                            <td>LCA_19</td>
+                            <td>LCA_22</td>
                             <td>Ökobaudat construction materials database, German version</td>
                             <td>Zolca file with Ökobaudat, German version.
                                         <br>
@@ -548,7 +586,7 @@
                                 <a href="https://nexus.openlca.org/database/%C3%96kobaudat#" target="_blank">License</a></td>
                         </tr>
                         <tr>
-                            <td>LCA_20</td>
+                            <td>LCA_23</td>
                             <td>Ökobaudat construction materials database, English version</td>
                             <td>Zolca file with Ökobaudat, English version.
                                         <br>
@@ -566,7 +604,7 @@
                                 <a href="https://nexus.openlca.org/database/%C3%96kobaudat#" target="_blank">License</a></td>
                         </tr>
                         <tr>
-                            <td>LCA_21</td>
+                            <td>LCA_24</td>
                             <td>Ökobaudat construction materials database, LCIA methods</td>
                             <td>Zolca file with Ökobaudat construction materials database, LCIA methods.
                                         <br>
@@ -585,7 +623,7 @@
                         </tr>
 
                         <tr>
-                            <td>LCA_22</td>
+                            <td>LCA_25</td>
                             <td>Search_ecoinvent_3_2</td>
                             <td>Excel-based search tool for finding flows, activities, and emissions in ecoinvent 3.2.</td>
                             <td>n.a. </td>
@@ -596,7 +634,7 @@
                                 <input type="button" onclick="download('data_indecol_205939343242/search_ecoinvent_3_2.zip', 'This is the content of my file :')" value="Download" />
                         </tr>
                         <tr>
-                            <td>LCA_23</td>
+                            <td>LCA_26</td>
                             <td>Search_ecoinvent_3_3</td>
                             <td>Excel-based search tool for finding flows, activities, and emissions in ecoinvent 3.3.</td>
                             <td>n.a. </td>
@@ -607,7 +645,7 @@
                                 <input type="button" onclick="download('data_indecol_205939343242/search_ecoinvent_3_3.zip', 'This is the content of my file :')" value="Download" />
                         </tr>
                         <tr>
-                            <td>LCA_24</td>
+                            <td>LCA_27</td>
                             <td>Search_ecoinvent_3_4</td>
                             <td>Excel-based search tool for finding flows, activities, and emissions in ecoinvent 3.4.</td>
                             <td>n.a. </td>
@@ -722,7 +760,108 @@ For some of the works there is more research material available than what is ava
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
                                 <input type="button" onclick="download('data_indecol_205939343242/BEJTULLAHU_Sara_Master_Thesis.pdf', 'This is the content of my file :')" value="Download Thesis" />
                             </td>
+                        </tr>
+                        <tr>    
+                            <td> <b>MSc</b></td>
+                            <td>UW</td>
+                            <td>Lennart Hoppe</td>
+                            <td> <b>Emerging Energy Storage Technologies: Life Cycle Assessment of the Environmental Impact of different Application Scenarios for a Model of an Energy Storage Tower System</b></td>
+                            <td> 20.11.2021</td>
+                            <td> Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master Thesis_Lennart Hoppe.pdf', 'This is the content of my file :')" value="Download Thesis" /><br>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download supplement</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master Thesis_Lennart Hoppe_SI.zip', 'This is the content of my file :')" value="Download supplement" />
+                            </td>
                         </tr>                        
+                        <tr>    
+                                <td> <b>MSc</b></td>
+                                <td>UW</td>
+                                <td>Leo Hoffmann</td>
+                                <td> <b>Comparative Life Cycle Assessment of Novel Organic Redox Flow, Vanadium Redox Flow, and Lithium-ion Batteries</b></td>
+                                <td> Jan 2022</td>
+                                <td> Archived</td>
+                                <td>
+                                    <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                    <input type="button" onclick="download('data_indecol_205939343242/Masterthesis_LeoHoffmann.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                </td>
+                            </tr>                        
+                            <tr>    
+                                <td> <b>MSc</b></td>
+                                <td>UW</td>
+                                <td>Merle Timmermann</td>
+                                <td> <b>Circularity improvement of solar panels in the EU - A quantitative analysis of photovoltaic material flows in Germany and Spain between 2008 and 2040</b></td>
+                                <td> 12.11.2021</td>
+                                <td> Archived</td>
+                                <td>
+                                    <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                    <input type="button" onclick="download('data_indecol_205939343242/Circularity Improvement of solar panels in the EU_Timmermann.pdf', 'This is the content of my file :')" value="Download Thesis" /><br>
+                                    <%--<a href="\xxx\Theses\xxx.pdf">Download supplement</a>--%>
+                                    <input type="button" onclick="download('data_indecol_205939343242/MA_Merle_Timmermann_SI.zip', 'This is the content of my file :')" value="Download supplement" />
+                                </td>
+                            </tr>                        
+                            <tr>    
+                                <td> <b>MSc</b></td>
+                                <td>UW</td>
+                                <td>Sören Lars Nungesser</td>
+                                <td> <b>Modelling Hazard for Tailings Dam Failures at Copper Mines in Supply Chains of European Consumption</b></td>
+                                <td> 10.11.2021</td>
+                                <td> Archived</td>
+                                <td>
+                                    <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                    <input type="button" onclick="download('data_indecol_205939343242/MA_Thesis_Lars_Nungesser_final-geschützt_PW_ln_18112021.pdf', 'This is the content of my file :')" value="Download Thesis !Password! ln_18112021" />
+                                </td>
+                            </tr>
+                            <tr>    
+                                <td> <b>MSc</b></td>
+                                <td>MEG</td>
+                                <td>Nasir Uddin Akif</td>
+                                <td> <b>An estimated Carbon, Land and Water footprint accounts of EU-Mercosur trade agreement</b></td>
+                                <td> 02.11.2021</td>
+                                <td> Archived</td>
+                                <td>
+                                    <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                    <input type="button" onclick="download('data_indecol_205939343242/Master Thesis Akif.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                </td>
+                            </tr>                        
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Marie Fischer</td>
+                            <td><b>Identifying the ecological implications of the Repowering of Photovoltaic systems – an LCA Approach</b></td>
+                            <td>Oct 2021</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master Thesis_Marie Fischer.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>UW</td>
+                            <td>Leonid Krebs</td>
+                            <td><b>Szenarioanalyse for die Indikatoren Materialverbrauch, Energiebedarf und Klimaauswirkungen des geplanten Stadtteils „Dietenbach“</b></td>
+                            <td>September 2021</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Msc-Arbeit_Leonid_Krebs.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>                          
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>UW</td>
+                            <td>Denis Wheeler</td>
+                            <td><b>Potential analysis of the e-scooter in sharing operation and in private use as a green mobility solution for cities</b></td>
+                            <td>May 2021</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master thesis Denis Wheeler.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>                        
+                                                
                         <tr>
                             <td><b>MSc</b></td>
                             <td>REM</td>
@@ -1395,6 +1534,18 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td></td>
                             <td></td>
                         </tr>
+                         <tr>    
+                                <td> <b>BSc</b></td>
+                                <td> LAS</td>
+                                <td> Woo Rim (Amy) Choi</td>
+                                <td> <b>A comparative LCA of redox flow batteries to a lithium-ion battery for stationary residential use in Germany</b></td>
+                                <td> 07.08.2021</td>
+                                <td> Archived</td>
+                                <td>
+                                    <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                        <input type="button" onclick="download('data_indecol_205939343242/Woo Rim Choi Bachelor Thesis.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                </td>
+                            </tr>                        
                         <tr>
                             <td><b>BSc</b></td>
                             <td>LAS</td>
