@@ -28,6 +28,9 @@ function displayGraph(data, region, scenario) {
         dataset.push(row[1]);
     });
 
+    try {
+        Chart.getChart("line-chart").destroy();
+    } catch (e) {}
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
