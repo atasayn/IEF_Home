@@ -47,7 +47,7 @@
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/dropdownMenu.js"></script>
     <script type="text/javascript" src="js/jquery-1.6.2.js"></script>
-    <script src="js/Chart.min.js"></script>
+    <script type="module" src="js/chart.min.js"></script>
 
 
 

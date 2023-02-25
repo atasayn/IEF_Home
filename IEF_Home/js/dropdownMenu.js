@@ -41,25 +41,26 @@ function displayGraph(data, region, scenario) {
             }]
         },
         options: {
+            locale: "fr-CA",
             title: {
                 display: true,
                 text: `Region ${region}, scenario ${scenario}`
             },
             scales: {
 
-                yAxes: [{
-                    scaleLabel: {
+                y: {
+                    title: {
                         display: true,
-                        labelString: 'Annual person-km by passenger cars'
+                        text: 'Annual person-km by passenger cars'
                     }
 
-                }],
+                },
 
-                xAxes: [{
+                x: {
 
-                    scaleLabel: {
+                    title: {
                         display: true,
-                        labelString: 'Year'
+                        text: 'Year'
                     },
 
 
@@ -68,7 +69,7 @@ function displayGraph(data, region, scenario) {
                         maxTicksLimit: 20
                     }
                     
-                }]
+                }
             }
            
             
