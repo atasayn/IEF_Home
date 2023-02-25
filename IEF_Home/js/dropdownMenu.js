@@ -25,7 +25,7 @@ function displayGraph(data, region, scenario) {
     let dataset = Array();
     data.forEach(row => {
         labels.push(row[0]);
-        dataset.push(row[1]);
+        dataset.push(parseFloat(row[1].replace(",", ".")));
     });
 
     try {
@@ -39,8 +39,7 @@ function displayGraph(data, region, scenario) {
                     data: dataset,
                     label: data[0][3],
                     borderColor: "#3e95cd",
-                    fill: false
-                   
+                    fill: false                   
             }]
         },
         options: {
@@ -50,32 +49,23 @@ function displayGraph(data, region, scenario) {
                 text: `Region ${region}, scenario ${scenario}`
             },
             scales: {
-
                 y: {
                     title: {
                         display: true,
                         text: 'Annual person-km by passenger cars'
                     }
-
                 },
-
                 x: {
-
                     title: {
                         display: true,
                         text: 'Year'
                     },
-
-
                     ticks: {
                         autoSkip: true,
                         maxTicksLimit: 20
-                    }
-                    
+                    }                    
                 }
-            }
-           
-            
+            }           
         }
     });
 }
