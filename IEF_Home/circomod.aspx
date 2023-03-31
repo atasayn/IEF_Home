@@ -247,7 +247,7 @@
         <input type="hidden" id="font_color" value="#000000"/>
         
 
-<textarea id="input_node_data" rows="8" cols="120" onclick="process_sankey()" class="form-control">
+<textarea id="input_node_data" type="text" rows="8" cols="120" " onclick="process_sankey()" class="form-control">
 [Primary Production] [(255,255,255)] [0] [40.00] [51.60] [58] [205]
 [Production/Manufacturing] [(121,121,121)] [0] [30.00] [81.70] [291] [205]
 [Use Phase] [(161,161,161)] [0] [140.00] [86.00] [585] [156]
@@ -269,7 +269,7 @@
 
 </textarea>
 
-    <textarea id="input_flow_data"  rows="8" cols="120"  onchange="process_sankey()"  class="form-control">    
+    <textarea id="input_flow_data" type="text" rows="8" cols="120"  onchange="process_sankey()" class="form-control">    
 [Primary Production]  [F_a]  [(0,191,255)] [ab] [Production/Manufacturing]
 [Production/Manufacturing]  [F_b]  [(0,191,255)] [ab] [Use Phase]
 [Use Phase]  [F_c]  [(0,191,255)] [ab] [Re-use]

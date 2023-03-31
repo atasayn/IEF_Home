@@ -90,9 +90,9 @@ $(document).ready(function () {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
-                console.log(res);
+                var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",",".")]));
 
+                console.log(res);
                 var flowarea = $("#input_flow_data").val();
                 var text = flowarea;
                 console.log(text);
