@@ -71,7 +71,7 @@
 
             const room = document.querySelector("#DropDownListYear");
 
-            for (let i = 2020; i <= 2060; i++) {
+            for (let i = 2022; i <= 2060; i++) {
                 room.insertAdjacentHTML("beforeend", `<option value="${i}">${i}</option>`);
             }
         });
@@ -221,7 +221,7 @@
         <option value="Aluminium ">Aluminium</option>
         <option value="Copper">Copper</option>
         <option value="Plastics">Plastic</option>
-        <option value="Wood">WoodU</option>
+        <option value="Wood">Wood</option>
 
     </select>
 
