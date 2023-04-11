@@ -21,6 +21,7 @@
         .grid-graph { grid-area: graph; }
 
         h2 { text-align: center; }
+        h3 { text-align: center; }
 
         hr {
             text-align: center;
@@ -93,16 +94,18 @@
         <br>
         <p>CIRCOMOD addresses these challenges by developing a new generation of advanced models and scenarios that will assess how CE can reduce future GHGs and material use. The project brings together a unique consortium of leading research teams from different disciplines, including industrial ecology and material flow modelling, process-oriented integrated assessment modelling, and macro-economic modelling. It aims for a breakthrough in integrating CE and GHG mitigation assessments by a) developing an analytical framework that maps circular economy strategies to existing influential climate scenarios; b) providing robust and timely CE data in an open repository; and c) improving the representation of the CE in leading models used by European and global institutions, while strengthening links between the models. It will provide input to international assessments such as the Intergovernmental Panel on Climate Change (IPCC) and the International Resource Panel (IRP).</p>
         <br>
-        <p>The EU research fund Horizon Europe has awarded 5 million euros to the project. The consortium consists of twelve partners from different EU countries. </p>
+        <p>The EU research fund Horizon Europe has awarded 5 million euros to the project. The consortium consists of twelve partners from different EU countries.<a href="https://circomod.eu/ " target="_blank">See the project’s homepage</a> </p>
+        
         <br>
         <p>
             Here, we will show different visualization options for circular economy profiles for materials, products, and regions.
-            <a href="https://www.tilburguniversity.edu/current/news/more-news/eu-funds-research-project-circomod-eu-modeling-circular-economy-mitigate-climate-change" target="_blank">Tilburg University</a>
+
         </p>
         <hr/>
         <i>
             <b>Browse the results from the project’s database (prototype, under development)</b>
         </i>
+        <h3>Service level by country and scenario for passenger vehicle transportation</h3>
     </div>
 
     <div class="grid-dropdown">
@@ -135,16 +138,6 @@
             <option value="Global_North">Global_North</option>
             <option value="Global">Global</option>
         </select>
-
-
-        <select id="DropDownListScenario">
-            <option value="" selected>Please select scenerio</option>
-            <option value="LED">LED</option>
-            <option value="SSP1">SSP1</option>
-            <option value="SSP2">SSP2</option>
-        </select>
-
-
         <button type="button" class="DDSelectRegSce">Click me</button>
 
     </div>

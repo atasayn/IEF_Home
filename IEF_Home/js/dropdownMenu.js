@@ -2,16 +2,17 @@
 
     $('.DDSelectRegSce').click(function (e) {
         var region = $("#DropDownListRegion").val();
-        var scenario = $("#DropDownListScenario").val();
+        /*var scenario = $("#DropDownListScenario").val();*/
+       /* var scenrio = ["LED", "SSP1", "SSP2" ];*/
         $.ajax({
                 type: "POST",
                 url: "circomodService.svc/Classification_ResultItem",
-                data: `{"selectedRegion": "${region}","selectedScenario": "${scenario}"}`,
+                data: `{"selectedRegion": "${region}"}`,
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
                     
-                    displayGraph(result["d"], region, scenario);
+                    displayGraph(result["d"], region);
                     
                    
                 }
@@ -20,14 +21,9 @@
 });
 
 
-function displayGraph(data, region, scenario) {
+function displayGraph(data, region) {
     console.log(data);
-    let labels = Array();
-    let dataset = Array();
-    data.forEach(row => {
-        labels.push(row[0]);
-        dataset.push(parseFloat(row[1].replace(",", ".")));
-    });
+    let labels = Array.from({ length: 86 }, (v, i) => 2015 + i);
 
     try {
         Chart.getChart("line-chart").destroy();
@@ -36,18 +32,32 @@ function displayGraph(data, region, scenario) {
         type: 'line',
         data: {
             labels: labels,
-            datasets: [{
-                    data: dataset,
-                    label: data[0][3],
-                    borderColor: "#3e95cd",
+            datasets: [
+                {
+                    data: data[0],
+                    label: "LED",
+                    borderColor: "#ff0000",
                     fill: false                   
-            }]
+                },
+                {
+                    data: data[1],
+                    label: "SSP1",
+                    borderColor: "#00ff00",
+                    fill: false
+                },
+                {
+                    data: data[2],
+                    label: "SSP2",
+                    borderColor: "#0000ff",
+                    fill: false
+                }
+            ]
         },
         options: {
             locale: "fr-CA",
             title: {
                 display: true,
-                text: `Region ${region}, scenario ${scenario}`
+                text: `Region ${region}`
             },
             scales: {
                 y: {
@@ -108,9 +118,9 @@ $(document).ready(function () {
                 text = text.replace("F_h", res.get("query_Fh"));
                 text = text.replace("F_i", res.get("query_Fh"));
                 text = text.replace("F_j", res.get("query_Fh"));
-                text = text.replace("F_k", res.get("query_Fk"));
-                text = text.replace("F_l", res.get("query_Fl"));
-                text = text.replace("F_m", res.get("query_Fm"));
+                text = text.replace("F_k", res.get("query_Fk")/50);
+                text = text.replace("F_l", res.get("query_Fl")/50);
+                text = text.replace("F_m", res.get("query_Fm")/50);
                 text = text.replace("F_n", res.get("query_Fn"));
                 text = text.replace("F_o", res.get("query_Fn"));
                 text = text.replace("F_p", res.get("query_Fn"));

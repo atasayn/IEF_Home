@@ -81,12 +81,15 @@ namespace IEF_Home
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
 
-        public List<List<string>> Classification_ResultItem(string selectedRegion, string selectedScenario)
+        public List<List<string>> Classification_ResultItem(string selectedRegion)
         {
 
-            //var out_str = String.Empty;
             var output = new List<List<string>>();
-            const string query = @"SELECT ci4.attribute1_oto AS aspect_4, d.value, u1.unitcode, u2.unitcode
+            if (!cn.OpenConnection()) return null;
+            foreach (var selectedScenario in new List<string> { "LED", "SSP1", "SSP2" })
+            {
+                var scenarioArray = new List<string>();
+                const string query = @"SELECT d.value
             FROM iedc.data d
             LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
             LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
@@ -95,31 +98,21 @@ namespace IEF_Home
             WHERE d.dataset_id = 304
             AND d.aspect5 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
             AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)";
+                var cmd = new MySqlCommand(query, cn.Connection);
 
-            if (!cn.OpenConnection()) return null;
-            var cmd = new MySqlCommand(query, cn.Connection);
+                cmd.Parameters.AddWithValue("@SelectedScenario", selectedScenario);
+                cmd.Parameters.AddWithValue("@SelectedRegion", selectedRegion);
 
-            cmd.Parameters.AddWithValue("@SelectedScenario", selectedScenario);
-            cmd.Parameters.AddWithValue("@SelectedRegion", selectedRegion);
-
-            var reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                var row = new List<string>();
-                for (var i = 0; i < reader.FieldCount; i++)
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    row.Add(reader[i].ToString());
+                    scenarioArray.Add(reader[0].ToString().Replace(",", "."));
                 }
-
-                output.Add(row);
-                //out_str += $"('{reader[0]}', '{reader[1]}', '{reader[2]}', '{reader[3]}')\n";
+                output.Add(scenarioArray);
+                reader.Close();
             }
-
             cn.CloseConnection();
-            //var out_dict = new Dictionary<string, List<List<string>>>();
-            //out_dict.Add("data", output);
             return output;
-            //return out_str;
         }
 
 
