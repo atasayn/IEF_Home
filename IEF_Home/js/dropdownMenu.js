@@ -11,7 +11,7 @@
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
-                    
+
                     displayGraph(result["d"], region);
                     
                    

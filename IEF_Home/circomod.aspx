@@ -146,7 +146,9 @@
 </div>
 <hr/>
 <div class="grid-sankey">
-
+    
+    <h3>Sankey diagram of material flows (blue) and GHG emissions (blue-green) for different countries, sectors, and CE scenarios</h3>
+    <br/>
     <select id="DropDownListSankeyRegion">
         <option value="" selected>Please select region</option>
         <option value="France">France</option>
