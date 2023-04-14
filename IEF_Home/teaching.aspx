@@ -981,7 +981,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <b>Exercise: "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment). <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
                         <a href="/Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
+                        <a href="/Content/IEooc_Application3_Exercise1a_TransportVsCooling_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_TransportVsCooling_SampleSolution (xlsx)</a>
                         <br>
                         <br>
                         <b>Research article about environmental footprints of households by regions:</b> This study develops an inventory of carbon footprints associated with household consumption for 177 regions in 27 EU countries, thus, making a key contribution for the incorporation of consumption-based accounting into local decision-making.
