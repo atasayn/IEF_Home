@@ -1224,7 +1224,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <b>Oskar Wood Hansen, </b> helped debug and update the IO-related exercises and workbooks.<br>
 		<b>Martin Hillenbrand, </b> University of Bayreuth, Germany, helped debug and update the dynamic MFA-related exercises and workbooks. <br>
 		<b>Julius Noah Jandl, </b>for spotting and correcting errors in IEooc_Methods3_Software1.<br>
-		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.br>
+		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.<br>
                 <br>
                 <br>
                 <br>
