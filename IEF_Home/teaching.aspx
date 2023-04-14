@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: February 20th, 2023.</h4>
+                <h4>Last update: April 14th, 2023.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -376,6 +376,13 @@ difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Methods1_Exercise2_Data_Reconciliation_Solution.xlsx" target="new">IEooc_Methods1_Exercise2_Solution (xlsx)</a>
                         <br>
                         <br>
+                        <b>Reading:</b> A dialogue with ChatGPT on stocks and flows. Read what one of the world's most advanced chat bots has to say on how we should model phenomena in the industrial system. Helps to clarify the own understanding of stocks vs. flows. <b>Level of 
+difficulty: (+)</b><br>
+                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2023/04/07/a-dialogue-with-chatgpt-on-stocks-and-flows/
+" target="new">IEooc_Methods1_Reading5</a>
+                        <br>
+                        <br>
+			    
                     </td>
                 </tr>
 
@@ -1217,6 +1224,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <b>Oskar Wood Hansen, </b> helped debug and update the IO-related exercises and workbooks.<br>
 		<b>Martin Hillenbrand, </b> University of Bayreuth, Germany, helped debug and update the dynamic MFA-related exercises and workbooks. <br>
 		<b>Julius Noah Jandl, </b>for spotting and correcting errors in IEooc_Methods3_Software1.<br>
+		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.br>
                 <br>
                 <br>
                 <br>
@@ -1265,6 +1273,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             <br>
 		+ Series of video-lectures on 'Consequential modelling in Life Cycle Inventory analysis' by LCA-NET.com, freely available via their  
 		<a href="https://youtube.com/playlist?list=PLdeMRDEdKW1uf9sr83G9vweym_q7dg44q" target="_blank">Youtube channel</a>.
+            <br>
+            <br>
+	    + Fundamentals of the ecoinvent Database: <a href="https://support.ecoinvent.org/e-learning-fundamentals-database" target="new">An e-learning course</a> that will help you understand how to use the database and to assess the environmental impacts of human activities. The course consists of four modules.
             <br>
             <br>
             + To help you get started with openLCA, GreenDelta provides <a href="https://www.openlca.org/learning/" target="new">free resources, including case studies</a>, for modeling your own LCA study.
