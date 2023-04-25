@@ -20,7 +20,7 @@
 
         .grid-graph { grid-area: graph; }
 
-        h2 { text-align: center; }
+
         h3 { text-align: center; }
 
         hr {
@@ -87,7 +87,7 @@
 <div class="grid-container">
     <div class="grid-circo">
 
-        <h2>CIRCOMOD: circular economy modelling for climate change mitigation</h2>
+        <h2 style="text-align: center;">CIRCOMOD: circular economy modelling for climate change mitigation </h2>
 
         <br>
         <p>A circular economic system that aims to reduce primary material use (in addition to energy efficiency and fuel shifts) can address both Greenhous Gas emissions (GHG)s and increase resource efficiency. However, current GHG mitigation models and scenarios that inform climate policymakers do not generally include circular economy (CE) options. They also do not cover the possible synergies of the CE with other societal goals such as the Sustainable Development Goals (SDGs), nor the challenges involved in rearranging value chains and consumer behaviour.</p>
