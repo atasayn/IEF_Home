@@ -17,6 +17,36 @@
             .col-md-7 p span {
                 color: lightgreen;
             }
+
+            #iframeContainer {
+                width: auto;
+                height: 750px;
+                overflow: hidden;
+                position: relative;
+                background: linear-gradient(-90deg, rgba(0,160,130,1) 30%, rgba(52,74,154,1) 100%);
+                border-style: inset;
+                border-color: #34499a;
+                border-radius: 5px;
+            }
+
+            #iframeDiv {
+                width: auto;
+                height: 715px;
+                overflow: hidden;
+                position: relative;
+                background: linear-gradient(-90deg, rgba(0,160,130,1) 30%, rgba(52,74,154,1) 100%);
+                border-style: inset;
+                border-color: #34499a;
+                border-radius: 5px;
+            }
+
+            #iframeContent {
+                position: absolute;
+                top: -965px;
+                left: -60px;
+                width: 1577px;
+                height: 1778px;
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -92,14 +122,21 @@
 
 
                     </div>
+
                 </div>
             </div>
-
+ 
         </div>
 
-
     </div>
-
+    <div id="iframeDiv" >
+        <a href="https://www.industrialecology.uni-freiburg.de/circomod" target="_blank">
+        <img src="resources/IEF_LogoV_23_3.png" href="https://www.industrialecology.uni-freiburg.de/circomod" width="240px" height="110px">
+        </a>
+        <div id="iframeContainer"  style="width: auto; height: 600px">
+            <iframe id="iframeContent" src="https://www.industrialecology.uni-freiburg.de/circomod" scrolling="no" ></iframe>
+        </div>
+    </div>
     <br />
     <br />
     <br />

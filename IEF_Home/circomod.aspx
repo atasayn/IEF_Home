@@ -56,7 +56,7 @@
         svg:not(:root) {
             width: auto;
             height: auto;
-            transform: scale(0.85) translateX(-100px);
+            transform: scale(0.9) translateX(-150px);
         }
 
         @media screen and (max-width: 768px) {
