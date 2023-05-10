@@ -47,6 +47,18 @@
             width: 100%;
         }
 
+        .chart {
+            height: auto;
+            width: auto;
+        }
+   
+
+        svg:not(:root) {
+            width: auto;
+            height: auto;
+            transform: scale(0.85) translateX(-100px);
+        }
+
         @media screen and (max-width: 768px) {
             .grid-container {
                 display: block;
@@ -77,6 +89,10 @@
             }
         });
 
+        //window.onload = function() {
+        //    document.getelementbyid('chart').innerhtml = '<svg viewbox="0 0 50 50" id="target_svg" xmlns="http://www.w3.org/2000/svg" version="1.1" style="background-color: #ffffff">';
+        //    /*document.getElementById('chart').innerHTML = '<svg viewBox="0 0 50 50" id="target_svg" xmlns="http://www.w3.org/2000/svg" height="750" width="1072" version="1.1" style="background-color: #FFFFFF">';*/
+        //}
 
 
     </script>
@@ -145,6 +161,7 @@
 
 </div>
 <hr/>
+
 <div class="grid-sankey">
     
     <h3>Sankey diagram of material flows (blue) and GHG emissions (blue-green) for different countries, sectors, and CE scenarios</h3>
@@ -290,9 +307,10 @@
     </div>
     <span id="spnOutputMessage" class="label label-danger"></span>
     <div id="div_svg">
-    <p id="chart">
+    <p id="chart" style="height: auto; width: auto;">
         <svg class="img-responsive" id="target_svg" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>
     </p>
     </div>
 </div>
+   
 </asp:Content>

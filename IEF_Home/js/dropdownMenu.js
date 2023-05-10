@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
 
     $('.DDSelectRegSce').click(function (e) {
+       
         var region = $("#DropDownListRegion").val();
         /*var scenario = $("#DropDownListScenario").val();*/
        /* var scenrio = ["LED", "SSP1", "SSP2" ];*/
@@ -83,14 +84,14 @@ function displayGraph(data, region) {
 
 $(document).ready(function () {
     $('.DDSelectSankey').click(function (e) {
-
         var region = $("#DropDownListSankeyRegion").val();
         var scenario = $("#DropDownListSankeyScenario").val();
         var sector = $("#DropDownListSector").val();
         var year = $("#DropDownListYear").val();
         var strategy = $("#DropDownListStrategy").val();
         var material = $("#DropDownListMaterial").val();
- 
+       // document.getElementById('chart').children[0] = '<svg viewbox="0 0 50 50" id="target_svg" xmlns="http://www.w3.org/2000/svg" version="1.1" style="background-color: #ffffff"></svg>';
+      
 
         $.ajax({
             url: "circomodService.svc/Classification_SankeyItem",
@@ -106,7 +107,7 @@ $(document).ready(function () {
                 var flowarea = $("#input_flow_data").val();
                 var text = flowarea;
                 console.log(text);
-
+               
                 text = text.replace("F_a", res.get("query_Fa"));
                 text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
                 text = text.replace("F_c", res.get("query_Fc"));
@@ -114,7 +115,6 @@ $(document).ready(function () {
                 text = text.replace("F_e", res.get("query_Fc"));
                 text = text.replace("F_f", res.get("query_Ff"));
                 text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
-                //text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
                 text = text.replace("F_h", res.get("query_Fh"));
                 text = text.replace("F_i", res.get("query_Fh"));
                 text = text.replace("F_j", res.get("query_Fh"));
@@ -127,7 +127,11 @@ $(document).ready(function () {
  
                 $("#input_flow_data").val(text);
                 console.log(text);
+                
                 process_sankey();
+               // document.querySelector("#target_svg").setAttribute("viewBox", "200 0 1000 1000");
+                document.querySelector("#chart").style["width"] = "auto";
+               // document.querySelector("#target_svg").setAttribute("width","auto");
                 $("#input_flow_data").val(flowarea);
             }
         });
