@@ -123,7 +123,7 @@ namespace IEF_Home
             var queryList = new Dictionary<string, string>
             {
                 ["query_Fa"] = @"SELECT CASE
-                        WHEN d.value > 0 THEN max(d.value)
+                        WHEN d.value IS NOT NULL THEN max(d.value)
                         ELSE 0
                     END AS value, u1.unitcode,u2.unitcode
                     FROM iedc.data d
@@ -139,7 +139,7 @@ namespace IEF_Home
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect4 = 87",
                 ["query_Fn"] = @"SELECT CASE
-                        WHEN d.value > 0 THEN max(d.value)
+                        WHEN d.value IS NOT NULL THEN max(d.value)
                         ELSE 0
                     END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
@@ -155,7 +155,7 @@ namespace IEF_Home
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect3 = 1092",
                 ["query_Fh"] = @"SELECT CASE
-                        WHEN d.value > 0 THEN max(d.value)
+                        WHEN d.value IS NOT NULL THEN max(d.value)
                         ELSE 0
                     END AS value, u1.unitcode,u2.unitcode
                     FROM iedc.data d
@@ -171,7 +171,7 @@ namespace IEF_Home
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect4 = 88",
                 ["query_Fc"] = @"SELECT CASE
-                        WHEN d.value > 0 THEN max(d.value)
+                        WHEN d.value IS NOT NULL THEN max(d.value)
                         ELSE 0
                     END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
@@ -187,7 +187,7 @@ namespace IEF_Home
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect3 = 1182",
                 ["query_Ff"] = @"SELECT CASE
-                        WHEN d.value > 0 THEN max(d.value)
+                        WHEN d.value IS NOT NULL THEN max(d.value)
                         ELSE 0
                     END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
@@ -203,7 +203,7 @@ namespace IEF_Home
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect3 = 1083",
                 ["query_Fk"] = @"SELECT CASE
-                        WHEN d.value > 0 THEN max(d.value)
+                        WHEN d.value IS NOT NULL THEN max(d.value)
                         ELSE 0
                     END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
@@ -218,7 +218,7 @@ namespace IEF_Home
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect4 = 53",
                 ["query_Fl"] = @"SELECT CASE
-                        WHEN d.value > 0 THEN max(d.value)
+                        WHEN d.value IS NOT NULL THEN max(d.value)
                         ELSE 0
                     END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
@@ -233,7 +233,7 @@ namespace IEF_Home
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect4 = 56",
                 ["query_Fm"] = @"SELECT CASE
-                        WHEN d.value > 0 THEN max(d.value)
+                        WHEN d.value IS NOT NULL THEN max(d.value)
                         ELSE 0
                     END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
@@ -251,9 +251,6 @@ namespace IEF_Home
 
 
 
-             //DataTable dt = new DataTable();
-             //dt.Columns.Add("flowname", typeof(string));
-             //dt.Columns.Add("value", typeof(string));
              Dictionary<string, string> result = new Dictionary<string, string>();
 
             foreach (KeyValuePair<string, string> kvp in queryList)
