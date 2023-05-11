@@ -114,7 +114,6 @@ $(document).ready(function () {
                 text = text.replace("F_e", res.get("query_Fc"));
                 text = text.replace("F_f", res.get("query_Ff"));
                 text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
-                //text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
                 text = text.replace("F_h", res.get("query_Fh"));
                 text = text.replace("F_i", res.get("query_Fh"));
                 text = text.replace("F_j", res.get("query_Fh"));

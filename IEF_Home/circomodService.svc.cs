@@ -122,12 +122,15 @@ namespace IEF_Home
         {
             var queryList = new Dictionary<string, string>
             {
-                ["query_Fa"] = @"SELECT d.value, u1.unitcode,u2.unitcode
+                ["query_Fa"] = @"SELECT CASE
+                        WHEN d.value > 0 THEN max(d.value)
+                        ELSE 0
+                    END AS value, u1.unitcode,u2.unitcode
                     FROM iedc.data d
                     LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-                    WHERE d.dataset_id = 306 AND d.value > 0
+                    WHERE d.dataset_id = 306 
                     AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
                     AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
                     AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
@@ -135,12 +138,15 @@ namespace IEF_Home
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect4 = 87",
-                ["query_Fn"] = @"SELECT d.value,u1.unitcode,u2.unitcode
+                ["query_Fn"] = @"SELECT CASE
+                        WHEN d.value > 0 THEN max(d.value)
+                        ELSE 0
+                    END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
                     LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-                    WHERE d.dataset_id = 308 AND d.value > 0
+                    WHERE d.dataset_id = 308 
                     AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
                     AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
@@ -148,12 +154,15 @@ namespace IEF_Home
                     AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect3 = 1092",
-                ["query_Fh"] = @"SELECT d.value, u1.unitcode,u2.unitcode
+                ["query_Fh"] = @"SELECT CASE
+                        WHEN d.value > 0 THEN max(d.value)
+                        ELSE 0
+                    END AS value, u1.unitcode,u2.unitcode
                     FROM iedc.data d
                     LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-                    WHERE d.dataset_id = 306  AND d.value > 0
+                    WHERE d.dataset_id = 306  
                     AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
                     AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
                     AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
@@ -161,12 +170,15 @@ namespace IEF_Home
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect4 = 88",
-                ["query_Fc"] = @"SELECT d.value,u1.unitcode,u2.unitcode
+                ["query_Fc"] = @"SELECT CASE
+                        WHEN d.value > 0 THEN max(d.value)
+                        ELSE 0
+                    END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
                     LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-                    WHERE d.dataset_id = 308 AND d.value> 0
+                    WHERE d.dataset_id = 308 
                     AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
                     AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
@@ -174,12 +186,15 @@ namespace IEF_Home
                     AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect3 = 1182",
-                ["query_Ff"] = @"SELECT d.value,u1.unitcode,u2.unitcode
+                ["query_Ff"] = @"SELECT CASE
+                        WHEN d.value > 0 THEN max(d.value)
+                        ELSE 0
+                    END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
                     LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-                    WHERE d.dataset_id = 308 AND d.value > 0
+                    WHERE d.dataset_id = 308
                     AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
                     AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
@@ -187,36 +202,45 @@ namespace IEF_Home
                     AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect3 = 1083",
-                ["query_Fk"] = @"SELECT d.value,u1.unitcode,u2.unitcode
+                ["query_Fk"] = @"SELECT CASE
+                        WHEN d.value > 0 THEN max(d.value)
+                        ELSE 0
+                    END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
                     LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-                    WHERE d.dataset_id = 307 AND d.value > 0
+                    WHERE d.dataset_id = 307 
                     AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
                     AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
                     AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect4 = 53",
-                ["query_Fl"] = @"SELECT d.value,u1.unitcode,u2.unitcode
+                ["query_Fl"] = @"SELECT CASE
+                        WHEN d.value > 0 THEN max(d.value)
+                        ELSE 0
+                    END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
                     LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-                    WHERE d.dataset_id = 307 AND d.value > 0
+                    WHERE d.dataset_id = 307 
                     AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
                     AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
                     AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
                     AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
                     AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
                     AND d.aspect4 = 56",
-                ["query_Fm"] = @"SELECT d.value,u1.unitcode,u2.unitcode
+                ["query_Fm"] = @"SELECT CASE
+                        WHEN d.value > 0 THEN max(d.value)
+                        ELSE 0
+                    END AS value,u1.unitcode,u2.unitcode
                     FROM iedc.data d
                     LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-                    WHERE d.dataset_id = 307 AND d.value > 0
+                    WHERE d.dataset_id = 307 
                     AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
                     AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
                     AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
