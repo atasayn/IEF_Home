@@ -29,7 +29,6 @@
                 border-radius: 5px;
             }
 
- 
 
             #iframeContent {
                 position: absolute;

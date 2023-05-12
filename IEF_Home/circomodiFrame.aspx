@@ -52,7 +52,10 @@
         height: auto;
         width: auto;
     }
-   
+
+    .label {
+        display: none;
+    }
 
     svg:not(:root) {
         width: auto;
