@@ -52,6 +52,9 @@
             width: auto;
         }
    
+        .label {
+            display: none
+        }
 
         svg:not(:root) {
             width: auto;
@@ -80,8 +83,8 @@
     <script>
 
         $(document).ready(function() {
-            $("#DropDownListYear").append("<option>" + "Please select year" + "</option>");
-
+            $("#DropDownListYear").append("<option value='' disabled selected>" + "Please select year" + "</option>");
+            
             const room = document.querySelector("#DropDownListYear");
 
             for (let i = 2022; i <= 2060; i++) {
@@ -89,7 +92,7 @@
             }
         });
 
-
+        
 
     </script>
 
@@ -161,8 +164,9 @@
     
     <h3>Sankey diagram of material flows (blue) and GHG emissions (blue-green) for different countries, sectors, and CE scenarios</h3>
     <br/>
-    <select id="DropDownListSankeyRegion">
-        <option value="" selected>Please select region</option>
+    <form id="form">
+    <select id="DropDownListSankeyRegion"  required>
+        <option value="" disabled selected>Please select region</option>
         <option value="France">France</option>
         <option value="Germany">Germany</option>
         <option value="Italy">Italy</option>
@@ -191,24 +195,24 @@
     </select>
 
 
-    <select id="DropDownListSankeyScenario">
-        <option value="" selected>Please select scenerio</option>
+    <select id="DropDownListSankeyScenario" required>
+        <option value="" disabled selected>Please select scenerio</option>
         <option value="LED">LED</option>
         <option value="SSP1">SSP1</option>
         <option value="SSP2">SSP2</option>
     </select>
 
-    <select id="DropDownListSector">
-        <option value="" selected>Please select sector</option>
+    <select id="DropDownListSector" required>
+        <option value="" disabled selected>Please select sector</option>
         <option value="Residential building">Residential building</option>
         <option value="Passenger vehicles">Passenger vehicles</option>
     </select>
 
-    <select id="DropDownListYear">
+    <select id="DropDownListYear"  required>
     </select>
 
-    <select id="DropDownListStrategy">
-        <option value="" selected>Please select strategy</option>
+    <select id="DropDownListStrategy"  required>
+        <option value="" disabled selected>Please select strategy</option>
         <option value="Baseline">Baseline</option>
         <option value="HIY">HIY</option>
         <option value="HIY-RLU">HIY-RLU</option>
@@ -221,8 +225,8 @@
     </select>
 
 
-    <select id="DropDownListMaterial">
-        <option value="" selected>Please select material</option>
+    <select id="DropDownListMaterial" required>
+        <option value="" disabled selected>Please select material</option>
         <option value="Cement">Cement</option>
         <option value="Steel">Steel</option>
         <option value="Aluminium ">Aluminium</option>
@@ -232,8 +236,9 @@
 
     </select>
 
-
-    <button type="button" class="DDSelectSankey" >Click me</button>
+  
+    <input type="button" class="DDSelectSankey" value="Click me">
+    </form>  
     <div style="display: none;">
         <input type="hidden" id="txtproject_name" value=""/>
         <input type="hidden" id="background_color" value="#FFFFFF"/>
@@ -254,7 +259,7 @@
         <input type="hidden" id="font_color" value="#000000"/>
         
 
-<textarea id="input_node_data" type="text" rows="8" cols="120" " onclick="process_sankey()" class="form-control">
+<textarea id="input_node_data" type="text" rows="8" cols="120"   class="form-control">
 [Primary Production] [(255,255,255)] [0] [40.00] [51.60] [58] [205]
 [Production/Manufacturing] [(121,121,121)] [0] [30.00] [81.70] [291] [205]
 [Use Phase] [(161,161,161)] [0] [140.00] [86.00] [585] [156]
@@ -276,7 +281,7 @@
 
 </textarea>
 
-    <textarea id="input_flow_data" type="text" rows="8" cols="120"  onchange="process_sankey()" class="form-control">    
+    <textarea id="input_flow_data" type="text" rows="8" cols="120"   class="form-control">    
 [Primary Production]  [F_a]  [(0,191,255)] [ab] [Production/Manufacturing]
 [Production/Manufacturing]  [F_b]  [(0,191,255)] [ab] [Use Phase]
 [Use Phase]  [F_c]  [(0,191,255)] [ab] [Re-use]
@@ -300,7 +305,7 @@
 
      </textarea>
     </div>
-    <span id="spnOutputMessage" class="label label-danger"></span>
+    <span id="spnOutputMessage" class="label label-danger" ></span>
     <div id="div_svg">
     <p id="chart">
         <svg class="img-responsive" id="target_svg" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>

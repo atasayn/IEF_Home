@@ -19,7 +19,7 @@
             }
 
             #iframeContainer {
-                width: auto;
+                width: 1240px;
                 height: 750px;
                 overflow: hidden;
                 position: relative;
@@ -29,24 +29,18 @@
                 border-radius: 5px;
             }
 
-            #iframeDiv {
-                width: auto;
-                height: 715px;
-                overflow: hidden;
-                position: relative;
-                background: linear-gradient(-90deg, rgba(0,160,130,1) 30%, rgba(52,74,154,1) 100%);
-                border-style: inset;
-                border-color: #34499a;
-                border-radius: 5px;
-            }
+ 
 
             #iframeContent {
                 position: absolute;
-                top: -965px;
-                left: -60px;
-                width: 1577px;
-                height: 1778px;
+                top: 111px;
+                left: 0;
+                width: 1240px;
+                height: 640px;
+                background: #ffffff
             }
+
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -130,11 +124,11 @@
 
     </div>
     <div id="iframeDiv" >
-        <a href="https://www.industrialecology.uni-freiburg.de/circomod" target="_blank">
-        <img src="resources/IEF_LogoV_23_3.png" href="https://www.industrialecology.uni-freiburg.de/circomod" width="240px" height="110px">
-        </a>
-        <div id="iframeContainer"  style="width: auto; height: 600px">
-            <iframe id="iframeContent" src="https://www.industrialecology.uni-freiburg.de/circomod" scrolling="no" ></iframe>
+        <div id="iframeContainer" >
+            <a href="https://www.industrialecology.uni-freiburg.de/circomod" target="_blank">
+                <img src="resources/IEF_LogoV_23_3.png" href="https://www.industrialecology.uni-freiburg.de/circomod" width="240px" height="110px">
+            </a>
+            <iframe id="iframeContent" src="https://www.industrialecology.uni-freiburg.de/circomodiFrame" scrolling="no" ></iframe>
         </div>
     </div>
     <br />

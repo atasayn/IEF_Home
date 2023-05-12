@@ -1,9 +1,9 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
 
     $('.DDSelectRegSce').click(function (e) {
         var region = $("#DropDownListRegion").val();
-        /*var scenario = $("#DropDownListScenario").val();*/
-       /* var scenrio = ["LED", "SSP1", "SSP2" ];*/
+        console.log(region);
         $.ajax({
                 type: "POST",
                 url: "circomodService.svc/Classification_ResultItem",
@@ -12,9 +12,9 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
 
+                    if(region!=""){
                     displayGraph(result["d"], region);
-                    
-                   
+                    }
                 }
         });
     });
@@ -83,14 +83,15 @@ function displayGraph(data, region) {
 
 $(document).ready(function () {
     $('.DDSelectSankey').click(function (e) {
-
         var region = $("#DropDownListSankeyRegion").val();
         var scenario = $("#DropDownListSankeyScenario").val();
         var sector = $("#DropDownListSector").val();
         var year = $("#DropDownListYear").val();
         var strategy = $("#DropDownListStrategy").val();
         var material = $("#DropDownListMaterial").val();
- 
+
+        allFields = [region, scenario, sector, year, strategy, material];
+     
 
         $.ajax({
             url: "circomodService.svc/Classification_SankeyItem",
@@ -126,8 +127,11 @@ $(document).ready(function () {
  
                 $("#input_flow_data").val(text);
                 console.log(text);
-                process_sankey();
+                if (allFields.every(element => element !== "")) {
+                    process_sankey();
+                }
                 $("#input_flow_data").val(flowarea);
+             
             }
         });
     });

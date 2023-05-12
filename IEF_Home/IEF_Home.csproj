@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="circomod.aspx" />
+    <Content Include="circomodiFrame.aspx" />
     <Content Include="circomodNewPanel.aspx" />
     <Content Include="circomodService.svc" />
     <Content Include="Content\IEooc_Logo_V2.png" />
@@ -417,6 +418,13 @@
     </Compile>
     <Compile Include="circomod.aspx.designer.cs">
       <DependentUpon>circomod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="circomodiFrame.aspx.cs">
+      <DependentUpon>circomodiFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="circomodiFrame.aspx.designer.cs">
+      <DependentUpon>circomodiFrame.aspx</DependentUpon>
     </Compile>
     <Compile Include="circomodNewPanel.aspx.cs">
       <DependentUpon>circomodNewPanel.aspx</DependentUpon>
