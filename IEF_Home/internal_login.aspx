@@ -17,30 +17,13 @@
             .col-md-7 p span {
                 color: lightgreen;
             }
-
-            #iframeContainer {
-                width: 1240px;
-                height: 750px;
-                overflow: hidden;
-                position: relative;
-                background: linear-gradient(-90deg, rgba(0,160,130,1) 30%, rgba(52,74,154,1) 100%);
-                border-style: inset;
-                border-color: #34499a;
-                border-radius: 5px;
-            }
-
-
-            #iframeContent {
-                position: absolute;
-                top: 111px;
-                left: 0;
-                width: 1240px;
-                height: 640px;
-                background: #ffffff
-            }
-
+  
+     
 
     </style>
+
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.6.2.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="row">
@@ -115,22 +98,29 @@
 
 
                     </div>
-
+                 
                 </div>
             </div>
- 
+            
         </div>
+        <iframe id="iframeContent" src="https://localhost:44346/circomodiFrame.aspx" width="100%" scrolling="no"   ></iframe>
+    </div>
 
-    </div>
-    <div id="iframeDiv" >
-        <div id="iframeContainer" >
-            <a href="https://www.industrialecology.uni-freiburg.de/circomod" target="_blank">
-                <img src="resources/IEF_LogoV_23_3.png" href="https://www.industrialecology.uni-freiburg.de/circomod" width="240px" height="110px">
-            </a>
-            <iframe id="iframeContent" src="https://www.industrialecology.uni-freiburg.de/circomodiFrame" scrolling="no" ></iframe>
-        </div>
-    </div>
     <br />
     <br />
     <br />
+ 
+
+    <script >
+
+        const iframe = document.getElementById("iframeContent");
+        const iframeH = document.getElementById("iframeContainer");
+        iframe.addEventListener("load", function () {
+            this.style.height = (iframe.contentWindow.document.body.scrollHeight) + "px";
+          
+        });
+
+    </script>
+
+
 </asp:Content>

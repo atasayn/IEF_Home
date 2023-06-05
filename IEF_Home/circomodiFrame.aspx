@@ -3,69 +3,38 @@
 <!DOCTYPE html>
 <style>
 
-    .grid-container {
-         grid-template-areas: 'circo circo'
-                              'dropdown graph';
-         grid-auto-columns: auto 400px;
-         gap: 10px;
-         padding: 10px;
-     }
-
-    .grid-circo { grid-area: circo; }
-
-    .grid-dropdown {
-        grid-area: dropdown;
-        padding-top: 2em;
+    .grid-sankey {
+        background: #ffffff;
     }
 
-
-    .grid-graph { grid-area: graph; }
-
-
-    h3 { text-align:left }
-
-    hr {
-        text-align: center;
-        border: none;
-        height: 1px;
-        color: #333;
-        background-color: #333;
-    }
-
-    .DropDownMenu {
-        padding-top: 15px;
-        margin-left: 15px;
-        margin-right: 15px;
+    h3 {
+        text-align: center
     }
 
     svg {
         pointer-events: none;
         user-select: none;
-    }
-
-    .target_svg {
-        height: 100%;
-        width: 100%;
-    }
-
-    .chart {
-        height: auto;
-        width: auto;
+        width: auto
     }
 
     .label {
         display: none;
     }
 
-    svg:not(:root) {
+    #iframeContainer {
+        position: relative;
+        display: block;
+        background: linear-gradient(-90deg, rgba(0,160,130,1) 30%, rgba(52,74,154,1) 100%);
+        border-style: inset;
+        border-color: #34499a;
+        border-radius: 5px;
         width: auto;
         height: auto;
-        transform: scale(0.88) translateX(-76px);
+
     }
 
-  
     @media screen and (max-width: 768px) {
-        .grid-container {
+        #iframeContainer {
             display: block;
         }
     }
@@ -103,6 +72,10 @@
     <title></title>
 </head>
 <body>
+<div id="iframeContainer" >
+    <a href="https://www.industrialecology.uni-freiburg.de/circomod" target="_blank">
+        <img src="resources/IEF_LogoV_23_3.png" href="https://www.industrialecology.uni-freiburg.de/circomod" width="240px" height="110px">
+    </a>
     <form id="form1" runat="server">
         <div class="grid-sankey">
     
@@ -258,6 +231,7 @@
         <div>
         </div>
     </form>
+</div>
 </body>
 </html>
 

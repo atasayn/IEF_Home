@@ -175,7 +175,7 @@
         </div>
 
         <div class="grid-photo">
-            <img class="img-responsive center-block" src="resources/HP_Main_V1.png" height="800px" width="800px" alt="Stacker at open pit lignite mine, Nochten, Germany">
+            <img class="img-responsive center-block" src="resources/Opening_Pic_v2.png" height="800px" width="800px" alt="Stacker at open pit lignite mine, Nochten, Germany">
             <div class="caption">
             </div>
         </div>
