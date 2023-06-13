@@ -22,7 +22,7 @@
 
         .grid-twitter {
             grid-area: twitter;
-            background-color: #CCDFF5;
+            background-color: #34499a;
             padding: 15px;
         }
 
@@ -211,9 +211,9 @@
 
 
 
-            <h4>Links:</h4>
-            <span class="grid-link">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target="_blank">website</a>)</span>
-            <span class="grid-link">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target="_blank">website</a>)</span>
+            <h4 style="color:white">Links:</h4>
+            <span class="grid-link" style="color:white">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target="_blank">website</a>)</span>
+            <span class="grid-link" style="color:white">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target="_blank">website</a>)</span>
 
         </div>
     </div>

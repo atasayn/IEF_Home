@@ -21,7 +21,7 @@
                 <div class="container-fluid">
 
                     <div class="col-md-2">
-                        <img src="/resources/IEF_Logo.png" style="padding-left: 10px;" width="150" height="150" alt="IEF logo">
+                        <img src="/resources/IEF_LogoV_23_3.png" style="padding-left: 0;" width="241" height="111" alt="IEF logo">
                     </div>
 
                     <div class="col-md-8" style="padding-left: 30px; height: 0px;">
@@ -29,8 +29,8 @@
                         <p style="font-size: 16px;">Research group at the Faculty of Environment and Natural Resources</p>
                     </div>
 
-                    <div class="col-md-2">
-                        <img src="/resources/uni_freiburg.png" width="120" height="150" alt="Uni Freiburg logo">
+                    <div class="logo" style="background: white;position: absolute;margin-left: -46px;">
+                        <img src="/resources/uniFreiburg.png"  width="300" alt="Uni Freiburg logo">
                     </div>
                 </div>
             </div>
@@ -64,14 +64,14 @@
         </main>
         <footer>
             <div>
-                <a href="/">Home</a> &#9679;
-                <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a> &#9679;
+                <a href="/">Home</a> 
+                <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a> 
             <!--<a href="research/research">Research</a> &#9679; -->
-                <a href="/odym-recc">ODYM-RECC</a> &#9679;
-                <a href="https://www.database.industrialecology.uni-freiburg.de">Database</a> &#9679;
-                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">Visualisation</a> &#9679;
-                <a href="/internal">Internal</a> &#9679;
-                <a href="/teaching">Teaching</a> &#9679;
+                <a href="/odym-recc">ODYM-RECC</a> 
+                <a href="https://www.database.industrialecology.uni-freiburg.de">Database</a>
+                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">Visualisation</a> 
+                <a href="/internal">Internal</a> 
+                <a href="/teaching">Teaching</a>
                 <a href="/circomod">Circomod</a><br/>
                 <a href="/legal">Legal Notes & Privacy</a>
                 

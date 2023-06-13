@@ -132,6 +132,7 @@
     <Content Include="resources\SysDef_General.png" />
     <Content Include="resources\SysDef_Model_v2_4.png" />
     <Content Include="resources\SystemDef_MaterialStockModelling_Mueller2006.png" />
+    <Content Include="resources\uniFreiburg.png" />
     <Content Include="Site1.Master" />
     <Content Include="main.aspx" />
     <Content Include="Content\IEooc_Application1_Exercise1_Area_Constraints.pdf" />

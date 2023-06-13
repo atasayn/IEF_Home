@@ -24,7 +24,7 @@
 /* Remove the jumbotron's default bottom margin */
 .jumbotron {
     margin-bottom: 0;
-    background-color: #ccdff5;
+    background: linear-gradient(-90deg, rgba(0,160,130,1) 30%, rgba(52,74,154,1) 100%);
 }
 
 /* Add a gray background color and some padding to the footer */
@@ -47,10 +47,12 @@ footer {
 .col-md-3 {
     background-color: #CCDFF5;
     
-} 
+}
 
 footer a {
     text-align: left;
+    padding-left: 15px;
+    margin-top: 5px;
 }
 
 .container {
@@ -62,7 +64,7 @@ footer a {
 }
 
 .navbar-custom {
-    background-color: #229922;
+    background: #34499a;
     color: #ffffff;
     border-radius: 0;
 }
@@ -107,7 +109,7 @@ main {
 
 
 footer {
-    background-color: #ccdff5;
+    background: #34499a;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     font: 14px sans-serif;
@@ -120,7 +122,7 @@ footer {
         display: inline-block;
         line-height: 1.8;
         text-decoration: none;
-        color: inherit;
+        color: #ffffff;
     }
 
     footer div {
@@ -133,6 +135,7 @@ footer {
     footer h3 {
         font: normal 16px 'Cookie', cursive;
         margin: 0;
+        color: #ffffff;
     }
 
         footer h3 span {
