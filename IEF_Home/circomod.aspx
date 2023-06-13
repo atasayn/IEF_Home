@@ -92,8 +92,6 @@
             }
         });
 
-        
-
     </script>
 
 
@@ -164,7 +162,7 @@
     
     <h3>Sankey diagram of material flows (blue) and GHG emissions (blue-green) for different countries, sectors, and CE scenarios</h3>
     <br/>
-    <form id="form">
+
     <select id="DropDownListSankeyRegion"  required>
         <option value="" disabled selected>Please select region</option>
         <option value="France">France</option>
@@ -235,10 +233,12 @@
         <option value="Wood">Wood</option>
 
     </select>
+   
 
-  
     <input type="button" class="DDSelectSankey" value="Click me">
-    </form>  
+    <br/>
+    <span id="errorMsg"  ></span>
+
     <div style="display: none;">
         <input type="hidden" id="txtproject_name" value=""/>
         <input type="hidden" id="background_color" value="#FFFFFF"/>

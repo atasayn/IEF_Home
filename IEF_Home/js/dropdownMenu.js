@@ -82,7 +82,7 @@ function displayGraph(data, region) {
 }
 
 $(document).ready(function () {
-    $('.DDSelectSankey').click(function (e) {
+    $('.DDSelectSankey').click(function(e) {
         var region = $("#DropDownListSankeyRegion").val();
         var scenario = $("#DropDownListSankeyScenario").val();
         var sector = $("#DropDownListSector").val();
@@ -91,7 +91,14 @@ $(document).ready(function () {
         var material = $("#DropDownListMaterial").val();
 
         allFields = [region, scenario, sector, year, strategy, material];
-     
+        if (allFields.includes("")) {
+            var message = document.getElementById("errorMsg");
+            message.textContent = "Select one parameter from each dropdown menu";
+            message.style.color = "#ff6666";
+        } else if (!(allFields.includes(""))) {
+            var message = document.getElementById("errorMsg");
+            message.textContent = "";
+        }
 
         $.ajax({
             url: "circomodService.svc/Classification_SankeyItem",
@@ -131,7 +138,7 @@ $(document).ready(function () {
                     process_sankey();
                 }
                 $("#input_flow_data").val(flowarea);
-             
+         
             }
         });
     });
