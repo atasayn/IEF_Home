@@ -1,8 +1,10 @@
 ﻿body {
-    margin-left: 10%;
-    margin-right: 10%;
+
     font-size: 13px;
     background-color: #f2f2f2;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .jumbotron {
@@ -31,6 +33,21 @@
 footer {
     background-color: #f2f2f2;
     padding: 15px;
+}
+
+.logo {
+    position: relative;
+    max-width: 1500px;
+    width: 100%;
+    text-align: right;
+    right: 0;
+    display: block;
+}
+
+.logo img {
+    display: inline-block;
+    padding-right: 0;
+    background: white;
 }
 
 .col-md-9 {
