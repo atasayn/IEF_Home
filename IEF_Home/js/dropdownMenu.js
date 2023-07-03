@@ -91,6 +91,7 @@ $(document).ready(function () {
         var material = $("#DropDownListMaterial").val();
 
         allFields = [region, scenario, sector, year, strategy, material];
+        console.log(allFields)
         if (allFields.includes("")) {
             var message = document.getElementById("errorMsg");
             message.textContent = "Select one parameter from each dropdown menu";

@@ -154,6 +154,8 @@
 
 
     <button type="button" class="DDSelectSankey" >Click me</button>
+    <br /><span id="errorMsg"  ></span>
+   
     <div style="display: none;">
         <input type="hidden" id="txtproject_name" value=""/>
         <input type="hidden" id="background_color" value="#FFFFFF"/>
@@ -221,6 +223,7 @@
      </textarea>
     </div>
     <span id="spnOutputMessage" class="label label-danger" ></span>
+           
     <div id="div_svg">
     <p id="chart">
         <svg class="img-responsive" id="target_svg" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>
@@ -231,6 +234,7 @@
         <div>
         </div>
     </form>
+
 </div>
 </body>
 </html>
