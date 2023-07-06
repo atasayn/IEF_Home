@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <link href="/css/bootstrap.css" rel="stylesheet" />
     <link href="/css/master.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="/resources/IEF_Logo.png">
+    <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
