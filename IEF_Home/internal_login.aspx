@@ -18,8 +18,6 @@
                 color: lightgreen;
             }
   
-     
-
     </style>
 
     <script src="js/jquery.min.js"></script>
@@ -59,15 +57,14 @@
             <br />
 
         </div>
-
-        <div class="col-md-5">
+     
 
             <div id="loginbox" style="" class="col-md-10 col-md-offset-2 col-sm-8 col-sm-offset-2">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="panel-title">Sign In</div>
                     </div>
-                    <div style="padding-top: 30px" class="panel-body">
+                    <div style="padding-top: 0;" class="panel-body">
                         <div style="display: none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                         <asp:Panel ID="Panel1" runat="server" DefaultButton="btnLogin">
                            
@@ -101,8 +98,7 @@
                  
                 </div>
             </div>
-            
-        </div>
+      
 <%--        <iframe id="iframeContent" src="https://localhost:44346/circomodiFrame.aspx" width="100%" scrolling="no"   ></iframe>--%>
     </div>
 

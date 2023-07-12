@@ -42,7 +42,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="/">Home</a></li>
                             <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
-                      <!--  <li><a href="/research/research">Research</a></li>-->
+                            <!--  <li><a href="/research/research">Research</a></li>-->
                             <li><a href="/odym-recc">Odym-Recc</a></li>
                             <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Database</a></li>
                             <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">Visualisation</a></li>
