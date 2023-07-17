@@ -52,6 +52,10 @@
             <b>RECC resources:</b>
             <br>
             <br>
+            Overview [presentation (pdf)] on the RECC model framework:  <a href="/research/Documents/RECC_Model_Overview_July_2023.pdf" target="_blank">RECC_Model_Overview_July_2023.pdf </a>
+      
+            <br>
+            <br>
             Journal paper on the framework (open access):  <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023" target="_blank">https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023 </a>
             <br>
             <br>

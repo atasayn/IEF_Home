@@ -386,6 +386,7 @@
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
     <None Include="packages.config" />
+    <Content Include="research\Documents\RECC_Model_Overview_July_2023.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
