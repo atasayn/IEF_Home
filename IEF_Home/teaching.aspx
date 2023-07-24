@@ -40,7 +40,7 @@
             The course is built using freely available tools and data wherever possible. For the basic parts of the course a pdf reader, Excel or a similar spreadsheet tool, and access to Youtube are sufficient. The more advanced parts make use of the programming language Python via <a href="https://jupyter.org/" target="new">Jupyter notebooks</a>, and some of the LCA exercises use <a href="http://www.openlca.org" target="new">openLCA</a> in Connection with the <a href="http://www.ecoinvent.org/" target="new">ecoinvent</a> life cycle database. For some exercises reading material that is not generally available is required.
             <br>
             <br>
-            The course consists of a combination of own and external material. I took the liberty of linking to content created by other scholars of the industrial ecology and other communities where appropriate. If you would like to have a link removed, let me know. If you would like to see your own content added, drop a line to stefan.pauliuk[at]indecol.uni-freiburg.de, and I will check whether it fits into the course. The course material will be improved and expanded over the next years, so that the syllabus can grow bit by bit. 
+            The course consists of a combination of own and external material. I linked to content created by other scholars of the industrial ecology and other communities where appropriate. If you would like to have a link added or removed, let me know. If you would like to see your own content added, drop a line to stefan.pauliuk[at]indecol.uni-freiburg.de, and I will check whether it fits into the course. The course material will be improved and expanded over the next years, so that the syllabus can grow bit by bit. 
             <br>
             <br>
             Most of the material is made available under a Creative Commons Licence. It can be used in own teaching, modified and expanded. The slide material is available upon request.
@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: April 14th, 2023.</h4>
+                <h4>Last update: July 24th, 2023.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -96,7 +96,7 @@
     <div class="row">
         <div class="col-md-12">
 
-		<b>Teaser: A new textbook for the field "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, will appear later this year.</b>
+		<b>Teaser: A new textbook for our field, "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, will appear in August 2023. Pre-ordering is already possible <a href="https://www.barnesandnoble.com/w/industrial-ecology-and-sustainability-thomas-e-graedel/1143430696" target="new">here</a>.</b>
             <br>
             <br>
         </div>
