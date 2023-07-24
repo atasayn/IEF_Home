@@ -156,21 +156,20 @@
         <div class="grid-main">
             <h3>Welcome to the research portal of Industrial Ecology Freiburg (IEF)!</h3>
             <p>
-                We are the group for sustainable energy and material flow management (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment and Natural Resources.
+                We are the research group for sustainable energy and material flow management (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment and Natural Resources.
                 <br>
                 <br>
-                We study the global and future consequences of sustainable development strategies, including renewable energy, material efficiency, biomass use, and many more.
+                We study the link between human development and material and energy use and estimate the environmental impacts of material production and energy supply. 
                 <br>
-                We quantify the material and energy basis of our society to assist evidence-based policy development.
+                We use material cycle and scenario models to quantify the impact on energy and material demand of different resource efficiency strategies (circular economy), different urban forms, different levels of societal inequality, and of sufficiency strategies. 
                 <br>
-                We contribute to the development of methodology for the sustainability assessment of products and lifestyles.
-                <br>
-                <br>
-                On these pages, we blog about our research and the projects we are involved in, host a database with our research results, share teaching material, and provide visualisation tools.
-
+                With our research, we help identify the most effective policy levers for decoupling human wellbeing from resource use and environmental destruction.
                 <br>
                 <br>
-                You can find out more about our group on our <a href="http://www.indecol.uni-freiburg.de/en" target="_blank">official homepage</a>
+                On these pages, we blog about our research and the projects we are involved in, host a database with our research results, share model information and teaching material, and provide visualisation tools.
+                <br>
+                <br>
+                You can find out more about our group, our research approach, and our teaching on our <a href="http://www.indecol.uni-freiburg.de/en" target="_blank">official homepage</a>
             </p>
         </div>
 

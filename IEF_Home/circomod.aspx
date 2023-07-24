@@ -100,64 +100,42 @@
 <div class="grid-container">
     <div class="grid-circo">
 
+        <h2 style="text-align: center;">Circular Economy – Vision for Sustainable Material Cycles </h2>
+
+        <br>
+        <p>The use of biomass, metal ores, and construction minerals is a major driver of environmental destruction and climate impacts of material production. The circular economy is a vision for reducing material use by designing out waste and pollution, keeping products and materials in use for as long as possible, and maximising the recycling of materials and thus contribute to the reduction of environmental impacts of industrial production. The circular economy seeks to create a closed-loop system of production and consumption, where resources are used, reused, and regenerated, and the generation of waste and environmental impacts is minimized. </p>
+        <br>
+        <p>In practice, there are many circular economy strategies to narrow (less material use), slow (longer material use), and close (better recycling) technical material cycles. These strategies include product light-weighting, longevity, and demountability by design, higher yields in fabrication, scrap recovery, and recycling, as well as more efficient use of products.</p>
+        <br>
+        <p>In industrial ecology, we see the circular economy as the central vision for the sustainable use of natural resources and a main driver for the sustainability transformation of the industrial system. At the same time, there is a lot of hot air around the circular economy. Scientific scrutiny is needed to understand which products, business models, incentives, and regulations will effectively decouple human wellbeing from resource use. Industrial ecology research offers a number of important tools, including material flow analysis, life cycle assessment, and scenario modelling of production and consumption, to find out which of the many circular economy strategies are the most promising ones, to estimate their resource savings potential and their economic costs/gains, and to understand how different strategies can be combined effectively to reach multiple sustainable development goals.</p>
+        <br>
+        <p> Check our blog entries on the topic:</p>
+        <p>How will a sustainable circular economy look like? <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2023/06/01/how-will-a-sustainable-circular-economy-look-like/" target="_blank"> https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/12/15/the-circular-economy-breakthrough-or-distraction/ </a></p>
+
+        <p>The Circular Economy: Breakthrough or Distraction?<a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/12/15/the-circular-economy-breakthrough-or-distraction/" target="_blank">https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/12/15/the-circular-economy-breakthrough-or-distraction/</a></p>
+
+        <p>Wanted: Lead Indicators for the Circular Economy in Organizations<a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/10/22/wanted-lead-indicators-for-the-circular-economy-in-organizations/" target="_blank">https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/10/22/wanted-lead-indicators-for-the-circular-economy-in-organizations/</a></p>
+
+        <p>Growth of in-use stocks: Central obstacle to closing material cycles<a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/11/13/growth-of-in-use-stocks-central-obstacle-to-closing-material-cycles/" target="_blank">https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/11/13/growth-of-in-use-stocks-central-obstacle-to-closing-material-cycles/</a></p>
+
+        <p>The lifetime of materials in the techno-sphere<a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/10/29/the-lifetime-of-materials-in-the-technosphere/" target="_blank">https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/10/29/the-lifetime-of-materials-in-the-technosphere/</a></p>
+        <br>
+        <p>A circular economic system that reduces material extraction can also reduce GHG emissions from carbon-intensive material production. To understand the climate, policy, and business implications of circular economy and the energy transition combined, an inter-disciplinary scientific assessment is necessary. However, current GHG mitigation models and scenarios that inform climate policymakers do not generally include circular economy (CE) options. They also do not cover the possible synergies of the CE with other societal goals such as the Sustainable Development Goals (SDGs), nor the challenges involved in rearranging value chains and consumer behaviour.</p>
+        <br>
         <h2 style="text-align: center;">CIRCOMOD: circular economy modelling for climate change mitigation </h2>
-
         <br>
-        <p>A circular economic system that aims to reduce primary material use (in addition to energy efficiency and fuel shifts) can address both Greenhous Gas emissions (GHG)s and increase resource efficiency. However, current GHG mitigation models and scenarios that inform climate policymakers do not generally include circular economy (CE) options. They also do not cover the possible synergies of the CE with other societal goals such as the Sustainable Development Goals (SDGs), nor the challenges involved in rearranging value chains and consumer behaviour.</p>
+        <p>The EU-funded project CIRCOMOD (circular economy modelling for climate change mitigation) is the main funding source and research platform for our current circular economy modelling activities. In CIRCOMOD, we develop a new generation of advanced models and scenarios that will assess how CE can reduce future GHGs and material use. The project brings together a unique consortium of leading research teams from different disciplines, including industrial ecology and material flow modelling, process-oriented integrated assessment modelling, and macro-economic modelling. It aims for a breakthrough in integrating CE and GHG mitigation assessments and will provide input to international assessments such as the Intergovernmental Panel on Climate Change (IPCC) and the International Resource Panel (IRP). See the project’s homepage <a href="https://circomod.eu/" target="_blank">[https://circomod.eu/]</a> for details!</p>
         <br>
-        <p>CIRCOMOD addresses these challenges by developing a new generation of advanced models and scenarios that will assess how CE can reduce future GHGs and material use. The project brings together a unique consortium of leading research teams from different disciplines, including industrial ecology and material flow modelling, process-oriented integrated assessment modelling, and macro-economic modelling. It aims for a breakthrough in integrating CE and GHG mitigation assessments by a) developing an analytical framework that maps circular economy strategies to existing influential climate scenarios; b) providing robust and timely CE data in an open repository; and c) improving the representation of the CE in leading models used by European and global institutions, while strengthening links between the models. It will provide input to international assessments such as the Intergovernmental Panel on Climate Change (IPCC) and the International Resource Panel (IRP).</p>
+        <h2 style="text-align: center;">Visualising the circular economy </h2>
         <br>
-        <p>The EU research fund Horizon Europe has awarded 5 million euros to the project. The consortium consists of twelve partners from different EU countries.<a href="https://circomod.eu/ " target="_blank">See the project’s homepage</a> </p>
-        
-        <br>
-        <p>
-            Here, we will show different visualization options for circular economy profiles for materials, products, and regions.
-
-        </p>
+         Here, we show and test different visualization options for our circular economy scenarios.
         <hr/>
+
+
         <i>
-            <b>Browse the results from the project’s database (prototype, under development)</b>
+            <b>Browse the results of our circular economy and climate impact assessment of different global development scenarios (Pauliuk et al. 2021) <a href="https://doi.org/10.1038/s41467-021-25300-4" target="_blank">[https://doi.org/10.1038/s41467-021-25300-4]</a> </b>
         </i>
-        <h3>Service level by country and scenario for passenger vehicle transportation</h3>
-    </div>
-
-    <div class="grid-dropdown">
-
-        <select id="DropDownListRegion">
-            <option value="" selected>Please select region</option>
-            <option value="France">France</option>
-            <option value="Germany">Germany</option>
-            <option value="Italy">Italy</option>
-            <option value="Poland">Poland</option>
-            <option value="Spain">Spain</option>
-            <option value="UK">UK</option>
-            <option value="Oth_R32EU15">Oth_R32EU15</option>
-            <option value="Oth_R32EU12-H">Oth_R32EU12-H</option>
-            <option value="R32EU12-M">R32EU12-M</option>
-            <option value="R32CAN">R32CAN</option>
-            <option value="R32CHN">R32CHN</option>
-            <option value="R32IND">R32IND</option>
-            <option value="R32JPN">R32JPN</option>
-            <option value="R32USA">R32USA</option>
-            <option value="R5.2OECD_Other">R5.2OECD_Other</option>
-            <option value="R5.2REF_Other">R5.2REF_Other</option>
-            <option value="R5.2ASIA_Other">R5.2ASIA_Other</option>
-            <option value="R5.2MNF_Other">R5.2MNF_Other</option>
-            <option value="R5.2SSA_Other">R5.2SSA_Other</option>
-            <option value="R5.2LAM_Other">R5.2LAM_Other</option>
-            <option value="EU28">EU28</option>
-            <option value="G7">G7</option>
-            <option value="Global_South">Global_South</option>
-            <option value="Global_North">Global_North</option>
-            <option value="Global">Global</option>
-        </select>
-        <button type="button" class="DDSelectRegSce">Click me</button>
-
-    </div>
-    <canvas id="line-chart"></canvas>
-
-</div>
-<hr/>
+      
 <div class="grid-sankey">
     
     <h3>Sankey diagram of material flows (blue) and GHG emissions (blue-green) for different countries, sectors, and CE scenarios</h3>
@@ -312,4 +290,45 @@
     </p>
     </div>
 </div>
+        <hr/>
+          <h3>Service level by country and scenario for passenger vehicle transportation</h3>
+    </div>
+
+    <div class="grid-dropdown">
+
+        <select id="DropDownListRegion">
+            <option value="" selected>Please select region</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Italy">Italy</option>
+            <option value="Poland">Poland</option>
+            <option value="Spain">Spain</option>
+            <option value="UK">UK</option>
+            <option value="Oth_R32EU15">Oth_R32EU15</option>
+            <option value="Oth_R32EU12-H">Oth_R32EU12-H</option>
+            <option value="R32EU12-M">R32EU12-M</option>
+            <option value="R32CAN">R32CAN</option>
+            <option value="R32CHN">R32CHN</option>
+            <option value="R32IND">R32IND</option>
+            <option value="R32JPN">R32JPN</option>
+            <option value="R32USA">R32USA</option>
+            <option value="R5.2OECD_Other">R5.2OECD_Other</option>
+            <option value="R5.2REF_Other">R5.2REF_Other</option>
+            <option value="R5.2ASIA_Other">R5.2ASIA_Other</option>
+            <option value="R5.2MNF_Other">R5.2MNF_Other</option>
+            <option value="R5.2SSA_Other">R5.2SSA_Other</option>
+            <option value="R5.2LAM_Other">R5.2LAM_Other</option>
+            <option value="EU28">EU28</option>
+            <option value="G7">G7</option>
+            <option value="Global_South">Global_South</option>
+            <option value="Global_North">Global_North</option>
+            <option value="Global">Global</option>
+        </select>
+        <button type="button" class="DDSelectRegSce">Click me</button>
+
+    </div>
+    <canvas id="line-chart"></canvas>
+
+</div>
+
 </asp:Content>
