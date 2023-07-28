@@ -107,10 +107,12 @@
     <Content Include="css\master.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
+    <Content Include="iedc.aspx" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
     <Content Include="js\chart.min.js" />
     <Content Include="js\dropdownMenu.js" />
+    <Content Include="js\iedcAdvancedData.js" />
     <Content Include="js\jquery-1.6.2.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
     <Content Include="js\jquery.min.js" />
@@ -443,6 +445,13 @@
     <Compile Include="cls\clsCommon.cs" />
     <Compile Include="cls\DbConnect.cs" />
     <Compile Include="cls\Hash.cs" />
+    <Compile Include="iedc.aspx.cs">
+      <DependentUpon>iedc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iedc.aspx.designer.cs">
+      <DependentUpon>iedc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="internal.aspx.cs">
       <DependentUpon>internal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

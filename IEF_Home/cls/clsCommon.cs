@@ -10,33 +10,7 @@ namespace IEF_Home.cls
     public class clsCommon
     {
         DbConnect cn = new DbConnect();
-
-
-        /*public bool checkLogin(string userName, string password)
-        {
-            bool status = false;
-            string query = "SELECT * FROM login_internal where user_name= @userName AND password= @password ";
-
-
-            if (cn.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, cn.Connection);
-                cmd.Parameters.AddWithValue("@username", userName);
-                cmd.Parameters.AddWithValue("@password", Hash.HashString(password));
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    status = true;
-                }
-
-                reader.Close();
-                cn.CloseConnection();
-            }
-
-            return status;
-        }*/
-        
+ 
         public bool checkLogin(string userName, string password)
         {
             var type = this.user_type(userName, password);
@@ -69,6 +43,8 @@ namespace IEF_Home.cls
             return user_type;
             
         }
+
+       
      
     }
 
