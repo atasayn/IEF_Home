@@ -434,6 +434,87 @@ namespace IEF_Home
             return selectedStrategyId;
         }
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+           ResponseFormat = WebMessageFormat.Json)]
+
+        public List<string> iedcDatatype()
+        {
+            
+            var output = new List<string>();
+            var query = "SELECT * FROM iedc.types";
+
+            if (!cn.OpenConnection()) return null;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string name = reader["name"].ToString();
+                string reference = reader["reference_data_category"].ToString();
+                string symbol = reader["symbol"].ToString();
+                output.Add(name + " (" + string.Join("_", reference, symbol) + ")");
+            }
+            reader.Close();
+            cn.CloseConnection();
+            //System.Diagnostics.Debug.WriteLine(string.Join(", ", output));
+            return output;
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+           ResponseFormat = WebMessageFormat.Json)]
+        public List<string> iedcDatatypeID(string userInput)
+        {
+            
+            var dataset = new List<string>(); ;
+            var query = "SELECT dataset_name FROM iedc.datasets WHERE data_type = @userInput ";
+
+            if (!cn.OpenConnection()) return null;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@userInput", userInput);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+               string tempSet = reader["dataset_name"].ToString();
+               dataset.Add(tempSet);
+                
+            }
+            reader.Close();
+            cn.CloseConnection();
+
+            //System.Diagnostics.Debug.WriteLine(string.Join(", ", output));
+            return dataset;
+
+        }
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+           ResponseFormat = WebMessageFormat.Json)]
+        public List<string> iedcDatatypeAspects(string id)
+        {
+
+            var aspects = new List<string>();
+            var query = "SELECT aspect_1, aspect_2, aspect_3, aspect_4, aspect_5, aspect_6, " +
+                "aspect_7, aspect_8, aspect_9, aspect_10, aspect_11, aspect_12, aspect_1_classification, " +
+                "aspect_2_classification, aspect_3_classification, aspect_4_classification, aspect_5_classification, " +
+                "aspect_6_classification, aspect_7_classification, aspect_8_classification, aspect_9_classification," +
+                " aspect_10_classification, aspect_11_classification, aspect_12_classification FROM datasets WHERE id = @id ";
+
+            if (!cn.OpenConnection()) return null;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            var reader = cmd.ExecuteReader();
+            cmd.Parameters.AddWithValue("@id",id);
+            while (reader.Read())
+            {
+                aspects.Add( reader.ToString());
+
+            }
+            reader.Close();
+            cn.CloseConnection();
+
+            //System.Diagnostics.Debug.WriteLine(string.Join(", ", aspects));
+            return aspects;
+
+        }
     }
 }
 
