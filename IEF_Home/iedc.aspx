@@ -7,6 +7,7 @@
 
 
     <style>
+
         .grid-container {
             padding: 20px;
             display: grid;
@@ -28,10 +29,21 @@
             font-size: 14px;
             padding-top: 5px;
         }
+        
 
         .grid-item-data {
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: minmax(auto, 30%) 1fr;
             display: grid;
+
+        }
+
+ 
+
+        .grid-item-dataset {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            display: grid;
+            gap: 10px;
+           
         }
 
         td:hover {
@@ -40,23 +52,28 @@
             cursor: pointer
         }
 
+        .active{
+            background-color: #ffc000;
+        }
+
+        #aspects td, #aspectsClass1 td, #aspectsClass2 td, #aspectsClass3 td {
+           width:30%
+        }
+
         th {
             padding: 5px;
             background: #0f8ca7;
-            text-align:center;
+            text-align: center;
         }
 
-        #data-type, #datasets {
-            border: 1px solid #0f8ca7;
+        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3 {
+            /*border: 1px solid #0f8ca7;*/
             border-radius: 10px;
             border-collapse: separate;
             overflow: hidden;
+            max-height: 400px;
         }
 
-            #aspects th {
-                border: 1px solid #000000;
-                overflow: hidden;
-            }
 
         tbody {
             display: block;
@@ -67,7 +84,38 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+
+
     </style>
+
+    <script>
+        $(function () {
+            $('#data-type').on('click', 'td', function (e) {
+
+                // Add active class to current td target 
+                $('#data-type td').removeClass('active');
+
+                $(this).addClass('active');
+
+
+            });
+        })
+            var clickNo = 0
+
+        $(function () {
+            $('#aspects').on('click', 'td', function () {
+
+              
+                $(this).addClass('active');
+                clickNo = clickNo + 1;
+                if (clickNo == 4) {
+                    $('#aspects td').removeClass('active');
+                    clickNo = 0;
+                }
+            });
+        })
+      
+    </script>
 
 </asp:Content>
 
@@ -107,14 +155,17 @@
             </div>
 
             <div class="grid-item-dataset">
-                <table id="datasets">
-                </table>
-            </div>
-
-            <div class="grid-item-aspects">
                 <table id="aspects">
                 </table>
+                   <table id="aspectsClass1">
+                </table>
+                <table id="aspectsClass2">
+                </table>
+                <table id="aspectsClass3">
+                </table>
+
             </div>
+
 
         </div>
 
