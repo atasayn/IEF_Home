@@ -1,13 +1,19 @@
 ﻿using IEF_Home.cls;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using System.Text.Json.Serialization;
+using System.Web.UI.WebControls;
 using System.Xml;
 
 namespace IEF_Home
@@ -23,29 +29,29 @@ namespace IEF_Home
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
 
-        public string Classification_RegionItem(string selectedRegion)
+        public string Classification_RegionItem(string SELECTedRegion)
         {
 
-            var selectedRegionId = "";
+            var SELECTedRegionId = "";
             var query =
-                "SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion";
+                "SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion";
             if (cn.OpenConnection() == true)
             {
                 var cmd = new MySqlCommand(query, cn.Connection);
-                //cmd.Parameters.AddWithValue("@SelectedRegion", selecetedRegion);
-                cmd.Parameters.AddWithValue("@SelectedRegion", selectedRegion);
+                //cmd.Parameters.AddWithValue("@SELECTedRegion", selecetedRegion);
+                cmd.Parameters.AddWithValue("@SELECTedRegion", SELECTedRegion);
                 var reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    selectedRegionId = reader["id"].ToString();
+                    SELECTedRegionId = reader["id"].ToString();
                 }
 
                 reader.Close();
                 cn.CloseConnection();
             }
 
-            return selectedRegionId;
+            return SELECTedRegionId;
         }
 
         [OperationContract]
@@ -54,13 +60,13 @@ namespace IEF_Home
 
         public string Classification_ScenerioItem(string selecetedScenario)
         {
-            var selectedScenarioId = "";
+            var SELECTedScenarioId = "";
             var query =
-                "SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario";
+                "SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario";
             if (cn.OpenConnection() == true)
             {
                 var cmd = new MySqlCommand(query, cn.Connection);
-                cmd.Parameters.AddWithValue("@SelectedScenario", selecetedScenario);
+                cmd.Parameters.AddWithValue("@SELECTedScenario", selecetedScenario);
                 var reader = cmd.ExecuteReader();
 
 
@@ -68,7 +74,7 @@ namespace IEF_Home
                 while (reader.Read())
                 {
 
-                    selectedScenarioId = reader["id"].ToString();
+                    SELECTedScenarioId = reader["id"].ToString();
                 }
 
 
@@ -78,18 +84,18 @@ namespace IEF_Home
 
             }
 
-            return selectedScenarioId;
+            return SELECTedScenarioId;
         }
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
 
-        public List<List<string>> Classification_ResultItem(string selectedRegion)
+        public List<List<string>> Classification_ResultItem(string SELECTedRegion)
         {
 
             var output = new List<List<string>>();
             if (!cn.OpenConnection()) return null;
-            foreach (var selectedScenario in new List<string> { "LED", "SSP1", "SSP2" })
+            foreach (var SELECTedScenario in new List<string> { "LED", "SSP1", "SSP2" })
             {
                 var scenarioArray = new List<string>();
                 const string query = @"SELECT d.value
@@ -99,12 +105,12 @@ namespace IEF_Home
             LEFT JOIN iedc.classification_items ci4 ON d.aspect4 = ci4.id
             INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
             WHERE d.dataset_id = 304
-            AND d.aspect5 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-            AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)";
+            AND d.aspect5 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+            AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)";
                 var cmd = new MySqlCommand(query, cn.Connection);
 
-                cmd.Parameters.AddWithValue("@SelectedScenario", selectedScenario);
-                cmd.Parameters.AddWithValue("@SelectedRegion", selectedRegion);
+                cmd.Parameters.AddWithValue("@SELECTedScenario", SELECTedScenario);
+                cmd.Parameters.AddWithValue("@SELECTedRegion", SELECTedRegion);
 
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -121,7 +127,7 @@ namespace IEF_Home
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public  Dictionary<string, string> Classification_SankeyItem(string selectedRegion, string selectedScenario, string selectedMaterial, string selectedStrategy, string selectedYear, string selectedSector, string selectedFlow)
+        public  Dictionary<string, string> Classification_SankeyItem(string SELECTedRegion, string SELECTedScenario, string SELECTedMaterial, string SELECTedStrategy, string SELECTedYear, string SELECTedSector, string SELECTedFlow)
         {
             var queryList = new Dictionary<string, string>
             {
@@ -134,12 +140,12 @@ namespace IEF_Home
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
                     WHERE d.dataset_id = 306 
-                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
-                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
-                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
-                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
-                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
+                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)
+                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SELECTedMaterial)
+                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector)
+                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear)
+                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy)
                     AND d.aspect4 = 87",
                 ["query_Fn"] = @"SELECT CASE
                         WHEN d.value IS NOT NULL THEN max(d.value)
@@ -150,12 +156,12 @@ namespace IEF_Home
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
                     WHERE d.dataset_id = 308 
-                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
-                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
-                    AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
-                    AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
-                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
+                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)
+                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SELECTedMaterial)
+                    AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector)
+                    AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear)
+                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy)
                     AND d.aspect3 = 1092",
                 ["query_Fh"] = @"SELECT CASE
                         WHEN d.value IS NOT NULL THEN max(d.value)
@@ -166,12 +172,12 @@ namespace IEF_Home
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
                     WHERE d.dataset_id = 306  
-                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
-                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
-                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
-                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
-                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
+                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)
+                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SELECTedMaterial)
+                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector)
+                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear)
+                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy)
                     AND d.aspect4 = 88",
                 ["query_Fc"] = @"SELECT CASE
                         WHEN d.value IS NOT NULL THEN max(d.value)
@@ -182,12 +188,12 @@ namespace IEF_Home
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
                     WHERE d.dataset_id = 308 
-                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
-                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
-                    AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
-                    AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
-                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
+                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)
+                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SELECTedMaterial)
+                    AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector)
+                    AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear)
+                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy)
                     AND d.aspect3 = 1182",
                 ["query_Ff"] = @"SELECT CASE
                         WHEN d.value IS NOT NULL THEN max(d.value)
@@ -198,12 +204,12 @@ namespace IEF_Home
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
                     WHERE d.dataset_id = 308
-                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
-                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial)
-                    AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
-                    AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
-                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
+                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)
+                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+                    AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SELECTedMaterial)
+                    AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector)
+                    AND d.aspect9 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear)
+                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy)
                     AND d.aspect3 = 1083",
                 ["query_Fk"] = @"SELECT CASE
                         WHEN d.value IS NOT NULL THEN max(d.value)
@@ -214,11 +220,11 @@ namespace IEF_Home
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
                     WHERE d.dataset_id = 307 
-                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
-                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
-                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
-                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
+                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)
+                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector)
+                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear)
+                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy)
                     AND d.aspect4 = 53",
                 ["query_Fl"] = @"SELECT CASE
                         WHEN d.value IS NOT NULL THEN max(d.value)
@@ -229,11 +235,11 @@ namespace IEF_Home
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
                     WHERE d.dataset_id = 307 
-                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
-                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
-                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
-                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
+                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)
+                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector)
+                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear)
+                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy)
                     AND d.aspect4 = 56",
                 ["query_Fm"] = @"SELECT CASE
                         WHEN d.value IS NOT NULL THEN max(d.value)
@@ -244,11 +250,11 @@ namespace IEF_Home
                     LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
                     INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
                     WHERE d.dataset_id = 307 
-                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SelectedRegion)
-                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SelectedScenario)
-                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector)
-                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear)
-                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy)
+                    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)
+                    AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+                    AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector)
+                    AND d.aspect8 = (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear)
+                    AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy)
                     AND d.aspect4 = 55"
             };
 
@@ -266,12 +272,12 @@ namespace IEF_Home
                     if (!cn.OpenConnection()) return null;
                     var cmd = new MySqlCommand(query, cn.Connection);
 
-                    cmd.Parameters.AddWithValue("@SelectedScenario", selectedScenario);
-                    cmd.Parameters.AddWithValue("@SelectedRegion", selectedRegion);
-                    cmd.Parameters.AddWithValue("@SelectedMaterial", selectedMaterial);
-                    cmd.Parameters.AddWithValue("@SelectedSector", selectedSector);
-                    cmd.Parameters.AddWithValue("@SelectedYear", selectedYear);
-                    cmd.Parameters.AddWithValue("@SelectedStrategy", selectedStrategy);
+                    cmd.Parameters.AddWithValue("@SELECTedScenario", SELECTedScenario);
+                    cmd.Parameters.AddWithValue("@SELECTedRegion", SELECTedRegion);
+                    cmd.Parameters.AddWithValue("@SELECTedMaterial", SELECTedMaterial);
+                    cmd.Parameters.AddWithValue("@SELECTedSector", SELECTedSector);
+                    cmd.Parameters.AddWithValue("@SELECTedYear", SELECTedYear);
+                    cmd.Parameters.AddWithValue("@SELECTedStrategy", SELECTedStrategy);
 
 
                     var reader = cmd.ExecuteReader();
@@ -305,15 +311,15 @@ namespace IEF_Home
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
-        public string Classification_SectorItem(string selectedSector)
+        public string Classification_SectorItem(string SELECTedSector)
         {
-            var selectedSectorId = "";
+            var SELECTedSectorId = "";
             var query =
-                "SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SelectedSector";
+                "SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @SELECTedSector";
             if (cn.OpenConnection() == true)
             {
                 var cmd = new MySqlCommand(query, cn.Connection);
-                cmd.Parameters.AddWithValue("@SelectedSector", selectedSector);
+                cmd.Parameters.AddWithValue("@SELECTedSector", SELECTedSector);
                 var reader = cmd.ExecuteReader();
 
 
@@ -321,7 +327,7 @@ namespace IEF_Home
                 while (reader.Read())
                 {
 
-                    selectedSectorId = reader["id"].ToString();
+                    SELECTedSectorId = reader["id"].ToString();
                 }
 
 
@@ -331,21 +337,21 @@ namespace IEF_Home
 
             }
 
-            return selectedSectorId;
+            return SELECTedSectorId;
         }
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
-        public string Classification_MaterialItem(string selectedMaterial)
+        public string Classification_MaterialItem(string SELECTedMaterial)
         {
-            var selectedMaterialId = "";
+            var SELECTedMaterialId = "";
             var query =
-                "SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SelectedMaterial";
+                "SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @SELECTedMaterial";
             if (cn.OpenConnection() == true)
             {
                 var cmd = new MySqlCommand(query, cn.Connection);
-                cmd.Parameters.AddWithValue("@SelectedMaterial", selectedMaterial);
+                cmd.Parameters.AddWithValue("@SELECTedMaterial", SELECTedMaterial);
                 var reader = cmd.ExecuteReader();
 
 
@@ -353,7 +359,7 @@ namespace IEF_Home
                 while (reader.Read())
                 {
 
-                    selectedMaterialId = reader["id"].ToString();
+                    SELECTedMaterialId = reader["id"].ToString();
                 }
 
 
@@ -363,22 +369,22 @@ namespace IEF_Home
 
             }
 
-            return selectedMaterialId;
+            return SELECTedMaterialId;
         }
 
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
-        public string Classification_YearItem(string selectedYear)
+        public string Classification_YearItem(string SELECTedYear)
         {
-            var selectedYearId = "";
+            var SELECTedYearId = "";
             var query =
-                "SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SelectedYear";
+                "SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = @SELECTedYear";
             if (cn.OpenConnection() == true)
             {
                 var cmd = new MySqlCommand(query, cn.Connection);
-                cmd.Parameters.AddWithValue("@SelectedYear", selectedYear);
+                cmd.Parameters.AddWithValue("@SELECTedYear", SELECTedYear);
                 var reader = cmd.ExecuteReader();
 
 
@@ -386,7 +392,7 @@ namespace IEF_Home
                 while (reader.Read())
                 {
 
-                    selectedYearId = reader["id"].ToString();
+                    SELECTedYearId = reader["id"].ToString();
                 }
 
 
@@ -396,21 +402,21 @@ namespace IEF_Home
 
             }
 
-            return selectedYearId;
+            return SELECTedYearId;
         }
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
-        public string Classification_StrategyItem(string selectedStrategy)
+        public string Classification_StrategyItem(string SELECTedStrategy)
         {
-            var selectedStrategyId = "";
+            var SELECTedStrategyId = "";
             var query =
-                "SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SelectedStrategy";
+                "SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @SELECTedStrategy";
             if (cn.OpenConnection() == true)
             {
                 var cmd = new MySqlCommand(query, cn.Connection);
-                cmd.Parameters.AddWithValue("@SelectedStrategy", selectedStrategy);
+                cmd.Parameters.AddWithValue("@SELECTedStrategy", SELECTedStrategy);
                 var reader = cmd.ExecuteReader();
 
 
@@ -418,7 +424,7 @@ namespace IEF_Home
                 while (reader.Read())
                 {
 
-                    selectedStrategyId = reader["id"].ToString();
+                    SELECTedStrategyId = reader["id"].ToString();
                 }
 
                 reader.Close();
@@ -427,7 +433,7 @@ namespace IEF_Home
 
             }
 
-            return selectedStrategyId;
+            return SELECTedStrategyId;
         }
 
         [OperationContract]
@@ -459,33 +465,33 @@ namespace IEF_Home
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
           ResponseFormat = WebMessageFormat.Json)]
-        public List<string> iedcDatatypesIdNumbers(string userSelect)
+        public List<string> iedcDatatypesIdNumbers(string userSELECT)
         {
 
             List<string> IdNumbers = new List<string>();
 
 
-            var query = "SELECT id FROM iedc.datasets WHERE data_type = @userSelect";
+            var query = "SELECT id FROM iedc.datasets WHERE data_type = @userSELECT";
 
 
             if (!cn.OpenConnection()) return null;
             var cmd = new MySqlCommand(query, cn.Connection);
-            cmd.Parameters.AddWithValue("@userSelect", userSelect);
+            cmd.Parameters.AddWithValue("@userSELECT", userSELECT);
             var reader = cmd.ExecuteReader();
 
 
             while (reader.Read())
             {
 
-                string selectedStrategyId = reader["id"].ToString();
-                IdNumbers.Add(selectedStrategyId);
+                string SELECTedStrategyId = reader["id"].ToString();
+                IdNumbers.Add(SELECTedStrategyId);
 
             }
 
 
             reader.Close();
             cn.CloseConnection();
-            // System.Diagnostics.Debug.WriteLine(string.Join(", ", selectedStrategyId));
+            // System.Diagnostics.Debug.WriteLine(string.Join(", ", SELECTedStrategyId));
             return IdNumbers;
 
         }
@@ -566,7 +572,7 @@ namespace IEF_Home
                 "ELSE NULL " +
                 "END AS  classification " +
                 "FROM iedc.datasets " +
-                "WHERE (SELECT id FROM iedc.aspects WHERE aspect = @aspectName) IN (aspect_1, aspect_2, aspect_3, aspect_4, aspect_5, aspect_6, aspect_7, aspect_8, aspect_9, aspect_10, aspect_11, aspect_12) and data_type = @data_type)";
+                "WHERE (SELECT id FROM iedc.aspects WHERE aspect = @aspectName) IN (aspect_1, aspect_2, aspect_3, aspect_4, aspect_5, aspect_6, aspect_7, aspect_8, aspect_9, aspect_10, aspect_11, aspect_12) AND data_type = @data_type)";
 
             if (!cn.OpenConnection()) return null;
             var cmd = new MySqlCommand(query, cn.Connection);
@@ -586,8 +592,150 @@ namespace IEF_Home
 
         }
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+        ResponseFormat = WebMessageFormat.Json)]
+        public List<string> iedcMatchAspects(string data_type, string classAspectlist1, string classAspectlist2, string classAspectlist3)
+        {
 
+            List<string> dataset_name = new List<string>();
+      
+            string[] classAspectList = new string[] { classAspectlist1, classAspectlist2, classAspectlist3 };
+            if(!classAspectList.Any(c => c != "")){
+                return new List<string>();
+            }
+            string query = " SELECT dataset_name FROM iedc.datasets WHERE id IN (SELECT DISTINCT dataset_id FROM iedc.data WHERE " +
+             " dataset_id IN (SELECT id FROM iedc.datasets WHERE data_type = @data_type) AND ";
+
+            if (!cn.OpenConnection()) return null;
+
+            for (int i =0; i<3; i++)
+             {
+                if (classAspectList[i] != "") 
+                { 
+
+                    query += "(";
+                    for (int j = 1; j <= 12; j++)
+                    {
+                        query += $"aspect{j} IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto IN (";
+                
+                     
+                           // System.Diagnostics.Debug.WriteLine(classAspectList[i].Count(item => item == ','));
+
+                            if (classAspectList[i].Count(item => item == ',') == 0)
+                            {
+                                query += '"' + $"{classAspectList[i]}" + '"';
+                            }
+                            else
+                            {
+                                var classAspectListComma = classAspectList[i].Split(',');
+                             
+                                    foreach (string list in classAspectListComma)
+                                    {
+                                        query += '"' + $"{list}" + '"';
+                                        if (list != classAspectListComma.Last())
+                                        {
+                                            query +=  ",";
+                                        }
+                                    }      
+                            }
+
+                         query += "))";
+                        if (j != 12)
+                        {
+                            query += " OR ";
+                        }else{
+                            query += ")";
+                        }
+                        
+                    }
+
+                    if ((i == 0 || i == 1) && classAspectList[i + 1] != "")
+                    {
+                        query += " AND ";
+                    }
+                    else
+                    {
+                        query += ")";
+                    }
+
+
+                }else{
+                    continue;
+                }
+             }
+            
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@data_type", data_type);
+            System.Diagnostics.Debug.WriteLine(query);
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                    string dataname = reader["dataset_name"].ToString();
+                    dataset_name.Add(dataname);
+            }
+            reader.Close();
+            cn.CloseConnection();
+            return dataset_name;
+        }
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+          ResponseFormat = WebMessageFormat.Json)]
+        public List<string> iedcDataPreview(string dataset_name)
+        {
+            List<string> dataset = new List<string>();
+
+            var query = "SELECT dt.id,ds.dataset_name,a1.attribute1_oto AS aspect_1_name, a2.attribute1_oto AS aspect_2_name, a3.attribute1_oto AS aspect_3_name, a4.attribute1_oto AS aspect_4_name," +
+                " a5.attribute1_oto AS aspect_5_name, a6.attribute1_oto AS aspect_6_name, a7.attribute1_oto AS aspect_7_name, a8.attribute1_oto AS aspect_8_name," +
+                " a9.attribute1_oto AS aspect_9_name, a10.attribute1_oto AS aspect_10_name, a11.attribute1_oto AS aspect_11_name, a12.attribute1_oto AS aspect_12_name ,dt.value,dt.unit_nominator" +
+                " FROM iedc.data AS dt " +
+                " LEFT JOIN iedc.datasets AS ds ON dt.dataset_id = ds.id " +
+                " LEFT JOIN iedc.classification_items AS a1 ON dt.aspect1 = a1.id " +
+                " LEFT JOIN iedc.classification_items AS a2 ON dt.aspect2 = a2.id " +
+                " LEFT JOIN iedc.classification_items AS a3 ON dt.aspect3 = a3.id " +
+                " LEFT JOIN iedc.classification_items AS a4 ON dt.aspect4 = a4.id " +
+                " LEFT JOIN iedc.classification_items AS a5 ON dt.aspect5 = a5.id " +
+                " LEFT JOIN iedc.classification_items AS a6 ON dt.aspect6 = a6.id" +
+                " LEFT JOIN iedc.classification_items AS a7 ON dt.aspect7 = a7.id " +
+                " LEFT JOIN iedc.classification_items AS a8 ON dt.aspect8 = a8.id " +
+                " LEFT JOIN iedc.classification_items AS a9 ON dt.aspect9 = a9.id " +
+                " LEFT JOIN iedc.classification_items AS a10 ON dt.aspect10 = a10.id " +
+                " LEFT JOIN iedc.classification_items AS a11 ON dt.aspect11 = a11.id " +
+                " LEFT JOIN iedc.classification_items AS a12 ON dt.aspect12 = a12.id " +
+                " WHERE ds.dataset_name=@dataset_name";
+
+
+            if (!cn.OpenConnection()) return null;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@dataset_name", dataset_name);
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    string dataname = reader[i].ToString();
+                    dataset.Add(dataname);
+                   // System.Diagnostics.Debug.WriteLine(dataset);
+
+                }
+
+            }
+
+            reader.Close();
+
+            cn.CloseConnection();
+            return dataset;
+
+        }
+
+ 
     }
+
 }
 
 

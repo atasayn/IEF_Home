@@ -116,6 +116,8 @@
     <Content Include="js\jquery-1.6.2.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="js\xlsx.core.min.js" />
+    <Content Include="js\xlsx.full.min.js" />
     <Content Include="legal.aspx" />
     <Content Include="odym-recc.aspx" />
     <Content Include="research\research.aspx" />

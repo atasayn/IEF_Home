@@ -1,13 +1,13 @@
 ﻿
 $(document).ready(function () {
 
-    $('.DDSelectRegSce').click(function (e) {
+    $('.DDSELECTRegSce').click(function (e) {
         var region = $("#DropDownListRegion").val();
         console.log(region);
         $.ajax({
                 type: "POST",
                 url: "circomodService.svc/Classification_ResultItem",
-                data: `{"selectedRegion": "${region}"}`,
+                data: `{"SELECTedRegion": "${region}"}`,
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 function displayGraph(data, region) {
     console.log(data);
-    let labels = Array.from({ length: 86 }, (v, i) => 2015 + i);
+    let labels = Array.FROM({ length: 86 }, (v, i) => 2015 + i);
 
     try {
         Chart.getChart("line-chart").destroy();
@@ -82,7 +82,7 @@ function displayGraph(data, region) {
 }
 
 $(document).ready(function () {
-    $('.DDSelectSankey').click(function(e) {
+    $('.DDSELECTSankey').click(function(e) {
         var region = $("#DropDownListSankeyRegion").val();
         var scenario = $("#DropDownListSankeyScenario").val();
         var sector = $("#DropDownListSector").val();
@@ -94,7 +94,7 @@ $(document).ready(function () {
         console.log(allFields)
         if (allFields.includes("")) {
             var message = document.getElementById("errorMsg");
-            message.textContent = "Select one parameter from each dropdown menu";
+            message.textContent = "SELECT one parameter FROM each dropdown menu";
             message.style.color = "#ff6666";
         } else if (!(allFields.includes(""))) {
             var message = document.getElementById("errorMsg");
@@ -104,8 +104,8 @@ $(document).ready(function () {
         $.ajax({
             url: "circomodService.svc/Classification_SankeyItem",
             type: "POST",
-            data: `{"selectedRegion": "${region}","selectedScenario": "${scenario}","selectedSector": "${sector}","selectedYear": "${year}",
-                        "selectedStrategy": "${strategy}","selectedMaterial": "${material}"}`,
+            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sector}","SELECTedYear": "${year}",
+                        "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (data) {

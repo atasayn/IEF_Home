@@ -36,14 +36,14 @@
 
     <div class="row">
         <div class="col-md-7">
-            The Industrial Ecology Freiburg Internal Database is available to all group members and associated students. The data and information supplied here are for applications
+            The Industrial Ecology Freiburg Internal Database is available to all group members AND associated students. The data AND information supplied here are for applications
                     in concordance with the respective license agreements only.
                       
                   <br />
             <br />
 
             When preparing your work, please check the university’s guidelines for <a href="https://uni-freiburg.de/forschung/redlichkeit-in-der-wissenschaft/" target="new">academic integrity</a>
-            and the group's <a href="https://www.indecol.uni-freiburg.de/de/supervision-scheme" target="new">guidelines for good scientific practice and supervision</a>.
+            AND the group's <a href="https://www.indecol.uni-freiburg.de/de/supervision-scheme" target="new">guidelines for good scientific practice AND supervision</a>.
                     <br />
             <br />
             &nbsp;<img class="img-responsive center-block" src="resources/pexels-photo-209137.jpeg" style="align-self: center; width: 500px;" alt="Industrial Ecology Freiburg Internal Database" />

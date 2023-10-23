@@ -59,11 +59,11 @@
 
     <div class="row">
         <div class="col-md-12">
-            The Industrial Ecology Freiburg Internal Database is available to all group members and associated students. The data and information supplied here are only to be used in concordance with the respective license agreements.
+            The Industrial Ecology Freiburg Internal Database is available to all group members AND associated students. The data AND information supplied here are only to be used in concordance with the respective license agreements.
 
                     <br />
             <br />
-            Below is a list of the available formatted datasets. The data come in different formats and for each data references and citation info are provided. Some of the data files are very large, please double-check whether you selected the right file before downloading.
+            Below is a list of the available formatted datasets. The data come in different formats AND for each data references AND citation info are provided. Some of the data files are very large, please double-check whether you SELECTed the right file before downloading.
          
                     <br />
             <br />
@@ -160,14 +160,14 @@
                             <td>ecoinvent v3.3, cutoff</td>
                             <td>Zolca file with ecoinvent version 3.3, process database 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.
                                         <br />
                                 <br />
                                 76dadf15414d83212<br />
                                 e7ddc0a9bf26ec8</td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -182,14 +182,14 @@
                             <td>ecoinvent v3.3, cutoff, LCI</td>
                             <td>Zolca file with ecoinvent version 3.3, LCI database 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.
                                         <br />
                                 <br />
                                 08d1db5e0c86db1ad<br />
                                 ba78f0f15632624</td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -201,17 +201,17 @@
                         </tr>
                         <tr>
                             <td>LCA_3</td>
-                            <td>ecoinvent v3.3, LCIA characterization factors and methods</td>
+                            <td>ecoinvent v3.3, LCIA characterization factors AND methods</td>
                             <td>Zolca file with all available LCIA methods for ecoinvent version 3.3 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.  
                                         <br />
                                 <br />
                                 79cb2c6caaa0165e27<br />
                                 836f0e67c07587</td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.
                                         <br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
@@ -227,14 +227,14 @@
                             <td>ecoinvent 3.4 cut-off, openLCA Nexus version 2</td>
                             <td>Zolca file with ecoinvent version 3.4, process database, cut-off system model 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.
                                         <br />
                                 <br />
                                 168c249b35687b87<br />
                                 2409acd2d25fec68</td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.
                                         <br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
@@ -250,14 +250,14 @@
                             <td>ecoinvent 3.4 cut-off - country-specific, openLCA Nexus version 1</td>
                             <td>Zolca file with ecoinvent version 3.4, cut-off system model - country-specific 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.
                                         <br />
                                 <br />
                                 029cf932355d7586<br>
                                 d803871a832a2b6a</td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -272,14 +272,14 @@
                             <td>ecoinvent 3.4 cut-off LCI, openLCA Nexus version 2</td>
                             <td>Zolca file with LCI results of all products for ecoinvent version 3.4 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.
                                         <br />
                                 <br />
                                 b51be76c8e1fc18e<br>
                                 fe9b1ef6c320fb8b </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -294,14 +294,14 @@
                             <td>ecoinvent 3.4 cut-off unit processes, system processes, ecoinvent LCIA methods, openLCA Nexus version 2</td>
                             <td>Zolca file with all available data for ecoinvent version 3.4 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.
                                         <br />
                                 <br />
                                 0c58c96f9601e444e<br>
                                 a4f69da8a597f14 </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -316,14 +316,14 @@
                             <td>ecoinvent 3.4 consequential - country-specific, openLCA Nexus version 1</td>
                             <td>Zolca file with the consequential system model for ecoinvent version 3.4 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.
                                         <br />
                                 <br />
                                 d3c187cb57b6e6058<br>
                                 aaacec4a596bee3 </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -338,14 +338,14 @@
                             <td>ecoinvent 3.4 consequential long-term, openLCA Nexus version 2</td>
                             <td>Zolca file with consequential long-term system model for ecoinvent version 3.4 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a.
                                         <br />
                                 <br />
                                 b8fc5a659db46ac5<br>
                                 9d514bdd09b80d50 </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -361,10 +361,10 @@
                             <td>ecoinvent 3.5 CUT-OFF, regionalised, unit processes</td>
                             <td>Zolca file with cut-off unit process system model for ecoinvent version 3.5 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -380,10 +380,10 @@
                             <td>ecoinvent 3.5 CONSEQUENTIAL, regionalised, unit processes</td>
                             <td>Zolca file with consequential unit process system model for ecoinvent version 3.5 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -399,10 +399,10 @@
                             <td>ecoinvent 3.5 LCIA methods</td>
                             <td>Zolca file with LCIA methods for ecoinvent version 3.5 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -419,10 +419,10 @@
                             <td>ecoinvent 3.6 CUT-OFF, unit processes</td>
                             <td>Zolca file with cut-off unit process system model for ecoinvent version 3.6 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -438,10 +438,10 @@
                             <td>ecoinvent 3.6 CONSEQUENTIAL, unit processes</td>
                             <td>Zolca file with consequential unit process system model for ecoinvent version 3.6 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -457,10 +457,10 @@
                             <td>ecoinvent 3.6 LCIA methods</td>
                             <td>Zolca file with LCIA methods for ecoinvent version 3.6 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -477,10 +477,10 @@
                             <td>ecoinvent 3.7.1 CUT-OFF, unit processes</td>
                             <td>Zolca file with cut-off unit process system model for ecoinvent version 3.7.1 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -496,10 +496,10 @@
                             <td>ecoinvent 3.7.1 CONSEQUENTIAL, unit processes</td>
                             <td>Zolca file with consequential unit process system model for ecoinvent version 3.7.1 
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -515,10 +515,10 @@
                             <td>ecoinvent 3.7.1 LCIA methods</td>
                             <td>Zolca file with LCIA methods for ecoinvent version 3.7.1 
                                         <br>
-                                Note: Do NOT rename file extension from .zip to .zolca after downloading! Instead, import into openLCA via 'Linked Data (JSON-LD)' import option, where you will be asked to provide a .zip file as input.</td>
+                                Note: Do NOT rename file extension FROM .zip to .zolca after downloading! Instead, import into openLCA via 'Linked Data (JSON-LD)' import option, WHERE you will be asked to provide a .zip file as input.</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td><b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br>
                                 <br>
                                 <a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                             </td>
@@ -531,10 +531,10 @@
                         <tr>    
                             <td> LCA_19</td>
                             <td> ecoinvent 3.8 CUT-OFF, unit processes</td>
-                            <td> Zolca file with cut-off unit process system model for ecoinvent version 3.8  <br> Note: Rename file extension from .zip to .zolca after downloading!</td>
+                            <td> Zolca file with cut-off unit process system model for ecoinvent version 3.8  <br> Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td> n.a. </td>
-                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
+                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                                     </td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/ecoinvent_38_cutoff_3011_with_methods.zip', 'This is the content of my file :')" value="Download" />
@@ -544,10 +544,10 @@
                         <tr>    
                             <td> LCA_20</td>
                             <td> ecoinvent 3.8 CONSEQUENTIAL, unit processes</td>
-                            <td> Zolca file with consequential unit process system model for ecoinvent version 3.8  <br> Note: Rename file extension from .zip to .zolca after downloading!</td>
+                            <td> Zolca file with consequential unit process system model for ecoinvent version 3.8  <br> Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td> n.a. </td>
-                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
+                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                                     </td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/ecoinvent_38_consequential_3011_with_methods.zip', 'This is the content of my file :')" value="Download" />
@@ -557,10 +557,10 @@
                         <tr>    
                             <td> LCA_21</td>
                             <td> ecoinvent 3.8 LCIA methods</td>
-                            <td> Zolca file with LCIA methods for ecoinvent version 3.8  <br> Note: Do NOT rename file extension from .zip to .zolca after downloading! Instead, import into openLCA via 'Linked Data (JSON-LD)' import option, where you will be asked to provide a .zip file as input.</td>
+                            <td> Zolca file with LCIA methods for ecoinvent version 3.8  <br> Note: Do NOT rename file extension FROM .zip to .zolca after downloading! Instead, import into openLCA via 'Linked Data (JSON-LD)' import option, WHERE you will be asked to provide a .zip file as input.</td>
                             <td> n.a. </td>
-                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
-                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
+                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
+                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview AND methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
                                     </td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/ecoinvent_38_LCIA_methods_30112021.zip', 'This is the content of my file :')" value="Download" />
@@ -572,9 +572,9 @@
                             <td>Ökobaudat construction materials database, German version</td>
                             <td>Zolca file with Ökobaudat, German version.
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td>Construction materials database, provided by the German Federal Ministry of Transport, Building and Urban Development as of October 2018.</td>
+                            <td>Construction materials database, provided by the German Federal Ministry of Transport, Building AND Urban Development as of October 2018.</td>
                             <td>Available at:
                                         <br>
                                 <a href="https://nexus.openlca.org/ws/files/8502">https://nexus.openlca.org/ws/files/8502.</a>
@@ -590,9 +590,9 @@
                             <td>Ökobaudat construction materials database, English version</td>
                             <td>Zolca file with Ökobaudat, English version.
                                         <br>
-                                Note: Rename file extension from .zip to .zolca after downloading!</td>
+                                Note: Rename file extension FROM .zip to .zolca after downloading!</td>
                             <td>n.a. </td>
-                            <td>Construction materials database, provided by the German Federal Ministry of Transport, Building and Urban Development as of October 2018.</td>
+                            <td>Construction materials database, provided by the German Federal Ministry of Transport, Building AND Urban Development as of October 2018.</td>
                             <td>Available at:
                                         <br>
                                 <a href="https://nexus.openlca.org/ws/files/8502">https://nexus.openlca.org/ws/files/8502.</a>
@@ -610,7 +610,7 @@
                                         <br>
                                 Note: Unzip file after downloading!</td>
                             <td>n.a. </td>
-                            <td>LCIA methods for Construction materials database, provided by the German Federal Ministry of Transport, Building and Urban Development as of October 2018.</td>
+                            <td>LCIA methods for Construction materials database, provided by the German Federal Ministry of Transport, Building AND Urban Development as of October 2018.</td>
                             <td>Available at:
                                         <br>
                                 <a href="https://nexus.openlca.org/ws/files/8502">https://nexus.openlca.org/ws/files/8502.</a>
@@ -625,9 +625,9 @@
                         <tr>
                             <td>LCA_25</td>
                             <td>Search_ecoinvent_3_2</td>
-                            <td>Excel-based search tool for finding flows, activities, and emissions in ecoinvent 3.2.</td>
+                            <td>Excel-based search tool for finding flows, activities, AND emissions in ecoinvent 3.2.</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
                             <td>Tool built by Paula Vollmer, MSc UW, HiWi in IEF group 2018.
                             </td>
                             <td>
@@ -636,9 +636,9 @@
                         <tr>
                             <td>LCA_26</td>
                             <td>Search_ecoinvent_3_3</td>
-                            <td>Excel-based search tool for finding flows, activities, and emissions in ecoinvent 3.3.</td>
+                            <td>Excel-based search tool for finding flows, activities, AND emissions in ecoinvent 3.3.</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
                             <td>Tool built by Paula Vollmer, MSc UW, HiWi in IEF group 2018.
                             </td>
                             <td>
@@ -647,9 +647,9 @@
                         <tr>
                             <td>LCA_27</td>
                             <td>Search_ecoinvent_3_4</td>
-                            <td>Excel-based search tool for finding flows, activities, and emissions in ecoinvent 3.4.</td>
+                            <td>Excel-based search tool for finding flows, activities, AND emissions in ecoinvent 3.4.</td>
                             <td>n.a. </td>
-                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
+                            <td><a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA AND ecoinvent</a></td>
                             <td>Tool built by Paula Vollmer, MSc UW, HiWi in IEF group 2018.
                             </td>
                             <td>
@@ -668,10 +668,10 @@
 
                 <a name="IEF Thesis archive"></a>
                 <h3>IEF Thesis archive </h3>
-                Below is a list of the archived theses at the BSc, MSc, and PhD levels conducted at Industrial Ecology Freiburg. 
+                Below is a list of the archived theses at the BSc, MSc, AND PhD levels conducted at Industrial Ecology Freiburg. 
 For some of the works there is more research material available than what is available here. 
-                        This material and the current author contact info can be obtained from your supervisor. 
-                        If you use material and text from the works listed below for your own work you need to provide proper citation! Theses marked with (*) were conducted in other groups, with S.P. as second reviewer. Theses that are marked 'confidential' contain sensitive information or data and are available upon request only.
+                        This material AND the current author contact info can be obtained FROM your supervisor. 
+                        If you use material AND text FROM the works listed below for your own work you need to provide proper citation! Theses marked with (*) were conducted in other groups, with S.P. as second reviewer. Theses that are marked 'confidential' contain sensitive information or data AND are available upon request only.
 
                         <br />
                 <br />
@@ -692,7 +692,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Erick Paez Pena</td>
-                            <td><b>A Comparison of Freiburg’s current (2021) and Future (2050) Passengers Vehicles and Tram Systems: A Life Cycle Assessment</b></td>
+                            <td><b>A Comparison of Freiburg’s current (2021) AND Future (2050) Passengers Vehicles AND Tram Systems: A Life Cycle Assessment</b></td>
                             <td>07.02.2023</td>
                             <td>Archived</td>
                             <td>
@@ -703,7 +703,7 @@ For some of the works there is more research material available than what is ava
                         <tr>
                             <td><b>MSc</b></td>
                             <td>SSE</td>
-                            <td>Alejandro (Alex) Arias Castillo</td>
+                            <td>AlejANDro (Alex) Arias Castillo</td>
                             <td><b>Life Cycle Assessment of an energy-autonomous sensor node</b></td>
                             <td>11.11.2022</td>
                             <td>Confidential, available on request</td>
@@ -744,7 +744,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>SSE</td>
                             <td>Aditya Chhatre</td>
-                            <td><b>Techno-economic comparison of containerized and outdoor battery energy storage system (BESS) using life cycle costing and life cycle analysis approach</b></td>
+                            <td><b>Techno-economic comparison of containerized AND outdoor battery energy storage system (BESS) using life cycle costing AND life cycle analysis approach</b></td>
                             <td>September 2022</td>
                             <td>Confidential</td>
                             <td></td>
@@ -753,7 +753,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>MEG</td>
                             <td>Sara Bejtullahu</td>
-                            <td><b>Is Vertical Farming the Future of Food Production? A Comparative Life Cycle Assessment of Vertical Farming and Conventional Agriculture</b></td>
+                            <td><b>Is Vertical Farming the Future of Food Production? A Comparative Life Cycle Assessment of Vertical Farming AND Conventional Agriculture</b></td>
                             <td>07.11.2022</td>
                             <td>Archived</td>
                             <td>
@@ -779,7 +779,7 @@ For some of the works there is more research material available than what is ava
                                 <td> <b>MSc</b></td>
                                 <td>UW</td>
                                 <td>Leo Hoffmann</td>
-                                <td> <b>Comparative Life Cycle Assessment of Novel Organic Redox Flow, Vanadium Redox Flow, and Lithium-ion Batteries</b></td>
+                                <td> <b>Comparative Life Cycle Assessment of Novel Organic Redox Flow, Vanadium Redox Flow, AND Lithium-ion Batteries</b></td>
                                 <td> Jan 2022</td>
                                 <td> Archived</td>
                                 <td>
@@ -791,7 +791,7 @@ For some of the works there is more research material available than what is ava
                                 <td> <b>MSc</b></td>
                                 <td>UW</td>
                                 <td>Merle Timmermann</td>
-                                <td> <b>Circularity improvement of solar panels in the EU - A quantitative analysis of photovoltaic material flows in Germany and Spain between 2008 and 2040</b></td>
+                                <td> <b>Circularity improvement of solar panels in the EU - A quantitative analysis of photovoltaic material flows in Germany AND Spain between 2008 AND 2040</b></td>
                                 <td> 12.11.2021</td>
                                 <td> Archived</td>
                                 <td>
@@ -817,7 +817,7 @@ For some of the works there is more research material available than what is ava
                                 <td> <b>MSc</b></td>
                                 <td>MEG</td>
                                 <td>Nasir Uddin Akif</td>
-                                <td> <b>An estimated Carbon, Land and Water footprint accounts of EU-Mercosur trade agreement</b></td>
+                                <td> <b>An estimated Carbon, LAND AND Water footprint accounts of EU-Mercosur trade agreement</b></td>
                                 <td> 02.11.2021</td>
                                 <td> Archived</td>
                                 <td>
@@ -853,7 +853,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Denis Wheeler</td>
-                            <td><b>Potential analysis of the e-scooter in sharing operation and in private use as a green mobility solution for cities</b></td>
+                            <td><b>Potential analysis of the e-scooter in sharing operation AND in private use as a green mobility solution for cities</b></td>
                             <td>May 2021</td>
                             <td>Archived</td>
                             <td>
@@ -878,7 +878,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Swathi Gudivada</td>
-                            <td><b>LCA for Mobility Concepts Considering Renewable Electricity and Renewable Carbon Utilization in the Supply Chain</b></td>
+                            <td><b>LCA for Mobility Concepts Considering Renewable Electricity AND Renewable Carbon Utilization in the Supply Chain</b></td>
                             <td>15.05.2021</td>
                             <td>Archived</td>
                             <td>
@@ -902,7 +902,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>SSE</td>
                             <td>Lucas Edenhofer</td>
-                            <td><b>Assessing Environmental Impact Reduction and Local Supply Potentials for the Food Supply of the Freiburg Region</b></td>
+                            <td><b>Assessing Environmental Impact Reduction AND Local Supply Potentials for the Food Supply of the Freiburg Region</b></td>
                             <td>12.05.2021</td>
                             <td>Archived</td>
                             <td>
@@ -915,7 +915,7 @@ For some of the works there is more research material available than what is ava
                         <tr>
                             <td><b>MSc</b></td>
                             <td>REM</td>
-                            <td>Yash Suneel Khandekar</td>
+                            <td>Yash Suneel KhANDekar</td>
                             <td><b>Environmental Impact Analysis of Renewable Energy Sources in Australian Capital Territory (Canberra) using Life Cycle Assessment. A Case study of Sapphire Wind Farm.</b></td>
                             <td>27.04.2021</td>
                             <td>Archived</td>
@@ -928,7 +928,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Dmytro Demenchuk (*)</td>
-                            <td><b>Recycling of Silicon from End-of-life PV Modules by Metallurgical Purification</b></td>
+                            <td><b>Recycling of Silicon FROM End-of-life PV Modules by Metallurgical Purification</b></td>
                             <td>16.04.2021</td>
                             <td>Archived</td>
                             <td>
@@ -939,13 +939,13 @@ For some of the works there is more research material available than what is ava
                         <tr>
                             <td><b>MSc</b></td>
                             <td>MEG</td>
-                            <td>Sofie Amalie Søeberg Hovmand</td>
+                            <td>Sofie Amalie Søeberg HovmAND</td>
                             <td><b>Resource Efficient Management of Copper in Small Household Appliances placed on the market in the European Union</b></td>
                             <td>10.03.2021</td>
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
-                                <input type="button" onclick="download('data_indecol_205939343242/4773626_hovmand_sofie.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                <input type="button" onclick="download('data_indecol_205939343242/4773626_hovmAND_sofie.pdf', 'This is the content of my file :')" value="Download Thesis" />
                             </td>
                         </tr>
 
@@ -966,7 +966,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Johannes Jung</td>
-                            <td><b>Estimating the technical potential and life cycle impact of agrivoltaic systems and their deployment in the Freiburg region</b></td>
+                            <td><b>Estimating the technical potential AND life cycle impact of agrivoltaic systems AND their deployment in the Freiburg region</b></td>
                             <td>07.12.2020</td>
                             <td>Archived</td>
                             <td>
@@ -992,7 +992,7 @@ For some of the works there is more research material available than what is ava
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Kritesh Shridhar</td>
-                            <td><b>Usefulness of Environmental Product Declaration for Life Cycle Analysis and Sustainability certification
+                            <td><b>Usefulness of Environmental Product Declaration for Life Cycle Analysis AND Sustainability certification
 Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td>29.10.2020</td>
                             <td>Archived</td>
@@ -1017,7 +1017,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Izzatjon Asadov</td>
-                            <td><b>Comparative Life Cycle Assessment of Heat Production from Wood Pellets in Uzbekistan</b></td>
+                            <td><b>Comparative Life Cycle Assessment of Heat Production FROM Wood Pellets in Uzbekistan</b></td>
                             <td>30.09.2020</td>
                             <td>Archived</td>
                             <td>
@@ -1028,8 +1028,8 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                         <tr>
                             <td><b>MSc</b></td>
                             <td>REM</td>
-                            <td>Dana Darwish and Mustafa Abunofal (joint thesis)</td>
-                            <td><b>Water-Energy-Food Nexus in West Asia: Comparative Assessment within Nexus Approach - Jordan and United Arab Emirates as Case Studies</b></td>
+                            <td>Dana Darwish AND Mustafa Abunofal (joint thesis)</td>
+                            <td><b>Water-Energy-Food Nexus in West Asia: Comparative Assessment within Nexus Approach - Jordan AND United Arab Emirates as Case Studies</b></td>
                             <td>29.09.2020</td>
                             <td>Archived</td>
                             <td>
@@ -1041,7 +1041,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Muhanad Mousa Waleed Al-Lahham</td>
-                            <td><b>Environmental Sustainability Assessment of the Transition from A Crop-based Biodiesel Sector to Biodiesel Production from Microalgal Biomass in a Closed-loop Biorefinery Model: Germany as a Case Study</b></td>
+                            <td><b>Environmental Sustainability Assessment of the Transition FROM A Crop-based Biodiesel Sector to Biodiesel Production FROM Microalgal Biomass in a Closed-loop Biorefinery Model: Germany as a Case Study</b></td>
                             <td>30.08.2020</td>
                             <td>Archived</td>
                             <td>
@@ -1054,7 +1054,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Benjamin Schmolck</td>
-                            <td><b>Ethisch vertretbare und erforderliche Konsumreduktion nach dem Pariser Abkommen - Modellierung von bedürfnisorientierten Treibhausgas-Fußabdrücken in Deutschland</b></td>
+                            <td><b>Ethisch vertretbare und erforderliche Konsumreduktion nach dem Pariser Abkommen - Modellierung von bedürfnisorientierten Treibhausgas-Fußabdrücken in DeutschlAND</b></td>
                             <td>20.05.2020</td>
                             <td>Archived</td>
                             <td>
@@ -1067,7 +1067,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Okwa Daniel Adakole</td>
-                            <td><b>Climate Impact of Urbanization in Nigeria: Database and First Estimations of Material Demand from 1960 to 2050</b></td>
+                            <td><b>Climate Impact of Urbanization in Nigeria: Database AND First Estimations of Material DemAND FROM 1960 to 2050</b></td>
                             <td>16.04.2020</td>
                             <td>Archived</td>
                             <td>
@@ -1095,7 +1095,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Paula Vollmer</td>
-                            <td><b>Environmental performance of German consumption compared to planetary boundaries Potentials and limitations of a MRIO database to determine nitrogen, phosphorus and ozone depletion footprints
+                            <td><b>Environmental performance of German consumption compared to planetary boundaries Potentials AND limitations of a MRIO database to determine nitrogen, phosphorus AND ozone depletion footprints
                             </b></td>
                             <td>08.01.2020</td>
                             <td>Archived</td>
@@ -1108,7 +1108,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Raphael Stuber-Rousselle</td>
-                            <td><b>Comparative Life Cycle Assessment of a Reusable Stainless-Steel Washing Bowl and a Single-Use Synthetic Washing Bowl</b></td>
+                            <td><b>Comparative Life Cycle Assessment of a Reusable Stainless-Steel Washing Bowl AND a Single-Use Synthetic Washing Bowl</b></td>
                             <td>19.12.2019</td>
                             <td>Archived</td>
                             <td>Confidential </td>
@@ -1166,7 +1166,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>MEG</td>
                             <td>Aiko Utamaru</td>
-                            <td><b>Material demand and climate impact of residential and commercial building in Indonesia from 1980 to 2050</b></td>
+                            <td><b>Material demAND AND climate impact of residential AND commercial building in Indonesia FROM 1980 to 2050</b></td>
                             <td>29.10.2019</td>
                             <td>Archived</td>
                             <td>
@@ -1191,7 +1191,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Megan Bowen</td>
-                            <td><b>Comparative Life Cycle Analysis and Carbon Pricing of Renewable Ethanol Supply Chains in Canada</b></td>
+                            <td><b>Comparative Life Cycle Analysis AND Carbon Pricing of Renewable Ethanol Supply Chains in Canada</b></td>
                             <td>30.09.2019</td>
                             <td>Archived</td>
                             <td>Confidential </td>
@@ -1212,7 +1212,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Mariana Acosta</td>
-                            <td><b>Environmental Impact Assessment on Sustainable Mobility Strategies Implementing Renewable Energy and Travel Efficiency Scenarios for Mexico City</b></td>
+                            <td><b>Environmental Impact Assessment on Sustainable Mobility Strategies Implementing Renewable Energy AND Travel Efficiency Scenarios for Mexico City</b></td>
                             <td>20.05.2019</td>
                             <td>Archived</td>
                             <td>
@@ -1225,7 +1225,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Katrina-Magdalena Lindemann</td>
-                            <td><b>Life Cycle Assessment: Comparison of Laminate and Carpet Flooring in Freiburg and German Office Space</b></td>
+                            <td><b>Life Cycle Assessment: Comparison of Laminate AND Carpet Flooring in Freiburg AND German Office Space</b></td>
                             <td>20.03.2019</td>
                             <td>Archived</td>
                             <td>
@@ -1275,7 +1275,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Christian Buschbeck</td>
-                            <td><b>Assessing food security and environmental impacts for different regional food production systems within Baden-Wuerttemberg</b></td>
+                            <td><b>Assessing food security AND environmental impacts for different regional food production systems within Baden-Wuerttemberg</b></td>
                             <td>21.12.2018</td>
                             <td>Archived</td>
                             <td>
@@ -1288,7 +1288,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Eric Card</td>
-                            <td><b>Comparative Life Cycle Analysis and Life Cycle Costing of Ethanol from Corn, Sugarcane, and Cellulosic Biomass for Use in the U.S. from a Land-use Perspective with the Purpose of Carbon Capture and Storage</b></td>
+                            <td><b>Comparative Life Cycle Analysis AND Life Cycle Costing of Ethanol FROM Corn, Sugarcane, AND Cellulosic Biomass for Use in the U.S. FROM a LAND-use Perspective with the Purpose of Carbon Capture AND Storage</b></td>
                             <td>18.12.2018</td>
                             <td>Archived</td>
                             <td>
@@ -1340,7 +1340,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Gizem Erdogmus (*)</td>
-                            <td><b>Transforming Waste to Resource: Evaluating energy production possibilities from municipal solid waste in Chennai, India using Analytic Hierarchy Process</b></td>
+                            <td><b>Transforming Waste to Resource: Evaluating energy production possibilities FROM municipal solid waste in Chennai, India using Analytic Hierarchy Process</b></td>
                             <td>15.03.2018</td>
                             <td>Archived</td>
                             <td>
@@ -1353,7 +1353,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Kai Bekel</td>
-                            <td><b>Cost and Environmental Impact Assessment of Battery and Fuel Cell Electric Vehicles – Consideration of the whole Life Cycle from Electricity Generation over the Fuel Supply Infrastructure and Vehicle Production to Recycling</b></td>
+                            <td><b>Cost AND Environmental Impact Assessment of Battery AND Fuel Cell Electric Vehicles – Consideration of the whole Life Cycle FROM Electricity Generation over the Fuel Supply Infrastructure AND Vehicle Production to Recycling</b></td>
                             <td>10.02.2018</td>
                             <td>Archived</td>
                             <td>
@@ -1366,20 +1366,20 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Larissa Bitterich</td>
-                            <td><b>Can Regional and Organic Food be an Answer to Environmental Issues of Agriculture? A Case Study for Baden-Württemberg, Germany</b></td>
+                            <td><b>Can Regional AND Organic Food be an Answer to Environmental Issues of Agriculture? A Case Study for Baden-Württemberg, Germany</b></td>
                             <td>20.01.2018</td>
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
                                 <input type="button" onclick="download('data_indecol_205939343242/MSc_Thesis_2018_Larissa_Bitterich.pdf', 'This is the content of my file :')" value="Download Thesis" />
-                                <input type="button" onclick="download('data_indecol_205939343242/MSc_Thesis_Larissa_LandClasses_25832.zip', 'This is the content of my file :')" value="Download Material" />
+                                <input type="button" onclick="download('data_indecol_205939343242/MSc_Thesis_Larissa_LANDClasses_25832.zip', 'This is the content of my file :')" value="Download Material" />
                             </td>
                         </tr>
                         <tr>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Ombeni Ranzmeyer</td>
-                            <td><b>Differences in Environmental Impacts between Organic and Conventional Farming. A Comparison of Food Baskets using Life Cycle Assessment</b></td>
+                            <td><b>Differences in Environmental Impacts between Organic AND Conventional Farming. A Comparison of Food Baskets using Life Cycle Assessment</b></td>
                             <td>10.01.2018</td>
                             <td>Archived</td>
                             <td>
@@ -1391,7 +1391,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Anabell Friedrich</td>
-                            <td><b>Process inventories, scrap classification, and scenario analysis of electronic waste management in Germany</b></td>
+                            <td><b>Process inventories, scrap classification, AND scenario analysis of electronic waste management in Germany</b></td>
                             <td>10.01.2018</td>
                             <td>Archived</td>
                             <td>
@@ -1404,7 +1404,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>MEG</td>
                             <td>Christian Hauenstein</td>
-                            <td><b>Environmental impact reduction and regional supply potentials of agricultural food production in Baden-Wuerttemberg</b></td>
+                            <td><b>Environmental impact reduction AND regional supply potentials of agricultural food production in Baden-Wuerttemberg</b></td>
                             <td>14.12.2017</td>
                             <td>Archived</td>
                             <td><%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a><br /><a href="\xxx\Theses\xxx.pdf">Download material</a>--%>
@@ -1417,7 +1417,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Lara Wiechert</td>
-                            <td><b>Identifikation der Ansatzpunkte für ein Konzept "Nachhaltige Gemeinschaftsverpflegung" für den Landesverband Baden-Württemberg des Deutschen Jugendherbergswerks</b></td>
+                            <td><b>Identifikation der Ansatzpunkte für ein Konzept "Nachhaltige Gemeinschaftsverpflegung" für den LANDesverbAND Baden-Württemberg des Deutschen Jugendherbergswerks</b></td>
                             <td>04.12.2017</td>
                             <td>Archived</td>
                             <td>
@@ -1432,7 +1432,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Kavya Madhu</td>
-                            <td><b>Relationship between Environmental Impact Assessment and Life Cycle Assessment</b></td>
+                            <td><b>Relationship between Environmental Impact Assessment AND Life Cycle Assessment</b></td>
                             <td>01.12.2017</td>
                             <td>Archived</td>
                             <td>
@@ -1443,15 +1443,15 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                         <tr>
                             <td><b>MSc</b></td>
                             <td>MEG</td>
-                            <td>Andrew Bonneau (*)</td>
-                            <td><b>Carbon Accounting of Material and Energy Flows in Campus organizations: Case study of the University of Freiburg</b></td>
+                            <td>ANDrew Bonneau (*)</td>
+                            <td><b>Carbon Accounting of Material AND Energy Flows in Campus organizations: Case study of the University of Freiburg</b></td>
                             <td>14.11.2017</td>
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
                                 <input type="button" onclick="download('data_indecol_205939343242/MSc_Thesis_2017_Bonneau_Carbon Accounting.pdf', 'This is the content of my file :')" value="Download Thesis" />
                                 <br>
-                                <input type="button" onclick="download('data_indecol_205939343242/2017_Andrew_Bonneau_CarbonFootprint_Uni_Freiburg.zip', 'This is the content of my file :')" value="Download Material" />
+                                <input type="button" onclick="download('data_indecol_205939343242/2017_ANDrew_Bonneau_CarbonFootprint_Uni_Freiburg.zip', 'This is the content of my file :')" value="Download Material" />
                             </td>
                         </tr>
                         <tr>
@@ -1470,13 +1470,13 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                         <tr>
                             <td><b>MSc</b></td>
                             <td>UW</td>
-                            <td>Alexander Buchholz</td>
+                            <td>AlexANDer Buchholz</td>
                             <td><b>Income-specific environmental footprints of German household consumption with MRIO</b></td>
                             <td>20.10.2017</td>
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
-                                <input type="button" onclick="download('data_indecol_205939343242/MSc_Thesis_2017_Buchholz_Alexander.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                <input type="button" onclick="download('data_indecol_205939343242/MSc_Thesis_2017_Buchholz_AlexANDer.pdf', 'This is the content of my file :')" value="Download Thesis" />
                                 <input type="button" onclick="download('data_indecol_205939343242/2017_Alex_Buchholz_Footprint_Germany.zip', 'This is the content of my file :')" value="Download Material" />
                             </td>
                         </tr>
@@ -1484,7 +1484,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>UW</td>
                             <td>Felix Mayer</td>
-                            <td><b>Flächenoptimierte Energieerzeugung in Deutschland</b></td>
+                            <td><b>Flächenoptimierte Energieerzeugung in DeutschlAND</b></td>
                             <td>08.06.2017</td>
                             <td>Archived</td>
                             <td>
@@ -1496,7 +1496,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>MSc</b></td>
                             <td>MEG</td>
                             <td>Jan Streeck</td>
-                            <td><b>Microbial Electrolysis Cell and Power to Methanol A perfect couple? Techno-economic and environmental assessment of a waste-to-chemical system</b></td>
+                            <td><b>Microbial Electrolysis Cell AND Power to Methanol A perfect couple? Techno-economic AND environmental assessment of a waste-to-chemical system</b></td>
                             <td>04.04.2017</td>
                             <td>Archived</td>
                             <td>
@@ -1559,7 +1559,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                         <tr>
                             <td><b>BSc</b></td>
                             <td>UNW</td>
-                            <td>Leonhard-Alexander Lehnhoff</td>
+                            <td>Leonhard-AlexANDer Lehnhoff</td>
                             <td><b>Holzstaub aus Alt- und Industrierestholz als Brennstoffalternative für Braunkohlestaubkraftwerke – Vergleichende Ökobilanz</b></td>
                             <td>15.05.2021</td>
                             <td>Archived</td>
@@ -1590,7 +1590,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>BSc</b></td>
                             <td>UWN</td>
                             <td>Jessica Möhrsdorf</td>
-                            <td><b>Tracing geographic and sectoral origins of German environmental footprints embodied in trade - a MRIO analysis</b></td>
+                            <td><b>Tracing geographic AND sectoral origins of German environmental footprints embodied in trade - a MRIO analysis</b></td>
                             <td>15.03.2018</td>
                             <td>Archived</td>
                             <td>
@@ -1602,7 +1602,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td><b>BSc</b></td>
                             <td>UWN</td>
                             <td>Martin Remler</td>
-                            <td><b>Qualitative Systemanalyse der Dimethyletherproduktion aus Schwarzlauge in Deutschland</b></td>
+                            <td><b>Qualitative Systemanalyse der Dimethyletherproduktion aus Schwarzlauge in DeutschlAND</b></td>
                             <td>29.07.2016</td>
                             <td>Archived</td>
                             <td>
@@ -1662,16 +1662,16 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
 
             <div class="table-responsive">
 
-                <a name="IEF standards archive"></a>
-                <h3>IEF Standards archive </h3>
-                Below is a list of international standards relevant for some of the core IEF applications and methods.
+                <a name="IEF stANDards archive"></a>
+                <h3>IEF StANDards archive </h3>
+                Below is a list of international stANDards relevant for some of the core IEF applications AND methods.
 
                         <br />
                 <br />
                 <table class="table table-bordered table-dark">
                     <thead>
                         <tr>
-                            <th>Standard</th>
+                            <th>StANDard</th>
                             <th>Link</th>
                         </tr>
                     </thead>
@@ -1684,16 +1684,16 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                         </tr>
 
                         <tr>
-                            <td>ISO 14040: Environmental management – Life cycle assessment – Principles and framework (ISO 14040:2006); for LCA.</td>
+                            <td>ISO 14040: Environmental management – Life cycle assessment – Principles AND framework (ISO 14040:2006); for LCA.</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN ISO 14040.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN ISO 14040.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>ISO 14044: Environmental management – Life cycle assessment – Requirements and guidelines (ISO 14044:2006); for LCA.</td>
+                            <td>ISO 14044: Environmental management – Life cycle assessment – Requirements AND guidelines (ISO 14044:2006); for LCA.</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN ISO 14044.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN ISO 14044.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
@@ -1704,51 +1704,51 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                         </tr>
 
                         <tr>
-                            <td>Greenhouse gases – Part 1: Specification with guidance at the organization level for quantification and reporting of greenhouse gas emissions and removals (ISO/DIS 14064-1:2017) [DRAFT]</td>
+                            <td>Greenhouse gases – Part 1: Specification with guidance at the organization level for quantification AND reporting of greenhouse gas emissions AND removals (ISO/DIS 14064-1:2017) [DRAFT]</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN_EN_ISO_14064-1.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN_EN_ISO_14064-1.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Greenhouse gases – Part 1: Specification with guidance at the organization level for quantification and reporting of greenhouse gas emissions and removals (ISO 14064-1:2006);</td>
+                            <td>Greenhouse gases – Part 1: Specification with guidance at the organization level for quantification AND reporting of greenhouse gas emissions AND removals (ISO 14064-1:2006);</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN_EN_ISO_14064-1_2012.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN_EN_ISO_14064-1_2012.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Greenhouse gases – Part 2: Specification with guidance at the project level for quantification, monitoring and  reporting of greenhouse gas emission reductions or removal enhancements (ISO 14064-2:2006);</td>
+                            <td>Greenhouse gases – Part 2: Specification with guidance at the project level for quantification, monitoring AND  reporting of greenhouse gas emission reductions or removal enhancements (ISO 14064-2:2006);</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN_EN_ISO_14064-2.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN_EN_ISO_14064-2.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Greenhouse gases – Part 3: Specification with guidance for the verification and validation of greenhouse gas statements (ISO/DIS 14064-3:2017) [DRAFT]</td>
+                            <td>Greenhouse gases – Part 3: Specification with guidance for the verification AND validation of greenhouse gas statements (ISO/DIS 14064-3:2017) [DRAFT]</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN_EN_ISO_14064-3.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN_EN_ISO_14064-3.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Greenhouse gases – Part 3: Specification with guidance for the validation and verification of greenhouse gas assertions (ISO 14064-3:2006)</td>
+                            <td>Greenhouse gases – Part 3: Specification with guidance for the validation AND verification of greenhouse gas assertions (ISO 14064-3:2006)</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN_EN_ISO_14064-3_2012.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN_EN_ISO_14064-3_2012.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Greenhouse gases – Requirements for greenhouse gas validation and verification bodies for use in accreditation or other forms of recognition (ISO 14065:2013);</td>
+                            <td>Greenhouse gases – Requirements for greenhouse gas validation AND verification bodies for use in accreditation or other forms of recognition (ISO 14065:2013);</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN_EN_ISO_14065.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN_EN_ISO_14065.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Greenhouse gases – Carbon footprint of products – Requirements and guidelines for quantification and communication (ISO/TS 14067:2013);</td>
+                            <td>Greenhouse gases – Carbon footprint of products – Requirements AND guidelines for quantification AND communication (ISO/TS 14067:2013);</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN_CEN_ISO_TS_14067.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN_CEN_ISO_TS_14067.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
@@ -1756,7 +1756,7 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                         <tr>
                             <td>PAS 2060:2014: Specification for the demonstration of carbon neutrality</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/PAS 2060_2014.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/PAS 2060_2014.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
@@ -1768,30 +1768,30 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                         </tr>
 
                         <tr>
-                            <td>VDI 4600: Cumulative Energy demand. Terms, definitions, methods of calculation 2015</td>
+                            <td>VDI 4600: Cumulative Energy demAND. Terms, definitions, methods of calculation 2015</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/VDI 4600.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/VDI 4600.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>VDI 4600-1: Cumulative Energy demand, Examples. 2015</td>
+                            <td>VDI 4600-1: Cumulative Energy demAND, Examples. 2015</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/VDI 4600 Blatt 1 (2015-08-00) .pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/VDI 4600 Blatt 1 (2015-08-00) .pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
                             <td>VDI 4605: Evaluation of sustainability. 2017</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/VDI 4605 (2017-10-00).pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/VDI 4605 (2017-10-00).pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
                             <td>DIN EN 15643-1 Nachhaltigkeit von Bauwerken – Bewertung der Nachhaltigkeit von Gebäuden – Teil 1: Allgemeine Rahmenbedingungen. 2010</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN 15643-1 (2010-12-00).pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN 15643-1 (2010-12-00).pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
@@ -1799,49 +1799,49 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td>DIN EN 15643-2 Nachhaltigkeit von Bauwerken – Bewertung der Nachhaltigkeit von Gebäuden – Teil 2: Rahmenbedingungen für die Bewertung der umweltbezogenen
 Qualität. 2011</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN 15643-2 (2011-05-00).pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN 15643-2 (2011-05-00).pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
                             <td>DIN EN 15643-3 Nachhaltigkeit von Bauwerken – Bewertung der Nachhaltigkeit von Gebäuden – Teil 3: Rahmenbedingungen für die Bewertung der sozialen Qualität. 2012</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN 15643-3 (2012-04-00).pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN 15643-3 (2012-04-00).pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
                             <td>DIN EN 15643-4 Nachhaltigkeit von Bauwerken – Bewertung der Nachhaltigkeit von Gebäuden – Teil 4: Rahmenbedingungen für die Bewertung der ökonomischen Qualität. 2012</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN 15643-4 (2012-04-00).pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN 15643-4 (2012-04-00).pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
                             <td>DIN EN 15804 Nachhaltigkeit von Bauwerken – Umweltproduktdeklarationen – Grundregeln für die Produktkategorie Bauprodukte. 2013</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN 15804 (2014-07-00).pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN 15804 (2014-07-00).pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
                             <td>DIN EN 15978 Nachhaltigkeit von Bauwerken – Bewertung der umweltbezogenen Qualität von Gebäuden – Berechnungsmethode. 2011</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN 15978 (2012-10-00).pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN 15978 (2012-10-00).pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
                             <td>SIA 2032: Graue Energie von Gebäuden. 2010. In German </td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/SIA 2032.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/SIA 2032.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
                         <tr>
                             <td>SIA 2040: SIA Effizienzpfad Energie. 2010. In German</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/SIA 2040.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/SIA 2040.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
@@ -1854,7 +1854,7 @@ Qualität. 2011</td>
                         <tr>
                             <td>BS 8001:2017: Framework for implementing the principles of the circular economy in organizations – Guide</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/BS_8001_2017.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/BS_8001_2017.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
@@ -1867,7 +1867,7 @@ Qualität. 2011</td>
                         <tr>
                             <td>Environmental management systems – Requirements with guidance for use (ISO 14001:2004 + Cor 1:2009)</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN ISO 14001.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN ISO 14001.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
@@ -1880,7 +1880,7 @@ Qualität. 2011</td>
                         <tr>
                             <td>Quality management systems – Requirements (ISO 9001:2008); Trilingual version EN ISO 9001:2008</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Standards/DIN EN ISO 9001.pdf', 'This is the content of my file :')" value="Download Standard" />
+                                <input type="button" onclick="download('data_indecol_205939343242/StANDards/DIN EN ISO 9001.pdf', 'This is the content of my file :')" value="Download StANDard" />
                             </td>
                         </tr>
 
@@ -1896,7 +1896,7 @@ Qualität. 2011</td>
 
                 <a name="IEF literature list"></a>
                 <h3>IEF literature list </h3>
-                Below is a list of seminal literature for the core IEF applications and methods.
+                Below is a list of seminal literature for the core IEF applications AND methods.
 
                         <br />
                 <br />
@@ -1923,7 +1923,7 @@ Qualität. 2011</td>
                         </tr>
 
                         <tr>
-                            <td>Strategies for Manufacturing - Waste from one industrial process can serve as the raw materials for another, thereby reducing the impact of industry on the environment, by Robert A. Frosch and Nicholas E. Gallopoulos. Copyright 1989 by Scientific American.</td>
+                            <td>Strategies for Manufacturing - Waste FROM one industrial process can serve as the raw materials for another, thereby reducing the impact of industry on the environment, by Robert A. Frosch AND Nicholas E. Gallopoulos. Copyright 1989 by Scientific American.</td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/Literature/IEooc_Background1__Reading3_Strategies_For_Manufacturing_Sci_American_1989.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
@@ -1944,9 +1944,9 @@ Qualität. 2011</td>
                         </tr>
 
                         <tr>
-                            <td>Sustainable Development: socio-economic metabolism and colonisation of nature. By Marina Fischer-Kowalski and Helmut Haberl (1998).</td>
+                            <td>Sustainable Development: socio-economic metabolism AND colonisation of nature. By Marina Fischer-Kowalski AND Helmut Haberl (1998).</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Literature/Fischer-Kowalski, Haberl_1998_Sustainable development socio-economic metabolism and colonization of nature.pdf', 'This is the content of my file :')" value="Download Paper" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Literature/Fischer-Kowalski, Haberl_1998_Sustainable development socio-economic metabolism AND colonization of nature.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
                         </tr>
 
@@ -1971,21 +1971,21 @@ Qualität. 2011</td>
                         </tr>
 
                         <tr>
-                            <td>The role of in-use stocks in the social metabolism and in climate change mitigation, by Pauliuk and Müller. (2014).</td>
+                            <td>The role of in-use stocks in the social metabolism AND in climate change mitigation, by Pauliuk AND Müller. (2014).</td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/Literature/Pauliuk_2014_Role_of_Stocks.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Global socioeconomic material stocks rise 23-fold over the 20th century and require half of annual resource use, by Krausmann et al. (2017).</td>
+                            <td>Global socioeconomic material stocks rise 23-fold over the 20th century AND require half of annual resource use, by Krausmann et al. (2017).</td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/Literature/PNAS-2017-Krausmann-1880-5.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>How Circular is the Global Economy? An Assessment of Material Flows, Waste Production, and Recycling in the European Union and the World in 2005, by Haas et al. (2015).</td>
+                            <td>How Circular is the Global Economy? An Assessment of Material Flows, Waste Production, AND Recycling in the European Union AND the World in 2005, by Haas et al. (2015).</td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/Literature/Haas et al_2015.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
@@ -1998,16 +1998,16 @@ Qualität. 2011</td>
                         </tr>
 
                         <tr>
-                            <td>Emerging approaches, challenges and opportunities in life cycle assessment, by Stefanie Hellweg and Llorenç Milà i Canals. Science (2014).</td>
+                            <td>Emerging approaches, challenges AND opportunities in life cycle assessment, by Stefanie Hellweg AND Llorenç Milà i Canals. Science (2014).</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Literature/Hellweg, Mila i Canals_2014_Emerging approaches, challenges and opportunities in life cycle assessment.pdf', 'This is the content of my file :')" value="Download Paper" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Literature/Hellweg, Mila i Canals_2014_Emerging approaches, challenges AND opportunities in life cycle assessment.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Comparative Environmental Life Cycle Assessment of Conventional and Electric Vehicles. By Hawkins et al. (2013).</td>
+                            <td>Comparative Environmental Life Cycle Assessment of Conventional AND Electric Vehicles. By Hawkins et al. (2013).</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Literature/Hawkins et al._2013_Comparative Environmental Life Cycle Assessment of Conventional and Electric Vehicles.pdf', 'This is the content of my file :')" value="Download Paper" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Literature/Hawkins et al._2013_Comparative Environmental Life Cycle Assessment of Conventional AND Electric Vehicles.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
                         </tr>
 
@@ -2026,7 +2026,7 @@ Qualität. 2011</td>
                         </tr>
 
                         <tr>
-                            <td>ReCiPe 2008 - A life cycle impact assessment method which comprises harmonised category indicators at the midpoint and the endpoint level, by Goedkoop et al. (2013).</td>
+                            <td>ReCiPe 2008 - A life cycle impact assessment method which comprises harmonised category indicators at the midpoint AND the endpoint level, by Goedkoop et al. (2013).</td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/Literature/Goedkoop, Huijbregts_2013_ReCiPe 2008.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
@@ -2047,9 +2047,9 @@ Qualität. 2011</td>
                         </tr>
 
                         <tr>
-                            <td>From production-based to consumption-based national emission inventories. By Glen Peters. (2008).</td>
+                            <td>FROM production-based to consumption-based national emission inventories. By Glen Peters. (2008).</td>
                             <td>
-                                <input type="button" onclick="download('data_indecol_205939343242/Literature/Peters_2008_From production-based to consumption-based national emission inventories.pdf', 'This is the content of my file :')" value="Download Paper" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Literature/Peters_2008_FROM production-based to consumption-based national emission inventories.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>
                         </tr>
 
@@ -2068,7 +2068,7 @@ Qualität. 2011</td>
                         </tr>
 
                         <tr>
-                            <td>Input-Output Analysis of Waste Management. By Nakamura and Kondo (2002).</td>
+                            <td>Input-Output Analysis of Waste Management. By Nakamura AND Kondo (2002).</td>
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/Literature/Nakamura, Kondo_2002_Input-Output Analysis of Waste Management.pdf', 'This is the content of my file :')" value="Download Paper" />
                             </td>

@@ -96,7 +96,7 @@
             display: block;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen AND (max-width: 768px) {
             .grid-container {
                 display: block;
             }
@@ -109,14 +109,14 @@
             <h2>CIRCOMOD:</h2>
             <h3>Circular economy modelling for climate change mitigation</h3>
             <br>
-            <p>A circular economic system that aims to reduce primary material use (in addition to energy efficiency and fuel shifts) can address both Greenhous Gas emissions (GHG)s and increase resource efficiency. However, current GHG mitigation models and scenarios that inform climate policymakers do not generally include circular economy (CE) options. They also do not cover the possible synergies of the CE with other societal goals such as the Sustainable Development Goals (SDGs), nor the challenges involved in rearranging value chains and consumer behaviour.</p>
+            <p>A circular economic system that aims to reduce primary material use (in addition to energy efficiency AND fuel shifts) can address both Greenhous Gas emissions (GHG)s AND increase resource efficiency. However, current GHG mitigation models AND scenarios that inform climate policymakers do not generally include circular economy (CE) options. They also do not cover the possible synergies of the CE with other societal goals such as the Sustainable Development Goals (SDGs), nor the challenges involved in rearranging value chains AND consumer behaviour.</p>
             <br>
-            <p>CIRCOMOD addresses these challenges by developing a new generation of advanced models and scenarios that will assess how CE can reduce future GHGs and material use. The project brings together a unique consortium of leading research teams from different disciplines, including industrial ecology and material flow modelling, process-oriented integrated assessment modelling, and macro-economic modelling. It aims for a breakthrough in integrating CE and GHG mitigation assessments by a) developing an analytical framework that maps circular economy strategies to existing influential climate scenarios; b) providing robust and timely CE data in an open repository; and c) improving the representation of the CE in leading models used by European and global institutions, while strengthening links between the models. It will provide input to international assessments such as the Intergovernmental Panel on Climate Change (IPCC) and the International Resource Panel (IRP).</p>
+            <p>CIRCOMOD addresses these challenges by developing a new generation of advanced models AND scenarios that will assess how CE can reduce future GHGs AND material use. The project brings together a unique consortium of leading research teams FROM different disciplines, including industrial ecology AND material flow modelling, process-oriented integrated assessment modelling, AND macro-economic modelling. It aims for a breakthrough in integrating CE AND GHG mitigation assessments by a) developing an analytical framework that maps circular economy strategies to existing influential climate scenarios; b) providing robust AND timely CE data in an open repository; AND c) improving the representation of the CE in leading models used by European AND global institutions, while strengthening links between the models. It will provide input to international assessments such as the Intergovernmental Panel on Climate Change (IPCC) AND the International Resource Panel (IRP).</p>
             <br>
-            <p>The EU research fund Horizon Europe has awarded 5 million euros to the project. The consortium consists of twelve partners from different EU countries. </p>
+            <p>The EU research fund Horizon Europe has awarded 5 million euros to the project. The consortium consists of twelve partners FROM different EU countries. </p>
             <br>
             <p>
-                Here, we will show different visualization options for circular economy profiles for materials, products, and regions.
+                Here, we will show different visualization options for circular economy profiles for materials, products, AND regions.
             <a href="https://www.tilburguniversity.edu/current/news/more-news/eu-funds-research-project-circomod-eu-modeling-circular-economy-mitigate-climate-change" target="_blank">Tilburg University</a>
             </p>
             <hr/>
@@ -156,7 +156,7 @@
                     <i id="eyePassword" onmousedown="showPassword(true)" onmouseup="showPassword(false)" class="fa fa-eye"></i>
                 </div>
 
-                <span id="passhint">Must contain at least 8 characters, including at least one special character and one number</span>
+                <span id="passhint">Must contain at least 8 characters, including at least one special character AND one number</span>
 
                 <div id="passwordCellRepeat">
                     <asp:TextBox required="true" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"

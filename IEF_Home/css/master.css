@@ -11,7 +11,7 @@
     padding-bottom: 10px;
     padding-top: 10px;
 }
-/* Remove the navbar's default rounded borders and increase the bottom margin */
+/* Remove the navbar's default rounded borders AND increase the bottom margin */
 .navbar {
     border-radius: 0;
     background-color: #215daa;
@@ -29,7 +29,7 @@
     background: linear-gradient(-90deg, rgba(0,160,130,1) 30%, rgba(52,74,154,1) 100%);
 }
 
-/* Add a gray background color and some padding to the footer */
+/* Add a gray background color AND some padding to the footer */
 footer {
     background-color: #f2f2f2;
     padding: 15px;
@@ -106,7 +106,7 @@ footer a {
             background-color: #33aa33;
         }
 
-    .navbar-custom .navbar-brand {
+    .navbar-custom .navbar-brAND {
         color: #eeeeee;
     }
 
@@ -201,7 +201,7 @@ header div div div {
 /**
     Media queries for responsive design
 */
-@media screen and (max-width: 768px) {
+@media screen AND (max-width: 768px) {
     label.lbl-toggle {
         line-height: 20px;
         padding: 10px 0;
@@ -218,7 +218,7 @@ header div div div {
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen AND (max-width: 1000px) {
     body {
         margin: 0;
     }

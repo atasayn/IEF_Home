@@ -20,7 +20,7 @@ namespace IEF_Home.cls
         public string user_type(string userName, string password)
         {
             var user_type = "";
-            var query = "SELECT * FROM login_internal where user_name= @userName AND password= @password ";
+            var query = "SELECT * FROM login_internal WHERE user_name= @userName AND password= @password ";
 
             if (cn.OpenConnection() == true)
             {

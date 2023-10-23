@@ -46,6 +46,21 @@
            
         }
 
+        .grid-dataset-list{
+            
+            padding-top:30px;
+            margin:auto;
+            width:500px;
+            
+        }
+
+        .grid-dataset-preview {
+	        margin: auto;
+	        border-radius: 10px;
+	        overflow: hidden;
+            max-width: 100%
+        }
+
         td:hover {
             background-color: #ffc000;
             color: #000000;
@@ -56,7 +71,7 @@
             background-color: #ffc000;
         }
 
-        #aspects td, #aspectsClass1 td, #aspectsClass2 td, #aspectsClass3 td {
+        #aspects td, #aspectsClass1 td, #aspectsClass2 td, #aspectsClass3 td, #dataset-list td {
            width:30%
         }
 
@@ -66,7 +81,7 @@
             text-align: center;
         }
 
-        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3 {
+        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview{
             /*border: 1px solid #0f8ca7;*/
             border-radius: 10px;
             border-collapse: separate;
@@ -74,15 +89,56 @@
             max-height: 400px;
         }
 
+        #dataset-list{
 
-        tbody {
+	        border-radius: 10px;
+	        border-collapse: collapse;
+	        overflow: hidden;
+        }
+
+
+        #data-type tbody, #aspects tbody, #aspectsClass1 tbody, #aspectsClass2 tbody, #aspectsClass3 tbody{
             display: block;
             height: 400px;
             overflow-y: auto;
         }
 
+        #dataset-preview {
+            height:400px;
+            display: block;
+	        width: 100%;
+            overflow: auto;
+        }
+
+        #dataset-preview th {
+	        position: sticky;
+	        top: 0;
+        }
+
+        #dataset-preview td{
+            text-align: center; 
+            vertical-align: middle;
+        }
+
+        #dataset-preview tbody{
+            max-height:300px
+ 
+        }
+
         tr:nth-child(even) {
             background-color: #dddddd;
+        }
+
+        #btnExport{
+            display: block;
+            height: 45px;
+            width: 110px;
+            margin: 10px auto;
+            background: #ffc000;
+            border-color: #ffc000;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
         }
 
 
@@ -100,23 +156,24 @@
 
             });
         })
-            var clickNo = 0
 
         $(function () {
-            $('#aspects').on('click', 'td', function () {
+            $('#dataset-list').on('click', 'td', function (e) {
 
-              
+                // Add active class to current td target 
+                $('#dataset-list td').removeClass('active');
+
                 $(this).addClass('active');
-                clickNo = clickNo + 1;
-                if (clickNo == 4) {
-                    $('#aspects td').removeClass('active');
-                    clickNo = 0;
-                }
+
+
             });
         })
-      
-    </script>
 
+
+
+    </script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="js/xlsx.core.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -126,7 +183,7 @@
                 <h3><b>Industrial Ecology Data Commons (iedc) prototype: Advanced search interface</b></h3>
                 <p>This page offers some advanced options to search for data across datasets</p>
                 <p>
-                    Back to standard interface and iedc homepage<a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">
+                    Back to stANDard interface AND iedc homepage<a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">
                         <img src="resources/link.png" width="20" height="20" /></a>
                 </p>
             </div>
@@ -137,9 +194,9 @@
 
                 <h3><b>Search for available data within all datasets of a given type</b></h3>
                 <p>Data in the iedc are organized into pre-defined (data types) <a href="https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx " target="_blank">[https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx]</a>, such as data for flows, stocks, material composition, or unit process inventories. </p>
-                <p>In this interface, you first select a data type, upon which all the different aspects (time, region, material, etc.) used to describe the different datasets for this data type are shown.</p>
-                <p>After selecting a specific aspect, the different classification items (specific regions, materials, etc.) for which data are available are listed.</p>
-                <p>After selecting one ore more classification items, all available datasets that contain data for this classification item in the given aspect are shown and can be previewed.</p>
+                <p>In this interface, you first SELECT a data type, upon which all the different aspects (time, region, material, etc.) used to describe the different datasets for this data type are shown.</p>
+                <p>After SELECTing a specific aspect, the different classification items (specific regions, materials, etc.) for which data are available are listed.</p>
+                <p>After SELECTing one ore more classification items, all available datasets that contain data for this classification item in the given aspect are shown AND can be previewed.</p>
                 <p>Download is then possible via the main interface.</p>
 
             </div>
@@ -152,10 +209,12 @@
             <div class="grid-item-dataframe">
                 <table id="data-type">
                 </table>
+
+               
             </div>
 
             <div class="grid-item-dataset">
-                <table id="aspects">
+                 <table id="aspects">
                 </table>
                    <table id="aspectsClass1">
                 </table>
@@ -165,11 +224,22 @@
                 </table>
 
             </div>
+        
 
 
         </div>
 
+            <div class="grid-dataset-list">
+                 <table id="dataset-list">
+                </table>
+   
+            </div>
+             <div class="grid-dataset-preview">
+                 <table id="dataset-preview">
+                </table>
 
+            <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display:none"> Download</button>
+            </div>
 
         <div class="grid-item"></div>
         <div class="grid-item"></div>
