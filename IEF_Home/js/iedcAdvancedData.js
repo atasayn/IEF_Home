@@ -228,6 +228,7 @@
     $('#dataset-list').on('click', 'tbody tr td', function (e) {
       
         var userInputDataPreview = $(this).text();
+        document.getElementsByClassName('grid-dataset-preview')[0].style.display = 'block'
         $("#dataset-preview").empty();
 
         
