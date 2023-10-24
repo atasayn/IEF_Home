@@ -654,6 +654,10 @@ namespace IEF_Home
                     {
                         query += " AND ";
                     }
+                    else if ( i == 0 && classAspectList[2] != "")
+                    {
+                        query += " AND ";
+                    }
                     else
                     {
                         query += ")";

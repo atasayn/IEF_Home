@@ -27,7 +27,6 @@
         
         var userInputDatatype = $(this).parent().index();
         window.userInputDatatype = userInputDatatype;
-        document.getElementsByClassName('grid-dataset-preview')[0].style.display = 'block'
         $("#aspectsClass1").empty();
         $("#aspectsClass2").empty();
         $("#aspectsClass3").empty();
@@ -172,10 +171,12 @@
     $('.grid-item-dataset table:gt(0)').on('click', 'tbody tr td', function (e) {
 
         $("#dataset-list").empty();
+        $("#dataset-preview").empty();
+        document.getElementById("btnExport").style.display = "none";
         var tbl = e.target.parentNode.parentNode.parentNode
         var tbl_index = parseInt(tbl.id.slice(-1)) - 1
         var selected_name = e.target.innerText
-        var original_color = window.getComputedStyle(e.target.parentNode).backgroundColor;
+   
      
         if (selections[tbl_index]["selected"].includes(selected_name)) {
             // Element is already selected, delete it FROM the list AND remove background color
@@ -208,7 +209,7 @@
                 console.log(result.d.length)
                 $("#dataset-list").empty();
 
-                if (result.d.length == 0 && selections.length == 0) {
+                if (result.d.length == 0 || selections.length == 0) {
                     console.log(selections.length)
                     $("#dataset-list").append("<thead>" + "<tr><th>Data List" + "</th></tr>" + "</thead><tbody>");
                     $("#dataset-list").append("<tr><td>" + "NO DATA FOUND" + "</td></tr>");

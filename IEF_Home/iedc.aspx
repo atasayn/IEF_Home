@@ -142,11 +142,6 @@
         }
 
 
-        .grid-dataset-preview { 
-
-            display: none;
-        }
-
 
     </style>
 
@@ -240,7 +235,8 @@
                 </table>
    
             </div>
-             <div class="grid-dataset-preview">
+             
+            <div class="grid-dataset-preview">
                  <table id="dataset-preview">
                 </table>
 
