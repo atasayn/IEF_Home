@@ -144,7 +144,7 @@
 
         .grid-dataset-preview { 
 
-            display: none;
+            display: block;
         }
 
 

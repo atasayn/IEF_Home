@@ -113,6 +113,8 @@
                 $("#aspectsClass1").empty();
                 $("#aspectsClass2").empty();
                 $("#aspectsClass3").empty();
+                $("#dataset-preview").empty();
+                $("#dataset-list").empty();
                 var evenRows = document.getElementById("aspects").querySelectorAll('tr:nth-child(even) td');
                 var oddRows = document.getElementById("aspects").querySelectorAll('tr:nth-child(odd) td');
 
@@ -228,7 +230,7 @@
     $('#dataset-list').on('click', 'tbody tr td', function (e) {
       
         var userInputDataPreview = $(this).text();
-        document.getElementsByClassName('grid-dataset-preview')[0].style.display = 'block'
+       // document.getElementsByClassName('grid-dataset-preview')[0].style.display = 'block'
         $("#dataset-preview").empty();
 
         
