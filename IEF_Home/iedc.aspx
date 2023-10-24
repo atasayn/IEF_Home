@@ -144,7 +144,7 @@
 
         .grid-dataset-preview { 
 
-            display: block;
+            display: none;
         }
 
 
@@ -228,7 +228,7 @@
                 </table>
                 <table id="aspectsClass3">
                 </table>
-
+                
             </div>
         
 
@@ -244,7 +244,7 @@
                  <table id="dataset-preview">
                 </table>
 
-            <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display:none"> Download</button>
+            <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display:none" type="button"> Download</button>
             </div>
 
     </div>

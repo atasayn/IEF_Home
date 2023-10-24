@@ -13,7 +13,7 @@
 
     svg {
         pointer-events: none;
-        user-SELECT: none;
+        user-select: none;
         width: auto
     }
 
@@ -33,7 +33,7 @@
 
     }
 
-    @media screen AND (max-width: 768px) {
+    @media screen and (max-width: 768px) {
         #iframeContainer {
             display: block;
         }
@@ -55,9 +55,9 @@
 <script>
 
     $(document).ready(function () {
-        $("#DropDownListYear").append("<option>" + "Please SELECT year" + "</option>");
+        $("#DropDownListYear").append("<option>" + "Please select year" + "</option>");
 
-        const room = document.querySELECTor("#DropDownListYear");
+        const room = document.queryselector("#DropDownListYear");
 
         for (let i = 2022; i <= 2060; i++) {
             room.insertAdjacentHTML("beforeend", `<option value="${i}">${i}</option>`);
@@ -79,14 +79,14 @@
     <form id="form1" runat="server">
         <div class="grid-sankey">
     
-    <h3>Sankey diagram of material flows (blue) AND GHG emissions (blue-green) for different countries, sectors, AND CE scenarios</h3>
+    <h3>Sankey diagram of material flows (blue) and GHG emissions (blue-green) for different countries, sectors, and CE scenarios</h3>
     <br/>
-    <SELECT id="DropDownListSankeyRegion">
-        <option value="" SELECTed>Please SELECT region</option>
+    <select id="DropDownListSankeyRegion">
+        <option value="" selected>Please select region</option>
         <option value="France">France</option>
         <option value="Germany">Germany</option>
         <option value="Italy">Italy</option>
-        <option value="PolAND">PolAND</option>
+        <option value="Poland">Poland</option>
         <option value="Spain">Spain</option>
         <option value="UK">UK</option>
         <option value="Oth_R32EU15">Oth_R32EU15</option>
@@ -108,27 +108,27 @@
         <option value="Global_South">Global_South</option>
         <option value="Global_North">Global_North</option>
         <option value="Global">Global</option>
-    </SELECT>
+    </select>
 
 
-    <SELECT id="DropDownListSankeyScenario">
-        <option value="" SELECTed>Please SELECT scenerio</option>
+    <select id="DropDownListSankeyScenario">
+        <option value="" selected>Please select scenerio</option>
         <option value="LED">LED</option>
         <option value="SSP1">SSP1</option>
         <option value="SSP2">SSP2</option>
-    </SELECT>
+    </select>
 
-    <SELECT id="DropDownListSector">
-        <option value="" SELECTed>Please SELECT sector</option>
+    <select id="DropDownListSector">
+        <option value="" selected>Please select sector</option>
         <option value="Residential building">Residential building</option>
         <option value="Passenger vehicles">Passenger vehicles</option>
-    </SELECT>
+    </select>
 
-    <SELECT id="DropDownListYear">
-    </SELECT>
+    <select id="DropDownListYear">
+    </select>
 
-    <SELECT id="DropDownListStrategy">
-        <option value="" SELECTed>Please SELECT strategy</option>
+    <select id="DropDownListStrategy">
+        <option value="" selected>Please select strategy</option>
         <option value="Baseline">Baseline</option>
         <option value="HIY">HIY</option>
         <option value="HIY-RLU">HIY-RLU</option>
@@ -138,11 +138,11 @@
         <option value="HIY-RLU-MSU">HIY-RLU-MSU</option>
         <option value="HIY-RLU-MSU-DOS-CAS">HIY-RLU-MSU-DOS-CAS</option>
         <option value="Full CE">Full CE</option>
-    </SELECT>
+    </select>
 
 
-    <SELECT id="DropDownListMaterial">
-        <option value="" SELECTed>Please SELECT material</option>
+    <select id="DropDownListMaterial">
+        <option value="" selected>Please select material</option>
         <option value="Cement">Cement</option>
         <option value="Steel">Steel</option>
         <option value="Aluminium ">Aluminium</option>
@@ -150,10 +150,10 @@
         <option value="Plastics">Plastic</option>
         <option value="Wood">Wood</option>
 
-    </SELECT>
+    </select>
 
 
-    <button type="button" class="DDSELECTSankey" >Click me</button>
+    <button type="button" class="DDselectSankey" >Click me</button>
     <br /><span id="errorMsg"  ></span>
    
     <div style="display: none;">

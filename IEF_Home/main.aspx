@@ -79,7 +79,7 @@
                 content: "\1F517  ";
             }
 
-        @media screen AND (max-width: 768px) {
+        @media screen and (max-width: 768px) {
             .grid-container {
                 display: block;
             }
@@ -156,20 +156,20 @@
         <div class="grid-main">
             <h3>Welcome to the research portal of Industrial Ecology Freiburg (IEF)!</h3>
             <p>
-                We are the research group for sustainable energy AND material flow management (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment AND Natural Resources.
+                We are the research group for sustainable energy and material flow management (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment and Natural Resources.
                 <br>
                 <br>
-                We study the link between human development AND material AND energy use AND estimate the environmental impacts of material production AND energy supply. 
+                We study the link between human development and material and energy use and estimate the environmental impacts of material production and energy supply. 
                 <br>
-                We use material cycle AND scenario models to quantify the impact on energy AND material demAND of different resource efficiency strategies (circular economy), different urban forms, different levels of societal inequality, AND of sufficiency strategies. 
+                We use material cycle and scenario models to quantify the impact on energy and material demand of different resource efficiency strategies (circular economy), different urban forms, different levels of societal inequality, and of sufficiency strategies. 
                 <br>
-                With our research, we help identify the most effective policy levers for decoupling human wellbeing FROM resource use AND environmental destruction.
-                <br>
-                <br>
-                On these pages, we blog about our research AND the projects we are involved in, host a database with our research results, share model information AND teaching material, AND provide visualisation tools.
+                With our research, we help identify the most effective policy levers for decoupling human wellbeing from resource use and environmental destruction.
                 <br>
                 <br>
-                You can find out more about our group, our research approach, AND our teaching on our <a href="http://www.indecol.uni-freiburg.de/en" target="_blank">official homepage</a>
+                On these pages, we blog about our research and the projects we are involved in, host a database with our research results, share model information and teaching material, and provide visualisation tools.
+                <br>
+                <br>
+                You can find out more about our group, our research approach, and our teaching on our <a href="http://www.indecol.uni-freiburg.de/en" target="_blank">official homepage</a>
             </p>
         </div>
 
@@ -182,7 +182,7 @@
         <div class="grid-twitter">
 
             <div class="not-show-twitter" >
-                Tweets FROM @StefanPauliuk
+                Tweets from @StefanPauliuk
            
                 <div class="not-show-twitter-content">
 
@@ -212,7 +212,7 @@
 
             <h4 style="color:white">Links:</h4>
             <span class="grid-link" style="color:white">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target="_blank">website</a>)</span>
-            <span class="grid-link" style="color:white">Faculty of Environment AND Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target="_blank">website</a>)</span>
+            <span class="grid-link" style="color:white">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target="_blank">website</a>)</span>
 
         </div>
     </div>

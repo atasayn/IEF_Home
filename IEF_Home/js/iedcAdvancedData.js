@@ -27,6 +27,7 @@
         
         var userInputDatatype = $(this).parent().index();
         window.userInputDatatype = userInputDatatype;
+        document.getElementsByClassName('grid-dataset-preview')[0].style.display = 'block'
         $("#aspectsClass1").empty();
         $("#aspectsClass2").empty();
         $("#aspectsClass3").empty();
@@ -115,6 +116,7 @@
                 $("#aspectsClass3").empty();
                 $("#dataset-preview").empty();
                 $("#dataset-list").empty();
+                document.getElementById("btnExport").style.display = "none";
                 var evenRows = document.getElementById("aspects").querySelectorAll('tr:nth-child(even) td');
                 var oddRows = document.getElementById("aspects").querySelectorAll('tr:nth-child(odd) td');
 
@@ -206,7 +208,8 @@
                 console.log(result.d.length)
                 $("#dataset-list").empty();
 
-                if (result.d.length == 0) {
+                if (result.d.length == 0 && selections.length == 0) {
+                    console.log(selections.length)
                     $("#dataset-list").append("<thead>" + "<tr><th>Data List" + "</th></tr>" + "</thead><tbody>");
                     $("#dataset-list").append("<tr><td>" + "NO DATA FOUND" + "</td></tr>");
                     $("#dataset-list").append("</tbody>");
@@ -230,7 +233,6 @@
     $('#dataset-list').on('click', 'tbody tr td', function (e) {
       
         var userInputDataPreview = $(this).text();
-       // document.getElementsByClassName('grid-dataset-preview')[0].style.display = 'block'
         $("#dataset-preview").empty();
 
         

@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <script>
         function change_language(show, hide) {
-            Array.FROM(document.getElementsByClassName("lang-" + show)).forEach(el => el.style.display = "block");
-            Array.FROM(document.getElementsByClassName("lang-" + hide)).forEach(el => el.style.display = "none");
+            Array.from(document.getElementsByClassName("lang-" + show)).forEach(el => el.style.display = "block");
+            Array.from(document.getElementsByClassName("lang-" + hide)).forEach(el => el.style.display = "none");
         }
     </script>
     <style type="text/css">
@@ -20,14 +20,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="lang-changer">
         <img src="resources/flag-germany.png" width="30" alt="de flag" title="Deutsch" onclick="change_language('de', 'en');"/>
-        <img src="resources/flag-englAND.png" width="30" alt="uk flag" title="English" onclick="change_language('en', 'de');"/>
+        <img src="resources/flag-england.png" width="30" alt="uk flag" title="English" onclick="change_language('en', 'de');"/>
     </div>
     <a href="#impressum" class="lang-en">&#x2794; To legal notes</a>
     <a href="#impressum" class="lang-de">&#x2794; Zum Impressum</a>
     <div id="privacy">
         <div class="lang-en">
             <h2>Privacy Policy</h2>
-            The chair of industrial ecology is part of University Freiburg. This privacy policy will explain how we use the personal data we collect FROM you when you use our website. 
+            The chair of industrial ecology is part of University Freiburg. This privacy policy will explain how we use the personal data we collect from you when you use our website. 
 
     <h3>Topics:</h3>
             <ol>
@@ -47,7 +47,7 @@
                         <tr>
                             <td>Whose data</td>
                             <td>What data</td>
-                            <td>FROM WHERE</td>
+                            <td>from WHERE</td>
                             <td>For what</td>
                             <td>How long</td>
                             <td>Why</td>
@@ -56,9 +56,9 @@
                     <tbody>
                         <tr>
                             <td>Visitors of the page</td>
-                            <td>IP address, browser AND operating system of the requester, date AND time, name AND url of the requested file</td>
+                            <td>IP address, browser and operating system of the requester, date and time, name and url of the requested file</td>
                             <td>Your request</td>
-                            <td>Manual analysis of faults, errors AND security incidents</td>
+                            <td>Manual analysis of faults, errors and security incidents</td>
                             <td>14 days</td>
                             <td>Art. 6 II f GDPR (legitimate interest)</td>
                         </tr>
@@ -91,7 +91,7 @@
     Additionally, our website includes content of Twitter Inc. For more information about their privacy policy please visit <a href="https://twitter.com/en/privacy">https://twitter.com/en/privacy</a>.
 
     <h3>Changes to our privacy policy</h3>
-            We keep its privacy policy under regular review AND places any updates on this web page. This privacy policy was last updated on 22th July 2022.
+            We keep its privacy policy under regular review and places any updates on this web page. This privacy policy was last updated on 22th July 2022.
 
     <h3>How to contact us</h3>
             </p>If you have any questions about our privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us via email: <a href="mailto://datenschutz@uni-freiburg.de">datenschutz@uni-freiburg.de</a></p>
@@ -109,7 +109,7 @@
             <h3>How to contact the appropriate authority</h3>
             <p>Should you wish to report a complaint or if you feel that we have not addressed your concern in a satisfactory manner, you may contact the Information Commissioner’s Office:</p>
             <p>
-                <b>Der LANDesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</b><br />
+                <b>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</b><br />
                 Telephone:	+49 711/61 55 41 – 0<br />
                 Telefax:	+49 711/61 55 41 – 15<br />
                 Email:	poststelle@lfdi.bwl.de
@@ -124,7 +124,7 @@
                 <li>Welche Daten erheben wir?</li>
                 <li>Was sind Ihre Datenschutzrechte?</li>
                 <li>So verwalten Sie Ihre Cookies</li>
-                <li>Datenschutzrichtlinien ANDerer Websites</li>
+                <li>Datenschutzrichtlinien anderer Websites</li>
                 <li>Änderungen unserer Datenschutzrichtlinie</li>
                 <li>So erreichen Sie uns</li>
                 <li>So kontaktieren Sie die zuständigen Behörden</li>
@@ -171,12 +171,12 @@
         <li>Das Recht auf Löschung – Sie haben das Recht zu verlangen, dass wir Ihre personenbezogenen Daten unter bestimmten Bedingungen löschen.</li>
         <li>Das Recht auf Einschränkung der Verarbeitung – Sie haben das Recht zu verlangen, dass wir die Verarbeitung Ihrer personenbezogenen Daten unter bestimmten Bedingungen einschränken.</li>
         <li>Das Recht, der Verarbeitung zu widersprechen – Sie haben unter bestimmten Bedingungen das Recht, unserer Verarbeitung Ihrer personenbezogenen Daten zu widersprechen.</li>
-        <li>Das Recht auf Datenübertragbarkeit – Sie haben das Recht zu verlangen, dass wir die von uns gesammelten Daten unter bestimmten Bedingungen an eine ANDere Organisation oder direkt an Sie übertragen.</li>
+        <li>Das Recht auf Datenübertragbarkeit – Sie haben das Recht zu verlangen, dass wir die von uns gesammelten Daten unter bestimmten Bedingungen an eine andere Organisation oder direkt an Sie übertragen.</li>
     </ul>
             Wenn Sie eine Anfrage stellen, haben wir einen Monat Zeit, um Ihnen zu antworten. Wenn Sie eines dieser Rechte ausüben möchten, kontaktieren Sie uns bitte unter unserer E-Mail: <a href="mailto://datenschutz@uni-freiburg.de">datenschutz@uni-freiburg.de</a>
 
-            <h3>Datenschutzrichtlinien ANDerer Websites</h3>
-            Unsere Website enthält Links zu ANDeren Websites. Unsere Datenschutzrichtlinie gilt nur für unsere Website. Wenn Sie also auf einen Link zu einer ANDeren Website klicken, sollten Sie deren Datenschutzrichtlinie lesen.
+            <h3>Datenschutzrichtlinien anderer Websites</h3>
+            Unsere Website enthält Links zu anderen Websites. Unsere Datenschutzrichtlinie gilt nur für unsere Website. Wenn Sie also auf einen Link zu einer anderen Website klicken, sollten Sie deren Datenschutzrichtlinie lesen.
 
     Außerdem enthält unsere Website Inhalte von Twitter Inc. Weitere Informationen zu deren Datenschutzrichtlinien finden Sie unter <a href="https://twitter.com/en/privacy">https://twitter.com/en/privacy</a>.
 
@@ -198,10 +198,10 @@
 
             <h3>So kontaktieren Sie die zuständige Behörde</h3>
             <p>
-                Falls Sie eine Beschwerde melden möchten oder der Meinung sind, dass wir Ihr Anliegen nicht zufriedenstellend behANDelt haben, können Sie sich an den LANDesdatenschutzbeauftragten wenden:
+                Falls Sie eine Beschwerde melden möchten oder der Meinung sind, dass wir Ihr Anliegen nicht zufriedenstellend behandelt haben, können Sie sich an den Landesdatenschutzbeauftragten wenden:
                 Büro:</p>
             <p>
-                <b>Der LANDesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</b><br />
+                <b>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</b><br />
                 Telefon: +49 711/61 55 41 – 0<br />
                 Telefax: +49 711/61 55 41 – 15<br />
                 E-Mail: poststelle@lfdi.bwl.de
@@ -226,22 +226,22 @@
             https://www.indecol.uni-freiburg.de
 
         <h3>Copyright-Hinweis zu Fotos und Graphiken</h3>
-            Alle verwendeten Bilder, soweit nicht ANDers ausgezeichnet: Copyright Albert-Ludwigs-Universität Freiburg
+            Alle verwendeten Bilder, soweit nicht anders ausgezeichnet: Copyright Albert-Ludwigs-Universität Freiburg
             Länderflaggen: Awalhs, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 
         <h3>Haftungsausschluss bei eigenen Inhalten</h3>
             Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt recherchiert und implementiert. Fehler im Bearbeitungsvorgang sind dennoch nicht auszuschließen. Hinweise und Korrekturen senden Sie bitte an die o.g. Emailadresse. Eine Haftung für die Richtigkeit, Vollständigkeit und Aktualität dieser Webseiten wird nicht übernommen.
 
         <h3>Haftungsausschluss bei Querverweisen und Links</h3>
-            Durch Hyperlinks verweist diese Seite auf Inhalte ANDerer Anbieter. Diese fremden Inhalte stammen weder von der Universität Freiburg, noch hat die Universität Freiburg die Möglichkeit, den Inhalt von Seiten Dritter zu beeinflussen. Die Inhalte fremder Seiten, auf die die Universität Freiburg mittels Links hinweist, spiegeln nicht die Meinung der Universität Freiburg wieder, sondern dienen lediglich der Information und der Darstellung von Zusammenhängen. Diese Feststellungen gelten für alle innerhalb des eigenen Internetangebotes gesetzten Links und Verweise sowie für Fremdeinträge in von der Universität Freiburg eingerichteten Gästebüchern, Diskussionsforen und Mailinglisten. Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung solcherart dargebotener Informationen entstehen, haftet allein der Anbieter der Seite, auf welche verwiesen wurde.
+            Durch Hyperlinks verweist diese Seite auf Inhalte anderer Anbieter. Diese fremden Inhalte stammen weder von der Universität Freiburg, noch hat die Universität Freiburg die Möglichkeit, den Inhalt von Seiten Dritter zu beeinflussen. Die Inhalte fremder Seiten, auf die die Universität Freiburg mittels Links hinweist, spiegeln nicht die Meinung der Universität Freiburg wieder, sondern dienen lediglich der Information und der Darstellung von Zusammenhängen. Diese Feststellungen gelten für alle innerhalb des eigenen Internetangebotes gesetzten Links und Verweise sowie für Fremdeinträge in von der Universität Freiburg eingerichteten Gästebüchern, Diskussionsforen und Mailinglisten. Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung solcherart dargebotener Informationen entstehen, haftet allein der Anbieter der Seite, auf welche verwiesen wurde.
         </div>
         <div class="lang-en">
             <h2>Legal Notes</h2>
             <h3>Publisher</h3>
-            Group for sustainable energy AND material flow management
+            Group for sustainable energy and material flow management
 
             <h3>Address</h3>
-            Faculty of Environment AND Natural Resources<br />
+            Faculty of Environment and Natural Resources<br />
             University of Freiburg<br />
             Tennenbacher Strasse 4<br />
             79106 Friburg
@@ -251,15 +251,15 @@
             in4mation@indecol.uni-freiburg.de<br />
             https://www.indecol.uni-freiburg.de
 
-            <h3>Copyright notice on photos AND graphics</h3>
+            <h3>Copyright notice on photos and graphics</h3>
             All images used, unless otherwise noted: Copyright Albert-Ludwigs-Universität Freiburg<br/>
             Country flags: Awalhs, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 
             <h3>Disclaimer for own content</h3>
-            The contents of this website are researched AND implemented with the greatest possible care. However, errors in the processing process cannot be ruled out. Please send notes AND corrections to the above email address. No liability is assumed for the correctness, completeness AND topicality of these websites.
+            The contents of this website are researched and implemented with the greatest possible care. However, errors in the processing process cannot be ruled out. Please send notes and corrections to the above email address. No liability is assumed for the correctness, completeness and topicality of these websites.
 
-            <h3>Disclaimer for cross-references AND links</h3>
-            This site refers to content FROM other providers through hyperlinks. This third-party content does not originate FROM the University of Freiburg, nor does the University of Freiburg have the ability to influence the content of third-party sites. The content of third-party sites to which the University of Freiburg refers via links does not reflect the opinion of the University of Freiburg, but only serves to provide information AND to show context. These statements apply to all links AND references set within our own website as well as to third-party entries in guest books, discussion forums AND mailing lists set up by the University of Freiburg. The provider of the page to which reference is made is solely liable for illegal, incorrect or incomplete content AND in particular for damage resulting FROM the use or non-use of information presented in this way.
+            <h3>Disclaimer for cross-references and links</h3>
+            This site refers to content from other providers through hyperlinks. This third-party content does not originate from the University of Freiburg, nor does the University of Freiburg have the ability to influence the content of third-party sites. The content of third-party sites to which the University of Freiburg refers via links does not reflect the opinion of the University of Freiburg, but only serves to provide information and to show context. These statements apply to all links and references set within our own website as well as to third-party entries in guest books, discussion forums and mailing lists set up by the University of Freiburg. The provider of the page to which reference is made is solely liable for illegal, incorrect or incomplete content and in particular for damage resulting from the use or non-use of information presented in this way.
         </div>
     </div>
 </asp:Content>
