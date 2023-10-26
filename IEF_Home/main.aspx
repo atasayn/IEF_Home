@@ -44,6 +44,7 @@
             font-size: large;
             padding: 0.5em 1em;
             border-radius: 1em;
+            display:block;
         }
 
         .not-show-twitter-content {
