@@ -98,7 +98,7 @@
                 document.head.appendChild(scriptElement);
 
                 $('.show-twitter').css('display', 'block');
-                $('.not-show-twitter').css('display', 'none');
+
 
             }
         }
