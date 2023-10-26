@@ -1,11 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="iedc.aspx.cs" Inherits="IEF_Home.iedc" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
 
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/iedcAdvancedData.js"></script>
-
-
     <style>
 
         .grid-container {
@@ -61,6 +58,14 @@
             max-width: 100%
         }
 
+        .grid-dataset-previewInfo{
+            margin: auto;
+	        border-radius: 10px;
+	        overflow: hidden;
+            max-width: 100%;
+            padding-top:20px
+        }
+
         td:hover {
             background-color: #ffc000;
             color: #000000;
@@ -81,7 +86,7 @@
             text-align: center;
         }
 
-        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview{
+        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview, #dataset-previewInfo{
             /*border: 1px solid #0f8ca7;*/
             border-radius: 10px;
             border-collapse: separate;
@@ -103,14 +108,14 @@
             overflow-y: auto;
         }
 
-        #dataset-preview {
+        #dataset-preview, #dataset-previewInfo {
             height:400px;
             display: block;
 	        width: 100%;
             overflow: auto;
         }
 
-        #dataset-preview th {
+        #dataset-preview th, #dataset-previewInfo th {
 	        position: sticky;
 	        top: 0;
         }
@@ -120,7 +125,7 @@
             vertical-align: middle;
         }
 
-        #dataset-preview tbody{
+        #dataset-preview tbody, #dataset-previewInfo tbody{
             max-height:300px
  
         }
@@ -142,7 +147,9 @@
         }
 
 
-
+        .gray-row {
+          background-color:#dddddd; /* Change this color to the desired shade of gray */
+        }
     </style>
 
     <script>
@@ -173,8 +180,8 @@
 
 
     </script>
-    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
-    <script type="text/javascript" src="js/xlsx.core.min.js"></script>
+    <script type ="text/javascript" src="js/xlsx.core.min.js"></script>
+    <script type ="text/javascript" src="js/xlsx.full.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -240,8 +247,13 @@
                  <table id="dataset-preview">
                 </table>
 
-            <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display:none" type="button"> Download</button>
+           
             </div>
+
+        <div class="grid-dataset-previewInfo">
+            <table id="dataset-previewInfo"></table>
+             <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display:none" type="button"> Download</button>
+        </div>
 
     </div>
 </asp:Content>

@@ -737,7 +737,60 @@ namespace IEF_Home
 
         }
 
- 
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public Dictionary<string, List<string>> iedcDatasetPreview(string dataset_name)
+        {
+            Dictionary<string, List<string>> result = new Dictionary<string, List<string>>();
+            List<string> dataset = new List<string>();
+            List<string> columnNames = new List<string>();
+
+            var query = "SELECT * FROM iedc.datasets WHERE dataset_name = @dataset_name";
+
+            if (!cn.OpenConnection())
+            {
+                result["dataset"] = null;
+                result["columnNames"] = null;
+                return result;
+            }
+
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@dataset_name", dataset_name);
+            var reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                // Get column names
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    columnNames.Add(reader.GetName(i));
+                }
+
+                result["columnNames"] = columnNames;
+
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        string dataname = reader[i].ToString();
+                        dataset.Add(dataname);
+                    }
+                }
+            }
+            else
+            {
+                result["columnNames"] = new List<string>(); // No results, return an empty list for column names.
+                result["dataset"] = null;
+            }
+
+            reader.Close();
+            cn.CloseConnection();
+
+            result["dataset"] = dataset;
+            return result;
+        }
+
     }
 
 }

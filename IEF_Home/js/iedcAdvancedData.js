@@ -30,6 +30,8 @@
         $("#aspectsClass1").empty();
         $("#aspectsClass2").empty();
         $("#aspectsClass3").empty();
+        $("#dataset-list").empty();
+        $("#dataset-preview").empty();
        
         $.ajax({
             type: "POST",
@@ -128,6 +130,11 @@
                     row.style.backgroundColor = "white";
                 });
             }
+
+            if (aspect_selections.length == 0) {
+                $("#dataset-preview").empty();
+                $("#dataset-list").empty();
+            }
             
             i++
             
@@ -190,6 +197,8 @@
             e.target.style.background = "#ffc000";
         }
 
+ 
+
         dataList = []
 
         $.ajax({
@@ -211,12 +220,13 @@
                 $("#dataset-list").empty();
 
                 if (result.d.length == 0 || selections.length == 0) {
-                    console.log(selections.length)
+                    
                     $("#dataset-list").append("<thead>" + "<tr><th>Data List" + "</th></tr>" + "</thead><tbody>");
                     $("#dataset-list").append("<tr><td>" + "NO DATA FOUND" + "</td></tr>");
                     $("#dataset-list").append("</tbody>");
                     $("#dataset-list").css("color", "red")
                     $("#dataset-preview").empty();
+
                 } else {
 
                     $("#dataset-list").append("<thead>" + "<tr><th>Data List" + "</th></tr>" + "</thead><tbody>");
@@ -259,29 +269,64 @@
                 innerHtml += "</tr></thead><tbody><tr></tr></tbody>"
                 $("#dataset-preview").append(innerHtml);
                 document.getElementById("btnExport").style.display = "block";
-                generateTable(result.d, 16, (result.d.length/16))
+                var tbody = document.querySelector("#dataset-preview tbody ");
+                generateTable(result.d, 16, (result.d.length/16), tbody)
 
             }
 
         });
 
 
-        function generateTable(data, columns, rows) {
 
-            var tbody = document.querySelector("#dataset-preview tbody ");
-            var index = 0;
+    });
 
+    $('#dataset-list').on('click', 'tbody tr td', function (e) {
 
-            for (var i = 0; i < rows; i++) {
-                var row = tbody.insertRow(i);
-                for (var j = 0; j < columns; j++) {
-                    if (index < data.length) {
-                        var cell = row.insertCell(j);
-                        cell.innerHTML = data[index++];
-                    }
+        var userInputDataPreview = $(this).text();
+
+        $.ajax({
+            type: "POST",
+            url: "circomodService.svc/iedcDatasetPreview",
+            data: `{"dataset_name": "${String(userInputDataPreview)}"}`,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
+                var columnNames = Array.from(res.values());
+
+                for (i = 0; i < columnNames[0].length; i++) {
+                // Create the table
+                
+                var thead = $("<thead></thead>");
+                var tbody = $("<tbody></tbody>");
+                var tr = $("<tr></tr>");
+
+                // Create the first column (1st td)
+                var td1 = $("<th></th>").text(columnNames[0][i]);
+
+                // Create the second column (2nd td)
+                var td2 = $("<td></td>").text(columnNames[1][i]);
+
+                // Append the td elements to the tr
+                tr.append(td1, td2);
+
+                // Append the tr to the tbody
+                tbody.append(tr);
+
+                // Add the gray-row class to every second row in the second column
+                if (i % 2 === 1) {
+                    td2.addClass("gray-row");
+                }
+
+                // Append the thead and tbody to the table
+                $("#dataset-previewInfo").append(thead, tbody);
+
                 }
             }
-        }
+
+        });
+
 
 
 
@@ -290,35 +335,67 @@
 
 });
 
+
+
+function generateTable(data, columns, rows, tbody) {
+
+    var index = 0;
+
+    for (var i = 0; i < rows; i++) {
+        var row = tbody.insertRow(i);
+        for (var j = 0; j < columns; j++) {
+            if (index < data.length) {
+                var cell = row.insertCell(j);
+                cell.innerHTML = data[index++];
+            }
+        }
+    }
+}
+
+
+
 function ExportToExcel(type, fn, dl) {
-    var elt = document.getElementById('dataset-preview');
-    var wb = XLSX.utils.table_to_book(elt, { sheet: "Data" });
+    var sheet1 = document.getElementById('dataset-previewInfo');
+    var sheet2 = document.getElementById('dataset-preview');
+    var wb1 = XLSX.utils.table_to_book(sheet1, { sheet: "Dataset Description" });
+    var wb2 = XLSX.utils.table_to_book(sheet2, { sheet: "Data" });
 
-    // Get the first sheet in the workbook
-    var ws = wb.Sheets['Data'];
+    // Append the second sheet to the first Workbook
+    XLSX.utils.book_append_sheet(wb1, wb2.Sheets[wb2.SheetNames[0]], "Data");
 
-    // Define a style object with bold font
-    var boldStyle = {
-        font: { bold: true }
-    };
 
-    // Get the range of the first row
-    var firstRowRange = XLSX.utils.decode_range(ws['!ref']);
-    firstRowRange.e.r = 0; // Set the end row to 0 (the first row)
 
-    // Loop through the cells in the first row and apply the bold style
-    for (var C = firstRowRange.s.c; C <= firstRowRange.e.c; ++C) {
-        var cell_address = XLSX.utils.encode_cell({ r: firstRowRange.s.r, c: C });
-        if (!ws[cell_address]) continue; // Skip empty cells
-        ws[cell_address].s = boldStyle;
+    for (var sheetName in wb1.Sheets) {
+        if (wb1.Sheets.hasOwnProperty(sheetName)) {
+            // Get the sheet using the sheetName
+            var ws = wb1.Sheets[sheetName];
+
+            // Define a style object with bold font and centered text
+            var style = {
+                font: { bold: true },
+                alignment: { horizontal: 'center' }
+            };
+
+            // Apply the style to the entire worksheet
+            ws['!cols'] = [{ wpx: 80 }, { wpx: 80 }]; // Set column width (adjust as needed)
+            ws['!rows'] = [{ hpt: 20 }]; // Set row height (adjust as needed)
+
+            for (var cellAddress in ws) {
+                if (ws.hasOwnProperty(cellAddress)) {
+                    if (cellAddress === '!ref') continue; // Skip the !ref key
+                    ws[cellAddress].s = style;
+                }
+            }
+        }
     }
 
+   
     // Get the value of cell B2
     var cellB2 = ws['B2'];
     var sheetName = cellB2 ? cellB2.v : 'MySheetName'; // Use B2 value as the sheet name or fallback to 'MySheetName'
 
     // Export the Excel file
     return dl ?
-        XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-        XLSX.writeFile(wb, fn || (sheetName + '.' + (type || 'xlsx')));
+        XLSX.write(wb1, { bookType: type, bookSST: true, type: 'base64' }) :
+        XLSX.writeFile(wb1, fn || (sheetName + '.' + (type || 'xlsx')));
 }
