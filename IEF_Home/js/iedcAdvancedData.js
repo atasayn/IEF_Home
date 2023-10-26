@@ -30,6 +30,7 @@
         $("#aspectsClass1").empty();
         $("#aspectsClass2").empty();
         $("#aspectsClass3").empty();
+       
         $.ajax({
             type: "POST",
             url: "circomodService.svc/iedcDatatypesIdNumbers",

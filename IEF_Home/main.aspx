@@ -39,7 +39,7 @@
         .not-show-twitter {
             background-color: white;
             width: 470px;
-            height: 650px;
+            height: 685px;
             font-weight: bold;
             font-size: large;
             padding: 0.5em 1em;
@@ -180,11 +180,11 @@
         </div>
 
         <div class="grid-twitter">
-
+            
             <div class="not-show-twitter" >
                 Tweets from @StefanPauliuk
-           
-                <div class="not-show-twitter-content">
+           <img class="img-responsive center-block" src="resources/News_Update_Sept_14.png" height="">
+<%--                <div class="not-show-twitter-content">
 
                     <button id="twitter-button" type="button" onclick="displayTwitter()" style="display: block">Load Embaded Twitter Timeline</button>
                     <a href="https://twitter.com/en/privacy" style="display: block">Twitter privacy policy</a>
@@ -193,17 +193,17 @@
                         <input class="cookie-check" type="checkbox" name="twitter-cookie" value="1" onChange="set_check(this)">
                         Don't ask me again</label>
 
-                </div>
+                </div>--%>
 
             </div>
 
 
 
 
-            <div class="show-twitter" >
+<%--            <div class="show-twitter" >
 
                 <a class="twitter-timeline" data-dnt="true" data-height="650" href="https://twitter.com/StefanPauliuk">Tweets by StefanPauliuk</a>
-            </div>
+            </div>--%>
 
 
 
