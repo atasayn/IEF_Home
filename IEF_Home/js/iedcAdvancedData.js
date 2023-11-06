@@ -21,7 +21,7 @@
 
     });
 
-
+    var selections = [];
 
     $('#data-type').on('click', 'tbody tr td', function (e) {
         
@@ -32,7 +32,8 @@
         $("#aspectsClass3").empty();
         $("#dataset-list").empty();
         $("#dataset-preview").empty();
-       
+        $("#dataset-previewInfo").empty();
+        
         $.ajax({
             type: "POST",
             url: "circomodService.svc/iedcDatatypesIdNumbers",
@@ -41,7 +42,7 @@
             contentType: "application/json; charset=utf-8",
             success: function (result) {
 
-               
+                selections = [];
                 $("#grid-item-datasets").append("<thead>" + "<tr><th colspan='2'>Total number of datasets available for chosen data type:" + result.d.length + "</th></tr>" +
                     "<tr>" + "<th>Datasets</th>" + "</tr>" + "</thead><tbody>");
 
@@ -53,6 +54,7 @@
 
     $('#data-type').on('click', 'tbody tr td', function (e) {
         $("#aspects").empty();
+        
         var userInputAspect = $(this).parent().index();
        
 
@@ -77,7 +79,7 @@
         });
     });
 
-    var selections = [];
+   
     var aspect_selections = [];
 
 
@@ -98,10 +100,13 @@
                     var th = table.querySelector('th');
                     if (th && th.textContent.trim() === userInputClassAspect) {
                         var tableID = table.id;
+                        console.log(tableID)
                         $('#'+tableID).empty();
                     }
                 }
                 aspect_selections = aspect_selections.filter(item => item !== userInputClassAspect);
+                selections[tableID.slice(-1) - 1] = [];
+                console.log(selections)
                 var original_color = window.getComputedStyle(e.target.parentNode).backgroundColor;
                 e.target.style.background = original_color;
 
@@ -130,11 +135,6 @@
                     row.style.backgroundColor = "white";
                 });
             }
-
-            if (aspect_selections.length == 0) {
-                $("#dataset-preview").empty();
-                $("#dataset-list").empty();
-            }
             
             i++
             
@@ -152,26 +152,38 @@
 
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                 var values = Array.from(res.values());
-                index = aspect_selections.indexOf(userInputClassAspect)
+                
+                // Get the parent div element
+                const gridItemDataset = document.querySelector('.grid-item-dataset');
 
-                for (i = 0; i < aspect_selections.length; i++) {
+                // Get all the tables within the parent div
+                const tables = gridItemDataset.querySelectorAll('table');
 
-                    if (index == i) {
-                        var table = "#aspectsClass" + (index + 1);
-                      
-                        $(table).empty();
-                        $(table).append("<thead>" + "<tr><th>" + userInputClassAspect + "</th></tr>" + "</thead><tbody>");
+                if (aspect_selections.includes(userInputClassAspect)) {
 
-                        for (var i = 0; i < values.length; i++) {
-                            $(table).append("<tr><td>" + values[i] + "</td></tr>");
+                    // Loop through the tables (except the first one with id "aspects")
+                    for (var i = 1; i < tables.length; i++) {
+                        const table = tables[i];
 
+                        // Check if the table has no child elements (rows)
+                        if (table.childElementCount === 0) {
+                            console.log(table.id.toString())
+                            $('#' + table.id).append("<thead>" + "<tr><th>" + userInputClassAspect + "</th></tr>" + "</thead><tbody>");
+
+                            for (var i = 0; i < values.length; i++) {
+                                $('#' + table.id).append("<tr><td>" + values[i] + "</td></tr>");
+
+                            }
+                            $('#' + table.id).append("</tbody>");
+                            selections[table.id.slice(-1)-1] = { "name": userInputClassAspect || null, "selected": [] };
+                            console.log(selections)
+                            //break;
                         }
-                        $(table).append("</tbody>");
-                        selections[index] = { "name": userInputClassAspect || null, "selected": [] };
-
-
                     }
-                }   
+
+                }
+
+                
             }
         });
     });
@@ -204,7 +216,6 @@
         $.ajax({
             type: "POST",
             url: "circomodService.svc/iedcMatchAspects",
-
             data: `{ "data_type": "${String(userInputDatatype + 1)}",
             "classAspectlist1": "${String(selections[0]['selected'])}",
             "classAspectlist2": "${1 in selections ? String(selections[1]['selected']) : ""}",
@@ -218,7 +229,7 @@
                 dataList = result.d;
                 console.log(result.d.length)
                 $("#dataset-list").empty();
-
+                $("#dataset-previewInfo").empty();
                 if (result.d.length == 0 || selections.length == 0) {
                     
                     $("#dataset-list").append("<thead>" + "<tr><th>Data List" + "</th></tr>" + "</thead><tbody>");
@@ -246,6 +257,7 @@
       
         var userInputDataPreview = $(this).text();
         $("#dataset-preview").empty();
+        $("#dataset-previewInfo").empty();
 
         
 
@@ -257,26 +269,21 @@
             contentType: "application/json; charset=utf-8",
             success: function (result) {
 
-                dataList = result.d;
+                var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
+                var columnNames = Array.from(res.values());
+                console.log(columnNames)
                 let innerHtml = "<thead><tr>"
-                let columnNames = [
-                    "id", "dataset Name", "aspect1", "aspect2", "aspect3", "aspect4", "aspect5", "aspect6", "aspect7",
-                    "aspect8", "aspect9", "aspect10", "aspect11", "aspect12", "value", "unit_nominator"
-                ];
-                for (const i of columnNames) {
-                    innerHtml += `<th><div>${i}</div></th>`;
+                for (var i = 0; i < columnNames[0].length; i++) {
+                    innerHtml += `<th><div>${columnNames[0][i]}</div></th>`;
                 }
                 innerHtml += "</tr></thead><tbody><tr></tr></tbody>"
                 $("#dataset-preview").append(innerHtml);
-                document.getElementById("btnExport").style.display = "block";
                 var tbody = document.querySelector("#dataset-preview tbody ");
-                generateTable(result.d, 16, (result.d.length/16), tbody)
+                generateTable(columnNames[1], columnNames[0].length, columnNames[1].length, tbody)
 
             }
 
         });
-
-
 
     });
 
@@ -294,6 +301,7 @@
 
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                 var columnNames = Array.from(res.values());
+
 
                 for (i = 0; i < columnNames[0].length; i++) {
                 // Create the table
@@ -323,6 +331,8 @@
                 $("#dataset-previewInfo").append(thead, tbody);
 
                 }
+               
+               
             }
 
         });
@@ -334,9 +344,6 @@
 
 
 });
-
-
-
 function generateTable(data, columns, rows, tbody) {
 
     var index = 0;
@@ -351,8 +358,6 @@ function generateTable(data, columns, rows, tbody) {
         }
     }
 }
-
-
 
 function ExportToExcel(type, fn, dl) {
     var sheet1 = document.getElementById('dataset-previewInfo');

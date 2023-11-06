@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="iedc.aspx.cs" Inherits="IEF_Home.iedc" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
 
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/iedcAdvancedData.js"></script>
-    <style>
 
+    <style>
         .grid-container {
             padding: 20px;
             display: grid;
@@ -26,44 +27,40 @@
             font-size: 14px;
             padding-top: 5px;
         }
-        
+
 
         .grid-item-data {
             grid-template-columns: minmax(auto, 30%) 1fr;
             display: grid;
-
         }
 
- 
+
 
         .grid-item-dataset {
             grid-template-columns: 1fr 1fr 1fr 1fr;
             display: grid;
             gap: 10px;
-           
         }
 
-        .grid-dataset-list{
-            
-            padding-top:30px;
-            margin:auto;
-            width:500px;
-            
+        .grid-dataset-list {
+            padding-top: 30px;
+            margin: auto;
+            width: 500px;
         }
 
         .grid-dataset-preview {
-	        margin: auto;
-	        border-radius: 10px;
-	        overflow: hidden;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
             max-width: 100%
         }
 
-        .grid-dataset-previewInfo{
+        .grid-dataset-previewInfo {
             margin: auto;
-	        border-radius: 10px;
-	        overflow: hidden;
+            border-radius: 10px;
+            overflow: hidden;
             max-width: 100%;
-            padding-top:20px
+            padding-top: 20px
         }
 
         td:hover {
@@ -72,12 +69,12 @@
             cursor: pointer
         }
 
-        .active{
+        .active {
             background-color: #ffc000;
         }
 
         #aspects td, #aspectsClass1 td, #aspectsClass2 td, #aspectsClass3 td, #dataset-list td {
-           width:30%
+            width: 30%
         }
 
         th {
@@ -86,7 +83,7 @@
             text-align: center;
         }
 
-        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview, #dataset-previewInfo{
+        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview, #dataset-previewInfo {
             /*border: 1px solid #0f8ca7;*/
             border-radius: 10px;
             border-collapse: separate;
@@ -94,47 +91,45 @@
             max-height: 400px;
         }
 
-        #dataset-list{
-
-	        border-radius: 10px;
-	        border-collapse: collapse;
-	        overflow: hidden;
+        #dataset-list {
+            border-radius: 10px;
+            border-collapse: collapse;
+            overflow: hidden;
         }
 
 
-        #data-type tbody, #aspects tbody, #aspectsClass1 tbody, #aspectsClass2 tbody, #aspectsClass3 tbody{
+        #data-type tbody, #aspects tbody, #aspectsClass1 tbody, #aspectsClass2 tbody, #aspectsClass3 tbody {
             display: block;
             height: 400px;
             overflow-y: auto;
         }
 
         #dataset-preview, #dataset-previewInfo {
-            height:400px;
+            height: 400px;
             display: block;
-	        width: 100%;
+            width: 100%;
             overflow: auto;
         }
 
-        #dataset-preview th, #dataset-previewInfo th {
-	        position: sticky;
-	        top: 0;
-        }
+            #dataset-preview th, #dataset-previewInfo th {
+                position: sticky;
+                top: 0;
+            }
 
-        #dataset-preview td{
-            text-align: center; 
-            vertical-align: middle;
-        }
+            #dataset-preview td {
+                text-align: center;
+                vertical-align: middle;
+            }
 
-        #dataset-preview tbody, #dataset-previewInfo tbody{
-            max-height:300px
- 
-        }
+            #dataset-preview tbody, #dataset-previewInfo tbody {
+                max-height: 300px
+            }
 
         tr:nth-child(even) {
             background-color: #dddddd;
         }
 
-        #btnExport{
+        #btnExport {
             display: block;
             height: 45px;
             width: 110px;
@@ -148,7 +143,7 @@
 
 
         .gray-row {
-          background-color:#dddddd; /* Change this color to the desired shade of gray */
+            background-color: #dddddd; /* Change this color to the desired shade of gray */
         }
     </style>
 
@@ -180,8 +175,8 @@
 
 
     </script>
-    <script type ="text/javascript" src="js/xlsx.core.min.js"></script>
-    <script type ="text/javascript" src="js/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="js/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -218,41 +213,39 @@
                 <table id="data-type">
                 </table>
 
-               
+
             </div>
 
             <div class="grid-item-dataset">
-                 <table id="aspects">
+                <table id="aspects">
                 </table>
-                   <table id="aspectsClass1">
+                <table id="aspectsClass1">
                 </table>
                 <table id="aspectsClass2">
                 </table>
                 <table id="aspectsClass3">
                 </table>
-                
+
             </div>
-        
+
+        </div>
+
+        <div class="grid-dataset-list">
+            <table id="dataset-list">
+            </table>
+
+        </div>
+
+        <div class="grid-dataset-preview">
+            <table id="dataset-preview">
+            </table>
 
 
         </div>
 
-            <div class="grid-dataset-list">
-                 <table id="dataset-list">
-                </table>
-   
-            </div>
-             
-            <div class="grid-dataset-preview">
-                 <table id="dataset-preview">
-                </table>
-
-           
-            </div>
-
         <div class="grid-dataset-previewInfo">
             <table id="dataset-previewInfo"></table>
-             <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display:none" type="button"> Download</button>
+            <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display: none" type="button">Download</button>
         </div>
 
     </div>
