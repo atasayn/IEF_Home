@@ -282,9 +282,9 @@
                 document.getElementById("btnExport").style.display = "block";
                 var tbody = document.querySelector("#dataset-preview tbody ");
                 var hiddentable = document.querySelector("#hiddentable tbody ");
-
+                console.log(columnNames[1].length)
                 generateTable(columnNames[1], columnNames[0].length, 500, tbody);
-                generateTable(columnNames[1], columnNames[0].length, columnNames[1].length, hiddentable);
+                generateTable(columnNames[1], columnNames[0].length, columnNames[1].length/columnNames[0].length, hiddentable);
                 // Now, you can retrieve the headers from the #dataset-preview table
                 const headers1 = Array.from($("#dataset-preview th")).map(cell => cell.innerText);
 
@@ -350,18 +350,39 @@
     });
 
 });
-function generateTable(data, columns, rows, tbody) {
+//function generateTable(data, columns, rows, tbody) {
 
+//    var index = 0;
+//    for (var i = 0; i < rows; i++) {
+//        var row = tbody.insertRow(i);
+//        for (var j = 0; j < columns; j++) {
+//            if (index < data.length) {
+//                var cell = row.insertCell(j);
+//                cell.innerHTML = data[index++];
+//            }
+//        }
+//    }
+/*}*/
+
+function generateTable(data, columns, rows, tbody) {
+    var tableHTML = '<table>';
     var index = 0;
+
     for (var i = 0; i < rows; i++) {
-        var row = tbody.insertRow(i);
+        tableHTML += '<tr>';
         for (var j = 0; j < columns; j++) {
             if (index < data.length) {
-                var cell = row.insertCell(j);
-                cell.innerHTML = data[index++];
+                tableHTML += '<td>' + data[index++] + '</td>';
+            } else {
+                break;
             }
         }
+        tableHTML += '</tr>';
     }
+
+    tableHTML += '</table>';
+
+    tbody.innerHTML = tableHTML;
 }
 
 function ExportToExcel(type, fn, dl) {
