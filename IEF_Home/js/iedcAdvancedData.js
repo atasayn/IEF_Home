@@ -273,19 +273,20 @@
             success: function (result) {
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                 var columnNames = Array.from(res.values());
-                console.log(columnNames);
                 let innerHtml = "<thead><tr>";
                 for (var i = 0; i < columnNames[0].length; i++) {
                     innerHtml += `<th><div>${columnNames[0][i]}</div></th>`;
                 }
                 innerHtml += "</tr></thead><tbody><tr></tr></tbody>";
                 $("#dataset-preview").append(innerHtml);
+                document.getElementById("btnExport").style.display = "block";
                 var tbody = document.querySelector("#dataset-preview tbody ");
-                generateTable(columnNames[1], columnNames[0].length, columnNames[1].length, tbody);
+                var hiddentable = document.querySelector("#hiddentable tbody ");
 
+                generateTable(columnNames[1], columnNames[0].length, 500, tbody);
+                generateTable(columnNames[1], columnNames[0].length, columnNames[1].length, hiddentable);
                 // Now, you can retrieve the headers from the #dataset-preview table
                 const headers1 = Array.from($("#dataset-preview th")).map(cell => cell.innerText);
-                console.log(headers1);
 
                 // Next, you can proceed to fetch and process the dataset-previewInfo data.
                 $.ajax({
@@ -338,7 +339,6 @@
                         // Replace the "aspect" headers in the #dataset-preview table with values from the second table
                         $("#dataset-preview th").each(function () {
                             var headerText = $(this).text();
-                            console.log(headerText)
                             if (headerMapping[headerText] ) {
                                 $(this).text(headerText + "\n" + headerMapping[headerText]);
                             }
@@ -353,7 +353,6 @@
 function generateTable(data, columns, rows, tbody) {
 
     var index = 0;
-
     for (var i = 0; i < rows; i++) {
         var row = tbody.insertRow(i);
         for (var j = 0; j < columns; j++) {
@@ -367,7 +366,7 @@ function generateTable(data, columns, rows, tbody) {
 
 function ExportToExcel(type, fn, dl) {
     var sheet1 = document.getElementById('dataset-previewInfo');
-    var sheet2 = document.getElementById('dataset-preview');
+    var sheet2 = document.getElementById('hiddentable');
     var wb1 = XLSX.utils.table_to_book(sheet1, { sheet: "Dataset Description" });
     var wb2 = XLSX.utils.table_to_book(sheet2, { sheet: "Data" });
 

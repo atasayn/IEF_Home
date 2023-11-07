@@ -83,7 +83,7 @@
             text-align: center;
         }
 
-        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview, #dataset-previewInfo {
+        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-list, #dataset-preview, #dataset-previewInfo {
             /*border: 1px solid #0f8ca7;*/
             border-radius: 10px;
             border-collapse: separate;
@@ -91,14 +91,7 @@
             max-height: 400px;
         }
 
-        #dataset-list {
-            border-radius: 10px;
-            border-collapse: collapse;
-            overflow: hidden;
-        }
-
-
-        #data-type tbody, #aspects tbody, #aspectsClass1 tbody, #aspectsClass2 tbody, #aspectsClass3 tbody {
+        #data-type tbody, #aspects tbody, #aspectsClass1 tbody, #aspectsClass2 tbody, #aspectsClass3 tbody, #dataset-list tbody {
             display: block;
             height: 400px;
             overflow-y: auto;
@@ -238,6 +231,10 @@
 
         <div class="grid-dataset-preview">
             <table id="dataset-preview">
+            </table>
+            <table id="hiddentable" style="display:none">
+                <thead></thead>
+                <tbody></tbody>
             </table>
 
 
