@@ -184,8 +184,7 @@
                             }
                             $('#' + table.id).append("</tbody>");
                             selections[table.id.slice(-1)-1] = { "name": userInputClassAspect || null, "selected": [] };
-                            console.log(selections)
-                            //break;
+
                         }
                     }
 
@@ -283,7 +282,7 @@
                 var tbody = document.querySelector("#dataset-preview tbody ");
                 var hiddentable = document.querySelector("#hiddentable tbody ");
                 console.log(columnNames[1].length)
-                generateTable(columnNames[1], columnNames[0].length, 500, tbody);
+                generateTable(columnNames[1], columnNames[0].length, 50, tbody);
                 generateTable(columnNames[1], columnNames[0].length, columnNames[1].length/columnNames[0].length, hiddentable);
                 // Now, you can retrieve the headers from the #dataset-preview table
                 const headers1 = Array.from($("#dataset-preview th")).map(cell => cell.innerText);
