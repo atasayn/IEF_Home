@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -673,7 +674,7 @@ namespace IEF_Home
             
             var cmd = new MySqlCommand(query, cn.Connection);
             cmd.Parameters.AddWithValue("@data_type", data_type);
-            System.Diagnostics.Debug.WriteLine(query);
+            //System.Diagnostics.Debug.WriteLine(query);
             var reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -697,9 +698,10 @@ namespace IEF_Home
             List<string> columnNames = new List<string>();
             List<string> columns = new List<string>();
 
-            var query = "SELECT dt.id,ds.dataset_name, a1.attribute1_oto AS aspect1 , a2.attribute1_oto AS aspect2, a3.attribute1_oto AS aspect3, a4.attribute1_oto AS aspect4," +
-                " a5.attribute1_oto AS aspect5, a6.attribute1_oto AS aspect6, a7.attribute1_oto AS aspect7, a8.attribute1_oto AS aspect8," +
-                " a9.attribute1_oto AS aspect9, a10.attribute1_oto AS aspect10, a11.attribute1_oto AS aspect11, a12.attribute1_oto AS aspect12 ,dt.value,dt.unit_nominator,dt.unit_denominator" +
+            var query = "SELECT dt.id,ds.dataset_name, a1.attribute1_oto AS aspect_1 , a2.attribute1_oto AS aspect_2, a3.attribute1_oto AS aspect_3, a4.attribute1_oto AS aspect_4," +
+                " a5.attribute1_oto AS aspect_5, a6.attribute1_oto AS aspect_6, a7.attribute1_oto AS aspect_7, a8.attribute1_oto AS aspect_8," +
+                " a9.attribute1_oto AS aspect_9, a10.attribute1_oto AS aspect_10, a11.attribute1_oto AS aspect_11, a12.attribute1_oto AS aspect_12 ,dt.value, un1.unitcode AS unit_nominator," +
+                " un2.unitcode AS unit_denominator" +
                 " FROM iedc.data AS dt " +
                 " LEFT JOIN iedc.datasets AS ds ON dt.dataset_id = ds.id " +
                 " LEFT JOIN iedc.classification_items AS a1 ON dt.aspect1 = a1.id " +
@@ -714,7 +716,9 @@ namespace IEF_Home
                 " LEFT JOIN iedc.classification_items AS a10 ON dt.aspect10 = a10.id " +
                 " LEFT JOIN iedc.classification_items AS a11 ON dt.aspect11 = a11.id " +
                 " LEFT JOIN iedc.classification_items AS a12 ON dt.aspect12 = a12.id " +
-                " WHERE ds.dataset_name=@dataset_name";
+                " LEFT JOIN iedc.units AS un1 ON dt.unit_nominator = un1.id " +
+                " LEFT JOIN iedc.units AS un2 ON dt.unit_denominator = un2.id " +
+                " WHERE ds.dataset_name=@dataset_name and dt.value IS NOT NULL";
 
 
 
@@ -749,14 +753,17 @@ namespace IEF_Home
                     for (int i = 0; i < columnNames.Count; i++) 
                     {
 
-                            string dataname = reader[columnNames[i]].ToString();
+                        if (!reader.IsDBNull(i))
+                        {
+                            string dataname = reader[columnNames[i]].ToString();                            
+                            string coltemp = columnNames[i];                     
                             dataset.Add(dataname);
-                            
-                            
-                        
+                            columns.Add(coltemp);
+                        }
+
                     }
                     columns = columns.Distinct().ToList();
-                    result["columnNames"] = columnNames;
+                    result["columnNames"] = columns;
                 }
             }
             else

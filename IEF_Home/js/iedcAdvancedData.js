@@ -46,6 +46,8 @@
                 $("#grid-item-datasets").append("<thead>" + "<tr><th colspan='2'>Total number of datasets available for chosen data type:" + result.d.length + "</th></tr>" +
                     "<tr>" + "<th>Datasets</th>" + "</tr>" + "</thead><tbody>");
 
+
+
             }
         });
     });
@@ -69,12 +71,18 @@
               
                 
                 $("#aspects").append("<thead>" + "<tr><th>Aspects" + "</th></tr>" + "</thead><tbody>");
-                for (var i = 0; i < result.d.length; i++) {
+                if (result.d.length == 0) {
+                    $("#aspects").append("<tr><td>" + "NO DATA FOUND" + "</td></tr>");
+                    $("#aspects").append("</tbody>");
+                } else {
+                    for (var i = 0; i < result.d.length; i++) {
 
-                    $("#aspects").append("<tr><td>" + result.d[i] + "</td></tr>");
-                  
+                        $("#aspects").append("<tr><td>" + result.d[i] + "</td></tr>");
+
+                    }
+                    $("#aspects").append("</tbody>");
                 }
-                $("#aspects").append("</tbody>");
+
             }
         });
     });
@@ -251,15 +259,10 @@
             }
         });
     });
-
-
     $('#dataset-list').on('click', 'tbody tr td', function (e) {
-      
         var userInputDataPreview = $(this).text();
         $("#dataset-preview").empty();
         $("#dataset-previewInfo").empty();
-
-        
 
         $.ajax({
             type: "POST",
@@ -268,80 +271,83 @@
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                 var columnNames = Array.from(res.values());
-                console.log(columnNames)
-                let innerHtml = "<thead><tr>"
+                console.log(columnNames);
+                let innerHtml = "<thead><tr>";
                 for (var i = 0; i < columnNames[0].length; i++) {
                     innerHtml += `<th><div>${columnNames[0][i]}</div></th>`;
                 }
-                innerHtml += "</tr></thead><tbody><tr></tr></tbody>"
+                innerHtml += "</tr></thead><tbody><tr></tr></tbody>";
                 $("#dataset-preview").append(innerHtml);
                 var tbody = document.querySelector("#dataset-preview tbody ");
-                generateTable(columnNames[1], columnNames[0].length, columnNames[1].length, tbody)
+                generateTable(columnNames[1], columnNames[0].length, columnNames[1].length, tbody);
 
+                // Now, you can retrieve the headers from the #dataset-preview table
+                const headers1 = Array.from($("#dataset-preview th")).map(cell => cell.innerText);
+                console.log(headers1);
+
+                // Next, you can proceed to fetch and process the dataset-previewInfo data.
+                $.ajax({
+                    type: "POST",
+                    url: "circomodService.svc/iedcDatasetPreview",
+                    data: `{"dataset_name": "${String(userInputDataPreview)}"}`,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (result) {
+                        var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
+                        var columnNames = Array.from(res.values());
+                        for (i = 0; i < columnNames[0].length; i++) {
+                        // Create the table
+
+                        var thead = $("<thead></thead>");
+                        var tbody = $("<tbody></tbody>");
+                        var tr = $("<tr></tr>");
+
+                        // Create the first column (1st td)
+                        var td1 = $("<th></th>").text(columnNames[0][i]);
+
+                        // Create the second column (2nd td)
+                        var td2 = $("<td></td>").text(columnNames[1][i]);
+
+                        // Append the td elements to the tr
+                        tr.append(td1, td2);
+
+                        // Append the tr to the tbody
+                        tbody.append(tr);
+
+                        // Add the gray-row class to every second row in the second column
+                        if (i % 2 === 1) {
+                            td2.addClass("gray-row");
+                        }
+
+                        // Append the thead and tbody to the table
+                        $("#dataset-previewInfo").append(thead, tbody);
+
+                        }
+                       
+                        // Create a mapping of "aspect" headers in the first table to their corresponding values in the second table
+                        var headerMapping = {};
+                        headers1.forEach((header, index) => {
+                            if (header.startsWith("aspect_")) {
+                                indexTitle = columnNames[0].indexOf(header)
+                                headerMapping[header] = columnNames[1][indexTitle];
+                            }
+                        });
+
+                        // Replace the "aspect" headers in the #dataset-preview table with values from the second table
+                        $("#dataset-preview th").each(function () {
+                            var headerText = $(this).text();
+                            console.log(headerText)
+                            if (headerMapping[headerText] ) {
+                                $(this).text(headerText + "\n" + headerMapping[headerText]);
+                            }
+                        });
+                    }
+                });
             }
-
         });
-
     });
-
-    $('#dataset-list').on('click', 'tbody tr td', function (e) {
-
-        var userInputDataPreview = $(this).text();
-
-        $.ajax({
-            type: "POST",
-            url: "circomodService.svc/iedcDatasetPreview",
-            data: `{"dataset_name": "${String(userInputDataPreview)}"}`,
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (result) {
-
-                var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
-                var columnNames = Array.from(res.values());
-
-
-                for (i = 0; i < columnNames[0].length; i++) {
-                // Create the table
-                
-                var thead = $("<thead></thead>");
-                var tbody = $("<tbody></tbody>");
-                var tr = $("<tr></tr>");
-
-                // Create the first column (1st td)
-                var td1 = $("<th></th>").text(columnNames[0][i]);
-
-                // Create the second column (2nd td)
-                var td2 = $("<td></td>").text(columnNames[1][i]);
-
-                // Append the td elements to the tr
-                tr.append(td1, td2);
-
-                // Append the tr to the tbody
-                tbody.append(tr);
-
-                // Add the gray-row class to every second row in the second column
-                if (i % 2 === 1) {
-                    td2.addClass("gray-row");
-                }
-
-                // Append the thead and tbody to the table
-                $("#dataset-previewInfo").append(thead, tbody);
-
-                }
-               
-               
-            }
-
-        });
-
-
-
-
-    });
-
 
 });
 function generateTable(data, columns, rows, tbody) {
