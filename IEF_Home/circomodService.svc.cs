@@ -15,6 +15,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using System.Text;
 using System.Text.Json.Serialization;
 using System.Web.UI.WebControls;
 using System.Xml;
@@ -595,6 +596,7 @@ namespace IEF_Home
 
         }
 
+
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
         ResponseFormat = WebMessageFormat.Json)]
@@ -602,9 +604,10 @@ namespace IEF_Home
         {
 
             List<string> dataset_name = new List<string>();
-      
+
             string[] classAspectList = new string[] { classAspectlist1, classAspectlist2, classAspectlist3 };
-            if(!classAspectList.Any(c => c != "")){
+            if (!classAspectList.Any(c => c != ""))
+            {
                 return new List<string>();
             }
             string query = " SELECT dataset_name FROM iedc.datasets WHERE id IN (SELECT DISTINCT dataset_id FROM iedc.data WHERE " +
@@ -612,52 +615,54 @@ namespace IEF_Home
 
             if (!cn.OpenConnection()) return null;
 
-            for (int i =0; i<3; i++)
-             {
-                if (classAspectList[i] != "") 
-                { 
+            for (int i = 0; i < 3; i++)
+            {
+                if (classAspectList[i] != "")
+                {
 
                     query += "(";
                     for (int j = 1; j <= 12; j++)
                     {
                         query += $"aspect{j} IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto IN (";
-                
-                     
-                           // System.Diagnostics.Debug.WriteLine(classAspectList[i].Count(item => item == ','));
 
-                            if (classAspectList[i].Count(item => item == ',') == 0)
-                            {
-                                query += '"' + $"{classAspectList[i]}" + '"';
-                            }
-                            else
-                            {
-                                var classAspectListComma = classAspectList[i].Split(',');
-                             
-                                    foreach (string list in classAspectListComma)
-                                    {
-                                        query += '"' + $"{list}" + '"';
-                                        if (list != classAspectListComma.Last())
-                                        {
-                                            query +=  ",";
-                                        }
-                                    }      
-                            }
 
-                         query += "))";
+                        // System.Diagnostics.Debug.WriteLine(classAspectList[i].Count(item => item == ','));
+
+                        if (classAspectList[i].Count(item => item == ',') == 0)
+                        {
+                            query += '"' + $"{classAspectList[i]}" + '"';
+                        }
+                        else
+                        {
+                            var classAspectListComma = classAspectList[i].Split(',');
+
+                            foreach (string list in classAspectListComma)
+                            {
+                                query += '"' + $"{list}" + '"';
+                                if (list != classAspectListComma.Last())
+                                {
+                                    query += ",";
+                                }
+                            }
+                        }
+
+                        query += "))";
                         if (j != 12)
                         {
                             query += " OR ";
-                        }else{
+                        }
+                        else
+                        {
                             query += ")";
                         }
-                        
+
                     }
 
                     if ((i == 0 || i == 1) && classAspectList[i + 1] != "")
                     {
                         query += " AND ";
                     }
-                    else if ( i == 0 && classAspectList[2] != "")
+                    else if (i == 0 && classAspectList[2] != "")
                     {
                         query += " AND ";
                     }
@@ -667,11 +672,13 @@ namespace IEF_Home
                     }
 
 
-                }else{
+                }
+                else
+                {
                     continue;
                 }
-             }
-            
+            }
+
             var cmd = new MySqlCommand(query, cn.Connection);
             cmd.Parameters.AddWithValue("@data_type", data_type);
             //System.Diagnostics.Debug.WriteLine(query);
@@ -679,13 +686,14 @@ namespace IEF_Home
 
             while (reader.Read())
             {
-                    string dataname = reader["dataset_name"].ToString();
-                    dataset_name.Add(dataname);
+                string dataname = reader["dataset_name"].ToString();
+                dataset_name.Add(dataname);
             }
             reader.Close();
             cn.CloseConnection();
             return dataset_name;
         }
+
 
 
         [OperationContract]
@@ -722,7 +730,7 @@ namespace IEF_Home
 
 
 
-    
+
             if (!cn.OpenConnection())
             {
                 result["dataset"] = null;
@@ -733,30 +741,30 @@ namespace IEF_Home
             var cmd = new MySqlCommand(query, cn.Connection);
             cmd.Parameters.AddWithValue("@dataset_name", dataset_name);
             var reader = cmd.ExecuteReader();
-            
+
             if (reader.HasRows)
             {
 
 
-                    // Get column names
+                // Get column names
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
 
                     columnNames.Add(reader.GetName(i));
                 }
 
-                
-                
+
+
                 while (reader.Read())
                 {
 
-                    for (int i = 0; i < columnNames.Count; i++) 
+                    for (int i = 0; i < columnNames.Count; i++)
                     {
 
                         if (!reader.IsDBNull(i))
                         {
-                            string dataname = reader[columnNames[i]].ToString();                            
-                            string coltemp = columnNames[i];                     
+                            string dataname = reader[columnNames[i]].ToString();
+                            string coltemp = columnNames[i];
                             dataset.Add(dataname);
                             columns.Add(coltemp);
                         }

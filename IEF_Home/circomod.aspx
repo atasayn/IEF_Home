@@ -85,7 +85,7 @@
         $(document).ready(function() {
             $("#DropDownListYear").append("<option value='' disabled selected>" + "Please select year" + "</option>");
             
-            const room = document.queryselector("#DropDownListYear");
+            const room = document.querySelector("#DropDownListYear");
 
             for (let i = 2022; i <= 2060; i++) {
                 room.insertAdjacentHTML("beforeend", `<option value="${i}">${i}</option>`);
