@@ -45,7 +45,7 @@
         .grid-dataset-list {
             padding-top: 30px;
             margin: auto;
-            width: 500px;
+            
         }
 
         .grid-dataset-preview {
@@ -83,7 +83,7 @@
             text-align: center;
         }
 
-        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-list, #dataset-preview, #dataset-previewInfo {
+        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview, #dataset-previewInfo {
             /*border: 1px solid #0f8ca7;*/
             border-radius: 10px;
             border-collapse: separate;
@@ -91,12 +91,24 @@
             max-height: 400px;
         }
 
-        #data-type tbody, #aspects tbody, #aspectsClass1 tbody, #aspectsClass2 tbody, #aspectsClass3 tbody, #dataset-list tbody {
+        #dataset-list{
+            border-radius: 10px;
+            border-collapse: separate;
+            overflow: hidden;
+            max-height: 200px;
+           
+        }
+
+        #data-type tbody, #aspects tbody, #aspectsClass1 tbody, #aspectsClass2 tbody, #aspectsClass3 tbody{
             display: block;
             height: 400px;
             overflow-y: auto;
         }
-
+         #dataset-list tbody {
+            display: block;
+            height: 200px;
+            overflow-y: auto;
+         }
         #dataset-preview, #dataset-previewInfo {
             height: 400px;
             display: block;
