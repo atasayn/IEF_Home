@@ -213,7 +213,7 @@
     </select>
    
 
-    <input type="button" class="DDselectSankey" value="Click me">
+    <input type="button" class="DDSelectSankey" value="Click me">
     <br/>
     <span id="errorMsg"  ></span>
 
@@ -324,7 +324,7 @@
             <option value="Global_North">Global_North</option>
             <option value="Global">Global</option>
         </select>
-        <button type="button" class="DDselectRegSce">Click me</button>
+        <button type="button" class="DDSelectRegSce">Click me</button>
 
     </div>
     <canvas id="line-chart"></canvas>

@@ -1,7 +1,6 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
-    $('.DDSELECTRegSce').click(function (e) {
+    $('.DDSelectRegSce').click(function (e) {
         var region = $("#DropDownListRegion").val();
         console.log(region);
         $.ajax({
@@ -23,7 +22,7 @@ $(document).ready(function () {
 
 function displayGraph(data, region) {
     console.log(data);
-    let labels = Array.FROM({ length: 86 }, (v, i) => 2015 + i);
+    let labels = Array.from({ length: 86 }, (v, i) => 2015 + i);
 
     try {
         Chart.getChart("line-chart").destroy();
@@ -82,7 +81,7 @@ function displayGraph(data, region) {
 }
 
 $(document).ready(function () {
-    $('.DDSELECTSankey').click(function(e) {
+    $('.DDSelectSankey').click(function(e) {
         var region = $("#DropDownListSankeyRegion").val();
         var scenario = $("#DropDownListSankeyScenario").val();
         var sector = $("#DropDownListSector").val();
