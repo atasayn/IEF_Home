@@ -108,13 +108,11 @@
                     var th = table.querySelector('th');
                     if (th && th.textContent.trim() === userInputClassAspect) {
                         var tableID = table.id;
-                        console.log(tableID)
                         $('#'+tableID).empty();
                     }
                 }
                 aspect_selections = aspect_selections.filter(item => item !== userInputClassAspect);
                 selections[tableID.slice(-1) - 1] = [];
-                console.log(selections)
                 var original_color = window.getComputedStyle(e.target.parentNode).backgroundColor;
                 e.target.style.background = original_color;
 
@@ -175,7 +173,6 @@
 
                         // Check if the table has no child elements (rows)
                         if (table.childElementCount === 0) {
-                            console.log(table.id.toString())
                             $('#' + table.id).append("<thead>" + "<tr><th>" + userInputClassAspect + "</th></tr>" + "</thead><tbody>");
 
                             for (var i = 0; i < values.length; i++) {
@@ -234,7 +231,6 @@
             success: function (result)
             {
                 dataList = result.d;
-                console.log(result.d.length)
                 $("#dataset-list").empty();
                 $("#dataset-previewInfo").empty();
                 if (result.d.length == 0 || selections.length == 0) {
@@ -262,7 +258,7 @@
         var userInputDataPreview = $(this).text();
         $("#dataset-preview").empty();
         $("#dataset-previewInfo").empty();
-
+        $("#hiddentable").empty();
         $.ajax({
             type: "POST",
             url: "circomodService.svc/iedcDataPreview",
@@ -272,18 +268,34 @@
             success: function (result) {
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                 var columnNames = Array.from(res.values());
-                let innerHtml = "<thead><tr>";
+               
+                innerHtml = "<thead><tr>";
+                for (var i = 0; i < columnNames[1].length; i++) {
+                    innerHtml += `<th><div>${columnNames[1][i]}</div></th>`;
+                }
+                innerHtml += "</tr></thead><tbody><tr></tr></tbody>";
+                $("#dataset-preview").append(innerHtml);
+
+
+
+
+
+
+                innerHtml = "<thead><tr>";
                 for (var i = 0; i < columnNames[0].length; i++) {
                     innerHtml += `<th><div>${columnNames[0][i]}</div></th>`;
                 }
                 innerHtml += "</tr></thead><tbody><tr></tr></tbody>";
-                $("#dataset-preview").append(innerHtml);
+                $("#hiddentable").append(innerHtml);
+
+          
                 document.getElementById("btnExport").style.display = "block";
                 var tbody = document.querySelector("#dataset-preview tbody ");
-                var hiddentable = document.querySelector("#hiddentable tbody ");
-                console.log(columnNames[1].length)
-                generateTable(columnNames[1], columnNames[0].length, 50, tbody);
-                generateTable(columnNames[1], columnNames[0].length, columnNames[1].length/columnNames[0].length, hiddentable);
+                var hiddentabletbody = document.querySelector("#hiddentable tbody");
+                console.log(hiddentabletbody)
+                generateTable(columnNames[3], columnNames[1].length, 50, tbody);
+
+                generateTable(columnNames[2], columnNames[0].length, columnNames[2].length / columnNames[0].length, hiddentabletbody);
                 // Now, you can retrieve the headers from the #dataset-preview table
                 const headers1 = Array.from($("#dataset-preview th")).map(cell => cell.innerText);
 
@@ -323,6 +335,7 @@
 
                         // Append the thead and tbody to the table
                         $("#dataset-previewInfo").append(thead, tbody);
+                          
 
                         }
                        
@@ -342,6 +355,14 @@
                                 $(this).text(headerText + "\n" + headerMapping[headerText]);
                             }
                         });
+
+                        $("#hiddentable th").each(function () {
+                            var headerText = $(this).text();
+                            if (headerMapping[headerText]) {
+                                $(this).text(headerText + "\n" + headerMapping[headerText]);
+                            }
+                        });
+
                     }
                 });
             }
@@ -349,40 +370,20 @@
     });
 
 });
-//function generateTable(data, columns, rows, tbody) {
-
-//    var index = 0;
-//    for (var i = 0; i < rows; i++) {
-//        var row = tbody.insertRow(i);
-//        for (var j = 0; j < columns; j++) {
-//            if (index < data.length) {
-//                var cell = row.insertCell(j);
-//                cell.innerHTML = data[index++];
-//            }
-//        }
-//    }
-/*}*/
-
 function generateTable(data, columns, rows, tbody) {
-    var tableHTML = '<table>';
-    var index = 0;
 
+    var index = 0;
     for (var i = 0; i < rows; i++) {
-        tableHTML += '<tr>';
+        var row = tbody.insertRow(i);
         for (var j = 0; j < columns; j++) {
             if (index < data.length) {
-                tableHTML += '<td>' + data[index++] + '</td>';
-            } else {
-                break;
+                var cell = row.insertCell(j);
+                cell.innerHTML = data[index++];
             }
         }
-        tableHTML += '</tr>';
     }
-
-    tableHTML += '</table>';
-
-    tbody.innerHTML = tableHTML;
 }
+
 
 function ExportToExcel(type, fn, dl) {
     var sheet1 = document.getElementById('dataset-previewInfo');
