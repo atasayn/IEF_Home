@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -694,8 +695,6 @@ namespace IEF_Home
             return dataset_name;
         }
 
-
-
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
           ResponseFormat = WebMessageFormat.Json)]
@@ -731,80 +730,145 @@ namespace IEF_Home
                 " LEFT JOIN iedc.classification_items AS a12 ON dt.aspect12 = a12.id " +
                 " LEFT JOIN iedc.units AS un1 ON dt.unit_nominator = un1.id " +
                 " LEFT JOIN iedc.units AS un2 ON dt.unit_denominator = un2.id " +
-                " WHERE ds.dataset_name=@dataset_name and dt.value IS NOT NULL";
+                " WHERE ds.dataset_name=@dataset_name";
 
-
-
-
-            if (!cn.OpenConnection())
-            {
-                result["dataset"] = null;
-                result["columnNames"] = null;
-                result["datasetNotNull"] = null;
-                result["columnNamesNotNull"] = null;
-                return result;
-            }
+            if (!cn.OpenConnection()) return null;
 
             var cmd = new MySqlCommand(query, cn.Connection);
             cmd.Parameters.AddWithValue("@dataset_name", dataset_name);
             var reader = cmd.ExecuteReader();
 
-            if (reader.HasRows)
+            while (reader.Read())
             {
-
-
-                // Get column names
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
 
-                    columnNames.Add(reader.GetName(i));
-                }
-
-
-
-                while (reader.Read())
-                {
-
-                    for (int i = 0; i < columnNames.Count; i++)
+                    string colName = reader.GetName(i);
+                    string dataname = reader[colName].ToString();
+                    dataset.Add(dataname);
+                    columns.Add(colName);
+                    if (!result.ContainsKey(colName))
                     {
-                        string dataname = reader[columnNames[i]].ToString();
-                        string coltemp = columnNames[i];
-                        dataset.Add(dataname);
-                        columns.Add(coltemp);
-
-                        if (!reader.IsDBNull(i))
-                        {
-                            string datanameNotNull = reader[columnNames[i]].ToString();
-                            string coltempNotNull = columnNames[i];
-                            datasetNotNull.Add(datanameNotNull);
-                            columnsNotNull.Add(coltempNotNull);
-                        }
-
+                        result[colName] = new List<string>();
                     }
-                    columns = columns.Distinct().ToList();
-                    result["columnNames"] = columns;
-
-                    columnsNotNull = columnsNotNull.Distinct().ToList();
-                    result["columnNamesNotNull"] = columnsNotNull;
-
+                    result[colName].Add(!reader.IsDBNull(i) ? reader[i].ToString() : null);
                 }
-            }
-            else
-            {
-                result["columnNames"] = new List<string>(); // No results, return an empty list for column names.
-                result["dataset"] = null;
-                result["datasetNotNull"] = null;
-                result["columnNamesNotNull"] = null;
+    
+
+          
+
+
+                result["fulldataset"] = dataset;
+
+                columns = columns.Distinct().ToList();
+                result["fullcolumns"] = columns;
+
             }
 
             reader.Close();
             cn.CloseConnection();
 
-            result["dataset"] = dataset;
-            result["datasetNotNull"] = datasetNotNull;
             return result;
 
         }
+
+
+
+        //[OperationContract]
+        //[WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+        //  ResponseFormat = WebMessageFormat.Json)]
+        //public Dictionary<string, List<string>> iedcDataPreview(string dataset_name)
+        //{
+        //    Dictionary<string, List<string>> result = new Dictionary<string, List<string>>();
+        //    List<string> dataset = new List<string>();
+        //    List<string> columnNames = new List<string>();
+        //    List<string> columns = new List<string>();
+        //    List<string> columnsNotNull = new List<string>();
+        //    List<string> datasetNotNull = new List<string>();
+        //    var query = "SELECT dt.id,ds.dataset_name, a1.attribute1_oto AS aspect_1 , a2.attribute1_oto AS aspect_2, a3.attribute1_oto AS aspect_3, a4.attribute1_oto AS aspect_4," +
+        //        " a5.attribute1_oto AS aspect_5, a6.attribute1_oto AS aspect_6, a7.attribute1_oto AS aspect_7, a8.attribute1_oto AS aspect_8," +
+        //        " a9.attribute1_oto AS aspect_9, a10.attribute1_oto AS aspect_10, a11.attribute1_oto AS aspect_11, a12.attribute1_oto AS aspect_12 ,dt.value, un1.unitcode AS unit_nominator," +
+        //        " un2.unitcode AS unit_denominator, st1.name AS stats_array_1,st2.name AS stats_array_2,st3.name AS stats_array_3,st4.name AS stats_array_4,dt.comment,dt.reserve1,dt.reserve2,dt.reserve3" +
+        //        " FROM iedc.data AS dt " +
+        //        " LEFT JOIN iedc.datasets AS ds ON dt.dataset_id = ds.id " +
+        //        " LEFT JOIN iedc.stats_array AS st1 ON dt.stats_array_1 = st1.id " +
+        //        " LEFT JOIN iedc.stats_array AS st2 ON dt.stats_array_2 = st2.id " +
+        //        " LEFT JOIN iedc.stats_array AS st3 ON dt.stats_array_3 = st3.id " +
+        //        " LEFT JOIN iedc.stats_array AS st4 ON dt.stats_array_4 = st4.id " +
+        //        " LEFT JOIN iedc.classification_items AS a1 ON dt.aspect1 = a1.id " +
+        //        " LEFT JOIN iedc.classification_items AS a2 ON dt.aspect2 = a2.id " +
+        //        " LEFT JOIN iedc.classification_items AS a3 ON dt.aspect3 = a3.id " +
+        //        " LEFT JOIN iedc.classification_items AS a4 ON dt.aspect4 = a4.id " +
+        //        " LEFT JOIN iedc.classification_items AS a5 ON dt.aspect5 = a5.id " +
+        //        " LEFT JOIN iedc.classification_items AS a6 ON dt.aspect6 = a6.id" +
+        //        " LEFT JOIN iedc.classification_items AS a7 ON dt.aspect7 = a7.id " +
+        //        " LEFT JOIN iedc.classification_items AS a8 ON dt.aspect8 = a8.id " +
+        //        " LEFT JOIN iedc.classification_items AS a9 ON dt.aspect9 = a9.id " +
+        //        " LEFT JOIN iedc.classification_items AS a10 ON dt.aspect10 = a10.id " +
+        //        " LEFT JOIN iedc.classification_items AS a11 ON dt.aspect11 = a11.id " +
+        //        " LEFT JOIN iedc.classification_items AS a12 ON dt.aspect12 = a12.id " +
+        //        " LEFT JOIN iedc.units AS un1 ON dt.unit_nominator = un1.id " +
+        //        " LEFT JOIN iedc.units AS un2 ON dt.unit_denominator = un2.id " +
+        //        " WHERE ds.dataset_name=@dataset_name";
+        //    //"and COALESCE(dt.id,ds.dataset_name, a1.attribute1_oto , a2.attribute1_oto, a3.attribute1_oto, a4.attribute1_oto," +
+        //    //"a5.attribute1_oto , a6.attribute1_oto , a7.attribute1_oto, a8.attribute1_oto ,a9.attribute1_oto, a10.attribute1_oto , a11.attribute1_oto, a12.attribute1_oto " +
+        //    //",dt.value, un1.unitcode,un2.unitcode, st1.name ,st2.name ,st3.name,st4.name ,dt.comment,dt.reserve1,dt.reserve2,dt.reserve3) IS NULL";
+
+        //    if (!cn.OpenConnection()){ return result;}
+        //    var cmd = new MySqlCommand(query, cn.Connection);
+        //    cmd.Parameters.AddWithValue("@dataset_name", dataset_name);
+        //    var reader = cmd.ExecuteReader();
+
+
+        //    while (reader.Read())
+        //    {
+        //        // Get column names
+        //        for (int i = 0; i < reader.FieldCount; i++)
+        //        {
+
+        //            columnNames.Add(reader.GetName(i));
+        //        }
+
+        //        columnNames = columnNames.Distinct().ToList();
+        //        result["columnNames"] = columnNames;
+
+        //        for (int i = 0; i < columnNames.Count; i++)
+        //        {
+        //            string dataname = reader[columnNames[i]].ToString();
+        //            dataset.Add(dataname);
+
+        //            if (!reader.IsDBNull(i))
+        //            {
+        //                string coltempNotNull = columnNames[i];
+
+        //                columnsNotNull.Add(coltempNotNull);
+        //                System.Diagnostics.Debug.WriteLine(columnNames[i]);
+        //            }
+
+        //        }
+        //        columnsNotNull = columnsNotNull.Distinct().ToList();
+        //        result["columnNamesNotNull"] = columnsNotNull;
+
+        //        for (int i = 0; i < columnsNotNull.Count; i++)
+        //        {
+        //            //System.Diagnostics.Debug.WriteLine(columnsNotNull[i]);
+        //            //string datanameNotNull = reader[columnsNotNull[i]].ToString();
+        //            string datanameNotNull = !reader.IsDBNull(i) ? reader[columnsNotNull[i]].ToString() : null;
+        //            datasetNotNull.Add(datanameNotNull);
+        //        }
+
+        //        result["dataset"] = dataset;
+        //        result["datasetNotNull"] = datasetNotNull;
+
+
+        //    }
+
+
+        //    reader.Close();
+        //    cn.CloseConnection();
+        //    return result;
+
+        //}
 
 
         [OperationContract]

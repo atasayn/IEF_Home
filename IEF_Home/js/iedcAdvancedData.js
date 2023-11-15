@@ -266,24 +266,43 @@
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
+               
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                 var columnNames = Array.from(res.values());
-               
-                innerHtml = "<thead><tr>";
-                for (var i = 0; i < columnNames[1].length; i++) {
-                    innerHtml += `<th><div>${columnNames[1][i]}</div></th>`;
+                var columnTitle = Array.from(res.keys());
+                console.log(columnNames)
+                console.log(columnTitle)
+              
+                var ColumnNotNullValues = [...res.values()].filter(array =>
+                    array.some(value => value !== null)
+                );
+                var ColumnNotNullKeys = [...res.keys()].filter(key =>
+                    res.get(key).some(value => value !== null)
+                );
+                
+                const maxLength = Math.max(...ColumnNotNullValues.slice(0,-2).map(arr => arr.length));
+
+                const interleavedArray = [];
+                for (let i = 0; i < maxLength; i++) {
+                    for (const arr of ColumnNotNullValues.slice(0, -2)) {
+                        if (arr[i] !== undefined) {
+                            interleavedArray.push(arr[i] !== undefined ? arr[i] : null);
+                        }
+                    }
                 }
-                innerHtml += "</tr></thead><tbody><tr></tr></tbody>";
+
+        
+                innerHtml = "<thead><tr>";
+                for (var i = 0; i < ColumnNotNullKeys.slice(0, -2).length; i++) {
+                    innerHtml += `<th><div>${ColumnNotNullKeys[i]}</div></th>`;
+                }
+                innerHtml += "</tr></thead><tbody>";
                 $("#dataset-preview").append(innerHtml);
 
 
-
-
-
-
                 innerHtml = "<thead><tr>";
-                for (var i = 0; i < columnNames[0].length; i++) {
-                    innerHtml += `<th><div>${columnNames[0][i]}</div></th>`;
+                for (var i = 0; i < columnTitle.slice(0, -2).length; i++) {
+                    innerHtml += `<th><div>${columnTitle.slice(0, -2)[i]}</div></th>`;
                 }
                 innerHtml += "</tr></thead><tbody><tr></tr></tbody>";
                 $("#hiddentable").append(innerHtml);
@@ -292,10 +311,9 @@
                 document.getElementById("btnExport").style.display = "block";
                 var tbody = document.querySelector("#dataset-preview tbody ");
                 var hiddentabletbody = document.querySelector("#hiddentable tbody");
-                console.log(hiddentabletbody)
-                generateTable(columnNames[3], columnNames[1].length, 50, tbody);
+                generateTable(interleavedArray, ColumnNotNullKeys.slice(0, -2).length, 50, tbody);
 
-                generateTable(columnNames[2], columnNames[0].length, columnNames[2].length / columnNames[0].length, hiddentabletbody);
+                generateTable(columnNames.at(-2), columnNames.at(-1).length, columnNames.at(-2).length / columnNames.at(-1).length, hiddentabletbody);
                 // Now, you can retrieve the headers from the #dataset-preview table
                 const headers1 = Array.from($("#dataset-preview th")).map(cell => cell.innerText);
 
