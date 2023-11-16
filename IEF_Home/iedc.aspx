@@ -73,14 +73,19 @@
             background-color: #ffc000;
         }
 
-        #aspects td, #aspectsClass1 td, #aspectsClass2 td, #aspectsClass3 td, #dataset-list td {
-            width: 30%
+        #data-type td, #aspects td, #aspectsClass1 td, #aspectsClass2 td, #aspectsClass3 td, #dataset-list td {
+            width: 100%
+        }
+
+        #data-type th, #aspects th, #aspectsClass1 th, #aspectsClass2 th, #aspectsClass3 th, #dataset-list th{
+            width: 100%
         }
 
         th {
             padding: 5px;
             background: #0f8ca7;
             text-align: center;
+
         }
 
         #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview, #dataset-previewInfo {
@@ -130,7 +135,7 @@
                 max-height: 300px
             }
 
-        tr:nth-child(even) {
+        #data-type tr:nth-child(even),#aspects tr:nth-child(even),#dataset-preview tr:nth-child(even), #dataset-list tr:nth-child(even), #dataset-previewInfo tr:nth-child(even) {
             background-color: #dddddd;
         }
 
@@ -146,10 +151,16 @@
             font-size: 14px;
         }
 
+        #aspects tr, #aspectsClass1 tr, #aspectsClass2 tr, #aspectsClass3 tr{
+          display: flex;
+          flex-wrap: wrap;
+        }
 
         .gray-row {
             background-color: #dddddd; /* Change this color to the desired shade of gray */
         }
+
+        input {margin-bottom: 5px; padding: 2px 3px; width: 209px;}
     </style>
 
     <script>
@@ -178,6 +189,18 @@
         })
 
 
+        function updateRowColors(table) {
+            // Reset background colors for all rows
+            table.find('tbody tr').css('background-color', '');
+            console.log(table)
+            table.find('tbody tr:visible').each(function (index) {
+                if (index % 2 === 0) {
+                    $(this).css('background-color', '#dddddd');
+                }
+            });
+
+        }
+        
 
     </script>
     <script type="text/javascript" src="js/xlsx.core.min.js"></script>
@@ -222,7 +245,9 @@
             </div>
 
             <div class="grid-item-dataset">
+
                 <table id="aspects">
+
                 </table>
                 <table id="aspectsClass1">
                 </table>

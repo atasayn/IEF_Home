@@ -67,7 +67,7 @@
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-
+                
               
                 
                 $("#aspects").append("<thead>" + "<tr><th>Aspects" + "</th></tr>" + "</thead><tbody>");
@@ -75,6 +75,7 @@
                     $("#aspects").append("<tr><td>" + "NO DATA FOUND" + "</td></tr>");
                     $("#aspects").append("</tbody>");
                 } else {
+                  
                     for (var i = 0; i < result.d.length; i++) {
 
                         $("#aspects").append("<tr><td>" + result.d[i] + "</td></tr>");
@@ -144,7 +145,7 @@
             
             i++
             
-        }
+        } 
 
 
 
@@ -173,26 +174,45 @@
 
                         // Check if the table has no child elements (rows)
                         if (table.childElementCount === 0) {
-                            $('#' + table.id).append("<thead>" + "<tr><th>" + userInputClassAspect + "</th></tr>" + "</thead><tbody>");
-
+                            
+                            $('#' + table.id).append("<thead>" + "<tr><th>" + userInputClassAspect + "</th></tr>" );
+                            $('#' + table.id).append('<tr><th><input type="text" id="search" placeholder="Type to search" ></th></tr>');
+                            $('#' + table.id).append("</thead><tbody>");
                             for (var i = 0; i < values.length; i++) {
                                 $('#' + table.id).append("<tr><td>" + values[i] + "</td></tr>");
 
                             }
                             $('#' + table.id).append("</tbody>");
+                            updateRowColors($('#' + table.id));
+                            // Use event delegation for keyup event on dynamically created search input
+                            $('#' + table.id).on('keyup', '#search', function () {
+                                var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+                                $('#' + table.id + ' tbody tr').show().filter(function () {
+                                    var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                                    return !~text.indexOf(val);
+                                }).hide();
+                                updateRowColors($('#' + table.id));
+                               
+                            });
+
                             selections[table.id.slice(-1)-1] = { "name": userInputClassAspect || null, "selected": [] };
 
                         }
                     }
 
                 }
+                
 
                 
             }
         });
     });
 
+
+
     $('.grid-item-dataset table:gt(0)').on('click', 'tbody tr td', function (e) {
+
+
 
         $("#dataset-list").empty();
         $("#dataset-preview").empty();
@@ -200,7 +220,7 @@
         var tbl = e.target.parentNode.parentNode.parentNode
         var tbl_index = parseInt(tbl.id.slice(-1)) - 1
         var selected_name = e.target.innerText
-   
+        
      
         if (selections[tbl_index]["selected"].includes(selected_name)) {
             // Element is already selected, delete it FROM the list AND remove background color
@@ -213,7 +233,7 @@
             e.target.style.background = "#ffc000";
         }
 
- 
+
 
         dataList = []
 
@@ -259,6 +279,7 @@
         $("#dataset-preview").empty();
         $("#dataset-previewInfo").empty();
         $("#hiddentable").empty();
+
         $.ajax({
             type: "POST",
             url: "circomodService.svc/iedcDataPreview",
@@ -401,6 +422,7 @@ function generateTable(data, columns, rows, tbody) {
         }
     }
 }
+
 
 
 function ExportToExcel(type, fn, dl) {
