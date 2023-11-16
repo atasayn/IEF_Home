@@ -24,7 +24,7 @@
     var selections = [];
 
     $('#data-type').on('click', 'tbody tr td', function (e) {
-        
+        document.getElementById("btnExport").style.display = "none";
         var userInputDatatype = $(this).parent().index();
         window.userInputDatatype = userInputDatatype;
         $("#aspectsClass1").empty();
