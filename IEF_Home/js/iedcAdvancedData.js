@@ -158,7 +158,7 @@
             success: function (result) {
 
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
-                var values = Array.from(res.values());
+                var values = [...new Set(Array.from(res.values()))];
                 
                 // Get the parent div element
                 const gridItemDataset = document.querySelector('.grid-item-dataset');
