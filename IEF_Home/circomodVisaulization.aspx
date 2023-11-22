@@ -218,6 +218,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
 <div id="DataMenu-Recc-GraphType" >
     <div id="DataMenu" class="column">
+    
+        <b>CE Profiles</b> 
+        <br>
+        <br>
         <label for="Title">Region:</label>
         <select id="DropDownListSankeyRegion" size="8" required>
         <option value="France">France</option>
@@ -256,36 +260,9 @@
     
     <label for="Title">Sector: </label>
     <select id="DropDownListSector" size="8" required>
-        <option value="Residential building">Residential building</option>
         <option value="Passenger vehicles">Passenger vehicles</option>
-    </select>
-
-    <label for="Title">Year:</label>
-    <select id="DropDownListYear" size="8"  required>
-    </select>
-
-    <label for="Title">Strategy:</label>
-    <select id="DropDownListStrategy" size="8" required>
-        <option value="Baseline">Baseline</option>
-        <option value="HIY">HIY</option>
-        <option value="HIY-RLU">HIY-RLU</option>
-        <option value="HIY-RLU-MSU">HIY-RLU-MSU</option>
-        <option value="HIY-RLU-MSU-ULD">HIY-RLU-MSU-ULD</option>
-        <option value="HIY-RLU-MSU-DOS">HIY-RLU-MSU-DOS</option>
-        <option value="HIY-RLU-MSU">HIY-RLU-MSU</option>
-        <option value="HIY-RLU-MSU-DOS-CAS">HIY-RLU-MSU-DOS-CAS</option>
-        <option value="Full CE">Full CE</option>
-    </select>
-
-    <label for="Title">Material:</label>
-    <select id="DropDownListMaterial" size="8" required>
-        <option value="Cement">Cement</option>
-        <option value="Steel">Steel</option>
-        <option value="Aluminium ">Aluminium</option>
-        <option value="Copper">Copper</option>
-        <option value="Plastics">Plastic</option>
-        <option value="Wood">Wood</option>
-
+        <option value="Residential building">Residential building</option>
+        <option value="Non-Residential building">Residential building</option>
     </select>
     </div>
 
@@ -305,6 +282,7 @@
             <button id ="material-production" >Material Production</button>
         </div>
       <div />
+    </div>
     </div>
  <div />
 </asp:Content>
