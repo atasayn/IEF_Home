@@ -690,6 +690,56 @@ For some of the works there is more research material available than what is ava
                     <tbody>
                         <tr>
                             <td><b>MSc</b></td>
+                            <td>Env. Sci.</td>
+                            <td>Tim Weber</td>
+                            <td><b>Urban Climate Protection in the Transport Sector: A Scenario Analysis for Freiburg</b></td>
+                            <td>17.11.2023</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/TW_Master_Thesis.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>Env. Sci.</td>
+                            <td>Nikola Basar</td>
+                            <td><b>From Sustainability Imperatives to Corporate Eco-Innovation - Using PEF Calculations at Leuze electronic manufacturing company to translate Scientific LCA into Eco-Innovation</b></td>
+                            <td>08.11.2023</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Nikola_Basar_Masterthesis.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Alejandro Pivaral</td>
+                            <td><b>Environmental Footprint of Lifestyles for Food and Car Transportation in Germany</b></td>
+                            <td>26.09.2023</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_Alejandro_Pivaral.pdf.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download supplement</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master_Data_Thesis_Alejandro_Pivaral_Private.xlsx', 'This is the content of my file :')" value="Download supplement, Excel password: PivaralREM13" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>SSE</td>
+                            <td>Gurugubelli Varun Bharadwaj</td>
+                            <td><b>Sustainability Assessment of Startups: To support the impact measurement of Startup Accelerators</b></td>
+                            <td>30.04.2023</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_Varun.pdf.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Erick Paez Pena</td>
                             <td><b>A Comparison of Freiburg’s current (2021) and Future (2050) Passengers Vehicles and Tram Systems: A Life Cycle Assessment</b></td>
