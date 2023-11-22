@@ -655,6 +655,32 @@
                             <td>
                                 <input type="button" onclick="download('data_indecol_205939343242/search_ecoinvent_3_4.zip', 'This is the content of my file :')" value="Download" />
                         </tr>
+
+      <tr>    
+                            <td> LCA_28</td>
+                            <td> ecoinvent 3.9.1 CUT-OFF, unit processes</td>
+                            <td> Zolca file with cut-off unit process system model for ecoinvent version 3.9.1  <br> Note: Rename file extension from .zip to .zolca after downloading!</td>
+                            <td> n.a. </td>
+                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
+                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
+                                    </td>
+                            <td>
+                                <input type="button" onclick="download('data_indecol_205939343242/ecoinvent_391_cutoff_upr_n3_20230629.zip', 'This is the content of my file :')" value="Download" />
+                                <br /><br /><a href="https://nexus.openlca.org/ws/files/12232" target="_blank">License</a></td>
+                        </tr>
+
+                        <tr>    
+                            <td> LCA_29</td>
+                            <td> ecoinvent 3.9.1 LCIA methods</td>
+                            <td> Zolca file with LCIA methods for ecoinvent version 3.9.1  <br> Note: Do NOT rename file extension from .zip to .zolca after downloading! Instead, import into openLCA via 'Linked Data (JSON-LD)' import option, WHERE you will be asked to provide a .zip file as input.</td>
+                            <td> n.a. </td>
+                            <td> <a href="http://www.teaching.industrialecology.uni-freiburg.de#LCA" target="_blank">Exercises with openLCA and ecoinvent</a></td>
+                            <td> <b>Wernet, G. et al., 2015. </b>The ecoinvent database version 3 (part I): overview and methodology. The International Journal of Life Cycle Assessment, 3(part I). Available at: http://dx.doi.org/10.1007/s11367-016-1087-8.<br><br><a href="https://nexus.openlca.org/database/ecoinvent">Inventory of ecoinvent-related data on the openLCA nexus</a>
+                                    </td>
+                            <td>
+                                <input type="button" onclick="download('data_indecol_205939343242/ecoinvent_3_9_1_LCIA_Methods_openLCA_2.zip', 'This is the content of my file :')" value="Download" />
+                                <br /><br /><a href="https://nexus.openlca.org/ws/files/12232" target="_blank">License</a></td>
+                        </tr>
                     </tbody>
                 </table>
 
