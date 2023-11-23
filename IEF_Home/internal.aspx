@@ -747,7 +747,7 @@ For some of the works there is more research material available than what is ava
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
-                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_Alejandro_Pivaral.pdf.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_Alejandro_Pivaral.pdf', 'This is the content of my file :')" value="Download Thesis" />
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download supplement</a>--%>
                                 <input type="button" onclick="download('data_indecol_205939343242/Master_Data_Thesis_Alejandro_Pivaral_Private.xlsx', 'This is the content of my file :')" value="Download supplement, Excel password: PivaralREM13" />
                             </td>
@@ -761,7 +761,7 @@ For some of the works there is more research material available than what is ava
                             <td>Archived</td>
                             <td>
                                 <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
-                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_Varun.pdf.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_Varun.pdf', 'This is the content of my file :')" value="Download Thesis" />
                             </td>
                         </tr>
                         <tr>
