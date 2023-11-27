@@ -682,7 +682,7 @@ namespace IEF_Home
 
             var cmd = new MySqlCommand(query, cn.Connection);
             cmd.Parameters.AddWithValue("@data_type", data_type);
-            //System.Diagnostics.Debug.WriteLine(query);
+            System.Diagnostics.Debug.WriteLine(query);
             var reader = cmd.ExecuteReader();
 
             while (reader.Read())

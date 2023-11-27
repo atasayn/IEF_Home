@@ -228,7 +228,7 @@
                 <p>In this interface, you must first select a data type, after which the different aspects (time, region, material, etc.) used to describe the different datasets for this data type are shown.</p>
                 <p>After selecting a specific aspect, the different classification items (specific regions, materials, etc.) for which data are available are listed.</p>
                 <p>After selecting one ore more classification items, all available datasets that contain data for this classification item in the given aspect are shown and can be previewed.</p>
-                <p>Download is then possible via the download button below and the main interface.</p>
+                <p>Download is then possible via the download button below and the main interface.Any problem with advanced search? Conctact us via <a>indecol@mail.uni-freiburg.de</a></p>
 
             </div>
 
