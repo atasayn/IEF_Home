@@ -234,7 +234,7 @@
         }
 
 
-
+        $('.loader').css("display","block");
         dataList = []
 
         $.ajax({
@@ -262,7 +262,7 @@
                     $("#dataset-preview").empty();
 
                 } else {
-
+                    $('.loader').hide();
                     $("#dataset-list").append("<thead>" + "<tr><th>Data List" + "</th></tr>" + "</thead><tbody>");
                     for (var i = 0; i < result.d.length; i++) {
                         $("#dataset-list").append("<tr><td>" + result.d[i] + "</td></tr>");
@@ -279,7 +279,7 @@
         $("#dataset-preview").empty();
         $("#dataset-previewInfo").empty();
         $("#hiddentable").empty();
-
+        $('.loader2').css("display", "block");
         $.ajax({
             type: "POST",
             url: "circomodService.svc/iedcDataPreview",
@@ -287,7 +287,7 @@
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-               
+                $('.loader2').hide();
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                 var columnNames = Array.from(res.values());
                 var columnTitle = Array.from(res.keys());

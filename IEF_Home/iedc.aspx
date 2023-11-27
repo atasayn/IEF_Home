@@ -156,6 +156,27 @@
           flex-wrap: wrap;
         }
 
+        .loader, .loader2 {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 50px;
+          height: 50px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 2s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
         .gray-row {
             background-color: #dddddd; /* Change this color to the desired shade of gray */
         }
@@ -261,12 +282,14 @@
         </div>
 
         <div class="grid-dataset-list">
+            <div class="loader" style="display:none"></div>
             <table id="dataset-list">
             </table>
 
         </div>
 
         <div class="grid-dataset-preview">
+            <div class="loader2" style="display:none"></div>
             <table id="dataset-preview">
             </table>
             <table id="hiddentable" style="display:none">
