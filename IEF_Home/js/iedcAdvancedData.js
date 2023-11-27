@@ -33,7 +33,7 @@
         $("#dataset-list").empty();
         $("#dataset-preview").empty();
         $("#dataset-previewInfo").empty();
-        
+        $('.loader2').hide();
         $.ajax({
             type: "POST",
             url: "circomodService.svc/iedcDatatypesIdNumbers",
@@ -123,7 +123,8 @@
                 e.target.style.background = "#ffc000";
             }
 
-            if (aspect_selections.length == 4) {
+            if (aspect_selections.length == 4 || aspect_selections.length == 0 ) {
+                $('.loader').hide();
                 aspect_selections = []
                 $("#aspectsClass1").empty();
                 $("#aspectsClass2").empty();
@@ -142,6 +143,9 @@
                     row.style.backgroundColor = "white";
                 });
             }
+
+
+            
             
             i++
             
@@ -213,7 +217,7 @@
     $('.grid-item-dataset table:gt(0)').on('click', 'tbody tr td', function (e) {
 
 
-
+       
         $("#dataset-list").empty();
         $("#dataset-preview").empty();
         document.getElementById("btnExport").style.display = "none";
@@ -260,7 +264,7 @@
                     $("#dataset-list").append("</tbody>");
                     $("#dataset-list").css("color", "red")
                     $("#dataset-preview").empty();
-
+                    $('.loader').hide();
                 } else {
                     $('.loader').hide();
                     $("#dataset-list").append("<thead>" + "<tr><th>Data List" + "</th></tr>" + "</thead><tbody>");
