@@ -12,22 +12,61 @@
                 success: function (result) {
 
                     if(region!=""){
-                    displayGraph(result["d"], region);
+                    displayGraph(result["d"], region, "line-chart");
                     }
                 }
+        });
+    });
+
+
+    var canvasIds = ["line-plot1", "line-plot2", "line-plot3"]; 
+    function shiftCanvasIds() {
+        const lastElement = canvasIds.pop();
+        canvasIds.unshift(lastElement);
+
+    }
+    $('#DropDownListPlotRegion').click(function (e) {
+   
+        var region = $("#DropDownListPlotRegion").val();
+        var numOfText = canvasIds[0].match(/\d+/);
+        var numOfTextNumber = parseInt(numOfText[0], 10);
+        var graphElement = document.getElementById("Graph" + numOfTextNumber + "Line").style.display;
+        console.log(graphElement)
+        if (graphElement === "") {
+            document.getElementById("Graph" + numOfTextNumber + "Line").style.display = 'block'
+            console.log("bok")
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "circomodService.svc/Classification_ResultItem",
+            data: `{"SELECTedRegion": "${region}"}`,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                console.log(numOfTextNumber)
+                if (region != "") {
+                    document.getElementById("RegionName" + numOfTextNumber).textContent = region;
+                    displayGraph(result["d"], region, canvasIds[0]);
+                    displayGraph(result["d"], region, "line-plot-maximized");
+                    shiftCanvasIds(canvasIds)
+
+                }
+            }
         });
     });
 });
 
 
-function displayGraph(data, region) {
+
+function displayGraph(data, region, canvasID) {
     console.log(data);
     let labels = Array.from({ length: 86 }, (v, i) => 2015 + i);
 
     try {
-        Chart.getChart("line-chart").destroy();
+        Chart.getChart(canvasID).destroy();
     } catch (e) {}
-    new Chart(document.getElementById("line-chart"), {
+    new Chart(document.getElementById(canvasID), {
         type: 'line',
         data: {
             labels: labels,

@@ -11,7 +11,7 @@ namespace IEF_Home
 {
 
 
-    public partial class circomodVisaulization
+    public partial class circomodVisualization
     {
     }
 }
