@@ -33,12 +33,11 @@
         }
 
         #DataMenu-Recc-GraphType {
-            grid-template-columns: 260px auto auto auto;
-            grid-template-areas: 'menu recc plotTypes plotTypes'
-                'menu linePlot randomPlot randomPlot';
+            grid-template-columns: 350px auto auto auto;
+            grid-template-areas: 'menu linePlot linePlot linePlot'
+                'menu sankey sankey sankey';
             display: grid;
             grid-gap: 10px;
-          
         }
 
         #DataMenu {
@@ -60,7 +59,7 @@
         }
 
         select {
-            margin-left: 80px;
+            margin-left: 0;
         }
 
         #recc {
@@ -281,6 +280,22 @@
             float: right;
             margin: 5px;
         }
+
+        #sankey {
+            grid-area: sankey;
+            display: none;
+            padding: 15px;
+            border-radius: 10px;
+            padding-left: 5px;
+        }
+
+        svg:not(:root) {
+            overflow: hidden;
+            transform: scale(0.8) translateX(-7px);
+            width: 1230px;
+            height: 500px;
+            border-radius:10px;
+        }
     </style>
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/dropdownMenu.js"></script>
@@ -288,7 +303,8 @@
     <script type="module" src="js/chart.min.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.min.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.v3.min.js"></script>
-    <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/circular_sankey_script.js"></script>
+    <%--<script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/circular_sankey_script.js"></script>--%>
+    <script  type="text/javascript" src="js/circular_sankey_script.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/circular_sankey_lib.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileExporter.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileUploader.js"></script>
@@ -331,66 +347,76 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div id="DataMenu-Recc-GraphType">
         <div id="DataMenu">
+            <div id="Entries" style="width: 60%; float: left">
+                <b class="center-text">CE Profiles</b>
 
-            <b class="center-text">CE Profiles</b>
+                <%-- <input type="Checkbox" id="CE1Checkbox" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">--%>
+                <b>CEP 1: Region</b>
+                <div id="CE1">
 
-            <input type="Checkbox" id="CE1Checkbox" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
-            <b>CEP 1: Region</b>
-            <div id="CE1">
+                    <%--<label for="Title">Region:</label>--%>
+                    <select id="DropDownListPlotRegion" size="8" required>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Spain">Spain</option>
+                        <option value="UK">UK</option>
+                        <option value="Oth_R32EU15">Oth_R32EU15</option>
+                        <option value="Oth_R32EU12-H">Oth_R32EU12-H</option>
+                        <option value="R32EU12-M">R32EU12-M</option>
+                        <option value="R32CAN">R32CAN</option>
+                        <option value="R32CHN">R32CHN</option>
+                        <option value="R32IND">R32IND</option>
+                        <option value="R32JPN">R32JPN</option>
+                        <option value="R32USA">R32USA</option>
+                        <option value="R5.2OECD_Other">R5.2OECD_Other</option>
+                        <option value="R5.2REF_Other">R5.2REF_Other</option>
+                        <option value="R5.2ASIA_Other">R5.2ASIA_Other</option>
+                        <option value="R5.2MNF_Other">R5.2MNF_Other</option>
+                        <option value="R5.2SSA_Other">R5.2SSA_Other</option>
+                        <option value="R5.2LAM_Other">R5.2LAM_Other</option>
+                        <option value="EU28">EU28</option>
+                        <option value="G7">G7</option>
+                        <option value="Global_South">Global_South</option>
+                        <option value="Global_North">Global_North</option>
+                        <option value="Global">Global</option>
+                    </select>
+                </div>
+                <br />
+                <%--<input type="Checkbox" id="CE2Checkbox" name="CE2_profile" value="CE2" onchange="toggleDivVisibility('CE2Checkbox', 'CE2')">--%>
+                <b>CEP 2: Material</b>
+                <div id="CE2">
 
-                <%--<label for="Title">Region:</label>--%>
-                <select id="DropDownListPlotRegion" size="8" required>
-                    <option value="France">France</option>
-                    <option value="Germany">Germany</option>
-                    <option value="Italy">Italy</option>
-                    <option value="Poland">Poland</option>
-                    <option value="Spain">Spain</option>
-                    <option value="UK">UK</option>
-                    <option value="Oth_R32EU15">Oth_R32EU15</option>
-                    <option value="Oth_R32EU12-H">Oth_R32EU12-H</option>
-                    <option value="R32EU12-M">R32EU12-M</option>
-                    <option value="R32CAN">R32CAN</option>
-                    <option value="R32CHN">R32CHN</option>
-                    <option value="R32IND">R32IND</option>
-                    <option value="R32JPN">R32JPN</option>
-                    <option value="R32USA">R32USA</option>
-                    <option value="R5.2OECD_Other">R5.2OECD_Other</option>
-                    <option value="R5.2REF_Other">R5.2REF_Other</option>
-                    <option value="R5.2ASIA_Other">R5.2ASIA_Other</option>
-                    <option value="R5.2MNF_Other">R5.2MNF_Other</option>
-                    <option value="R5.2SSA_Other">R5.2SSA_Other</option>
-                    <option value="R5.2LAM_Other">R5.2LAM_Other</option>
-                    <option value="EU28">EU28</option>
-                    <option value="G7">G7</option>
-                    <option value="Global_South">Global_South</option>
-                    <option value="Global_North">Global_North</option>
-                    <option value="Global">Global</option>
-                </select>
+                    <%--<label for="Title">Material: </label>--%>
+                    <select id="DropDownListMaterial" size="8" required>
+                        <option value="Cement">Cement</option>
+                        <option value="Steel">Steel</option>
+                        <option value="Aluminium ">Aluminium</option>
+                        <option value="Copper">Copper</option>
+                        <option value="Plastics">Plastic</option>
+                        <option value="Wood">Wood</option>
+
+                    </select>
+                </div>
+                <br />
+                <%--<input type="Checkbox" id="CE3Checkbox" name="CE3_profile" value="CE3" onchange="toggleDivVisibility('CE3Checkbox', 'CE3')">--%>
+                <b>CEP 3: Product</b>
+                <div id="CE3"></div>
             </div>
-            <br />
-            <input type="Checkbox" id="CE2Checkbox" name="CE2_profile" value="CE2" onchange="toggleDivVisibility('CE2Checkbox', 'CE2')">
-            <b>CEP 2: Material</b>
-            <div id="CE2">
+            <b style="padding-bottom: 5px; margin: 5px;">Plot Types</b>
+            <div id="graph-types" style="background: #ffffff; width: 40%; float: left">
 
-                <%--<label for="Title">Material: </label>--%>
-                <select id="DropDownListMaterial" size="8" required>
-                    <option value="Cement">Cement</option>
-                    <option value="Steel">Steel</option>
-                    <option value="Aluminium ">Aluminium</option>
-                    <option value="Copper">Copper</option>
-                    <option value="Plastics">Plastic</option>
-                    <option value="Wood">Wood</option>
-
-                </select>
+                <input type="Checkbox" id="LinePlot" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
+                <b>Line Plot</b>
+                <br>
+                <input type="Checkbox" id="Sankey" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
+                <b>Sankey Diagram</b>
+                <br>
+                <input type="Checkbox" id="WaterFall" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
+                <b>Waterfall Plot</b>
             </div>
-            <br />
-            <input type="Checkbox" id="CE3Checkbox" name="CE3_profile" value="CE3" onchange="toggleDivVisibility('CE3Checkbox', 'CE3')">
-            <b>CEP 3: Product</b>
-            <div id="CE3"></div>
-
         </div>
-
-
 
         <%--<label for="Title">Scenario:</label>
      <select id="DropDownListSankeyScenario" size="8" required>
@@ -419,10 +445,6 @@
         <option value="Full CE">Full CE</option>
     </select>--%>
 
-
-
-
-
         <%--    <div id="RECCScheme">
         <div id="recc">
             <img src="resources/ReccScheme.png" width="1100" height="500" style="width:100%">
@@ -449,6 +471,7 @@
 
     </select>
     </div>--%>
+
         <div id="Graph1Line" style="background-color: #ffffff">
             <canvas id="line-plot1"></canvas>
             <span id="RegionName1" class="label label-danger"></span>
@@ -548,17 +571,13 @@
      </textarea>
         </div>
 
-        <span id="spnOutputMessage" class="label label-danger"></span>
-        <div id="div_svg">
-            <p id="chart">
-
-                <%--    <input type="button" class="DDSelectSankey" value="Click me">--%>
-
-                <svg class="img-responsive" id="target_svg" xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>
-            </p>
+        <span id="spnOutputMessage" style="display: none"></span>
+        <div id="sankey">
+            <div id="div_svg">
+                <p id="chart">
+                    <%--<svg id="target_svg2051" xmlns="http://www.w3.org/2000/svg" version="1.1" >
+                    </svg>--%>
+                </p>
+            </div>
         </div>
-
-
-    </div>
-
 </asp:Content>

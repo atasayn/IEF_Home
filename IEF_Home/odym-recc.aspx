@@ -55,7 +55,7 @@
             <br>
              <center>
                 <figure>
-                    <img src="resources/SysDef_Model_v2_5a.png" alt="Recc Model" width="768" height="381">
+                    <img src="resources/RECC_SysDef_Model_v2_5a.png" alt="Recc Model" width="768" height="381">
                     <figcaption>Figure: System definition of the RECC model with global scope..</figcaption>
                 </figure>
             </center>
@@ -64,40 +64,86 @@
             <br>
                 
             <br>
+            Currently, about ten researchers contribute to further developing the RECC model and its database, mainly via the EU CIRCOMOD [<a href="https://circomod.eu/" target="_blank">https://circomod.eu/, open in new tab] project.</a> We plan to include transportation infrastructure, link the RECC scenarios to sectoral and general equilibrium models, couple RECC to forest growth models, and to study the impact of energy transition and circular economy strategies on different socioeconomic groups. We have a mailing list for internal communication around the model. Contact us if you want to be on the RECC model mailing list!
+            <br>
+            <br>
+            RECC model brief: <a href="research/Documents/RECC_Model_Brief_Nov23.pdf" target="_blank">RECC_Model_Brief_Nov23.pdf</a> 
+            <br>
+            <br>
             Overview [presentation (pdf)] on the RECC model framework:  <a href="/research/Documents/RECC_Model_Overview_July_2023.pdf" target="_blank">RECC_Model_Overview_July_2023.pdf </a>
       
             <br>
             <br>
-            Journal paper on the framework (open access):  <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023" target="_blank">https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023 </a>
+            First RECC results: IRP report link:  <a href="https://www.resourcepanel.org/reports/resource-efficiency-and-climate-change " target="_blank">https://www.resourcepanel.org/reports/resource-efficiency-and-climate-change  </a>
             <br>
             <br>
-            RECC model development canvas: <a href="https://docs.google.com/presentation/d/1Iw8LkWveC-BWy69ULVZdp5Wj2Q1udouwYPtFw2ixsQc/edit?usp=sharing" target="_blank" >RECC model development canvas: https://docs.google.com/presentation/d/1Iw8LkWveC-BWy69ULVZdp5Wj2Q1udouwYPtFw2ixsQc/edit?usp=sharing   </a>
+            Journal paper on the framework (open access):  <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023 " target="_blank" >https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023 </a>
             <br>
             <br>
-            RECC Python code on GitHub:   <a href="https://github.com/YaleCIE/RECC-ODYM" target="_blank">https://github.com/YaleCIE/RECC-ODYM </a>
+            RECC Python code on GitHub:   <a href="https://github.com/IndEcol/RECC-ODYM" target="_blank">https://github.com/IndEcol/RECC-ODYM </a>
             <br>
             <br>
-            Journal paper on a major case study (open access): <a href="https://doi.org/10.1038/s41467-021-25300-4 " target="_blank">https://doi.org/10.1038/s41467-021-25300-4  </a>
+            JRECC model development canvas: <a href="https://docs.google.com/presentation/d/1Iw8LkWveC-BWy69ULVZdp5Wj2Q1udouwYPtFw2ixsQc/edit?usp=sharing  " target="_blank">https://docs.google.com/presentation/d/1Iw8LkWveC-BWy69ULVZdp5Wj2Q1udouwYPtFw2ixsQc/edit?usp=sharing</a>
             <br>
             <br>
-            Complete RECC model documentation with additional results of global case study on vehicles and buildings:  <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-25300-4/MediaObjects/41467_2021_25300_MOESM1_ESM.pdf  " target="_blank">https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-25300-4/MediaObjects/41467_2021_25300_MOESM1_ESM.pdf   </a>
+            <b>RECC tutorials:</b>
             <br>
             <br>
-            RECC v2.4. input database:    <a href="https://zenodo.org/record/4671644#.YtezrN9CRhE " target="_blank">https://zenodo.org/record/4671644#.YtezrN9CRhE  </a>
+            RECC model tutorial video: <a href="https://www.youtube.com/watch?v=zOfo1WTk7d8" target="_blank">https://www.youtube.com/watch?v=zOfo1WTk7d8</a>. This tutorial video show how to run the ODYM-RECC dynamic material flow analysis (MFA) model on your own machine. It explains where the model config information is stored and how the different model scripts work together to compute both single and multiple scenarios.
+            <br>
+            <br>           
+            RECC multi-scenario generation tutorial video [upload to server and link here]: <a href="research/Documents/RECC_Multiple_Scenarios_HowTo.mp4" target="_blank">RECC_Multiple_Scenarios_HowTo.mp4</a>
+            <br>
+            <br>              
+            RECC results evaluation tutorial video [upload to server and link here]:<a href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank">RECC_Aggregation_Visualisation_HowTo.mp4</a>
             <br>
             <br>
-            RECC v2.4 model result database: <a href="https://zenodo.org/record/4698619#.Yte09t9CRhE " target="_blank">https://zenodo.org/record/4698619#.Yte09t9CRhE  </a>
+            Data documentation routine: The ODYM data process, see the short manual:<a href="research/Documents/ODYM_Data_Processes_ODP_Manual.pdf" target="_blank">ODYM_Data_Processes_ODP_Manual.pdf</a>
             <br>
             <br>
-            RECC model tutorial video:  <a href="https://www.youtube.com/watch?v=zOfo1WTk7d8.  " target="_blank">https://www.youtube.com/watch?v=zOfo1WTk7d8.</a> This tutorial video show how to run the ODYM-RECC dynamic material flow analysis (MFA) model on your own machine. 
-             It explains WHERE the model config information is stored and how the different model scripts work together to compute both single and multiple scenarios.
+            See the following sample parameter file as example: <a href="research/Documents/2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" target="_blank">2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx</a>
             <br>
             <br>
-            RECC mailing list: Contact us if you want to be on the RECC model mailing list!
+            RECC v2.4 model result database: <a href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank">RECC_Aggregation_Visualisation_HowTo.mp4</a>
             <br>
             <br>
-            <p>Currently, about ten researchers contribute to further developing the RECC model and its database, mainly via the EU CIRCOMOD project. We plan to include transportation infrastructure, link the RECC scenarios to sectoral and general equilibrium models, and to study the impact of energy transition and circular economy strategies on different socioeconomic groups.</p>
-
+            <b>RECC v2.5 (current model version):</b>
+            <br>
+            <br>
+            RECC Python code on GitHub: <a href="https://github.com/IndEcol/RECC-ODYM" target="_blank">https://github.com/IndEcol/RECC-ODYM</a>
+            <br>
+            <br>
+            RECC v2.5 model documentation:<a href=" https://doi.org/10.6094/UNIFR/242061" target="_blank"> https://doi.org/10.6094/UNIFR/242061</a>
+            <br>
+            <br>
+            RECC v2.5. input database: Publication planned for Q1(24).
+            <br>
+            <br>
+            RECC v2.5 model result database: Published when available (Q2-3, 2024)
+            <br>
+            <br>
+            <b>RECC v.2.4:</b>
+            <br>
+            <br>
+            Journal paper on the global case study on vehicles and buildings (open access): <a href="https://doi.org/10.1038/s41467-021-25300-4 " target="_blank">https://doi.org/10.1038/s41467-021-25300-4 </a>
+            <br>
+            <br>
+            Complete RECC v2.4 model documentation with additional results of global case study on vehicles and buildings:<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-25300-4/MediaObjects/41467_2021_25300_MOESM1_ESM.pdf" target="_blank">https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-25300-4/MediaObjects/41467_2021_25300_MOESM1_ESM.pdf</a>  
+            <br>
+            <br>
+            RECC Python code on GitHub:<a href="https://github.com/IndEcol/RECC-ODYM" target="_blank"> https://github.com/IndEcol/RECC-ODYM</a>
+            <br>
+            <br>
+            Final model commit for RECC global paper, RECC v2.4: 9c93d9b
+            <br>
+            <br>
+            Final model commit for RECC v2.4 Germany: cb3a388
+            <br>
+            <br>
+            RECC v2.4. input database:<a href="https://zenodo.org/record/4671644#.YtezrN9CRhE" target="_blank">https://zenodo.org/record/4671644#.YtezrN9CRhE </a> 
+            <br>
+            <br>
+            RECC v2.4 model result database:<a href="https://zenodo.org/record/4698619#.Yte09t9CRhE" target="_blank">https://zenodo.org/record/4698619#.Yte09t9CRhE</a>  
         </div>
     </div>
 </asp:Content>

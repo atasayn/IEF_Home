@@ -114,6 +114,7 @@
     <Content Include="js\chart.min.js" />
     <Content Include="js\dropdownMenu.js" />
     <Content Include="js\iedcAdvancedData.js" />
+    <Content Include="js\circular_sankey_script.js" />
     <Content Include="js\jquery-1.6.2.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
     <Content Include="js\jquery.min.js" />
@@ -121,6 +122,8 @@
     <Content Include="js\xlsx.full.min.js" />
     <Content Include="legal.aspx" />
     <Content Include="odym-recc.aspx" />
+    <Content Include="research\Documents\RECC_Aggregation_Visualisation_HowTo.mp4" />
+    <Content Include="research\Documents\RECC_Multiple_Scenarios_HowTo.mp4" />
     <Content Include="research\research.aspx" />
     <Content Include="resources\flag-england.png" />
     <Content Include="resources\flag-germany.png" />
@@ -132,6 +135,7 @@
     <Content Include="resources\Opening_Pic_v2.png" />
     <Content Include="resources\pexels-photo-209137.jpeg" />
     <Content Include="resources\ReccScheme.png" />
+    <Content Include="resources\RECC_SysDef_Model_v2_5a.png" />
     <Content Include="resources\sampleSankey_final.png" />
     <Content Include="resources\sampleSankey_raw.png" />
     <Content Include="resources\SankeySample1.png" />
@@ -394,6 +398,9 @@
     <Content Include="webfonts\fa-solid-900.svg" />
     <None Include="packages.config" />
     <Content Include="research\Documents\RECC_Model_Overview_July_2023.pdf" />
+    <Content Include="research\Documents\RECC_Model_Brief_Nov23.pdf" />
+    <Content Include="research\Documents\ODYM_Data_Processes_ODP_Manual.pdf" />
+    <Content Include="research\Documents\2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

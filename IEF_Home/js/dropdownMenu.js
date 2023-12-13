@@ -26,16 +26,18 @@
 
     }
     $('#DropDownListPlotRegion').click(function (e) {
-   
-        var region = $("#DropDownListPlotRegion").val();
-        var numOfText = canvasIds[0].match(/\d+/);
-        var numOfTextNumber = parseInt(numOfText[0], 10);
-        var graphElement = document.getElementById("Graph" + numOfTextNumber + "Line").style.display;
-        console.log(graphElement)
-        if (graphElement === "") {
-            document.getElementById("Graph" + numOfTextNumber + "Line").style.display = 'block'
-            console.log("bok")
+
+        if ($("#LinePlot").is(":checked")) {
+            var region = $("#DropDownListPlotRegion").val();
+            var numOfText = canvasIds[0].match(/\d+/);
+            var numOfTextNumber = parseInt(numOfText[0], 10);
+            var graphElement = document.getElementById("Graph" + numOfTextNumber + "Line").style.display;
+            console.log(graphElement)
+            if (graphElement === "") {
+                document.getElementById("Graph" + numOfTextNumber + "Line").style.display = 'block'
+            }
         }
+       
 
         $.ajax({
             type: "POST",
@@ -44,14 +46,14 @@
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                console.log(numOfTextNumber)
+
+                // Line-Plot
                 if (region != "") {
                     document.getElementById("RegionName" + numOfTextNumber).textContent = region;
                     displayGraph(result["d"], region, canvasIds[0]);
-                    displayGraph(result["d"], region, "line-plot-maximized");
                     shiftCanvasIds(canvasIds)
-
                 }
+
             }
         });
     });
@@ -181,4 +183,76 @@ $(document).ready(function () {
             }
         });
     });
+
+
+    $('#Sankey').change(function (e) {
+        var region = $("#DropDownListPlotRegion").val();
+        var scenario = "LED";
+        var sector = "Residential Building";
+        var startYear = 2020;
+        var endYear = 2050;
+        var strategy = "Baseline";
+        var material = "Steel";
+        var graphElement = document.getElementById("sankey").style.display;
+
+        if (graphElement === "") {
+            document.getElementById("sankey").style.display = 'block';
+        }
+
+        var divSvgContainer = document.getElementById("div_svg");
+        var chartContainer = document.getElementById("chart");
+        for (let year = startYear; year <= endYear; year++) {
+            var newDiv = document.createElement("div");
+            newDiv.id = "Div " + year;
+            divSvgContainer.appendChild(newDiv);
+            const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svgElement.setAttribute("id", "target_svg" + year);
+            chartContainer.appendChild(svgElement);
+            let divId = "target_svg" + year;
+
+            $.ajax({
+                url: "circomodService.svc/Classification_SankeyItem",
+                type: "POST",
+                data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sector}","SELECTedYear": "${year}",
+                    "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+
+                success: function (data) {
+
+                    var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
+
+                    var flowarea = $("#input_flow_data").val();
+                    var text = flowarea;
+
+                    text = text.replace("F_a", res.get("query_Fa"));
+                    text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
+                    text = text.replace("F_c", res.get("query_Fc"));
+                    text = text.replace("F_d", res.get("query_Fc"));
+                    text = text.replace("F_e", res.get("query_Fc"));
+                    text = text.replace("F_f", res.get("query_Ff"));
+                    text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
+                    text = text.replace("F_h", res.get("query_Fh"));
+                    text = text.replace("F_i", res.get("query_Fh"));
+                    text = text.replace("F_j", res.get("query_Fh"));
+                    text = text.replace("F_k", res.get("query_Fk") / 50);
+                    text = text.replace("F_l", res.get("query_Fl") / 50);
+                    text = text.replace("F_m", res.get("query_Fm") / 50);
+                    text = text.replace("F_n", res.get("query_Fn"));
+                    text = text.replace("F_o", res.get("query_Fn"));
+                    text = text.replace("F_p", res.get("query_Fn"));
+
+                    $("#input_flow_data").val(text);
+
+                    console.log(divId);
+                    process_sankey(divId);
+                   // document.getElementById(divId).textContent = region;
+                    $("#input_flow_data").val(flowarea);
+                }
+            });
+        }
+    });
+
+
+
 });
