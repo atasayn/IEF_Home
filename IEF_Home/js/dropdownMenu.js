@@ -199,17 +199,42 @@ $(document).ready(function () {
             document.getElementById("sankey").style.display = 'block';
         }
 
-        var divSvgContainer = document.getElementById("div_svg");
-        var chartContainer = document.getElementById("chart");
+        var sankeyDiv = document.getElementById("sankey");
+        
+
+
+
         for (let year = startYear; year <= endYear; year++) {
             var newDiv = document.createElement("div");
-            newDiv.id = "Div " + year;
-            divSvgContainer.appendChild(newDiv);
-            const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            svgElement.setAttribute("id", "target_svg" + year);
-            chartContainer.appendChild(svgElement);
-            let divId = "target_svg" + year;
+            newDiv.id = "div_svg " + year;
+            newDiv.style.position = 'absolute';
+            // Create and append <p id="chart"> element within each div
+            var chartParagraph = document.createElement("p");
+            chartParagraph.id = "chart" + year;
+            newDiv.appendChild(chartParagraph);
 
+            // Append the dynamically created div to the parent div
+            sankeyDiv.appendChild(newDiv);
+
+            // Get the chartContainer directly from chartParagraph
+            var chartContainer = chartParagraph;
+
+            const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svgElement.setAttribute("id", "target_svg_" + year); // Using underscores instead of spaces
+
+            // Create and append <text> element for the year within the SVG
+            var yearText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            yearText.setAttribute("class", "label label-danger");
+            yearText.textContent = year
+  
+            svgElement.appendChild(yearText);
+
+            // Append the SVG to the chartContainer
+            chartContainer.appendChild(svgElement);
+
+            let divId = "target_svg" + year;
+            let divSvg = newDiv.id;
+            let divChart = chartParagraph.id
             $.ajax({
                 url: "circomodService.svc/Classification_SankeyItem",
                 type: "POST",
@@ -244,13 +269,21 @@ $(document).ready(function () {
 
                     $("#input_flow_data").val(text);
 
-                    console.log(divId);
-                    process_sankey(divId);
-                   // document.getElementById(divId).textContent = region;
+
+                    process_sankey(divId, divSvg, divChart);
+                    
                     $("#input_flow_data").val(flowarea);
+
+
+
                 }
+
+
+
             });
         }
+
+
     });
 
 

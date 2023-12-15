@@ -113,10 +113,13 @@
     <Content Include="internal_login.aspx" />
     <Content Include="js\chart.min.js" />
     <Content Include="js\dropdownMenu.js" />
+    <Content Include="js\gdp-data.js" />
+    <Content Include="js\jquery-jvectormap-world-mill.js" />
     <Content Include="js\iedcAdvancedData.js" />
     <Content Include="js\circular_sankey_script.js" />
     <Content Include="js\jquery-1.6.2.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
+    <Content Include="js\jquery-jvectormap-2.0.5.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\xlsx.core.min.js" />
     <Content Include="js\xlsx.full.min.js" />

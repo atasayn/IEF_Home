@@ -42,10 +42,10 @@
 
 
 
-    function make_diagram_blank(w, h, background_color, svgId) {
+    function make_diagram_blank(w, h, background_color, svgId, divChart) {
         h = 1056;
         w = 650;
-        document.getElementById('chart').innerHTML =
+        document.getElementById(divChart).innerHTML =
             '<svg id="'+ svgId +'" height="' + h + '" width="' + w + '" '
             + 'xmlns="http://www.w3.org/2000/svg" version="1.1" '
             + 'style="background-color: ' + background_color + '"></svg>';
@@ -191,7 +191,7 @@
         return all_nodes;
     }
 
-    function render_sankey(nodes_in, input_flow_data, data_set, svgId) {
+    function render_sankey(nodes_in, input_flow_data, data_set, svgId, divSvg, divChart) {
         var graph_width, graph_height, colorset, units_format, d3_color_scale, svg, sankey, link, node, nodeType, rotateAngle,
             node_width = data_set.node_width,
             node_padding = data_set.node_padding,
@@ -248,15 +248,15 @@
                 + data_set.unit_suffix;
         };
 
-        make_diagram_blank(total_width, total_height, data_set.background_color, svgId);
+        make_diagram_blank(total_width, total_height, data_set.background_color, svgId, divSvg, divChart);
 
         var formatNumber = d3.format(",.0f"),
         format = function (d) { return formatNumber(d) + " " + data_set.unit_name; },
         color = d3.scale.category20();
 
 
-        var offsetHeight = document.getElementById('div_svg').offsetHeight;
-        var offsetWidth = document.getElementById('div_svg').offsetWidth;
+        var offsetHeight = document.getElementById(divSvg).offsetHeight;
+        var offsetWidth = document.getElementById(divSvg).offsetWidth;
 
         var svg = d3.select("#" + svgId)
         .attr("width", offsetWidth)
@@ -267,6 +267,8 @@
             .attr("width", offsetWidth)
             .attr("height", offsetHeight)
             .attr("fill", data_set.background_color);
+
+      
 
         var sankey = d3.sankey()
             .nodeWidth(node_width)
@@ -578,7 +580,7 @@
 
 
 
-    glob.process_sankey = function (svgId) {
+    glob.process_sankey = function (svgId, divSvg, divChart) {
         var source_lines = [], good_flows = [], good_node_lines = [],
            bad_lines = [], node_order = [], line_ix = 0, line_in = '', line_in_angle = '', line_ix_angle = 0, matches_angle = 0, source_lines_angle = [],
            unique_nodes = {}, matches = [], amount_in = 0,
@@ -589,7 +591,7 @@
            reverse_the_graph = 0,
            max_node_index = 0, max_node_val = 0, flow_inherit = '',
            colorset_in = '', fontface_in = '', nodeType_in = '', rotateAngle_in = '',
-           chart_el = document.getElementById("chart"),
+           chart_el = document.getElementById(divChart),
            messages_el = document.getElementById("messages_area"),
            raw_source = document.getElementById("input_flow_data").value;
 
@@ -799,7 +801,7 @@
         }
 
         
-        render_sankey(approved_nodes, approved_flows, approved_data, svgId);
+        render_sankey(approved_nodes, approved_flows, approved_data, svgId,divSvg);
 
         return null;
     };

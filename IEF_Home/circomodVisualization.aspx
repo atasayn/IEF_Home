@@ -38,6 +38,7 @@
                 'menu sankey sankey sankey';
             display: grid;
             grid-gap: 10px;
+            height: auto
         }
 
         #DataMenu {
@@ -287,6 +288,11 @@
             padding: 15px;
             border-radius: 10px;
             padding-left: 5px;
+            display: block;
+            position: relative;
+            width: 1000px;
+            height: 500px;
+
         }
 
         svg:not(:root) {
@@ -294,7 +300,17 @@
             transform: scale(0.8) translateX(-7px);
             width: 1230px;
             height: 500px;
-            border-radius:10px;
+            border-radius: 10px;
+        }
+
+        svg {
+            pointer-events: none;
+            user-select: none;
+        }
+
+
+        .active {
+            display: block;
         }
     </style>
     <script src="js/jquery.min.js"></script>
@@ -303,12 +319,14 @@
     <script type="module" src="js/chart.min.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.min.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.v3.min.js"></script>
-    <%--<script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/circular_sankey_script.js"></script>--%>
-    <script  type="text/javascript" src="js/circular_sankey_script.js"></script>
+    <script type="text/javascript" src="js/circular_sankey_script.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/circular_sankey_lib.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileExporter.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileUploader.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
+    <script src="js/jquery-jvectormap-2.0.5.min.js"></script>
+    <script src="js/jquery-jvectormap-world-mill.js"></script>
+    <script src="js/gdp-data.js"></script>
     <script>
 
         //$(document).ready(function () {
@@ -332,16 +350,20 @@
             maximizedGraph.style.display = 'none';
         }
 
-        function toggleDivVisibility(checkboxId, divId) {
-            var checkbox = document.getElementById(checkboxId);
-            var div = document.getElementById(divId);
 
-            if (checkbox.checked) {
-                div.style.display = 'block'; // Show the div
-            } else {
-                div.style.display = 'none'; // Hide the div
+        $('#world-map-gdp').vectorMap({
+          
+            series: {
+                regions: [{
+                    values: gdpData,
+                    scale: ['#C8EEFF', '#0071A4'],
+                    normalizeFunction: 'polynomial'
+                }]
+            },
+            onRegionTipShow: function (e, el, code) {
+                el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
             }
-        }
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -352,8 +374,9 @@
 
                 <%-- <input type="Checkbox" id="CE1Checkbox" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">--%>
                 <b>CEP 1: Region</b>
+                <div id="world-map-gdp" style="width: 600px; height: 400px"></div>
                 <div id="CE1">
-
+                    
                     <%--<label for="Title">Region:</label>--%>
                     <select id="DropDownListPlotRegion" size="8" required>
                         <option value="France">France</option>
@@ -573,11 +596,10 @@
 
         <span id="spnOutputMessage" style="display: none"></span>
         <div id="sankey">
-            <div id="div_svg">
-                <p id="chart">
-                    <%--<svg id="target_svg2051" xmlns="http://www.w3.org/2000/svg" version="1.1" >
-                    </svg>--%>
-                </p>
-            </div>
+
+            
+
         </div>
+
+    </div>
 </asp:Content>

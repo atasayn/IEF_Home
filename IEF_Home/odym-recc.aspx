@@ -64,7 +64,7 @@
             <br>
                 
             <br>
-            Currently, about ten researchers contribute to further developing the RECC model and its database, mainly via the EU CIRCOMOD [<a href="https://circomod.eu/" target="_blank">https://circomod.eu/, open in new tab] project.</a> We plan to include transportation infrastructure, link the RECC scenarios to sectoral and general equilibrium models, couple RECC to forest growth models, and to study the impact of energy transition and circular economy strategies on different socioeconomic groups. We have a mailing list for internal communication around the model. Contact us if you want to be on the RECC model mailing list!
+            Currently, about ten researchers contribute to further developing the RECC model and its database, mainly via the EU CIRCOMOD [<a href="https://circomod.eu/" target="_blank">https://circomod.eu/</a>] project. We plan to include transportation infrastructure, link the RECC scenarios to sectoral and general equilibrium models, couple RECC to forest growth models, and to study the impact of energy transition and circular economy strategies on different socioeconomic groups. We have a mailing list for internal communication around the model. Contact us if you want to be on the RECC model mailing list!
             <br>
             <br>
             RECC model brief: <a href="research/Documents/RECC_Model_Brief_Nov23.pdf" target="_blank">RECC_Model_Brief_Nov23.pdf</a> 
@@ -102,9 +102,6 @@
             <br>
             <br>
             See the following sample parameter file as example: <a href="research/Documents/2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" target="_blank">2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx</a>
-            <br>
-            <br>
-            RECC v2.4 model result database: <a href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank">RECC_Aggregation_Visualisation_HowTo.mp4</a>
             <br>
             <br>
             <b>RECC v2.5 (current model version):</b>
