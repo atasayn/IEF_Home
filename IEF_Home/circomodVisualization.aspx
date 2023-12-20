@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="circomodVisualization.aspx.cs" Inherits="IEF_Home.circomodVisualization" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
+     
     <style>
         html {
             width: 100%;
@@ -295,18 +296,18 @@
 
         }
 
-        svg:not(:root) {
+/*        svg:not(:root) {
             overflow: hidden;
             transform: scale(0.8) translateX(-7px);
             width: 1230px;
             height: 500px;
             border-radius: 10px;
-        }
+        }*/
 
-        svg {
+/*        svg {
             pointer-events: none;
             user-select: none;
-        }
+        }*/
 
 
         .active {
@@ -314,6 +315,7 @@
         }
     </style>
     <script src="js/jquery.min.js"></script>
+    
     <script type="text/javascript" src="js/dropdownMenu.js"></script>
     <script type="text/javascript" src="js/jquery-1.6.2.js"></script>
     <script type="module" src="js/chart.min.js"></script>
@@ -324,18 +326,28 @@
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileExporter.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileUploader.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
-    <script src="js/jquery-jvectormap-2.0.5.min.js"></script>
-    <script src="js/jquery-jvectormap-world-mill.js"></script>
-    <script src="js/gdp-data.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/mapConfig.js"></script>
+    
+   <%-- <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>--%>
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/jquery.peity.min.js"></script>
+    <script type="text/javascript" src="js/highlight.pack.min.js"></script>
+    <script type="text/javascript" src="js/jquery.vmap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.vmap.world.js"></script> 
+    <script type="text/javascript" src="js/bracket.js"></script>
+    <script type="text/javascript" src="js/jquery.vmap.sampledata.js"></script>
+    
+    
+    
+    
+    
+    
+
     <script>
 
-        //$(document).ready(function () {
-        //    const room = document.querySelector("#DropDownListYear");
-
-        //    for (let i = 2022; i <= 2060; i++) {
-        //        room.insertAdjacentHTML("beforeend", `<option value="${i}">${i}</option>`);
-        //    }
-        //});
 
         function enlarge() {
             const overlay = document.getElementById('overlay');
@@ -351,19 +363,9 @@
         }
 
 
-        $('#world-map-gdp').vectorMap({
-          
-            series: {
-                regions: [{
-                    values: gdpData,
-                    scale: ['#C8EEFF', '#0071A4'],
-                    normalizeFunction: 'polynomial'
-                }]
-            },
-            onRegionTipShow: function (e, el, code) {
-                el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-            }
-        });
+
+
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -374,7 +376,11 @@
 
                 <%-- <input type="Checkbox" id="CE1Checkbox" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">--%>
                 <b>CEP 1: Region</b>
-                <div id="world-map-gdp" style="width: 600px; height: 400px"></div>
+                <div id="vmap" style="width: 600px; height: 400px">
+
+
+
+                </div>
                 <div id="CE1">
                     
                     <%--<label for="Title">Region:</label>--%>

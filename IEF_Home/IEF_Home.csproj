@@ -105,22 +105,34 @@
     <Content Include="Content\IEooc_Logo_V2.png" />
     <Content Include="css\all.min.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bracket.css" />
+    <Content Include="css\jqvmap.min.css" />
     <Content Include="css\master.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="iedc.aspx" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
+    <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\bracket.js" />
     <Content Include="js\chart.min.js" />
+    <Content Include="js\datepicker.js" />
     <Content Include="js\dropdownMenu.js" />
-    <Content Include="js\gdp-data.js" />
-    <Content Include="js\jquery-jvectormap-world-mill.js" />
+    <Content Include="js\highlight.pack.min.js" />
     <Content Include="js\iedcAdvancedData.js" />
     <Content Include="js\circular_sankey_script.js" />
+    <Content Include="js\jquery-1.11.3.min.js" />
     <Content Include="js\jquery-1.6.2.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
-    <Content Include="js\jquery-jvectormap-2.0.5.min.js" />
+    <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.peity.min.js" />
+    <Content Include="js\jquery.vmap.min.js" />
+    <Content Include="js\jquery.vmap.sampledata.js" />
+    <Content Include="js\mapConfig.js" />
+    <Content Include="js\jquery.vmap.world.js" />
+    <Content Include="js\moment.min.js" />
+    <Content Include="js\perfect-scrollbar.min.js" />
     <Content Include="js\xlsx.core.min.js" />
     <Content Include="js\xlsx.full.min.js" />
     <Content Include="legal.aspx" />
@@ -532,6 +544,7 @@
       <DependentUpon>teaching.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
