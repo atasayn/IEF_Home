@@ -338,6 +338,14 @@ The following topics are covered:
                         <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
+			<b>Exercise on energy and power definitions,</b> salient measures/indicators, and the energy supply chain. Learn about the different energy and power definitions, units, and measures/indicators,
+			as well as the definitions of primary, final, and useful energy. Define and calculate energy measures based on the system definition. <b>Prerequisites:</b> Concepts of energy and power in physics. No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
+			<a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain.pdf" target="new">IEooc_Methods1_Exercise1a</a>.
+                        <br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain_Solution.pdf" target="new">IEooc_Methods1_Exercise1a_Solution (pdf)</a>
+                        <br>
+                        <br>
                         <b>Reading:</b> The supporting documents of the material and energy flow analysis software <a href="http://www.stan2web.net/" target="new">STAN</a> are a good reference for building proper system definitions and for data modelling in material and energy flow analysis and industrial in general. An overview of the different documents can be found <a href="http://www.stan2web.net/support/mfa-basics" target="new">here</a>.
                         <br>
                         Recommended STAN reading 1: Glossary of basic systems analysis terms:<br>
@@ -513,6 +521,27 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a>
                         <br>
                         <br>
+                        <b>Jupyter notebook with a tutorial on basic data handling: reading and inspecting data, performing basic time series calculations, plotting and saving results. This Jupyter notebook contains explanations on how to use the Python programming language for calculating energy use and emissions of the vehicle fleet for a future scenario. The data handling and calculation steps are explained step by step. <b>Level of difficulty: (++)</b><br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software001.ipynb", "IEooc_Methods3_Software001 (ipynb)");</script><br/>
+                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file)</a>
+                        <br>
+                        <br>
+                        <b>Jupyter notebook on scenarios for the transformation of the vehicle fleet. This workbook is a direct follow-up to IEooc_Methods3_Software001. It contains a number of additional tasks and calculations for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software002.ipynb", "IEooc_Methods3_Software002 (ipynb)");</script><br/>
+                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file, same as for IEooc_Methods3_Software001)</a>
+			<br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods3_Software002_SampleSolution.ipynb" target="new">IEooc_Methods3_Software002_SampleSolution (ipynb)</a>
+                        <br>
+                        <br>
+                        <b>Jupyter notebook on scenarios for the transformation of the vehicle fleet. This workbook is a direct follow-up to IEooc_Methods3_Software002. It contains the calculation of the material content of in-use stock and flows, the estimation of recycling flows and recycled content, and the estimation of GHG emissions and material footprint for vehicle production for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software003.ipynb", "IEooc_Methods3_Software003 (ipynb)");</script><br/>
+                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file, same as for IEooc_Methods3_Software001)</a>
+			<br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods3_Software003_SampleSolution.ipynb" target="new">IEooc_Methods3_Software003_SampleSolution (ipynb)</a>
+                        <br>
+                        <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
 			    For this notebook, two versions exist: <br>
                         <script>jupyterLink("/Content/IEooc_Methods3_Software1_ODYM.ipynb", "IEooc_Methods3_Software1 (ODYM)");</script> for use together with the dynamic MFA library of the <a href="https://github.com/IndEcol/ODYM" target="new">ODYM MFA</a> software. <br/>
@@ -632,6 +661,13 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
+                        <br>
+                        <br>
+                        <b>Exercise from the application sectionon on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
+			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Woorkbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Advanced LCA exercises with openLCA. An ecoinvent license is required:</b>
@@ -958,6 +994,13 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a><br>
                         <br>
                         <br>
+                        <b>Exercise on a basic circular economy scenario for buildings.</b> The goal of this exercise is to understand the legal CE definitions and indicator frameworks. Work with salient CE indicators and develop a simple CE scenario with material stocks and flows. Interpret the CE as part of the energy service cascade. <b>Prerequisites:</b> Stocks and flows, working with the system definition, energy service cascade. <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Application2_Exercise1.pdf" target="new">IEooc_Application2_Exercise1</a>.
+                        <br>
+                        For this exercise a data workbook is needed:<br>
+                        <a href="/Content/IEooc_Application2_Exercise1_Data.xlsx" target="new">IEooc_Application2_Exercise1_Data (xlsx)</a>
+                        <br>
+                        <br>
                     </td>
                 </tr>
 
@@ -1048,6 +1091,16 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://youtu.be/BCeJto4cLCA" target="new">IEooc_Application4_Lecture1</a>
                         <br>
                         <br>
+
+			<b>Exercise on energy and power definitions from the methods section M1</b> It covers salient measures/indicators in the energy supply chain. Learn about the different energy and power definitions, units, and measures/indicators,
+			as well as the definitions of primary, final, and useful energy. Define and calculate energy measures based on the system definition. <b>Prerequisites:</b> Concepts of energy and power in physics. No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
+			<a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain.pdf" target="new">IEooc_Methods1_Exercise1a</a>.
+                        <br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain_Solution.pdf" target="new">IEooc_Methods1_Exercise1a_Solution (pdf)</a>
+                        <br>
+                        <br>
+
                         <b>Exercise from the background sections: Systems thinking for renewable energy.</b> Learn about the main types of renewable energy, the main barriers for their implementation, and the system linkages that determine their future contribution to climate change mitigation by reading the relevant chapter of the IPCC 5th Assessment Report. <b>Prerequisites:</b> None. <b>Level of difficulty: (+)</b><br>
                         <a href="/Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC.pdf" target="new">IEooc_Background2_Exercise1</a>.
                         <br>
@@ -1191,7 +1244,14 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2022/10/30/material-footprint-implications-of-low-carbon-technologies/" target="new">IEooc_Methods6_Reading5</a>
                         <br>
-                        <br>			    			    
+                        <br>		
+                        <b>Exercise on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
+			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Woorkbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
+                        <br>
+                        <br>
                     </td>
                 </tr>
 
