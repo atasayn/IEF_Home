@@ -15,7 +15,7 @@
             <center>
                 <br>
                 <br>
-                <img src="/Content/IEooc_Logo_V2_5yr.png" width="250">
+                <img src="/Content/IEooc_Logo_V2.png" width="250">
                 <h2>Industrial Ecology Open Online Course </h2>
                 <h4>Online since 2018 </h4>
                 <br>
@@ -31,16 +31,16 @@
             The <i>Industrial Ecology Open Online Course (IEooc) </i>is a collection of online material that documents and explains the core industrial ecology concepts, methods, data, and applications. It serves as guide to new industrial ecology researchers by enabling them to conduct state-of-the-art science for sustainability.
             <br>
             <br>
-            The course was developed for university students at all levels. It features lectures (screencasts and webinars of 15-60 minutes), exercises with sample solutions, code samples or notebooks, and reading material (papers, essays, reports, blog entries). There are now more than 45 exercises and tutorials, and these form the core of this course. All material is freely available for educational use.
+            The course was developed for university students at all levels. It features lectures (screencasts and webinars of 15-60 minutes), exercises with sample solutions, code samples or notebooks, and reading material (papers, essays, reports, blog entries). There are now more than 50 exercises and tutorials, and these form the core of this course. All material is freely available for educational use.
             <br>
             <br>
             The course is divided into three broad sections: background, methods, and applications. In the background section a general introduction to the topic is given and the theoretical foundations of interdisciplinary systems science in general, and industrial ecology in particular, are laid. In the methods section the core industrial ecology methods material flow analysis, life cycle assessment, and input-output analysis are introduced. In the application section a number of selected case studies and other examples are presented. Readers can choose their preferred level of exposure to conceptual foundations, and can jump to the methods section, which also contains most of the exercises, at any point. For fully appreciating the origin, structure, and interrelation of the different industrial ecology methods, however, some extra work with the background material will be helpful. To grasp the content of the application section some familiarity with the industrial ecology methods is necessary. For each course item a quick summary of the content is provided, the prerequisites are stated, and the level of difficulty is indicated on a scale reaching from (+) (not very difficult) to (+++) (rather difficult).
             <br>
             <br>
-            The course is built using freely available tools and data WHEREver possible. For the basic parts of the course a pdf reader, Excel or a similar spreadsheet tool, and access to Youtube are sufficient. The more advanced parts make use of the programming language Python via <a href="https://jupyter.org/" target="new">Jupyter notebooks</a>, and some of the LCA exercises use <a href="http://www.openlca.org" target="new">openLCA</a> in Connection with the <a href="http://www.ecoinvent.org/" target="new">ecoinvent</a> life cycle database. For some exercises reading material that is not generally available is required.
+            The course is built using freely available tools and data wherever possible. For the basic parts of the course a pdf reader, Excel or a similar spreadsheet tool, and access to Youtube are sufficient. The more advanced parts make use of the programming language Python via <a href="https://jupyter.org/" target="new">Jupyter notebooks</a>, and some of the LCA exercises use <a href="http://www.openlca.org" target="new">openLCA</a> in Connection with the <a href="http://www.ecoinvent.org/" target="new">ecoinvent</a> life cycle database. For some exercises reading material that is not generally available is required.
             <br>
             <br>
-            The course consists of a combination of own and external material. I linked to content created by other scholars of the industrial ecology and other communities WHERE appropriate. If you would like to have a link added or removed, let me know. If you would like to see your own content added, drop a line to stefan.pauliuk[at]indecol.uni-freiburg.de, and I will check whether it fits into the course. The course material will be improved and expanded over the next years, so that the syllabus can grow bit by bit. 
+            The course consists of a combination of own and external material. I linked to content created by other scholars of the industrial ecology and other communities where appropriate. If you would like to have a link added or removed, let me know. If you would like to see your own content added, drop a line to stefan.pauliuk[at]indecol.uni-freiburg.de, and I will check whether it fits into the course. The course material will be improved and expanded over the next years, so that the syllabus can grow bit by bit. 
             <br>
             <br>
             Most of the material is made available under a Creative Commons Licence. It can be used in own teaching, modified and expanded. The slide material is available upon request.
@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: July 24th, 2023.</h4>
+                <h4>Last update: January 9th, 2024.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -96,7 +96,7 @@
     <div class="row">
         <div class="col-md-12">
 
-		<b>Teaser: A new textbook for our field, "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, will appear in August 2023. Pre-ordering is already possible <a href="https://www.barnesandnoble.com/w/industrial-ecology-and-sustainability-thomas-e-graedel/1143430696" target="new">here</a>.</b>
+		<b>A new introductory textbook for our field, "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, was published in 2023.</b> Details: 512 pages, ISBN-13: 9789811277603, Publisher: World Scientific Publishing Company. The book is available both as hardcover and as e-book. It can be ordered online via Amazon, Barnes and Noble, etc.
             <br>
             <br>
         </div>
@@ -338,6 +338,14 @@ The following topics are covered:
                         <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
+			<b>Exercise on energy and power definitions,</b> salient measures/indicators, and the energy supply chain. Learn about the different energy and power definitions, units, and measures/indicators,
+			as well as the definitions of primary, final, and useful energy. Define and calculate energy measures based on the system definition. <b>Prerequisites:</b> Concepts of energy and power in physics. No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
+			<a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain.pdf" target="new">IEooc_Methods1_Exercise1a</a>.
+                        <br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain_Solution.pdf" target="new">IEooc_Methods1_Exercise1a_Solution (pdf)</a>
+                        <br>
+                        <br>
                         <b>Reading:</b> The supporting documents of the material and energy flow analysis software <a href="http://www.stan2web.net/" target="new">STAN</a> are a good reference for building proper system definitions and for data modelling in material and energy flow analysis and industrial in general. An overview of the different documents can be found <a href="http://www.stan2web.net/support/mfa-basics" target="new">here</a>.
                         <br>
                         Recommended STAN reading 1: Glossary of basic systems analysis terms:<br>
@@ -513,6 +521,27 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a>
                         <br>
                         <br>
+                        <b>Jupyter notebook with a tutorial on basic data handling: reading and inspecting data, performing basic time series calculations, plotting and saving results. This Jupyter notebook contains explanations on how to use the Python programming language for calculating energy use and emissions of the vehicle fleet for a future scenario. The data handling and calculation steps are explained step by step. <b>Level of difficulty: (++)</b><br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software001.ipynb", "IEooc_Methods3_Software001 (ipynb)");</script><br/>
+                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file)</a>
+                        <br>
+                        <br>
+                        <b>Jupyter notebook on scenarios for the transformation of the vehicle fleet. This workbook is a direct follow-up to IEooc_Methods3_Software001. It contains a number of additional tasks and calculations for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software002.ipynb", "IEooc_Methods3_Software002 (ipynb)");</script><br/>
+                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file, same as for IEooc_Methods3_Software001)</a>
+			<br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods3_Software002_SampleSolution.ipynb" target="new">IEooc_Methods3_Software002_SampleSolution (ipynb)</a>
+                        <br>
+                        <br>
+                        <b>Jupyter notebook on scenarios for the transformation of the vehicle fleet. This workbook is a direct follow-up to IEooc_Methods3_Software002. It contains the calculation of the material content of in-use stock and flows, the estimation of recycling flows and recycled content, and the estimation of GHG emissions and material footprint for vehicle production for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software003.ipynb", "IEooc_Methods3_Software003 (ipynb)");</script><br/>
+                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file, same as for IEooc_Methods3_Software001)</a>
+			<br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods3_Software003_SampleSolution.ipynb" target="new">IEooc_Methods3_Software003_SampleSolution (ipynb)</a>
+                        <br>
+                        <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
 			    For this notebook, two versions exist: <br>
                         <script>jupyterLink("/Content/IEooc_Methods3_Software1_ODYM.ipynb", "IEooc_Methods3_Software1 (ODYM)");</script> for use together with the dynamic MFA library of the <a href="https://github.com/IndEcol/ODYM" target="new">ODYM MFA</a> software. <br/>
@@ -632,6 +661,13 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
+                        <br>
+                        <br>
+                        <b>Exercise from the application sectionon on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
+			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Woorkbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
                         <br>
                         <br>
                         <b>Advanced LCA exercises with openLCA. An ecoinvent license is required:</b>
@@ -958,6 +994,13 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a><br>
                         <br>
                         <br>
+                        <b>Exercise on a basic circular economy scenario for buildings.</b> The goal of this exercise is to understand the legal CE definitions and indicator frameworks. Work with salient CE indicators and develop a simple CE scenario with material stocks and flows. Interpret the CE as part of the energy service cascade. <b>Prerequisites:</b> Stocks and flows, working with the system definition, energy service cascade. <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Application2_Exercise1.pdf" target="new">IEooc_Application2_Exercise1</a>.
+                        <br>
+                        For this exercise a data workbook is needed:<br>
+                        <a href="/Content/IEooc_Application2_Exercise1_Data.xlsx" target="new">IEooc_Application2_Exercise1_Data (xlsx)</a>
+                        <br>
+                        <br>
                     </td>
                 </tr>
 
@@ -1048,6 +1091,16 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://youtu.be/BCeJto4cLCA" target="new">IEooc_Application4_Lecture1</a>
                         <br>
                         <br>
+
+			<b>Exercise on energy and power definitions from the methods section M1</b> It covers salient measures/indicators in the energy supply chain. Learn about the different energy and power definitions, units, and measures/indicators,
+			as well as the definitions of primary, final, and useful energy. Define and calculate energy measures based on the system definition. <b>Prerequisites:</b> Concepts of energy and power in physics. No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
+			<a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain.pdf" target="new">IEooc_Methods1_Exercise1a</a>.
+                        <br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain_Solution.pdf" target="new">IEooc_Methods1_Exercise1a_Solution (pdf)</a>
+                        <br>
+                        <br>
+
                         <b>Exercise from the background sections: Systems thinking for renewable energy.</b> Learn about the main types of renewable energy, the main barriers for their implementation, and the system linkages that determine their future contribution to climate change mitigation by reading the relevant chapter of the IPCC 5th Assessment Report. <b>Prerequisites:</b> None. <b>Level of difficulty: (+)</b><br>
                         <a href="/Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC.pdf" target="new">IEooc_Background2_Exercise1</a>.
                         <br>
@@ -1191,7 +1244,14 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2022/10/30/material-footprint-implications-of-low-carbon-technologies/" target="new">IEooc_Methods6_Reading5</a>
                         <br>
-                        <br>			    			    
+                        <br>		
+                        <b>Exercise on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
+			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Woorkbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
+                        <br>
+                        <br>
                     </td>
                 </tr>
 
@@ -1206,7 +1266,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <br>
                 <br>
                 <br>
-                <img src="/Content/IEooc_Logo_V2_5yr.png" width="250">
+                <img src="/Content/IEooc_Logo_V2.png" width="250">
             </center>
 
             <br>
@@ -1216,6 +1276,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <b>International Society for Industrial Ecology:</b> <a href="https://is4ie.org" target="new">https://is4ie.org</a><br>
                 <br>
                 <b>Acknowledgements:</b><br>
+		<b>Adakole Daniel Okwa</b>, for helping with the completion of the 200-year matrix version of the workbook for IEooc_Methods3_Software9.
                 <b>Oliver Cencic</b>, TU Vienna, provided detailed bug reports on the different lectures on dynamic MFA and the LCA exercises.<br>
 		<b>Christina Madrid López </b>, Universitat Autònoma de Barcelona, provided feedback and corrections for the IO exercises.<br>
                 <b>Niko Heeren</b>, ETH Zürich, provided detailed feedback on the SEM data model and related software routines.<br>
@@ -1271,7 +1332,10 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             + <a href="https://ilca.es/teaching-materials/open-teaching-material/" target="new">Open teaching material</a> of the International Life Cycle Academy (ILCA). 
             <br>
             <br>
-		+ Series of video-lectures on 'Consequential modelling in Life Cycle Inventory analysis' by LCA-NET.com, freely available via their  
+	    + Introduction to Life Cycle Assessment (LCA) by Jeroen Guinée, Bernhard Steubing, Reinout Heijungs, and other CML-LCA experts: <a href="https://rise.articulate.com/share/Gx0ZK3GHgAYU-BSaboqXRHN0f6SjC4de#/" target="new">The course (clicke here for access) </a> is based on the theoretical part of the LCA course that is taught in the joint TU Delft - Leiden University Master Programme on Industrial Ecology.
+            <br>
+            <br>
+	    + Series of video-lectures on 'Consequential modelling in Life Cycle Inventory analysis' by LCA-NET.com, freely available via their  
 		<a href="https://youtube.com/playlist?list=PLdeMRDEdKW1uf9sr83G9vweym_q7dg44q" target="_blank">Youtube channel</a>.
             <br>
             <br>
@@ -1284,13 +1348,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             + The UN Environment Life Cycle Initiative provides <a href="https://www.lifecycleinitiative.org/resources/training/" target="new">LCA training material</a>.
             <br>
             <br>
-            + Massive Open Online Course <a href="https://metabolismofcities.org/mooc" target="new">’Urban Metabolism for Policy Makers’</a> by provided by the GI-REC (Global Initiative for Resource Efficient Cities), produced and run by Metabolism of Cities, in partnership with the League of Cities of the Philippines and UN Environment.
-            <br>
-            <br>
-            + Online material for <a href="http://www.polymtl.ca/namp/module/" target="new">Introducing Process Integration for Environmental Control in Engineering </a>provided by a group of North American Universities and hosted by the Ecole Polytechnique de Montreal.
-            <br>
-            <br>
-            + Teaching material for <a href="http://www.ce.cmu.edu/~hsm/lca2006/" target="new">Environmental Life Cycle Assessment</a>, provided by H. Scott Matthews from Carnegie Mellon University.
+            + Metabolism of Cities <a href="https://education.metabolismofcities.org/" target="new">Education Hub</a>.
             <br>
             <br>
             + CIRAIG (Montreal) has launched its first online course (MOOC) for the general public on its core expertise: life cycle assessment (LCA). This is a comprehensive online course, the first in the world *in French*, aimed at teaching LCA methodology. 
