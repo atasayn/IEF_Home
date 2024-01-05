@@ -521,25 +521,25 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a>
                         <br>
                         <br>
-                        <b>Jupyter notebook with a tutorial on basic data handling: reading and inspecting data, performing basic time series calculations, plotting and saving results. This Jupyter notebook contains explanations on how to use the Python programming language for calculating energy use and emissions of the vehicle fleet for a future scenario. The data handling and calculation steps are explained step by step. <b>Level of difficulty: (++)</b><br>
+                        <b>Jupyter notebook with a tutorial on basic data handling:</b> Reading and inspecting data, performing basic time series calculations, plotting and saving results. This Jupyter notebook contains explanations on how to use the Python programming language for calculating energy use and emissions of the vehicle fleet for a future scenario. The data handling and calculation steps are explained step by step. <b>Level of difficulty: (++)</b><br>
                         <script>jupyterLink("/Content/IEooc_Methods3_Software001.ipynb", "IEooc_Methods3_Software001 (ipynb)");</script><br/>
-                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file)</a>
+                        <a href="/Content/IEooc_Methods3_Software001_Data.xlsx" target="new">IEooc_Methods3_Software001_Data (data file)</a>
                         <br>
                         <br>
-                        <b>Jupyter notebook on scenarios for the transformation of the vehicle fleet. This workbook is a direct follow-up to IEooc_Methods3_Software001. It contains a number of additional tasks and calculations for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
+                        <b>Jupyter notebook on scenarios for the transformation of the vehicle fleet.</b> This workbook is a direct follow-up to IEooc_Methods3_Software001. It contains a number of additional tasks and calculations for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
                         <script>jupyterLink("/Content/IEooc_Methods3_Software002.ipynb", "IEooc_Methods3_Software002 (ipynb)");</script><br/>
-                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file, same as for IEooc_Methods3_Software001)</a>
+                        <a href="/Content/IEooc_Methods3_Software001_Data.xlsx" target="new">IEooc_Methods3_Software001_Data (data file, same as for IEooc_Methods3_Software001)</a>
 			<br>
                         For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods3_Software002_SampleSolution.ipynb" target="new">IEooc_Methods3_Software002_SampleSolution (ipynb)</a>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software002_SampleSolution.ipynb", "IEooc_Methods3_Software002_SampleSolution (ipynb)");</script><br/>
                         <br>
                         <br>
-                        <b>Jupyter notebook on scenarios for the transformation of the vehicle fleet. This workbook is a direct follow-up to IEooc_Methods3_Software002. It contains the calculation of the material content of in-use stock and flows, the estimation of recycling flows and recycled content, and the estimation of GHG emissions and material footprint for vehicle production for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
+                        <b>Jupyter notebook on scenarios for the material flows for the transformation of the vehicle fleet.</b> This workbook is a direct follow-up to IEooc_Methods3_Software002. It contains the calculation of the material content of in-use stock and flows, the estimation of recycling flows and recycled content, and the estimation of GHG emissions and material footprint for vehicle production for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
                         <script>jupyterLink("/Content/IEooc_Methods3_Software003.ipynb", "IEooc_Methods3_Software003 (ipynb)");</script><br/>
-                        <a href="/Content/IEooc_Methods3_Software001.xlsx" target="new">IEooc_Methods3_Software001 (data file, same as for IEooc_Methods3_Software001)</a>
+                        <a href="/Content/IEooc_Methods3_Software001_Data.xlsx" target="new">IEooc_Methods3_Software001_Data (data file, same as for IEooc_Methods3_Software001)</a>
 			<br>
                         For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods3_Software003_SampleSolution.ipynb" target="new">IEooc_Methods3_Software003_SampleSolution (ipynb)</a>
+			<script>jupyterLink("/Content/IEooc_Methods3_Software003_SampleSolution.ipynb", "IEooc_Methods3_Software003_SampleSolution (ipynb)");</script><br/>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
@@ -978,7 +978,6 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <b>Lecture: Sustainability in the steel cycle </b>The steel industry is responsible for 7-9% of global CO2 emissions. Reducing these emissions is not the only sustainability challenge in the steel sector but the dominant one. Four different system analysis perspectives are introduced (process/process cluster/material cycle/entire system) and it is shown how future steel demand can be estimated and the entire steel cycle be modelled to describe different sustainable futures for the steel industry. An introduction to material efficiency in the steel cycle is also given.
                         <b>Prerequisites:</b> Dynamic Material Flow Analysis.  <b>Level of difficulty: (++)</b><br>
                         <a href="https://youtu.be/UcWF8UrjwEM" target="new">IEooc_Application2_Lecture2</a>
-
                         <br>
                         <br>
                         <b>Blog entry about circular economy and in-use stocks:</b> In this piece the role played by in-use stocks of products, buildings, and infrastructure in closing material cycles (or the 'circular economy transition') is highlighted.
@@ -991,7 +990,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime.pdf" target="new">IEooc_Methods3_Exercise2</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a>
                         <br>
                         <br>
                         <b>Exercise on a basic circular economy scenario for buildings.</b> The goal of this exercise is to understand the legal CE definitions and indicator frameworks. Work with salient CE indicators and develop a simple CE scenario with material stocks and flows. Interpret the CE as part of the energy service cascade. <b>Prerequisites:</b> Stocks and flows, working with the system definition, energy service cascade. <b>Level of difficulty: (++)</b><br>
@@ -1276,7 +1275,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <b>International Society for Industrial Ecology:</b> <a href="https://is4ie.org" target="new">https://is4ie.org</a><br>
                 <br>
                 <b>Acknowledgements:</b><br>
-		<b>Adakole Daniel Okwa</b>, for helping with the completion of the 200-year matrix version of the workbook for IEooc_Methods3_Software9.
+		<b>Adakole Daniel Okwa</b>, for helping with the completion of the 200-year matrix version of the workbook for IEooc_Methods3_Software9.<br>
                 <b>Oliver Cencic</b>, TU Vienna, provided detailed bug reports on the different lectures on dynamic MFA and the LCA exercises.<br>
 		<b>Christina Madrid López </b>, Universitat Autònoma de Barcelona, provided feedback and corrections for the IO exercises.<br>
                 <b>Niko Heeren</b>, ETH Zürich, provided detailed feedback on the SEM data model and related software routines.<br>
