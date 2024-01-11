@@ -109,6 +109,7 @@
     <Content Include="css\jqvmap.min.css" />
     <Content Include="css\master.css" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\style.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="iedc.aspx" />
     <Content Include="internal.aspx" />
@@ -127,12 +128,16 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.peity.min.js" />
+    <Content Include="js\jquery.vmap.js" />
     <Content Include="js\jquery.vmap.min.js" />
     <Content Include="js\jquery.vmap.sampledata.js" />
     <Content Include="js\mapConfig.js" />
     <Content Include="js\jquery.vmap.world.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="js\perfect-scrollbar.min.js" />
+    <Content Include="js\svgMap\main.min.js" />
+    <Content Include="js\svgMap\svgMap.js" />
+    <Content Include="js\svgMap\svgmap.min.js" />
     <Content Include="js\xlsx.core.min.js" />
     <Content Include="js\xlsx.full.min.js" />
     <Content Include="legal.aspx" />

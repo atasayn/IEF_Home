@@ -6,6 +6,7 @@
     <%-- ReSharper disable once EmptyTitleTag --%>
     <title></title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="/css/bootstrap.css" rel="stylesheet" />
     <link href="/css/master.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png">

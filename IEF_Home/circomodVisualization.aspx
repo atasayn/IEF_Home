@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="circomodVisualization.aspx.cs" Inherits="IEF_Home.circomodVisualization" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-     
+        
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
     <style>
         html {
             width: 100%;
@@ -10,7 +13,8 @@
         }
 
         body {
-            width: 100%;
+            width: 1280px;
+            height: 720px;
             display: table-cell;
         }
 
@@ -34,9 +38,9 @@
         }
 
         #DataMenu-Recc-GraphType {
-            grid-template-columns: 350px auto auto auto;
-            grid-template-areas: 'menu linePlot linePlot linePlot'
-                'menu sankey sankey sankey';
+            grid-template-columns: 300px auto auto;
+            grid-template-areas: 'menu map selection '
+                'menu sankey sankey ';
             display: grid;
             grid-gap: 10px;
             height: auto
@@ -48,6 +52,7 @@
             background: #ffffff;
             padding: 15px;
             border-radius: 10px;
+            width: auto;
         }
 
         .center-text {
@@ -201,6 +206,10 @@
             font-weight: bold;
         }
 
+        #CE1 {
+            margin: 5px 0;
+        }
+
         label {
             text-align: right;
             clear: both;
@@ -210,6 +219,7 @@
 
         select {
             width: 150px;
+            padding-top: 5px;
         }
 
         #DropDownListGraphs {
@@ -241,9 +251,27 @@
             padding-left: 5px;
         }
 
+        .jqvmap-zoomin, .jqvmap-zoomout {
+            font-size: 20px;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+
+        .jqvmap-zoomin {
+            top: 10px;
+        }
+
+        .jqvmap-zoomout {
+            top: 32px;
+        }
+
         body {
             margin: 0;
-            overflow: hidden;
         }
 
         #overlay {
@@ -293,31 +321,60 @@
             position: relative;
             width: 1000px;
             height: 500px;
-
         }
 
-/*        svg:not(:root) {
-            overflow: hidden;
-            transform: scale(0.8) translateX(-7px);
-            width: 1230px;
-            height: 500px;
+        #mapArea {
+            background: #ffffff;
+            width: 900px;
             border-radius: 10px;
-        }*/
+        }
 
-/*        svg {
-            pointer-events: none;
-            user-select: none;
-        }*/
+        #vmap {
+            grid-area: map;
+            margin: 0 auto;
+        }
+
+        #divSingleCountry{
+            grid-area:selection;
+            display: block;
+            background: white;
+
+        }
 
 
         .active {
             display: block;
         }
+
+        #singlecountry {
+            /* Add any additional styles if needed */
+            width:100%
+        }
+
+        #shit {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          /* other styles */
+        }
+
+        .svgMap-map-wrapper {
+            background: antiquewhite;
+            fill: cornflowerblue;
+        }   
+
+        .svgMap-country{
+           cursor:pointer
+            
+        }
+
+
     </style>
+<script type="text/javascript" src="js/jquery-1.6.2.js"></script>
     <script src="js/jquery.min.js"></script>
-    
     <script type="text/javascript" src="js/dropdownMenu.js"></script>
-    <script type="text/javascript" src="js/jquery-1.6.2.js"></script>
+
     <script type="module" src="js/chart.min.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.min.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.v3.min.js"></script>
@@ -327,24 +384,12 @@
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileUploader.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="js/datepicker.js"></script>
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/mapConfig.js"></script>
-    
-   <%-- <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>--%>
-    <script type="text/javascript" src="js/moment.min.js"></script>
-    <script type="text/javascript" src="js/jquery.peity.min.js"></script>
-    <script type="text/javascript" src="js/highlight.pack.min.js"></script>
-    <script type="text/javascript" src="js/jquery.vmap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.vmap.world.js"></script> 
-    <script type="text/javascript" src="js/bracket.js"></script>
-    <script type="text/javascript" src="js/jquery.vmap.sampledata.js"></script>
-    
-    
-    
-    
-    
-    
+    <script type="text/javascript" src="js/svgMap/main.min.js"></script>
+    <script type="text/javascript" src="js/svgMap/svgmap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 
     <script>
 
@@ -362,28 +407,31 @@
             maximizedGraph.style.display = 'none';
         }
 
-
-
+        function moveMouse(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            document.getElementById("divSingleCountry").style.left = x + "px";
+            document.getElementById("divSingleCountry").style.top = y + "px";
+        }
 
 
     </script>
+
+  <script>0</script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
+
     <div id="DataMenu-Recc-GraphType">
         <div id="DataMenu">
             <div id="Entries" style="width: 60%; float: left">
                 <b class="center-text">CE Profiles</b>
 
-                <%-- <input type="Checkbox" id="CE1Checkbox" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">--%>
-                <b>CEP 1: Region</b>
-                <div id="vmap" style="width: 600px; height: 400px">
+                <%--                 <input type="Checkbox" id="CE1Checkbox" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">--%>
+                <%-- <b>CEP 1: Region</b>
+                 <div id="CE1">
 
-
-
-                </div>
-                <div id="CE1">
-                    
-                    <%--<label for="Title">Region:</label>--%>
+                    <label for="Title">Region:</label>
                     <select id="DropDownListPlotRegion" size="8" required>
                         <option value="France">France</option>
                         <option value="Germany">Germany</option>
@@ -411,7 +459,7 @@
                         <option value="Global_North">Global_North</option>
                         <option value="Global">Global</option>
                     </select>
-                </div>
+                </div>--%>
                 <br />
                 <%--<input type="Checkbox" id="CE2Checkbox" name="CE2_profile" value="CE2" onchange="toggleDivVisibility('CE2Checkbox', 'CE2')">--%>
                 <b>CEP 2: Material</b>
@@ -433,8 +481,9 @@
                 <b>CEP 3: Product</b>
                 <div id="CE3"></div>
             </div>
-            <b style="padding-bottom: 5px; margin: 5px;">Plot Types</b>
-            <div id="graph-types" style="background: #ffffff; width: 40%; float: left">
+
+            <%--            <b style="padding-bottom: 5px; margin: 5px;">Plot Types</b>--%>
+            <%--            <div id="graph-types" style="background: #ffffff; width: 40%; float: left">
 
                 <input type="Checkbox" id="LinePlot" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
                 <b>Line Plot</b>
@@ -444,7 +493,13 @@
                 <br>
                 <input type="Checkbox" id="WaterFall" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
                 <b>Waterfall Plot</b>
-            </div>
+            </div>--%>
+        </div>
+
+        <div id="mapArea" >
+            <div id="svgMap" ></div>
+        </div>
+        <div id="divSingleCountry" style="width: 300px; height: 300px; " >
         </div>
 
         <%--<label for="Title">Scenario:</label>
@@ -602,9 +657,6 @@
 
         <span id="spnOutputMessage" style="display: none"></span>
         <div id="sankey">
-
-            
-
         </div>
 
     </div>

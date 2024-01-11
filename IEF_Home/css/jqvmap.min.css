@@ -3,7 +3,7 @@
 }
 
 .jqvmap-label {
-    position: absolute;
+    position: relative;
     display: none;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
