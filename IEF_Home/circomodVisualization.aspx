@@ -1,10 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="circomodVisualization.aspx.cs" Inherits="IEF_Home.circomodVisualization" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-        
 
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
+
+
     <style>
         html {
             width: 100%;
@@ -21,7 +20,7 @@
         html, body {
             margin: 0;
             padding: 0;
-            background-color: #A9A9A9;
+            background-color: #f2f2f2;
         }
 
         .logo {
@@ -34,26 +33,20 @@
         }
 
         main {
-            background-color: #A9A9A9;
+            background-color: #f2f2f2;
         }
 
         #DataMenu-Recc-GraphType {
-            grid-template-columns: 300px auto auto;
-            grid-template-areas: 'menu map selection '
-                'menu sankey sankey ';
+            grid-template-columns: 300px 600px 149px 149px 149px 149px 149px 149px;
+            grid-template-areas:
+                'map map countrySel scenerioSel yearSel sectorSel strategySel materialSel  '
+                'map map sankey sankey sankey sankey sankey sankey  '
+                'line-graph graph waterfall waterfall waterfall waterfall waterfall waterfall ';
             display: grid;
             grid-gap: 10px;
-            height: auto
         }
 
-        #DataMenu {
-            grid-area: menu;
-            display: block;
-            background: #ffffff;
-            padding: 15px;
-            border-radius: 10px;
-            width: auto;
-        }
+
 
         .center-text {
             display: block;
@@ -61,15 +54,12 @@
             margin-bottom: 5px;
         }
 
-        input[type="checkbox"] {
-            margin-bottom: 5px
-        }
 
         select {
             margin-left: 0;
         }
 
-        #recc {
+       /* #recc {
             grid-area: recc;
             position: relative;
             width: 100%;
@@ -201,14 +191,11 @@
             border-radius: 5px;
             width: 143px;
             height: 78px;
-            background: #FFD993;
+            background: #ffd993;
             color: #000000;
             font-weight: bold;
-        }
+        }*/
 
-        #CE1 {
-            margin: 5px 0;
-        }
 
         label {
             text-align: right;
@@ -228,53 +215,22 @@
             height: 200px;
         }
 
-        #graph-types {
+
+
+
+        #Graph1Line {
             display: block;
-            background: #ffffff;
-            padding: 15px;
-            border-radius: 10px;
-            max-height: 500px;
-        }
-
-        #graph-list {
-            text-align: right;
-            clear: both;
-            float: left;
-            margin-right: 15px;
-        }
-
-        #Graph1Line, #Graph2Line, #Graph3Line {
-            display: none;
-            padding: 15px;
-            border-radius: 10px;
+            grid-area: line-graph;
+            border-radius: 5px;
             width: 500px;
-            padding-left: 5px;
-        }
-
-        .jqvmap-zoomin, .jqvmap-zoomout {
-            font-size: 20px;
-            padding: 0;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 2px;
-        }
-
-        .jqvmap-zoomin {
-            top: 10px;
-        }
-
-        .jqvmap-zoomout {
-            top: 32px;
+            height: 300px;
         }
 
         body {
             margin: 0;
         }
 
-        #overlay {
+/*        #overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -283,9 +239,9 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 1;
-        }
+        }*/
 
-        #maximizedGraph {
+/*        #maximizedGraph {
             display: none;
             position: fixed;
             top: 50%;
@@ -299,7 +255,7 @@
             border-radius: 10px;
             width: 700px;
             margin: 5px;
-        }
+        }*/
 
         canvas {
             max-width: 100%;
@@ -313,194 +269,204 @@
 
         #sankey {
             grid-area: sankey;
-            display: none;
-            padding: 15px;
-            border-radius: 10px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
             padding-left: 5px;
             display: block;
             position: relative;
-            width: 1000px;
-            height: 500px;
+            width: 950px;
+            height: 365px;
+            background: #fff;
+            text-align: center;
         }
 
         #mapArea {
             background: #ffffff;
-            width: 900px;
+            height: 455px;
             border-radius: 10px;
+            grid-area: map
         }
 
-        #vmap {
-            grid-area: map;
-            margin: 0 auto;
-        }
-
-        #divSingleCountry{
-            grid-area:selection;
-            display: block;
-            background: white;
-
-        }
-
-
-        .active {
-            display: block;
-        }
-
-        #singlecountry {
-            /* Add any additional styles if needed */
-            width:100%
-        }
-
-        #shit {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          /* other styles */
+        #divSelection {
+            grid-area: selection;
+            display: block ruby;
+            width: 950px;
+            height: 80px;
+            align-items: center;
         }
 
         .svgMap-map-wrapper {
             background: antiquewhite;
             fill: cornflowerblue;
-        }   
+            border-radius: 5px;
+        }
 
-        .svgMap-country{
-           cursor:pointer
-            
+        .svgMap-country {
+            cursor: pointer
+        }
+
+        .svgMap-map-wrapper .svgMap-country:hover {
+            -webkit-tap-highlight-color: #333;
+            stroke-width: 1;
         }
 
 
-    </style>
-<script type="text/javascript" src="js/jquery-1.6.2.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/dropdownMenu.js"></script>
+        #singleCountryImg {
+            display:block;
+            margin-left:50px
+        }
 
+        .button {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 5px 23px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .target_svg {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .column {
+            float: left;
+            text-align: center;
+            width: 100px;
+            margin: 30px;
+            font-family: "poppins";
+   
+        }
+
+        #countryFlag {
+            grid-area: countrySel;
+            width: 154px;
+            height: 79px;
+            border-radius: 5px;
+            background: #FFF;
+        }
+
+        #scenerioSelect {
+            grid-area: scenerioSel;
+            width: 154px;
+            height: 79px;
+            border-radius: 5px;
+            background: #FFF;
+        }
+
+        #sectorSelect {
+            grid-area: sectorSel;
+            width: 154px;
+            height: 79px;
+            border-radius: 5px;
+            background: #FFF;
+        }
+
+        #yearSelect {
+            grid-area: yearSel;
+            width: 154px;
+            height: 79px;
+            border-radius: 5px;
+            background: #FFF;
+        }
+
+        #strategySelect {
+            grid-area: strategySel;
+            width: 154px;
+            height: 79px;
+            border-radius: 5px;
+            background: #FFF;
+        }
+
+        #materialSelect {
+            grid-area: materialSel;
+            width: 154px;
+            height: 79px;
+            border-radius: 5px;
+            background: #FFF;
+        }
+
+        #countryFlagSpan, #scenerioSelect span:nth-child(2),#sectorSelect span:nth-child(2), #yearSelect span:nth-child(2),#strategySelect span:nth-child(2),#materialSelect span:nth-child(2)   {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+    </style>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <script type="text/javascript" src="js/svgMap/svgmap.min.js"></script>
+    <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
+    <script type="text/javascript" src="js/svgMap/main.min.js"></script>
+    <script type="text/javascript" src="js/mapConfig.js"></script>
+    <script type="text/javascript" src="js/dropdownMenu.js"></script>
     <script type="module" src="js/chart.min.js"></script>
+    <script type="text/javascript" src="js/circular_sankey_script.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.min.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.v3.min.js"></script>
-    <script type="text/javascript" src="js/circular_sankey_script.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/circular_sankey_lib.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileExporter.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileUploader.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
-    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="js/mapConfig.js"></script>
-    <script type="text/javascript" src="js/svgMap/main.min.js"></script>
-    <script type="text/javascript" src="js/svgMap/svgmap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
-    <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-
-    <script>
+    
 
 
-        function enlarge() {
-            const overlay = document.getElementById('overlay');
-            overlay.style.display = 'block';
-            const maximizedGraph = document.getElementById('maximizedGraph');
-            maximizedGraph.style.display = 'block';
-        }
 
-
-        function restore() {
-            overlay.style.display = 'none';
-            maximizedGraph.style.display = 'none';
-        }
-
-        function moveMouse(e) {
-            var x = e.clientX;
-            var y = e.clientY;
-            document.getElementById("divSingleCountry").style.left = x + "px";
-            document.getElementById("divSingleCountry").style.top = y + "px";
-        }
-
-
-    </script>
-
-  <script>0</script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
 
     <div id="DataMenu-Recc-GraphType">
-        <div id="DataMenu">
-            <div id="Entries" style="width: 60%; float: left">
-                <b class="center-text">CE Profiles</b>
 
-                <%--                 <input type="Checkbox" id="CE1Checkbox" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">--%>
-                <%-- <b>CEP 1: Region</b>
-                 <div id="CE1">
-
-                    <label for="Title">Region:</label>
-                    <select id="DropDownListPlotRegion" size="8" required>
-                        <option value="France">France</option>
-                        <option value="Germany">Germany</option>
-                        <option value="Italy">Italy</option>
-                        <option value="Poland">Poland</option>
-                        <option value="Spain">Spain</option>
-                        <option value="UK">UK</option>
-                        <option value="Oth_R32EU15">Oth_R32EU15</option>
-                        <option value="Oth_R32EU12-H">Oth_R32EU12-H</option>
-                        <option value="R32EU12-M">R32EU12-M</option>
-                        <option value="R32CAN">R32CAN</option>
-                        <option value="R32CHN">R32CHN</option>
-                        <option value="R32IND">R32IND</option>
-                        <option value="R32JPN">R32JPN</option>
-                        <option value="R32USA">R32USA</option>
-                        <option value="R5.2OECD_Other">R5.2OECD_Other</option>
-                        <option value="R5.2REF_Other">R5.2REF_Other</option>
-                        <option value="R5.2ASIA_Other">R5.2ASIA_Other</option>
-                        <option value="R5.2MNF_Other">R5.2MNF_Other</option>
-                        <option value="R5.2SSA_Other">R5.2SSA_Other</option>
-                        <option value="R5.2LAM_Other">R5.2LAM_Other</option>
-                        <option value="EU28">EU28</option>
-                        <option value="G7">G7</option>
-                        <option value="Global_South">Global_South</option>
-                        <option value="Global_North">Global_North</option>
-                        <option value="Global">Global</option>
-                    </select>
-                </div>--%>
-                <br />
-                <%--<input type="Checkbox" id="CE2Checkbox" name="CE2_profile" value="CE2" onchange="toggleDivVisibility('CE2Checkbox', 'CE2')">--%>
-                <b>CEP 2: Material</b>
-                <div id="CE2">
-
-                    <%--<label for="Title">Material: </label>--%>
-                    <select id="DropDownListMaterial" size="8" required>
-                        <option value="Cement">Cement</option>
-                        <option value="Steel">Steel</option>
-                        <option value="Aluminium ">Aluminium</option>
-                        <option value="Copper">Copper</option>
-                        <option value="Plastics">Plastic</option>
-                        <option value="Wood">Wood</option>
-
-                    </select>
-                </div>
-                <br />
-                <%--<input type="Checkbox" id="CE3Checkbox" name="CE3_profile" value="CE3" onchange="toggleDivVisibility('CE3Checkbox', 'CE3')">--%>
-                <b>CEP 3: Product</b>
-                <div id="CE3"></div>
-            </div>
-
-            <%--            <b style="padding-bottom: 5px; margin: 5px;">Plot Types</b>--%>
-            <%--            <div id="graph-types" style="background: #ffffff; width: 40%; float: left">
-
-                <input type="Checkbox" id="LinePlot" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
-                <b>Line Plot</b>
-                <br>
-                <input type="Checkbox" id="Sankey" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
-                <b>Sankey Diagram</b>
-                <br>
-                <input type="Checkbox" id="WaterFall" name="CE1_profile" value="CE1" onchange="toggleDivVisibility('CE1Checkbox', 'CE1')">
-                <b>Waterfall Plot</b>
-            </div>--%>
+        <div id="mapArea">
+            <div id="svgMap"></div>
         </div>
 
-        <div id="mapArea" >
-            <div id="svgMap" ></div>
+        <div id="countryFlag">
+            <span style="margin: 5px;">Country:</span>
+            <image id="singleCountryImg" style="margin-left: 50px;"></image>
+            <span id="countryFlagSpan"></span>
+            
         </div>
-        <div id="divSingleCountry" style="width: 300px; height: 300px; " >
+        <div id="scenerioSelect">
+            <span style="margin: 5px;">Scenerio:</span>
+            <span id="scenerioSpan"></span>
         </div>
+
+        <div id="sectorSelect">
+            <span style="margin: 5px;">Sector:</span>
+            <span id="sectorSpan"></span>
+        </div>
+        <div id="yearSelect">
+            <span style="margin: 5px;">Year:</span>
+            <span id="yearSpan"></span>
+        </div>
+        <div id="strategySelect">
+            <span style="margin: 5px;">Strategy:</span>
+            <span id="strategySpan"></span>
+        </div>
+        <div id="materialSelect">
+            <span style="margin: 5px;">Material:</span>
+            <span id="materialSpan"></span>
+        </div>
+
 
         <%--<label for="Title">Scenario:</label>
      <select id="DropDownListSankeyScenario" size="8" required>
@@ -545,16 +511,6 @@
         </div>
    </div>--%>
 
-        <%--<div id="graph-types" style="background:#ffffff">
-     <b style="padding-bottom:5px;" >Plot Types</b>
-     
-     <select id="DropDownListGraphs" size="8" required>
-        <option value="Line Plot">Line Plot</option>
-        <option value="Sankey Diagram">Sankey Diagram</option>
-        <option value="Waterfall Plot">Waterfall Plot</option>
-
-    </select>
-    </div>--%>
 
         <div id="Graph1Line" style="background-color: #ffffff">
             <canvas id="line-plot1"></canvas>
@@ -562,30 +518,6 @@
             <button onclick="enlarge()" style="float: right;" type="button">Maximize</button>
 
         </div>
-        <div id="overlay">
-            <div id="maximizedGraph">
-                <canvas id="line-plot-maximized"></canvas>
-                <button onclick="restore()" type="button">Restore</button>
-            </div>
-        </div>
-
-        <div id="Graph2Line" style="background-color: #ffffff">
-            <canvas id="line-plot2"></canvas>
-            <span id="RegionName2" class="label label-danger"></span>
-            <button onclick="enlarge()" style="float: right;" type="button">Maximize</button>
-
-        </div>
-
-
-        <div id="Graph3Line" style="background-color: #ffffff">
-            <canvas id="line-plot3"></canvas>
-            <span id="RegionName3" class="label label-danger"></span>
-            <button onclick="enlarge()" style="float: right;" type="button">Maximize</button>
-
-        </div>
-
-
-
 
 
         <div style="display: none;">
@@ -660,4 +592,79 @@
         </div>
 
     </div>
+        <script>
+
+
+            //function enlarge() {
+            //    const overlay = document.getElementById('overlay');
+            //    overlay.style.display = 'block';
+            //    const maximizedGraph = document.getElementById('maximizedGraph');
+            //    maximizedGraph.style.display = 'block';
+            //}
+
+
+            //function restore() {
+            //    overlay.style.display = 'none';
+            //    maximizedGraph.style.display = 'none';
+            //}
+
+            //function moveMouse(e) {
+            //    var x = e.clientX;
+            //    var y = e.clientY;
+            //    document.getElementById("divSingleCountry").style.left = x + "px";
+            //    document.getElementById("divSingleCountry").style.top = y + "px";
+            //}
+
+
+
+            function findVisibleDivId() {
+                // Get all div elements with id starting with "div_svg"
+                var divs = document.querySelectorAll('[id^="div_svg"]');
+
+                // Iterate through the divs
+                for (var i = 0; i < divs.length; i++) {
+                    // Check if the div is visible
+                    if (divs[i].style.visibility === 'visible') {
+                        // Return the id of the visible div
+                        divsVis = divs[i].id
+                        return divsVis;
+
+                    }
+                }
+
+            }
+
+
+            function navigateFront() {
+                findVisibleDivId();
+                var divs = document.querySelectorAll('[id^="div_svg"]');
+                console.log()
+                divsStart = divs[0].id.slice(-4);
+                divsEnd = divs[divs.length - 1].id.slice(-4);
+                divsCurrent = divsVis.slice(-4);
+                if (divsVis && divsCurrent < divsEnd) {
+                    document.getElementById("div_svg" + (parseInt(divsVis.slice(-4)) + 1)).style.visibility = 'visible';
+                    document.getElementById("span_svg" + (parseInt(divsVis.slice(-4)) + 1)).style.visibility = 'visible';
+                    document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                    document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                }
+            }
+
+            function navigateBack() {
+                findVisibleDivId();
+                var divs = document.querySelectorAll('[id^="div_svg"]');
+                divsStart = divs[0].id.slice(-4);
+                divsEnd = divs[divs.length - 1].id.slice(-4);
+                divsCurrent = divsVis.slice(-4);
+                console.log(divsCurrent)
+                if (divsVis && divsCurrent > divsStart) {
+                    document.getElementById("div_svg" + (divsVis.slice(-4) - 1)).style.visibility = 'visible';
+                    document.getElementById("span_svg" + (divsVis.slice(-4) - 1)).style.visibility = 'visible';
+                    document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                    document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                }
+            }
+
+
+        </script>
 </asp:Content>

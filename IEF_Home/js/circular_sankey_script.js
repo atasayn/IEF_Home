@@ -43,12 +43,13 @@
 
 
     function make_diagram_blank(w, h, background_color, svgId, divChart) {
-        h = 1056;
-        w = 650;
+        h = 340;
+        w = 940;
         document.getElementById(divChart).innerHTML =
-            '<svg id="'+ svgId +'" height="' + h + '" width="' + w + '" '
-            + 'xmlns="http://www.w3.org/2000/svg" version="1.1" '
-            + 'style="background-color: ' + background_color + '"></svg>';
+            '<svg id="' + svgId + '" height="' + h + '" width="' + w + '" ' +
+            'xmlns="http://www.w3.org/2000/svg" version="1.1" ' +
+        'style="background-color: ' + background_color + '"></svg>' 
+
         return;
     }
 
@@ -236,7 +237,7 @@
             links: input_flow_data
         };
 
-        graph_width = total_width - margin_left - margin_right;
+        graph_width =  total_width - margin_left - margin_right;
         graph_height = total_height - margin_top - margin_bottom;
 
         units_format = function (d) {
@@ -261,14 +262,16 @@
         var svg = d3.select("#" + svgId)
         .attr("width", offsetWidth)
         .attr("height", offsetHeight)
-        .append("g");
+        .append("g")
+            .attr("style", "translate: -70px 31px;transform:scale(0.85)")
+
 
         svg.append("rect")
             .attr("width", offsetWidth)
             .attr("height", offsetHeight)
             .attr("fill", data_set.background_color);
 
-      
+
 
         var sankey = d3.sankey()
             .nodeWidth(node_width)
@@ -292,8 +295,8 @@
         .attr("x", 5)
         .attr("y", 15)
         .attr("text-anchor", "left")
-        .style("font-size", "12px")
-        .style("font-family", "sans-serif")
+        .style("font-size", "13px")
+        .style("font-family", "poppins")
         .text(document.getElementById("txtproject_name").value + document.getElementById("txtRemarks").value);
 
 
@@ -337,7 +340,7 @@
                 : data_set.default_flow_color;
         })
         .style("stroke-opacity", function (d) {
-            return d.opacity || data_set.default_flow_opacity;
+            return d.opacity || 3;
         })
         // add hover behavior:
         .on('mouseover', function (d) {
@@ -347,7 +350,7 @@
         })
         .on('mouseout', function (d) {
             d3.select(this).style("stroke-opacity",
-                d.opacity || data_set.default_flow_opacity);
+                d.opacity || 3);
         })
         // sets the order of display, seems like:
         .sort(function (a, b) { return b.dy - a.dy; });
@@ -361,17 +364,24 @@
                 });
         }
 
+
+
         node = svg.append("g").selectAll(".node")
         .data(json_data.nodes)
         .enter()
         .append("g")
         .attr("class", "node")
-        .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
+
+        .attr("transform", function (d) { return "translate("+ d.x + "," + d.y + ")"; })
         .call(d3.behavior.drag()
             .origin(function (d) { return d; })
             .on("dragstart", function () { this.parentNode.appendChild(this); })
             .on("drag", dragmove)
             );
+
+
+        
+
 
         // Construct the actual rectangles for NODEs:
         node.append("rect")
@@ -408,8 +418,8 @@
 
         node.append("text")
         // x,y = offsets relative to the node rectangle
-        .attr("x", -6)
-        .attr("y", function (d) { return d.dy / 2; })
+        .attr("x", -60)
+        .attr("y", -30)
         .attr("dy", ".35em")
         .attr("text-anchor", "end")
         .attr("transform", null)
@@ -438,8 +448,9 @@
             // to put labels on the left.
             return (d.x + node_width) < (graph_width / 2);
         })
-        .attr("x", 6 + node_width)
+        .attr("x", node_width)
         .attr("text-anchor", "start");
+
 
 
         function show_node_properties(d) {
@@ -607,10 +618,10 @@
             font_size: 15,
             font_weight: 400,
             top_margin: 12, right_margin: 12, bottom_margin: 12, left_margin: 12,
-            default_flow_opacity: 0.5,
+            default_flow_opacity: 2,
             node_height: 0.5,
-            flow_width:0.5,
-            default_node_opacity: 0.9,
+            flow_width:0.7,
+            default_node_opacity: 2,
             default_flow_width: 1,
             node_width: 20,
             node_padding: 12,
@@ -624,7 +635,7 @@
             default_node_color: "#006699",
             default_node_colorset: "C",
             default_node_type: "R",
-            font_face: "sans-serif",
+            font_face: "poppins",
             default_rotate_angle: 0,
             unit_name: document.getElementById("unit_name").value
 

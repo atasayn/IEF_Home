@@ -263,28 +263,21 @@ namespace IEF_Home
                     AND d.aspect4 = 55"
             };
 
-
-
              Dictionary<string, string> result = new Dictionary<string, string>();
-
             foreach (KeyValuePair<string, string> kvp in queryList)
             {
                 try
                 {
                     var queryName = kvp.Key;
                     var query = kvp.Value;
-
                     if (!cn.OpenConnection()) return null;
                     var cmd = new MySqlCommand(query, cn.Connection);
-
                     cmd.Parameters.AddWithValue("@SELECTedScenario", SELECTedScenario);
                     cmd.Parameters.AddWithValue("@SELECTedRegion", SELECTedRegion);
                     cmd.Parameters.AddWithValue("@SELECTedMaterial", SELECTedMaterial);
                     cmd.Parameters.AddWithValue("@SELECTedSector", SELECTedSector);
                     cmd.Parameters.AddWithValue("@SELECTedYear", SELECTedYear);
                     cmd.Parameters.AddWithValue("@SELECTedStrategy", SELECTedStrategy);
-
-
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
@@ -299,16 +292,12 @@ namespace IEF_Home
                         
                         }
                     }
-
                     cn.CloseConnection();
                 }
                 catch (InvalidOperationException e)
                 {
-
                 }
-
             }
-
             return result; //dt;
         }
 
