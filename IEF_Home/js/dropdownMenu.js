@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
 
     $('.DDSelectRegSce').click(function (e) {
+        
         var region = $("#DropDownListRegion").val();
         console.log(region);
         $.ajax({
@@ -37,7 +38,7 @@ function displayGraph(data, region, canvasID) {
                     data: data[0],
                     label: "LED",
                     borderColor: "#ff0000",
-                    fill: false                   
+                    fill: false
                 },
                 {
                     data: data[1],
@@ -57,19 +58,23 @@ function displayGraph(data, region, canvasID) {
             locale: "fr-CA",
             title: {
                 display: true,
-                text: `Region ${region}`
+                text: `Region ${region}`,
+        
             },
             scales: {
+
                 y: {
                     title: {
                         display: true,
-                        text: 'Annual person-km by passenger cars'
+                        text: 'Annual pkm by passenger cars',
+                        
                     }
                 },
                 x: {
                     title: {
                         display: true,
-                        text: 'Year'
+                        text: 'Year',
+                       
                     },
                     ticks: {
                         autoSkip: true,
@@ -160,6 +165,8 @@ $(document).on('click', '.svgMap-country', function () {
                 }
             }
         });
+
+
 
     document.getElementById('sankey').innerHTML = "";
     var scenario = "LED";
