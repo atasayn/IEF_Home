@@ -62,9 +62,10 @@
             margin-bottom: 5px;
         }
 
-
-        select {
-            margin-left: 0;
+/**/
+        #DropDownListSector {
+            margin-left: 50px;
+            width: 175px;
         }
 
         /* #recc {
@@ -214,11 +215,6 @@
             margin:5px
         }
 
-        select {
-            width: 150px;
-            padding-top: 5px;
-        }
-
         #DropDownListGraphs {
             grid-area: plotTypes;
             width: 200px;
@@ -313,9 +309,17 @@
             background:#ffffff;
             border-radius: 5px;
         }
+
+        #controlPanel{
+            grid-area: control-panel;
+            height:250px;
+            background:#ffffff;
+            border-radius: 5px;
+        }
+
         #singleCountryImg {
-            display: block;
-            margin-left: 50px
+            display: inline;
+            margin-left: 27px
         }
 
         .target_svg {
@@ -379,12 +383,13 @@
             margin-left: 5px;
         }
 
-        #countryFlagSpan, #singleCountryImg, #scenerioSelect span:nth-child(2), #sectorSelect span:nth-child(2), #yearSelect span:nth-child(2), #strategySelect span:nth-child(2), #materialSelect span:nth-child(2) {
+        #scenerioSelect span:nth-child(2), #sectorSelect span:nth-child(2), #yearSelect span:nth-child(2), #strategySelect span:nth-child(2), #materialSelect span:nth-child(2) {
             display: flex;
             text-align: center;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            margin-top:10px
         }
     </style>
 
@@ -438,11 +443,21 @@
      
         </div>
 
+        <div id="controlPanel">
+            <p style="margin:10px"><b>Sector:</b></p>               
+            <select id="DropDownListSector" required>
+                <option value="" disabled selected>Please select sector</option>
+                <option value="Residential building">Residential building</option>
+                <option value="Passenger vehicles">Passenger vehicles</option>
+            </select>
+        </div>
+
         <div id="sankeyConfig">
             <div id="countryFlag">
                 <span style="margin: 5px;">Country:</span>
-                <image id="singleCountryImg" style="margin-left: 50px;"></image>
-                <span id="countryFlagSpan"></span>
+                <br />
+                <image id="singleCountryImg" style="margin-top:8px;margin-left: 35px;height:25px"></image>
+                <span id="countryFlagSpan" style="margin-top:10px;"></span>
 
             </div>
             <div id="scenerioSelect">
@@ -475,12 +490,6 @@
         <option value="SSP2">SSP2</option>
     </select>
     
-    <label for="Title">Sector: </label>
-    <select id="DropDownListSector" size="8" required>
-        <option value="Passenger vehicles">Passenger vehicles</option>
-        <option value="Residential building">Residential building</option>
-        <option value="Non-Residential building">Non-Residential building</option>
-    </select>
 
         <label for="Title">Strategy: </label>
        <select id="DropDownListStrategy" size="8" required>

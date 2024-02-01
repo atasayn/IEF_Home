@@ -64,9 +64,49 @@
               
             });
 
+
         }
 
     });
+
+});
+
+$(window).on('load', function () {
+    $('#svgMap-map-country-DE').click();
+    var flagContainer = document.getElementById("countryFlag");
+    var imgElement = document.getElementById("singleCountryImg");
+    var countryName = document.getElementById("countryFlagSpan");
+    flagContainer.children.innerHTML = ""
+    var countryCode = "de";
+
+
+    // Set the src attribute of the img tag
+    imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + "de" + ".svg";
+    imgElement.setAttribute("height", 30)
+    imgElement.style.border = "outset";
+
+
+    var name = "Germany"
+    countryName.innerText = name;
+    countryName.id = "countryFlagSpan"
+
+
+    document.getElementById("svgMap-map-country-DE").setAttribute('fill', 'blue');
+
+    var url = []; 
+    const url1 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/SP.POP.TOTL?format=json"; //GDP
+    const url2 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/NY.GDP.MKTP.CD?format=json"; //Population
+    const url3 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/EN.POP.DNST?format=json"; //PopulationDensity
+    url.push(url1, url2, url3)
+
+    var popSpan = document.getElementById("population");
+    var gdpSpan = document.getElementById("gdp");
+    var populationDensitySpan = document.getElementById("populationDensity");
+    console.log(url)
+    url.forEach((element) =>
+        fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
+    )
+
 
 });
 
