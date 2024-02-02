@@ -1,0 +1,1227 @@
+[
+ {
+   "ISO": "AF",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AX",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AL",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "DZ",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AS",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AD",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AO",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AI",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AQ",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AG",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AR",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AM",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AW",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AU",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AT",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "AZ",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BS",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BH",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BD",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BB",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BY",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BE",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "BZ",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BJ",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BM",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BT",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BO",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BA",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BW",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BV",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BR",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "B1",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "IO",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "VG",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BN",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BG",
+   "Data": "R32EU12-M",
+   "Flag": true
+ },
+ {
+   "ISO": "BF",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BI",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KH",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CM",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CA",
+   "Data": "R32CAN",
+   "Flag": false
+ },
+ {
+   "ISO": "CV",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KY",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CF",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TD",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CL",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CN",
+   "Data": "R32CHN",
+   "Flag": false
+ },
+ {
+   "ISO": "CX",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CC",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CO",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KM",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CD",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CG",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CK",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CR",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CI",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "HR",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CU",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CW",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "CY",
+   "Data": "Oth_R32EU12-H",
+   "Flag": true
+ },
+ {
+   "ISO": "CZ",
+   "Data": "Oth_R32EU12-H",
+   "Flag": true
+ },
+ {
+   "ISO": "DK",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "DJ",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "DM",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "DO",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "EC",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "EG",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SV",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GQ",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "ER",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "EE",
+   "Data": "Oth_R32EU12-H",
+   "Flag": true
+ },
+ {
+   "ISO": "ET",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "FO",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "FK",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "FJ",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "FI",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "FR",
+   "Data": "France",
+   "Flag": false
+ },
+ {
+   "ISO": "GF",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PF",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TF",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GA",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GM",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GE",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "DE",
+   "Data": "Germany",
+   "Flag": false
+ },
+ {
+   "ISO": "GH",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GI",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GR",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "GL",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "GD",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GP",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GU",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GT",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GN",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GW",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GY",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "HT",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "HM",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "HN",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "HK",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "HU",
+   "Data": "Oth_R32EU12-H",
+   "Flag": true
+ },
+ {
+   "ISO": "IS",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "IN",
+   "Data": "R32IND",
+   "Flag": false
+ },
+ {
+   "ISO": "ID",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "IR",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "IQ",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "IE",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "IM",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "IL",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "IT",
+   "Data": "Italy",
+   "Flag": false
+ },
+ {
+   "ISO": "JM",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "JP",
+   "Data": "R32JPN",
+   "Flag": true
+ },
+ {
+   "ISO": "JO",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KZ",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KE",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KI",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KP",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KW",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KG",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "LA",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "LV",
+   "Data": "R32EU12-M",
+   "Flag": true
+ },
+ {
+   "ISO": "LB",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "LS",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "LR",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "LY",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "LI",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "LT",
+   "Data": "R32EU12-M",
+   "Flag": true
+ },
+ {
+   "ISO": "LU",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "MO",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MK",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MG",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MW",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MY",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MV",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "ML",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MT",
+   "Data": "Oth_R32EU12-H",
+   "Flag": true
+ },
+ {
+   "ISO": "MH",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MQ",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MR",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MU",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "YT",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MX",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "FM",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MD",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MC",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MN",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "ME",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MS",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MA",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MZ",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MM",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NA",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NR",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NP",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NL",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "AN",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NC",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NZ",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NI",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NE",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NG",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NU",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NF",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "MP",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "NO",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "OM",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PK",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PW",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PS",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PA",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PG",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PY",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PE",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PH",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PN",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PL",
+   "Data": "Poland",
+   "Flag": false
+ },
+ {
+   "ISO": "PT",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "PR",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "QA",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "RE",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "RO",
+   "Data": "R32EU12-M",
+   "Flag": true
+ },
+ {
+   "ISO": "RU",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "RW",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "BL",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "WS",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SM",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "ST",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SA",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SN",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "RS",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SC",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SL",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SG",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SK",
+   "Data": "Oth_R32EU12-H",
+   "Flag": true
+ },
+ {
+   "ISO": "SI",
+   "Data": "Oth_R32EU12-H",
+   "Flag": true
+ },
+ {
+   "ISO": "SB",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SO",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "ZA",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GS",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KR",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "ES",
+   "Data": "Spain",
+   "Flag": false
+ },
+ {
+   "ISO": "LK",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SH",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "KN",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "LC",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "PM",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "VC",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SD",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SR",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SJ",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SZ",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SE",
+   "Data": "Oth_R32EU15",
+   "Flag": true
+ },
+ {
+   "ISO": "CH",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "SY",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TW",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TJ",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TZ",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TH",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TL",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TG",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TK",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TO",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TT",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TN",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TR",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TM",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TC",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "TV",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "UG",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "UA",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "AE",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "GB",
+   "Data": "UK",
+   "Flag": false
+ },
+ {
+   "ISO": "US",
+   "Data": "R32USA",
+   "Flag": true
+ },
+ {
+   "ISO": "UM",
+   "Data": "R32USA",
+   "Flag": true
+ },
+ {
+   "ISO": "UY",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "UZ",
+   "Data": "R5.2REF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "VU",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "VA",
+   "Data": "R5.2OECD_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "VE",
+   "Data": "R5.2LAM_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "VN",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "VI",
+   "Data": "R32USA",
+   "Flag": false
+ },
+ {
+   "ISO": "WF",
+   "Data": "R5.2ASIA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "EH",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "YE",
+   "Data": "R5.2MNF_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "ZM",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ },
+ {
+   "ISO": "ZW",
+   "Data": "R5.2SSA_Other",
+   "Flag": true
+ }
+]

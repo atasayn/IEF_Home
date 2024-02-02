@@ -411,8 +411,8 @@
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileExporter.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileUploader.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
-
-
+    <!-- Add this to your HTML file if using CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 
 
 
