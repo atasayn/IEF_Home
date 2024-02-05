@@ -62,148 +62,13 @@
             margin-bottom: 5px;
         }
 
-/**/
+
         #DropDownListSector {
             margin-left: 50px;
-            width: 175px;
+            width: 300px;
+            border-radius:5px;
+            background:#F5F5F5
         }
-
-        /* #recc {
-            grid-area: recc;
-            position: relative;
-            width: 100%;
-            background: #ffffff;
-            margin: 0 15px;
-            border-radius: 10px;
-            max-width: 1100px;
-            padding-right: 10px;
-        }
-
-        #well-being {
-            position: absolute;
-            top: 29.5%;
-            left: 9.3%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 122px;
-            height: 62px;
-            background: rgb(197,90,17);
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #services-activities {
-            position: absolute;
-            top: 30%;
-            left: 22.2%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 124px;
-            height: 65px;
-            background: rgb(68,114,196);
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #products-stocks {
-            position: absolute;
-            top: 29.8%;
-            left: 35.1%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 123px;
-            height: 64px;
-            background: rgb(68,114,196);
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #build-up-energy {
-            position: absolute;
-            top: 20.3%;
-            left: 48.1%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 125px;
-            height: 75px;
-            background: rgb(68,114,196);
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #operational-energy {
-            position: absolute;
-            top: 39%;
-            left: 48.1%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 123px;
-            height: 73px;
-            background: rgb(68,114,196);
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #energy-carrier {
-            position: absolute;
-            top: 30.5%;
-            left: 61.3%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 120px;
-            height: 110px;
-            background: rgb(68,114,196);
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #extraction {
-            position: absolute;
-            top: 30.8%;
-            left: 75%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 136px;
-            height: 83px;
-            background: rgb(68,114,196);
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #climate-impact {
-            position: absolute;
-            top: 30%;
-            left: 88.9%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 123px;
-            height: 62px;
-            background: rgb(84,130,53);
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        #material-production {
-            position: absolute;
-            top: 58.5%;
-            left: 48.3%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            border-radius: 5px;
-            width: 143px;
-            height: 78px;
-            background: #ffd993;
-            color: #000000;
-            font-weight: bold;
-        }*/
 
 
         #RegionName1 {
@@ -215,11 +80,6 @@
             margin:5px
         }
 
-        #DropDownListGraphs {
-            grid-area: plotTypes;
-            width: 200px;
-            height: 200px;
-        }
 
         #Graph1Line {
             display: block;
@@ -227,6 +87,13 @@
             border-radius: 5px;
             width: 500px;
             height: 250px;
+        }
+
+        #controlPanel{
+            grid-area: control-panel;
+            height:250px;
+            background:#ffffff;
+            border-radius: 5px;
         }
 
         body {
@@ -269,6 +136,7 @@
             height: 365px;
             background: #fff;
             text-align: center;
+            position:relative
         }
 
         #mapArea {
@@ -305,13 +173,6 @@
 
         #countryInfo{
             grid-area: country-info;
-            height:250px;
-            background:#ffffff;
-            border-radius: 5px;
-        }
-
-        #controlPanel{
-            grid-area: control-panel;
             height:250px;
             background:#ffffff;
             border-radius: 5px;
@@ -391,6 +252,35 @@
             justify-content: center;
             margin-top:10px
         }
+
+        .loader {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 50px;
+          height: 50px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 2s linear infinite;
+          margin: auto;
+          top: 0;
+          bottom: 0;
+          position: absolute;
+          left: 0;
+          right: 0;
+        }
+
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
     </style>
 
     <link rel="stylesheet" href="css/style.css">
@@ -450,6 +340,7 @@
                 <option value="Residential building">Residential building</option>
                 <option value="Passenger vehicles">Passenger vehicles</option>
             </select>
+            <p  class="w3-panel w3-red" style="margin:20px"><span id='proxyWarning'></span></p>
         </div>
 
         <div id="sankeyConfig">
@@ -483,42 +374,7 @@
             </div>
 
         </div>
-        <%--<label for="Title">Scenario:</label>
-     <select id="DropDownListSankeyScenario" size="8" required>
-        <option value="LED">LED</option>
-        <option value="SSP1">SSP1</option>
-        <option value="SSP2">SSP2</option>
-    </select>
-    
 
-        <label for="Title">Strategy: </label>
-       <select id="DropDownListStrategy" size="8" required>
-        <option value="Baseline">Baseline</option>
-        <option value="HIY">HIY</option>
-        <option value="HIY-RLU">HIY-RLU</option>
-        <option value="HIY-RLU-MSU">HIY-RLU-MSU</option>
-        <option value="HIY-RLU-MSU-ULD">HIY-RLU-MSU-ULD</option>
-        <option value="HIY-RLU-MSU-DOS">HIY-RLU-MSU-DOS</option>
-        <option value="HIY-RLU-MSU">HIY-RLU-MSU</option>
-        <option value="HIY-RLU-MSU-DOS-CAS">HIY-RLU-MSU-DOS-CAS</option>
-        <option value="Full CE">Full CE</option>
-    </select>--%>
-
-        <%--    <div id="RECCScheme">
-        <div id="recc">
-            <img src="resources/ReccScheme.png" width="1100" height="500" style="width:100%">
-
-            <button id="well-being"> Well-being</button>
-            <button id="services-activities">Services,activities</button>
-            <button id="products-stocks">Products/Stocks</button>
-            <button id ="build-up-energy" >Build-up Energy and Material</button>
-            <button id ="operational-energy" >Operational Energy and Material</button>
-            <button id ="energy-carrier" >Energy carrier,Raw materials</button>
-            <button id ="extraction" >Extraction & conversion technologies</button>
-            <button id ="climate-impact" >Climate imp. land use</button>
-            <button id ="material-production" >Material Production</button>
-        </div>
-   </div>--%>
 
 
         <div style="display: none;">
@@ -589,9 +445,12 @@
         </div>
 
         <span id="spnOutputMessage" style="display: none"></span>
-        <div id="sankey"></div>
+        <div id="sankey">
+           <div class="loader" style="display:none"></div>
+           <div id="sankeyDivsAll"></div>
+        </div>
 
-    </div>
+</div>
     <script>
 
 

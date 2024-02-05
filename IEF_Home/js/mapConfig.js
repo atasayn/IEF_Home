@@ -1,7 +1,8 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿
 
-    var idList = [];
-    var idValue = [];
+document.addEventListener("DOMContentLoaded", function () {
+
+    var idValue = "svgMap-map-country-DE";
     var url = [];  
     new svgMap({
         targetElementID: 'svgMap',
@@ -17,60 +18,346 @@
         onGetTooltip: function (tooltipDiv, countryID, countryValues) {
             var flagContainer = document.getElementById("countryFlag");
             var imgElement = document.getElementById("singleCountryImg");
-            var countryName = document.getElementById("countryFlagSpan");         
+            var countryName = document.getElementById("countryFlagSpan");
             $('.svgMap-country').off('click').on('click', function (e) {
-
-
+                proxyWarning.innerHTML = ""
                 const filePath = "json/countryProxy.json";
-
                 fetch(filePath)
                     .then(response => response.json())
                     .then(function (response) {
-                        console.log(response)
-                        const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase());
+                        const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase()); 
+                        var name = svgMap.prototype.countries[countryID]
                         if (findFlagAndData.Flag == true) {
-                            var sankeyProxy = document.getElementById("sankey");
-                            var graphLine1Proxy = document.getElementById("Graph1Line");
-                            sankeyProxy.innerHTML = "Sorry, no data for XY, here, the data for the proxy region " + findFlagAndData.Data + " are shown"
-
+                            var sankeyProxy = document.getElementById("controlPanel");
+                            var proxyWarning = document.getElementById("proxyWarning");
+                            countryName.innerHTML = name + " (" + findFlagAndData.Data + ")";
+                            var region = findFlagAndData.Data;
+                            proxyWarning.innerHTML = "Sorry, no data for <span style='color:red'>" + name + "</span>, here, the data for the proxy region<span style='color:green'> " + findFlagAndData.Data + "</span> are shown"
+                            return region
+                        } else {
+                            countryName.innerHTML = name;
+                            var region = name;
+                            return region
                         }
-                    }),
+                    })
 
+                    .then(function (region) {
+                    flagContainer.children.innerHTML = ""
+                    // Set the src attribute of the img tag
+                    imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + countryID.toLowerCase() + ".svg";
+                    imgElement.setAttribute("height", 30)
+                    imgElement.style.border = "outset";
 
-
-                flagContainer.children.innerHTML = ""
-                // Create img element
-                id = e.target.id
-                var parts = id.split('-');
-                var countryCode = parts[parts.length - 1].toLowerCase();
-                // Set the src attribute of the img tag
-                imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + countryID.toLowerCase() + ".svg";
-                imgElement.setAttribute("height", 30)
-                imgElement.style.border = "outset";
-                var name = svgMap.prototype.countries[countryID]
-                countryName.innerText = name;
-                countryName.id = "countryFlagSpan"
-                if (idList.includes(idValue)) {
                     document.getElementById(idValue).setAttribute('fill', null)
-                }
-                idValue = e.target.id;
-                document.getElementById(idValue).setAttribute('fill', 'blue');
-                idList.push(idValue)
-                const url1 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/SP.POP.TOTL?format=json"; //GDP
-                const url2 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/NY.GDP.MKTP.CD?format=json"; //Population
-                const url3 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/EN.POP.DNST?format=json"; //PopulationDensity
-                url.push(url1, url2, url3) 
-                var popSpan = document.getElementById("population");
-                var gdpSpan = document.getElementById("gdp");
-                var populationDensitySpan = document.getElementById("populationDensity");
-                url.forEach((element) =>
-                    fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
-                )           
+                    idValue = e.target.id;
+                    document.getElementById(idValue).setAttribute('fill', 'blue');
+
+                    const url1 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/SP.POP.TOTL?format=json"; //GDP
+                    const url2 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/NY.GDP.MKTP.CD?format=json"; //Population
+                    const url3 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/EN.POP.DNST?format=json"; //PopulationDensity
+                    url.push(url1, url2, url3)
+                    var popSpan = document.getElementById("population");
+                    var gdpSpan = document.getElementById("gdp");
+                    var populationDensitySpan = document.getElementById("populationDensity");
+                    url.forEach((element) =>
+                        fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
+                    )
+
+                    $.ajax({
+                        type: "POST",
+                        url: "circomodService.svc/Classification_ResultItem",
+                        data: `{"SELECTedRegion": "${region}"}`,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (result) {
+                            if (region != "") {
+                                document.getElementById("RegionName1").textContent = region;
+                                displayGraph(result["d"], region, "line-plot1");
+                            }
+                        }
+                    });
+
+                    var scenario = "LED";
+                    if (document.getElementById('DropDownListSector').value == "") {
+                        var sector = "Residential Building";
+                    } else {
+                        var sector = document.getElementById('DropDownListSector').value;
+                    }
+
+                        
+                    
+                    var startYear = 2020;
+                    var endYear = 2030;
+                    var strategy = "Baseline";
+                    var material = "Steel";
+                    document.getElementById('sankeyDivsAll').innerHTML = "";
+                    document.getElementById("scenerioSpan").innerHTML = scenario
+                    document.getElementById("sectorSpan").innerHTML = sector
+                    document.getElementById("yearSpan").innerHTML = startYear + "-" + endYear
+                    document.getElementById("strategySpan").innerHTML = strategy
+                    document.getElementById("materialSpan").innerHTML = material
+                    var graphElement = document.getElementById("sankeyDivsAll").style.display;
+
+                    if (graphElement === "") {
+                        document.getElementById("sankeyDivsAll").style.display = 'block';
+                    }
+                    var sankeyDiv = document.getElementById("sankeyDivsAll");
+                    var buttonDiv = document.createElement("div");
+                    buttonDiv.style.position = "absolute";
+                    // Create Buttons
+                    var previousLink = document.createElement("button");
+                    previousLink.className = "button ";
+                    previousLink.type = "button";
+                    previousLink.textContent = ">>";
+                    previousLink.setAttribute("onclick", "navigateFront()");
+                    var nextLink = document.createElement("button");
+                    nextLink.className = "button ";
+                    nextLink.type = "button";
+                    nextLink.textContent = "<<";
+                    nextLink.setAttribute("onclick", "navigateBack()");
+                    // Append buttons elements to the "sankey" div
+                    buttonDiv.appendChild(previousLink);
+                    buttonDiv.appendChild(nextLink);
+                    for (let year = startYear; year <= endYear; year++) {
+                        var newDiv = document.createElement("div");
+                        newDiv.id = "div_svg" + year;
+                        newDiv.style.position = 'absolute';
+                        // Create and append <p id="chart"> element within each div
+                        var chartParagraph = document.createElement("p");
+                        chartParagraph.id = "chart" + year;
+                        newDiv.appendChild(chartParagraph);
+                        // Append the dynamically created div to the parent div
+                        sankeyDiv.appendChild(newDiv);
+                        //Create Div for Span and Span for the year text
+                        var spanDiv = document.createElement("div");
+                        var newSpan = document.createElement("span");
+                        newSpan.id = "span_svg" + year;
+                        newSpan.innerHTML = year;
+                        newSpan.style.width = "50px";
+                        newSpan.style.position = "absolute";
+                        newSpan.style.bottom = 0;
+                        spanDiv.appendChild(newSpan);
+                        sankeyDiv.appendChild(spanDiv);
+                        if (newDiv.id == "div_svg" + startYear && newSpan.id == "span_svg" + startYear) {
+                            newDiv.style.visibility = "visible"
+                            newSpan.style.visibility = "visible"
+                        } else {
+                            newDiv.style.visibility = "hidden"
+                            newSpan.style.visibility = "hidden"
+                        }
+                        // Get the chartContainer directly from chartParagraph
+                        var chartContainer = chartParagraph;
+
+                        const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        svgElement.setAttribute("id", "target_svg" + year); // Using underscores instead of spaces
+                        // Append the SVG to the chartContainer
+                        chartContainer.appendChild(svgElement);
+                        let divId = "target_svg" + year
+                        let divSvg = newDiv.id
+                        let divChart = chartParagraph.id;
+
+                        $('.loader').css("display", "block");
+                        $.ajax({
+                            url: "circomodService.svc/Classification_SankeyItem",
+                            type: "POST",
+                            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sector}","SELECTedYear": "${year}",
+                            "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+
+                            success: function (data) {
+                                $('.loader').hide();
+                                var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
+                                var flowarea = $("#input_flow_data").val();
+                                var text = flowarea;
+                                text = text.replace("F_a", res.get("query_Fa"));
+                                text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
+                                text = text.replace("F_c", res.get("query_Fc"));
+                                text = text.replace("F_d", res.get("query_Fc"));
+                                text = text.replace("F_e", res.get("query_Fc"));
+                                text = text.replace("F_f", res.get("query_Ff"));
+                                text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
+                                text = text.replace("F_h", res.get("query_Fh"));
+                                text = text.replace("F_i", res.get("query_Fh"));
+                                text = text.replace("F_j", res.get("query_Fh"));
+                                text = text.replace("F_k", res.get("query_Fk") / 50);
+                                text = text.replace("F_l", res.get("query_Fl") / 50);
+                                text = text.replace("F_m", res.get("query_Fm") / 50);
+                                text = text.replace("F_n", res.get("query_Fn"));
+                                text = text.replace("F_o", res.get("query_Fn"));
+                                text = text.replace("F_p", res.get("query_Fn"));
+                                $("#input_flow_data").val(text);
+                                process_sankey(divId, divSvg, divChart);
+
+                                $("#input_flow_data").val(flowarea);
+                            }
+
+                        });
+                        sankeyDiv.appendChild(buttonDiv);
+                    }
+                });
             });
         }
     });
 });
+$(window).on('load', function () {
+    var region = "Germany";
+    $.ajax({
+        type: "POST",
+        url: "circomodService.svc/Classification_ResultItem",
+        data: `{"SELECTedRegion": "${region}"}`,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            if (region != "") {
+                document.getElementById("RegionName1").textContent = region;
+                displayGraph(result["d"], region, "line-plot1");
+            }
+        }
+    });
 
+    var scenario = "LED";
+    var sector = "Residential Building";
+    var startYear = 2020;
+    var endYear = 2021;
+    var strategy = "Baseline";
+    var material = "Steel";
+
+    document.getElementById("scenerioSpan").innerHTML = scenario
+    document.getElementById("sectorSpan").innerHTML = sector
+    document.getElementById("yearSpan").innerHTML = startYear + "-" + endYear
+    document.getElementById("strategySpan").innerHTML = strategy
+    document.getElementById("materialSpan").innerHTML = material
+    var graphElement = document.getElementById("sankeyDivsAll").style.display;
+
+    if (graphElement === "") {
+        document.getElementById("sankeyDivsAll").style.display = 'block';
+    }
+    var sankeyDiv = document.getElementById("sankeyDivsAll");
+    var buttonDiv = document.createElement("div");
+    buttonDiv.style.position = "absolute";
+    // Create <a> elements
+    var previousLink = document.createElement("button");
+    previousLink.className = "button ";
+    previousLink.type = "button";
+    previousLink.textContent = ">>";
+    previousLink.setAttribute("onclick", "navigateFront()");
+
+    var nextLink = document.createElement("button");
+    nextLink.className = "button ";
+    nextLink.type = "button";
+    nextLink.textContent = "<<";
+    nextLink.setAttribute("onclick", "navigateBack()");
+    // Append <a> elements to the "sankey" div
+    buttonDiv.appendChild(previousLink);
+    buttonDiv.appendChild(nextLink);
+    for (let year = startYear; year <= endYear; year++) {
+        var newDiv = document.createElement("div");
+        newDiv.id = "div_svg" + year;
+        newDiv.style.position = 'absolute';
+        // Create and append <p id="chart"> element within each div
+        var chartParagraph = document.createElement("p");
+        chartParagraph.id = "chart" + year;
+        newDiv.appendChild(chartParagraph);
+        // Append the dynamically created div to the parent div
+        sankeyDiv.appendChild(newDiv);
+        //Create Div for Span and Span for the year text
+        var spanDiv = document.createElement("div");
+        var newSpan = document.createElement("span");
+        newSpan.id = "span_svg" + year;
+        newSpan.innerHTML = year;
+        newSpan.style.width = "50px";
+        newSpan.style.position = "absolute";
+        newSpan.style.bottom = 0;
+        spanDiv.appendChild(newSpan);
+        sankeyDiv.appendChild(spanDiv);
+        if (newDiv.id == "div_svg" + startYear && newSpan.id == "span_svg" + startYear) {
+            newDiv.style.visibility = "visible"
+            newSpan.style.visibility = "visible"
+        } else {
+            newDiv.style.visibility = "hidden"
+            newSpan.style.visibility = "hidden"
+        }
+        // Get the chartContainer directly from chartParagraph
+        var chartContainer = chartParagraph;
+
+        const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svgElement.setAttribute("id", "target_svg" + year); // Using underscores instead of spaces
+
+        // Append the SVG to the chartContainer
+        chartContainer.appendChild(svgElement);
+
+        let divId = "target_svg" + year
+        let divSvg = newDiv.id
+        let divChart = chartParagraph.id;
+
+        $.ajax({
+            url: "circomodService.svc/Classification_SankeyItem",
+            type: "POST",
+            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sector}","SELECTedYear": "${year}",
+                        "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+
+            success: function (data) {
+
+                var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
+                var flowarea = $("#input_flow_data").val();
+                var text = flowarea;
+                text = text.replace("F_a", res.get("query_Fa"));
+                text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
+                text = text.replace("F_c", res.get("query_Fc"));
+                text = text.replace("F_d", res.get("query_Fc"));
+                text = text.replace("F_e", res.get("query_Fc"));
+                text = text.replace("F_f", res.get("query_Ff"));
+                text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
+                text = text.replace("F_h", res.get("query_Fh"));
+                text = text.replace("F_i", res.get("query_Fh"));
+                text = text.replace("F_j", res.get("query_Fh"));
+                text = text.replace("F_k", res.get("query_Fk") / 50);
+                text = text.replace("F_l", res.get("query_Fl") / 50);
+                text = text.replace("F_m", res.get("query_Fm") / 50);
+                text = text.replace("F_n", res.get("query_Fn"));
+                text = text.replace("F_o", res.get("query_Fn"));
+                text = text.replace("F_p", res.get("query_Fn"));
+                $("#input_flow_data").val(text);
+                process_sankey(divId, divSvg, divChart);
+                $("#input_flow_data").val(flowarea);
+            }
+
+        });
+        sankeyDiv.appendChild(buttonDiv);
+    }
+    var flagContainer = document.getElementById("countryFlag");
+    var imgElement = document.getElementById("singleCountryImg");
+    var countryName = document.getElementById("countryFlagSpan");
+    flagContainer.children.innerHTML = ""
+    var countryCode = "de";
+
+
+    // Set the src attribute of the img tag
+    imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + "de" + ".svg";
+    imgElement.setAttribute("height", 30)
+    imgElement.style.border = "outset";
+
+    var name = "Germany"
+    countryName.innerText = name;
+    countryName.id = "countryFlagSpan"
+
+    document.getElementById("svgMap-map-country-DE").setAttribute('fill', 'blue');
+
+    var url = [];
+    const url1 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/SP.POP.TOTL?format=json"; //GDP
+    const url2 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/NY.GDP.MKTP.CD?format=json"; //Population
+    const url3 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/EN.POP.DNST?format=json"; //PopulationDensity
+    url.push(url1, url2, url3)
+    var popSpan = document.getElementById("population");
+    var gdpSpan = document.getElementById("gdp");
+    var populationDensitySpan = document.getElementById("populationDensity");
+    url.forEach((element) =>
+        fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
+    )
+});
 function fetchCountryData(url, popSpan, gdpSpan, populationDensitySpan,url1,url2,url3) {
     $.ajax({
         url: url,
@@ -100,8 +387,9 @@ function fetchCountryData(url, popSpan, gdpSpan, populationDensitySpan,url1,url2
                 n++             
             }
         },
-        error: function (error) {
-            console.log('Error fetching data:', error);
-        }
+
     });
+}
+
+function fetchJson() {
 }
