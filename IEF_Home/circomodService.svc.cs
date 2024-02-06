@@ -132,6 +132,43 @@ namespace IEF_Home
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
 
+        public List<List<string>> Classification_ResultItemPopulation(string SELECTedRegion)
+        {
+
+            var output = new List<List<string>>();
+            if (!cn.OpenConnection()) return null;
+            foreach (var SELECTedScenario in new List<string> { "LED", "SSP1", "SSP2" })
+            {
+                var scenarioArray = new List<string>();
+                const string query = @"SELECT d.value
+            FROM iedc.data d
+            LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
+            LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+            LEFT JOIN iedc.classification_items ci4 ON d.aspect4 = ci4.id
+            INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
+            WHERE d.dataset_id = 302
+            AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+            AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)";
+                var cmd = new MySqlCommand(query, cn.Connection);
+
+                cmd.Parameters.AddWithValue("@SELECTedScenario", SELECTedScenario);
+                cmd.Parameters.AddWithValue("@SELECTedRegion", SELECTedRegion);
+
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    scenarioArray.Add(reader[0].ToString().Replace(",", "."));
+                }
+                output.Add(scenarioArray);
+                reader.Close();
+            }
+            cn.CloseConnection();
+            return output;
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+
         public List<List<string>> Classification_ResultItemBuilding(string SELECTedRegion)
         {
 

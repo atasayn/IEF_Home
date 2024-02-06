@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var countryName = document.getElementById("countryFlagSpan");
             $('.svgMap-country').off('click').on('click', function (e) {
                 proxyWarning.innerHTML = ""
+                //Fetch json for ISO codes 
                 const filePath = "json/countryProxy.json";
                 fetch(filePath)
                     .then(response => response.json())
@@ -42,9 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     })
 
                     .then(function (region) {
-
+                    //Create divs for multiple sankey graphs for the buttons
                     flagContainer.children.innerHTML = ""
-                    // Set the src attribute of the img tag
                     imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + countryID.toLowerCase() + ".svg";
                     imgElement.setAttribute("height", 30)
                     imgElement.style.border = "outset";
@@ -68,7 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     var startYear = 2020;
                     var endYear = 2030;
                     // Sankey Sector Parameter
-                    var sectorTemp = $('#DropDownListSector').val();
+                        var sectorTemp = $('#DropDownListSector').val();
+                        // AJAX call for Line Graph for "Per Capita Service Level"
                         if (sectorTemp == "Residential building") {
                             console.log("shitttttttttt")
                             var sector = sectorTemp;
@@ -101,6 +102,21 @@ document.addEventListener("DOMContentLoaded", function () {
                                 }
                             });
                         }
+
+                        $.ajax({
+                            type: "POST",
+                            url: "circomodService.svc/Classification_ResultItemPopulation",
+                            data: `{"SELECTedRegion": "${region}"}`,
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                if (region != "") {
+                                    console.log(result)
+                                    document.getElementById("RegionName2").textContent = region;
+                                    displayGraph(result["d"], region, "line-plot2", `Population Per Capita`, 'Total Population');
+                                }
+                            }
+                        });
                     // Sankey Parameters
                     var strategy = "Baseline";
                     var material = "Steel";
@@ -171,6 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         let divChart = chartParagraph.id;
                         console.log(sector)
                         $('.loader').css("display", "block");
+                        // Sankey AJAX call
                         $.ajax({
                             url: "circomodService.svc/Classification_SankeyItem",
                             type: "POST",

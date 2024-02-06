@@ -37,15 +37,12 @@
         }
 
         #DataMenu-Recc-GraphType {
-            grid-template-columns: 25% 50% 25%;
+            grid-template-columns: 25% 25% 25% 25%;
             grid-template-areas:
-                /*              'map map countrySel scenerioSel yearSel sectorSel strategySel materialSel  '
-                'map map sankey sankey sankey sankey sankey sankey  '
-                'line-graph graph waterfall waterfall waterfall waterfall waterfall waterfall ';*/
-                'map  line-graph line-graph '
-                'country-info Pri-prdo Sec-pro'
-                'control-panel sankeyConfig sankeyConfig'
-                'control-panel sankey sankey';
+                'map  line-graph line-graph-pop line-graph-pop1 '
+                'country-info Pri-prdo Sec-pro Sec-pro'
+                'control-panel sankeyConfig sankeyConfig sankeyConfig'
+                'control-panel sankey sankey sankey' ;
             display: grid;
             grid-gap: 10px;
         }
@@ -85,8 +82,13 @@
             display: block;
             grid-area: line-graph;
             border-radius: 5px;
-            width: 500px;
+            width: 470px;
             height: 250px;
+        }
+
+        #GraphPopulationLine{
+            grid-area:line-graph-pop;
+            border-radius: 5px;
         }
 
         #controlPanel{
@@ -320,9 +322,12 @@
             <span id="RegionName1" class="label label-danger"></span>
         </div>
 
+         <div id="GraphPopulationLine" style="background-color: #ffffff">
+            <canvas id="line-plot2" style="position:absolute"></canvas>
+            <span id="RegionName2" class="label label-danger"></span>
+        </div>
+
         <div id ="countryInfo">
-          
-            
            <p style="margin:10px"><b>Country Info:</b></p>
            <p style="margin:10px">Population:</p>
             <span id='gdp' style="margin-left:50px"></span>
