@@ -12,7 +12,7 @@ $(document).ready(function () {
                 success: function (result) {
 
                     if(region!=""){
-                    displayGraph(result["d"], region, "line-chart");
+                        displayGraph(result["d"], region, "line-chart", `Per Capita Service Level `,'Annual pkm by passenger cars');
                     }
                 }
         });
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 });
     
-function displayGraph(data, region, canvasID) {
+function displayGraph(data, region, canvasID, title, yAxisTitle) {
    
     let labels = Array.from({ length: 86 }, (v, i) => 2015 + i);
 
@@ -57,7 +57,7 @@ function displayGraph(data, region, canvasID) {
             plugins: {
                 title: {
                     display: true,
-                    text: `Per Capita Service Level `,
+                    text: title,
                 }
             },
             scales: {
@@ -65,7 +65,7 @@ function displayGraph(data, region, canvasID) {
                 y: {
                     title: {
                         display: true,
-                        text: 'Annual pkm by passenger cars',
+                        text: yAxisTitle,
                         
                     }
                 },

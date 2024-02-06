@@ -63,31 +63,49 @@ document.addEventListener("DOMContentLoaded", function () {
                         fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
                     )
 
-                    $.ajax({
-                        type: "POST",
-                        url: "circomodService.svc/Classification_ResultItem",
-                        data: `{"SELECTedRegion": "${region}"}`,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (result) {
-                            if (region != "") {
-                                document.getElementById("RegionName1").textContent = region;
-                                displayGraph(result["d"], region, "line-plot1");
-                            }
-                        }
-                    });
-
-                    var scenario = "LED";
-                    if (document.getElementById('DropDownListSector').value == "") {
-                        var sector = "Residential Building";
-                    } else {
-                        var sector = document.getElementById('DropDownListSector').value;
-                    }
-
-                        
                     
+                   
+
+                    // Sankey Parameters
+                    var scenario = "LED";
                     var startYear = 2020;
                     var endYear = 2030;
+                    // Sankey Sector Parameter
+                    var sectorTemp = $('#DropDownListSector').val();
+                    console.log(sectorTemp)
+                        if (sectorTemp == "Residential building") {
+                            console.log("shitttttttttt")
+                            var sector = sectorTemp;
+                            $.ajax({
+                                type: "POST",
+                                url: "circomodService.svc/Classification_ResultItemBuilding",
+                                data: `{"SELECTedRegion": "${region}"}`,
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (result) {
+                                    if (region != "") {
+                                        document.getElementById("RegionName1").textContent = region;
+                                        displayGraph(result["d"], region, "line-plot1", `Per Capita Service Level `, 'm²/cap ');
+                                    }
+                                }
+                            });
+                        } else {
+                            var sector = sectorTemp;
+                            $.ajax({
+                                type: "POST",
+                                url: "circomodService.svc/Classification_ResultItem",
+                                data: `{"SELECTedRegion": "${region}"}`,
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (result) {
+                                    if (region != "") {
+                                        document.getElementById("RegionName1").textContent = region;
+                                        displayGraph(result["d"], region, "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+                                    }
+                                }
+                            });
+                        }
+                    // Sankey Parameters
                     var strategy = "Baseline";
                     var material = "Steel";
                     document.getElementById('sankeyDivsAll').innerHTML = "";
@@ -211,13 +229,13 @@ $(window).on('load', function () {
         success: function (result) {
             if (region != "") {
                 document.getElementById("RegionName1").textContent = region;
-                displayGraph(result["d"], region, "line-plot1");
+                displayGraph(result["d"], region, "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
             }
         }
     });
 
     var scenario = "LED";
-    var sector = "Residential Building";
+    var sector = "Passenger Vehicles";
     var startYear = 2020;
     var endYear = 2021;
     var strategy = "Baseline";
