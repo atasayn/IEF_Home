@@ -54,10 +54,11 @@ function displayGraph(data, region, canvasID) {
         },
         options: {
             locale: "fr-CA",
-            title: {
-                display: true,
-                text: `Region ${region}`,
-        
+            plugins: {
+                title: {
+                    display: true,
+                    text: `Per Capita Service Level `,
+                }
             },
             scales: {
 
