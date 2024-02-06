@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     })
 
                     .then(function (region) {
+
                     flagContainer.children.innerHTML = ""
                     // Set the src attribute of the img tag
                     imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + countryID.toLowerCase() + ".svg";
@@ -62,17 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     url.forEach((element) =>
                         fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
                     )
-
-                    
-                   
-
                     // Sankey Parameters
                     var scenario = "LED";
                     var startYear = 2020;
                     var endYear = 2030;
                     // Sankey Sector Parameter
                     var sectorTemp = $('#DropDownListSector').val();
-                    console.log(sectorTemp)
                         if (sectorTemp == "Residential building") {
                             console.log("shitttttttttt")
                             var sector = sectorTemp;
@@ -90,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 }
                             });
                         } else {
-                            var sector = sectorTemp;
+                            var sector = "Passenger Vehicles";
                             $.ajax({
                                 type: "POST",
                                 url: "circomodService.svc/Classification_ResultItem",
@@ -173,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         let divId = "target_svg" + year
                         let divSvg = newDiv.id
                         let divChart = chartParagraph.id;
-
+                        console.log(sector)
                         $('.loader').css("display", "block");
                         $.ajax({
                             url: "circomodService.svc/Classification_SankeyItem",

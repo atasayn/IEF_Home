@@ -2,1226 +2,1471 @@
  {
    "ISO": "AF",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "AX",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "AL",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "DZ",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "AS",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "AD",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "AO",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "AI",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "AQ",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "AG",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "AR",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "AM",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "AW",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "AU",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "AT",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "AZ",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "BS",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "BH",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "BD",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "BB",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "BY",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "BE",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "BZ",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "BJ",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "BM",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "BT",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "BO",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "BA",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "BW",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "BV",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "BR",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "B1",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "IO",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "VG",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "BN",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "BG",
    "Data": "R32EU12-M",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "BF",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "BI",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "KH",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "CM",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "CA",
    "Data": "R32CAN",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_21_R32USACAN.png"
  },
  {
    "ISO": "CV",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "KY",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "CF",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "TD",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "CL",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "CN",
    "Data": "R32CHN",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_15_China.png"
  },
  {
    "ISO": "CX",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "CC",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "CO",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "KM",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "CD",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "CG",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "CK",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "CR",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "CI",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "HR",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "CU",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "CW",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "CY",
    "Data": "Oth_R32EU12-H",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "CZ",
    "Data": "Oth_R32EU12-H",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "DK",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "DJ",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "DM",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "DO",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "EC",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "EG",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "SV",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "GQ",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "ER",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "EE",
    "Data": "Oth_R32EU12-H",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "ET",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "FO",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "FK",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "FJ",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "FI",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "FR",
    "Data": "France",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "GF",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "PF",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "TF",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "GA",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "GM",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "GE",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "DE",
    "Data": "Germany",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "GH",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "GI",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "GR",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "GL",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "GD",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "GP",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "GU",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "GT",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "GN",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "GW",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "GY",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "HT",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "HM",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "HN",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "HK",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "HU",
    "Data": "Oth_R32EU12-H",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "IS",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "IN",
    "Data": "R32IND",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_16_India.png"
  },
  {
    "ISO": "ID",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "IR",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "IQ",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "IE",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "IM",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "IL",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "IT",
    "Data": "Italy",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "JM",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "JP",
    "Data": "R32JPN",
-   "Flag": true
+   "Flag": false,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "JO",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "KZ",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "KE",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "KI",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "KP",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "KW",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "KG",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "LA",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "LV",
    "Data": "R32EU12-M",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "LB",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "LS",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "LR",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "LY",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "LI",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "LT",
    "Data": "R32EU12-M",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "LU",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "MO",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "MK",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "MG",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "MW",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "MY",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "MV",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "ML",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "MT",
    "Data": "Oth_R32EU12-H",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "MH",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "MQ",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "MR",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "MU",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "YT",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "MX",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "FM",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "MD",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "MC",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "MN",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "ME",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "MS",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "MA",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "MZ",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "MM",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "NA",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "NR",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "NP",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "NL",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "AN",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "NC",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "NZ",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "NI",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "NE",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "NG",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "NU",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "NF",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "MP",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "NO",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "OM",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "PK",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "PW",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "PS",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "PA",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "PG",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "PY",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "PE",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "PH",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "PN",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "PL",
    "Data": "Poland",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "PT",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "PR",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "QA",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "RE",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "RO",
    "Data": "R32EU12-M",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "RU",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "RW",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "BL",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "WS",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "SM",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "ST",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "SA",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "SN",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "RS",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "SC",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "SL",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "SG",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "SK",
    "Data": "Oth_R32EU12-H",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "SI",
    "Data": "Oth_R32EU12-H",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "SB",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "SO",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "ZA",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "GS",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "KR",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "ES",
    "Data": "Spain",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "LK",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "SH",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "KN",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "LC",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "PM",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "VC",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "SD",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "SR",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "SJ",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "SZ",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "SE",
    "Data": "Oth_R32EU15",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "CH",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "SY",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "TW",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "TJ",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "TZ",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "TH",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "TL",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "TG",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "TK",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "TO",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "TT",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "TN",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "TR",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "TM",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "TC",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "TV",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "UG",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "UA",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "AE",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "GB",
    "Data": "UK",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_14_EU_UK.png"
  },
  {
    "ISO": "US",
    "Data": "R32USA",
-   "Flag": true
+   "Flag": false,
+   "Png": "Energy service cascade_21_R32USACAN.png"
  },
  {
    "ISO": "UM",
    "Data": "R32USA",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_21_R32USACAN.png"
  },
  {
    "ISO": "UY",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "UZ",
    "Data": "R5.2REF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_19_R5.2REF.png"
  },
  {
    "ISO": "VU",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "VA",
    "Data": "R5.2OECD_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_20_R5.2OECD_Other.png"
  },
  {
    "ISO": "VE",
    "Data": "R5.2LAM_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_13_R5.2LAM.png"
  },
  {
    "ISO": "VN",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "VI",
    "Data": "R32USA",
-   "Flag": false
+   "Flag": false,
+   "Png": "Energy service cascade_21_R32USACAN.png"
  },
  {
    "ISO": "WF",
    "Data": "R5.2ASIA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_17_R5.2ASIA_Other.png"
  },
  {
    "ISO": "EH",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "YE",
    "Data": "R5.2MNF_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_18_R5.2MNF.png"
  },
  {
    "ISO": "ZM",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  },
  {
    "ISO": "ZW",
    "Data": "R5.2SSA_Other",
-   "Flag": true
+   "Flag": true,
+   "Png": "Energy service cascade_12_R5.2SSA.png"
  }
 ]
