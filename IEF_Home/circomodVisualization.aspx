@@ -520,6 +520,53 @@
             }
         }
 
+        function barChart(data, canvasID) {
+
+            var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
+            var values = [...new Set(Array.from(res.values()))];
+            try {
+                Chart.getChart(canvasID).destroy();
+            } catch (e) { }
+            new Chart(document.getElementById(canvasID), {
+
+                type: 'bar',
+                data: {
+                    labels: ["SSP2 + Baseline", "SSP2 + Full CE", "LED + Full CE"],
+                    datasets: [{
+                        label: 'Primary Production',
+                        backgroundColor: "blue",
+                        data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)],
+                    }, {
+                        label: 'Secondary Production',
+                        backgroundColor: "green",
+                        data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)],
+                    }],
+                },
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Production between 2020-2060'
+                        },
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
+                            stacked: true,
+                            title: {
+                                display: true,
+                                text: 'Tg/year',
+
+                            },
+                        }
+                    }
+                }
+
+            });
+        };
+
 
     </script>
 </asp:Content>

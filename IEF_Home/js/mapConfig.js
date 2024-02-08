@@ -269,8 +269,6 @@ $(window).on('load', function () {
         }
     });
 
-
-
     $.ajax({
         type: "POST",
         url: "circomodService.svc/Classification_ResultItem",
@@ -285,15 +283,14 @@ $(window).on('load', function () {
         }
     });
 
-
-
     var scenario = "LED";
-    var sector = "Passenger Vehicles";
+    var sector = "Passenger vehicles";
     var startYear = 2020;
     var endYear = 2030;
     var strategy = "Baseline";
     var material = "Steel";
     $('.loader2').css("display", "block");
+
     $.ajax({
         type: "POST",
         url: "circomodService.svc/Classification_Result1stAnd2ndProd",
