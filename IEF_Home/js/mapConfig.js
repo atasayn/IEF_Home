@@ -84,7 +84,7 @@
                                 }
                             }
                         });
-
+                        $('.loader2').css("display", "block");
                         // AJAX call for Bar Graph Primary/Secondary Production
                         $.ajax({
                             type: "POST",
@@ -93,7 +93,7 @@
                             dataType: "json",
                             contentType: "application/json; charset=utf-8",
                             success: function (result) {
-                                console.log(result)
+                                $('.loader2').hide();
                                 if (region != "") {
 
                                     barChart(result, "line-plot3")
@@ -319,6 +319,7 @@ $(window).on('load', function () {
     // Append <a> elements to the "sankey" div
     buttonDiv.appendChild(previousLink);
     buttonDiv.appendChild(nextLink);
+    $('.loader').css("display", "block");
     for (let year = startYear; year <= endYear; year++) {
         var newDiv = document.createElement("div");
         newDiv.id = "div_svg" + year;
@@ -368,7 +369,7 @@ $(window).on('load', function () {
             contentType: "application/json; charset=utf-8",
 
             success: function (data) {
-
+                $('.loader').hide();
                 var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
                 var flowarea = $("#input_flow_data").val();
                 var text = flowarea;

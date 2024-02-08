@@ -95,6 +95,7 @@
             grid-area:line-graph-bar;
             border-radius: 5px;
             width:465px;
+            position:relative
         }
 
         #controlPanel{
@@ -258,7 +259,7 @@
             margin-top:10px
         }
 
-        .loader {
+        .loader,.loader2 {
           border: 16px solid #f3f3f3;
           border-radius: 50%;
           border-top: 16px solid #3498db;
@@ -331,8 +332,8 @@
         </div>
 
         <div id="GraphPopulationBar" style="background-color: #ffffff">
+            <div class="loader2" style="display:none"></div>
             <canvas id="line-plot3" style="position:absolute"></canvas>
-            <span id="RegionName3" class="label label-danger"></span>
         </div>
 
         <div id ="countryInfo">

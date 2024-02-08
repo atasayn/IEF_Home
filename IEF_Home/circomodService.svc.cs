@@ -215,25 +215,20 @@ namespace IEF_Home
             var selectedProcessId = new List<string> { "87", "88" };
             // Primary Production Scenerios
             List<string> valuePri_SSP2_Baseline = new List<string>();
-            List<string> yearPri_SSP2_Baseline = new List<string>();
             List<string> valuePri_SSP2_FullCE = new List<string>();
-            List<string> yearPri_SSP2_FullCE = new List<string>();
             List<string> valuePri_LED_FullCE = new List<string>();
-            List<string> yearPri_LED_FullCE = new List<string>();
             // Secondary Production Scenerios
             List<string> valueSec_SSP2_Baseline = new List<string>();
-            List<string> yearSec_SSP2_Baseline = new List<string>();
             List<string> valueSec_SSP2_FullCE = new List<string>();
-            List<string> yearSec_SSP2_FullCE = new List<string>();
             List<string> valueSec_LED_FullCE = new List<string>();
-            List<string> yearSec_LED_FullCE = new List<string>();
             foreach (var process in selectedProcessId)
             {
                 for (int i = 0; i < SelectedScenariosTemp.Count; i++)
                 {
                     var SelectedScenario = SelectedScenariosTemp[i];
                     var SelectedStrategy = SelectedStrategiesTemp[i];
-                    const string query = @" SELECT d.value AS value, cls.attribute1_oto  AS year
+                    const string query = @" SELECT d.value AS value,
+             SUM(d.value) OVER (ORDER BY cls.attribute1_oto) as CumulativeSUM
              FROM iedc.data d 
              LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id 
              LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
@@ -262,70 +257,50 @@ namespace IEF_Home
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        for (int ti = 0; ti < reader.FieldCount; ti++)
-                        {
 
                            if(process == "87")
                             {
-                                if (i ==0)
+                                if (i == 0)
                                 {
-                                    string datavalue = reader["value"].ToString();
-                                    string datayear = reader["year"].ToString();
-                                    valuePri_SSP2_Baseline.Add(datavalue);
-                                    yearPri_SSP2_Baseline.Add(datayear);
+                                    string datavalue = reader["CumulativeSUM"].ToString();
+                                    valuePri_SSP2_Baseline.Add(datavalue);                                
                                 }else if (i == 1)
                                 {
-                                    string datavalue = reader["value"].ToString();
-                                    string datayear = reader["year"].ToString();
+                                    string datavalue = reader["CumulativeSUM"].ToString();
                                     valuePri_SSP2_FullCE.Add(datavalue);
-                                    yearPri_SSP2_FullCE.Add(datayear);
                                 }
                                 else if (i == 2)
                                 {
-                                    string datavalue = reader["value"].ToString();
-                                    string datayear = reader["year"].ToString();
+                                    string datavalue = reader["CumulativeSUM"].ToString();
                                     valuePri_LED_FullCE.Add(datavalue);
-                                    yearPri_LED_FullCE.Add(datayear);
                                 }
-
                             }
                             else if (process == "88")
                             {
                                 if (i == 0)
                                 {
-                                    string datavalue = reader["value"].ToString();
-                                    string datayear = reader["year"].ToString();
-                                    valueSec_SSP2_Baseline.Add(datavalue);
-                                    yearSec_SSP2_Baseline.Add(datayear);
+                                    string datavalue = reader["CumulativeSUM"].ToString();                    
+                                    valueSec_SSP2_Baseline.Add(datavalue);       
                                 }
                                 else if (i == 1)
                                 {
-                                    string datavalue = reader["value"].ToString();
-                                    string datayear = reader["year"].ToString();
-                                    valueSec_SSP2_FullCE.Add(datavalue);
-                                    yearSec_SSP2_FullCE.Add(datayear);
+                                    string datavalue = reader["CumulativeSUM"].ToString();                                   
+                                    valueSec_SSP2_FullCE.Add(datavalue); 
                                 }
                                 else if (i == 2)
                                 {
-                                    string datavalue = reader["value"].ToString();
-                                    string datayear = reader["year"].ToString();
+                                    string datavalue = reader["CumulativeSUM"].ToString();                                  
                                     valueSec_LED_FullCE.Add(datavalue);
-                                    yearSec_LED_FullCE.Add(datayear);
                                 }
                             }                           
-                        }
+                        
                         output["valuePri_SSP2_Baseline"] = valuePri_SSP2_Baseline;
-                        output["yearPri_SSP2_Baseline"] = yearPri_SSP2_Baseline;
                         output["valuePri_SSP2_FullCE"] = valuePri_SSP2_FullCE;
-                        output["yearPri_SSP2_FullCE"] = yearPri_SSP2_FullCE;
                         output["valuePri_LED_FullCE"] = valuePri_LED_FullCE;
-                        output["yearPri_LED_FullCE"] = yearPri_LED_FullCE;
                         output["valueSec_SSP2_Baseline"] = valueSec_SSP2_Baseline;
-                        output["yearSec_SSP2_Baseline"] = yearSec_SSP2_Baseline;
                         output["valueSec_SSP2_FullCE"] = valueSec_SSP2_FullCE;
-                        output["yearSec_SSP2_FullCE"] = yearSec_SSP2_FullCE;
                         output["valueSec_LED_FullCE"] = valueSec_LED_FullCE;
-                        output["yearPri_LED_FullCE"] = yearSec_LED_FullCE;
+               
                     }
           
                     reader.Close();
