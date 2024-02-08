@@ -151,7 +151,9 @@ function barChart(data, canvasID) {
     var values = [...new Set(Array.from(res.values()))];
 
     console.log(values)
-
+    try {
+        Chart.getChart(canvasID).destroy();
+    } catch (e) { }
     new Chart(document.getElementById(canvasID), {
 
         type: 'bar',
@@ -179,7 +181,12 @@ function barChart(data, canvasID) {
                     stacked: true,
                 },
                 y: {
-                    stacked: true
+                    stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Tg/year',
+
+                    },
                 }
             }
         } 

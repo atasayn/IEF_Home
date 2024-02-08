@@ -17,6 +17,7 @@
             var flagContainer = document.getElementById("countryFlag");
             var imgElement = document.getElementById("singleCountryImg");
             var countryName = document.getElementById("countryFlagSpan");
+            
             $('.svgMap-country').off('click').on('click', function (e) {
                 proxyWarning.innerHTML = ""
                 //Fetch json for ISO codes 
@@ -93,6 +94,7 @@
                             dataType: "json",
                             contentType: "application/json; charset=utf-8",
                             success: function (result) {
+                               
                                 $('.loader2').hide();
                                 if (region != "") {
 
