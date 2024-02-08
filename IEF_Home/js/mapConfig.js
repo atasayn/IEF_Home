@@ -299,6 +299,7 @@ $(window).on('load', function () {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             $('.loader2').hide();
+
             if (region != "") {
 
                 barChart(result, "line-plot3")
