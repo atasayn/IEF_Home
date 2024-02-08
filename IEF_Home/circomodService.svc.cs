@@ -18,6 +18,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Web.Http.Results;
 using System.Web.UI.WebControls;
 using System.Xml;
 
@@ -177,7 +178,7 @@ namespace IEF_Home
             foreach (var SELECTedScenario in new List<string> { "LED", "SSP1", "SSP2" })
             {
                 var scenarioArray = new List<string>();
-                const string query = @"SELECT d.value
+                const string query = @"SELECT d.value * 1e+6 AS multiplied_value
             FROM iedc.data d
             LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
             LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
@@ -203,6 +204,137 @@ namespace IEF_Home
             return output;
         }
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public Dictionary<string, List<string>> Classification_Result1stAnd2ndProd(string selectedRegion, string selectedMaterial, string selectedSector)
+        {
+            Dictionary<string, List<string>> output = new Dictionary<string, List<string>>();
+            if (!cn.OpenConnection()) return null;
+            var SelectedScenariosTemp = new List<string> { "SSP2", "SSP2", "LED" };
+            var SelectedStrategiesTemp = new List<string> { "Baseline", "Full CE", "Full CE" };
+            var selectedProcessId = new List<string> { "87", "88" };
+            // Primary Production Scenerios
+            List<string> valuePri_SSP2_Baseline = new List<string>();
+            List<string> yearPri_SSP2_Baseline = new List<string>();
+            List<string> valuePri_SSP2_FullCE = new List<string>();
+            List<string> yearPri_SSP2_FullCE = new List<string>();
+            List<string> valuePri_LED_FullCE = new List<string>();
+            List<string> yearPri_LED_FullCE = new List<string>();
+            // Secondary Production Scenerios
+            List<string> valueSec_SSP2_Baseline = new List<string>();
+            List<string> yearSec_SSP2_Baseline = new List<string>();
+            List<string> valueSec_SSP2_FullCE = new List<string>();
+            List<string> yearSec_SSP2_FullCE = new List<string>();
+            List<string> valueSec_LED_FullCE = new List<string>();
+            List<string> yearSec_LED_FullCE = new List<string>();
+            foreach (var process in selectedProcessId)
+            {
+                for (int i = 0; i < SelectedScenariosTemp.Count; i++)
+                {
+                    var SelectedScenario = SelectedScenariosTemp[i];
+                    var SelectedStrategy = SelectedStrategiesTemp[i];
+                    const string query = @" SELECT d.value AS value, cls.attribute1_oto  AS year
+             FROM iedc.data d 
+             LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id 
+             LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+             LEFT JOIN iedc.classification_items AS cls ON d.aspect8 = cls.id
+             INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id 
+             where d.dataset_id = 306 
+             AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @selectedRegion)
+             AND d.aspect6 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @selectedScenario)
+             AND d.aspect2 = (SELECT id FROM iedc.classification_items WHERE classification_id = 4 AND attribute1_oto = @selectedMaterial)
+             AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 7 AND attribute1_oto = @selectedSector)
+             AND d.aspect8 BETWEEN 
+             (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = '2020') 
+             AND 
+             (SELECT id FROM iedc.classification_items WHERE classification_id = 3 AND attribute1_oto = '2060')
+             AND d.aspect7 = (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = @selectedStrategy)
+             AND d.aspect4 =  @process";
+                    var cmd = new MySqlCommand(query, cn.Connection);
+                    cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
+                    cmd.Parameters.AddWithValue("@selectedScenario", SelectedScenario);
+                    cmd.Parameters.AddWithValue("@selectedMaterial", selectedMaterial);
+                    cmd.Parameters.AddWithValue("@selectedSector", selectedSector);
+                    cmd.Parameters.AddWithValue("@selectedStrategy", SelectedStrategy);
+                    cmd.Parameters.AddWithValue("@selectedProcessId", selectedProcessId);
+                    cmd.Parameters.AddWithValue("@process", process);
+
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        for (int ti = 0; ti < reader.FieldCount; ti++)
+                        {
+
+                           if(process == "87")
+                            {
+                                if (i ==0)
+                                {
+                                    string datavalue = reader["value"].ToString();
+                                    string datayear = reader["year"].ToString();
+                                    valuePri_SSP2_Baseline.Add(datavalue);
+                                    yearPri_SSP2_Baseline.Add(datayear);
+                                }else if (i == 1)
+                                {
+                                    string datavalue = reader["value"].ToString();
+                                    string datayear = reader["year"].ToString();
+                                    valuePri_SSP2_FullCE.Add(datavalue);
+                                    yearPri_SSP2_FullCE.Add(datayear);
+                                }
+                                else if (i == 2)
+                                {
+                                    string datavalue = reader["value"].ToString();
+                                    string datayear = reader["year"].ToString();
+                                    valuePri_LED_FullCE.Add(datavalue);
+                                    yearPri_LED_FullCE.Add(datayear);
+                                }
+
+                            }
+                            else if (process == "88")
+                            {
+                                if (i == 0)
+                                {
+                                    string datavalue = reader["value"].ToString();
+                                    string datayear = reader["year"].ToString();
+                                    valueSec_SSP2_Baseline.Add(datavalue);
+                                    yearSec_SSP2_Baseline.Add(datayear);
+                                }
+                                else if (i == 1)
+                                {
+                                    string datavalue = reader["value"].ToString();
+                                    string datayear = reader["year"].ToString();
+                                    valueSec_SSP2_FullCE.Add(datavalue);
+                                    yearSec_SSP2_FullCE.Add(datayear);
+                                }
+                                else if (i == 2)
+                                {
+                                    string datavalue = reader["value"].ToString();
+                                    string datayear = reader["year"].ToString();
+                                    valueSec_LED_FullCE.Add(datavalue);
+                                    yearSec_LED_FullCE.Add(datayear);
+                                }
+                            }                           
+                        }
+                        output["valuePri_SSP2_Baseline"] = valuePri_SSP2_Baseline;
+                        output["yearPri_SSP2_Baseline"] = yearPri_SSP2_Baseline;
+                        output["valuePri_SSP2_FullCE"] = valuePri_SSP2_FullCE;
+                        output["yearPri_SSP2_FullCE"] = yearPri_SSP2_FullCE;
+                        output["valuePri_LED_FullCE"] = valuePri_LED_FullCE;
+                        output["yearPri_LED_FullCE"] = yearPri_LED_FullCE;
+                        output["valueSec_SSP2_Baseline"] = valueSec_SSP2_Baseline;
+                        output["yearSec_SSP2_Baseline"] = yearSec_SSP2_Baseline;
+                        output["valueSec_SSP2_FullCE"] = valueSec_SSP2_FullCE;
+                        output["yearSec_SSP2_FullCE"] = yearSec_SSP2_FullCE;
+                        output["valueSec_LED_FullCE"] = valueSec_LED_FullCE;
+                        output["yearPri_LED_FullCE"] = yearSec_LED_FullCE;
+                    }
+          
+                    reader.Close();
+                }
+            }
+            
+            cn.CloseConnection();
+            return output;
+        }
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
@@ -765,10 +897,8 @@ namespace IEF_Home
         {
             Dictionary<string, List<string>> result = new Dictionary<string, List<string>>();
             List<string> dataset = new List<string>();
-            List<string> columnNames = new List<string>();
             List<string> columns = new List<string>();
-            List<string> columnsNotNull = new List<string>();
-            List<string> datasetNotNull = new List<string>();
+
             var query = "SELECT dt.id,ds.dataset_name, a1.attribute1_oto AS aspect_1 , a2.attribute1_oto AS aspect_2, a3.attribute1_oto AS aspect_3, a4.attribute1_oto AS aspect_4," +
                 " a5.attribute1_oto AS aspect_5, a6.attribute1_oto AS aspect_6, a7.attribute1_oto AS aspect_7, a8.attribute1_oto AS aspect_8," +
                 " a9.attribute1_oto AS aspect_9, a10.attribute1_oto AS aspect_10, a11.attribute1_oto AS aspect_11, a12.attribute1_oto AS aspect_12 ,dt.value, un1.unitcode AS unit_nominator," +

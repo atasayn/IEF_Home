@@ -1,6 +1,4 @@
-﻿
-
-document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", function () {
 
     var idValue = "svgMap-map-country-DE";
     var url = [];  
@@ -66,12 +64,45 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Sankey Parameters
                     var scenario = "LED";
                     var startYear = 2020;
-                    var endYear = 2030;
+                    var endYear = 2060;
                     // Sankey Sector Parameter
                         var sectorTemp = $('#DropDownListSector').val();
+                        var material = $('#DropDownListMaterial').val();
+                        // AJAX call for Population
+                        $.ajax({
+                            type: "POST",
+                            url: "circomodService.svc/Classification_ResultItemPopulation",
+                            data: `{"SELECTedRegion": "${region}"}`,
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                if (region != "") {
+                                  
+                                    document.getElementById("RegionName2").textContent = region;
+                                    displayGraph(result["d"], 2062-2015, "line-plot2", `Population`, 'Total Population');
+
+                                }
+                            }
+                        });
+
+                        // AJAX call for Bar Graph Primary/Secondary Production
+                        $.ajax({
+                            type: "POST",
+                            url: "circomodService.svc/Classification_Result1stAnd2ndProd",
+                            data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}","selectedMaterial": "${material}"}`,
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                console.log(result)
+                                if (region != "") {
+
+                                    barChart(result, "line-plot3")
+                                }
+                            }
+                        });
+
                         // AJAX call for Line Graph for "Per Capita Service Level"
                         if (sectorTemp == "Residential building") {
-                            console.log("shitttttttttt")
                             var sector = sectorTemp;
                             $.ajax({
                                 type: "POST",
@@ -82,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 success: function (result) {
                                     if (region != "") {
                                         document.getElementById("RegionName1").textContent = region;
-                                        displayGraph(result["d"], region, "line-plot1", `Per Capita Service Level `, 'm²/cap ');
+                                        displayGraph(result["d"], 86, "line-plot1", `Per Capita Service Level `, 'm²/cap ');
                                     }
                                 }
                             });
@@ -97,26 +128,13 @@ document.addEventListener("DOMContentLoaded", function () {
                                 success: function (result) {
                                     if (region != "") {
                                         document.getElementById("RegionName1").textContent = region;
-                                        displayGraph(result["d"], region, "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+                                        displayGraph(result["d"], 86, "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
                                     }
                                 }
                             });
                         }
 
-                        $.ajax({
-                            type: "POST",
-                            url: "circomodService.svc/Classification_ResultItemPopulation",
-                            data: `{"SELECTedRegion": "${region}"}`,
-                            dataType: "json",
-                            contentType: "application/json; charset=utf-8",
-                            success: function (result) {
-                                if (region != "") {
-                                    console.log(result)
-                                    document.getElementById("RegionName2").textContent = region;
-                                    displayGraph(result["d"], region, "line-plot2", `Population Per Capita`, 'Total Population');
-                                }
-                            }
-                        });
+
                     // Sankey Parameters
                     var strategy = "Baseline";
                     var material = "Steel";
@@ -148,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Append buttons elements to the "sankey" div
                     buttonDiv.appendChild(previousLink);
                     buttonDiv.appendChild(nextLink);
-                    for (let year = startYear; year <= endYear; year++) {
+                    for (let year = startYear; year <= endYear; year+=10) {
                         var newDiv = document.createElement("div");
                         newDiv.id = "div_svg" + year;
                         newDiv.style.position = 'absolute';
@@ -185,7 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         let divId = "target_svg" + year
                         let divSvg = newDiv.id
                         let divChart = chartParagraph.id;
-                        console.log(sector)
                         $('.loader').css("display", "block");
                         // Sankey AJAX call
                         $.ajax({
@@ -232,7 +249,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 $(window).on('load', function () {
+
     var region = "Germany";
+    // AJAX call for Population
+    $.ajax({
+        type: "POST",
+        url: "circomodService.svc/Classification_ResultItemPopulation",
+        data: `{"SELECTedRegion": "${region}"}`,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            if (region != "") {
+
+                document.getElementById("RegionName2").textContent = region;
+                displayGraph(result["d"], 2062 - 2015, "line-plot2", `Population`, 'Total Population');
+
+            }
+        }
+    });
+
+
+
     $.ajax({
         type: "POST",
         url: "circomodService.svc/Classification_ResultItem",
@@ -242,7 +279,7 @@ $(window).on('load', function () {
         success: function (result) {
             if (region != "") {
                 document.getElementById("RegionName1").textContent = region;
-                displayGraph(result["d"], region, "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+                displayGraph(result["d"], 86, "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
             }
         }
     });
@@ -250,7 +287,7 @@ $(window).on('load', function () {
     var scenario = "LED";
     var sector = "Passenger Vehicles";
     var startYear = 2020;
-    var endYear = 2021;
+    var endYear = 2030;
     var strategy = "Baseline";
     var material = "Steel";
 
@@ -421,6 +458,27 @@ function fetchCountryData(url, popSpan, gdpSpan, populationDensitySpan,url1,url2
 
     });
 }
-
-function fetchJson() {
-}
+$(document).ready(function () {
+    $("#DropDownListSector").on("change", function () {
+        var sectorTemp = $(this).val();
+        var dropdown = $("#DropDownListMaterial"); // Using jQuery to get dropdown element
+        // Residential building  materials
+        const arrayBuilding = ["Steel", "Cement", "Wood"];
+        // Passenger vehicle materials
+        const arrayVehicle = ["Steel", "Aluminium", "Copper"];
+        dropdown.empty(); // Clear previous options before appending new ones
+        dropdown.append("<option value='' disabled selected>Please select sector</option>")
+        if (sectorTemp == "Residential building") {
+            arrayBuilding.forEach((element) => {
+                var opt = $("<option>").val(element).text(element);
+                dropdown.append(opt);
+            });
+        } else if (sectorTemp == "Passenger vehicles") {
+            console.log(sectorTemp);
+            arrayVehicle.forEach((element) => {
+                var opt = $("<option>").val(element).text(element);
+                dropdown.append(opt);
+            });
+        }
+    });
+});

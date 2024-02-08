@@ -5,46 +5,38 @@
 
 
     <style>
+
         html {
-            width: 100%;
-            height: 100%;
-            display: table;
+           margin: 0px;
+           height: 100%;
+           width: 100%;
         }
 
         body {
-            width: 1280px;
-            height: 720px;
-            display: table-cell;
+           margin: 0px;
+           min-width: 100%;
+           width: 100%;
+
+
         }
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-        }
-
-        .logo {
-            position: relative;
-            max-width: 100%;
-            width: 100%;
-            text-align: right;
-            right: 0;
-            display: block;
-        }
 
         main {
             background-color: #f2f2f2;
+            margin:6px;
+            padding:0;
         }
 
         #DataMenu-Recc-GraphType {
             grid-template-columns: 25% 25% 25% 25%;
             grid-template-areas:
-                'map  line-graph line-graph-pop line-graph-pop1 '
+                'map  line-graph line-graph-pop line-graph-bar '
                 'country-info Pri-prdo Sec-pro Sec-pro'
                 'control-panel sankeyConfig sankeyConfig sankeyConfig'
                 'control-panel sankey sankey sankey' ;
             display: grid;
-            grid-gap: 10px;
+            grid-row-gap: 10px;
+            grid-column-gap: 2px;
         }
 
 
@@ -60,7 +52,7 @@
         }
 
 
-        #DropDownListSector {
+        #DropDownListSector, #DropDownListMaterial {
             margin-left: 50px;
             width: 300px;
             border-radius:5px;
@@ -77,23 +69,46 @@
             margin:5px
         }
 
+        #mapArea {
+            background: #ffffff;
+            height: fit-content;
+            border-radius: 10px;
+            grid-area: map;
+            width:465px
 
+        }
         #Graph1Line {
             display: block;
             grid-area: line-graph;
             border-radius: 5px;
-            width: 470px;
+            width: 465px;
             height: 250px;
         }
 
         #GraphPopulationLine{
             grid-area:line-graph-pop;
             border-radius: 5px;
+            width:465px;
+        }
+
+        #GraphPopulationBar{
+            grid-area:line-graph-bar;
+            border-radius: 5px;
+            width:465px;
         }
 
         #controlPanel{
             grid-area: control-panel;
             height:250px;
+            background:#ffffff;
+            border-radius: 5px;
+            width:465px;
+        }
+
+        #countryInfo{
+            grid-area: country-info;
+            height:250px;
+            width:465px;
             background:#ffffff;
             border-radius: 5px;
         }
@@ -141,13 +156,7 @@
             position:relative
         }
 
-        #mapArea {
-            background: #ffffff;
-            height: fit-content;
-            border-radius: 10px;
-            grid-area: map
 
-        }
 
         #divSelection {
             grid-area: selection;
@@ -173,12 +182,6 @@
             stroke-width: 1;
         }
 
-        #countryInfo{
-            grid-area: country-info;
-            height:250px;
-            background:#ffffff;
-            border-radius: 5px;
-        }
 
         #singleCountryImg {
             display: inline;
@@ -327,6 +330,11 @@
             <span id="RegionName2" class="label label-danger"></span>
         </div>
 
+        <div id="GraphPopulationBar" style="background-color: #ffffff">
+            <canvas id="line-plot3" style="position:absolute"></canvas>
+            <span id="RegionName3" class="label label-danger"></span>
+        </div>
+
         <div id ="countryInfo">
            <p style="margin:10px"><b>Country Info:</b></p>
            <p style="margin:10px">Population:</p>
@@ -344,6 +352,11 @@
                 <option value="" disabled selected>Please select sector</option>
                 <option value="Residential building">Residential building</option>
                 <option value="Passenger vehicles">Passenger vehicles</option>
+            </select>
+
+            <p style="margin:10px"><b>Material:</b></p>               
+            <select id="DropDownListMaterial" required>
+                
             </select>
             <p  class="w3-panel w3-red" style="margin:20px"><span id='proxyWarning'></span></p>
         </div>
@@ -462,7 +475,7 @@
         function findVisibleDivId() {
             // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
-
+            
             // Iterate through the divs
             for (var i = 0; i < divs.length; i++) {
                 // Check if the div is visible
@@ -480,13 +493,12 @@
         function navigateFront() {
             findVisibleDivId();
             var divs = document.querySelectorAll('[id^="div_svg"]');
-            console.log()
             divsStart = divs[0].id.slice(-4);
             divsEnd = divs[divs.length - 1].id.slice(-4);
             divsCurrent = divsVis.slice(-4);
             if (divsVis && divsCurrent < divsEnd) {
-                document.getElementById("div_svg" + (parseInt(divsVis.slice(-4)) + 1)).style.visibility = 'visible';
-                document.getElementById("span_svg" + (parseInt(divsVis.slice(-4)) + 1)).style.visibility = 'visible';
+                document.getElementById("div_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
+                document.getElementById("span_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
                 document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
                 document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
             }
@@ -500,8 +512,8 @@
             divsCurrent = divsVis.slice(-4);
             console.log(divsCurrent)
             if (divsVis && divsCurrent > divsStart) {
-                document.getElementById("div_svg" + (divsVis.slice(-4) - 1)).style.visibility = 'visible';
-                document.getElementById("span_svg" + (divsVis.slice(-4) - 1)).style.visibility = 'visible';
+                document.getElementById("div_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
+                document.getElementById("span_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
                 document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
                 document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
             }

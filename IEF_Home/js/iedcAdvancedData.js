@@ -1,6 +1,4 @@
-﻿$(document).ready(function () {
-
-    
+﻿$(document).ready(function () {  
 
     $.ajax({
         type: "POST",
@@ -16,9 +14,7 @@
                 $("#data-type").append("<tr><td> " + result.d[i] + "</td></tr></tbody>" );
 
             }
-       
         }
-
     });
 
     var selections = [];
@@ -46,13 +42,9 @@
                 $("#grid-item-datasets").append("<thead>" + "<tr><th colspan='2'>Total number of datasets available for chosen data type:" + result.d.length + "</th></tr>" +
                     "<tr>" + "<th>Datasets</th>" + "</tr>" + "</thead><tbody>");
 
-
-
             }
         });
     });
-
-
 
     $('#data-type').on('click', 'tbody tr td', function (e) {
         $("#aspects").empty();
@@ -93,10 +85,8 @@
 
 
     $('#aspects').on('click', 'tbody tr td', function (e) {
-        
-        
+
         var userInputClassAspect = $(this).text();
-        
 
         i=0
         while (i < 1) {  
@@ -143,15 +133,9 @@
                     row.style.backgroundColor = "white";
                 });
             }
-
-
             
-            
-            i++
-            
+            i++    
         } 
-
-
 
         $.ajax({
             type: "POST",
@@ -205,9 +189,7 @@
                     }
 
                 }
-                
-
-                
+                              
             }
         });
     });

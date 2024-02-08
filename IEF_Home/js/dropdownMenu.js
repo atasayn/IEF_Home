@@ -12,78 +12,14 @@ $(document).ready(function () {
                 success: function (result) {
 
                     if(region!=""){
-                        displayGraph(result["d"], region, "line-chart", `Per Capita Service Level `,'Annual pkm by passenger cars');
+                        displayGraph(result["d"], 86, "line-chart", `Per Capita Service Level `,'Annual pkm by passenger cars');
                     }
                 }
         });
     });
 
 });
-    
-function displayGraph(data, region, canvasID, title, yAxisTitle) {
    
-    let labels = Array.from({ length: 86 }, (v, i) => 2015 + i);
-
-    try {
-        Chart.getChart(canvasID).destroy();
-    } catch (e) {}
-    new Chart(document.getElementById(canvasID), {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    data: data[0],
-                    label: "LED",
-                    borderColor: "#ff0000",
-                    fill: false
-                },
-                {
-                    data: data[1],
-                    label: "SSP1",
-                    borderColor: "#00ff00",
-                    fill: false
-                },
-                {
-                    data: data[2],
-                    label: "SSP2",
-                    borderColor: "#0000ff",
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            locale: "fr-CA",
-            plugins: {
-                title: {
-                    display: true,
-                    text: title,
-                }
-            },
-            scales: {
-
-                y: {
-                    title: {
-                        display: true,
-                        text: yAxisTitle,
-                        
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Year',
-                       
-                    },
-                    ticks: {
-                        autoSkip: true,
-                        maxTicksLimit: 20
-                    }                    
-                }
-            }           
-        }
-    });
-}
 
 $(document).ready(function () {
     $('.DDSelectSankey').click(function(e) {
@@ -144,7 +80,87 @@ $(document).ready(function () {
     });
 
 });
+function displayGraph(data, ylength, canvasID, title, yAxisTitle) {
+
+    let labels = Array.from({ length: ylength }, (v, i) => 2015 + i);
+    try {
+        Chart.getChart(canvasID).destroy();
+    } catch (e) { }
+    new Chart(document.getElementById(canvasID), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    data: data[0],
+                    label: "LED",
+                    borderColor: "#ff0000",
+                    fill: false
+                },
+                {
+                    data: data[1],
+                    label: "SSP1",
+                    borderColor: "#00ff00",
+                    fill: false
+                },
+                {
+                    data: data[2],
+                    label: "SSP2",
+                    borderColor: "#0000ff",
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            locale: "fr-CA",
+            plugins: {
+                title: {
+                    display: true,
+                    text: title,
+                }
+            },
+            scales: {
+
+                y: {
+                    title: {
+                        display: true,
+                        text: yAxisTitle,
+
+                    },
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Year',
+
+                    },
+                    ticks: {
+                        autoSkip: true,
+                        maxTicksLimit: 20
+                    }
+                }
+            }
+        }
+    });
+}
 
 
+function barChart(data, canvasID) {
+    const keys = data.d.map(item => item.Key);
+
+    console.log(keys);
+    new Chart(document.getElementById(canvasID), {
+
+        type: "bar",
+        data: {
+            labels: [1 ,2],
+            datasets: [{
+
+                data: [100, 50]
+            }]
+        },
+
+    });
+};
 
 
