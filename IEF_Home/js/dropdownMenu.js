@@ -149,8 +149,6 @@ function barChart(data, canvasID) {
 
     var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
     var values = [...new Set(Array.from(res.values()))];
-
-    console.log(values)
     try {
         Chart.getChart(canvasID).destroy();
     } catch (e) { }
