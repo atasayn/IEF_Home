@@ -120,7 +120,7 @@ function displayGraph(data, ylength, canvasID, title, yAxisTitle) {
                 }
             },
             scales: {
-
+      
                 y: {
                     title: {
                         display: true,

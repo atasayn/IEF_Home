@@ -544,6 +544,7 @@
                     }],
                 },
                 options: {
+                    locale: "fr-CA",
                     plugins: {
                         title: {
                             display: true,

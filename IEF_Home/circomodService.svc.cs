@@ -262,16 +262,16 @@ namespace IEF_Home
                             {
                                 if (i == 0)
                                 {
-                                    string datavalue = reader["CumulativeSUM"].ToString();
+                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
                                     valuePri_SSP2_Baseline.Add(datavalue);                                
                                 }else if (i == 1)
                                 {
-                                    string datavalue = reader["CumulativeSUM"].ToString();
+                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
                                     valuePri_SSP2_FullCE.Add(datavalue);
                                 }
                                 else if (i == 2)
                                 {
-                                    string datavalue = reader["CumulativeSUM"].ToString();
+                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
                                     valuePri_LED_FullCE.Add(datavalue);
                                 }
                             }
@@ -279,17 +279,17 @@ namespace IEF_Home
                             {
                                 if (i == 0)
                                 {
-                                    string datavalue = reader["CumulativeSUM"].ToString();                    
+                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");                    
                                     valueSec_SSP2_Baseline.Add(datavalue);       
                                 }
                                 else if (i == 1)
                                 {
-                                    string datavalue = reader["CumulativeSUM"].ToString();                                   
+                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");                                   
                                     valueSec_SSP2_FullCE.Add(datavalue); 
                                 }
                                 else if (i == 2)
                                 {
-                                    string datavalue = reader["CumulativeSUM"].ToString();                                  
+                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");                                  
                                     valueSec_LED_FullCE.Add(datavalue);
                                 }
                             }                           
