@@ -10,7 +10,6 @@ $(document).ready(function () {
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
-
                     if(region!=""){
                         displayGraph(result["d"], 86, "line-chart", `Per Capita Service Level `,'Annual pkm by passenger cars');
                     }

@@ -313,6 +313,91 @@ namespace IEF_Home
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+
+
+        public Dictionary<string, List<string>> Classification_ResultAreaStacked(string selectedRegion,  string selectedSector)
+        {
+            Dictionary<string, List<string>> output = new Dictionary<string, List<string>>();
+            if (!cn.OpenConnection()) return null;
+            var SelectedProcessTemp = new List<string> { "use phase", "waste management", "material production", "energy supply" };
+         
+
+            // Primary Production Scenerios
+            List<string> valueUse_face = new List<string>();
+            List<string> valueWaste_manegement = new List<string>();
+            List<string> valuePriMaterial_production = new List<string>();
+            List<string> valuePriEnergy_supply = new List<string>();
+            List<string> years = new List<string>();
+
+            foreach (var process in SelectedProcessTemp)
+            {
+                const string query = @" SELECT d.value,cls.attribute1_oto as aspect_8 
+             FROM iedc.data d 
+             LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id 
+             LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+             LEFT JOIN iedc.classification_items AS cls ON d.aspect8 = cls.id
+             INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id 
+             where d.dataset_id = 307 
+             AND d.aspect1 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedRegion)
+             AND d.aspect3 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedSector)
+             AND d.aspect4 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedProcess)
+             AND d.aspect6 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'SSP2')         
+             AND d.aspect7 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'Baseline')";
+
+                    var cmd = new MySqlCommand(query, cn.Connection);
+                    cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
+                    cmd.Parameters.AddWithValue("@selectedProcess", process);
+                    cmd.Parameters.AddWithValue("@selectedSector", selectedSector);
+
+
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+                        if (process == SelectedProcessTemp[0])
+                        {                          
+                            string Use_face = reader[0].ToString();
+                            valueUse_face.Add(Use_face);                       
+                        }
+                        else if (process == SelectedProcessTemp[1])
+                        {
+                            string Waste_manegement = reader[0].ToString();
+                            valueWaste_manegement.Add(Waste_manegement);
+                        }
+                        else if (process == SelectedProcessTemp[2])
+                        {
+                            string Material_production = reader[0].ToString();
+                            valuePriMaterial_production.Add(Material_production);
+                        }
+                        else if (process == SelectedProcessTemp[3])
+                        {
+                            string Energy_supply = reader[0].ToString();
+                            string yearsTemp = reader[1].ToString();
+                            valuePriEnergy_supply.Add(Energy_supply);
+                            years.Add(yearsTemp);
+                        }
+
+                        output["Use_face"] = valueUse_face;
+                        output["Waste_manegement"] = valueWaste_manegement;
+                        output["Material_production"] = valuePriMaterial_production;
+                        output["Energy_supply"] = valuePriEnergy_supply;
+                        output["Years"] = years;
+
+
+                    }
+
+                    reader.Close();
+                
+            }
+
+            cn.CloseConnection();
+            return output;
+        }
+
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public  Dictionary<string, string> Classification_SankeyItem(string SELECTedRegion, string SELECTedScenario, string SELECTedMaterial, string SELECTedStrategy, string SELECTedYear, string SELECTedSector, string SELECTedFlow)
         {
             var queryList = new Dictionary<string, string>

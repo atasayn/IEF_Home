@@ -31,9 +31,11 @@
             grid-template-columns: 25% 25% 25% 25%;
             grid-template-areas:
                 'map  line-graph line-graph-pop line-graph-bar '
-                'country-info Pri-prdo Sec-pro Sec-pro'
+                'country-info StackedArea Sec-pro Sec-pro'
                 'control-panel sankeyConfig sankeyConfig sankeyConfig'
-                'control-panel sankey sankey sankey' ;
+                'control-panel sankey sankey sankey'
+                'control-panel chinaTeaser chinaTeaser chinaTeaser';
+
             display: grid;
             grid-row-gap: 10px;
             grid-column-gap: 2px;
@@ -95,7 +97,35 @@
             grid-area:line-graph-bar;
             border-radius: 5px;
             width:465px;
-            position:relative
+            position:relative;
+            display:flex
+               
+        }
+
+        #GraphPopulationBar h2{
+            margin: auto;
+        }
+
+        #GraphStackedArea{
+            grid-area:StackedArea;
+            position:relative;
+            border-radius: 5px;
+            width:465px;
+        }
+
+        #GraphStackedArea h2{
+            margin: auto;
+        }
+
+        #ChinaTeaser{
+            grid-area:chinaTeaser;
+            height: 365px;
+            display: none;
+            border-radius:5px
+        }
+
+        #ChinaTeaser img{
+            border-radius:5px
         }
 
         #controlPanel{
@@ -259,7 +289,7 @@
             margin-top:10px
         }
 
-        .loader,.loader2 {
+        .loader,.loader2,.loader3 {
           border: 16px solid #f3f3f3;
           border-radius: 50%;
           border-top: 16px solid #3498db;
@@ -309,7 +339,7 @@
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
     <!-- Add this to your HTML file if using CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-
+    <script type="text/javascript" src="https://npmcdn.com/chart.js@2.4.0/dist/Chart.bundle.js"></script> 
 
 
 </asp:Content>
@@ -320,7 +350,7 @@
         <div id="mapArea">
             <div id="svgMap"></div>
         </div>
-
+        
         <div id="Graph1Line" style="background-color: #ffffff">
             <canvas id="line-plot1" style="position:absolute"></canvas>
             <span id="RegionName1" class="label label-danger"></span>
@@ -334,6 +364,13 @@
         <div id="GraphPopulationBar" style="background-color: #ffffff">
             <div class="loader2" style="display:none"></div>
             <canvas id="line-plot3" style="position:absolute"></canvas>
+            <h1 id="GraphPopulationBarNoData" style="display:none">No Data</h1>
+        </div>
+
+        <div id="GraphStackedArea" style="background-color: #ffffff">
+            <div class="loader3" style="display:none"></div>
+            <canvas id="line-plot4" style="position:absolute"></canvas>
+           <h1 id="GraphStackedAreaNoData" style="display:none">No Data</h1>
         </div>
 
         <div id ="countryInfo">
@@ -366,7 +403,7 @@
             <div id="countryFlag">
                 <span style="margin: 5px;">Country:</span>
                 <br />
-                <image id="singleCountryImg" style="margin-top:8px;margin-left: 35px;height:25px"></image>
+                <img id="singleCountryImg" style="margin-top:8px;margin-left: 35px;height:25px">
                 <span id="countryFlagSpan" style="margin-top:10px;"></span>
 
             </div>
@@ -468,6 +505,10 @@
            <div class="loader" style="display:none"></div>
            <div id="sankeyDivsAll"></div>
         </div>
+        <div id="ChinaTeaser" >
+            <img src="Content/ReccPlots/Buildings_China_LED_CE.png" width="700" >  
+            <img src="Content/ReccPlots/Buildings_China_SSP2.png" width="700" > 
+        </div>
 
 </div>
     <script>
@@ -520,11 +561,17 @@
             }
         }
 
-        function barChart(data, canvasID) {
 
+
+
+        function barChart(data, canvasID) {  
+            var BarHide = document.getElementById("GraphPopulationBarNoData")
+            BarHide.style.display = "none"
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
-            console.log(values)
+            if (values.length == 0) {
+                BarHide.style.display = "block"
+            } 
             try {
                 Chart.getChart(canvasID).destroy();
             } catch (e) { }
@@ -536,11 +583,11 @@
                     datasets: [{
                         label: 'Primary Production',
                         backgroundColor: "blue",
-                        data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)],
+                        data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)]
                     }, {
                         label: 'Secondary Production',
                         backgroundColor: "green",
-                        data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)],
+                        data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)]
                     }],
                 },
                 options: {
@@ -568,7 +615,78 @@
 
             });
         };
+        
+        function stackedAreaChart(data, canvasID) {   
+            var BarHide = document.getElementById("GraphStackedAreaNoData")
+            BarHide.style.display = "none"
+            var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
+            var values = [...new Set(Array.from(res.values()))];
+            var dataLength = values[0].length;
+            console.log(values)
+            
+            if (dataLength == 0) {       
+                BarHide.style.display = "block"
+            } 
+            try {
+                Chart.getChart(canvasID).destroy();
+            } catch (e) { }
+            new Chart(document.getElementById(canvasID), {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
+                    datasets: [{
+                        label: 'Use Phase',
+                        borderColor: "blue",
+                        data: Array.from({ length: dataLength }, (_, i) => values[0][i]),
+                        fill: true
+                    },
+                    {
+                        label: 'Waste Management',
+                        borderColor: "green",
+                        data: Array.from({ length: dataLength }, (_, i) => values[1][i]),
+                        fill: true
+                    },
+                    {
+                        label: 'Material Production',
+                        borderColor: "yellow",
+                        data: Array.from({ length: dataLength }, (_, i) => values[2][i]),
+                        fill: true
+                    },
+                    {
+                        label: 'Energy Supply',
+                        borderColor: "red",
+                        data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
+                        fill: true
+                     
 
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    title:
+                    {
+                        display: true,
+                        text: 'Chart JS Gridlines - Line Chart'
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: true,
+                                color: "blue",
+                                lineWidth: 2
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: true,
+                                color: "blue"
+                            }
+                        }
+                    }//end scales                            
+                }//end options 
+                            
+            });
+        };
 
     </script>
 </asp:Content>

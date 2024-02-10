@@ -19,7 +19,12 @@
             var countryName = document.getElementById("countryFlagSpan");
             
             $('.svgMap-country').off('click').on('click', function (e) {
+                // display:none for "NoData"
+                document.getElementById("GraphPopulationBarNoData").style.display = "none";
+                document.getElementById("GraphStackedAreaNoData").style.display = "none";
                 proxyWarning.innerHTML = ""
+
+
                 //Fetch json for ISO codes 
                 const filePath = "json/countryProxy.json";
                 fetch(filePath)
@@ -27,6 +32,7 @@
                     .then(function (response) {
                         const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase()); 
                         var name = svgMap.prototype.countries[countryID]
+                        
                         if (findFlagAndData.Flag == true) {
                             var sankeyProxy = document.getElementById("controlPanel");
                             var proxyWarning = document.getElementById("proxyWarning");
@@ -42,6 +48,7 @@
                     })
 
                     .then(function (region) {
+
                     //Create divs for multiple sankey graphs for the buttons
                     flagContainer.children.innerHTML = ""
                     imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + countryID.toLowerCase() + ".svg";
@@ -69,6 +76,14 @@
                     // Sankey Sector Parameter
                         var sectorTemp = $('#DropDownListSector').val();
                         var material = $('#DropDownListMaterial').val();
+                        
+                        if (region == "China" && sectorTemp == "Residential building") {
+                            $('#ChinaTeaser').css('display', 'block ruby');
+
+                        } else {
+                            $('#ChinaTeaser').css('display', 'none');
+                        }
+                       
                         // AJAX call for Population
                         $.ajax({
                             type: "POST",
@@ -78,13 +93,28 @@
                             contentType: "application/json; charset=utf-8",
                             success: function (result) {
                                 if (region != "") {
-                                  
-                                    document.getElementById("RegionName2").textContent = region;
                                     displayGraph(result["d"], 2062-2015, "line-plot2", `Population`, 'Total Population');
 
                                 }
                             }
                         });
+
+                        $('.loader3').css("display", "block");
+                        $.ajax({
+                            type: "POST",
+                            url: "circomodService.svc/Classification_ResultAreaStacked",
+                            data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}"}`,
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                $('.loader3').hide();
+                                if (region != "") {
+                                    stackedAreaChart(result, "line-plot4");
+
+                                }
+                            }
+                        });
+                   
                         $('.loader2').css("display", "block");
                         // AJAX call for Bar Graph Primary/Secondary Production
                         $.ajax({
@@ -96,11 +126,12 @@
                             success: function (result) { 
                                 $('.loader2').hide();
                                 if (region != "") {
-
-                                    barChart(result, "line-plot3")
+                                    barChart(result, "line-plot3")    
                                 }
                             }
                         });
+                        
+                                                     
 
                         // AJAX call for Line Graph for "Per Capita Service Level"
                         if (sectorTemp == "Residential building") {
@@ -135,6 +166,7 @@
                             });
                         }
 
+        
 
                     // Sankey Parameters
                     var strategy = "Baseline";
@@ -261,13 +293,13 @@ $(window).on('load', function () {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             if (region != "") {
-
                 document.getElementById("RegionName2").textContent = region;
                 displayGraph(result["d"], 2062 - 2015, "line-plot2", `Population`, 'Total Population');
 
             }
         }
     });
+
 
     $.ajax({
         type: "POST",
@@ -289,8 +321,22 @@ $(window).on('load', function () {
     var endYear = 2030;
     var strategy = "Baseline";
     var material = "Steel";
-    $('.loader2').css("display", "block");
+    $('.loader3').css("display", "block");
+    $.ajax({
+        type: "POST",
+        url: "circomodService.svc/Classification_ResultAreaStacked",
+        data: `{"selectedRegion": "${region}","selectedSector": "${sector}"}`,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            $('.loader3').hide();
+            if (region != "") {
+                stackedAreaChart(result, "line-plot4");
+            }
+        }
+    });
 
+    $('.loader2').css("display", "block");
     $.ajax({
         type: "POST",
         url: "circomodService.svc/Classification_Result1stAnd2ndProd",
@@ -299,9 +345,7 @@ $(window).on('load', function () {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             $('.loader2').hide();
-
             if (region != "") {
-
                 barChart(result, "line-plot3")
             }
         }
@@ -365,13 +409,10 @@ $(window).on('load', function () {
         }
         // Get the chartContainer directly from chartParagraph
         var chartContainer = chartParagraph;
-
         const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElement.setAttribute("id", "target_svg" + year); // Using underscores instead of spaces
-
         // Append the SVG to the chartContainer
         chartContainer.appendChild(svgElement);
-
         let divId = "target_svg" + year
         let divSvg = newDiv.id
         let divChart = chartParagraph.id;
@@ -433,7 +474,7 @@ $(window).on('load', function () {
 
     var url = [];
     const url1 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/SP.POP.TOTL?format=json"; //GDP
-    const url2 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/NY.GDP.MKTP.CD?format=json"; //Population
+    const url2 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/NY.GDP.PCAP.CD?format=json"; //Population
     const url3 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/EN.POP.DNST?format=json"; //PopulationDensity
     url.push(url1, url2, url3)
     var popSpan = document.getElementById("population");
