@@ -17,7 +17,8 @@
             var flagContainer = document.getElementById("countryFlag");
             var imgElement = document.getElementById("singleCountryImg");
             var countryName = document.getElementById("countryFlagSpan");
-            
+            var energyServicePNG = document.getElementById("energyServiceCascadePNG")
+            var decouplingService = document.getElementById("ecdDecouplingPNG")
             $('.svgMap-country').off('click').on('click', function (e) {
                 // display:none for "NoData"
                 document.getElementById("GraphPopulationBarNoData").style.display = "none";
@@ -32,23 +33,25 @@
                     .then(function (response) {
                         const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase()); 
                         var name = svgMap.prototype.countries[countryID]
-                        
                         if (findFlagAndData.Flag == true) {
-                            var sankeyProxy = document.getElementById("controlPanel");
                             var proxyWarning = document.getElementById("proxyWarning");
                             countryName.innerHTML = name + " (" + findFlagAndData.Data + ")";
                             var region = findFlagAndData.Data;
                             proxyWarning.innerHTML = "Sorry, no data for <span style='color:red'>" + name + "</span>, here, the data for the proxy region<span style='color:green'> " + findFlagAndData.Data + "</span> are shown"
-                            return region
+                            var findFlagAndDataPNG = findFlagAndData.Png
+                            console.log(findFlagAndData)
+                            return { region: region, findFlagAndDataPNG: findFlagAndDataPNG };
                         } else {
                             countryName.innerHTML = name;
                             var region = name;
-                            return region
+                            var findFlagAndDataPNG = findFlagAndData.Png
+                            console.log(findFlagAndData)
+                            return { region: region, findFlagAndDataPNG: findFlagAndDataPNG };
                         }
                     })
-
-                    .then(function (region) {
-
+                    .then(function (regionObj) {
+                    var region = regionObj.region;
+                    var findFlagAndDataPNG = regionObj.findFlagAndDataPNG;
                     //Create divs for multiple sankey graphs for the buttons
                     flagContainer.children.innerHTML = ""
                     imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + countryID.toLowerCase() + ".svg";
@@ -76,14 +79,21 @@
                     // Sankey Sector Parameter
                         var sectorTemp = $('#DropDownListSector').val();
                         var material = $('#DropDownListMaterial').val();
-                        
+                        // China Teaser
                         if (region == "China" && sectorTemp == "Residential building") {
                             $('#ChinaTeaser').css('display', 'block ruby');
-
                         } else {
                             $('#ChinaTeaser').css('display', 'none');
                         }
-                       
+
+                        console.log(sectorTemp)
+                        // Energy Cascade and Decoupling PNG
+                        if (sectorTemp == "Residential building") {
+                            console.log("shhttttttttttttttttttt")
+                            energyServicePNG.src = "Content/ReccPlots/" + findFlagAndDataPNG
+                            decouplingService.src = "Content/ReccPlots/ECD_Decoupling_Overview.png"
+                        }
+
                         // AJAX call for Population
                         $.ajax({
                             type: "POST",
@@ -165,8 +175,6 @@
                                 }
                             });
                         }
-
-        
 
                     // Sankey Parameters
                     var strategy = "Baseline";

@@ -34,7 +34,9 @@
                 'country-info StackedArea Sec-pro Sec-pro'
                 'control-panel sankeyConfig sankeyConfig sankeyConfig'
                 'control-panel sankey sankey sankey'
-                'control-panel chinaTeaser chinaTeaser chinaTeaser';
+                'control-panel chinaTeaser chinaTeaser chinaTeaser'
+                'control-panel energyServiceCascade energyServiceCascade energyServiceCascade'
+                'control-panel ECD_Decoupling ECD_Decoupling ECD_Decoupling';
 
             display: grid;
             grid-row-gap: 10px;
@@ -187,7 +189,14 @@
             position:relative
         }
 
+        #energyServiceCascade{
+            grid-area:energyServiceCascade
 
+        }       
+        #ecdDecoupling{
+            grid-area:ECD_Decoupling
+
+        }
 
         #divSelection {
             grid-area: selection;
@@ -506,8 +515,14 @@
            <div id="sankeyDivsAll"></div>
         </div>
         <div id="ChinaTeaser" >
-            <img src="Content/ReccPlots/Buildings_China_LED_CE.png" width="700" >  
-            <img src="Content/ReccPlots/Buildings_China_SSP2.png" width="700" > 
+            <img src="Content/ReccPlots/Buildings_China_LED_CE.png" width="800" style="height: 100%; width: auto; border-radius:5px" >  
+            <img src="Content/ReccPlots/Buildings_China_SSP2.png" width="800" style="height: 100%; width: auto;border-radius:5px" > 
+        </div>
+        <div id="energyServiceCascade" >
+            <img id="energyServiceCascadePNG" width:"700" style="height: 100%; width: auto; border-radius:5px"> 
+        </div>   
+        <div id="ecdDecoupling" style="width: 900px;" >
+            <img id="ecdDecouplingPNG" style="height: 100%; width: auto; border-radius:5px"> 
         </div>
 
 </div>
