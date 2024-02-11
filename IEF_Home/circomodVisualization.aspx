@@ -327,7 +327,7 @@
         }
         
     </style>
-
+ 
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
@@ -580,8 +580,6 @@
 
 
         function barChart(data, canvasID) {  
-            var BarHide = document.getElementById("GraphPopulationBarNoData")
-            BarHide.style.display = "none"
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
             if (values.length == 0) {

@@ -14,12 +14,16 @@
             }
         },
         onGetTooltip: function (tooltipDiv, countryID, countryValues) {
+            // Get Id's of graph divs
             var flagContainer = document.getElementById("countryFlag");
             var imgElement = document.getElementById("singleCountryImg");
             var countryName = document.getElementById("countryFlagSpan");
             var energyServicePNG = document.getElementById("energyServiceCascadePNG")
             var decouplingService = document.getElementById("ecdDecouplingPNG")
             $('.svgMap-country').off('click').on('click', function (e) {
+                // Delete inside of the divs for a new start
+
+
                 // display:none for "NoData"
                 document.getElementById("GraphPopulationBarNoData").style.display = "none";
                 document.getElementById("GraphStackedAreaNoData").style.display = "none";
@@ -92,6 +96,9 @@
                             console.log("shhttttttttttttttttttt")
                             energyServicePNG.src = "Content/ReccPlots/" + findFlagAndDataPNG
                             decouplingService.src = "Content/ReccPlots/ECD_Decoupling_Overview.png"
+                        } else {
+                            energyServicePNG.src = ""
+                            decouplingService.src = ""
                         }
 
                         // AJAX call for Population
@@ -504,18 +511,18 @@ function fetchCountryData(url, popSpan, gdpSpan, populationDensitySpan,url1,url2
                 if (data[1][n]["value"] != null && url==url1) {
                     var value = data[1][n]["value"]
                     var date = data[1][n]["date"]
-                    gdpSpan.innerHTML = "&#8226" + " " + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "(" + date + ")"
+                    gdpSpan.innerHTML = "&#8226" + " " + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " (" + date + ")"
                     break
                 } else if (data[1][n]["value"] != null && url == url2) {
                     var value = data[1][n]["value"]
                     var date = data[1][n]["date"]
-                    popSpan.innerHTML = "&#8226" + " " + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "(" + date + ")"
+                    popSpan.innerHTML = "&#8226" + " " + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " (" + date + ")"
                     break
 
                 } else if (data[1][n]["value"] != null && url == url3) {
                     var value = data[1][n]["value"]
                     var date = data[1][n]["date"]
-                    populationDensitySpan.innerHTML = "&#8226" + " " + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "(" + date + ")"
+                    populationDensitySpan.innerHTML = "&#8226" + " " + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " (" + date + ")"
                     break
                 }
                 n++             
