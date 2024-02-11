@@ -16,11 +16,29 @@
            margin: 0px;
            min-width: 100%;
            width: 100%;
-
-
+           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+           display:grid
         }
 
+        body {display: flex; flex-wrap: wrap}
 
+        .flex {
+        display: flex; /* displays flex-items (children) inline */
+        flex-wrap: wrap; /* enables them to wrap (default: nowrap) */
+        /* 16:9 ratio */
+        width: 10px;
+        height: auto;
+        margin: 5px;
+        
+        }
+
+        .flex > div {
+        flex-grow: 1; /* enabled (default: 0); can grow/expand beyond 50% of the parent's width */
+        flex-basis: 50%; /* initial width set to 50% because none of the items will be less than that, no matter how many of them */
+        border: 1px solid; /* just to see the result better */
+        box-sizing: border-box; /* recommended because of the border; otherwise you'd need to use the CSS calc() function: "flex-basis: calc(50% - 2px);" -2px because of the left and right border, which is 1px each; same applies for margins, if you're going to use them, then you also need to use the calc(), e.g.: calc(x% - twice the defined margin) */
+        background: #eff0f1;
+        }
         main {
             background-color: #f2f2f2;
             margin:6px;
@@ -37,7 +55,6 @@
                 'control-panel chinaTeaser chinaTeaser chinaTeaser'
                 'control-panel energyServiceCascade energyServiceCascade energyServiceCascade'
                 'control-panel ECD_Decoupling ECD_Decoupling ECD_Decoupling';
-
             display: grid;
             grid-row-gap: 10px;
             grid-column-gap: 2px;
@@ -325,9 +342,10 @@
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
+
         
     </style>
- 
+
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
