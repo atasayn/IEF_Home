@@ -58,7 +58,7 @@ h1 {
 
 h2 {
     font-size: var(--font-size-lg);
-    color: #444;
+    color: #ffffff;
 }
 
 h3 {
@@ -199,8 +199,8 @@ i {
 }
 
 .logo {
-    position: absolute;
-    top: 4rem;
+    /*position: absolute;*/
+    top: 2rem;
     color: var(--dark-purple-color);
 }
 

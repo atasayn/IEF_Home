@@ -1,6 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="circomodVisualization.aspx.cs" Inherits="IEF_Home.circomodVisualization" %>
+﻿
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
+<!DOCTYPE html>
+<html>
+<head><title>
+
+</title><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link href="/css/bootstrap.css" rel="stylesheet" /><link href="/css/master.css" rel="stylesheet" /><link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
 
@@ -16,28 +20,13 @@
            margin: 0px;
            min-width: 100%;
            width: 100%;
-           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
            display:grid
         }
 
-        body {display: flex; flex-wrap: wrap}
-
-        .flex {
-        display: flex; /* displays flex-items (children) inline */
-        flex-wrap: wrap; /* enables them to wrap (default: nowrap) */
-        /* 16:9 ratio */
-        width: 10px;
-        height: auto;
-        margin: 5px;
-        
-        }
-
-        .flex > div {
-        flex-grow: 1; /* enabled (default: 0); can grow/expand beyond 50% of the parent's width */
-        flex-basis: 50%; /* initial width set to 50% because none of the items will be less than that, no matter how many of them */
-        border: 1px solid; /* just to see the result better */
-        box-sizing: border-box; /* recommended because of the border; otherwise you'd need to use the CSS calc() function: "flex-basis: calc(50% - 2px);" -2px because of the left and right border, which is 1px each; same applies for margins, if you're going to use them, then you also need to use the calc(), e.g.: calc(x% - twice the defined margin) */
-        background: #eff0f1;
+        .col-md-8 {
+	        padding-left: 0;
+	        /* height: 0px; */
+	        display: block;
         }
         main {
             background-color: #f2f2f2;
@@ -343,8 +332,15 @@
           100% { transform: rotate(360deg); }
         }
 
+        @media screen and (max-width: 768px) {
+            .grid-container {
+                display: block;
+            }
+        }
         
     </style>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
@@ -369,8 +365,62 @@
     <script type="text/javascript" src="https://npmcdn.com/chart.js@2.4.0/dist/Chart.bundle.js"></script> 
 
 
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
+</head>
+<body>
+    <form method="post" action="./circomodVisualization.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="0xLbnx0TJ9xSkJB30Vq6AWRQmOEF6fjpC/O9F9EyX+2Lj56Xv4mXKREgZ1TZ5cb5aQf+6YQAo2Fe4i2ZuMIHDenLMYXy/SB/vi47GBhf/3M=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5FB1E55D" />
+</div>
+        <header>
+            <div class="jumbotron">
+                <div class="container-fluid">
+
+                    <div class="col-md-2">
+                        <img src="/resources/IEF_LogoV_23_3.png" style="padding-left: 0;" width="241" height="111" alt="IEF logo">
+                    </div>
+
+                    <div class="col-md-8" style="padding-left: 30px; height: 0px;">
+                        <h2>Industrial Ecology Freiburg</h2>
+                        <p style="font-size: 16px;">Research group at the Faculty of Environment and Natural Resources</p>
+                    </div>
+
+                    <div class="logo" >
+                        <img src="/resources/uniFreiburg.png"  width="300" alt="Uni Freiburg logo">
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-default navbar-custom navbar">
+                <div class="container-fluid">
+                    <label for="collapsible" class="lbl-toggle">&equiv;</label>
+                    <input id="collapsible" class="toggle" type="checkbox">
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
+                            <!--  <li><a href="/research/research">Research</a></li>-->
+                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Data</a></li>
+                            <li><a href="/odym-recc">Models</a></li>
+                            <li><a href="/teaching">Teaching</a></li>
+                            <li><a href="/circomod">Circular Economy</a></li>
+                            <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">Circular Sankey</a></li>       
+                            <li><a href="/internal">Internal</a></li>
+                            <li style="display:none"><a href="/circomodVisualization">circomodVisualization</a></li>
+                            
+                            
+                            
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            
 
     <div id="DataMenu-Recc-GraphType">
 
@@ -550,7 +600,7 @@
         function findVisibleDivId() {
             // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
-            
+
             // Iterate through the divs
             for (var i = 0; i < divs.length; i++) {
                 // Check if the div is visible
@@ -597,12 +647,12 @@
 
 
 
-        function barChart(data, canvasID) {  
+        function barChart(data, canvasID) {
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
             if (values.length == 0) {
                 BarHide.style.display = "block"
-            } 
+            }
             try {
                 Chart.getChart(canvasID).destroy();
             } catch (e) { }
@@ -646,18 +696,18 @@
 
             });
         };
-        
-        function stackedAreaChart(data, canvasID) {   
+
+        function stackedAreaChart(data, canvasID) {
             var BarHide = document.getElementById("GraphStackedAreaNoData")
             BarHide.style.display = "none"
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
             var dataLength = values[0].length;
             console.log(values)
-            
-            if (dataLength == 0) {       
+
+            if (dataLength == 0) {
                 BarHide.style.display = "block"
-            } 
+            }
             try {
                 Chart.getChart(canvasID).destroy();
             } catch (e) { }
@@ -688,7 +738,7 @@
                         borderColor: "red",
                         data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
                         fill: true
-                     
+
 
                     }],
                 },
@@ -715,9 +765,31 @@
                         }
                     }//end scales                            
                 }//end options 
-                            
+
             });
         };
 
     </script>
-</asp:Content>
+
+        </main>
+        <footer>
+            <div>
+                <a href="/">Home</a> 
+                <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a> 
+            <!--<a href="research/research">Research</a> &#9679; -->
+                <a href="https://www.database.industrialecology.uni-freiburg.de">Data</a>
+                <a href="/odym-recc">Models</a> 
+                <a href="/teaching">Teaching</a>
+                   <a href="/circomod">Circular Economy</a><br/>
+                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">Circular Sankey</a> 
+                <a href="/internal">Internal</a> 
+                <a href="/legal">Legal Notes & Privacy</a>
+                
+            </div>
+            <div>
+                <h3>Industrial Ecology <span>Freiburg 2023</span></h3>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>

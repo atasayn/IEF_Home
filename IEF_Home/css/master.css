@@ -37,11 +37,11 @@ footer {
 
 .logo {
     position: relative;
-    max-width: 1500px;
-    width: 100%;
+    /*max-width: 1500px;*/
+    /*width: 100%;*/
     text-align: right;
-    right: 0;
-    display: block;
+/*    right: 0;
+    display: block;*/
 }
 
 .logo img {
@@ -178,7 +178,7 @@ table td {
 }
 
 header div div div {
-    display: inline-block;
+    /*display: flex;*/
 }
 
 .lang-changer {
@@ -228,7 +228,7 @@ header div div div {
     }
 
     header div div:nth-child(3) {
-        display: none;
+        /*display: none;*/
     }
 }
 
