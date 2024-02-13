@@ -126,6 +126,7 @@
                             success: function (result) {
                                 $('.loader3').hide();
                                 if (region != "") {
+                                    document.getElementById("RegionName4").textContent = region;
                                     stackedAreaChart(result, "line-plot4");
 
                                 }
@@ -143,6 +144,7 @@
                             success: function (result) { 
                                 $('.loader2').hide();
                                 if (region != "") {
+                                    document.getElementById("RegionName3").textContent = region;
                                     barChart(result, "line-plot3")    
                                 }
                             }
@@ -346,6 +348,7 @@ $(window).on('load', function () {
         success: function (result) {
             $('.loader3').hide();
             if (region != "") {
+                document.getElementById("RegionName4").textContent = region;
                 stackedAreaChart(result, "line-plot4");
             }
         }
@@ -361,6 +364,7 @@ $(window).on('load', function () {
         success: function (result) {
             $('.loader2').hide();
             if (region != "") {
+                document.getElementById("RegionName3").textContent = region;
                 barChart(result, "line-plot3")
             }
         }

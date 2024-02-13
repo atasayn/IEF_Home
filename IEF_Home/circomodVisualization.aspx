@@ -1,13 +1,9 @@
 ﻿
-
 <!DOCTYPE html>
 <html>
 <head><title>
 
 </title><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link href="/css/bootstrap.css" rel="stylesheet" /><link href="/css/master.css" rel="stylesheet" /><link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
-
     <style>
 
         html {
@@ -35,24 +31,28 @@
         }
 
         #DataMenu-Recc-GraphType {
-            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-columns: 25% 1fr 1fr 1fr;
             grid-template-areas:
-                'map  line-graph line-graph-pop line-graph-bar '
-                'country-info StackedArea Sec-pro Sec-pro'
-                'control-panel sankeyConfig sankeyConfig sankeyConfig'
-                'control-panel sankey sankey sankey'
-                'control-panel chinaTeaser chinaTeaser chinaTeaser'
-                'control-panel energyServiceCascade energyServiceCascade energyServiceCascade'
-                'control-panel ECD_Decoupling ECD_Decoupling ECD_Decoupling';
+                'map  line-graph line-graph-pop StackedArea '
+                'country-info sankey sankey line-graph-bar'
+                'control-panel energyServiceCascade energyServiceCascade GHG'
+                'control-panel chinaTeaser chinaTeaser  GHG'
+                '. ECD_Decoupling  ECD_Decoupling .';
             display: grid;
             grid-row-gap: 10px;
-            grid-column-gap: 2px;
+            grid-column-gap: 5px;
         }
 
 
+
         #sankeyConfig {
-            grid-area: sankeyConfig;
-            display: flex
+	        display: grid;
+	        margin: 5px;
+	        grid-template-columns: auto auto auto;
+	        padding: 10px;
+	        grid-row-gap: 5px;
+	        grid-column-gap: 5px;
+
         }
 
         .center-text {
@@ -64,19 +64,19 @@
 
         #DropDownListSector, #DropDownListMaterial {
             margin-left: 50px;
-            width: 300px;
+            width: auto;
             border-radius:5px;
             background:#F5F5F5
         }
 
 
-        #RegionName1 {
+        #RegionName1, #RegionName2, #RegionName3, #RegionName4, #RegionName5{
             text-align: right;
             clear: both;
             float: inline-end;
             margin-right: 15px;
             font-size:75%;
-            margin:5px
+            margin:10px
         }
 
         #mapArea {
@@ -84,30 +84,30 @@
             height: fit-content;
             border-radius: 10px;
             grid-area: map;
-            width:465px
+            width:100%
 
         }
         #Graph1Line {
             display: block;
             grid-area: line-graph;
             border-radius: 5px;
-            width: 465px;
-            height: 250px;
+            width: 100%;
+            height: 100%;
         }
 
         #GraphPopulationLine{
             grid-area:line-graph-pop;
             border-radius: 5px;
-            width:465px;
+            width:100%;
+            height:100%;
         }
 
         #GraphPopulationBar{
             grid-area:line-graph-bar;
             border-radius: 5px;
-            width:465px;
-            position:relative;
-            display:flex
-               
+            width:100%;
+            height:100%;
+            position:relative;               
         }
 
         #GraphPopulationBar h2{
@@ -118,7 +118,8 @@
             grid-area:StackedArea;
             position:relative;
             border-radius: 5px;
-            width:465px;
+            width:100%;
+            height:100%
         }
 
         #GraphStackedArea h2{
@@ -127,27 +128,28 @@
 
         #ChinaTeaser{
             grid-area:chinaTeaser;
-            height: 365px;
             display: none;
-            border-radius:5px
+            border-radius:5px;
+            width:auto
         }
 
         #ChinaTeaser img{
-            border-radius:5px
+            border-radius:5px;
+            width:auto
         }
 
         #controlPanel{
             grid-area: control-panel;
-            height:250px;
+            height:auto;
             background:#ffffff;
             border-radius: 5px;
-            width:465px;
+            width:100%;
         }
 
         #countryInfo{
             grid-area: country-info;
-            height:250px;
-            width:465px;
+            height:100%;
+            width:100%;
             background:#ffffff;
             border-radius: 5px;
         }
@@ -188,11 +190,13 @@
             padding-left: 5px;
             display: block;
             position: relative;
-            width: 950px;
-            height: 365px;
+            min-width: 950px;
+            min-height: 365px;
             background: #fff;
             text-align: center;
-            position:relative
+            position:relative;
+            width:auto
+                
         }
 
         #energyServiceCascade{
@@ -204,13 +208,6 @@
 
         }
 
-        #divSelection {
-            grid-area: selection;
-            display: block ruby;
-            width: 950px;
-            height: 80px;
-            align-items: center;
-        }
 
         .svgMap-map-wrapper {
             background: antiquewhite;
@@ -231,7 +228,7 @@
 
         #singleCountryImg {
             display: inline;
-            margin-left: 27px
+            margin-left: 25px
         }
 
         .target_svg {
@@ -242,58 +239,13 @@
             display: block;
         }
 
-        #countryFlag {
-            grid-area: countrySel;
+        #countryFlag,#scenerioSelect,#sectorSelect,#yearSelect,#strategySelect,#materialSelect {
             width: 154px;
             height: 79px;
             border-radius: 5px;
-            background: #FFF;
+            background: #F5F5F5;
         }
 
-        #scenerioSelect {
-            grid-area: scenerioSel;
-            width: 154px;
-            height: 79px;
-            border-radius: 5px;
-            background: #FFF;
-            margin-left: 5px;
-        }
-
-        #sectorSelect {
-            grid-area: sectorSel;
-            width: 154px;
-            height: 79px;
-            border-radius: 5px;
-            background: #FFF;
-            margin-left: 5px;
-        }
-
-        #yearSelect {
-            grid-area: yearSel;
-            width: 154px;
-            height: 79px;
-            border-radius: 5px;
-            background: #FFF;
-            margin-left: 5px;
-        }
-
-        #strategySelect {
-            grid-area: strategySel;
-            width: 154px;
-            height: 79px;
-            border-radius: 5px;
-            background: #FFF;
-            margin-left: 5px;
-        }
-
-        #materialSelect {
-            grid-area: materialSel;
-            width: 154px;
-            height: 79px;
-            border-radius: 5px;
-            background: #FFF;
-            margin-left: 5px;
-        }
 
         #scenerioSelect span:nth-child(2), #sectorSelect span:nth-child(2), #yearSelect span:nth-child(2), #strategySelect span:nth-child(2), #materialSelect span:nth-child(2) {
             display: flex;
@@ -430,24 +382,26 @@
         
         <div id="Graph1Line" style="background-color: #ffffff">
             <canvas id="line-plot1" style="position:absolute"></canvas>
-            <span id="RegionName1" class="label label-danger"></span>
+            <span id="RegionName1" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
         </div>
 
          <div id="GraphPopulationLine" style="background-color: #ffffff">
             <canvas id="line-plot2" style="position:absolute"></canvas>
-            <span id="RegionName2" class="label label-danger"></span>
+            <span id="RegionName2" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
         </div>
 
         <div id="GraphPopulationBar" style="background-color: #ffffff">
             <div class="loader2" style="display:none"></div>
             <canvas id="line-plot3" style="position:absolute"></canvas>
             <h1 id="GraphPopulationBarNoData" style="display:none">No Data</h1>
+            <span id="RegionName3" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
         </div>
 
         <div id="GraphStackedArea" style="background-color: #ffffff">
             <div class="loader3" style="display:none"></div>
             <canvas id="line-plot4" style="position:absolute"></canvas>
-           <h1 id="GraphStackedAreaNoData" style="display:none">No Data</h1>
+            <h1 id="GraphStackedAreaNoData" style="display:none">No Data</h1>
+            <span id="RegionName4" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
         </div>
 
         <div id ="countryInfo">
@@ -473,16 +427,13 @@
             <select id="DropDownListMaterial" required>
                 
             </select>
-            <p  class="w3-panel w3-red" style="margin:20px"><span id='proxyWarning'></span></p>
-        </div>
-
-        <div id="sankeyConfig">
+            
+            <p style="margin:10px"><b>Sankey Configuration:</b></p>
+            <div id="sankeyConfig">
             <div id="countryFlag">
                 <span style="margin: 5px;">Country:</span>
-                <br />
-                <img id="singleCountryImg" style="margin-top:8px;margin-left: 35px;height:25px">
+                <img id="singleCountryImg" style="margin-top:8px;height:20px">             
                 <span id="countryFlagSpan" style="margin-top:10px;"></span>
-
             </div>
             <div id="scenerioSelect">
                 <span style="margin: 5px;">Scenerio:</span>
@@ -507,7 +458,10 @@
             </div>
 
         </div>
+            <p  class="w3-panel w3-red" style="margin:20px"><b>Warning:</b><span id='proxyWarning'></span></p>
+        
 
+        </div>
 
 
         <div style="display: none;">
@@ -570,10 +524,6 @@
 [         ]  [F_o]  [(0,191,255)] [ab] [Fabrication scrap]
 [Fabrication scrap]  [F_p]  [(0,191,255)] [ab] [Production/Manufacturing]
 
-
-
-
-
      </textarea>
         </div>
 
@@ -582,9 +532,15 @@
            <div class="loader" style="display:none"></div>
            <div id="sankeyDivsAll"></div>
         </div>
+
+        <div id="GHG">
+             <canvas id="line-plot5" style="position:absolute"></canvas>
+            <span id="RegionName5" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
+        </div>
+
         <div id="ChinaTeaser" >
-            <img src="Content/ReccPlots/Buildings_China_LED_CE.png" width="800" style="height: 100%; width: auto; border-radius:5px" >  
-            <img src="Content/ReccPlots/Buildings_China_SSP2.png" width="800" style="height: 100%; width: auto;border-radius:5px" > 
+            <img src="Content/ReccPlots/Buildings_China_LED_CE.png" style="border-radius:5px;width:528px" >  
+            <img src="Content/ReccPlots/Buildings_China_SSP2.png" style="border-radius:5px;width:528px" >
         </div>
         <div id="energyServiceCascade" >
             <img id="energyServiceCascadePNG" width:"700" style="height: 100%; width: auto; border-radius:5px"> 
@@ -663,11 +619,11 @@
                     labels: ["SSP2 + Baseline", "SSP2 + Full CE", "LED + Full CE"],
                     datasets: [{
                         label: 'Primary Production',
-                        backgroundColor: "blue",
+                        backgroundColor: "#d55e00",
                         data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)]
                     }, {
                         label: 'Secondary Production',
-                        backgroundColor: "green",
+                        backgroundColor: "#009e73",
                         data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)]
                     }],
                 },
@@ -717,25 +673,25 @@
                     labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
                     datasets: [{
                         label: 'Use Phase',
-                        borderColor: "blue",
+                        borderColor: "#d55e00",
                         data: Array.from({ length: dataLength }, (_, i) => values[0][i]),
                         fill: true
                     },
                     {
                         label: 'Waste Management',
-                        borderColor: "green",
+                        borderColor: "#009e73",
                         data: Array.from({ length: dataLength }, (_, i) => values[1][i]),
                         fill: true
                     },
                     {
                         label: 'Material Production',
-                        borderColor: "yellow",
+                        borderColor: "#0072b2",
                         data: Array.from({ length: dataLength }, (_, i) => values[2][i]),
                         fill: true
                     },
                     {
                         label: 'Energy Supply',
-                        borderColor: "red",
+                        borderColor: "#f0e442",
                         data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
                         fill: true
 
@@ -744,13 +700,19 @@
                 },
                 options: {
                     responsive: true,
-                    title:
-                    {
-                        display: true,
-                        text: 'Chart JS Gridlines - Line Chart'
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'P Baseline GHG for 2016-2060 '
+                        },
                     },
                     scales: {
                         x: {
+                            title: {
+                                display: true,
+                                text: 'Year',
+
+                            },
                             grid: {
                                 display: true,
                                 color: "blue",
@@ -758,6 +720,11 @@
                             }
                         },
                         y: {
+                            title: {
+                                display: true,
+                                text: 'Unknown',
+
+                            },
                             grid: {
                                 display: true,
                                 color: "blue"

@@ -93,19 +93,22 @@ function displayGraph(data, ylength, canvasID, title, yAxisTitle) {
                 {
                     data: data[0],
                     label: "LED",
-                    borderColor: "#ff0000",
-                    fill: false
+                    backgroundColor: "#d55e00",
+                    borderColor: '#9BD0F5'
+,                   fill: false
                 },
                 {
                     data: data[1],
                     label: "SSP1",
-                    borderColor: "#00ff00",
+                    backgroundColor: "#009e73",
+                    borderColor: '#9BD0F5',
                     fill: false
                 },
                 {
                     data: data[2],
                     label: "SSP2",
-                    borderColor: "#0000ff",
+                    backgroundColor: "#0072b2",
+                    borderColor: '#9BD0F5',
                     fill: false
                 }
             ]
