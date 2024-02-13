@@ -392,6 +392,78 @@ namespace IEF_Home
 
             cn.CloseConnection();
             return output;
+        } 
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+
+
+        public Dictionary<string, List<string>> Classification_ResultGHG(string selectedRegion,  string selectedSector)
+        {
+            Dictionary<string, List<string>> output = new Dictionary<string, List<string>>();
+            if (!cn.OpenConnection()) return null;
+           var SelecteScenerioTemp = new List<string> { "Baseline", "HIY-RLU-MSU", "Full CE"};
+            List<string> Baseline = new List<string>();
+            List<string> HIY_RLU_MSU = new List<string>();
+            List<string> Full_CE = new List<string>();
+            List<string> Year = new List<string>();
+
+
+            foreach (var scenerio in SelecteScenerioTemp)
+            {
+           
+                    const string query = @" SELECT sum(d.value),cls.attribute1_oto as aspect_8
+             FROM iedc.data d 
+             LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id 
+             LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+             LEFT JOIN iedc.classification_items AS cls ON d.aspect8 = cls.id
+             INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id 
+             where d.dataset_id = 307 
+             AND d.aspect1 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedRegion)
+             AND d.aspect3 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedSector)
+             AND d.aspect4 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto IN ( 'use phase', 'waste management', 'material production', 'energy supply'))
+             AND d.aspect6 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'SSP2')         
+             AND d.aspect7 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedScenerio)";
+
+                    var cmd = new MySqlCommand(query, cn.Connection);
+                    cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
+                    cmd.Parameters.AddWithValue("@selectedSector", selectedSector);
+                    cmd.Parameters.AddWithValue("@selectedScenerio", scenerio);
+
+
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+                            if (scenerio == SelecteScenerioTemp[0])
+                            {
+                                string BaselineTemp= reader[0].ToString();
+                                Baseline.Add(BaselineTemp);
+                                string YearTemp = reader[1].ToString();
+                                Year.Add(YearTemp);
+                            }
+                            else if (scenerio == SelecteScenerioTemp[1])
+                            {
+                                string HIY_RLU_MSU_Temp = reader[0].ToString();
+                                HIY_RLU_MSU.Add(HIY_RLU_MSU_Temp);
+                            }
+                            else if (scenerio == SelecteScenerioTemp[2])
+                            {
+                                string Full_CE_Temp = reader[0].ToString();
+                                Full_CE.Add(Full_CE_Temp);
+                            };
+                    
+                        output["Baseline"] = Baseline;
+                        output["HIY_RLU_MSU"] = HIY_RLU_MSU;
+                        output["Full_CE"] = Full_CE;
+                        output["Year"] = Year;
+
+                    }
+
+                    reader.Close();
+            }
+            cn.CloseConnection();
+            return output;
         }
 
 

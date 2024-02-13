@@ -19,7 +19,6 @@ $(document).ready(function () {
 
 });
    
-
 $(document).ready(function () {
     $('.DDSelectSankey').click(function(e) {
         var region = $("#DropDownListSankeyRegion").val();

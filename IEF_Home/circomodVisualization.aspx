@@ -122,6 +122,18 @@
             height:100%
         }
 
+        #GHG{
+            grid-area:GHG;
+            position:relative;
+            border-radius: 5px;
+            width:100%;
+            height:100%
+        }
+
+        #GHG > div{
+            border-radius:5px
+        }
+
         #GraphStackedArea h2{
             margin: auto;
         }
@@ -314,8 +326,8 @@
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
     <!-- Add this to your HTML file if using CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-    <script type="text/javascript" src="https://npmcdn.com/chart.js@2.4.0/dist/Chart.bundle.js"></script> 
-
+    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-waterfall.min.js"></script> 
 
 </head>
 <body>
@@ -533,9 +545,8 @@
            <div id="sankeyDivsAll"></div>
         </div>
 
-        <div id="GHG">
+        <div id="GHG"  style="background-color: #ffffff">
              <canvas id="line-plot5" style="position:absolute"></canvas>
-            <span id="RegionName5" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
         </div>
 
         <div id="ChinaTeaser" >
@@ -552,7 +563,7 @@
 </div>
     <script>
 
-
+       
         function findVisibleDivId() {
             // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
@@ -591,7 +602,6 @@
             divsStart = divs[0].id.slice(-4);
             divsEnd = divs[divs.length - 1].id.slice(-4);
             divsCurrent = divsVis.slice(-4);
-            console.log(divsCurrent)
             if (divsVis && divsCurrent > divsStart) {
                 document.getElementById("div_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
                 document.getElementById("span_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
@@ -600,15 +610,12 @@
             }
         }
 
-
-
-
         function barChart(data, canvasID) {
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
-            if (values.length == 0) {
-                BarHide.style.display = "block"
-            }
+            //if (values.length == 0) {
+            //    BarHide.style.display = "block"
+            //}
             try {
                 Chart.getChart(canvasID).destroy();
             } catch (e) { }
@@ -659,11 +666,9 @@
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
             var dataLength = values[0].length;
-            console.log(values)
-
-            if (dataLength == 0) {
-                BarHide.style.display = "block"
-            }
+            //if (dataLength == 0) {
+            //    BarHide.style.display = "block"
+            //}
             try {
                 Chart.getChart(canvasID).destroy();
             } catch (e) { }
@@ -736,6 +741,9 @@
             });
         };
 
+       
+
+        
     </script>
 
         </main>

@@ -150,7 +150,7 @@
                             }
                         });
                         
-                                                     
+         
 
                         // AJAX call for Line Graph for "Per Capita Service Level"
                         if (sectorTemp == "Residential building") {
@@ -168,6 +168,21 @@
                                     }
                                 }
                             });
+
+                            $.ajax({
+                                type: "POST",
+                                url: "circomodService.svc/Classification_ResultGHG",
+                                data: `{"selectedRegion": "${region}","selectedSector": "${sector}"}`,
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (result) {
+                                    console.log(result)
+                                    if (region != "") {
+                                        ghgChart(result, region);
+
+                                    }
+                                }
+                            }); 
                         } else {
                             var sector = "Passenger Vehicles";
                             $.ajax({
@@ -333,7 +348,7 @@ $(window).on('load', function () {
     });
 
     var scenario = "LED";
-    var sector = "Passenger vehicles";
+    var sector = "Residential building";
     var startYear = 2020;
     var endYear = 2030;
     var strategy = "Baseline";
@@ -366,6 +381,20 @@ $(window).on('load', function () {
             if (region != "") {
                 document.getElementById("RegionName3").textContent = region;
                 barChart(result, "line-plot3")
+            }
+        }
+    });
+
+    $.ajax({
+        type: "POST",
+        url: "circomodService.svc/Classification_ResultGHG",
+        data: `{"selectedRegion": "${region}","selectedSector": "${sector}"}`,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            if (region != "") {
+                ghgChart(result,region);
+
             }
         }
     });
@@ -559,3 +588,86 @@ $(document).ready(function () {
         }
     });
 });
+
+function ghgChart(data, region) {
+    anychart.onDocumentReady(function () {
+
+        var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
+        var values = [...new Set(Array.from(res.values()))];
+        console.log(values)
+        try {
+           document.getElementById("GHG").innerHTML = ""
+        } catch (e) { }
+
+        var dataPoints = [
+            { x: "Baseline", y: Number(values[0]).toFixed(1) },
+            { x: "Change1", y: Number(values[1] - values[0]).toFixed(1) },
+            { x: "HIY_RLU_MSU", isTotal: true },
+            { x: "Change2", y: Number(values[2] - values[1]).toFixed() },
+            { x: "Full CE", isTotal: true }
+        ]
+
+        // create a waterfall chart with the data
+        var chart = anychart.waterfall(dataPoints);
+
+        // set the chart title
+        chart.title('GHG between 2020-2060' + "(" + region + ")");
+
+        // set the container id for the waterfall chart
+        chart.container("GHG");
+
+        // draw the resulting chart
+        chart.draw();
+    });
+}
+
+//function ghgChart(data, canvasID) {
+//    var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
+//    var values = [...new Set(Array.from(res.values()))];
+
+//    dataset = [values[0], [values[0], values[1]], values[1], [values[1], values[2]]];
+//    try {
+//        Chart.getChart(canvasID).destroy();
+//    } catch (e) { }
+//    new Chart(document.getElementById(canvasID), {
+//        type: 'bar',
+//        data: {
+//            labels: ["Baseline", "Change", "HIY_RLU_MSU", "Change", "Full CE"],
+//            datasets: [
+//                {
+//                    backgroundColor: ["#d55e00", "#FB0909", "#0072b2", "#FB0909", "#009e73"],
+//                    data: [values[0], [values[0], values[1]], values[1], [values[1], values[2]], values[2]],
+
+//                }, {
+                   
+//                    data: [values[0], [values[0], values[1]], values[1], [values[1], values[2]], values[2]],
+//                    type: 'line',
+
+//                }
+//            ]
+//        },
+//        options: {
+//            locale: "fr-CA",
+//            responsive: true,
+//            maintainAspectRatio: false,
+//            plugins: {
+//                title: {
+//                    display: true,
+//                    text: 'GHG between 2020-2060'
+
+//                },
+
+//            },
+//            plugins: [connectorLines],
+//            scales: {
+//                x: {},
+//                y: {
+//                    title: {
+//                        display: true,
+//                        text: 'Mt of CO2-eg / year',
+//                    },
+//                }
+//            }
+//        }
+//    });
+//}
