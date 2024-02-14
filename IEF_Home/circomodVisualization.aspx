@@ -107,7 +107,7 @@
             border-radius: 5px;
             width:100%;
             height:100%;
-            position:relative;               
+                       
         }
 
         #GraphPopulationBar h2{
@@ -116,7 +116,7 @@
 
         #GraphStackedArea{
             grid-area:StackedArea;
-            position:relative;
+           
             border-radius: 5px;
             width:100%;
             height:100%

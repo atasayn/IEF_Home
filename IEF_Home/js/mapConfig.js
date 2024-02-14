@@ -591,33 +591,32 @@ $(document).ready(function () {
 
 function ghgChart(data, region) {
   
+    var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
+    var values = [...new Set(Array.from(res.values()))];
+    console.log(values)
+    try {
+        document.getElementById("GHG").innerHTML = ""
+    } catch (e) { }
 
-        var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
-        var values = [...new Set(Array.from(res.values()))];
-        console.log(values)
-        try {
-           document.getElementById("GHG").innerHTML = ""
-        } catch (e) { }
+    var dataPoints = [
+        { x: "Baseline", y: Number(values[0]).toFixed(1) },
+        { x: "Change1", y: Number(values[1] - values[0]).toFixed(1) },
+        { x: "HIY_RLU_MSU", isTotal: true },
+        { x: "Change2", y: Number(values[2] - values[1]).toFixed() },
+        { x: "Full CE", isTotal: true }
+    ]
 
-        var dataPoints = [
-            { x: "Baseline", y: Number(values[0]).toFixed(1) },
-            { x: "Change1", y: Number(values[1] - values[0]).toFixed(1) },
-            { x: "HIY_RLU_MSU", isTotal: true },
-            { x: "Change2", y: Number(values[2] - values[1]).toFixed() },
-            { x: "Full CE", isTotal: true }
-        ]
+    // create a waterfall chart with the data
+    var chart = anychart.waterfall(dataPoints);
 
-        // create a waterfall chart with the data
-        var chart = anychart.waterfall(dataPoints);
+    // set the chart title
+    chart.title('GHG between 2020-2060' + "(" + region + ")");
 
-        // set the chart title
-        chart.title('GHG between 2020-2060' + "(" + region + ")");
+    // set the container id for the waterfall chart
+    chart.container("GHG");
 
-        // set the container id for the waterfall chart
-        chart.container("GHG");
-
-        // draw the resulting chart
-        chart.draw();
+    // draw the resulting chart
+    chart.draw();
     
 }
 
