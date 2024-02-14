@@ -97,7 +97,7 @@ i {
 }
 /* scrollbar style */
 
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
     width: 8px;
 }
 
@@ -108,15 +108,15 @@ i {
 ::-webkit-scrollbar-thumb {
     background: transparent;
     border-radius: 5px;
-}
+}*/
 
-.main-container:hover::-webkit-scrollbar-thumb {
+/*.main-container:hover::-webkit-scrollbar-thumb {
     background: var(--normal-purple-color);
 }
 
 .secondary-container:hover::-webkit-scrollbar-thumb {
     background: var(--normal-orange-color);
-}
+}*/
 /* Reusable classes */
 
 .place-items-center {
