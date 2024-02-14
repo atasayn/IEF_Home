@@ -590,7 +590,7 @@ $(document).ready(function () {
 });
 
 function ghgChart(data, region) {
-    anychart.onDocumentReady(function () {
+  
 
         var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
         var values = [...new Set(Array.from(res.values()))];
@@ -618,7 +618,7 @@ function ghgChart(data, region) {
 
         // draw the resulting chart
         chart.draw();
-    });
+    
 }
 
 //function ghgChart(data, canvasID) {
