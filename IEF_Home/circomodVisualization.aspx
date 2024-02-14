@@ -198,7 +198,7 @@
             grid-area: sankey;
             padding: 5px;
             border-radius: 5px;
-            width:auto;
+            width:100%;
             min-height: 365px;
             background: #fff;
             text-align: center;
