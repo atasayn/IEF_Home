@@ -85,7 +85,7 @@
                         var material = $('#DropDownListMaterial').val();
                         // China Teaser
                         if (region == "China" && sectorTemp == "Residential building") {
-                            $('#ChinaTeaser').css('display', 'block ruby');
+                            $('#ChinaTeaser').css('display', 'contents');
                         } else {
                             $('#ChinaTeaser').css('display', 'none');
                         }

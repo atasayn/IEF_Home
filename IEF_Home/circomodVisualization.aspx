@@ -546,8 +546,8 @@
         </div>
 
         <div id="ChinaTeaser" >
-            <img src="Content/ReccPlots/Buildings_China_LED_CE.png" style="border-radius:5px;width:528px" >  
-            <img src="Content/ReccPlots/Buildings_China_SSP2.png" style="border-radius:5px;width:528px" >
+            <img src="Content/ReccPlots/Buildings_China_LED_CE.png" style="border-radius:5px;width:auto" >  
+            <img src="Content/ReccPlots/Buildings_China_SSP2.png" style="border-radius:5px;width:auto" >
         </div>
         <div id="energyServiceCascade" >
             <img id="energyServiceCascadePNG" width:"700" style="height: 100%; width: auto; border-radius:5px"> 
