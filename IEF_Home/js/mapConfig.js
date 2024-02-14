@@ -599,10 +599,10 @@ function ghgChart(data, region) {
     } catch (e) { }
 
     var dataPoints = [
-        { x: "Baseline", y: Number(values[0]).toFixed(1) },
-        { x: "Change1", y: Number(values[1] - values[0]).toFixed(1) },
+        { x: "Baseline", y: Number(values[0].toString().replace(",", ".")).toFixed(1) },
+        { x: "Change1", y: Number(values[1].toString().replace(",", ".") - values[0].toString().replace(",", ".")).toFixed(1) },
         { x: "HIY_RLU_MSU", isTotal: true },
-        { x: "Change2", y: Number(values[2] - values[1]).toFixed() },
+        { x: "Change2", y: Number(values[2].toString().replace(",", ".") - values[1].toString().replace(",", ".")).toFixed() },
         { x: "Full CE", isTotal: true }
     ]
 
