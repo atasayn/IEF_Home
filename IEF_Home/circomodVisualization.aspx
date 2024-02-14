@@ -196,18 +196,14 @@
 
         #sankey {
             grid-area: sankey;
-            display: block;
             padding: 5px;
             border-radius: 5px;
-            padding-left: 5px;
-            display: block;
-            position: relative;
-            min-width: 950px;
+            width:auto;
             min-height: 365px;
             background: #fff;
             text-align: center;
             position:relative;
-            width:auto
+            overflow:hidden;
                 
         }
 
@@ -239,8 +235,7 @@
 
 
         #singleCountryImg {
-            display: inline;
-            margin-left: 25px
+            margin: auto
         }
 
         .target_svg {
@@ -252,14 +247,14 @@
         }
 
         #countryFlag,#scenerioSelect,#sectorSelect,#yearSelect,#strategySelect,#materialSelect {
-            width: 154px;
+            width: auto;
             height: 79px;
             border-radius: 5px;
             background: #F5F5F5;
         }
 
 
-        #scenerioSelect span:nth-child(2), #sectorSelect span:nth-child(2), #yearSelect span:nth-child(2), #strategySelect span:nth-child(2), #materialSelect span:nth-child(2) {
+        #countryFlagSpan ,#scenerioSelect span:nth-child(2), #sectorSelect span:nth-child(2), #yearSelect span:nth-child(2), #strategySelect span:nth-child(2), #materialSelect span:nth-child(2) {
             display: flex;
             text-align: center;
             flex-direction: column;
