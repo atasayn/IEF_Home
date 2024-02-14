@@ -84,28 +84,28 @@
             height: fit-content;
             border-radius: 10px;
             grid-area: map;
-            width:100%
+            width:auto
 
         }
         #Graph1Line {
             display: block;
             grid-area: line-graph;
             border-radius: 5px;
-            width: 100%;
+            width: auto;
             height: 100%;
         }
 
         #GraphPopulationLine{
             grid-area:line-graph-pop;
             border-radius: 5px;
-            width:100%;
+            width:auto;
             height:100%;
         }
 
         #GraphPopulationBar{
             grid-area:line-graph-bar;
             border-radius: 5px;
-            width:100%;
+            width:auto;
             height:100%;
                        
         }
@@ -118,7 +118,7 @@
             grid-area:StackedArea;
            
             border-radius: 5px;
-            width:100%;
+            width:auto;
             height:100%
         }
 
@@ -126,7 +126,7 @@
             grid-area:GHG;
             position:relative;
             border-radius: 5px;
-            width:100%;
+            width:auto;
             height:100%
         }
 
@@ -155,13 +155,13 @@
             height:auto;
             background:#ffffff;
             border-radius: 5px;
-            width:100%;
+            width:auto;
         }
 
         #countryInfo{
             grid-area: country-info;
             height:100%;
-            width:100%;
+            width:auto;
             background:#ffffff;
             border-radius: 5px;
         }
@@ -198,12 +198,13 @@
             grid-area: sankey;
             padding: 5px;
             border-radius: 5px;
-            width:100%;
+            width:auto;
             min-height: 365px;
             background: #fff;
             text-align: center;
             position:relative;
             overflow:hidden;
+            pointer-events:none
                 
         }
 
