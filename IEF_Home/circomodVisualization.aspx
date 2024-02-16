@@ -33,19 +33,17 @@
         #DataMenu-Recc-GraphType {
             grid-template-columns: 25% 1fr 1fr 1fr;
             grid-template-areas:
-                'map  line-graph line-graph-pop StackedArea '
-                'country-info sankey sankey line-graph-bar'
-                'control-panel energyServiceCascade energyServiceCascade GHG'
-                'control-panel chinaTeaser chinaTeaser  GHG'
-                '. ECD_Decoupling  ECD_Decoupling .';
+                'map           line-graph           line-graph-pop StackedArea '
+                'country-info  sankeyBaseline       sankeyBaseline GHG'
+                'control-panel sankeyFullCE         sankeyFullCE   line-graph-bar'
+                '.  ECD_Decoupling       ECD_Decoupling chinaTeaser'
+                '.             energyServiceCascade energyServiceCascade chinaTeaser';
             display: grid;
             grid-row-gap: 10px;
             grid-column-gap: 5px;
         }
 
-
-
-        #sankeyConfig {
+        #sankeyConfig, #sankeyConfigLower {
 	        display: grid;
 	        margin: 5px;
 	        grid-template-columns: auto auto auto;
@@ -178,6 +176,7 @@
         button {
             float: right;
             margin: 5px;
+            pointer-events:auto;
         }
 
         
@@ -195,7 +194,7 @@
         }
 
         #sankey {
-            grid-area: sankey;
+            grid-area: sankeyBaseline;
             padding: 5px;
             border-radius: 5px;
             width:auto;
@@ -235,8 +234,10 @@
         }
 
 
-        #singleCountryImg {
-            margin: auto
+        #singleCountryImg, #singleCountryImgLower {
+            margin: auto;
+            height:30px;
+            border:outset;
         }
 
         .target_svg {
@@ -253,9 +254,24 @@
             border-radius: 5px;
             background: #F5F5F5;
         }
+        #countryFlagLower,#scenerioSelectLower,#sectorSelectLower,#yearSelectLower,#strategySelectLower,#materialSelectLower {
+            width: auto;
+            height: 79px;
+            border-radius: 5px;
+            background: #F5F5F5;
+        }
 
 
         #countryFlagSpan ,#scenerioSelect span:nth-child(2), #sectorSelect span:nth-child(2), #yearSelect span:nth-child(2), #strategySelect span:nth-child(2), #materialSelect span:nth-child(2) {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top:10px
+        }
+        
+        #countryFlagSpanLower ,#scenerioSelectLower span:nth-child(2), #sectorSelectLower span:nth-child(2), #yearSelectLower span:nth-child(2), #strategySelectLower span:nth-child(2), #materialSelectLower span:nth-child(2) {
             display: flex;
             text-align: center;
             flex-direction: column;
@@ -280,7 +296,6 @@
           right: 0;
         }
 
-        
         /* Safari */
         @-webkit-keyframes spin {
           0% { -webkit-transform: rotate(0deg); }
@@ -389,31 +404,44 @@
         </div>
         
         <div id="Graph1Line" style="background-color: #ffffff">
+            <span id="Graph1LineNoData" style="display:none">No Data</span>
             <canvas id="line-plot1" style="position:absolute"></canvas>
-            <span id="RegionName1" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
+            <div id="NoDataline-plot1" style="margin=auto;display:none;width: 100%;height: 100%;">
+                 <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
+            </div>
+        <%--    <span id="RegionName1" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>--%>
         </div>
 
          <div id="GraphPopulationLine" style="background-color: #ffffff">
             <canvas id="line-plot2" style="position:absolute"></canvas>
-            <span id="RegionName2" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
+             <div id="NoDataline-plot2" style="margin=auto;display:none;width:100%;height: 100%;">
+                 <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
+            </div>
+            <%--<span id="RegionName2" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>--%>
         </div>
 
         <div id="GraphPopulationBar" style="background-color: #ffffff">
             <div class="loader2" style="display:none"></div>
             <canvas id="line-plot3" style="position:absolute"></canvas>
-            <h1 id="GraphPopulationBarNoData" style="display:none">No Data</h1>
+           <div id="NoDataline-plot3" style="margin=auto;display:none;width:100%;height: 100%;">
+                 <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
+            </div>
             <span id="RegionName3" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
         </div>
 
         <div id="GraphStackedArea" style="background-color: #ffffff">
             <div class="loader3" style="display:none"></div>
             <canvas id="line-plot4" style="position:absolute"></canvas>
-            <h1 id="GraphStackedAreaNoData" style="display:none">No Data</h1>
+             <div id="NoDataline-plot4" style="margin=auto;display:none;width:100%;height: 100%;">
+                 <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
+            </div>
             <span id="RegionName4" class="label label-danger" style="background-color:#b6dbff;line-height:2;font-weight:500;color:black"></span>
         </div>
 
         <div id ="countryInfo">
            <p style="margin:10px"><b>Country Info:</b></p>
+            <span id='countryInfoCountryName' style="margin-left:50px"></span>
+            <span id='proxyName' style="margin-left:50px"></span>
            <p style="margin:10px">Population:</p>
             <span id='gdp' style="margin-left:50px"></span>
             <p style="margin:10px">GDP per capita (current US$):</p>
@@ -436,7 +464,11 @@
                 
             </select>
             
-            <p style="margin:10px"><b>Sankey Configuration:</b></p>
+            <p style="margin:10px"><b>Sankey:</b></p>
+            <p style="margin-left:50px"><b>Upper Sankey Diagram:</b></p>
+            <p style="margin-left:50px">&#8226 Sankey diagram for steel flows in [selected sector], [selected region], [selected year], SSP2 scenario, standard recycling</p>
+            <p id="steelUpperValue" style="margin-left:50px">&#8226 Reference flow for final consumption of steel (blue): </p>
+            <p id="GhGUpperValue"style="margin-left:50px">&#8226 Reference flow for GHG emissions (green):</p>
             <div id="sankeyConfig">
             <div id="countryFlag">
                 <span style="margin: 5px;">Country:</span>
@@ -465,11 +497,44 @@
                 <span id="materialSpan"></span>
             </div>
 
-        </div>
-            <p  class="w3-panel w3-red" style="margin:20px"><b>Warning:</b><span id='proxyWarning'></span></p>
-        
+            </div>
+            <p style="margin-left:50px"><b>Lower Sankey Diagram:</b></p>
+            <p style="margin-left:50px">&#8226 Sankey diagram for steel flows in [selected sector], [selected region], [selected year] <text style="color:red">LED scenario, full circular economy.</text></p>
+            <p style="margin-left:50px">&#8226 Reference flow for final consumption of steel (blue): </p>
+            <p style="margin-left:50px">&#8226 Reference flow for GHG emissions (green):</p>
+           <div id="sankeyConfigLower">
+            <div id="countryFlagLower">
+                <span style="margin: 5px;">Country:</span>
+                <img id="singleCountryImgLower" style="margin-top:8px;height:20px">             
+                <span id="countryFlagSpanLower" style="margin-top:10px;"></span>
+            </div>
+            <div id="scenerioSelectLower">
+                <span style="margin: 5px;">Scenerio:</span>
+                <span id="scenerioSpanLower"></span>
+            </div>
 
+            <div id="sectorSelectLower">
+                <span style="margin: 5px;">Sector:</span>
+                <span id="sectorSpanLower"></span>
+            </div>
+            <div id="yearSelectLower">
+                <span style="margin: 5px;">Year:</span>
+                <span id="yearSpanLower"></span>
+            </div>
+            <div id="strategySelectLower">
+                <span style="margin: 5px;">Strategy:</span>
+                <span id="strategySpanLower"></span>
+            </div>
+            <div id="materialSelectLower">
+                <span style="margin: 5px;">Material:</span>
+                <span id="materialSpanLower"></span>
+            </div>
+               <p  class="w3-panel w3-red" style="margin:20px"><b>Warning:</b><span id='proxyWarning'></span></p>
         </div>
+            
+        
+        </div>
+        
 
 
         <div style="display: none;">
@@ -541,8 +606,16 @@
            <div id="sankeyDivsAll"></div>
         </div>
 
+        <div id="sankeyFullCE">
+         <%--  <div class="loader" style="display:none"></div>--%>
+           <div id="sankeyDivsAllFullCE"></div>
+        </div>
+
         <div id="GHG"  style="background-color: #ffffff">
              <canvas id="line-plot5" style="position:absolute"></canvas>
+            <div id="NoDataline-plot5" style="margin=auto;display:none;width:100%;height: 100%;">
+                 <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
+            </div>
         </div>
 
         <div id="ChinaTeaser" >
@@ -563,46 +636,79 @@
         function findVisibleDivId() {
             // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
-
-            // Iterate through the divs
+            // Get the element with the ID steelUpperValue
+            var steelUpperValueElement = document.getElementById("steelUpperValue");
+            // Get all spans inside steelUpperValueElement
+            var spans = steelUpperValueElement.getElementsByTagName("span");
+             // Get the element with the ID GhGUpperValue
+            var steelUpperValueElement = document.getElementById("GhGUpperValue");
+            // Get all spans inside GhGUpperValue
+            var spansGhg = steelUpperValueElement.getElementsByTagName("span");
+            // Iterate through the divs 
+            var visibleElements = [];
             for (var i = 0; i < divs.length; i++) {
                 // Check if the div is visible
                 if (divs[i].style.visibility === 'visible') {
                     // Return the id of the visible div
-                    divsVis = divs[i].id
-                    return divsVis;
-
+                    visibleElements.push({
+                        divsVis: divs[i].id,
+                        spansSteelUpperValueId: spans[i].id,
+                        spansGhgUpperValueId: spansGhg[i].id
+                    });
                 }
             }
-
+            return visibleElements;
         }
 
 
         function navigateFront() {
-            findVisibleDivId();
+            // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
+            var visibleElements = findVisibleDivId(); // Store the return value in a variable
+            var divsVis = visibleElements[0]["divsVis"]; // Access the first element of the array and then its properties
+            var spansSteelUpperValueId = visibleElements[0]["spansSteelUpperValueId"];
+            var spansGhgUpperValueId = visibleElements[0]["spansGhgUpperValueId"];
             divsStart = divs[0].id.slice(-4);
             divsEnd = divs[divs.length - 1].id.slice(-4);
             divsCurrent = divsVis.slice(-4);
+            console.log(divsVis)
+            console.log(divsStart, divsEnd, divsCurrent)
             if (divsVis && divsCurrent < divsEnd) {
+                // Visible
                 document.getElementById("div_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
                 document.getElementById("span_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
+                document.getElementById("steelUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block';
+                document.getElementById("ghgUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block';
+                // Hidden
                 document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
                 document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                document.getElementById("steelUpper_span" + divsVis.slice(-4)).style.display = 'none';
+                document.getElementById("ghgUpper_span" + divsVis.slice(-4)).style.display = 'none';                document.getElementById("steelUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
+
             }
         }
 
         function navigateBack() {
-            findVisibleDivId();
+            // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
+            var visibleElements = findVisibleDivId(); // Store the return value in a variable
+            var divsVis = visibleElements[0]["divsVis"]; // Access the first element of the array and then its properties
+            var spansSteelUpperValueId = visibleElements[0]["spansSteelUpperValueId"];
+            var spansGhgUpperValueId = visibleElements[0]["spansGhgUpperValueId"];
             divsStart = divs[0].id.slice(-4);
             divsEnd = divs[divs.length - 1].id.slice(-4);
             divsCurrent = divsVis.slice(-4);
             if (divsVis && divsCurrent > divsStart) {
+                // Visible
                 document.getElementById("div_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
                 document.getElementById("span_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
-                document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                document.getElementById("steelUpper_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
+                document.getElementById("ghgUpper_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
+                // Hidden
+                document.getElementById("div_svg" + divsVis.slice(-4)).style.display = 'block';
+                document.getElementById("span_svg" + divsVis.slice(-4)).style.display = 'block';
+                document.getElementById("steelUpper_span" + divsVis.slice(-4)).style.display = 'none';
+                document.getElementById("ghgUpper_span" + divsVis.slice(-4)).style.display = 'none';   
             }
         }
 
@@ -657,8 +763,7 @@
         };
 
         function stackedAreaChart(data, canvasID) {
-            var BarHide = document.getElementById("GraphStackedAreaNoData")
-            BarHide.style.display = "none"
+            var canvasElement = document.getElementById("NoData" + canvasID);
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
             var dataLength = values[0].length;
@@ -668,73 +773,77 @@
             try {
                 Chart.getChart(canvasID).destroy();
             } catch (e) { }
-            new Chart(document.getElementById(canvasID), {
-                type: 'line',
-                data: {
-                    labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
-                    datasets: [{
-                        label: 'Use Phase',
-                        borderColor: "#d55e00",
-                        data: Array.from({ length: dataLength }, (_, i) => values[0][i]),
-                        fill: true
-                    },
-                    {
-                        label: 'Waste Management',
-                        borderColor: "#009e73",
-                        data: Array.from({ length: dataLength }, (_, i) => values[1][i]),
-                        fill: true
-                    },
-                    {
-                        label: 'Material Production',
-                        borderColor: "#0072b2",
-                        data: Array.from({ length: dataLength }, (_, i) => values[2][i]),
-                        fill: true
-                    },
-                    {
-                        label: 'Energy Supply',
-                        borderColor: "#f0e442",
-                        data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
-                        fill: true
-
-
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'P Baseline GHG for 2016-2060 '
+            if (data.every(subarray => subarray.length === 0)) {
+                canvasElement.style.display = "flex"
+            } else {
+                new Chart(document.getElementById(canvasID), {
+                    type: 'line',
+                    data: {
+                        labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
+                        datasets: [{
+                            label: 'Use Phase',
+                            borderColor: "#d55e00",
+                            data: Array.from({ length: dataLength }, (_, i) => values[0][i]),
+                            fill: true
                         },
+                        {
+                            label: 'Waste Management',
+                            borderColor: "#009e73",
+                            data: Array.from({ length: dataLength }, (_, i) => values[1][i]),
+                            fill: true
+                        },
+                        {
+                            label: 'Material Production',
+                            borderColor: "#0072b2",
+                            data: Array.from({ length: dataLength }, (_, i) => values[2][i]),
+                            fill: true
+                        },
+                        {
+                            label: 'Energy Supply',
+                            borderColor: "#f0e442",
+                            data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
+                            fill: true
+
+
+                        }],
                     },
-                    scales: {
-                        x: {
+                    options: {
+                        responsive: true,
+                        plugins: {
                             title: {
                                 display: true,
-                                text: 'Year',
-
+                                text: 'Baseline GHG for 2016-2060 '
                             },
-                            grid: {
-                                display: true,
-                                color: "blue",
-                                lineWidth: 2
-                            }
                         },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Unknown',
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Year',
 
+                                },
+                                grid: {
+                                    display: true,
+                                    color: "blue",
+                                    lineWidth: 2
+                                }
                             },
-                            grid: {
-                                display: true,
-                                color: "blue"
-                            }
-                        }
-                    }//end scales                            
-                }//end options 
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Unknown',
 
-            });
+                                },
+                                grid: {
+                                    display: true,
+                                    color: "blue"
+                                }
+                            }
+                        }//end scales                            
+                    }//end options 
+
+                });
+            }
         };
 
        

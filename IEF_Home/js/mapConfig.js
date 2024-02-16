@@ -1,5 +1,4 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-
     var idValue = "svgMap-map-country-DE";
     var url = [];  
     new svgMap({
@@ -8,9 +7,7 @@
         initialZoom: 1.1,
         initialPan: { x: 400, y: 0 },
         data: {
-
             values: {
-
             }
         },
         onGetTooltip: function (tooltipDiv, countryID, countryValues) {
@@ -18,54 +15,48 @@
             var flagContainer = document.getElementById("countryFlag");
             var imgElement = document.getElementById("singleCountryImg");
             var countryName = document.getElementById("countryFlagSpan");
-            var energyServicePNG = document.getElementById("energyServiceCascadePNG")
-            var decouplingService = document.getElementById("ecdDecouplingPNG")
+            var energyServicePNG = document.getElementById("energyServiceCascadePNG");
+            var decouplingService = document.getElementById("ecdDecouplingPNG");
             $('.svgMap-country').off('click').on('click', function (e) {
-                // Delete inside of the divs for a new start
-
-
-                // display:none for "NoData"
-                document.getElementById("GraphPopulationBarNoData").style.display = "none";
-                document.getElementById("GraphStackedAreaNoData").style.display = "none";
+                // Reset Divs
+                var proxyWarning = document.getElementById("proxyWarning");
                 proxyWarning.innerHTML = ""
-
-
-                //Fetch json for ISO codes 
+                flagContainer.children.innerHTML = ""
+                // Map blue fill over country selection
+                document.getElementById(idValue).setAttribute('fill', null)
+                idValue = e.target.id;
+                document.getElementById(idValue).setAttribute('fill', 'blue');
+                //Fetch json for ISO codes --> Get CountryName,Dataname for missing country,Flag,EnergyCascade png names
                 const filePath = "json/countryProxy.json";
                 fetch(filePath)
                     .then(response => response.json())
                     .then(function (response) {
+                        var countryInfoCountryName = document.getElementById("countryInfoCountryName");
+                        var proxyName = document.getElementById("proxyName");
                         const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase()); 
                         var name = svgMap.prototype.countries[countryID]
                         if (findFlagAndData.Flag == true) {
-                            var proxyWarning = document.getElementById("proxyWarning");
                             countryName.innerHTML = name + " (" + findFlagAndData.Data + ")";
                             var region = findFlagAndData.Data;
                             proxyWarning.innerHTML = "Sorry, no data for <span style='color:red'>" + name + "</span>, here, the data for the proxy region<span style='color:green'> " + findFlagAndData.Data + "</span> are shown"
+                            countryInfoCountryName.innerHTML = name;
+                            proxyName.innerHTML = "Proxy name: " + findFlagAndData.Data
                             var findFlagAndDataPNG = findFlagAndData.Png
-                            console.log(findFlagAndData)
                             return { region: region, findFlagAndDataPNG: findFlagAndDataPNG };
                         } else {
                             countryName.innerHTML = name;
+                            countryInfoCountryName.innerHTML = name;
                             var region = name;
                             var findFlagAndDataPNG = findFlagAndData.Png
-                            console.log(findFlagAndData)
                             return { region: region, findFlagAndDataPNG: findFlagAndDataPNG };
                         }
                     })
                     .then(function (regionObj) {
                     var region = regionObj.region;
                     var findFlagAndDataPNG = regionObj.findFlagAndDataPNG;
-                    //Create divs for multiple sankey graphs for the buttons
-                    flagContainer.children.innerHTML = ""
-                    imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + countryID.toLowerCase() + ".svg";
-                    imgElement.setAttribute("height", 30)
-                    imgElement.style.border = "outset";
-
-                    document.getElementById(idValue).setAttribute('fill', null)
-                    idValue = e.target.id;
-                    document.getElementById(idValue).setAttribute('fill', 'blue');
-
+                    // Bind Flag to "Sankey Configuration"
+                        imgElement.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + countryID.toLowerCase() + ".svg";
+                    // Get Fetch API for "Country Info" div
                     const url1 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/SP.POP.TOTL?format=json"; //GDP
                     const url2 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/NY.GDP.MKTP.CD?format=json"; //Population
                     const url3 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/EN.POP.DNST?format=json"; //PopulationDensity
@@ -76,13 +67,14 @@
                     url.forEach((element) =>
                         fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
                     )
-                    // Sankey Parameters
+                    // Set Parameters
                     var scenario = "LED";
                     var startYear = 2020;
                     var endYear = 2060;
+                    var sectorTemp = $('#DropDownListSector').val();
+                    var material = $('#DropDownListMaterial').val();
                     // Sankey Sector Parameter
-                        var sectorTemp = $('#DropDownListSector').val();
-                        var material = $('#DropDownListMaterial').val();
+
                         // China Teaser
                         if (region == "China" && sectorTemp == "Residential building") {
                             $('#ChinaTeaser').css('display', 'contents');
@@ -90,10 +82,8 @@
                             $('#ChinaTeaser').css('display', 'none');
                         }
 
-                        console.log(sectorTemp)
                         // Energy Cascade and Decoupling PNG
                         if (sectorTemp == "Residential building") {
-                            console.log("shhttttttttttttttttttt")
                             energyServicePNG.src = "Content/ReccPlots/" + findFlagAndDataPNG
                             decouplingService.src = "Content/ReccPlots/ECD_Decoupling_Overview.png"
                         } else {
@@ -110,7 +100,8 @@
                             contentType: "application/json; charset=utf-8",
                             success: function (result) {
                                 if (region != "") {
-                                    displayGraph(result["d"], 2062-2015, "line-plot2", `Population`, 'Total Population');
+                                    /*document.getElementById("RegionName2").textContent = region;*/
+                                    displayGraph(result["d"], "line-plot2", `Total Population by scenerio(million)`, 'Total Population');
 
                                 }
                             }
@@ -152,22 +143,24 @@
                         
          
 
-                        // AJAX call for Line Graph for "Per Capita Service Level"
+                        // AJAX call for Line Graph for "Per Capita Service Level SECTOR:Passenger Vehicle, REGION:Choose"
                         if (sectorTemp == "Residential building") {
                             var sector = sectorTemp;
+
                             $.ajax({
                                 type: "POST",
-                                url: "circomodService.svc/Classification_ResultItemBuilding",
-                                data: `{"SELECTedRegion": "${region}"}`,
+                                url: "circomodService.svc/Classification_ResultItemBuildingRes",
+                                data: `{"selectedRegion": "${region}"}`,
                                 dataType: "json",
                                 contentType: "application/json; charset=utf-8",
                                 success: function (result) {
                                     if (region != "") {
-                                        document.getElementById("RegionName1").textContent = region;
-                                        displayGraph(result["d"], 86, "line-plot1", `Per Capita Service Level `, 'm²/cap ');
+                                        /*document.getElementById("RegionName1").textContent = region;*/
+                                        displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
                                     }
                                 }
                             });
+
 
                             $.ajax({
                                 type: "POST",
@@ -183,6 +176,7 @@
                                     }
                                 }
                             }); 
+
                         } else {
                             var sector = "Passenger Vehicles";
                             $.ajax({
@@ -194,7 +188,12 @@
                                 success: function (result) {
                                     if (region != "") {
                                         document.getElementById("RegionName1").textContent = region;
-                                        displayGraph(result["d"], 86, "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+                                        if (result == '') {
+                                            document.getElementById("Graph1LineNoData").style.display = "block"
+                                        } else {
+                                            displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+                                        }
+                                        
                                     }
                                 }
                             });
@@ -269,7 +268,7 @@
                         let divSvg = newDiv.id
                         let divChart = chartParagraph.id;
                         $('.loader').css("display", "block");
-                        // Sankey AJAX call
+                        // Sankey Upper AJAX call
                         $.ajax({
                             url: "circomodService.svc/Classification_SankeyItem",
                             type: "POST",
@@ -315,7 +314,45 @@
 });
 $(window).on('load', function () {
 
+    var countryInfoCountryName = document.getElementById("countryInfoCountryName");
+    // Fetch Json
+    const filePath = "json/countryProxy.json";
+    fetch(filePath)
+        .then(response => response.json())
+        .then(function (response){
+        countryID = "DE"
+        const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase());
+            var energyServicePNG = document.getElementById("energyServiceCascadePNG");
+            var decouplingService = document.getElementById("ecdDecouplingPNG")
+            energyServicePNG.src = "Content/ReccPlots/" + findFlagAndData.Png
+            decouplingService.src = "Content/ReccPlots/ECD_Decoupling_Overview.png"
+
+        });
+
     var region = "Germany";
+    var scenario = "LED";
+    var sector = "Residential building";
+    var startYear = 2020;
+    var endYear = 2030;
+    var strategy = "Baseline";
+    var material = "Steel";
+    countryInfoCountryName.innerHTML = region
+    // Ajax call for Per Capita Service Level, SECTOR:Passenger Vehicle, REGION:Choose
+    $.ajax({
+        type: "POST",
+        url: "circomodService.svc/Classification_ResultItemBuildingRes",
+        data: `{"selectedRegion": "${region}"}`,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            if (region != "") {
+/*                document.getElementById("RegionName1").textContent = region;*/
+                displayGraph(result["d"],"line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+            }
+        }
+    });
+
+
     // AJAX call for Population
     $.ajax({
         type: "POST",
@@ -325,46 +362,9 @@ $(window).on('load', function () {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             if (region != "") {
-                document.getElementById("RegionName2").textContent = region;
-                displayGraph(result["d"], 2062 - 2015, "line-plot2", `Population`, 'Total Population');
+/*                document.getElementById("RegionName2").textContent = region;*/
+                displayGraph(result["d"],"line-plot2", `Total Population by scenerio(million)`, 'Total Population');
 
-            }
-        }
-    });
-
-
-    $.ajax({
-        type: "POST",
-        url: "circomodService.svc/Classification_ResultItem",
-        data: `{"SELECTedRegion": "${region}"}`,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            if (region != "") {
-                document.getElementById("RegionName1").textContent = region;
-                displayGraph(result["d"], 86, "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
-            }
-        }
-    });
-
-    var scenario = "LED";
-    var sector = "Residential building";
-    var startYear = 2020;
-    var endYear = 2030;
-    var strategy = "Baseline";
-    var material = "Steel";
-    $('.loader3').css("display", "block");
-    $.ajax({
-        type: "POST",
-        url: "circomodService.svc/Classification_ResultAreaStacked",
-        data: `{"selectedRegion": "${region}","selectedSector": "${sector}"}`,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            $('.loader3').hide();
-            if (region != "") {
-                document.getElementById("RegionName4").textContent = region;
-                stackedAreaChart(result, "line-plot4");
             }
         }
     });
@@ -385,6 +385,24 @@ $(window).on('load', function () {
         }
     });
 
+
+    $('.loader3').css("display", "block");
+    $.ajax({
+        type: "POST",
+        url: "circomodService.svc/Classification_ResultAreaStacked",
+        data: `{"selectedRegion": "${region}","selectedSector": "${sector}"}`,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            $('.loader3').hide();
+            if (region != "") {
+                document.getElementById("RegionName4").textContent = region;
+                stackedAreaChart(result, "line-plot4");
+            }
+        }
+    });
+
+
     $.ajax({
         type: "POST",
         url: "circomodService.svc/Classification_ResultGHG",
@@ -399,12 +417,20 @@ $(window).on('load', function () {
         }
     });
 
+    // Upper Sankey Config
     document.getElementById("scenerioSpan").innerHTML = scenario
     document.getElementById("sectorSpan").innerHTML = sector
     document.getElementById("yearSpan").innerHTML = startYear + "-" + endYear
     document.getElementById("strategySpan").innerHTML = strategy
     document.getElementById("materialSpan").innerHTML = material
     var graphElement = document.getElementById("sankeyDivsAll").style.display;
+
+    // Lower Sankey Config
+    document.getElementById("scenerioSpanLower").innerHTML = scenario
+    document.getElementById("sectorSpanLower").innerHTML = sector
+    document.getElementById("yearSpanLower").innerHTML = startYear + "-" + endYear
+    document.getElementById("strategySpanLower").innerHTML = strategy
+    document.getElementById("materialSpanLower").innerHTML = material
 
     if (graphElement === "") {
         document.getElementById("sankeyDivsAll").style.display = 'block';
@@ -428,7 +454,8 @@ $(window).on('load', function () {
     buttonDiv.appendChild(previousLink);
     buttonDiv.appendChild(nextLink);
     $('.loader').css("display", "block");
-    for (let year = startYear; year <= endYear; year++) {
+    for (let year = startYear; year <= endYear; year += 10) {
+     
         var newDiv = document.createElement("div");
         newDiv.id = "div_svg" + year;
         newDiv.style.position = 'absolute';
@@ -464,6 +491,7 @@ $(window).on('load', function () {
         let divId = "target_svg" + year
         let divSvg = newDiv.id
         let divChart = chartParagraph.id;
+        var spans = "";
 
         $.ajax({
             url: "circomodService.svc/Classification_SankeyItem",
@@ -474,12 +502,20 @@ $(window).on('load', function () {
             contentType: "application/json; charset=utf-8",
 
             success: function (data) {
+                console.log(data)
                 $('.loader').hide();
                 var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
                 var flowarea = $("#input_flow_data").val();
                 var text = flowarea;
                 text = text.replace("F_a", res.get("query_Fa"));
                 text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
+                // Reference flow for final consumption of steel (blue): Mt/yr
+                var container = document.getElementById('steelUpperValue');
+                spans = "<b><span id='"+"steelUpper_span"+ year +"'" + "style='display:none'>" + Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))) + " Mt/yr</span></b>";              
+                if (year == startYear) {
+                    spans = spans.replace("display:none","display:block")
+                }
+                container.innerHTML += spans
                 text = text.replace("F_c", res.get("query_Fc"));
                 text = text.replace("F_d", res.get("query_Fc"));
                 text = text.replace("F_e", res.get("query_Fc"));
@@ -491,6 +527,13 @@ $(window).on('load', function () {
                 text = text.replace("F_k", res.get("query_Fk") / 50);
                 text = text.replace("F_l", res.get("query_Fl") / 50);
                 text = text.replace("F_m", res.get("query_Fm") / 50);
+                // Reference flow for GHG emissions (green): Mt/yr
+                var container = document.getElementById('GhGUpperValue');
+                spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + res.get("query_Fm") / 50 + " Mt/yr</span></b>";
+                if (year == startYear) {
+                    spans = spans.replace("display:none", "display:block")
+                }
+                container.innerHTML += spans
                 text = text.replace("F_n", res.get("query_Fn"));
                 text = text.replace("F_o", res.get("query_Fn"));
                 text = text.replace("F_p", res.get("query_Fn"));
@@ -517,6 +560,22 @@ $(window).on('load', function () {
     var name = "Germany"
     countryName.innerText = name;
     countryName.id = "countryFlagSpan"
+
+    var flagContainerLower = document.getElementById("countryFlagLower");
+    var imgElementLower = document.getElementById("singleCountryImgLower");
+    var countryNameLower = document.getElementById("countryFlagSpanLower");
+    flagContainerLower.children.innerHTML = ""
+    var countryCode = "de";
+
+
+    // Set the src attribute of the img tag
+    imgElementLower.src = "https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@latest/svg/" + "de" + ".svg";
+    imgElementLower.setAttribute("height", 30)
+    imgElementLower.style.border = "outset";
+
+    var name = "Germany"
+    countryNameLower.innerText = name;
+    countryNameLower.id = "countryFlagSpan"
 
     document.getElementById("svgMap-map-country-DE").setAttribute('fill', 'blue');
 
@@ -590,34 +649,33 @@ $(document).ready(function () {
 });
 
 function ghgChart(data, region) {
-  
+    var canvasElement = document.getElementById("NoData" + canvasID);
     var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
     var values = [...new Set(Array.from(res.values()))];
-    console.log(values)
     try {
         document.getElementById("GHG").innerHTML = ""
     } catch (e) { }
 
-    var dataPoints = [
-        { x: "Baseline", y: Number(values[0].toString().replace(",", ".")).toFixed(1) },
-        { x: "Change1", y: Number(values[1].toString().replace(",", ".") - values[0].toString().replace(",", ".")).toFixed(1) },
-        { x: "HIY_RLU_MSU", isTotal: true },
-        { x: "Change2", y: Number(values[2].toString().replace(",", ".") - values[1].toString().replace(",", ".")).toFixed() },
-        { x: "Full CE", isTotal: true }
-    ]
-
-    // create a waterfall chart with the data
-    var chart = anychart.waterfall(dataPoints);
-
-    // set the chart title
-    chart.title('GHG between 2020-2060' + "(" + region + ")");
-
-    // set the container id for the waterfall chart
-    chart.container("GHG");
-
-    // draw the resulting chart
-    chart.draw();
-    
+    if (data.every(subarray => subarray.length === 0)) {
+        canvasElement.style.display = "flex"
+    } else {
+        canvasElement.style.display = "none"
+        var dataPoints = [
+            { x: "Baseline", y: Number(values[0].toString().replace(",", ".")).toFixed(1) },
+            { x: "Change1", y: Number(values[1].toString().replace(",", ".") - values[0].toString().replace(",", ".")).toFixed(1) },
+            { x: "HIY_RLU_MSU", isTotal: true },
+            { x: "Change2", y: Number(values[2].toString().replace(",", ".") - values[1].toString().replace(",", ".")).toFixed() },
+            { x: "Full CE", isTotal: true }
+        ]
+        // create a waterfall chart with the data
+        var chart = anychart.waterfall(dataPoints);
+        // set the chart title
+        chart.title('GHG between 2020-2060' + "(" + region + ")");
+        // set the container id for the waterfall chart
+        chart.container("GHG");
+        // draw the resulting chart
+        chart.draw();
+    }
 }
 
 //function ghgChart(data, canvasID) {

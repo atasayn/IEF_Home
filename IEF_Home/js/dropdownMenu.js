@@ -78,71 +78,77 @@ $(document).ready(function () {
     });
 
 });
-function displayGraph(data, ylength, canvasID, title, yAxisTitle) {
-
-    let labels = Array.from({ length: ylength }, (v, i) => 2015 + i);
+function displayGraph(data, canvasID, title, yAxisTitle) {
+    var canvasElement = document.getElementById("NoData" + canvasID);
     try {
         Chart.getChart(canvasID).destroy();
     } catch (e) { }
-    new Chart(document.getElementById(canvasID), {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    data: data[0],
-                    label: "LED",
-                    backgroundColor: "#d55e00",
-                    borderColor: '#9BD0F5'
-,                   fill: false
-                },
-                {
-                    data: data[1],
-                    label: "SSP1",
-                    backgroundColor: "#009e73",
-                    borderColor: '#9BD0F5',
-                    fill: false
-                },
-                {
-                    data: data[2],
-                    label: "SSP2",
-                    backgroundColor: "#0072b2",
-                    borderColor: '#9BD0F5',
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            locale: "fr-CA",
-            plugins: {
-                title: {
-                    display: true,
-                    text: title,
-                }
+
+    if (data.every(subarray => subarray.length === 0)) {
+        canvasElement.style.display = "flex"
+    } else {
+        canvasElement.style.display = "none"
+        let labels = data[1];
+        new Chart(document.getElementById(canvasID), {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        data: data[0],
+                        label: "LED",
+                        backgroundColor: "#1b9e77",
+                        borderColor: '#1b9e77'
+                        , fill: false
+                    },
+                    {
+                        data: data[2],
+                        label: "SSP1",
+                        backgroundColor: "#d95f02",
+                        borderColor: '#d95f02',
+                        fill: false
+                    },
+                    {
+                        data: data[4],
+                        label: "SSP2",
+                        backgroundColor: "#7570b3",
+                        borderColor: '#7570b3',
+                        fill: false
+                    }
+                ]
             },
-            scales: {
-      
-                y: {
+            options: {
+                locale: "fr-CA",
+                plugins: {
                     title: {
                         display: true,
-                        text: yAxisTitle,
-
-                    },
+                        text: title,
+                    }
                 },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Year',
+                scales: {
 
+                    y: {
+                        title: {
+                            display: true,
+                            text: yAxisTitle,
+
+                        },
                     },
-                    ticks: {
-                        autoSkip: true,
-                        maxTicksLimit: 20
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Year',
+
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 20
+                        }
                     }
                 }
             }
-        }
-    });
+        });
+    }
 }
 
 

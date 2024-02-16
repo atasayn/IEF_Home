@@ -104,11 +104,12 @@ namespace IEF_Home
             foreach (var SELECTedScenario in new List<string> { "LED", "SSP1", "SSP2" })
             {
                 var scenarioArray = new List<string>();
-                const string query = @"SELECT d.value
+                var yearArray = new List<string>();
+                const string query = @"SELECT d.value,cls.attribute1_oto AS aspect_4
             FROM iedc.data d
             LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
             LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
-            LEFT JOIN iedc.classification_items ci4 ON d.aspect4 = ci4.id
+            LEFT JOIN iedc.classification_items cls ON d.aspect4 = cls.id
             INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
             WHERE d.dataset_id = 304
             AND d.aspect5 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
@@ -121,9 +122,59 @@ namespace IEF_Home
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    scenarioArray.Add(reader[0].ToString().Replace(",", "."));
+
+                    scenarioArray.Add(reader["value"].ToString().Replace(",", "."));
+                    yearArray.Add(reader["aspect_4"].ToString().Replace(",", "."));
+
                 }
                 output.Add(scenarioArray);
+                output.Add(yearArray);
+
+                reader.Close();
+            }
+            cn.CloseConnection();
+            return output;
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<List<string>> Classification_ResultItemBuildingRes(string selectedRegion)
+        {
+
+            var output = new List<List<string>>();
+            if (!cn.OpenConnection()) return null;
+            foreach (var selectedScenario in new List<string> { "LED", "SSP1", "SSP2" })
+            {
+                var scenarioArray = new List<string>();
+                var yearArray = new List<string>();
+                const string query = @"SELECT d.value,cls.attribute1_oto AS aspect_6 
+            FROM iedc.data d
+            LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
+            LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+            LEFT JOIN iedc.classification_items cls ON d.aspect6 = cls.id
+            INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
+            WHERE d.dataset_id = 303
+            AND d.aspect5 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'Baseline')
+            AND d.aspect1 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedRegion)
+            AND d.aspect3 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'use phase')
+            AND d.aspect2 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'Residential building')
+            AND d.aspect4 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedScenario)";
+                var cmd = new MySqlCommand(query, cn.Connection);
+
+                cmd.Parameters.AddWithValue("@selectedScenario", selectedScenario);
+                cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
+
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    scenarioArray.Add(reader["value"].ToString().Replace(",", "."));
+                    yearArray.Add(reader["aspect_6"].ToString().Replace(",", "."));
+
+                }
+                output.Add(scenarioArray);
+                output.Add(yearArray);
+
                 reader.Close();
             }
             cn.CloseConnection();
@@ -141,11 +192,12 @@ namespace IEF_Home
             foreach (var SELECTedScenario in new List<string> { "LED", "SSP1", "SSP2" })
             {
                 var scenarioArray = new List<string>();
-                const string query = @"SELECT d.value
+                var yearArray = new List<string>();
+                const string query = @"SELECT d.value,cls.attribute1_oto AS aspect_1
             FROM iedc.data d
             LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
             LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
-            LEFT JOIN iedc.classification_items ci4 ON d.aspect4 = ci4.id
+            LEFT JOIN iedc.classification_items cls ON d.aspect1 = cls.id
             INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
             WHERE d.dataset_id = 302
             AND d.aspect3 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
@@ -158,51 +210,61 @@ namespace IEF_Home
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    scenarioArray.Add(reader[0].ToString().Replace(",", "."));
+
+                    scenarioArray.Add(reader["value"].ToString().Replace(",", "."));
+                    yearArray.Add(reader["aspect_1"].ToString().Replace(",", "."));
+
                 }
                 output.Add(scenarioArray);
+                output.Add(yearArray);
                 reader.Close();
             }
             cn.CloseConnection();
             return output;
         }
 
-        [OperationContract]
-        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        //[OperationContract]
+        //[WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
 
-        public List<List<string>> Classification_ResultItemBuilding(string SELECTedRegion)
-        {
+        //public List<List<string>> Classification_ResultItemBuilding(string SELECTedRegion)
+        //{
 
-            var output = new List<List<string>>();
-            if (!cn.OpenConnection()) return null;
-            foreach (var SELECTedScenario in new List<string> { "LED", "SSP1", "SSP2" })
-            {
-                var scenarioArray = new List<string>();
-                const string query = @"SELECT d.value * 1e+6 AS multiplied_value
-            FROM iedc.data d
-            LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
-            LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
-            LEFT JOIN iedc.classification_items ci4 ON d.aspect4 = ci4.id
-            INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-            WHERE d.dataset_id = 303
-            AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
-            AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)";
-                var cmd = new MySqlCommand(query, cn.Connection);
+        //    var output = new List<List<string>>();
+        //    if (!cn.OpenConnection()) return null;
+        //    foreach (var SELECTedScenario in new List<string> { "LED", "SSP1", "SSP2" })
+        //    {
+        //        var scenarioArray = new List<string>();
+        //        var yearArray = new List<string>();
+        //        const string query = @"SELECT d.value * 1e+6 AS multiplied_value
+        //    FROM iedc.data d
+        //    LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
+        //    LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+        //    LEFT JOIN iedc.classification_items ci4 ON d.aspect4 = ci4.id
+        //    INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
+        //    WHERE d.dataset_id = 303
+        //    AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
+        //    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)";
+        //        var cmd = new MySqlCommand(query, cn.Connection);
 
-                cmd.Parameters.AddWithValue("@SELECTedScenario", SELECTedScenario);
-                cmd.Parameters.AddWithValue("@SELECTedRegion", SELECTedRegion);
+        //        cmd.Parameters.AddWithValue("@SELECTedScenario", SELECTedScenario);
+        //        cmd.Parameters.AddWithValue("@SELECTedRegion", SELECTedRegion);
 
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    scenarioArray.Add(reader[0].ToString().Replace(",", "."));
-                }
-                output.Add(scenarioArray);
-                reader.Close();
-            }
-            cn.CloseConnection();
-            return output;
-        }
+        //        var reader = cmd.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+
+        //            scenarioArray.Add(reader["value"].ToString().Replace(",", "."));
+        //            yearArray.Add(reader["aspect_6"].ToString().Replace(",", "."));
+
+        //        }
+        //        output.Add(scenarioArray);
+        //        output.Add(yearArray);
+
+        //        reader.Close();
+        //    }
+        //    cn.CloseConnection();
+        //    return output;
+        //}
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
