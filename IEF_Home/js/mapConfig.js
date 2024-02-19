@@ -876,18 +876,18 @@ function fetchCountryData(url, popSpan, gdpSpan, populationDensitySpan,url1,url2
                 if (data[1][n]["value"] != null && url==url1) {
                     var value = data[1][n]["value"]
                     var date = data[1][n]["date"]
-                    gdpSpan.innerHTML = "&#8226" + " " + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " (" + date + ")"
+                    gdpSpan.innerHTML = "&#8226" + " " + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " (" + date + ")"
                     break
                 } else if (data[1][n]["value"] != null && url == url2) {
                     var value = data[1][n]["value"]
                     var date = data[1][n]["date"]
-                    popSpan.innerHTML = "&#8226" + " " + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " (" + date + ")"
+                    popSpan.innerHTML = "&#8226" + " " + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")+ " (" + date + ")"
                     break
 
                 } else if (data[1][n]["value"] != null && url == url3) {
                     var value = data[1][n]["value"]
                     var date = data[1][n]["date"]
-                    populationDensitySpan.innerHTML = "&#8226" + " " + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " (" + date + ")"
+                    populationDensitySpan.innerHTML = "&#8226" + " " + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " (" + date + ")"
                     break
                 }
                 n++             
