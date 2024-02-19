@@ -484,7 +484,7 @@ namespace IEF_Home
              AND d.aspect1 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedRegion)
              AND d.aspect3 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedSector)
              AND d.aspect4 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto IN ( 'use phase', 'waste management', 'material production', 'energy supply'))
-             AND d.aspect6 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'SSP2')         
+             AND d.aspect6 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'LED')         
              AND d.aspect7 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedScenerio)";
 
                     var cmd = new MySqlCommand(query, cn.Connection);
