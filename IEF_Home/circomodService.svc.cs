@@ -328,7 +328,7 @@ namespace IEF_Home
                                     valuePri_SSP2_Baseline.Add(datavalue);                                
                                 }else if (i == 1)
                                 {
-                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
+                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");sssssss
                                     valuePri_SSP2_FullCE.Add(datavalue);
                                 }
                                 else if (i == 2)
@@ -418,22 +418,22 @@ namespace IEF_Home
 
                         if (process == SelectedProcessTemp[0])
                         {                          
-                            string Use_face = reader[0].ToString();
+                            string Use_face = reader[0].ToString().Replace(",", ".");
                             valueUse_face.Add(Use_face);                       
                         }
                         else if (process == SelectedProcessTemp[1])
                         {
-                            string Waste_manegement = reader[0].ToString();
+                            string Waste_manegement = reader[0].ToString().Replace(",", ".");
                             valueWaste_manegement.Add(Waste_manegement);
                         }
                         else if (process == SelectedProcessTemp[2])
                         {
-                            string Material_production = reader[0].ToString();
+                            string Material_production = reader[0].ToString().Replace(",", ".");
                             valuePriMaterial_production.Add(Material_production);
                         }
                         else if (process == SelectedProcessTemp[3])
                         {
-                            string Energy_supply = reader[0].ToString();
+                            string Energy_supply = reader[0].ToString().Replace(",", ".");
                             string yearsTemp = reader[1].ToString();
                             valuePriEnergy_supply.Add(Energy_supply);
                             years.Add(yearsTemp);
