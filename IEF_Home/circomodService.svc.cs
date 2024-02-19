@@ -328,7 +328,7 @@ namespace IEF_Home
                                     valuePri_SSP2_Baseline.Add(datavalue);                                
                                 }else if (i == 1)
                                 {
-                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");sssssss
+                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
                                     valuePri_SSP2_FullCE.Add(datavalue);
                                 }
                                 else if (i == 2)
