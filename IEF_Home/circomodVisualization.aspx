@@ -87,6 +87,7 @@
         }
         #Graph1Line {
             display: block;
+            position:relative;
             grid-area: line-graph;
             border-radius: 5px;
             width: auto;
@@ -95,6 +96,7 @@
 
         #GraphPopulationLine{
             grid-area:line-graph-pop;
+            position:relative;
             border-radius: 5px;
             width:auto;
             height:100%;
@@ -102,19 +104,20 @@
 
         #GraphPopulationBar{
             grid-area:line-graph-bar;
+            position:relative;
             border-radius: 5px;
             width:auto;
             height:100%;
                        
         }
 
-        #GraphPopulationBar h2{
+/*        #GraphPopulationBar h2{
             margin: auto;
-        }
+        }*/
 
         #GraphStackedArea{
             grid-area:StackedArea;
-           
+            position:relative;
             border-radius: 5px;
             width:auto;
             height:100%
@@ -293,20 +296,22 @@
             margin-top:10px
         }
 
-        .loader,.loader2,.loader3 {
+        .loader,.loader1,.loader2,.loader3,.loader4,.loader5,.loader6 {
           border: 16px solid #f3f3f3;
           border-radius: 50%;
           border-top: 16px solid #3498db;
-          width: 50px;
-          height: 50px;
+          width: 30px;
+          height: 0px;
           -webkit-animation: spin 2s linear infinite; /* Safari */
           animation: spin 2s linear infinite;
           margin: auto;
-          top: 0;
-          bottom: 0;
           position: absolute;
-          left: 0;
-          right: 0;
+          right:0
+
+        }
+
+        #GHG > div > div{
+            border-radius: 50%;
         }
 
         /* Safari */
@@ -328,7 +333,7 @@
         
     </style>
     
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
@@ -417,6 +422,7 @@
         </div>
         
         <div id="Graph1Line" style="background-color: #ffffff">
+            <div class="loader1" style="display:none"></div>
             <canvas id="line-plot1" style="position:absolute"></canvas>
             <div id="NoDataline-plot1" style="margin=auto;display:none;width: 100%;height: 100%;">
                  <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
@@ -424,6 +430,7 @@
         </div>
 
          <div id="GraphPopulationLine" style="background-color: #ffffff">
+             <div class="loader2" style="display:none"></div>
             <canvas id="line-plot2" style="position:absolute"></canvas>
              <div id="NoDataline-plot2" style="margin=auto;display:none;width:100%;height: 100%;">
                  <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
@@ -431,7 +438,7 @@
         </div>
 
         <div id="GraphPopulationBar" style="background-color: #ffffff">
-            <div class="loader2" style="display:none"></div>
+            <div class="loader3" style="display:none"></div>
             <canvas id="line-plot3" style="position:absolute"></canvas>
            <div id="NoDataline-plot3" style="margin=auto;display:none;width:100%;height: 100%;">
                  <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
@@ -439,7 +446,7 @@
         </div>
 
         <div id="GraphStackedArea" style="background-color: #ffffff">
-            <div class="loader3" style="display:none"></div>
+            <div class="loader4" style="display:none"></div>
             <canvas id="line-plot4" style="position:absolute"></canvas>
              <div id="NoDataline-plot4" style="margin=auto;display:none;width:100%;height: 100%;">
                  <span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>
@@ -462,13 +469,16 @@
         <div id="controlPanel">
             <p style="margin:10px"><b>Sector:</b></p>               
             <select id="DropDownListSector" required>
-                <option value="" disabled selected>Please select sector</option>
-                <option value="Residential building">Residential building</option>
+                <option value="" disabled >Please select sector</option>
+                <option value="Residential building"selected>Residential building</option>
                 <option value="Passenger vehicles">Passenger vehicles</option>
             </select>
 
             <p style="margin:10px"><b>Material:</b></p>               
-            <select id="DropDownListMaterial" required>
+            <select id="DropDownListMaterial" required>             
+                <option value="Steel"selected>Steel</option>
+                <option value="Cement">Cement</option>
+                <option value="Wood">Wood</option>
                 
             </select>
             
@@ -615,15 +625,13 @@
         </div>
 
         <div id="sankeyFullCE">
-         <%--  <div class="loader" style="display:none"></div>--%>
+        <div class="loader6" style="display:none"></div>
            <div id="sankeyDivsAllFullCE"></div>
         </div>
 
         <div id="GHG"  style="background-color: #ffffff">
+            <div class="loader5" style="display:none"></div>
              <canvas id="line-plot5" style="position:absolute"></canvas>
-            <div id="NoDataline-plot5" style="margin=auto;display:none;width:100%;height: 100%;">
-                 <%--<span style="line-height:2;font-weight:500;color:black;font-size:25px;margin:auto">No Data</span>--%>
-            </div>
         </div>
 
         <div id="ChinaTeaser" >
@@ -642,38 +650,36 @@
 
        
         function findVisibleDivId() {
-            // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
-            // Get the element with the ID steelUpperValue
-            var steelUpperValueElement = document.getElementById("steelUpperValue");
-            // Get all spans inside steelUpperValueElement
-            var spans = steelUpperValueElement.getElementsByTagName("span");
-             // Get the element with the ID GhGUpperValue
-            var steelUpperValueElement = document.getElementById("GhGUpperValue");
-            // Get all spans inside GhGUpperValue
-            var spansGhg = steelUpperValueElement.getElementsByTagName("span");
-            // Iterate through the divs 
-            var visibleElements = [];
             for (var i = 0; i < divs.length; i++) {
                 // Check if the div is visible
                 if (divs[i].style.visibility === 'visible') {
                     // Return the id of the visible div
-                    visibleElements.push({
-                        divsVis: divs[i].id,
-                        spansSteelUpperValueId: spans[i].id,
-                        spansGhgUpperValueId: spansGhg[i].id
-                    });
+                    divsVis = divs[i].id
+                    return divsVis;
                 }
             }
-            return visibleElements;
+           
+        }
+
+        function findVisibleDivIdLower() {
+            var divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
+            for (var i = 0; i < divs.length; i++) {
+                // Check if the div is visible
+                if (divs[i].style.visibility === 'visible') {
+                    // Return the id of the visible div
+                    divsVis = divs[i].id
+                    return divsVis;
+                }
+            }
+
         }
 
 
         function navigateFront() {
+            findVisibleDivId(); 
             // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
-            var visibleElements = findVisibleDivId(); // Store the return value in a variable
-            var divsVis = visibleElements[0]["divsVis"]; // Access the first element of the array and then its properties
             divsStart = divs[0].id.slice(-4);
             divsEnd = divs[divs.length - 1].id.slice(-4);
             divsCurrent = divsVis.slice(-4);
@@ -681,35 +687,80 @@
                 // Visible
                 document.getElementById("div_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
                 document.getElementById("span_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
-                document.getElementById("steelUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block';
-                document.getElementById("ghgUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block';
+                document.getElementById("steelUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block'
+                document.getElementById("ghgUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block'
                 // Hidden
                 document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
                 document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
                 document.getElementById("steelUpper_span" + divsVis.slice(-4)).style.display = 'none';
-                document.getElementById("ghgUpper_span" + divsVis.slice(-4)).style.display = 'none';                
+                document.getElementById("ghgUpper_span" + divsVis.slice(-4)).style.display = 'none';        
+                
             }
         }
 
         function navigateBack() {
+            findVisibleDivId();
             // Get all div elements with id starting with "div_svg"
             var divs = document.querySelectorAll('[id^="div_svg"]');
-            var visibleElements = findVisibleDivId(); // Store the return value in a variable
-            var divsVis = visibleElements[0]["divsVis"]; // Access the first element of the array and then its properties
             divsStart = divs[0].id.slice(-4);
             divsEnd = divs[divs.length - 1].id.slice(-4);
             divsCurrent = divsVis.slice(-4);
             if (divsVis && divsCurrent > divsStart) {
+      
                 // Visible
                 document.getElementById("div_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
                 document.getElementById("span_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
                 document.getElementById("steelUpper_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
                 document.getElementById("ghgUpper_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
+
                 // Hidden
                 document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden'; 
                 document.getElementById("steelUpper_span" + divsVis.slice(-4)).style.display = 'none';
-                document.getElementById("ghgUpper_span" + divsVis.slice(-4)).style.display = 'none';   
+                document.getElementById("ghgUpper_span" + divsVis.slice(-4)).style.display = 'none'; 
+            }
+        }
+
+        function navigateFrontLower() {
+                findVisibleDivIdLower();
+                // Get all div elements with id starting with "div_svg"
+                var divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
+                divsStart = divs[0].id.slice(-4);
+                divsEnd = divs[divs.length - 1].id.slice(-4);
+                divsCurrent = divsVis.slice(-4);
+            if (divsVis && divsCurrent < divsEnd) {
+                // Visible
+                document.getElementById("Lowerdiv_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
+                document.getElementById("Lowerspan_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
+                document.getElementById("steelLower_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block'
+                document.getElementById("ghgLower_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block'
+                // Hidden
+                document.getElementById("Lowerdiv_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                document.getElementById("Lowerspan_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                document.getElementById("steelLower_span" + divsVis.slice(-4)).style.display = 'none';
+                document.getElementById("ghgLower_span" + divsVis.slice(-4)).style.display = 'none';
+            }
+        }
+
+        function navigateBackLower() {
+            findVisibleDivIdLower();
+            // Get all div elements with id starting with "div_svg"
+            var divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
+            divsStart = divs[0].id.slice(-4);
+            divsEnd = divs[divs.length - 1].id.slice(-4);
+            divsCurrent = divsVis.slice(-4);
+            if (divsVis && divsCurrent > divsStart) {
+                // Visible
+                document.getElementById("Lowerdiv_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
+                document.getElementById("Lowerspan_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
+                document.getElementById("steelLower_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
+                document.getElementById("ghgLower_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
+
+                // Hidden
+                document.getElementById("Lowerdiv_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                document.getElementById("Lowerspan_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
+                document.getElementById("steelLower_span" + divsVis.slice(-4)).style.display = 'none';
+                document.getElementById("ghgLower_span" + divsVis.slice(-4)).style.display = 'none'; 
             }
         }
 
@@ -739,7 +790,7 @@
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Cumulative steel production 2020-2060, [region], [sector]'
+                            text: 'Cumulative steel production 2020-2060, [region], [sector], [material]'
                         },
                     },
                     scales: {
@@ -764,15 +815,15 @@
             var canvasElement = document.getElementById("NoData" + canvasID);
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
-            var dataLength = values[0].length;
-
             try {
                 Chart.getChart(canvasID).destroy();
             } catch (e) { }
-            console.log(data)
-            if (values[0].length == 0) {
+            if (values.length === 0) {
+                console.log(canvasElement)
                 canvasElement.style.display = "flex"
             } else {
+                canvasElement.style.display = "none"
+                var dataLength = values[0].length;
                 new Chart(document.getElementById(canvasID), {
                     type: 'line',
                     data: {
