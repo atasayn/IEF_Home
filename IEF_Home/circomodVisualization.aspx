@@ -131,8 +131,8 @@
             height:100%
         }
 
-        #GHG > div{
-            border-radius:5px
+        #GHG div:nth-child(2){
+            position:static
         }
 
         #GraphStackedArea h2{
@@ -355,8 +355,9 @@
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
     <!-- Add this to your HTML file if using CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-waterfall.min.js"></script> 
+        <script type="text/javascript" src="js/anychart-core.min.js"></script>
+    <script type="text/javascript" src="js/anychart-waterfall.min.js"></script>
+
 
 </head>
 <body>
@@ -765,50 +766,56 @@
         }
 
         function barChart(data, canvasID) {
+            var canvasElement = document.getElementById("NoData" + canvasID);
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
             try {
                 Chart.getChart(canvasID).destroy();
             } catch (e) { }
-            new Chart(document.getElementById(canvasID), {
-
-                type: 'bar',
-                data: {
-                    labels: ["SSP2 Baseline", "Slow+Close", "Narrow + Slow + Close"],
-                    datasets: [{
-                        label: 'Primary Production',
-                        backgroundColor: "#a6cee3",
-                        data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)]
-                    }, {
-                        label: 'Secondary Production',
-                        backgroundColor: "#1f78b4",
-                        data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)]
-                    }],
-                },
-                options: {
-                    locale: "fr-CA",
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Cumulative steel production 2020-2060, [region], [sector], [material]'
-                        },
+            if (values.length === 0) {
+                console.log(canvasElement)
+                canvasElement.style.display = "flex"
+            } else {
+                canvasElement.style.display = "none"
+                new Chart(document.getElementById(canvasID), {
+                    type: 'bar',
+                    data: {
+                        labels: ["SSP2 Baseline", "Slow+Close", "Narrow + Slow + Close"],
+                        datasets: [{
+                            label: 'Primary Production',
+                            backgroundColor: "#a6cee3",
+                            data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)]
+                        }, {
+                            label: 'Secondary Production',
+                            backgroundColor: "#1f78b4",
+                            data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)]
+                        }],
                     },
-                    scales: {
-                        x: {
-                            stacked: true,
-                        },
-                        y: {
-                            stacked: true,
+                    options: {
+                        locale: "fr-CA",
+                        plugins: {
                             title: {
                                 display: true,
-                                text: 'Mt',
-
+                                text: 'Cumulative steel production 2020-2060, [region], [sector], [material]'
                             },
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                            },
+                            y: {
+                                stacked: true,
+                                title: {
+                                    display: true,
+                                    text: 'Mt',
+
+                                },
+                            }
                         }
                     }
-                }
 
-            });
+                });
+            }
         };
 
         function stackedAreaChart(data, canvasID) {

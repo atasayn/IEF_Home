@@ -132,6 +132,8 @@
     <Content Include="iedc.aspx" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
+    <Content Include="js\anychart-core.min.js" />
+    <Content Include="js\anychart-waterfall.min.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\chart.min.js" />
     <Content Include="js\dropdownMenu.js" />
