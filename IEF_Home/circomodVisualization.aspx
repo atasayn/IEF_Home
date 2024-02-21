@@ -131,9 +131,6 @@
             height:100%
         }
 
-        #GHG div:nth-child(2){
-            position:static
-        }
 
         #GraphStackedArea h2{
             margin: auto;
@@ -262,6 +259,9 @@
 
         .visible {
             display: block;
+        }
+        .anychart-credits{
+            position:absolute   
         }
 
         #countryFlag,#scenerioSelect,#sectorSelect,#yearSelect,#strategySelect,#materialSelect {
