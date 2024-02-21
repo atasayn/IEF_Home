@@ -22,7 +22,7 @@
             var imgElementLower = document.getElementById("singleCountryImgLower");
             var countryNameLower = document.getElementById("countryFlagSpanLower");
             $('.svgMap-country').off('click').on('click', function (e) {
-                // Reset Divs
+
                 var proxyWarning = document.getElementById("proxyWarning");
                 proxyWarning.innerHTML = ""
                 // Upper Sankey Reset Div
@@ -31,24 +31,22 @@
                 var ghgSpanUpperContainer = document.getElementById("GhGUpperValue");
                 var steelSpanLowerContainer = document.getElementById("steelLowerValue");
                 var ghgSpanLowerContainer = document.getElementById("GhGLowerValue");
-                // Find all <b> tags within the <p> element and convert to an array
-                var upperTagsSteel = Array.from(steelSpanUpperContainer.getElementsByTagName("b"));
-                var upperTagsGhg = Array.from(ghgSpanUpperContainer.getElementsByTagName("b"));
-                var lowerTagsSteel = Array.from(steelSpanLowerContainer.getElementsByTagName("b"));
-                var lowerTagsGhg = Array.from(ghgSpanLowerContainer.getElementsByTagName("b"));
-                // Remove each <b> tag from the array
-                upperTagsSteel.forEach(function (boldTag) {
-                    boldTag.parentNode.removeChild(boldTag);
-                });
-                upperTagsGhg.forEach(function (boldTag) {
-                    boldTag.parentNode.removeChild(boldTag);
-                });
-                lowerTagsSteel.forEach(function (boldTag) {
-                    boldTag.parentNode.removeChild(boldTag);
-                });
-                lowerTagsGhg.forEach(function (boldTag) {
-                    boldTag.parentNode.removeChild(boldTag);
-                });                             
+
+                // Function to remove <b> tags within a container
+                function removeBoldTags(container) {
+                    var boldTags = container.getElementsByTagName("b");
+                    while (boldTags.length > 0) {
+                        boldTags[0].parentNode.removeChild(boldTags[0]);
+                    }
+                }
+
+                // Remove <b> tags from upper containers
+                removeBoldTags(steelSpanUpperContainer);
+                removeBoldTags(ghgSpanUpperContainer);
+
+                // Remove <b> tags from lower containers
+                removeBoldTags(steelSpanLowerContainer);
+                removeBoldTags(ghgSpanLowerContainer);        
                 // Map blue fill over country selection
                 document.getElementById(idValue).setAttribute('fill', null)
                 idValue = e.target.id;
@@ -71,17 +69,19 @@
                         countryInfoCountryName.innerHTML = name;
                         proxyName.innerHTML = "Proxy name: " + findFlagAndData.Data
                         var findFlagAndDataPNG = findFlagAndData.Png
-                        return { region: findFlagAndData.Data, findFlagAndDataPNG: findFlagAndDataPNG };
+                        return { region: region, findFlagAndDataPNG: findFlagAndDataPNG };
                     } else {
                         countryName.innerHTML = name;
                         countryInfoCountryName.innerHTML = name;
                         countryNameLower.innerHTML = countryName.innerHTML
-                        var region = name;
+                        proxyName.innerHTML = ""
                         var findFlagAndDataPNG = findFlagAndData.Png
                         return { region: findFlagAndData.Data, findFlagAndDataPNG: findFlagAndDataPNG };
                     }
                 })
                 .then(function (regionObj) {
+
+                // Reset Divs
                     var region = regionObj.region;
                     var findFlagAndDataPNG = regionObj.findFlagAndDataPNG;
                     // Bind Flag to "Sankey Configuration"
@@ -107,7 +107,7 @@
                     // Sankey Sector Parameter
 
                     // China Teaser
-                    if (region == "China" && sectorTemp == "Residential building") {
+                    if (region == "R32CHN" && sectorTemp == "Residential building") {
                         $('#ChinaTeaser').css('display', 'grid');
                     } else {
                         $('#ChinaTeaser').css('display', 'none');
@@ -156,7 +156,7 @@
 
                     $('.loader3').css("display", "block");
                     // AJAX call for Bar Graph Primary/Secondary Production
-                    $.ajax({
+                    var request3 = $.ajax({
                         type: "POST",
                         url: "circomodService.svc/Classification_Result1stAnd2ndProd",
                         data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}","selectedMaterial": "${material}"}`,
@@ -232,6 +232,10 @@
                     }
 
                     // UPPER Parameters
+
+                    var startYear = 2020;
+                    var endYear = 2060;
+                    var material = "Steel";
                     var strategy = "Baseline";
                     document.getElementById('sankeyDivsAll').innerHTML = "";
                     document.getElementById('sankeyDivsAllFullCE').innerHTML = "";
@@ -263,6 +267,9 @@
                     buttonDiv.appendChild(previousLink);
                     buttonDiv.appendChild(nextLink);
                     for (let year = startYear; year <= endYear; year += 10) {
+                        // LOWER SANKEY
+                        var scenario = "SSP2";
+                        var strategy = "Baseline";
                         var newDiv = document.createElement("div");
                         newDiv.id = "div_svg" + year;
                         newDiv.style.position = 'absolute';
@@ -299,12 +306,13 @@
                         let divId = "target_svg" + year
                         let divSvg = newDiv.id
                         let divChart = chartParagraph.id;
+                        console.log(region)
                         $('.loader').css("display", "block");
                         // Sankey Upper AJAX call
                         $.ajax({
                             url: "circomodService.svc/Classification_SankeyItem",
                             type: "POST",
-                            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sector}","SELECTedYear": "${year}",
+                            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sectorTemp}","SELECTedYear": "${year}",
                             "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
                             dataType: "json",
                             contentType: "application/json; charset=utf-8",
@@ -372,13 +380,13 @@
                         previousLinkLower.className = "button ";
                         previousLinkLower.type = "button";
                         previousLinkLower.textContent = ">>";
-                        previousLinkLower.setAttribute("onclick", "navigateFront()");
+                        previousLinkLower.setAttribute("onclick", "navigateFrontLower()");
 
                         var nextLinkLower = document.createElement("button");
                         nextLinkLower.className = "button ";
                         nextLinkLower.type = "button";
                         nextLinkLower.textContent = "<<";
-                        nextLinkLower.setAttribute("onclick", "navigateBack()");
+                        nextLinkLower.setAttribute("onclick", "navigateBackLower()");
                         // Append <a> elements to the "sankey" div
                         buttonDivLower.appendChild(previousLinkLower);
                         buttonDivLower.appendChild(nextLinkLower);
@@ -423,7 +431,7 @@
                         $.ajax({
                             url: "circomodService.svc/Classification_SankeyItem",
                             type: "POST",
-                            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sector}","SELECTedYear": "${year}",
+                            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sectorTemp}","SELECTedYear": "${year}",
                                 "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
                             dataType: "json",
                             contentType: "application/json; charset=utf-8",
@@ -695,9 +703,7 @@ $(window).on('load', function () {
                         "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
-
             success: function (data) {
-                console.log(data)
                 $('.loader').hide();
                 var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
                 var flowarea = $("#input_flow_data").val();
@@ -934,7 +940,6 @@ $(document).ready(function () {
 function ghgChart(data, canvasID) {
     var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
     var values = [...new Set(Array.from(res.values()))];
-    console.log(values)
     try {
         // Clear previous chart
         if (window.chart) {
@@ -959,8 +964,7 @@ function ghgChart(data, canvasID) {
     chart.container("GHG");
     // Enable noData label
     chart.noData().label(true);
-    chart.tooltip().useHtml(true);
-    chart.tooltip().useHtml(true).positionMode('point');
+
     // draw the resulting chart
     chart.draw();
    
