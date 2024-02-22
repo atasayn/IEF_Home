@@ -1,9 +1,9 @@
 ﻿
 <!DOCTYPE html>
 <html>
-<head><title>
-
-</title><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link href="/css/bootstrap.css" rel="stylesheet" /><link href="/css/master.css" rel="stylesheet" /><link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <title>Circomod Visualization</title>
+    <meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link href="/css/bootstrap.css" rel="stylesheet" /><link href="/css/master.css" rel="stylesheet" /><link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
 
         html {
@@ -460,14 +460,14 @@
         </div>
 
         <div id="controlPanel">
-            <p style="margin:10px"><b>Sector:</b></p>               
+            <p style="margin:10px"><b><label for="DropDownListSector">Sector:</label></b></p>           
             <select id="DropDownListSector" required>
                 <option value="" disabled >Please select sector</option>
                 <option value="Residential building"selected>Residential building</option>
                 <option value="Passenger vehicles">Passenger vehicles</option>
             </select>
 
-            <p style="margin:10px"><b>Material:</b></p>               
+            <p style="margin:10px"><b><label for="DropDownListMaterial">Material:</label></b></p>               
             <select id="DropDownListMaterial" required>             
                 <option value="Steel"selected>Steel</option>
                 <option value="Cement">Cement</option>
@@ -510,7 +510,7 @@
 
             </div>
             <p style="margin-left:50px"><b>Lower Sankey Diagram:</b></p>
-            <p style="margin-left:50px">&#8226 Sankey diagram for steel flows in [selected sector], [selected region], [selected year] <text style="color:red">LED scenario, full circular economy.</text></p>
+            <p style="margin-left:50px">&#8226 Sankey diagram for steel flows in [selected sector], [selected region], [selected year] <text style="color:#ba1a1a">LED scenario, full circular economy.</text></p>
             <p id="steelLowerValue" style="margin-left:50px">&#8226 Reference flow for final consumption of steel (blue): </p>
             <p id="GhGLowerValue" style="margin-left:50px">&#8226 Reference flow for GHG emissions (green):</p>
            <div id="sankeyConfigLower">

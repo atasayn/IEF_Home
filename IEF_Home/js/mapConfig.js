@@ -65,7 +65,7 @@
                         countryName.innerHTML = name + " (" + findFlagAndData.Data + ")";
                         countryNameLower.innerHTML = countryName.innerHTML
                         var region = findFlagAndData.Data;
-                        proxyWarning.innerHTML = "Sorry, no data for <span style='color:red'>" + name + "</span>, here, the data for the proxy region<span style='color:green'> " + findFlagAndData.Data + "</span> are shown"
+                        proxyWarning.innerHTML = "Sorry, no data for <span style='color:#ba1a1a'>" + name + "</span>, here, the data for the proxy region<span style='color:green'> " + findFlagAndData.Data + "</span> are shown"
                         countryInfoCountryName.innerHTML = name;
                         proxyName.innerHTML = "Proxy name: " + findFlagAndData.Data
                         var findFlagAndDataPNG = findFlagAndData.Png
@@ -187,11 +187,12 @@
                             }
                         }
                     });
-
+                    var canvasElement = document.getElementById("NoData" + "line-plot1");
                     // AJAX call for Line Graph for "Per Capita Service Level SECTOR:Passenger Vehicle, REGION:Choose"
                     countriesAvailable = ["France", "Germany", "Italy", "Spain", "UK", "Poland", "Oth_R32EU15", "Oth_R32EU12-H", "R32EU12-M"];
                     if (sectorTemp == "Residential building" && countriesAvailable.includes(region)) {
                         var sector = sectorTemp;
+                        canvasElement.style.display = "none";
                         $('.loader1').css("display", "block");
                         $.ajax({
                             type: "POST",
@@ -206,32 +207,42 @@
                                 }
                             }
                         });
-                    } else {
-                        var canvasElement = document.getElementById("NoData" + "line-plot1");
-                        Chart.getChart("line-plot1").destroy();
-                        canvasElement.style.display = "flex"
-                    }
-
-                    if (sectorTemp == "Passenger Vehicles"){    
-                        $('.loader1').css("display", "block");
-                        $.ajax({
-                            type: "POST",
-                            url: "circomodService.svc/Classification_ResultItem",
-                            data: `{"SELECTedRegion": "${region}"}`,
-                            dataType: "json",
-                            contentType: "application/json; charset=utf-8",
-                            success: function (result) {
-                                $('.loader1').hide();
-                                if (region != "") {
-                                    if (result == '') {
-                                        document.getElementById("Graph1LineNoData").style.display = "block"
-                                    } else {
+                    } else if (sectorTemp == "Passenger vehicles") {
+                            $('.loader1').css("display", "block");
+                            /*$.ajax({
+                                type: "POST",
+                                url: "circomodService.svc/Classification_ResultItem",
+                                data: `{"SELECTedRegion": "${region}"}`,
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (result) {
+                                    $('.loader1').hide();
+                                    if (region != "") {
                                         displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
                                     }
                                 }
-                            }
-                        });
-                    }
+                            });*/
+                        fetch("circomodService.svc/Classification_ResultItem", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8",
+                            },
+                            body: JSON.stringify({ SELECTedRegion: region }),
+                        })
+                            .then(response => response.json())
+                            .then(result => {
+                                document.querySelector('.loader1').style.display = 'none';
+                                if (region !== "") {
+                                    displayGraph(result.d, "line-plot1", "Per Capita Service Level", "Annual pkm by passenger cars");
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                    } else {
+                        Chart.getChart("line-plot1").destroy();
+                        canvasElement.style.display = "flex";
+                       }
 
                     // UPPER Parameters
 
@@ -580,7 +591,7 @@ $(window).on('load', function () {
 
 
     $('.loader3').css("display", "block");
-    $.ajax({
+    /*$.ajax({
         type: "POST",
         url: "circomodService.svc/Classification_Result1stAnd2ndProd",
         data: `{"selectedRegion": "${region}","selectedSector": "${sector}","selectedMaterial": "${material}"}`,
@@ -592,11 +603,27 @@ $(window).on('load', function () {
                 barChart(result, "line-plot3",material)
             }
         }
-    });
+    });*/
+    fetch("circomodService.svc/Classification_Result1stAnd2ndProd", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({
+            selectedRegion: region,
+            selectedSector: sector,
+            selectedMaterial: material
+        }),
+    }).then(response => response.json()).then(result => {
+        document.querySelector('.loader3').style.display = 'none';
+        if (region !== "") {
+            barChart(result, "line-plot3", material);
+        }
+    })
 
 
     $('.loader4').css("display", "block");
-    $.ajax({
+    /*$.ajax({
         type: "POST",
         url: "circomodService.svc/Classification_ResultAreaStacked",
         data: `{"selectedRegion": "${region}","selectedSector": "${sector}"}`,
@@ -608,7 +635,21 @@ $(window).on('load', function () {
                 stackedAreaChart(result, "line-plot4");
             }
         }
-    });
+    });*/
+    fetch("circomodService.svc/Classification_ResultAreaStacked", {
+        method: "POST",
+        headers: {"Content-Type": "application/json; charset=utf-8"},
+        body: JSON.stringify({
+            selectedRegion: region,
+            selectedSector: sector
+        })
+    }).then(response => response.json()).then(result => {
+        document.querySelector('.loader4').style.display = 'none';
+        if (region !== "") {
+            stackedAreaChart(result, "line-plot4");
+        }
+    })
+
 
     $('.loader5').css("display", "block");
     $.ajax({
