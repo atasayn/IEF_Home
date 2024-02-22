@@ -79,7 +79,7 @@ $(document).ready(function () {
 
 });
 function displayGraph(data, canvasID, title, yAxisTitle) {
-
+    console.log(data)
     var canvasElement = document.getElementById("NoData" + canvasID);
     try {
         Chart.getChart(canvasID).destroy();

@@ -260,8 +260,8 @@ namespace IEF_Home
                 while (reader.Read())
                 {
                     // Assuming scenarioArray is a List<string> or similar collection.
-                    scenarioArray.Add((double.Parse(reader["Total"].ToString().Replace(",", ".")) * 1_000_000).ToString());
-                    yearArray.Add(reader["year"].ToString().Replace(",", "."));
+                    scenarioArray.Add((double.Parse(reader["Total"].ToString()) * 1000000).ToString().Replace(",", "."));
+                    yearArray.Add(reader["year"].ToString());
 
                 }
                 output.Add(scenarioArray);
