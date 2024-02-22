@@ -799,12 +799,10 @@
                                 title: {
                                     display: true,
                                     text: 'Mt',
-
                                 },
                             }
                         }
                     }
-
                 });
             }
         };
@@ -824,29 +822,35 @@
                 var dataLength = values[0].length;
                 new Chart(document.getElementById(canvasID), {
                     type: 'line',
-                    data: {
+                    
+                    data: {                        
+                       
                         labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
                         datasets: [{
                             label: 'Use Phase',
                             borderColor: "#a6611a",
+                            backgroundColor: "rgba(166, 97, 26, 0.5)",
                             data: Array.from({ length: dataLength }, (_, i) => values[0][i]),
-                            fill: true
+                            fill: true,                           
                         },
                         {
                             label: 'Waste Management',
                             borderColor: "#018571",
+                            backgroundColor: "rgba(1, 133, 113, 0.5)",
                             data: Array.from({ length: dataLength }, (_, i) => values[1][i]),
                             fill: true
                         },
                         {
                             label: 'Material Production',
                             borderColor: "#80cdc1",
+                            backgroundColor: "rgba(128, 205, 193, 0.5)",
                             data: Array.from({ length: dataLength }, (_, i) => values[2][i]),
                             fill: true
                         },
                         {
                             label: 'Energy Supply',
                             borderColor: "#dfc27d",
+                            backgroundColor: "rgba(223, 194, 125, 0.5)",
                             data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
                             fill: true
 

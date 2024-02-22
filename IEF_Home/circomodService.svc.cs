@@ -188,12 +188,14 @@ namespace IEF_Home
         {
 
             var output = new List<List<string>>();
-            if (!cn.OpenConnection()) return null;
-            foreach (var selectedScenario in new List<string> { "LED", "SSP1", "SSP2" })
+            try
             {
-                var scenarioArray = new List<string>();
-                var yearArray = new List<string>();
-                const string query = @"SELECT 
+                if (!cn.OpenConnection()) return null;
+                foreach (var selectedScenario in new List<string> { "LED", "SSP1", "SSP2" })
+                {
+                    var scenarioArray = new List<string>();
+                    var yearArray = new List<string>();
+                    const string query = @"SELECT 
                         first_query.value/second_query.value AS Total,
                         first_query.aspect_6 AS year
                     FROM 
@@ -251,25 +253,34 @@ namespace IEF_Home
                                 WHERE classification_id = 77 AND attribute1_oto = @selectedRegion
                             )
                     ) AS second_query ON first_query.aspect_6 = second_query.aspect_1 ";
-                var cmd = new MySqlCommand(query, cn.Connection);
+                    var cmd = new MySqlCommand(query, cn.Connection);
 
-                cmd.Parameters.AddWithValue("@selectedScenario", selectedScenario);
-                cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
+                    cmd.Parameters.AddWithValue("@selectedScenario", selectedScenario);
+                    cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
 
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    // Assuming scenarioArray is a List<string> or similar collection.
-                    scenarioArray.Add((double.Parse(reader["Total"].ToString()) * 1000000).ToString().Replace(",", "."));
-                    yearArray.Add(reader["year"].ToString());
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        // Assuming scenarioArray is a List<string> or similar collection.
+                        scenarioArray.Add((double.Parse(reader["Total"].ToString())).ToString().Replace(",", "."));
+                        yearArray.Add(reader["year"].ToString());
 
+                    }
+                    output.Add(scenarioArray);
+                    output.Add(yearArray);
+
+                    reader.Close();
                 }
-                output.Add(scenarioArray);
-                output.Add(yearArray);
-
-                reader.Close();
+                cn.CloseConnection();
             }
-            cn.CloseConnection();
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                Console.WriteLine("An error occurred: " + ex.Message);
+                // You can also throw the exception to propagate it further if needed
+                throw;
+            }
+
             return output;
         }
 

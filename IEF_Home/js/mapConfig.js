@@ -189,10 +189,10 @@
                     });
 
                     // AJAX call for Line Graph for "Per Capita Service Level SECTOR:Passenger Vehicle, REGION:Choose"
-                    $('.loader1').css("display", "block");
-                    if (sectorTemp == "Residential building") {
+                    countriesAvailable = ["France", "Germany", "Italy", "Spain", "UK", "Poland", "Oth_R32EU15", "Oth_R32EU12-H", "R32EU12-M"];
+                    if (sectorTemp == "Residential building" && countriesAvailable.includes(region)) {
                         var sector = sectorTemp;
-
+                        $('.loader1').css("display", "block");
                         $.ajax({
                             type: "POST",
                             url: "circomodService.svc/Classification_ResultItemBuildingRes",
@@ -206,10 +206,13 @@
                                 }
                             }
                         });
-
-
                     } else {
-                        var sector = "Passenger Vehicles";
+                        var canvasElement = document.getElementById("NoData" + "line-plot1");
+                        Chart.getChart("line-plot1").destroy();
+                        canvasElement.style.display = "flex"
+                    }
+
+                    if (sectorTemp == "Passenger Vehicles"){    
                         $('.loader1').css("display", "block");
                         $.ajax({
                             type: "POST",
@@ -225,7 +228,6 @@
                                     } else {
                                         displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
                                     }
-
                                 }
                             }
                         });
