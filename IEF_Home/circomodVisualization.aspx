@@ -111,10 +111,6 @@
                        
         }
 
-/*        #GraphPopulationBar h2{
-            margin: auto;
-        }*/
-
         #GraphStackedArea{
             grid-area:StackedArea;
             position:relative;
@@ -130,7 +126,6 @@
             width:auto;
             height:100%
         }
-
 
         #GraphStackedArea h2{
             margin: auto;
@@ -334,7 +329,6 @@
     </style>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
@@ -355,7 +349,7 @@
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
     <!-- Add this to your HTML file if using CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-        <script type="text/javascript" src="js/anychart-core.min.js"></script>
+    <script type="text/javascript" src="js/anychart-core.min.js"></script>
     <script type="text/javascript" src="js/anychart-waterfall.min.js"></script>
 
 
@@ -404,9 +398,6 @@
                             <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">Circular Sankey</a></li>       
                             <li><a href="/internal">Internal</a></li>
                             <li style="display:none"><a href="/circomodVisualization">circomodVisualization</a></li>
-                            
-                            
-                            
                         </ul>
 
                     </div>
@@ -465,6 +456,7 @@
             <span id='population' style="margin-left:50px"></span>
             <p style="margin:10px">Population Density (people per sq. km of land area):</p>
             <span id='populationDensity' style="margin-left:50px"></span>    
+            <p  class="w3-panel w3-red" style="margin:20px"><b>Warning: </b><span id='proxyWarning'></span></p>
         </div>
 
         <div id="controlPanel">
@@ -550,7 +542,6 @@
             </div>
           
         </div>
-                <p  class="w3-panel w3-red" style="margin:20px"><b>Warning:</b><span id='proxyWarning'></span></p>
         
         </div>
         
@@ -642,7 +633,7 @@
         <div id="energyServiceCascade" >
             <img id="energyServiceCascadePNG" width:"700" style="height: 100%; width: auto; border-radius:5px"> 
         </div>   
-        <div id="ecdDecoupling" style="width: 900px;" >
+        <div id="ecdDecoupling" style="width: auto;" >
             <img id="ecdDecouplingPNG" style="height: 100%; width: auto; border-radius:5px"> 
         </div>
 
@@ -884,7 +875,8 @@
                                 }
                             },
                             y: {
-                                title: {
+                                stacked:true
+,                                title: {
                                     display: true,
                                     text: 'Mt/yr',
 

@@ -201,7 +201,7 @@
                             success: function (result) {
                                 $('.loader1').hide();
                                 if (region != "") {
-                                    displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+                                    displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'm2/cap');
                                 }
                             }
                         });
@@ -283,7 +283,7 @@
                         var spanDiv = document.createElement("div");
                         var newSpan = document.createElement("span");
                         newSpan.id = "span_svg" + year;
-                        newSpan.innerHTML = year;
+                        newSpan.innerHTML = "SSP2-"+year;
                         newSpan.style.width = "50px";
                         newSpan.style.position = "absolute";
                         newSpan.style.bottom = 0;
@@ -325,7 +325,8 @@
                                 text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
                                 // Reference flow for final consumption of steel (blue): Mt/yr
                                 var container = document.getElementById('steelUpperValue');
-                                spans = "<b><span id='" + "steelUpper_span" + year + "'" + "style='display:none'>" + Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))) + " Mt/yr</span></b>";
+                                var Fb  = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")))
+                                spans = "<b><span id='" + "steelUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
                                 if (year == startYear) {
                                     spans = spans.replace("display:none", "display:block")
                                 }
@@ -343,7 +344,8 @@
                                 text = text.replace("F_m", res.get("query_Fm") / 50);
                                 // Reference flow for GHG emissions (green): Mt/yr
                                 var container = document.getElementById('GhGUpperValue');
-                                spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + res.get("query_Fm") / 50 + " Mt/yr</span></b>";
+                                var Fm = res.get("query_Fm") / 50 
+                                spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
                                 if (year == startYear) {
                                     spans = spans.replace("display:none", "display:block")
                                 }
@@ -403,7 +405,7 @@
                         var spanDivLower = document.createElement("div");
                         var newSpanLower = document.createElement("span");
                         newSpanLower.id = "Lowerspan_svg" + year;
-                        newSpanLower.innerHTML = year;
+                        newSpanLower.innerHTML = "LED-"+year;
                         newSpanLower.style.width = "50px";
                         newSpanLower.style.position = "absolute";
                         newSpanLower.style.bottom = 0;
@@ -444,7 +446,8 @@
                                 text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
                                 // Reference flow for final consumption of steel (blue): Mt/yr
                                 var container = document.getElementById('steelLowerValue');
-                                spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))) + " Mt/yr</span></b>";
+                                var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")))
+                                spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
                                 if (year == startYear) {
                                     spans = spans.replace("display:none", "display:block")
                                 }
@@ -462,7 +465,8 @@
                                 text = text.replace("F_m", res.get("query_Fm") / 50);
                                 // Reference flow for GHG emissions (green): Mt/yr
                                 var container = document.getElementById('GhGLowerValue');
-                                spans = "<b><span id='" + "ghgLower_span" + year + "'" + "style='display:none'>" + res.get("query_Fm") / 50 + " Mt/yr</span></b>";
+                                var Fm = res.get("query_Fm") / 50
+                                spans = "<b><span id='" + "ghgLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
                                 if (year == startYear) {
                                     spans = spans.replace("display:none", "display:block")
                                 }
@@ -552,8 +556,9 @@ $(window).on('load', function () {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             $('.loader1').hide();
+            console.log(result)
             if (region != "") {
-                displayGraph(result["d"],"line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+                displayGraph(result["d"],"line-plot1", `Per Capita Service Level `, 'm2/cap');
             }
         }
     });
@@ -671,7 +676,7 @@ $(window).on('load', function () {
         var spanDiv = document.createElement("div");
         var newSpan = document.createElement("span");
         newSpan.id = "span_svg" + year;
-        newSpan.innerHTML = year;
+        newSpan.innerHTML = "SSP2-"+year;
         newSpan.style.width = "50px";
         newSpan.style.position = "absolute";
         newSpan.style.bottom = 0;
@@ -712,7 +717,8 @@ $(window).on('load', function () {
                 text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
                 // Reference flow for final consumption of steel (blue): Mt/yr
                 var container = document.getElementById('steelUpperValue');
-                spans = "<b><span id='"+"steelUpper_span"+ year +"'" + "style='display:none'>" + Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))) + " Mt/yr</span></b>";              
+                var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
+                spans = "<b><span id='" + "steelUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";              
                 if (year == startYear) {
                     spans = spans.replace("display:none","display:block")
                 }
@@ -730,7 +736,8 @@ $(window).on('load', function () {
                 text = text.replace("F_m", res.get("query_Fm") / 50);
                 // Reference flow for GHG emissions (green): Mt/yr
                 var container = document.getElementById('GhGUpperValue');
-                spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + res.get("query_Fm") / 50 + " Mt/yr</span></b>";
+                var Fm = res.get("query_Fm") / 50;
+                spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
                 if (year == startYear) {
                     spans = spans.replace("display:none", "display:block")
                 }
@@ -807,7 +814,7 @@ $(window).on('load', function () {
         var spanDivLower = document.createElement("div");
         var newSpanLower = document.createElement("span");
         newSpanLower.id = "Lowerspan_svg" + year;
-        newSpanLower.innerHTML = year;
+        newSpanLower.innerHTML = "LED-" + year;
         newSpanLower.style.width = "50px";
         newSpanLower.style.position = "absolute";
         newSpanLower.style.bottom = 0;
@@ -848,7 +855,8 @@ $(window).on('load', function () {
                 text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
                 // Reference flow for final consumption of steel (blue): Mt/yr
                 var container = document.getElementById('steelLowerValue');
-                spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))) + " Mt/yr</span></b>";
+                var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
+                spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
                 if (year == startYear) {
                     spans = spans.replace("display:none", "display:block")
                 }
@@ -866,7 +874,8 @@ $(window).on('load', function () {
                 text = text.replace("F_m", res.get("query_Fm") / 50);
                 // Reference flow for GHG emissions (green): Mt/yr
                 var container = document.getElementById('GhGLowerValue');
-                spans = "<b><span id='" + "ghgLower_span" + year + "'" + "style='display:none'>" + res.get("query_Fm") / 50 + " Mt/yr</span></b>";
+                var Fm = res.get("query_Fm") / 50 
+                spans = "<b><span id='" + "ghgLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
                 if (year == startYear) {
                     spans = spans.replace("display:none", "display:block")
                 }

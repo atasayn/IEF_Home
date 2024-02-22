@@ -154,7 +154,7 @@ namespace IEF_Home
             LEFT JOIN iedc.classification_items cls ON d.aspect6 = cls.id
             INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
             WHERE d.dataset_id = 303
-            AND d.aspect5 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'Baseline')
+            AND d.aspect5 IN (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = 'Baseline')
             AND d.aspect1 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedRegion)
             AND d.aspect3 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'use phase')
             AND d.aspect2 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'Residential building')
@@ -168,7 +168,8 @@ namespace IEF_Home
                 while (reader.Read())
                 {
 
-                    scenarioArray.Add(reader["value"].ToString().Replace(",", "."));
+                    // Assuming scenarioArray is a List<string> or similar collection.
+                    scenarioArray.Add((double.Parse(reader["value"].ToString().Replace(",", ".")) * 1_000_000).ToString());
                     yearArray.Add(reader["aspect_6"].ToString().Replace(",", "."));
 
                 }
