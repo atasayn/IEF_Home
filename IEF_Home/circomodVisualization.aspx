@@ -756,7 +756,7 @@
             }
         }
 
-        function barChart(data, canvasID) {
+        function barChart(data, canvasID,material) {
             var canvasElement = document.getElementById("NoData" + canvasID);
             var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
             var values = [...new Set(Array.from(res.values()))];
@@ -787,7 +787,7 @@
                         plugins: {
                             title: {
                                 display: true,
-                                text: 'Cumulative steel production 2020-2060, [region], [sector], [material]'
+                                text: 'Cumulative '+ material +' production 2020-2060, [region], [sector], [material]'
                             },
                         },
                         scales: {

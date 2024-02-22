@@ -136,6 +136,52 @@ namespace IEF_Home
             return output;
         }
 
+        //[OperationContract]
+        //[WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        //public List<List<string>> Classification_ResultItemBuildingRes(string selectedRegion)
+        //{
+
+        //    var output = new List<List<string>>();
+        //    if (!cn.OpenConnection()) return null;
+        //    foreach (var selectedScenario in new List<string> { "LED", "SSP1", "SSP2" })
+        //    {
+        //        var scenarioArray = new List<string>();
+        //        var yearArray = new List<string>();
+        //        const string query = @"SELECT d.value,cls.attribute1_oto AS aspect_6 
+        //    FROM iedc.data d
+        //    LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
+        //    LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+        //    LEFT JOIN iedc.classification_items cls ON d.aspect6 = cls.id
+        //    INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
+        //    WHERE d.dataset_id = 303
+        //    AND d.aspect5 IN (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = 'Baseline')
+        //    AND d.aspect1 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedRegion)
+        //    AND d.aspect3 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'use phase')
+        //    AND d.aspect2 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'Residential building')
+        //    AND d.aspect4 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedScenario)";
+        //        var cmd = new MySqlCommand(query, cn.Connection);
+
+        //        cmd.Parameters.AddWithValue("@selectedScenario", selectedScenario);
+        //        cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
+
+        //        var reader = cmd.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+
+        //            // Assuming scenarioArray is a List<string> or similar collection.
+        //            scenarioArray.Add((double.Parse(reader["value"].ToString().Replace(",", ".")) * 1_000_000).ToString());
+        //            yearArray.Add(reader["aspect_6"].ToString().Replace(",", "."));
+
+        //        }
+        //        output.Add(scenarioArray);
+        //        output.Add(yearArray);
+
+        //        reader.Close();
+        //    }
+        //    cn.CloseConnection();
+        //    return output;
+        //}
+        
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public List<List<string>> Classification_ResultItemBuildingRes(string selectedRegion)
@@ -147,18 +193,64 @@ namespace IEF_Home
             {
                 var scenarioArray = new List<string>();
                 var yearArray = new List<string>();
-                const string query = @"SELECT d.value,cls.attribute1_oto AS aspect_6 
-            FROM iedc.data d
-            LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
-            LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
-            LEFT JOIN iedc.classification_items cls ON d.aspect6 = cls.id
-            INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-            WHERE d.dataset_id = 303
-            AND d.aspect5 IN (SELECT id FROM iedc.classification_items WHERE classification_id = 78 AND attribute1_oto = 'Baseline')
-            AND d.aspect1 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedRegion)
-            AND d.aspect3 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'use phase')
-            AND d.aspect2 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'Residential building')
-            AND d.aspect4 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedScenario)";
+                const string query = @"SELECT 
+                        first_query.value/second_query.value AS Total,
+                        first_query.aspect_6 AS year
+                    FROM 
+                        (
+                            SELECT 
+                                d.value,
+                                cls.attribute1_oto AS aspect_6 
+                            FROM 
+                                iedc.data d
+                                LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
+                                LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+                                LEFT JOIN iedc.classification_items cls ON d.aspect6 = cls.id
+                                INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
+                            WHERE 
+                                d.dataset_id = 303
+                                AND d.aspect5 IN (
+                                    SELECT id FROM iedc.classification_items 
+                                    WHERE classification_id = 78 AND attribute1_oto = 'Baseline'
+                                )
+                                AND d.aspect1 IN (
+                                    SELECT id FROM iedc.classification_items 
+                                    WHERE attribute1_oto = @selectedRegion
+                                )
+                                AND d.aspect3 IN (
+                                    SELECT id FROM iedc.classification_items 
+                                    WHERE attribute1_oto = 'use phase'
+                                )
+                                AND d.aspect2 IN (
+                                    SELECT id FROM iedc.classification_items 
+                                    WHERE attribute1_oto = 'Residential building'
+                                )
+                                AND d.aspect4 IN (
+                                    SELECT id FROM iedc.classification_items 
+                                    WHERE attribute1_oto = @selectedScenario
+                                )
+                        ) AS first_query
+                    LEFT JOIN (
+                        SELECT 
+                            d.value,
+                            cls.attribute1_oto AS aspect_1
+                        FROM 
+                            iedc.data d
+                            LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
+                            LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
+                            LEFT JOIN iedc.classification_items cls ON d.aspect1 = cls.id
+                            INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
+                        WHERE 
+                            d.dataset_id = 302
+                            AND d.aspect3 = (
+                                SELECT id FROM iedc.classification_items 
+                                WHERE classification_id = 8 AND attribute1_oto = @selectedScenario
+                            )
+                            AND d.aspect2 = (
+                                SELECT id FROM iedc.classification_items 
+                                WHERE classification_id = 77 AND attribute1_oto = @selectedRegion
+                            )
+                    ) AS second_query ON first_query.aspect_6 = second_query.aspect_1 ";
                 var cmd = new MySqlCommand(query, cn.Connection);
 
                 cmd.Parameters.AddWithValue("@selectedScenario", selectedScenario);
@@ -167,10 +259,9 @@ namespace IEF_Home
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-
                     // Assuming scenarioArray is a List<string> or similar collection.
-                    scenarioArray.Add((double.Parse(reader["value"].ToString().Replace(",", ".")) * 1_000_000).ToString());
-                    yearArray.Add(reader["aspect_6"].ToString().Replace(",", "."));
+                    scenarioArray.Add((double.Parse(reader["Total"].ToString().Replace(",", ".")) * 1_000_000).ToString());
+                    yearArray.Add(reader["year"].ToString().Replace(",", "."));
 
                 }
                 output.Add(scenarioArray);

@@ -103,7 +103,7 @@
                     var startYear = 2020;
                     var endYear = 2060;
                     var sectorTemp = $('#DropDownListSector').val();
-                    var material = $('#DropDownListMaterial').val() || "steel";
+                    var material = $('#DropDownListMaterial').val();
                     // Sankey Sector Parameter
 
                     // China Teaser
@@ -165,7 +165,8 @@
                         success: function (result) {
                             $('.loader3').hide();
                             if (region != "") {
-                                barChart(result, "line-plot3")
+                                console.log(material)
+                                barChart(result, "line-plot3", material)
                             }
                         }
                     });
@@ -219,7 +220,6 @@
                             success: function (result) {
                                 $('.loader1').hide();
                                 if (region != "") {
-                                    document.getElementById("RegionName1").textContent = region;
                                     if (result == '') {
                                         document.getElementById("Graph1LineNoData").style.display = "block"
                                     } else {
@@ -235,7 +235,7 @@
 
                     var startYear = 2020;
                     var endYear = 2060;
-                    var material = "Steel";
+                   // var material = "Steel";
                     var strategy = "Baseline";
                     document.getElementById('sankeyDivsAll').innerHTML = "";
                     document.getElementById('sankeyDivsAllFullCE').innerHTML = "";
@@ -306,14 +306,13 @@
                         let divId = "target_svg" + year
                         let divSvg = newDiv.id
                         let divChart = chartParagraph.id;
-                        console.log(region)
                         $('.loader').css("display", "block");
                         // Sankey Upper AJAX call
                         $.ajax({
                             url: "circomodService.svc/Classification_SankeyItem",
                             type: "POST",
                             data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sectorTemp}","SELECTedYear": "${year}",
-                            "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
+                            "SELECTedStrategy": "${strategy}","SELECTedMaterial": "steel"}`,
                             dataType: "json",
                             contentType: "application/json; charset=utf-8",
                             success: function (data) {
@@ -434,7 +433,7 @@
                             url: "circomodService.svc/Classification_SankeyItem",
                             type: "POST",
                             data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sectorTemp}","SELECTedYear": "${year}",
-                                "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
+                                "SELECTedStrategy": "${strategy}","SELECTedMaterial": "steel"}`,
                             dataType: "json",
                             contentType: "application/json; charset=utf-8",
                             success: function (data) {
@@ -544,25 +543,8 @@ $(window).on('load', function () {
     var startYear = 2020;
     var endYear = 2030;
     var strategy = "Baseline";
-    var material = "Steel";
+    var material = "steel";
     countryInfoCountryName.innerHTML = region
-    // Ajax call for Per Capita Service Level, SECTOR:Passenger Vehicle, REGION:Choose
-    $('.loader1').css("display", "block");
-    $.ajax({
-        type: "POST",
-        url: "circomodService.svc/Classification_ResultItemBuildingRes",
-        data: `{"selectedRegion": "${region}"}`,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            $('.loader1').hide();
-            console.log(result)
-            if (region != "") {
-                displayGraph(result["d"],"line-plot1", `Per Capita Service Level `, 'm2/cap');
-            }
-        }
-    });
-
     $('.loader2').css("display", "block");
     // AJAX call for Population
     $.ajax({
@@ -574,11 +556,28 @@ $(window).on('load', function () {
         success: function (result) {
             $('.loader2').hide();
             if (region != "") {
-                displayGraph(result["d"],"line-plot2", `Total Population by scenerio(million)`, 'Total Population');
+                displayGraph(result["d"], "line-plot2", `Total Population by scenerio(million)`, 'Total Population');
 
             }
         }
     });
+
+    // Ajax call for Per Capita Service Level, SECTOR:Passenger Vehicle, REGION:Choose
+    $('.loader1').css("display", "block");
+    $.ajax({
+        type: "POST",
+        url: "circomodService.svc/Classification_ResultItemBuildingRes",
+        data: `{"selectedRegion": "${region}"}`,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            $('.loader1').hide();
+            if (region != "") {
+                displayGraph(result["d"],"line-plot1", `Per Capita Service Level `, 'm2/cap');
+            }
+        }
+    });
+
 
     $('.loader3').css("display", "block");
     $.ajax({
@@ -590,7 +589,7 @@ $(window).on('load', function () {
         success: function (result) {
             $('.loader3').hide();
             if (region != "") {
-                barChart(result, "line-plot3")
+                barChart(result, "line-plot3",material)
             }
         }
     });
