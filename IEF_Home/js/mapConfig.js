@@ -285,8 +285,7 @@
                         var spanDiv = document.createElement("div");
                         var newSpan = document.createElement("span");
                         newSpan.id = "span_svg" + year;
-                        newSpan.innerHTML = "SSP2-"+year;
-                        newSpan.style.width = "50px";
+                        newSpan.innerHTML = "SSP2-"+year;                    
                         newSpan.style.position = "absolute";
                         newSpan.style.bottom = 0;
                         spanDiv.appendChild(newSpan);
@@ -407,7 +406,6 @@
                         var newSpanLower = document.createElement("span");
                         newSpanLower.id = "Lowerspan_svg" + year;
                         newSpanLower.innerHTML = "LED-"+year;
-                        newSpanLower.style.width = "50px";
                         newSpanLower.style.position = "absolute";
                         newSpanLower.style.bottom = 0;
                         spanDivLower.appendChild(newSpanLower);
@@ -678,7 +676,6 @@ $(window).on('load', function () {
         var newSpan = document.createElement("span");
         newSpan.id = "span_svg" + year;
         newSpan.innerHTML = "SSP2-"+year;
-        newSpan.style.width = "50px";
         newSpan.style.position = "absolute";
         newSpan.style.bottom = 0;
         spanDiv.appendChild(newSpan);
@@ -816,7 +813,6 @@ $(window).on('load', function () {
         var newSpanLower = document.createElement("span");
         newSpanLower.id = "Lowerspan_svg" + year;
         newSpanLower.innerHTML = "LED-" + year;
-        newSpanLower.style.width = "50px";
         newSpanLower.style.position = "absolute";
         newSpanLower.style.bottom = 0;
         spanDivLower.appendChild(newSpanLower);
