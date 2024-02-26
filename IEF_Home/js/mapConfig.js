@@ -253,7 +253,7 @@
                     document.getElementById('sankeyDivsAll').innerHTML = "";
                     document.getElementById('sankeyDivsAllFullCE').innerHTML = "";
                     document.getElementById("scenerioSpan").innerHTML = scenario
-                    document.getElementById("sectorSpan").innerHTML = sector
+                    document.getElementById("sectorSpan").innerHTML = "Steel"
                     document.getElementById("yearSpan").innerHTML = startYear + "-" + endYear
                     document.getElementById("strategySpan").innerHTML = strategy
                     document.getElementById("materialSpan").innerHTML = material
@@ -376,7 +376,7 @@
                         // Lower Sankey Config
                        
                         document.getElementById("scenerioSpanLower").innerHTML = scenario
-                        document.getElementById("sectorSpanLower").innerHTML = sector
+                        document.getElementById("sectorSpanLower").innerHTML = "Steel"
                         document.getElementById("yearSpanLower").innerHTML = startYear + "-" + endYear
                         document.getElementById("strategySpanLower").innerHTML = strategy
                         document.getElementById("materialSpanLower").innerHTML = material
