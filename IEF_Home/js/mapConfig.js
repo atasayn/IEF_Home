@@ -1007,6 +1007,7 @@ function ghgChart(data, canvasID) {
     
     // set the chart title
     chart.title('Cumulative GHG 2020-2060, [region], [sector]');
+    chart.yAxis().title('Mt CO2-eq');
     // set the container id for the waterfall chart
     chart.container("GHG");
     // Enable noData label
