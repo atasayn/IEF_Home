@@ -456,7 +456,7 @@
             <span id='population' style="margin-left:50px"></span>
             <p style="margin:10px">Population Density (people per sq. km of land area):</p>
             <span id='populationDensity' style="margin-left:50px"></span>    
-            <p  class="w3-panel w3-red" style="margin:20px"><b>Warning: </b><span id='proxyWarning'></span></p>
+            <p id="warningDisplay" class="w3-panel w3-red" style="margin:20px;display:none"><b>Warning: </b><span id='proxyWarning'></span></p>
         </div>
 
         <div id="controlPanel">
@@ -874,7 +874,7 @@
                                 },
                                 grid: {
                                     display: true,
-                                    color: "blue",
+                                    color: "#f2f2f2",
                                     lineWidth: 2
                                 }
                             },
@@ -887,7 +887,7 @@
                                 },
                                 grid: {
                                     display: true,
-                                    color: "blue"
+                                    color: "#f2f2f2"
                                 }
                             }
                         }//end scales                            

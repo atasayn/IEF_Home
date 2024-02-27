@@ -58,6 +58,7 @@
                 .then(response => response.json())
                 .then(function (response) {
                     var countryInfoCountryName = document.getElementById("countryInfoCountryName");
+                    var warningDisplay = document.getElementById("warningDisplay");
                     var proxyName = document.getElementById("proxyName");
                     const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase());
                     var name = svgMap.prototype.countries[countryID]
@@ -69,6 +70,7 @@
                         countryInfoCountryName.innerHTML = name;
                         proxyName.innerHTML = "Proxy name: " + findFlagAndData.Data
                         var findFlagAndDataPNG = findFlagAndData.Png
+                        warningDisplay.style.display = "block";
                         return { region: region, findFlagAndDataPNG: findFlagAndDataPNG };
                     } else {
                         countryName.innerHTML = name;
@@ -76,6 +78,7 @@
                         countryNameLower.innerHTML = countryName.innerHTML
                         proxyName.innerHTML = ""
                         var findFlagAndDataPNG = findFlagAndData.Png
+                        warningDisplay.style.display = "none";
                         return { region: findFlagAndData.Data, findFlagAndDataPNG: findFlagAndDataPNG };
                     }
                 })
