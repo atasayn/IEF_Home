@@ -126,70 +126,170 @@
                     }
                     $('.loader2').css("display", "block");
                     // AJAX call for Population
-                    $.ajax({
-                        type: "POST",
-                        url: "circomodService.svc/Classification_ResultItemPopulation",
-                        data: `{"SELECTedRegion": "${region}"}`,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (result) {
-                            $('.loader2').hide();
-                            if (region != "") {
-                                displayGraph(result["d"], "line-plot2", `Total Population by scenerio(million)`, 'Total Population');
+                    //$.ajax({
+                    //    type: "POST",
+                    //    url: "circomodService.svc/Classification_ResultItemPopulation",
+                    //    data: `{"SELECTedRegion": "${region}"}`,
+                    //    dataType: "json",
+                    //    contentType: "application/json; charset=utf-8",
+                    //    success: function (result) {
+                    //        $('.loader2').hide();
+                    //        if (region != "") {
+                    //            displayGraph(result["d"], "line-plot2", `Total Population by scenerio(million)`, 'Total Population');
 
+                    //        }
+                    //    }
+                    //});
+
+                    fetch("circomodService.svc/Classification_ResultItemPopulation", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                        },
+                        body: JSON.stringify({ SELECTedRegion: region }),
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
                             }
-                        }
-                    });
+                            return response.json();
+                        })
+                        .then(result => {
+                            $('.loader2').hide();
+                            if (region !== "") {
+                                displayGraph(result.d, "line-plot2", "Total Population by scenario (million)", "Total Population");
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                        });
+
 
                     $('.loader4').css("display", "block");
-                    $.ajax({
-                        type: "POST",
-                        url: "circomodService.svc/Classification_ResultAreaStacked",
-                        data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}"}`,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (result) {
-                            $('.loader4').hide();
-                            if (region != "") {
-                                stackedAreaChart(result, "line-plot4");
+                    //$.ajax({
+                    //    type: "POST",
+                    //    url: "circomodService.svc/Classification_ResultAreaStacked",
+                    //    data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}"}`,
+                    //    dataType: "json",
+                    //    contentType: "application/json; charset=utf-8",
+                    //    success: function (result) {
+                    //        $('.loader4').hide();
+                    //        if (region != "") {
+                    //            stackedAreaChart(result, "line-plot4");
 
+                    //        }
+                    //    }
+                    //});
+                    fetch("circomodService.svc/Classification_ResultAreaStacked", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                        },
+                        body: JSON.stringify({ selectedRegion: region, selectedSector: sectorTemp }),
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
                             }
-                        }
-                    });
+                            return response.json();
+                        })
+                        .then(result => {
+                            $('.loader4').hide();
+                            if (region !== "") {
+                                stackedAreaChart(result, "line-plot4");
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                        });
+
 
                     $('.loader3').css("display", "block");
                     // AJAX call for Bar Graph Primary/Secondary Production
-                    var request3 = $.ajax({
-                        type: "POST",
-                        url: "circomodService.svc/Classification_Result1stAnd2ndProd",
-                        data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}","selectedMaterial": "${material}"}`,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (result) {
-                            $('.loader3').hide();
-                            if (region != "") {
-                                console.log(material)
-                                barChart(result, "line-plot3", material)
+                    //$.ajax({
+                    //    type: "POST",
+                    //    url: "circomodService.svc/Classification_Result1stAnd2ndProd",
+                    //    data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}","selectedMaterial": "${material}"}`,
+                    //    dataType: "json",
+                    //    contentType: "application/json; charset=utf-8",
+                    //    success: function (result) {
+                    //        $('.loader3').hide();
+                    //        if (region != "") {
+                    //            console.log(material)
+                    //            barChart(result, "line-plot3", material)
+                    //        }
+                    //    }
+                    //});
+                    fetch("circomodService.svc/Classification_Result1stAnd2ndProd", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                        },
+                        body: JSON.stringify({
+                            selectedRegion: region,
+                            selectedSector: sectorTemp,
+                            selectedMaterial: material
+                        }),
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
                             }
-                        }
-                    });
+                            return response.json();
+                        })
+                        .then(result => {
+                            $('.loader3').hide();
+                            if (region !== "") {
+                                console.log(material);
+                                barChart(result, "line-plot3", material);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                        });
 
 
                     $('.loader5').css("display", "block");
-                    $.ajax({
-                        type: "POST",
-                        url: "circomodService.svc/Classification_ResultGHG",
-                        data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}"}`,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (result) {
-                            $('.loader5').hide();
-                            if (region != "") {
-                                ghgChart(result, "line-plot5");
+                    //$.ajax({
+                    //    type: "POST",
+                    //    url: "circomodService.svc/Classification_ResultGHG",
+                    //    data: `{"selectedRegion": "${region}","selectedSector": "${sectorTemp}"}`,
+                    //    dataType: "json",
+                    //    contentType: "application/json; charset=utf-8",
+                    //    success: function (result) {
+                    //        $('.loader5').hide();
+                    //        if (region != "") {
+                    //            ghgChart(result, "line-plot5");
 
+                    //        }
+                    //    }
+                    //});
+                    fetch("circomodService.svc/Classification_ResultGHG", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                        },
+                        body: JSON.stringify({
+                            selectedRegion: region,
+                            selectedSector: sectorTemp
+                        }),
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
                             }
-                        }
-                    });
+                            return response.json();
+                        })
+                        .then(result => {
+                            $('.loader5').hide();
+                            if (region !== "") {
+                                ghgChart(result, "line-plot5");
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                        });
+
                     var canvasElement = document.getElementById("NoData" + "line-plot1");
                     // AJAX call for Line Graph for "Per Capita Service Level SECTOR:Passenger Vehicle, REGION:Choose"
                     countriesAvailable = ["France", "Germany", "Italy", "Spain", "UK", "Poland", "Oth_R32EU15", "Oth_R32EU12-H", "R32EU12-M"];
@@ -197,55 +297,79 @@
                         var sector = sectorTemp;
                         canvasElement.style.display = "none";
                         $('.loader1').css("display", "block");
-                        $.ajax({
-                            type: "POST",
-                            url: "circomodService.svc/Classification_ResultItemBuildingRes",
-                            data: `{"selectedRegion": "${region}"}`,
-                            dataType: "json",
-                            contentType: "application/json; charset=utf-8",
-                            success: function (result) {
-                                $('.loader1').hide();
-                                if (region != "") {
-                                    displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'm2/cap');
-                                }
-                            }
-                        });
-                    } else if (sectorTemp == "Passenger vehicles") {
-                            $('.loader1').css("display", "block");
-                            /*$.ajax({
-                                type: "POST",
-                                url: "circomodService.svc/Classification_ResultItem",
-                                data: `{"SELECTedRegion": "${region}"}`,
-                                dataType: "json",
-                                contentType: "application/json; charset=utf-8",
-                                success: function (result) {
-                                    $('.loader1').hide();
-                                    if (region != "") {
-                                        displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
-                                    }
-                                }
-                            });*/
-                        fetch("circomodService.svc/Classification_ResultItem", {
+                        //$.ajax({
+                        //    type: "POST",
+                        //    url: "circomodService.svc/Classification_ResultItemBuildingRes",
+                        //    data: `{"selectedRegion": "${region}"}`,
+                        //    dataType: "json",
+                        //    contentType: "application/json; charset=utf-8",
+                        //    success: function (result) {
+                        //        $('.loader1').hide();
+                        //        if (region != "") {
+                        //            displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'm2/cap');
+                        //        }
+                        //    }
+                        //});
+                        fetch("circomodService.svc/Classification_ResultItemBuildingRes", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json; charset=utf-8",
                             },
-                            body: JSON.stringify({ SELECTedRegion: region }),
+                            body: JSON.stringify({ selectedRegion: region }),
                         })
-                            .then(response => response.json())
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            })
                             .then(result => {
-                                document.querySelector('.loader1').style.display = 'none';
+                                $('.loader1').hide();
                                 if (region !== "") {
-                                    displayGraph(result.d, "line-plot1", "Per Capita Service Level", "Annual pkm by passenger cars");
+                                    displayGraph(result.d, "line-plot1", "Per Capita Service Level", "m2/cap");
                                 }
                             })
                             .catch(error => {
-                                console.error('Error:', error);
+                                console.error('There was a problem with the fetch operation:', error);
                             });
+
+                    }else if (sectorTemp == "Passenger vehicles") {
+                               $('.loader1').css("display", "block");
+                                /*$.ajax({
+                                    type: "POST",
+                                    url: "circomodService.svc/Classification_ResultItem",
+                                    data: `{"SELECTedRegion": "${region}"}`,
+                                    dataType: "json",
+                                    contentType: "application/json; charset=utf-8",
+                                    success: function (result) {
+                                        $('.loader1').hide();
+                                        if (region != "") {
+                                            displayGraph(result["d"], "line-plot1", `Per Capita Service Level `, 'Annual pkm by passenger cars');
+                                        }
+                                    }
+                                });*/
+                            fetch("circomodService.svc/Classification_ResultItem", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json; charset=utf-8",
+                                },
+                                body: JSON.stringify({ SELECTedRegion: region }),
+                            })
+                                .then(response => response.json())
+                                .then(result => {
+                                    document.querySelector('.loader1').style.display = 'none';
+                                    if (region !== "") {
+                                        displayGraph(result.d, "line-plot1", "Per Capita Service Level", "Annual pkm by passenger cars");
+                                    }
+                            })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                });
+
                     } else {
                         Chart.getChart("line-plot1").destroy();
                         canvasElement.style.display = "flex";
-                       }
+                    }
 
                     // UPPER Parameters
 
@@ -323,14 +447,22 @@
                         let divChart = chartParagraph.id;
                         $('.loader').css("display", "block");
                         // Sankey Upper AJAX call
-                        $.ajax({
-                            url: "circomodService.svc/Classification_SankeyItem",
-                            type: "POST",
-                            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sectorTemp}","SELECTedYear": "${year}",
-                            "SELECTedStrategy": "${strategy}","SELECTedMaterial": "steel"}`,
-                            dataType: "json",
-                            contentType: "application/json; charset=utf-8",
-                            success: function (data) {
+                        fetch("circomodService.svc/Classification_SankeyItem", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify({
+                                "SELECTedRegion": region,
+                                "SELECTedScenario": scenario,
+                                "SELECTedSector": sectorTemp,
+                                "SELECTedYear": year,
+                                "SELECTedStrategy": strategy,
+                                "SELECTedMaterial": "steel"
+                            })
+                        })
+                            .then(response => response.json())
+                            .then(data => {
                                 $('.loader').hide();
                                 var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
                                 var flowarea = $("#input_flow_data").val();
@@ -339,12 +471,12 @@
                                 text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
                                 // Reference flow for final consumption of steel (blue): Mt/yr
                                 var container = document.getElementById('steelUpperValue');
-                                var Fb  = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")))
+                                var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
                                 spans = "<b><span id='" + "steelUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
                                 if (year == startYear) {
-                                    spans = spans.replace("display:none", "display:block")
+                                    spans = spans.replace("display:none", "display:block");
                                 }
-                                container.innerHTML += spans
+                                container.innerHTML += spans;
                                 text = text.replace("F_c", res.get("query_Fc"));
                                 text = text.replace("F_d", res.get("query_Fc"));
                                 text = text.replace("F_e", res.get("query_Fc"));
@@ -358,20 +490,25 @@
                                 text = text.replace("F_m", res.get("query_Fm") / 50);
                                 // Reference flow for GHG emissions (green): Mt/yr
                                 var container = document.getElementById('GhGUpperValue');
-                                var Fm = res.get("query_Fm") / 50 
+                                var Fm = res.get("query_Fm") / 50;
                                 spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
                                 if (year == startYear) {
-                                    spans = spans.replace("display:none", "display:block")
+                                    spans = spans.replace("display:none", "display:block");
                                 }
-                                container.innerHTML += spans
+                                container.innerHTML += spans;
                                 text = text.replace("F_n", res.get("query_Fn"));
                                 text = text.replace("F_o", res.get("query_Fn"));
                                 text = text.replace("F_p", res.get("query_Fn"));
                                 $("#input_flow_data").val(text);
                                 process_sankey(divId, divSvg, divChart);
                                 $("#input_flow_data").val(flowarea);
-                            }
-                        });
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+
+
+
                         sankeyDiv.appendChild(buttonDiv);
                         // LOWER SANKEY
                         var scenario = "LED";
@@ -441,30 +578,43 @@
                         let divSvgLower = newDivLower.id
                         let divChartLower = chartParagraphLower.id;
                         var spans = "";
-                            $('.loader6').css("display", "block");
+                        $('.loader6').css("display", "block");
                           
-                        $.ajax({
-                            url: "circomodService.svc/Classification_SankeyItem",
-                            type: "POST",
-                            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sectorTemp}","SELECTedYear": "${year}",
-                                "SELECTedStrategy": "${strategy}","SELECTedMaterial": "steel"}`,
-                            dataType: "json",
-                            contentType: "application/json; charset=utf-8",
-                            success: function (data) {
+                        fetch("circomodService.svc/Classification_SankeyItem", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8",
+                            },
+                            body: JSON.stringify({
+                                SELECTedRegion: region,
+                                SELECTedScenario: scenario,
+                                SELECTedSector: sectorTemp,
+                                SELECTedYear: year,
+                                SELECTedStrategy: strategy,
+                                SELECTedMaterial: "steel"
+                            }),
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
                                 $('.loader6').hide();
-                                var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
+                                var res = new Map(data.d.map(obj => [obj.Key, obj.Value.replace(",", ".")]));
                                 var flowarea = $("#input_flow_data").val();
                                 var text = flowarea;
                                 text = text.replace("F_a", res.get("query_Fa"));
                                 text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
                                 // Reference flow for final consumption of steel (blue): Mt/yr
                                 var container = document.getElementById('steelLowerValue');
-                                var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")))
-                                spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
+                                var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
+                                var spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
                                 if (year == startYear) {
-                                    spans = spans.replace("display:none", "display:block")
+                                    spans = spans.replace("display:none", "display:block");
                                 }
-                                container.innerHTML += spans
+                                container.innerHTML += spans;
                                 text = text.replace("F_c", res.get("query_Fc"));
                                 text = text.replace("F_d", res.get("query_Fc"));
                                 text = text.replace("F_e", res.get("query_Fc"));
@@ -477,23 +627,25 @@
                                 text = text.replace("F_l", res.get("query_Fl") / 50);
                                 text = text.replace("F_m", res.get("query_Fm") / 50);
                                 // Reference flow for GHG emissions (green): Mt/yr
-                                var container = document.getElementById('GhGLowerValue');
-                                var Fm = res.get("query_Fm") / 50
+                                container = document.getElementById('GhGLowerValue');
+                                var Fm = res.get("query_Fm") / 50;
                                 spans = "<b><span id='" + "ghgLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
                                 if (year == startYear) {
-                                    spans = spans.replace("display:none", "display:block")
+                                    spans = spans.replace("display:none", "display:block");
                                 }
-                                container.innerHTML += spans
+                                container.innerHTML += spans;
                                 text = text.replace("F_n", res.get("query_Fn"));
                                 text = text.replace("F_o", res.get("query_Fn"));
                                 text = text.replace("F_p", res.get("query_Fn"));
                                 $("#input_flow_data").val(text);
                                 process_sankey(divIdLower, divSvgLower, divChartLower);
                                 $("#input_flow_data").val(flowarea);
-                            }
+                            })
+                            .catch(error => {
+                                console.error('There was a problem with the fetch operation:', error);
+                             });
 
-                        });
-                        sankeyDivLower.appendChild(buttonDivLower);
+                      sankeyDivLower.appendChild(buttonDivLower);
                     }
                     
                 });            
@@ -561,52 +713,70 @@ $(window).on('load', function () {
     countryInfoCountryName.innerHTML = region
     $('.loader2').css("display", "block");
     // AJAX call for Population
-    $.ajax({
-        type: "POST",
-        url: "circomodService.svc/Classification_ResultItemPopulation",
-        data: `{"SELECTedRegion": "${region}"}`,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            $('.loader2').hide();
-            if (region != "") {
-                displayGraph(result["d"], "line-plot2", `Total Population by scenerio(million)`, 'Total Population');
+    //$.ajax({
+    //    type: "POST",
+    //    url: "circomodService.svc/Classification_ResultItemPopulation",
+    //    data: `{"SELECTedRegion": "${region}"}`,
+    //    dataType: "json",
+    //    contentType: "application/json; charset=utf-8",
+    //    success: function (result) {
+    //        $('.loader2').hide();
+    //        if (region != "") {
+    //            displayGraph(result["d"], "line-plot2", `Total Population by scenerio(million)`, 'Total Population');
 
+    //        }
+    //    }
+    //});
+    fetch("circomodService.svc/Classification_ResultItemPopulation", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({ SELECTedRegion: region }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        }
-    });
+            return response.json();
+        })
+        .then(result => {
+            $('.loader2').hide();
+            if (region !== "") {
+                displayGraph(result.d, "line-plot2", `Total Population by scenerio(million)`, 'Total Population');
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 
     // Ajax call for Per Capita Service Level, SECTOR:Passenger Vehicle, REGION:Choose
     $('.loader1').css("display", "block");
-    $.ajax({
-        type: "POST",
-        url: "circomodService.svc/Classification_ResultItemBuildingRes",
-        data: `{"selectedRegion": "${region}"}`,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            $('.loader1').hide();
-            if (region != "") {
-                displayGraph(result["d"],"line-plot1", `Per Capita Service Level `, 'm2/cap');
+    fetch("circomodService.svc/Classification_ResultItemBuildingRes", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({ selectedRegion: region }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        }
-    });
+            return response.json();
+        })
+        .then(result => {
+            $('.loader1').hide();
+            if (region !== "") {
+                displayGraph(result.d, "line-plot1", `Per Capita Service Level `, 'm2/cap');
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 
 
     $('.loader3').css("display", "block");
-    /*$.ajax({
-        type: "POST",
-        url: "circomodService.svc/Classification_Result1stAnd2ndProd",
-        data: `{"selectedRegion": "${region}","selectedSector": "${sector}","selectedMaterial": "${material}"}`,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            $('.loader3').hide();
-            if (region != "") {
-                barChart(result, "line-plot3",material)
-            }
-        }
-    });*/
     fetch("circomodService.svc/Classification_Result1stAnd2ndProd", {
         method: "POST",
         headers: {
@@ -626,19 +796,6 @@ $(window).on('load', function () {
 
 
     $('.loader4').css("display", "block");
-    /*$.ajax({
-        type: "POST",
-        url: "circomodService.svc/Classification_ResultAreaStacked",
-        data: `{"selectedRegion": "${region}","selectedSector": "${sector}"}`,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            $('.loader4').hide();
-            if (region != "") {
-                stackedAreaChart(result, "line-plot4");
-            }
-        }
-    });*/
     fetch("circomodService.svc/Classification_ResultAreaStacked", {
         method: "POST",
         headers: {"Content-Type": "application/json; charset=utf-8"},
@@ -655,22 +812,29 @@ $(window).on('load', function () {
 
 
     $('.loader5').css("display", "block");
-    $.ajax({
-        type: "POST",
-        url: "circomodService.svc/Classification_ResultGHG",
-        data: `{"selectedRegion": "${region}","selectedSector": "${sector}"}`,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            $('.loader5').hide();
-            if (region != "") {
-                ghgChart(result,'line-plot5');
-
+    fetch("circomodService.svc/Classification_ResultGHG", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({ selectedRegion: region, selectedSector: sector }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        }
-    });
+            return response.json();
+        })
+        .then(result => {
+            $('.loader5').hide();
+            if (region !== "") {
+                ghgChart(result, 'line-plot5');
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 
-    // Upper Sankey Config
     document.getElementById("scenerioSpan").innerHTML = scenario
     document.getElementById("sectorSpan").innerHTML = sector
     document.getElementById("yearSpan").innerHTML = startYear + "-" + endYear
@@ -743,16 +907,29 @@ $(window).on('load', function () {
         var spans = "";
 
         $('.loader').css("display", "block");
-        $.ajax({
-            url: "circomodService.svc/Classification_SankeyItem",
-            type: "POST",
-            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sector}","SELECTedYear": "${year}",
-                        "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
+        fetch("circomodService.svc/Classification_SankeyItem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify({
+                SELECTedRegion: region,
+                SELECTedScenario: scenario,
+                SELECTedSector: sector,
+                SELECTedYear: year,
+                SELECTedStrategy: strategy,
+                SELECTedMaterial: material
+            }),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
                 $('.loader').hide();
-                var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
+                var res = new Map(data.d.map(obj => [obj.Key, obj.Value.replace(",", ".")]));
                 var flowarea = $("#input_flow_data").val();
                 var text = flowarea;
                 text = text.replace("F_a", res.get("query_Fa"));
@@ -760,11 +937,11 @@ $(window).on('load', function () {
                 // Reference flow for final consumption of steel (blue): Mt/yr
                 var container = document.getElementById('steelUpperValue');
                 var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
-                spans = "<b><span id='" + "steelUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";              
+                var spans = "<b><span id='" + "steelUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
                 if (year == startYear) {
-                    spans = spans.replace("display:none","display:block")
+                    spans = spans.replace("display:none", "display:block");
                 }
-                container.innerHTML += spans
+                container.innerHTML += spans;
                 text = text.replace("F_c", res.get("query_Fc"));
                 text = text.replace("F_d", res.get("query_Fc"));
                 text = text.replace("F_e", res.get("query_Fc"));
@@ -777,23 +954,23 @@ $(window).on('load', function () {
                 text = text.replace("F_l", res.get("query_Fl") / 50);
                 text = text.replace("F_m", res.get("query_Fm") / 50);
                 // Reference flow for GHG emissions (green): Mt/yr
-                var container = document.getElementById('GhGUpperValue');
+                container = document.getElementById('GhGUpperValue');
                 var Fm = res.get("query_Fm") / 50;
                 spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
                 if (year == startYear) {
-                    spans = spans.replace("display:none", "display:block")
+                    spans = spans.replace("display:none", "display:block");
                 }
-                container.innerHTML += spans
+                container.innerHTML += spans;
                 text = text.replace("F_n", res.get("query_Fn"));
                 text = text.replace("F_o", res.get("query_Fn"));
                 text = text.replace("F_p", res.get("query_Fn"));
                 $("#input_flow_data").val(text);
                 process_sankey(divId, divSvg, divChart);
                 $("#input_flow_data").val(flowarea);
-            }
-
-            
-        });
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
 
         sankeyDiv.appendChild(buttonDiv)
 
@@ -879,17 +1056,29 @@ $(window).on('load', function () {
         let divChartLower = chartParagraphLower.id;
         var spans = "";
         $('.loader6').css("display", "block");
-        $.ajax({
-            url: "circomodService.svc/Classification_SankeyItem",
-            type: "POST",
-            data: `{"SELECTedRegion": "${region}","SELECTedScenario": "${scenario}","SELECTedSector": "${sector}","SELECTedYear": "${year}",
-                        "SELECTedStrategy": "${strategy}","SELECTedMaterial": "${material}"}`,
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-
-            success: function (data) {
+        fetch("circomodService.svc/Classification_SankeyItem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify({
+                SELECTedRegion: region,
+                SELECTedScenario: scenario,
+                SELECTedSector: sector,
+                SELECTedYear: year,
+                SELECTedStrategy: strategy,
+                SELECTedMaterial: material
+            }),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
                 $('.loader6').hide();
-                var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
+                var res = new Map(data.d.map(obj => [obj.Key, obj.Value.replace(",", ".")]));
                 var flowarea = $("#input_flow_data").val();
                 var text = flowarea;
                 text = text.replace("F_a", res.get("query_Fa"));
@@ -897,11 +1086,11 @@ $(window).on('load', function () {
                 // Reference flow for final consumption of steel (blue): Mt/yr
                 var container = document.getElementById('steelLowerValue');
                 var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
-                spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
+                var spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
                 if (year == startYear) {
-                    spans = spans.replace("display:none", "display:block")
+                    spans = spans.replace("display:none", "display:block");
                 }
-                container.innerHTML += spans
+                container.innerHTML += spans;
                 text = text.replace("F_c", res.get("query_Fc"));
                 text = text.replace("F_d", res.get("query_Fc"));
                 text = text.replace("F_e", res.get("query_Fc"));
@@ -914,22 +1103,24 @@ $(window).on('load', function () {
                 text = text.replace("F_l", res.get("query_Fl") / 50);
                 text = text.replace("F_m", res.get("query_Fm") / 50);
                 // Reference flow for GHG emissions (green): Mt/yr
-                var container = document.getElementById('GhGLowerValue');
-                var Fm = res.get("query_Fm") / 50 
+                container = document.getElementById('GhGLowerValue');
+                var Fm = res.get("query_Fm") / 50;
                 spans = "<b><span id='" + "ghgLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
                 if (year == startYear) {
-                    spans = spans.replace("display:none", "display:block")
+                    spans = spans.replace("display:none", "display:block");
                 }
-                container.innerHTML += spans
+                container.innerHTML += spans;
                 text = text.replace("F_n", res.get("query_Fn"));
                 text = text.replace("F_o", res.get("query_Fn"));
                 text = text.replace("F_p", res.get("query_Fn"));
                 $("#input_flow_data").val(text);
                 process_sankey(divIdLower, divSvgLower, divChartLower);
                 $("#input_flow_data").val(flowarea);
-            }
-            
-        });
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+
         sankeyDivLower.appendChild(buttonDivLower);
     }
 

@@ -32,17 +32,40 @@
 
         #DataMenu-Recc-GraphType {
             grid-template-columns: 25% 1fr 1fr 1fr;
-            grid-template-areas:
+            grid-template-areas:            
+                'info          info                  info          info'
                 'map           line-graph           line-graph-pop StackedArea '
                 'country-info  sankeyBaseline       sankeyBaseline GHG'
                 'control-panel sankeyFullCE         sankeyFullCE   line-graph-bar'
                 'control-panel  ECD_Decoupling       ECD_Decoupling chinaTeaser'
-                '.             energyServiceCascade energyServiceCascade chinaTeaser';
+                '.             energyServiceCascade energyServiceCascade chinaTeaser'
+                'infoBottom          infoBottom     infoBottom          infoBottom';
             display: grid;
             grid-row-gap: 10px;
             grid-column-gap: 5px;
         }
+        a:link {
+          color: blue;
+        }
 
+        p{
+            margin:5px;
+            font-size:13px
+        }
+        #pageInfo{
+            grid-area:info;
+            height:auto;
+            background:#ffffff;
+            border-radius: 5px;
+            width:auto;
+        }       
+        #pageInfoBottom{
+            grid-area:infoBottom;
+            height:auto;
+            background:#ffffff;
+            border-radius: 5px;
+            width:auto;
+        }
         #sankeyConfig, #sankeyConfigLower {
 	        display: grid;
 	        margin: 5px;
@@ -406,9 +429,12 @@
         </header>
         <main>
             
-
     <div id="DataMenu-Recc-GraphType">
-
+       <div id="pageInfo">
+        <p>Under the EU-funded project CIRCOMOD (circular economy modelling for climate change mitigation) [add link: <a href="https://circomod.eu/" target="_blank">https://circomod.eu/</a>], 
+            we develop visualisations for the circular economy status and potentials for different regions, sectors, products, and materials. 
+            Here, we show and test a visualization dashboard or circular economy profile for different regions and end-use sectors. The dashboard displays results from the RECC scenario model for the circular economy in buildings and vehicles [add link: <a href="https://www.industrialecology.uni-freiburg.de/odym-recc" target="_blank">https://www.industrialecology.uni-freiburg.de/odym-recc </a>. It is continuously updated and improved.</p>
+       </div>
         <div id="mapArea">
             <div id="svgMap"></div>
         </div>
@@ -636,7 +662,21 @@
         <div id="ecdDecoupling" style="width: auto;" >
             <img id="ecdDecouplingPNG" style="height: 100%; width: auto; border-radius:5px"> 
         </div>
-
+        <div id="pageInfoBottom">
+            <h3>Circular Economy – Vision for Sustainable Material Cycles</h3>
+            <p>The use of biomass, metal ores, and construction minerals is a major driver of environmental destruction and climate impacts of material production. The circular economy is a vision for reducing material use by designing out waste and pollution, keeping products and materials in use for as long as possible, and maximising the recycling of materials and thus contribute to the reduction of environmental impacts of industrial production. The circular economy seeks to create a closed-loop system of production and consumption, where resources are used, reused, and regenerated, and the generation of waste and environmental impacts is minimized.</p>
+            <p>In practice, there are many circular economy strategies to narrow (less material use), slow (longer material use), and close (better recycling) technical material cycles. These strategies include product light-weighting, longevity, and demountability by design, higher yields in fabrication, scrap recovery, and recycling, as well as more efficient use of products.</p>
+            <p>In industrial ecology, we see the circular economy as the central vision for the sustainable use of natural resources and a main driver for the sustainability transformation of the industrial system. At the same time, there is a lot of hot air around the circular economy. Scientific scrutiny is needed to understand which products, business models, incentives, and regulations will effectively decouple human wellbeing from resource use. Industrial ecology research offers a number of important tools, including material flow analysis, life cycle assessment, and scenario modelling of production and consumption, to find out which of the many circular economy strategies are the most promising ones, to estimate their resource savings potential and their economic costs/gains, and to understand how different strategies can be combined effectively to reach multiple sustainable development goals.</p>
+            <p>Check our blog entries on the topic:</p>
+            <p>How will a sustainable circular economy look like? <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2023/06/01/how-will-a-sustainable-circular-economy-look-like/" target="_blank"> Click here to read the blog post </a></p>
+            <p>The Circular Economy: Breakthrough or Distraction?<a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/12/15/the-circular-economy-breakthrough-or-distraction/" target="_blank"> Click here to read the blog post</a></p>
+            <p>Wanted: Lead Indicators for the Circular Economy in Organizations<a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/10/22/wanted-lead-indicators-for-the-circular-economy-in-organizations/" target="_blank"> Click here to read the blog post</a></p>
+            <p>Growth of in-use stocks: Central obstacle to closing material cycles<a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/11/13/growth-of-in-use-stocks-central-obstacle-to-closing-material-cycles/" target="_blank"> Click here to read the blog post</a></p>
+            <p>The lifetime of materials in the techno-sphere<a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2017/10/29/the-lifetime-of-materials-in-the-technosphere/" target="_blank"> Click here to read the blog post</a></p>
+            <p>A circular economic system that reduces material extraction can also reduce GHG emissions from carbon-intensive material production. To understand the climate, policy, and business implications of circular economy and the energy transition combined, an inter-disciplinary scientific assessment is necessary. However, current GHG mitigation models and scenarios that inform climate policymakers do not generally include circular economy (CE) options. They also do not cover the possible synergies of the CE with other societal goals such as the Sustainable Development Goals (SDGs), nor the challenges involved in rearranging value chains and consumer behaviour.</p>   
+            <p>CIRCOMOD: circular economy modelling for climate change mitigation</p>
+            <p>The EU-funded project CIRCOMOD (circular economy modelling for climate change mitigation) is the main funding source and research platform for our current circular economy modelling activities. In CIRCOMOD, we develop a new generation of advanced models and scenarios that will assess how CE can reduce future GHGs and material use. The project brings together a unique consortium of leading research teams from different disciplines, including industrial ecology and material flow modelling, process-oriented integrated assessment modelling, and macro-economic modelling. It aims for a breakthrough in integrating CE and GHG mitigation assessments and will provide input to international assessments such as the Intergovernmental Panel on Climate Change (IPCC) and the International Resource Panel (IRP). See the project’s homepage [<a href="https://circomod.eu/]" target="_blank">https://circomod.eu/]</a> for details!</p>
+            </div>
 </div>
     <script>
 
@@ -896,9 +936,6 @@
                 });
             }
         };
-
-       
-
         
     </script>
 
