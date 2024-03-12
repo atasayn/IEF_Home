@@ -7,12 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace IEF_Home
 {
-    public partial class circomod : System.Web.UI.Page
+    public partial class circomodVisualization : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }

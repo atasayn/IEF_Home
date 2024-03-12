@@ -115,11 +115,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="circomod.aspx" />
+    <Content Include="circomodold.aspx" />
     <Content Include="circomodiFrame.aspx" />
     <Content Include="circomodNewPanel.aspx" />
     <Content Include="circomodService.svc" />
-    <Content Include="circomodVisualization.aspx" />
+    <Content Include="circomod.aspx" />
     <Content Include="Content\IEooc_Logo_V2.png" />
     <Content Include="css\all.min.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -461,12 +461,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="circomod.aspx.cs">
-      <DependentUpon>circomod.aspx</DependentUpon>
+    <Compile Include="circomodold.aspx.cs">
+      <DependentUpon>circomodold.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="circomod.aspx.designer.cs">
-      <DependentUpon>circomod.aspx</DependentUpon>
+    <Compile Include="circomodold.aspx.designer.cs">
+      <DependentUpon>circomodold.aspx</DependentUpon>
     </Compile>
     <Compile Include="circomodiFrame.aspx.cs">
       <DependentUpon>circomodiFrame.aspx</DependentUpon>
@@ -485,12 +485,12 @@
     <Compile Include="circomodService.svc.cs">
       <DependentUpon>circomodService.svc</DependentUpon>
     </Compile>
-    <Compile Include="circomodVisualization.aspx.cs">
-      <DependentUpon>circomodVisualization.aspx</DependentUpon>
+    <Compile Include="circomod.aspx.cs">
+      <DependentUpon>circomod.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="circomodVisualization.aspx.designer.cs">
-      <DependentUpon>circomodVisualization.aspx</DependentUpon>
+    <Compile Include="circomod.aspx.designer.cs">
+      <DependentUpon>circomod.aspx</DependentUpon>
     </Compile>
     <Compile Include="cls\clsCommon.cs" />
     <Compile Include="cls\DbConnect.cs" />
