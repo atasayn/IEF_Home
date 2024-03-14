@@ -8,6 +8,7 @@
             max-width: 800px;
             text-align: justify;
             margin: 0 auto;
+            font-size: 15px;
         }
 
             .grid-main h3 {
@@ -39,12 +40,12 @@
         .not-show-twitter {
             background-color: white;
             width: 470px;
-            height: 685px;
+            height: auto;
             font-weight: bold;
             font-size: large;
             padding: 0.5em 1em;
             border-radius: 1em;
-            display:block;
+            display: block;
         }
 
         .not-show-twitter-content {
@@ -90,7 +91,7 @@
 
         window.onload = function () {
 
-            if (getCookie('twitter-cookie')=='true') {
+            if (getCookie('twitter-cookie') == 'true') {
                 // cookies exist, show the div
                 var scriptElement = document.createElement('script');
                 scriptElement.type = 'text/javascript';
@@ -156,7 +157,7 @@
     <div class="grid-container">
         <div class="grid-main">
             <h3>Welcome to the research portal of Industrial Ecology Freiburg (IEF)!</h3>
-            <p>
+            <p style="margin-top:35px">
                 We are the research group for sustainable energy and material flow management (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment and Natural Resources.
                 <br>
                 <br>
@@ -181,39 +182,18 @@
         </div>
 
         <div class="grid-twitter">
-            
-            <div class="not-show-twitter" >
+
+            <div class="not-show-twitter">
                 Tweets from @StefanPauliuk
-           <img class="img-responsive center-block" src="resources/News_Update_Sept_14.png" height="">
-<%--                <div class="not-show-twitter-content">
-
-                    <button id="twitter-button" type="button" onclick="displayTwitter()" style="display: block">Load Embaded Twitter Timeline</button>
-                    <a href="https://twitter.com/en/privacy" style="display: block">Twitter privacy policy</a>
-
-                    <label>
-                        <input class="cookie-check" type="checkbox" name="twitter-cookie" value="1" onChange="set_check(this)">
-                        Don't ask me again</label>
-
-                </div>--%>
-
+           <img class="img-responsive center-block" src="resources/Gini_Paper_Link.png" height="">
             </div>
 
 
 
 
-<%--            <div class="show-twitter" >
-
-                <a class="twitter-timeline" data-dnt="true" data-height="650" href="https://twitter.com/StefanPauliuk">Tweets by StefanPauliuk</a>
-            </div>--%>
-
-
-
-
-
-
-            <h4 style="color:white">Links:</h4>
-            <span class="grid-link" style="color:white">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target="_blank">website</a>)</span>
-            <span class="grid-link" style="color:white">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target="_blank">website</a>)</span>
+            <h4 style="color: white">Links:</h4>
+            <span class="grid-link" style="color: white">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target="_blank">website</a>)</span>
+            <span class="grid-link" style="color: white">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target="_blank">website</a>)</span>
 
         </div>
     </div>

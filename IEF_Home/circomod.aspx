@@ -389,7 +389,7 @@
     <script type="text/javascript" src="js/anychart-waterfall.min.js"></script>
 </head>
 <body>
-    <form method="post" action="./circomodVisualization.aspx" id="form1">
+    <form method="post" action="./circomod.aspx" id="form1">
         <div class="aspNetHidden">
             <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="0xLbnx0TJ9xSkJB30Vq6AWRQmOEF6fjpC/O9F9EyX+2Lj56Xv4mXKREgZ1TZ5cb5aQf+6YQAo2Fe4i2ZuMIHDenLMYXy/SB/vi47GBhf/3M=" />
         </div>
@@ -406,7 +406,7 @@
                         <img src="/resources/IEF_LogoV_23_3.png" style="padding-left: 0;" width="241" height="111" alt="IEF logo">
                     </div>
 
-                    <div class="col-md-8" style="padding-left: 30px; height: 0px;">
+                    <div class="col-md-8" style=" height: 0px;">
                         <h2>Industrial Ecology Freiburg</h2>
                         <p style="font-size: 16px;">Research group at the Faculty of Environment and Natural Resources</p>
                     </div>
