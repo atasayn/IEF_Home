@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="circomod.aspx.cs" Inherits="IEF_Home.circomod" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Circomod</title>
@@ -41,7 +42,7 @@
                 'map           line-graph           line-graph-pop StackedArea '
                 'country-info  sankeyBaseline       sankeyBaseline GHG'
                 'control-panel sankeyFullCE         sankeyFullCE   line-graph-bar'
-                'control-panel  ECD_Decoupling       ECD_Decoupling chinaTeaser'
+                'control-panel ECD_Decoupling       ECD_Decoupling chinaTeaser'
                 '.             energyServiceCascade energyServiceCascade chinaTeaser'
                 'infoBottom          infoBottom     infoBottom          infoBottom';
             display: grid;
@@ -150,11 +151,18 @@
 
         #GHG {
             grid-area: GHG;
+            border-radius: 5px;
+            width: auto;
+            height: 100%
+        }        
+        
+        #waterfall {
             position: relative;
             border-radius: 5px;
             width: auto;
             height: 100%
         }
+        
 
         #GraphStackedArea h2 {
             margin: auto;
@@ -188,6 +196,22 @@
             border-radius: 5px;
         }
 
+        #pdf {
+            height: 50px;
+            width: 74px;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+            background-color: #000000;
+        }
+
+        .button:hover {
+            background-color:#002ead;
+            transition: 0.7s;
+        }
+
+
         body {
             margin: 0;
         }
@@ -215,6 +239,14 @@
             margin: 4px 2px;
             cursor: pointer;
             font-size: 10px;
+        }
+
+        #pdfButton {
+            margin: 0px;
+            width: 85px;
+            height: 39px;
+            font-size: 15px;
+            border-radius: 5px;
         }
 
         #sankey {
@@ -370,7 +402,10 @@
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script type="text/javascript" src="js/svgMap/svgmap.min.js"></script>
+    <script type="text/javascript" src="js/PDFmaker/jspdf.es.min.js"></script>
+    <script type="text/javascript" src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
     <script type="text/javascript" src="js/svgMap/main.min.js"></script>
     <script type="text/javascript" src="js/mapConfig.js"></script>
@@ -387,15 +422,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script type="text/javascript" src="js/anychart-core.min.js"></script>
     <script type="text/javascript" src="js/anychart-waterfall.min.js"></script>
+    <script type="text/javascript" src="js/pdfMaker.js"></script>
+    <script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
 </head>
 <body>
-    <form method="post" action="./circomod.aspx" id="form1">
+    <form method="post" action="./circomod.aspx" id="form1" runat="server">
         <div class="aspNetHidden">
             <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="0xLbnx0TJ9xSkJB30Vq6AWRQmOEF6fjpC/O9F9EyX+2Lj56Xv4mXKREgZ1TZ5cb5aQf+6YQAo2Fe4i2ZuMIHDenLMYXy/SB/vi47GBhf/3M=" />
         </div>
-
-        <div class="aspNetHidden">
-
+    <div class="aspNetHidden">
             <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5FB1E55D" />
         </div>
         <header>
@@ -452,28 +490,28 @@
                 <div id="Graph1Line" style="background-color: #ffffff">
                     <div class="loader1" style="display: none"></div>
                     <canvas id="line-plot1" style="position: absolute"></canvas>
-                    <div id="NoDataline-plot1" style="margin=auto; display: none; width: 100%; height: 100%;">
+                    <div id="NoDataline-plot1" style="margin:auto; display: none; width: 100%; height: 100%;">
                         <span style="line-height: 2; font-weight: 500; color: black; font-size: 25px; margin: auto">No Data</span>
                     </div>
                 </div>
                 <div id="GraphPopulationLine" style="background-color: #ffffff">
                     <div class="loader2" style="display: none"></div>
                     <canvas id="line-plot2" style="position: absolute"></canvas>
-                    <div id="NoDataline-plot2" style="margin=auto; display: none; width: 100%; height: 100%;">
+                    <div id="NoDataline-plot2" style="margin:auto; display: none; width: 100%; height: 100%;">
                         <span style="line-height: 2; font-weight: 500; color: black; font-size: 25px; margin: auto">No Data</span>
                     </div>
                 </div>
                 <div id="GraphPopulationBar" style="background-color: #ffffff">
                     <div class="loader3" style="display: none"></div>
                     <canvas id="line-plot3" style="position: absolute"></canvas>
-                    <div id="NoDataline-plot3" style="margin=auto; display: none; width: 100%; height: 100%;">
+                    <div id="NoDataline-plot3" style="margin:auto; display: none; width: 100%; height: 100%;">
                         <span style="line-height: 2; font-weight: 500; color: black; font-size: 25px; margin: auto">No Data</span>
                     </div>
                 </div>
                 <div id="GraphStackedArea" style="background-color: #ffffff">
                     <div class="loader4" style="display: none"></div>
                     <canvas id="line-plot4" style="position: absolute"></canvas>
-                    <div id="NoDataline-plot4" style="margin=auto; display: none; width: 100%; height: 100%;">
+                    <div id="NoDataline-plot4" style="margin:auto; display: none; width: 100%; height: 100%;">
                         <span style="line-height: 2; font-weight: 500; color: black; font-size: 25px; margin: auto">No Data</span>
                     </div>
                     <span id="RegionName4" class="label label-danger" style="background-color: #b6dbff; line-height: 2; font-weight: 500; color: black"></span>
@@ -483,16 +521,18 @@
                     <span id='countryInfoCountryName' style="margin-left: 50px"></span>
                     <span id='proxyName' style="margin-left: 50px"></span>
                     <p style="margin: 10px">Population:</p>
-                    <span id='gdp' style="margin-left: 50px"></span>
-                    <p style="margin: 10px">GDP per capita (current US$):</p>
                     <span id='population' style="margin-left: 50px"></span>
+                    <p style="margin: 10px">GDP per capita (current US$):</p>
+                    <span id='gdp' style="margin-left: 50px"></span>
                     <p style="margin: 10px">Population Density (people per sq. km of land area):</p>
                     <span id='populationDensity' style="margin-left: 50px"></span>
                     <p id="warningDisplay" class="w3-panel w3-red" style="margin: 20px; display: none"><b>Warning: </b><span id='proxyWarning'></span></p>
                 </div>
+
                 <div id="controlPanel">
                     <p style="margin: 10px">
                         <b><label for="DropDownListSector">Sector:</label></b>
+                        <button id="pdfButton" class="button" type="button"  onclick="done()" style="">PDF</button>
                     </p>
                     <select id="DropDownListSector" required>
                         <option value="" disabled>Please select sector</option>
@@ -644,8 +684,9 @@
                     <div id="sankeyDivsAllFullCE"></div>
                 </div>
                 <div id="GHG" style="background-color: #ffffff">
-                    <div class="loader5" style="display: none"></div>
-                    <canvas id="line-plot5" style="position: absolute"></canvas>
+                    <div class="loader5" style="display: none;"></div>
+                    <div id="waterfall" >
+                    </div>
                 </div>
                 <div id="ChinaTeaser">
                     <img src="Content/ReccPlots/Buildings_China_LED_CE.png" style="border-radius: 5px; width: auto">
@@ -679,13 +720,15 @@
                 </div>
             </div>
             <script>
+
+
                 function findVisibleDivId() {
                     var divs = document.querySelectorAll('[id^="div_svg"]');
                     for (var i = 0; i < divs.length; i++) {
                         // Check if the div is visible
                         if (divs[i].style.visibility === 'visible') {
                             // Return the id of the visible div
-                            divsVis = divs[i].id
+                            divsVis = divs[i].id;
                             return divsVis;
                         }
                     }
@@ -761,8 +804,8 @@
                         // Visible
                         document.getElementById("Lowerdiv_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
                         document.getElementById("Lowerspan_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
-                        document.getElementById("steelLower_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block'
-                        document.getElementById("ghgLower_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block'
+                        document.getElementById("steelLower_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block';
+                        document.getElementById("ghgLower_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block';
                         // Hidden
                         document.getElementById("Lowerdiv_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
                         document.getElementById("Lowerspan_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
@@ -793,6 +836,8 @@
                     }
                 }
 
+
+
                 function barChart(data, canvasID, material) {
                     var canvasElement = document.getElementById("NoData" + canvasID);
                     var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
@@ -801,11 +846,10 @@
                         Chart.getChart(canvasID).destroy();
                     } catch (e) { }
                     if (values.length === 0) {
-                        console.log(canvasElement)
-                        canvasElement.style.display = "flex"
+                        canvasElement.style.display = "flex";
                     } else {
-                        canvasElement.style.display = "none"
-                        new Chart(document.getElementById(canvasID), {
+                        canvasElement.style.display = "none";
+                        barGraph =  new Chart(document.getElementById(canvasID), {
                             type: 'bar',
                             data: {
                                 labels: ["SSP2 Baseline", "Slow+Close", "Narrow + Slow + Close"],
@@ -841,6 +885,7 @@
                                 }
                             }
                         });
+                        return barGraph;
                     }
                 };
 
@@ -853,46 +898,42 @@
                     } catch (e) { }
                     if (values.length === 0) {
                         console.log(canvasElement)
-                        canvasElement.style.display = "flex"
+                        canvasElement.style.display = "flex";
                     } else {
-                        canvasElement.style.display = "none"
+                        canvasElement.style.display = "none";
                         var dataLength = values[0].length;
-                        new Chart(document.getElementById(canvasID), {
+                        areaGraph = new Chart(document.getElementById(canvasID), {
                             type: 'line',
-
                             data: {
-
                                 labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
                                 datasets: [{
-                                    label: 'Use Phase',
-                                    borderColor: "#a6611a",
-                                    backgroundColor: "rgba(166, 97, 26, 0.9)",
-                                    data: Array.from({ length: dataLength }, (_, i) => values[0][i]),
-                                    fill: true,
-                                },
-                                {
-                                    label: 'Waste Management',
-                                    borderColor: "#018571",
-                                    backgroundColor: "rgba(1, 133, 113, 0.9)",
-                                    data: Array.from({ length: dataLength }, (_, i) => values[1][i]),
-                                    fill: true
-                                },
-                                {
-                                    label: 'Material Production',
-                                    borderColor: "#80cdc1",
-                                    backgroundColor: "rgba(128, 205, 193, 0.9)",
-                                    data: Array.from({ length: dataLength }, (_, i) => values[2][i]),
-                                    fill: true
-                                },
-                                {
-                                    label: 'Energy Supply',
-                                    borderColor: "#dfc27d",
-                                    backgroundColor: "rgba(223, 194, 125, 0.9)",
-                                    data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
-                                    fill: true
-
-
-                                }],
+                                        label: 'Use Phase',
+                                        borderColor: "#a6611a",
+                                        backgroundColor: "rgba(166, 97, 26, 0.9)",
+                                        data: Array.from({ length: dataLength }, (_, i) => values[0][i]),
+                                        fill: true,
+                                    },
+                                    {
+                                        label: 'Waste Management',
+                                        borderColor: "#018571",
+                                        backgroundColor: "rgba(1, 133, 113, 0.9)",
+                                        data: Array.from({ length: dataLength }, (_, i) => values[1][i]),
+                                        fill: true
+                                    },
+                                    {
+                                        label: 'Material Production',
+                                        borderColor: "#80cdc1",
+                                        backgroundColor: "rgba(128, 205, 193, 0.9)",
+                                        data: Array.from({ length: dataLength }, (_, i) => values[2][i]),
+                                        fill: true
+                                    },
+                                    {
+                                        label: 'Energy Supply',
+                                        borderColor: "#dfc27d",
+                                        backgroundColor: "rgba(223, 194, 125, 0.9)",
+                                        data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
+                                        fill: true
+                                    }],
                             },
                             options: {
                                 responsive: true,
@@ -931,6 +972,7 @@
                             }//end options 
 
                         });
+                        return areaGraph;
                     }
                 };
 

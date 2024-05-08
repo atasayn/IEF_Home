@@ -181,7 +181,7 @@ namespace IEF_Home
         //    cn.CloseConnection();
         //    return output;
         //}
-        
+
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public List<List<string>> Classification_ResultItemBuildingRes(string selectedRegion)
@@ -423,55 +423,56 @@ namespace IEF_Home
                     while (reader.Read())
                     {
 
-                           if(process == "87")
+                        if (process == "87")
+                        {
+                            if (i == 0)
                             {
-                                if (i == 0)
-                                {
-                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
-                                    valuePri_SSP2_Baseline.Add(datavalue);                                
-                                }else if (i == 1)
-                                {
-                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
-                                    valuePri_SSP2_FullCE.Add(datavalue);
-                                }
-                                else if (i == 2)
-                                {
-                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
-                                    valuePri_LED_FullCE.Add(datavalue);
-                                }
+                                string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
+                                valuePri_SSP2_Baseline.Add(datavalue);
                             }
-                            else if (process == "88")
+                            else if (i == 1)
                             {
-                                if (i == 0)
-                                {
-                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");                    
-                                    valueSec_SSP2_Baseline.Add(datavalue);       
-                                }
-                                else if (i == 1)
-                                {
-                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");                                   
-                                    valueSec_SSP2_FullCE.Add(datavalue); 
-                                }
-                                else if (i == 2)
-                                {
-                                    string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");                                  
-                                    valueSec_LED_FullCE.Add(datavalue);
-                                }
-                            }                           
-                        
+                                string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
+                                valuePri_SSP2_FullCE.Add(datavalue);
+                            }
+                            else if (i == 2)
+                            {
+                                string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
+                                valuePri_LED_FullCE.Add(datavalue);
+                            }
+                        }
+                        else if (process == "88")
+                        {
+                            if (i == 0)
+                            {
+                                string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
+                                valueSec_SSP2_Baseline.Add(datavalue);
+                            }
+                            else if (i == 1)
+                            {
+                                string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
+                                valueSec_SSP2_FullCE.Add(datavalue);
+                            }
+                            else if (i == 2)
+                            {
+                                string datavalue = reader["CumulativeSUM"].ToString().Replace(",", ".");
+                                valueSec_LED_FullCE.Add(datavalue);
+                            }
+                        }
+
                         output["valuePri_SSP2_Baseline"] = valuePri_SSP2_Baseline;
                         output["valuePri_SSP2_FullCE"] = valuePri_SSP2_FullCE;
                         output["valuePri_LED_FullCE"] = valuePri_LED_FullCE;
                         output["valueSec_SSP2_Baseline"] = valueSec_SSP2_Baseline;
                         output["valueSec_SSP2_FullCE"] = valueSec_SSP2_FullCE;
                         output["valueSec_LED_FullCE"] = valueSec_LED_FullCE;
-               
+
                     }
-          
+
                     reader.Close();
                 }
             }
-            
+
             cn.CloseConnection();
             return output;
         }
@@ -480,12 +481,12 @@ namespace IEF_Home
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
 
 
-        public Dictionary<string, List<string>> Classification_ResultAreaStacked(string selectedRegion,  string selectedSector)
+        public Dictionary<string, List<string>> Classification_ResultAreaStacked(string selectedRegion, string selectedSector)
         {
             Dictionary<string, List<string>> output = new Dictionary<string, List<string>>();
             if (!cn.OpenConnection()) return null;
             var SelectedProcessTemp = new List<string> { "use phase", "waste management", "material production", "energy supply" };
-         
+
 
             // Primary Production Scenerios
             List<string> valueUse_face = new List<string>();
@@ -509,65 +510,65 @@ namespace IEF_Home
              AND d.aspect6 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'SSP2')         
              AND d.aspect7 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'Baseline')";
 
-                    var cmd = new MySqlCommand(query, cn.Connection);
-                    cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
-                    cmd.Parameters.AddWithValue("@selectedProcess", process);
-                    cmd.Parameters.AddWithValue("@selectedSector", selectedSector);
+                var cmd = new MySqlCommand(query, cn.Connection);
+                cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
+                cmd.Parameters.AddWithValue("@selectedProcess", process);
+                cmd.Parameters.AddWithValue("@selectedSector", selectedSector);
 
 
-                    var reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    if (process == SelectedProcessTemp[0])
                     {
-
-                        if (process == SelectedProcessTemp[0])
-                        {                          
-                            string Use_face = reader[0].ToString().Replace(",", ".");
-                            valueUse_face.Add(Use_face);                       
-                        }
-                        else if (process == SelectedProcessTemp[1])
-                        {
-                            string Waste_manegement = reader[0].ToString().Replace(",", ".");
-                            valueWaste_manegement.Add(Waste_manegement);
-                        }
-                        else if (process == SelectedProcessTemp[2])
-                        {
-                            string Material_production = reader[0].ToString().Replace(",", ".");
-                            valuePriMaterial_production.Add(Material_production);
-                        }
-                        else if (process == SelectedProcessTemp[3])
-                        {
-                            string Energy_supply = reader[0].ToString().Replace(",", ".");
-                            string yearsTemp = reader[1].ToString();
-                            valuePriEnergy_supply.Add(Energy_supply);
-                            years.Add(yearsTemp);
-                        }
-
-                        output["Use_face"] = valueUse_face;
-                        output["Waste_manegement"] = valueWaste_manegement;
-                        output["Material_production"] = valuePriMaterial_production;
-                        output["Energy_supply"] = valuePriEnergy_supply;
-                        output["Years"] = years;
-
-
+                        string Use_face = reader[0].ToString().Replace(",", ".");
+                        valueUse_face.Add(Use_face);
+                    }
+                    else if (process == SelectedProcessTemp[1])
+                    {
+                        string Waste_manegement = reader[0].ToString().Replace(",", ".");
+                        valueWaste_manegement.Add(Waste_manegement);
+                    }
+                    else if (process == SelectedProcessTemp[2])
+                    {
+                        string Material_production = reader[0].ToString().Replace(",", ".");
+                        valuePriMaterial_production.Add(Material_production);
+                    }
+                    else if (process == SelectedProcessTemp[3])
+                    {
+                        string Energy_supply = reader[0].ToString().Replace(",", ".");
+                        string yearsTemp = reader[1].ToString();
+                        valuePriEnergy_supply.Add(Energy_supply);
+                        years.Add(yearsTemp);
                     }
 
-                    reader.Close();
-                
+                    output["Use_face"] = valueUse_face;
+                    output["Waste_manegement"] = valueWaste_manegement;
+                    output["Material_production"] = valuePriMaterial_production;
+                    output["Energy_supply"] = valuePriEnergy_supply;
+                    output["Years"] = years;
+
+
+                }
+
+                reader.Close();
+
             }
 
             cn.CloseConnection();
             return output;
-        } 
-        
+        }
+
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
 
 
-        public Dictionary<string, List<string>> Classification_ResultGHG(string selectedRegion,  string selectedSector)
+        public Dictionary<string, List<string>> Classification_ResultGHG(string selectedRegion, string selectedSector)
         {
             Dictionary<string, List<string>> output = new Dictionary<string, List<string>>();
             if (!cn.OpenConnection()) return null;
-           var SelecteScenerioTemp = new List<string> { "Baseline", "HIY-RLU-MSU", "Full CE"};
+            var SelecteScenerioTemp = new List<string> { "Baseline", "HIY-RLU-MSU", "Full CE" };
             List<string> Baseline = new List<string>();
             List<string> HIY_RLU_MSU = new List<string>();
             List<string> Full_CE = new List<string>();
@@ -576,8 +577,8 @@ namespace IEF_Home
 
             foreach (var scenerio in SelecteScenerioTemp)
             {
-           
-                    const string query = @" SELECT sum(d.value),cls.attribute1_oto as aspect_8
+
+                const string query = @" SELECT sum(d.value),cls.attribute1_oto as aspect_8
              FROM iedc.data d 
              LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id 
              LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
@@ -590,42 +591,42 @@ namespace IEF_Home
              AND d.aspect6 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = 'LED')         
              AND d.aspect7 IN (SELECT id FROM iedc.classification_items WHERE attribute1_oto = @selectedScenerio)";
 
-                    var cmd = new MySqlCommand(query, cn.Connection);
-                    cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
-                    cmd.Parameters.AddWithValue("@selectedSector", selectedSector);
-                    cmd.Parameters.AddWithValue("@selectedScenerio", scenerio);
+                var cmd = new MySqlCommand(query, cn.Connection);
+                cmd.Parameters.AddWithValue("@selectedRegion", selectedRegion);
+                cmd.Parameters.AddWithValue("@selectedSector", selectedSector);
+                cmd.Parameters.AddWithValue("@selectedScenerio", scenerio);
 
 
-                    var reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    if (scenerio == SelecteScenerioTemp[0])
                     {
-
-                            if (scenerio == SelecteScenerioTemp[0])
-                            {
-                                string BaselineTemp= reader[0].ToString();
-                                Baseline.Add(BaselineTemp);
-                                string YearTemp = reader[1].ToString();
-                                Year.Add(YearTemp);
-                            }
-                            else if (scenerio == SelecteScenerioTemp[1])
-                            {
-                                string HIY_RLU_MSU_Temp = reader[0].ToString();
-                                HIY_RLU_MSU.Add(HIY_RLU_MSU_Temp);
-                            }
-                            else if (scenerio == SelecteScenerioTemp[2])
-                            {
-                                string Full_CE_Temp = reader[0].ToString();
-                                Full_CE.Add(Full_CE_Temp);
-                            };
-                    
-                        output["Baseline"] = Baseline;
-                        output["HIY_RLU_MSU"] = HIY_RLU_MSU;
-                        output["Full_CE"] = Full_CE;
-                        output["Year"] = Year;
-
+                        string BaselineTemp = reader[0].ToString();
+                        Baseline.Add(BaselineTemp);
+                        string YearTemp = reader[1].ToString();
+                        Year.Add(YearTemp);
                     }
+                    else if (scenerio == SelecteScenerioTemp[1])
+                    {
+                        string HIY_RLU_MSU_Temp = reader[0].ToString();
+                        HIY_RLU_MSU.Add(HIY_RLU_MSU_Temp);
+                    }
+                    else if (scenerio == SelecteScenerioTemp[2])
+                    {
+                        string Full_CE_Temp = reader[0].ToString();
+                        Full_CE.Add(Full_CE_Temp);
+                    };
 
-                    reader.Close();
+                    output["Baseline"] = Baseline;
+                    output["HIY_RLU_MSU"] = HIY_RLU_MSU;
+                    output["Full_CE"] = Full_CE;
+                    output["Year"] = Year;
+
+                }
+
+                reader.Close();
             }
             cn.CloseConnection();
             return output;
@@ -635,7 +636,7 @@ namespace IEF_Home
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public  Dictionary<string, string> Classification_SankeyItem(string SELECTedRegion, string SELECTedScenario, string SELECTedMaterial, string SELECTedStrategy, string SELECTedYear, string SELECTedSector, string SELECTedFlow)
+        public Dictionary<string, string> Classification_SankeyItem(string SELECTedRegion, string SELECTedScenario, string SELECTedMaterial, string SELECTedStrategy, string SELECTedYear, string SELECTedSector, string SELECTedFlow)
         {
             var queryList = new Dictionary<string, string>
             {
@@ -766,7 +767,7 @@ namespace IEF_Home
                     AND d.aspect4 = 55"
             };
 
-             Dictionary<string, string> result = new Dictionary<string, string>();
+            Dictionary<string, string> result = new Dictionary<string, string>();
             foreach (KeyValuePair<string, string> kvp in queryList)
             {
                 try
@@ -792,7 +793,7 @@ namespace IEF_Home
                         }
                         catch (ArgumentException ex)
                         {
-                        
+
                         }
                     }
                     cn.CloseConnection();
@@ -939,7 +940,7 @@ namespace IEF_Home
 
         public List<string> iedcDatatype()
         {
-            
+
             var output = new List<string>();
             var query = "SELECT * FROM iedc.types";
 
@@ -1026,7 +1027,7 @@ namespace IEF_Home
             while (reader.Read())
             {
 
-                for(int i=0; i < reader.FieldCount; i++)
+                for (int i = 0; i < reader.FieldCount; i++)
                 {
                     string classification = reader[i].ToString();
                     aspectsTemp.Add(classification);
@@ -1035,7 +1036,7 @@ namespace IEF_Home
 
                 aspectsTemp = aspectsTemp.Distinct().ToList();
                 aspectsTemp.RemoveAll(item => item == "");
-               
+
             }
 
             reader.Close();
@@ -1076,12 +1077,12 @@ namespace IEF_Home
             cmd.Parameters.AddWithValue("@aspectName", aspectName);
             cmd.Parameters.AddWithValue("@data_type", data_type);
             var reader = cmd.ExecuteReader();
-        
+
 
             while (reader.Read())
             {
-                    id_aspect.Add(reader.GetString(0), reader.GetString(1));
- 
+                id_aspect.Add(reader.GetString(0), reader.GetString(1));
+
             }
             reader.Close();
             cn.CloseConnection();
@@ -1243,9 +1244,9 @@ namespace IEF_Home
                     }
                     result[colName].Add(!reader.IsDBNull(i) ? reader[i].ToString() : null);
                 }
-    
 
-          
+
+
 
 
                 result["fulldataset"] = dataset;

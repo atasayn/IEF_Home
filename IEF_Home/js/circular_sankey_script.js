@@ -295,8 +295,8 @@
         .attr("x", 5)
         .attr("y", 15)
         .attr("text-anchor", "left")
-        .style("font-size", "13px")
-        .style("font-family", "poppins")
+        .style("font-size", "16px")
+        .style("font-family", "verdana")
         .text(document.getElementById("txtproject_name").value + document.getElementById("txtRemarks").value);
 
 
@@ -435,7 +435,7 @@
         .style({   // be explicit about the font specs:
             "stroke-width": "0", // positive stroke-width makes letters fuzzy
             "font-family": data_set.font_face,
-            "font-size": data_set.font_size + "px",
+            "font-size": data_set.font_size + 2 + "px",
             "font-weight": data_set.font_weight,
             fill: data_set.font_color
         })
@@ -635,7 +635,7 @@
             default_node_color: "#006699",
             default_node_colorset: "C",
             default_node_type: "R",
-            font_face: "poppins",
+            font_face: "verdana",
             default_rotate_angle: 0,
             unit_name: document.getElementById("unit_name").value
 

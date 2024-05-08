@@ -11,14 +11,14 @@ $(document).ready(function () {
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
                     if(region!=""){
-                        displayGraph(result["d"], "line-chart", `Per Capita Service Level `,'Annual pkm by passenger cars');
+                        displayGraph(result["d"], "line-chart", `Per Capita Service Level`,'Annual pkm by passenger cars');
                     }
                 }
         });
     });
 
 });
-   
+const graphs = {};
 $(document).ready(function () {
     $('.DDSelectSankey').click(function(e) {
         var region = $("#DropDownListSankeyRegion").val();
@@ -79,18 +79,17 @@ $(document).ready(function () {
 
 });
 function displayGraph(data, canvasID, title, yAxisTitle) {
-    console.log(data)
     var canvasElement = document.getElementById("NoData" + canvasID);
     try {
         Chart.getChart(canvasID).destroy();
     } catch (e) { }
 
     if (data.every(subarray => subarray.length === 0)) {
-        canvasElement.style.display = "flex"
+        canvasElement.style.display = "flex";
     } else {
-        canvasElement.style.display = "none"
+        canvasElement.style.display = "none";
         let labels = data[1];
-        new Chart(document.getElementById(canvasID), {
+        var lineGraph = new Chart(document.getElementById(canvasID), {
             type: 'line',
             data: {
                 labels: labels,
@@ -149,9 +148,18 @@ function displayGraph(data, canvasID, title, yAxisTitle) {
                 }
             }
         });
+        // Return both line graphs as properties of an object
+
+        if (title === "Total Population by scenerio (million)") {
+            graphs.populationLine = lineGraph;
+            return graphs;
+        } else if (title === "Per Capita Service Level") {
+            graphs.scenarioLine = lineGraph;
+            return graphs;
+        }
+
     }
 }
-
 
 
 

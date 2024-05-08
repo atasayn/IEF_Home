@@ -11,7 +11,7 @@ namespace IEF_Home
 {
 
 
-    public partial class circomod
+    public partial class Circomod
     {
 
         /// <summary>

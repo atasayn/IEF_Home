@@ -1,4 +1,4 @@
-﻿<%@ Page Title="CIRCOMOD" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="circomodNewPanel.aspx.cs" Inherits="IEF_Home.circomod" %>
+﻿<%@ Page Title="CIRCOMOD" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="circomodNewPanel.aspx.cs" Inherits="IEF_Home.Circomod" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <script src="js/togglePassword.js"></script>
