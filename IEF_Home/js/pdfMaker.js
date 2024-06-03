@@ -9,6 +9,7 @@ var decouplingImg = new Image();
 function done() {
     // PDF Layout
     var doc = new jsPDF('p', 'mm', "a4");
+
     doc.addPage();
     // Get Country Name and Flag
     var pdfCountryName = document.getElementById("countryInfoCountryName").innerHTML;
@@ -86,6 +87,7 @@ function done() {
         doc.addImage(energyCascadeImg, 'PNG', 10, 150, 190,28);
         doc.addImage(decouplingImg, 'PNG', 10, 190, 190,89);
 
+
         // Sixth Section
         // Sankey Configuration
         Promise.all([
@@ -98,9 +100,6 @@ function done() {
             doc.addImage(canvas3, 'PNG', 88, 76, 130, 57);
             doc.save('two-by-four.pdf');
         });
-
-
-
     };
 
     imgHeader.src = 'resources/pdfHeader.png';
@@ -123,7 +122,5 @@ function done() {
         doc.setFontSize(6);
         doc.text(newdat, 5, doc.internal.pageSize.height - 5);
     }
-
-
 }
 
