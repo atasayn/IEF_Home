@@ -38,13 +38,13 @@
         #DataMenu-Recc-GraphType {
             grid-template-columns: 25% 1fr 1fr 1fr;
             grid-template-areas:
-                'info          info                  info          info'
-                'map           line-graph           line-graph-pop StackedArea '
-                'country-info  sankeyBaseline       sankeyBaseline GHG'
-                'control-panel sankeyFullCE         sankeyFullCE   line-graph-bar'
-                'control-panel ECD_Decoupling       ECD_Decoupling chinaTeaser'
-                '.             energyServiceCascade energyServiceCascade chinaTeaser'
-                'infoBottom          infoBottom     infoBottom          infoBottom';
+                'info          info                  info                   info'
+                'map           line-graph           line-graph-pop          StackedArea '
+                'country-info  sankeyBaseline       sankeyBaseline          GHG'
+                'control-panel sankeyFullCE         sankeyFullCE            line-graph-bar'
+                'control-panel ECD_Decoupling       ECD_Decoupling          chinaTeaser'
+                '.             energyServiceCascade energyServiceCascade    chinaTeaser'
+                'infoBottom    infoBottom           infoBottom              infoBottom';
             display: grid;
             grid-row-gap: 10px;
             grid-column-gap: 5px;

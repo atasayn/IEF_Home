@@ -176,6 +176,13 @@
     <Content Include="circomodService.svc" />
     <Content Include="circomod.aspx" />
     <Content Include="Content\IEooc_Logo_V2.png" />
+    <Content Include="Content\workingPaperPngs\characterizationFactorsFor.png" />
+    <Content Include="Content\workingPaperPngs\documentationOfTheRecc2.5.png" />
+    <Content Include="Content\workingPaperPngs\guidelinesAndGoodPractice.png" />
+    <Content Include="Content\workingPaperPngs\guidelinesForDataModeling.png" />
+    <Content Include="Content\workingPaperPngs\portableAndFlexibleTech.png" />
+    <Content Include="Content\workingPaperPngs\szenarioanalyseFürMaterialverbrauch.png" />
+    <Content Include="Content\workingPaperPngs\treibhausgasbilanzDerUniversitat.png" />
     <Content Include="css\all.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\bracket.css" />
@@ -185,6 +192,7 @@
     <Content Include="css\style.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="iedc.aspx" />
+    <Content Include="iefWorkingPaper.aspx" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
     <Content Include="js\anychart-core.min.js" />
@@ -560,6 +568,13 @@
     </Compile>
     <Compile Include="iedc.aspx.designer.cs">
       <DependentUpon>iedc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iefWorkingPaper.aspx.cs">
+      <DependentUpon>iefWorkingPaper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iefWorkingPaper.aspx.designer.cs">
+      <DependentUpon>iefWorkingPaper.aspx</DependentUpon>
     </Compile>
     <Compile Include="internal.aspx.cs">
       <DependentUpon>internal.aspx</DependentUpon>
