@@ -44,7 +44,7 @@
                             <li><a href="/">Home</a></li>
                             <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
                             <!--  <li><a href="/research/research">Research</a></li>-->
-                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Data</a></li>
+                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Database</a></li>
                             <li><a href="/odym-recc">Models</a></li>
                             <li><a href="/teaching">Teaching</a></li>
                             <li><a href="/circomod">Circular Economy</a></li>
@@ -70,7 +70,7 @@
                 <a href="/">Home</a> 
                 <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a> 
             <!--<a href="research/research">Research</a> &#9679; -->
-                <a href="https://www.database.industrialecology.uni-freiburg.de">Data</a>
+                <a href="https://www.database.industrialecology.uni-freiburg.de">Database</a>
                 <a href="/odym-recc">Models</a> 
                 <a href="/teaching">Teaching</a>
                 <a href="/circomod">Circular Economy</a><br/>

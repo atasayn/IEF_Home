@@ -398,11 +398,11 @@
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
+    <link href="css/svgMap.min.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script type="text/javascript" src="js/svg-pan-zoom.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
     <script type="text/javascript" src="js/svgMap/svgmap.min.js"></script>
     <script type="text/javascript" src="js/PDFmaker/jspdf.es.min.js"></script>
     <script type="text/javascript" src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
@@ -419,12 +419,12 @@
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/fileUploader.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/custom_map.js"></script>
     <!-- Add this to your HTML file if using CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="js/xlsx.full.min.js"></script>
     <script type="text/javascript" src="js/anychart-core.min.js"></script>
     <script type="text/javascript" src="js/anychart-waterfall.min.js"></script>
     <script type="text/javascript" src="js/pdfMaker.js"></script>
-    <script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript" src="js/canvasjs.min.js"></script>
+    <script type="text/javascript" src="js/html2canvas.min.js"></script>
 
 
 </head>
@@ -462,7 +462,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="/">Home</a></li>
                             <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
-                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Data</a></li>
+                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Database</a></li>
                             <li><a href="/odym-recc">Models</a></li>
                             <li><a href="/teaching">Teaching</a></li>
                             <li><a href="/circomod">Circular Economy</a></li>
@@ -984,7 +984,7 @@
                 <a href="/">Home</a>
                 <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a>
                 <!--<a href="research/research">Research</a> &#9679; -->
-                <a href="https://www.database.industrialecology.uni-freiburg.de">Data</a>
+                <a href="https://www.database.industrialecology.uni-freiburg.de">Database</a>
                 <a href="/odym-recc">Models</a>
                 <a href="/teaching">Teaching</a>
                 <a href="/circomod">Circular Economy</a><br />

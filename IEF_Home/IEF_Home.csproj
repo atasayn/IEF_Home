@@ -190,6 +190,7 @@
     <Content Include="css\master.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\svgMap.min.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="iedc.aspx" />
     <Content Include="iefWorkingPaper.aspx" />
@@ -198,9 +199,11 @@
     <Content Include="js\anychart-core.min.js" />
     <Content Include="js\anychart-waterfall.min.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\canvasjs.min.js" />
     <Content Include="js\chart.min.js" />
     <Content Include="js\dropdownMenu.js" />
     <Content Include="js\highlight.pack.min.js" />
+    <Content Include="js\html2canvas.min.js" />
     <Content Include="js\iedcAdvancedData.js" />
     <Content Include="js\circular_sankey_script.js" />
     <Content Include="js\jquery-1.11.3.min.js" />
@@ -208,10 +211,12 @@
     <Content Include="js\jquery-1.7.1.min.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="js\jspdf.min.js" />
     <Content Include="js\mapConfig.js" />
     <Content Include="js\pdfMaker.js" />
     <Content Include="js\PDFmaker\jspdf.es.min.js" />
     <Content Include="js\PDFmaker\jspdf.plugin.autotable.js" />
+    <Content Include="js\svg-pan-zoom.min.js" />
     <Content Include="js\svgMap\main.min.js" />
     <Content Include="js\svgMap\svgMap.js" />
     <Content Include="js\svgMap\svgmap.min.js" />
