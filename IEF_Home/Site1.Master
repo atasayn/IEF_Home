@@ -44,10 +44,10 @@
                             <li><a href="/">Home</a></li>
                             <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
                             <!--  <li><a href="/research/research">Research</a></li>-->
-                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Database</a></li>
-                            <li><a href="/odym-recc">Models</a></li>
-                            <li><a href="/teaching">Teaching</a></li>
-                            <li><a href="/circomod">Circular Economy</a></li>
+                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">iedc Database</a></li>
+                            <li><a href="/odym-recc">Our Models</a></li>
+                            <li><a href="/teaching">TEACHING: IEooc</a></li>
+                            <li><a href="/circomod">CIRCULAR SANKEY APP</a></li>
                             <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">Circular Sankey</a></li>       
                             <li><a href="/iefWorkingPaper">IEF Working Papers</a></li>       
                             <li><a href="/internal">Internal</a></li>
@@ -70,11 +70,11 @@
                 <a href="/">Home</a> 
                 <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a> 
             <!--<a href="research/research">Research</a> &#9679; -->
-                <a href="https://www.database.industrialecology.uni-freiburg.de">Database</a>
-                <a href="/odym-recc">Models</a> 
-                <a href="/teaching">Teaching</a>
+                <a href="https://www.database.industrialecology.uni-freiburg.de">iedc Database</a>
+                <a href="/odym-recc">Our Models</a> 
+                <a href="/teaching">TEACHING: IEooc</a>
                 <a href="/circomod">Circular Economy</a><br/>
-                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">Circular Sankey</a> 
+                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a> 
                 <li><a href="/iefWorkingPaper">IEF Working Papers</a></li>    
                 <a href="/internal">Internal</a> 
                 <a href="/legal">Legal Notes & Privacy</a>

@@ -462,16 +462,15 @@
                         <ul class="nav navbar-nav">
                             <li><a href="/">Home</a></li>
                             <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
-                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">Database</a></li>
-                            <li><a href="/odym-recc">Models</a></li>
-                            <li><a href="/teaching">Teaching</a></li>
-                            <li><a href="/circomod">Circular Economy</a></li>
-                            <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">Circular Sankey</a></li>
+                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">iedc Database</a></li>
+                            <li><a href="/odym-recc">Our Models</a></li>
+                            <li><a href="/teaching">TEACHING: IEooc</a></li>
+                            <li><a href="/circomod">CIRCULAR ECONOMY PROFILES</a></li>
+                            <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">CIRCULAR SANKEY APP</a></li>
                             <li><a href="/iefWorkingPaper">IEF Working Papers</a></li>    
                             <li><a href="/internal">Internal</a></li>
                             <li style="display: none"><a href="/circomodVisualization">circomodVisualization</a></li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
@@ -483,8 +482,9 @@
                         Under the EU-funded project CIRCOMOD <a href="https://circomod.eu/" target="_blank">&#128279</a> (circular economy modelling for climate change mitigation), 
             we develop visualisations for the circular economy status and potentials for different regions, sectors, products, and materials. 
             Here, we show and test a visualization dashboard or circular economy profile for different regions and end-use sectors. The dashboard displays results from the RECC scenario model for the circular economy in buildings and vehicles <a href="https://www.industrialecology.uni-freiburg.de/odym-recc" target="_blank">&#128279 </a>. 
-                        It is co-developed with our colleagues from the <a href=https://www.hs-pforzheim.de/en/research/research_institutes/inec”>Institute for Industrial Ecology (INEC) at Pforzheim University of Applied Sciences </a> as part of the CIRCOMOD project and continuously updated and improved</p>
-                </div>
+                        It is co-developed with our colleagues from the <a href="https://www.hs-pforzheim.de/en/research/research_institutes/inec”"> Institute for Industrial Ecology (INEC) at Pforzheim University of Applied Sciences  </a> as part of the CIRCOMOD project and continuously updated and improved.</p>
+
+                    </div>
                 <div id="mapArea">
                     <div id="svgMap"></div>
                 </div>
@@ -984,11 +984,11 @@
                 <a href="/">Home</a>
                 <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a>
                 <!--<a href="research/research">Research</a> &#9679; -->
-                <a href="https://www.database.industrialecology.uni-freiburg.de">Database</a>
-                <a href="/odym-recc">Models</a>
-                <a href="/teaching">Teaching</a>
-                <a href="/circomod">Circular Economy</a><br />
-                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">Circular Sankey</a>
+                <a href="https://www.database.industrialecology.uni-freiburg.de">iedc Database</a>
+                <a href="/odym-recc">Our Models</a>
+                <a href="/teaching">TEACHING: IEooc</a>
+                <a href="/circomod">CIRCULAR ECONOMY PROFILES</a><br />
+                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a>
                 <li><a href="/iefWorkingPaper">IEF Working Papers</a></li>    
                 <a href="/internal">Internal</a>
                 <a href="/legal">Legal Notes & Privacy</a>
