@@ -11,3 +11,4 @@ packages/*
 
 # VS files
 .vs
+/IEF_Home/imagesToPDF

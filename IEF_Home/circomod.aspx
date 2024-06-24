@@ -839,7 +839,7 @@
 
 
 
-                function barChart(data, canvasID, material) {
+                function barChart(data, canvasID, region,sector,material) {
                     var canvasElement = document.getElementById("NoData" + canvasID);
                     var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
                     var values = [...new Set(Array.from(res.values()))];
@@ -869,7 +869,7 @@
                                 plugins: {
                                     title: {
                                         display: true,
-                                        text: 'Cumulative ' + material + ' production 2020-2060, [region], [sector], [material]'
+                                        text: `Cumulative  + material + ' production 2020-2060,  [${region}], [${sector}], [${material}]`
                                     },
                                 },
                                 scales: {
@@ -890,7 +890,7 @@
                     }
                 };
 
-                function stackedAreaChart(data, canvasID) {
+                function stackedAreaChart(data, canvasID, region, sector) {
                     var canvasElement = document.getElementById("NoData" + canvasID);
                     var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
                     var values = [...new Set(Array.from(res.values()))];
@@ -907,7 +907,8 @@
                             type: 'line',
                             data: {
                                 labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
-                                datasets: [{
+                                datasets: [
+                                    {
                                         label: 'Use Phase',
                                         borderColor: "#a6611a",
                                         backgroundColor: "rgba(166, 97, 26, 0.9)",
@@ -934,15 +935,16 @@
                                         backgroundColor: "rgba(223, 194, 125, 0.9)",
                                         data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
                                         fill: true
-                                    }],
+                                    }
+                                ],
                             },
                             options: {
                                 responsive: true,
                                 plugins: {
                                     title: {
                                         display: true,
-                                        text: 'Annual GHG 2020-2060 by process, [region], [sector], SSP2 Baseline'
-                                    },
+                                        text: `Annual GHG 2020-2060 by process, [${region}], [${sector}], SSP2 Baseline`
+                    },
                                 },
                                 scales: {
                                     x: {

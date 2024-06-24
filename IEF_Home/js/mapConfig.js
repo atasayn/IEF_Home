@@ -166,7 +166,7 @@
                             .then(result => {
                                 $('.loader4').hide();
                                 if (region !== "") {
-                                    stackedAreaChart(result, "line-plot4");
+                                    stackedAreaChart(result, "line-plot4", region, sector);
                                 }
                             })
                             .catch(error => {
@@ -196,7 +196,7 @@
                                 $('.loader3').hide();
                                 if (region !== "") {
                                     console.log(material);
-                                    barChart(result, "line-plot3", material);
+                                    barChart(result, "line-plot3", region,sector,material);
                                 }
                             })
                             .catch(error => {
@@ -224,7 +224,7 @@
                             .then(result => {
                                 $('.loader5').hide();
                                 if (region !== "") {
-                                    ghgChart(result, "line-plot5");
+                                    ghgChart(result, "line-plot5", selectedRegion, selectedSector);
                                 }
                             })
                             .catch(error => {
@@ -689,7 +689,7 @@ $(window).on('load', function () {
     }).then(response => response.json()).then(result => {
         document.querySelector('.loader3').style.display = 'none';
         if (region !== "") {
-            barChart(result, "line-plot3", material);
+            barChart(result, "line-plot3", region, sector, material);
         }
     })
 
@@ -705,7 +705,7 @@ $(window).on('load', function () {
     }).then(response => response.json()).then(result => {
         document.querySelector('.loader4').style.display = 'none';
         if (region !== "") {
-            stackedAreaChart(result, "line-plot4");
+            stackedAreaChart(result, "line-plot4", region, sector);
         }
     })
 
@@ -727,7 +727,7 @@ $(window).on('load', function () {
         .then(result => {
             $('.loader5').hide();
             if (region !== "") {
-                ghgChart(result, 'line-plot5');
+                ghgChart(result, 'line-plot5', region, sector);
             }
         })
         .catch(error => {
@@ -1078,7 +1078,7 @@ $(document).ready(function () {
 });
 
 const chartImageURL = {};
-function ghgChart(data, canvasID) {
+function ghgChart(data, canvasID,region,sector) {
     var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
     var values = [...new Set(Array.from(res.values()))];
   
@@ -1089,7 +1089,7 @@ function ghgChart(data, canvasID) {
             theme: "light2",
             backgroundColor: "rgba(225,150,150,0)",
             title: {
-                text: "Cumulative GHG 2020-2060, [region], [sector]",
+                text: `Cumulative GHG 2020-2060, [${region}], [${sector}]`,
                 fontSize: 15,
             },
             axisY: {

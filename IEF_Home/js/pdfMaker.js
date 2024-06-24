@@ -19,7 +19,7 @@ function done() {
         "we develop visualisations for the circular economy status and potentials for different regions, sectors, products, " +
         "and materials. Here, we show and test a visualization dashboard or circular economy profile for different regions " +
         "and end-use sectors. The dashboard displays results from the RECC scenario model for the circular economy in buildings " +
-        "and vehicles. It is continuously updated and improved. ";
+        "and vehicles. It is continuously updated and improved together with our colleagues from the Institute for Industrial Ecology (INEC) at Pforzheim University of Applied Sciences.";
     // Split the text in the pdf
     var textSplitted = doc.splitTextToSize(text, 200);
 
@@ -39,12 +39,21 @@ function done() {
 
     // Sankey Configuration
     var sankeyConfig = document.getElementById("controlPanel");
+    // Clone the controlPanel
+    const clonedSankeyConfig = sankeyConfig.cloneNode(true);
+
+    // Remove the pdfButton from the clone
+    const pdfButton = clonedSankeyConfig.querySelector('#pdfButton');
+    if (pdfButton) {
+        pdfButton.remove();
+    }
+
     var sankeyUpper = document.getElementById("sankey");
     var sankeyLower = document.getElementById("sankeyFullCE");
     // EnergyCascade and decoupling/coupling
     var energyCascade = document.getElementById("energyServiceCascadePNG").src;
     var ecdDecoupling = document.getElementById("ecdDecouplingPNG").src;
-    console.log(energyCascade);
+
     imgHeader.onload = function () {
         // 1st PAGE
         // Header
@@ -57,7 +66,7 @@ function done() {
         doc.setFontSize(8);
         doc.text(textSplitted, 3, 35);
         doc.setFontStyle('italic').setTextColor("#0000FF");
-        doc.textWithLink("For more info about the project", 3, 58, { url: "https://circomod.eu/" });
+        doc.textWithLink("For more info about the project", 3, 65, { url: "https://circomod.eu/" });
         doc.setFontStyle('bold').setTextColor("#000000");
         // Second Section: Country Info
         doc.text("Population:", 115, 35);
@@ -70,24 +79,63 @@ function done() {
         doc.setFontStyle('bold');
         doc.text("Population density (people per sq. km of land area):", 115, 45);
         doc.setFontStyle('normal');
-        doc.text(popDens, 1185, 45);
+        doc.text(popDens, 185, 45);
         doc.fromHTML(warning, 120, 45, { width: 80 });
         // Third Section: Population and Service Level Graphs
         doc.addImage(imgPopChart, 'PNG', 3, 70, 93, 43);
+        doc.setFontStyle('bold');
+        doc.text("Figure.", 10, 120);
+        doc.setFontStyle('normal');
+        doc.text("Population scenarios used.", 20, 120);
         doc.addImage(imgScenerioChart, 'JPEG', 110, 70, 93, 43);
+        doc.setFontStyle('bold');
+        doc.text("Figure.", 120, 120);
+        doc.setFontStyle('normal');
+        doc.text("Scenarios for the future service level per capita", 130, 120);
         // Fourth Section : GHG and Waterfall
-        doc.addImage(imgWaterfallChart, 'PNG', 3, 130, 90, 43);
+        doc.addImage(imgBarChart, 'PNG', 3, 130, 90, 43);
+        doc.setFontStyle('bold');
+        doc.text("Figure.", 10, 180);
+        doc.setFontStyle('normal');
+        var textCumSteel = "Cumulative steel production (from primary resources and " +
+            "from scrap/secondary resources) for the selected sector/region " +
+            "for a baseline development scenario and the reduction potential " +
+            "of the narrow, slow, and close circular economy strategies.";
+        var textSplittedCumSteel = doc.splitTextToSize(textCumSteel, 75);
+        doc.text(textSplittedCumSteel, 20, 180);
         doc.addImage(imgAreaChart, 'PNG', 110, 130, 93, 43);
+        doc.setFontStyle('bold');
+        doc.text("Figure.", 120, 180);
+        doc.setFontStyle('normal');
+        var textAnnualGreen = "Annual greenhouse gas emissions from the use phase/final " +
+            "energy use (scope 1), energy suppy supply (scope 2), and material production " +
+            "and waste management (scope 3) for a baseline development scenario.";
+        var textSplittedAnnualGreen = doc.splitTextToSize(textAnnualGreen, 75);
+        doc.text(textSplittedAnnualGreen, 130, 180);
         // Fifth Section: Prod Graph
-        doc.addImage(imgBarChart, 'PNG', 60, 200, 93, 43);
-
+        doc.addImage(imgWaterfallChart, 'PNG', 60, 210, 90, 45);
+        doc.setFontStyle('bold');
+        doc.text("Figure.", 65, 265);
+        doc.setFontStyle('normal');
+        var textCumGreen = "Cumulative greenhouse gas emissions from final energy use (scope 1), " +
+            "electricity and heat supply (scope 2), and material production (scope 3) for a baseline" +
+            " development scenario and the reduction potential of the narrow, slow, and close circular economy strategies.";
+        var textSplittedCumGreen = doc.splitTextToSize(textCumGreen, 75);
+        doc.text(textSplittedCumGreen, 75, 265);
         // 2nd PAGE
         doc.setPage(2);
         //Seventh Section:energyCascade and coupling/decoupling
-        doc.addImage(energyCascadeImg, 'PNG', 10, 150, 190,28);
-        doc.addImage(decouplingImg, 'PNG', 10, 190, 190,89);
-
-
+        doc.addImage(energyCascadeImg, 'PNG', 10, 150, 190, 28);
+        doc.setFontStyle('bold');
+        doc.text("Figure.", 20, 185);
+        doc.setFontStyle('normal');
+        var textEnergy = "Cumulative greenhouse gas emissions from final energy use (scope 1), " +
+            "electricity and heat supply (scope 2), and material production (scope 3) for a baseline" +
+            " development scenario and the reduction potential of the narrow, slow, and close circular economy strategies.";
+        var textSplittedEnergy = doc.splitTextToSize(textEnergy, 150);
+        doc.text(textSplittedEnergy, 30, 185);
+        doc.addImage(decouplingImg, 'PNG', 20, 210, 160,69);
+        doc.line(90, 70, 210, 70); // Line
         // Sixth Section
         // Sankey Configuration
         Promise.all([
@@ -98,8 +146,10 @@ function done() {
             doc.addImage(canvas1, 'PNG', 3, 5, 82, 137);
             doc.addImage(canvas2, 'PNG', 88, 6, 130, 57);
             doc.addImage(canvas3, 'PNG', 88, 76, 130, 57);
-            doc.save('two-by-four.pdf');
+            doc.save('Country_Sector_CE_Profile.pdf');
         });
+
+        clonedSankeyConfig.remove();
     };
 
     imgHeader.src = 'resources/pdfHeader.png';
