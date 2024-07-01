@@ -150,7 +150,7 @@ function displayGraph(data, canvasID, title, yAxisTitle) {
         });
         // Return both line graphs as properties of an object
 
-        if (title === "Total Population by scenerio (million)") {
+        if (title === "Total Population by scenario (million)") {
             graphs.populationLine = lineGraph;
             return graphs;
         } else if (title === "Per Capita Service Level") {

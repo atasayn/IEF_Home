@@ -57,10 +57,10 @@ function done() {
     imgHeader.onload = function () {
         // 1st PAGE
         // Header
-        doc.addImage(imgHeader, 'PNG', 0, 0, 210, 11);
+        doc.addImage(imgHeader, 'PNG', 0, 0, 210, 11, undefined, 'FAST');
         // First Section: Country flag and name
         doc.setFontSize(14);
-        doc.addImage(pdfCountryFlag, "PNG", 3, 18, 20, 10); // Country Flag
+        doc.addImage(pdfCountryFlag, "PNG", 3, 18, 20, 10, undefined, 'FAST'); // Country Flag
         doc.text(27, 25, pdfCountryName); // Country Name
         doc.line(3, 30, 100, 30); // Line
         doc.setFontSize(8);
@@ -82,18 +82,18 @@ function done() {
         doc.text(popDens, 185, 45);
         doc.fromHTML(warning, 120, 45, { width: 80 });
         // Third Section: Population and Service Level Graphs
-        doc.addImage(imgPopChart, 'PNG', 3, 70, 93, 43);
+        doc.addImage(imgPopChart, 'PNG', 3, 70, 93, 43,undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 10, 120);
         doc.setFontStyle('normal');
         doc.text("Population scenarios used.", 20, 120);
-        doc.addImage(imgScenerioChart, 'JPEG', 110, 70, 93, 43);
+        doc.addImage(imgScenerioChart, 'JPEG', 110, 70, 93, 43, undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 120, 120);
         doc.setFontStyle('normal');
         doc.text("Scenarios for the future service level per capita", 130, 120);
         // Fourth Section : GHG and Waterfall
-        doc.addImage(imgBarChart, 'PNG', 3, 130, 90, 43);
+        doc.addImage(imgBarChart, 'PNG', 3, 130, 90, 43, undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 10, 180);
         doc.setFontStyle('normal');
@@ -103,7 +103,7 @@ function done() {
             "of the narrow, slow, and close circular economy strategies.";
         var textSplittedCumSteel = doc.splitTextToSize(textCumSteel, 75);
         doc.text(textSplittedCumSteel, 20, 180);
-        doc.addImage(imgAreaChart, 'PNG', 110, 130, 93, 43);
+        doc.addImage(imgAreaChart, 'PNG', 110, 130, 93, 43, undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 120, 180);
         doc.setFontStyle('normal');
@@ -113,7 +113,7 @@ function done() {
         var textSplittedAnnualGreen = doc.splitTextToSize(textAnnualGreen, 75);
         doc.text(textSplittedAnnualGreen, 130, 180);
         // Fifth Section: Prod Graph
-        doc.addImage(imgWaterfallChart, 'PNG', 60, 210, 90, 45);
+        doc.addImage(imgWaterfallChart, 'PNG', 60, 210, 90, 45, undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 65, 265);
         doc.setFontStyle('normal');
@@ -125,7 +125,7 @@ function done() {
         // 2nd PAGE
         doc.setPage(2);
         //Seventh Section:energyCascade and coupling/decoupling
-        doc.addImage(energyCascadeImg, 'PNG', 10, 150, 190, 28);
+        doc.addImage(energyCascadeImg, 'PNG', 10, 150, 190, 28, undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 20, 185);
         doc.setFontStyle('normal');
@@ -134,7 +134,7 @@ function done() {
             " development scenario and the reduction potential of the narrow, slow, and close circular economy strategies.";
         var textSplittedEnergy = doc.splitTextToSize(textEnergy, 150);
         doc.text(textSplittedEnergy, 30, 185);
-        doc.addImage(decouplingImg, 'PNG', 20, 210, 160,69);
+        doc.addImage(decouplingImg, 'PNG', 20, 210, 160, 69, undefined, 'FAST');
         doc.line(90, 70, 210, 70); // Line
         // Sixth Section
         // Sankey Configuration
@@ -143,9 +143,9 @@ function done() {
             html2canvas(sankeyUpper),
             html2canvas(sankeyLower)
         ]).then(([canvas1, canvas2, canvas3]) => {
-            doc.addImage(canvas1, 'PNG', 3, 5, 82, 137);
-            doc.addImage(canvas2, 'PNG', 88, 6, 130, 57);
-            doc.addImage(canvas3, 'PNG', 88, 76, 130, 57);
+            doc.addImage(canvas1, 'PNG', 3, 5, 82, 137, undefined, 'FAST');
+            doc.addImage(canvas2, 'PNG', 88, 6, 130, 57, undefined, 'FAST');
+            doc.addImage(canvas3, 'PNG', 88, 76, 130, 57, undefined, 'FAST');
             doc.save('Country_Sector_CE_Profile.pdf');
         });
 

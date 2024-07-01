@@ -642,7 +642,7 @@ $(window).on('load', function () {
         .then(result => {
             $('.loader2').hide();
             if (region !== "") {
-                displayGraph(result.d, "line-plot2", "Total Population by scenerio (million)", "Total Population");
+                displayGraph(result.d, "line-plot2", "Total Population by scenario (million)", "Total Population");
             }
         })
         .catch(error => {
