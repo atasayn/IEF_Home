@@ -81,11 +81,21 @@ $(document).ready(function () {
 function displayGraph(data, canvasID, title, yAxisTitle) {
     var canvasElement = document.getElementById("NoData" + canvasID);
     try {
-        Chart.getChart(canvasID).destroy();
+        var existingChart = Chart.getChart(canvasID);
+        if (existingChart) {
+            existingChart.destroy();
+        }
     } catch (e) { }
 
     if (data.every(subarray => subarray.length === 0)) {
         canvasElement.style.display = "flex";
+        if (title === "Total Population by scenario (million)") {
+            graphs.populationLine = "No Data";
+            return graphs;
+        } else if (title === "Per Capita Service Level") {
+            graphs.scenarioLine = "No Data";
+            return graphs;
+        }
     } else {
         canvasElement.style.display = "none";
         let labels = data[1];

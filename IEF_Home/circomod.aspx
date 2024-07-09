@@ -425,8 +425,6 @@
     <script type="text/javascript" src="js/pdfMaker.js"></script>
     <script type="text/javascript" src="js/canvasjs.min.js"></script>
     <script type="text/javascript" src="js/html2canvas.min.js"></script>
-
-
 </head>
 <body>
     <form method="post" action="./circomod.aspx" id="form1" runat="server">
@@ -483,8 +481,7 @@
             we develop visualisations for the circular economy status and potentials for different regions, sectors, products, and materials. 
             Here, we show and test a visualization dashboard or circular economy profile for different regions and end-use sectors. The dashboard displays results from the RECC scenario model for the circular economy in buildings and vehicles <a href="https://www.industrialecology.uni-freiburg.de/odym-recc" target="_blank">&#128279 </a>. 
                         It is co-developed with our colleagues from the <a href="https://www.hs-pforzheim.de/en/research/research_institutes/inec”"> Institute for Industrial Ecology (INEC) at Pforzheim University of Applied Sciences  </a> as part of the CIRCOMOD project and continuously updated and improved.</p>
-
-                    </div>
+                </div>
                 <div id="mapArea">
                     <div id="svgMap"></div>
                 </div>

@@ -82,7 +82,7 @@ function done() {
         doc.text(popDens, 185, 45);
         doc.fromHTML(warning, 120, 45, { width: 80 });
         // Third Section: Population and Service Level Graphs
-        doc.addImage(imgPopChart, 'PNG', 3, 70, 93, 43,undefined, 'FAST');
+        doc.addImage(imgPopChart, 'PNG', 3, 70, 93, 43, undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 10, 120);
         doc.setFontStyle('normal');

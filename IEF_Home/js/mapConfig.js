@@ -11,6 +11,7 @@
             }
         },
         onGetTooltip: function (tooltipDiv, countryID, countryValues) {
+
             // Get Id's of graph divs
             var flagContainer = document.getElementById("countryFlag");
             var imgElement = document.getElementById("singleCountryImg");
@@ -22,8 +23,7 @@
             var imgElementLower = document.getElementById("singleCountryImgLower");
             var countryNameLower = document.getElementById("countryFlagSpanLower");
             $('.svgMap-country').off('click').on('click', function (e) {
-
-                var proxyWarning = document.getElementById("proxyWarning");
+               var proxyWarning = document.getElementById("proxyWarning");
                 proxyWarning.innerHTML = ""
                 // Upper Sankey Reset Div
                 // Find the <p> element by its id
@@ -83,7 +83,9 @@
                         }
                     })
                     .then(function (regionObj) {
-
+                        var mapArea = document.getElementById("mapArea");
+                        mapArea.style.filter = "blur(8px)";
+                        mapArea.style.pointerEvents = "none";
                         // Reset Divs
                         var region = regionObj.region;
                         var findFlagAndDataPNG = regionObj.findFlagAndDataPNG;
@@ -195,8 +197,9 @@
                             .then(result => {
                                 $('.loader3').hide();
                                 if (region !== "") {
-                                    console.log(material);
-                                    barChart(result, "line-plot3", region,sector,material);
+                                    barChart(result, "line-plot3", region, sector, material);
+                                    mapArea.style.filter = "none";
+                                    mapArea.style.pointerEvents = "auto";
                                 }
                             })
                             .catch(error => {
@@ -224,7 +227,8 @@
                             .then(result => {
                                 $('.loader5').hide();
                                 if (region !== "") {
-                                    ghgChart(result, "line-plot5", selectedRegion, selectedSector);
+                                    ghgChart(result, "line-plot5", region, sectorTemp);
+                                    
                                 }
                             })
                             .catch(error => {
@@ -282,7 +286,10 @@
                                 });
 
                         } else {
-                            Chart.getChart("line-plot1").destroy();
+                            const existingChart = Chart.getChart("line-plot1");
+                            if (existingChart) {
+                                existingChart.destroy();
+                            }
                             canvasElement.style.display = "flex";
                         }
 
@@ -560,12 +567,18 @@
                                 });
 
                             sankeyDivLower.appendChild(buttonDivLower);
+
                         }
 
+
                     });
+
             });
+            
         }
+        
     });
+    
 });
 
 function fetchCountryData(url, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3) {
