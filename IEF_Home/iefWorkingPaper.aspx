@@ -76,7 +76,7 @@
                     <img src="Content/workingPaperPngs/documentationOfTheRecc2.5.png" width="300">
                 </div>
                 <div class="column">
-                    <p>IEF Working paper 1 (2024)</p>
+                    <p>IEF Working paper 1 (2023)</p>
                     <p>
                         <b>Documentation of the RECC model v2.5 - Open Dynamic Material Systems Model for the Resource Efficiency-Climate Change (RECC) Nexus.</b>
                         Stefan Pauliuk. Industrial Ecology Freiburg (IEF) Working Paper 1(2023), University of Freiburg, Germany.</p>
