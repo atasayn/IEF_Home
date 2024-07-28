@@ -261,9 +261,14 @@
                         <a href="http://onlinelibrary.wiley.com/doi/10.1111/jiec.12738/full" target="new">IEooc_Background3_Reading1</a>
                         <br>
                         <br>
-                        <b>Reading:</b> Guidelines for software development for industrial ecology:
+                        <b>Reading:</b> Guidelines for software development for industrial ecology, with three parts: (1) Proposal for how existing general principles for the development of good scientific software could be implemented in industrial ecology and related fields. (2) Guidelines for the development and distribution of collaborative open source software. (3) Description of a set of open source modules for standard industrial ecology modeling tasks.
                         <br>
                         <a href="/Content/IEooc_Background3_Reading2_OpenSoftwareIndustrialEcology.pdf" target="new">IEooc_Background3_Reading2</a>
+                        <br>
+                        <br>
+                        <b>Reading:</b> Guidelines and Good Practice Examples for Complete Traceability of Workflows and Reproducibility of Results in Industrial Ecology Research. The guide to building a traceable IE workflow! With practical examples from Excel to R code to large collaborative projects in Python.
+                        <br>
+                        <a href="/Content/IEF_WorkingPaper_01_2023_MFA_Reproducibility_Transparency.pdf" target="new">IEooc_Background3_Reading2a</a>
                         <br>
                         <br>
                         <b>Webinar</b> on open LCA software:
@@ -799,7 +804,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods5_Software2_MRIO_Results.zip" target="new">IEooc_Methods5_Software2 (data file (.mat) and aggregation table (.xlsx))</a>
                         <br>
                         <br>
-                        <b>Software tutorial from the application section: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region WHERE emissions occur, industries WHERE emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
+                        <b>Software tutorial from the application section: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
                         <script>jupyterLink("/Content/IEooc_Application3_Software1.ipynb", "IEooc_Application3_Software1");</script><br>
                         <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.zip" target="new">IEooc_Application3_Software1 (data file)</a><br>
                         <br>
@@ -920,7 +925,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application1_Exercise2_IPAT_Equation_Solution.pdf" target="new">IEooc_Application1_Exercise2_Solution (pdf)</a>
                         <br>
-                        Directly related to this exercise is the following reading material, WHERE the economist Michael Grubb criticises the simple assumption that rates of technological change remain constant over long periods of time, and suggests that more realistic growth and technology diffusion models can lead to temporarily very high rates of change that are needed to transform entire industrial sectors.
+                        Directly related to this exercise is the following reading material, where the economist Michael Grubb criticises the simple assumption that rates of technological change remain constant over long periods of time, and suggests that more realistic growth and technology diffusion models can lead to temporarily very high rates of change that are needed to transform entire industrial sectors.
                         <a href="https://www.ineteconomics.org/perspectives/blog/growth-with-decarbonization-is-not-an-oxymoron" target="new">IEooc_Application1_Reading1</a>
                         <br>
                         <br>
@@ -1059,7 +1064,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <br>
 
-                        <b>Software tutorial: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region WHERE emissions occur, industries WHERE emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 
+                        <b>Software tutorial: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 
 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, cf. Methods section 5. Sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
                         <script>jupyterLink("/Content/IEooc_Application3_Software1.ipynb", "IEooc_Application3_Software1");</script>
                         <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
