@@ -662,13 +662,20 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise5_LCIA_Solution.xlsx" target="new">IEooc_Methods4_Exercise5_Solution (xlsx)</a>
                         <br>
                         <br>
-                        <b>Exercise from the application sectionon the concept of payback time in life cycle thinking and on how to take into account the timing of emissions and sequestration of carbon in the calculation of the global warming potential (GWP) </b>Goal: Get familiar with the carbon intensity of different energy carriers (orders of magnitude), understand the concept of distributing upfront emissions on the subsequently produced output, break-even emissions, and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). This exercise only considers GHG. Biodiversity and economic aspects of land conversion are highly relevant but are not studied here. <b>Level of difficulty: (+++)</b><br>
+                        <b>Exercise from the application section on the concept of payback time in life cycle thinking and on how to take into account the timing of emissions and sequestration of carbon in the calculation of the global warming potential (GWP) </b>Goal: Get familiar with the carbon intensity of different energy carriers (orders of magnitude), understand the concept of distributing upfront emissions on the subsequently produced output, break-even emissions, and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). This exercise only considers GHG. Biodiversity and economic aspects of land conversion are highly relevant but are not studied here. <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
                         <br>
                         <br>
-                        <b>Exercise from the application sectionon on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
+                        <b>Exercise on extracting data from the literature and using them in your own LCA in openLCA </b> Goal: Learn about the standard procedure for extracting data from the literature and using them in your own LCA in openLCA. This exercise follows four steps: (1) Convert raw data to a material and energy flow analysis diagram. (2) Scale down stocks down to represent them as consumption of fixed capital flows. (3) Convert process descriptions to unit process inventories. (4) Add unit process inventories as foreground processes to the ecoinvent database. Prerequisites: Basic MEFA and handling of ecoinvent in openLCA. <b> Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Methods4_Exercise6a_Process_Inventory_Compilation.pdf" target="new">IEooc_Methods4_Exercise6a (pdf)</a><br>
+                        For this exercise, a journal article with data and a sample solution are available:<br>
+			<a href="https://doi.org/10.1016/j.apenergy.2019.01.001" target="new">IEooc_Application4_Exercise6a Input data (open access journal publication)</a><br>
+                        <a href="/Content/IEooc_Methods4_Exercise6a_SampleSolution.pdf" target="new">IEooc_Application4_Exercise6a Sample Solution (pdf)</a>
+                        <br>
+                        <br>
+                        <b>Exercise from the application section on on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
 			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Woorkbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
                         For this exercise a sample solution is available:<br>
@@ -815,7 +822,15 @@ and several impact assessment methods. The use of parameters, choice of electric
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO_SampleSolution.xlsx" target="new">IEooc_Methods5_Exercise3_Solution (xlsx)</a>
                         <br>
-                        <br>			    
+                        <br>		
+                        <b>From the application section: Exercise on the structural decomposition of the IPAT equation: How much do individual factors contribute to change?</b> Learn about how to determine how the change in different factors contributes to the overall change in a product of these factors and apply the method of structural decomposition analysis to the IPAT equation. Prerequisites: Basic algebra.  <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.pdf" target="new">IEooc_Application1_Exercise2a</a>.
+                        <br>
+                        For this exercise, a dataset and a sample solution are available:<br>
+			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.xlsx" target="new">IEooc_Application1_Exercise2a_IPAT_SDA (data file, xlsx)</a><br>                        
+			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA_SampleSolution.xlsx" target="new">IEooc_Application1_Exercise2a, Sample solution (xlsx)</a>
+                        <br>
+			<br>
                         <br>
                     </td>
                 </tr>
@@ -929,6 +944,14 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://www.ineteconomics.org/perspectives/blog/growth-with-decarbonization-is-not-an-oxymoron" target="new">IEooc_Application1_Reading1</a>
                         <br>
                         <br>
+                        <b>Exercise on the structural decomposition of the IPAT equation: How much do individual factors contribute to change?</b> Learn about how to determine how the change in different factors contributes to the overall change in a product of these factors and apply the method of structural decomposition analysis to the IPAT equation. Prerequisites: Basic algebra.  <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.pdf" target="new">IEooc_Application1_Exercise2a</a>.
+                        <br>
+                        For this exercise, a dataset and a sample solution are available:<br>
+			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.xlsx" target="new">IEooc_Application1_Exercise2a_IPAT_SDA (data file, xlsx)</a><br>                        
+			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA_SampleSolution.xlsx" target="new">IEooc_Application1_Exercise2a, Sample solution (xlsx)</a>
+                        <br>
+			<br>
                         <b>Exercise on current levels of energy taxation and the impact of a tax on CO2 emissions from combustion and material production on prices of energy carriers and bulk materials:</b> A tax on greenhouse gas emissions can establish a price signal for more efficient use and substitution of carbon-intensive energy carriers and materials. Some energy carriers, in particular, gasoline and diesel for road vehicles, have high tax levels already. The tasks here are to find out i) how different fuel types are currently taxed, ii) how current taxation levels translate to carbon prices, and iii) how an additional carbon tax would affect the prices of different energy carriers and bulk materials. <b>Prerequisites:</b> Basic math, working with Excel. <b>Level of difficulty: (+)</b><br>
                         <a href="/Content/IEooc_Application1_Exercise3_CO2_Tax.pdf" target="new">IEooc_Application1_Exercise3</a>.
                         <br>
