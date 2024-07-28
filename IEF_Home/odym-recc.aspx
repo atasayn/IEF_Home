@@ -110,16 +110,13 @@
             RECC Python code on GitHub: <a href="https://github.com/IndEcol/RECC-ODYM" target="_blank">https://github.com/IndEcol/RECC-ODYM</a>
             <br>
             <br>
-            RECC v2.5 model documentation:<a href=" https://doi.org/10.6094/UNIFR/242061" target="_blank"> https://doi.org/10.6094/UNIFR/242061</a>
+            RECC v2.5 model documentation:<a href="https://doi.org/10.6094/UNIFR/242061" target="_blank">https://doi.org/10.6094/UNIFR/242061</a>
             <br>
             <br>
-            RECC v2.5. input database: Publication planned for Q1(24).
+            RECC v2.5 global building stock model input and result database - Input data and results of the RECC v2.5 model for the transformation scenarios of the global building stock: <a href="https://zenodo.org/records/12752350" target="_blank">https://zenodo.org/records/12752350</a>
             <br>
             <br>
-            RECC v2.5 model result database: Published when available (Q2-3, 2024)
-            <br>
-            <br>
-            <b>RECC v.2.4:</b>
+            <b>RECC v2.4:</b>
             <br>
             <br>
             Journal paper on the global case study on vehicles and buildings (open access): <a href="https://doi.org/10.1038/s41467-021-25300-4 " target="_blank">https://doi.org/10.1038/s41467-021-25300-4 </a>
