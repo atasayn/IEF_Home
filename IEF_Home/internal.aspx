@@ -716,6 +716,30 @@ For some of the works there is more research material available than what is ava
                     <tbody>
                         <tr>
                             <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Marcel Geller</td>
+                            <td><b>Investigating Potential Effects of Economic Factors on the Circularity of Global Steel Flows by Applying a Material Flow Analysis (MFA)</b></td>
+                            <td>08.07.2024</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Masterthesis_Marcel_Geller.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>Env. Sci.</td>
+                            <td>Anja Haas</td>
+                            <td><b>Future Scenario for the Material and Energy Demand of the German Railway until 2060</b></td>
+                            <td>29.02.2024</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Masterthesis_Anja_Haas.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
                             <td>Env. Sci.</td>
                             <td>Tim Weber</td>
                             <td><b>Urban Climate Protection in the Transport Sector: A Scenario Analysis for Freiburg</b></td>
