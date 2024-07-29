@@ -232,7 +232,7 @@
     <div class="grid-container">
         <div class="grid-intro">
             <div class="grid-intro-title">
-                <h3><b>Industrial Ecology Data Commons (iedc) prototype: Advanced search interface</b></h3>
+                <h3><b>Industrial Ecology Data Commons (iedc): Advanced search interface</b></h3>
                 <p>This page offers advanced search options to browse the entire iedc for data.</p>
                 <p>
                     Back to standard interface and iedc homepage<a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">

@@ -66,11 +66,11 @@
                     <p>IEF Working paper 1 (2024)</p>
                     <p>
                         <b>Guidelines and Good Practice Examples for Complete Traceability of Workflows and Reproducibility of Results in Industrial Ecology Research.</b>
-                        Stefan Pauliuk, Rick Lupton, Peter Paul Pichler, Simon Schulte, Peng Wang, and Dominik Wiedenhofer. 
+                        Stefan Pauliuk, Christoph Helbig, Richard C Lupton, Peter Paul Pichler, Simon Schulte, Konstantin Stadler, Peng Wang, and Dominik Wiedenhofer. 
                         Endorsed by the Board of the Topical Section for Research on Socio-Economic Metabolism (SEM) of the International Society for Industrial Ecology (ISIE).
                         Industrial Ecology Freiburg (IEF) Working Paper 1(2024), University of Freiburg, Germany. 
-                        Scheduled for publication in the summer of 2024.
-                    </p>
+                        Scheduled for publication in the summer of 2024.</p>
+                    <a href="https://doi.org/10.6094/UNIFR/255618">https://doi.org/10.6094/UNIFR/255618</a>
                 </div>
                 <div class="column">
                     <img src="Content/workingPaperPngs/documentationOfTheRecc2.5.png" width="300">
