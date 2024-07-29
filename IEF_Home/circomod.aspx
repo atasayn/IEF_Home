@@ -514,6 +514,9 @@
                     </div>
                     <span id="RegionName4" class="label label-danger" style="background-color: #b6dbff; line-height: 2; font-weight: 500; color: black"></span>
                 </div>
+                <div style="background-color: #ffffff; ;display:none">
+                    <img id="textScreenshot" src="" />
+                </div>
                 <div id="countryInfo">
                     <p style="margin: 10px"><b>Country Info:</b></p>
                     <span id='countryInfoCountryName' style="margin-left: 50px"></span>

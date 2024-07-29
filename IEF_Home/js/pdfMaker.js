@@ -29,13 +29,21 @@ function done() {
     var popDens = document.getElementById("populationDensity").innerHTML;
     var warning = document.getElementById("proxyWarning").innerHTML;
     // LINE GRAPHS FROM dropDownMenu
-    var popLine = graphs.populationLine;
-    var scenerioLine = graphs.scenarioLine;
-    var imgPopChart = popLine.toBase64Image();
-    var imgScenerioChart = scenerioLine.toBase64Image();
+    //var popLine = graphs.populationLine;
+    //var scenerioLine = graphs.scenarioLine;
+    //var imgPopChart = popLine.toBase64Image();
+    //var imgScenerioChart = scenerioLine.toBase64Image();
+    //var imgAreaChart = areaGraph.toBase64Image();
+    //var imgWaterfallChart = chartImageURL.waterfall;
+    //var imgBarChart = barGraph.toBase64Image();
+    var popLine = document.getElementById("Graph1Line");
+    var scenerioLine = document.getElementById("GraphPopulationLine");
+    //var imgPopChart = popLine.toBase64Image();
+    //var imgScenerioChart = scenerioLine.toBase64Image();
     var imgAreaChart = areaGraph.toBase64Image();
     var imgWaterfallChart = chartImageURL.waterfall;
     var imgBarChart = barGraph.toBase64Image();
+
 
     // Sankey Configuration
     var sankeyConfig = document.getElementById("controlPanel");
@@ -82,12 +90,14 @@ function done() {
         doc.text(popDens, 185, 45);
         doc.fromHTML(warning, 120, 45, { width: 80 });
         // Third Section: Population and Service Level Graphs
-        doc.addImage(imgPopChart, 'PNG', 3, 70, 93, 43, undefined, 'FAST');
+
+
+       // doc.addImage(imgPopChart, 'PNG', 3, 70, 93, 43, undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 10, 120);
         doc.setFontStyle('normal');
         doc.text("Population scenarios used.", 20, 120);
-        doc.addImage(imgScenerioChart, 'JPEG', 110, 70, 93, 43, undefined, 'FAST');
+        //doc.addImage(imgScenerioChart, 'JPEG', 110, 70, 93, 43, undefined, 'FAST');
         doc.setFontStyle('bold');
         doc.text("Figure.", 120, 120);
         doc.setFontStyle('normal');
@@ -141,11 +151,17 @@ function done() {
         Promise.all([
             html2canvas(sankeyConfig),
             html2canvas(sankeyUpper),
-            html2canvas(sankeyLower)
-        ]).then(([canvas1, canvas2, canvas3]) => {
+            html2canvas(sankeyLower),
+            html2canvas(popLine),
+            html2canvas(scenerioLine)
+        ]).then(([canvas1, canvas2, canvas3, canvas4, canvas5]) => {
             doc.addImage(canvas1, 'PNG', 3, 5, 82, 137, undefined, 'FAST');
             doc.addImage(canvas2, 'PNG', 88, 6, 130, 57, undefined, 'FAST');
             doc.addImage(canvas3, 'PNG', 88, 76, 130, 57, undefined, 'FAST');
+            doc.setPage(1);
+            doc.addImage(canvas4, 'PNG', 3, 70, 93, 43, undefined, 'FAST');
+            doc.addImage(canvas5, 'PNG', 110, 70, 93, 43, undefined, 'FAST');
+            doc.setPage(2);
             doc.save('Country_Sector_CE_Profile.pdf');
         });
 
