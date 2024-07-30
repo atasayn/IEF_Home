@@ -17,7 +17,7 @@
                 <br>
                 <img src="/Content/IEooc_Logo_V2.png" width="250">
                 <h2>Industrial Ecology Open Online Course </h2>
-                <h4>Online since 2018 </h4>
+                <h4>Online since 2018 - Last update: July 2024</h4>
                 <br>
                 <br>
             </center>
