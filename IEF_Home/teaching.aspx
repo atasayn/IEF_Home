@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: January 9th, 2024.</h4>
+                <h4>Last update: July 29th, 2024.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -268,7 +268,7 @@
                         <br>
                         <b>Reading:</b> Guidelines and Good Practice Examples for Complete Traceability of Workflows and Reproducibility of Results in Industrial Ecology Research. The guide to building a traceable IE workflow! With practical examples from Excel to R code to large collaborative projects in Python.
                         <br>
-                        <a href="/Content/IEF_WorkingPaper_01_2023_MFA_Reproducibility_Transparency.pdf" target="new">IEooc_Background3_Reading2a</a>
+                        <a href="/Content/IEF_WorkingPaper_01_2024_MFA_Reproducibility_Transparency.pdf" target="new">IEooc_Background3_Reading2a</a>
                         <br>
                         <br>
                         <b>Webinar</b> on open LCA software:
