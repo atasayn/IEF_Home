@@ -193,6 +193,7 @@
     <Content Include="css\svgMap.min.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="iedc.aspx" />
+    <Content Include="iedc_validate.aspx" />
     <Content Include="iefWorkingPaper.aspx" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
@@ -573,6 +574,13 @@
     </Compile>
     <Compile Include="iedc.aspx.designer.cs">
       <DependentUpon>iedc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iedc_validate.aspx.cs">
+      <DependentUpon>iedc_validate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iedc_validate.aspx.designer.cs">
+      <DependentUpon>iedc_validate.aspx</DependentUpon>
     </Compile>
     <Compile Include="iefWorkingPaper.aspx.cs">
       <DependentUpon>iefWorkingPaper.aspx</DependentUpon>
