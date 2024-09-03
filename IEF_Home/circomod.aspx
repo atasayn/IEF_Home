@@ -865,11 +865,12 @@
                                 }],
                             },
                             options: {
+                                devicePixelRatio: 2,
                                 locale: "fr-CA",
                                 plugins: {
                                     title: {
                                         display: true,
-                                        text: `Cumulative  + material + ' production 2020-2060,  [${region}], [${sector}], [${material}]`
+                                        text: `Cumulative material production 2020-2060,  [${region}], [${sector}], [${material}]`
                                     },
                                 },
                                 scales: {
@@ -940,6 +941,7 @@
                             },
                             options: {
                                 responsive: true,
+                                devicePixelRatio: 2,
                                 plugins: {
                                     title: {
                                         display: true,

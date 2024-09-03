@@ -1103,7 +1103,8 @@ function ghgChart(data, canvasID,region,sector) {
             backgroundColor: "rgba(225,150,150,0)",
             title: {
                 text: `Cumulative GHG 2020-2060, [${region}], [${sector}]`,
-                fontSize: 15,
+                fontSize: 12,
+                fontColor: "#666",
             },
             axisY: {
                 title: "Mt CO2-eq / year",
@@ -1131,7 +1132,7 @@ function ghgChart(data, canvasID,region,sector) {
         var canvas = $("#waterfall .canvasjs-chart-canvas").get(0);
 
         // Convert canvas to data URL
-        chartImage = canvas.toDataURL('image/png');
+        chartImage = canvas.toDataURL('image/png', 1);
         chartImageURL.waterfall = chartImage 
         
     } catch (e) {

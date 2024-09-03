@@ -128,6 +128,7 @@ function displayGraph(data, canvasID, title, yAxisTitle) {
                 ]
             },
             options: {
+                devicePixelRatio: 2,
                 locale: "fr-CA",
                 plugins: {
                     title: {

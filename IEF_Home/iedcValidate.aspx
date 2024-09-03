@@ -38,20 +38,29 @@
             -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
             transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
         }
-
-        #submitGap1 + #submitGap2 {
-            margin-left: 10px;
+        #title {
+            text-align: center
         }
 
         h5 {
             text-align: center
         }
 
+        .upload-button, .message {
+            margin-left:5px;
+        }
+
+        .message {
+            margin-bottom: auto;
+            margin-top: auto;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
+
     <div>
-        <h2>Welcome to the industrial ecology data commons (iedc) data validator!</h2>
+        <h2 id="title">Welcome to the industrial ecology data commons (iedc) data validator!</h2>
         <p>Most iedc datasets have between 1 and 10000 data points and are handled via xlsx spreadsheets. 
             For supplying own data to the iedc via excel spreadsheets, these need to be properly formatted, including a consistent description of the data, 
             sufficient metadata, a proper formatting of the data themselves, and the use of consistent classifications. Two spreadsheet templates and a tutorial video are available: </p>
@@ -68,13 +77,21 @@
     <hr />
     <div class="mb-3">
         <label for="formFile" class="form-label">Validate your data template against the iedc:</label> 
-        <input class="form-control" type="file" id="formFile">
+        <div class="row">
+            <asp:FileUpload ID="FileUpload" class="form-control" runat="server" accept=".xlsx" />
+            <asp:Button ID="upload" runat="server" Text="Upload File" CssClass="upload-button btn btn-primary" OnClick="ButtonUpload" />
+            <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message"></asp:Label>
+        </div>
+
     </div>
     <hr/>
     <div>
-        <h3>Data template valiation for [filename.xlsx] (of uploaded file), checked on [date-time].</h3>
+        <asp:Label ID="validatingDateAndTime" runat="server" Text="" ></asp:Label>
         <div id="section1">
             <p><b>Section 1:</b> Consistent description of the data</p>
+            <asp:GridView ID="compareTable" runat="server"></asp:GridView>
+            <b>Remarks:</b>
+            <asp:GridView ID="reportView" runat="server" ShowHeader="False" GridLines="None"></asp:GridView>
         </div>
         <div id="section2">
             <p><b>Section 2:</b> Sufficient metadata</p>
@@ -85,7 +102,7 @@
         <div id="section4">
             <p><b>Section 4:</b> Use of consistent classifications</p>
         </div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Export the report above to pdf</button>
+        <asp:Button ID="ButtonReport" runat="server" Text="Export the report above to pdf" CssClass=" btn btn-primary" OnClick="Report" />
     </div>
     <hr/>
     <div class="row">
@@ -111,6 +128,6 @@
 
    <hr/>
 
-    <h5>(c) 2024- Nildem Atasayar and Stefan Pauliuk. For questions and support, contact <a href="in4mation@indecol.uni-freiburg.de">in4mation@indecol.uni-freiburg.de</a></h5>
+    <h5>(c) 2024 - Nildem Atasayar and Stefan Pauliuk. For questions and support, contact <a href="in4mation@indecol.uni-freiburg.de">in4mation@indecol.uni-freiburg.de</a></h5>
 </asp:Content>
 

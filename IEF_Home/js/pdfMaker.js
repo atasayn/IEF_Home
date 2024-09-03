@@ -40,7 +40,7 @@ function done() {
     var scenerioLine = document.getElementById("GraphPopulationLine");
     //var imgPopChart = popLine.toBase64Image();
     //var imgScenerioChart = scenerioLine.toBase64Image();
-    var imgAreaChart = areaGraph.toBase64Image();
+    var imgAreaChart = areaGraph.toBase64Image("image/png", 1);
     var imgWaterfallChart = chartImageURL.waterfall;
     var imgBarChart = barGraph.toBase64Image();
 
@@ -123,15 +123,15 @@ function done() {
         var textSplittedAnnualGreen = doc.splitTextToSize(textAnnualGreen, 75);
         doc.text(textSplittedAnnualGreen, 130, 180);
         // Fifth Section: Prod Graph
-        doc.addImage(imgWaterfallChart, 'PNG', 60, 210, 90, 45, undefined, 'FAST');
+        doc.addImage(imgWaterfallChart, 'PNG', 60, 195, 90, 365/468*90, undefined, 'FAST');
         doc.setFontStyle('bold');
-        doc.text("Figure.", 65, 265);
+        doc.text("Figure.", 65, 270);
         doc.setFontStyle('normal');
         var textCumGreen = "Cumulative greenhouse gas emissions from final energy use (scope 1), " +
             "electricity and heat supply (scope 2), and material production (scope 3) for a baseline" +
             " development scenario and the reduction potential of the narrow, slow, and close circular economy strategies.";
         var textSplittedCumGreen = doc.splitTextToSize(textCumGreen, 75);
-        doc.text(textSplittedCumGreen, 75, 265);
+        doc.text(textSplittedCumGreen, 75, 270);
         // 2nd PAGE
         doc.setPage(2);
         //Seventh Section:energyCascade and coupling/decoupling
