@@ -1359,7 +1359,8 @@ namespace IEF_Home
 "
             };
 
-            var result = new Dictionary<string, Tuple<List<string>, string>>();
+            Dictionary<string, Tuple<List<string>, string, string>> result = new Dictionary<string, Tuple<List<string>, string, string>>();
+
 
             foreach (KeyValuePair<string, string> kvp in queryList)
             {
@@ -1389,7 +1390,10 @@ namespace IEF_Home
                             reader.FieldCount > 1
                                 ? Convert.ToString(reader["name"])
                                 : null; // Handling cases where "name" might not be present
-
+                        var reference_data_category =
+                            reader.FieldCount > 2
+                                ? Convert.ToString(reader["reference_data_category"])
+                                : null; // Handling cases where "reference_data_category" might not be present
                         try
                         {
                             if (result.ContainsKey(queryName))
@@ -1398,9 +1402,10 @@ namespace IEF_Home
                             }
                             else
                             {
-                                result.Add(queryName, System.Tuple.Create(new List<string>{idValue}, nameValue));
+                                result.Add(queryName, System.Tuple.Create(new List<string> { idValue }, nameValue, reference_data_category));
+
                             }
-                            
+
 
                         }
                         catch (ArgumentException ex)
@@ -1434,28 +1439,59 @@ namespace IEF_Home
             //// Number of entries NoR
 
             string d5Entry = $"{result["id_D5"].Item1.Count} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
-            //string d6Entry = $"{result["id_D6"].Item1.LongCount()} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
-            //string d8Entry = $"{result["id_D8"].Item1.LongCount()} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
-            //string d9Entry = $"{result["id_D9"].Item1.LongCount()} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
-            //string d10Entry = $"{result["list_D10"].Item1.LongCount()} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
-            //string d23Entry = $"{result["list_D23"].Item1.LongCount()} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
-            //string d53Entry = $"{result["list_53"].Item1.LongCount()} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
-            //string d54Entry = $"{result["list_54"].Item1.LongCount()} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
+            string d6Entry =  string.Empty;
+            if (result["id_D6"].Item1.Count == 0)
+            { 
+                d6Entry = $"No entry with dataset name {D5} and version {D6} where found in database. Please write 'none' if dataset   is unique and does not have a version ID.";
+            }else if (result["id_D6"].Item1.Count == 1)
+            {
+                d6Entry = $"Entry with dataset name {D5} and version {D6} is already in the database";
+            }
+            string d8Entry = string.Empty;
+            if (result["id_D8"].Item1.Count == 0)
+            {
+                d8Entry = $"ERROR: The chosen data category {D8} does not exist. Please enter a valid iedc data category id for this dataset (number from 1-8). The list of defined categories is available under: https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx";
+            }
+            else if (result["id_D8"].Item1.Count == 1)
+            {
+                d8Entry = $"The data category (ID: {result["id_D8"].Item1[0]}, name: {result["id_D8"].Item2}) of the dataset is valid";
+            }
+
+            string d9Entry = string.Empty;
+            if (result["id_D9"].Item1.Count == 0)
+            {
+                d8Entry = $"ERROR: The chosen data category {D9} does not exist. Please enter a valid iedc data type name for this dataset. The list of defined categories is available under: https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx";
+            }
+            else if (result["id_D9"].Item1.Count == 1)
+            {
+                d8Entry = $"The data category (ID: {result["id_D9"].Item1[0]}, name: {result["id_D9"].Item2}) of the dataset is valid";
+                if (result["id_D9"].Item3 == D8)
+                {
+
+                }
+            }
+
+            string d10Entry = $"{result["list_D10"].Item1.Count} entr(y/ies) with dataset name [D10] were found in the IEDC database.";
+            string d23Entry = $"{result["list_D23"].Item1.Count} entr(y/ies) with dataset name [D23] were found in the IEDC database.";
+            string d53Entry = $"{result["list_D53"].Item1.Count} entr(y/ies) with dataset name [D53] were found in the IEDC database.";
+            string d54Entry = $"{result["list_D54"].Item1.Count} entr(y/ies) with dataset name [D54] were found in the IEDC database.";
 
 
 
             //// Report Table
             DataTable reportTable = new DataTable();
+            // Report Table Columns
             reportTable.Columns.Add("", typeof(string));
             reportTable.Columns.Add("", typeof(string));
-            reportTable.Rows.Add("D5", d5Entry);
-            //reportTable.Rows.Add("D6", d6Entry);
-            //reportTable.Rows.Add("D8", d8Entry);
-            //reportTable.Rows.Add("D9", d9Entry);
-            //reportTable.Rows.Add("D10", d10Entry);
-            //reportTable.Rows.Add("D23", d23Entry);
-            //reportTable.Rows.Add("D53", d53Entry);
-            //reportTable.Rows.Add("D54", d54Entry);
+            // Report Table Rows
+            reportTable.Rows.Add("D5:", d5Entry);
+            reportTable.Rows.Add("D6:", d6Entry);
+            reportTable.Rows.Add("D8:", d8Entry);
+            reportTable.Rows.Add("D9:", d9Entry);
+            reportTable.Rows.Add("D10:", d10Entry);
+            reportTable.Rows.Add("D23:", d23Entry);
+            reportTable.Rows.Add("D53:", d53Entry);
+            reportTable.Rows.Add("D54:", d54Entry);
             //Bind the cells to the table
             reportView.DataSource = reportTable;
             reportView.DataBind();

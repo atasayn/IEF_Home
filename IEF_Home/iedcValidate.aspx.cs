@@ -1,4 +1,5 @@
 ﻿
+using DocumentFormat.OpenXml.Spreadsheet;
 using IEF_Home.cls;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
@@ -8,6 +9,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
@@ -74,6 +76,7 @@ namespace IEF_Home
 
         protected void Report(object sender, EventArgs e)
         {
+  
             try
             {
                 if (lblMessage.Text == "File uploaded successfully.")
@@ -118,6 +121,7 @@ namespace IEF_Home
                     // Padding is 5px for the text. So -10 for fitting in the page
                     double maxWidth = page.Width - 10;
 
+
                     // Measure the width of the text
                     XSize textSize = gfx.MeasureString(text, contentFont);
 
@@ -128,10 +132,194 @@ namespace IEF_Home
                         contentFont = new XFont(contentFont.FontFamily.Name, contentFont.Size * scaleFactor);
                     }
 
+
+                    var textYpos = imageHeight + 10;
                     gfx.DrawString(text, contentFont, XBrushes.Black,
-                        new XRect(5, imageHeight + 10, page.Width, 0),
+                        new XRect(5, textYpos, page.Width, 0),
                         XStringFormats.TopCenter);
 
+
+
+                    // Draw table header
+                    GridViewRow headerRow = compareTable.HeaderRow;
+                    // Create a list to store the maximum width for each column
+                    var maxColumnCell1Col = new List<double>();
+                    var maxColumnCell2Col = new List<double>();
+                    var maxColumnCell3Col = new List<double>();
+
+                    // Iterate through all rows in the GridView
+                    foreach (GridViewRow row in compareTable.Rows)
+                    {
+                        // Iterate through all columns (cells) in the current row
+                        for (int i = 0; i < row.Cells.Count; i++)
+                        {
+                            TableCell cell = row.Cells[i];
+                            // Measure the width of the text in the current cell
+                            XSize textSizeColumnMax = gfx.MeasureString(cell.Text, contentFont);
+
+                            // Update the maximum width for the column if this text is wider
+                            if (i == 0 || i == 3 || i == 6)
+                            {
+                                maxColumnCell1Col.Add(textSizeColumnMax.Width);
+                            }
+                            else if (i == 1 || i == 4 || i == 7)
+                            {
+                                maxColumnCell2Col.Add(textSizeColumnMax.Width);
+                            }
+                            else if (i == 2 || i == 5 || i == 8)
+                            {
+                                maxColumnCell3Col.Add(textSizeColumnMax.Width);
+                            }
+
+                        }
+                    }
+
+                    // Determine the total width of the columns before scaling
+                    double totalColumnWidth = 0;
+                    for (int i = 0; i < headerRow.Cells.Count; i++)
+                    {
+                        double cellwidth = 0;
+                        if (i == 0)
+                        {
+                            cellwidth = maxColumnCell1Col.Max() + 5; // adding padding
+                        }
+                        else if (i == 1)
+                        {
+                            cellwidth = maxColumnCell2Col.Max() + 5; // adding padding
+                        }
+                        else if (i == 2)
+                        {
+                            cellwidth = maxColumnCell3Col.Max() + 5; // adding padding
+                        }
+                        totalColumnWidth += cellwidth;
+                    }
+
+                    // Get page dimensions
+                    double pageWidthSc = gfx.PageSize.Width;
+                    double pageHeight = gfx.PageSize.Height;
+
+                    // Calculate the scaling factor based on page width
+                    double scalingFactor = (pageWidthSc - 20) / totalColumnWidth; // subtracting some padding
+
+                    // Apply scaling factor to cell widths and font size
+                    double xStart = 5; // Starting X position with padding
+                    double rowHeight = 20 * scalingFactor; // Scale row height as well
+                    double yStart = textYpos + 40;
+
+
+                    for (int i = 0; i < headerRow.Cells.Count; i++)
+                    {
+                        double cellwidth = 0;
+                        if (i == 0)
+                        {
+                            cellwidth = (maxColumnCell1Col.Max() + 5) * scalingFactor; // scaling width
+                        }
+                        else if (i == 1)
+                        {
+                            cellwidth = (maxColumnCell2Col.Max() + 5) * scalingFactor; // scaling width
+                        }
+                        else if (i == 2)
+                        {
+                            cellwidth = (maxColumnCell3Col.Max() + 5) * scalingFactor; // scaling width
+                        }
+
+                        gfx.DrawRectangle(XPens.Black, XBrushes.LightGray, xStart, yStart, cellwidth, rowHeight);
+
+                        // Measure the text size after scaling font size
+                        XSize textsizecell = gfx.MeasureString(headerRow.Cells[i].Text, contentFont);
+
+                        // Center the text vertically and horizontally within the rectangle
+                        double textx = xStart + (cellwidth - textsizecell.Width) / 2;  // center horizontally
+                        double texty = yStart + (rowHeight - textsizecell.Height) / 2; // center vertically
+
+                        // Draw the text inside the rectangle
+                        gfx.DrawString(headerRow.Cells[i].Text, contentFont, XBrushes.Black,
+                            new XRect(textx, texty, cellwidth, textsizecell.Height), XStringFormats.TopLeft);
+
+                        // Move the xStart to the position for the next cell
+                        xStart += cellwidth;
+                    }
+
+                    // Starting X position with padding
+                    //// Reset xStart for row rendering
+                    //xStart = 5;
+                    //// Move yStart to start rendering the next row of the table
+                    //yStart += rowHeight;
+
+                    // Draw Table Rows
+                    //foreach (GridViewRow row in compareTable.Rows)
+                    //{
+                    //    var maxColumnWidthsCount = 0;
+
+                    //    foreach (TableCell cell in row.Cells)
+                    //    {
+                    //         Measure the width and height of the text in the current cell
+                    //        XSize textSizeRow = gfx.MeasureString(cell.Text, contentFont);
+
+                    //         Define the rectangle for the current cell
+                    //        double cellWidth = textSizeRow.Width + 5; // Add some padding if needed
+                    //        gfx.DrawRectangle(XPens.Black, XBrushes.White, xStart, yStart, maxColumnWidths[maxColumnWidthsCount], rowHeight);
+
+                    //         Center the text vertically and horizontally within the rectangle
+                    //        double textX = xStart + (cellWidth - textSizeRow.Width) / 2;  // Center horizontally
+                    //        double textY = yStart + (rowHeight - textSizeRow.Height) / 2; // Center vertically
+
+                    //         Draw the text inside the rectangle
+                    //        gfx.DrawString(cell.Text, contentFont, XBrushes.Black,
+                    //            new XRect(textX, textY, textSizeRow.Width, textSizeRow.Height), XStringFormats.TopLeft);
+
+                    //         Move xStart to the position for the next cell
+                    //        xStart += cellWidth;
+                    //        if (maxColumnWidthsCount != 2)
+                    //        {
+                    //            maxColumnWidthsCount = maxColumnWidthsCount + 1;
+                    //        }
+                    //        else
+                    //        {
+                    //            maxColumnWidthsCount = 0;
+                    //        }
+
+                    //    }
+
+                    //     Move yStart to the next row
+                    //    yStart += rowHeight;
+                    //}
+                    
+                    // Loop through each row in the GridView
+                    foreach (GridViewRow row in compareTable.Rows)
+                    {
+
+                        for (int i = 0; i < row.Cells.Count; i++)
+                        {
+                            var cellwidth = new double(); ;
+                            if (i == 0)
+                            {
+                                // define the rectangle for the current cell
+                                cellwidth = (maxColumnCell1Col.Max() + 5) * scalingFactor;  // adding some padding if needed
+                            }
+                            else if (i == 1)
+                            {
+                                cellwidth = (maxColumnCell2Col.Max() + 5) * scalingFactor; // adding some padding if needed
+                            }
+                            else if (i == 2)
+                            {
+                                cellwidth = (maxColumnCell3Col.Max() + 5) * scalingFactor; // adding some padding if needed
+                            }
+                            // measure the width of the text in the current cell
+                            XSize textsizecell = gfx.MeasureString(row.Cells[i].Text, contentFont);
+
+                            gfx.DrawRectangle(XPens.Black, XBrushes.White, xStart, yStart, cellwidth, rowHeight);
+                            // center the text vertically and horizontally within the rectangle
+                            double textx = xStart + (cellwidth - textsizecell.Width) / 2;  // center horizontally
+                            double texty = yStart + (rowHeight - textsizecell.Height) / 2; // center vertically
+                            // Draw the text inside the rectangle
+                            gfx.DrawString(row.Cells[i].Text, contentFont, XBrushes.Black,
+                                new XRect(textx, texty, cellwidth, textsizecell.Height), XStringFormats.TopLeft);
+                            xStart += cellwidth;
+                        }
+                        yStart += rowHeight;
+                        xStart = 5;  // Reset xStart for the next row
+                    }
                     // Define the directory path (example: "C:\\Reports")
                     string directoryPath = @"C:\Users\na1041\Desktop\Nildem_Start_Package\home\IEF_Home\imagesToPDF";
 

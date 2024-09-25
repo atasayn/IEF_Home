@@ -61,6 +61,7 @@
 
     <div>
         <h2 id="title">Welcome to the industrial ecology data commons (iedc) data validator!</h2>
+        <p style="color: red">This feature is currently under development and will be released in November of 2024</p>
         <p>Most iedc datasets have between 1 and 10000 data points and are handled via xlsx spreadsheets. 
             For supplying own data to the iedc via excel spreadsheets, these need to be properly formatted, including a consistent description of the data, 
             sufficient metadata, a proper formatting of the data themselves, and the use of consistent classifications. Two spreadsheet templates and a tutorial video are available: </p>
