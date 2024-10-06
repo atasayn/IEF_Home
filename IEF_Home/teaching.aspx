@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: July 29th, 2024.</h4>
+                <h4>Last update: October 6th, 2024.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -349,6 +349,10 @@ The following topics are covered:
                         <br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain_Solution.pdf" target="new">IEooc_Methods1_Exercise1a_Solution (pdf)</a>
+                        <br>
+                        <br>
+		        <b>Reading:</b> Data Organization in Spreadsheets, by Karl W. Broman & Kara H. Woo. Spreadsheets are widely used software tools for data entry, storage, analysis, and visualization. This article offers practical recommendations for organizing spreadsheet data to reduce errors and ease later analyses. <b> Highly recommended! Level of difficulty: (+)</b><br>
+                        <a href="/Content/IEooc_Methods1_Reading0.pdf" target="new">IEooc_Methods1_Reading0</a>
                         <br>
                         <br>
                         <b>Reading:</b> The supporting documents of the material and energy flow analysis software <a href="http://www.stan2web.net/" target="new">STAN</a> are a good reference for building proper system definitions and for data modelling in material and energy flow analysis and industrial in general. An overview of the different documents can be found <a href="http://www.stan2web.net/support/mfa-basics" target="new">here</a>.
