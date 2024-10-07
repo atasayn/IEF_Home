@@ -97,6 +97,9 @@
             <br>              
             RECC results evaluation tutorial video:<a href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank">RECC_Aggregation_Visualisation_HowTo.mp4</a>
             <br>
+            <br>              
+            Using RECC at the city level, tutorial video: <a href="research/Documents/RECC_City_Level_HowTo.mp4" target="_blank">RECC_City_Level_HowTo.mp4</a>
+            <br>
             <br>
             Data documentation routine: The ODYM data process, see the short manual:<a href="research/Documents/ODYM_Data_Processes_ODP_Manual.pdf" target="_blank">ODYM_Data_Processes_ODP_Manual.pdf</a>.
             See the following sample parameter file as example: <a href="research/Documents/2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" target="_blank">2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx</a>
