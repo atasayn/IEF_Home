@@ -92,15 +92,13 @@
             RECC model tutorial video: <a href="https://www.youtube.com/watch?v=zOfo1WTk7d8" target="_blank">https://www.youtube.com/watch?v=zOfo1WTk7d8</a>. This tutorial video show how to run the ODYM-RECC dynamic material flow analysis (MFA) model on your own machine. It explains where the model config information is stored and how the different model scripts work together to compute both single and multiple scenarios.
             <br>
             <br>           
-            RECC multi-scenario generation tutorial video [upload to server and link here]: <a href="research/Documents/RECC_Multiple_Scenarios_HowTo.mp4" target="_blank">RECC_Multiple_Scenarios_HowTo.mp4</a>
+            RECC multi-scenario generation tutorial video: <a href="research/Documents/RECC_Multiple_Scenarios_HowTo.mp4" target="_blank">RECC_Multiple_Scenarios_HowTo.mp4</a>
             <br>
             <br>              
-            RECC results evaluation tutorial video [upload to server and link here]:<a href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank">RECC_Aggregation_Visualisation_HowTo.mp4</a>
+            RECC results evaluation tutorial video:<a href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank">RECC_Aggregation_Visualisation_HowTo.mp4</a>
             <br>
             <br>
-            Data documentation routine: The ODYM data process, see the short manual:<a href="research/Documents/ODYM_Data_Processes_ODP_Manual.pdf" target="_blank">ODYM_Data_Processes_ODP_Manual.pdf</a>
-            <br>
-            <br>
+            Data documentation routine: The ODYM data process, see the short manual:<a href="research/Documents/ODYM_Data_Processes_ODP_Manual.pdf" target="_blank">ODYM_Data_Processes_ODP_Manual.pdf</a>.
             See the following sample parameter file as example: <a href="research/Documents/2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" target="_blank">2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx</a>
             <br>
             <br>
