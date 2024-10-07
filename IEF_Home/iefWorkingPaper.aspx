@@ -81,7 +81,7 @@
                 <b>Klimaschutz im Transportsektor – Eine Szenarioanalyse für Freiburg. </b>
                 Tim Weber und Stefan Pauliuk. Industrial Ecology Freiburg (IEF) Working Paper 2 (2024), University of Freiburg, Germany.
             </p>
-            <a href="https://doi.org/10.6094/UNIFR/255618">https://doi.org/10.6094/UNIFR/255618</a>
+            <a href="https://doi.org/10.6094/UNIFR/257136">https://doi.org/10.6094/UNIFR/257136</a>
         </div>
 
     </div>
