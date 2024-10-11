@@ -47,7 +47,7 @@ namespace IEF_Home
                             validatingDateAndTime.Text = htmlContent;
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
-                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, reportView);
+                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, reportView, missingCellTable,aspectReportTable);
                         }
                         else
                         {

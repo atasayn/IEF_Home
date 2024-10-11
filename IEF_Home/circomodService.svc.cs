@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
 using IEF_Home.cls;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
@@ -19,6 +20,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Web;
 using System.Web.Http.Results;
 using System.Web.UI.WebControls;
 using System.Xml;
@@ -1337,7 +1339,7 @@ namespace IEF_Home
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         public void CoverCellCheck(string D5, string D6, string D8, string D9,
-            string D10, string D23, string D53, string D54, GridView compareTable, GridView reportView)
+            string D10, string D23, string D53, string D54, List<string> aspectList, GridView compareTable, GridView reportView)
         {
             // Create a new DataTable
             DataTable dt = new DataTable();
@@ -1355,8 +1357,8 @@ namespace IEF_Home
                 ["list_D10"] = @"SELECT id, name FROM iedc.layers WHERE name = @D10 UNION ALL SELECT NULL, NULL WHERE NOT EXISTS (SELECT 1 FROM iedc.layers WHERE name = @D10)",
                 ["list_D23"] = @"SELECT id, name FROM iedc.provenance WHERE name = @D23 UNION ALL SELECT NULL, NULL WHERE NOT EXISTS (SELECT 1 FROM iedc.provenance WHERE name = @D23)",
                 ["list_D53"] = @"SELECT id, name FROM iedc.source_type WHERE name = @D53 UNION ALL SELECT NULL, NULL WHERE NOT EXISTS (SELECT 1 FROM iedc.source_type WHERE name = @D53)",
-                ["list_D54"] = @"SELECT id, name FROM iedc.licences WHERE name = @D54 UNION ALL SELECT NULL, NULL WHERE NOT EXISTS (SELECT 1 FROM iedc.licences WHERE name = @D54);
-"
+                ["list_D54"] = @"SELECT id, name FROM iedc.licences WHERE name = @D54 UNION ALL SELECT NULL, NULL WHERE NOT EXISTS (SELECT 1 FROM iedc.licences WHERE name = @D54)",
+                ["list_aspect"] = @"SELECT id,name FROM iedc.licences WHERE name = @aspectList",
             };
 
             Dictionary<string, Tuple<List<string>, string, string>> result = new Dictionary<string, Tuple<List<string>, string, string>>();
@@ -1380,6 +1382,7 @@ namespace IEF_Home
                     cmd.Parameters.AddWithValue("@D23", D23);
                     cmd.Parameters.AddWithValue("@D53", D53);
                     cmd.Parameters.AddWithValue("@D54", D54);
+                    cmd.Parameters.AddWithValue("@aspectList", aspectList);
 
                     var reader = cmd.ExecuteReader();
 
@@ -1423,9 +1426,109 @@ namespace IEF_Home
 
             }
             // Table Rows
-            dt.Rows.Add("D5", D5, string.Empty);
-            dt.Rows.Add("D6", D6, string.Empty);
-            dt.Rows.Add("D8", D8, result["id_D8"].Item2 ?? string.Empty);
+
+
+
+
+            // Number of entries NoR
+
+            string d5Entry = string.Empty;
+            if (string.IsNullOrEmpty(result["id_D5"].Item1[0]))
+            {
+                d5Entry = $"<span style='color:red;'>No entry with dataset name {D5} were found in the IEDC database.</span>";
+                dt.Rows.Add("D5", D5, string.Empty);
+            }
+            else if (!string.IsNullOrEmpty(result["id_D5"].Item1[0]))
+            {
+                d5Entry = $"{result["id_D5"].Item1.Count} entr(y/ies) with dataset name {D5} were found in the IEDC database.";
+                dt.Rows.Add("D5", D5, D5);
+            }
+
+
+            string d6Entry =  string.Empty;
+            if (string.IsNullOrEmpty(result["id_D6"].Item1[0]))
+            {
+                d6Entry = $"<span style='color:red;'>No entry with dataset name {HttpUtility.HtmlEncode(D5)} and version {HttpUtility.HtmlEncode(D6)} were found in database. Please write 'none' if dataset is unique and does not have a version ID.</span>";
+                dt.Rows.Add("D6", D6, string.Empty);
+            }
+            else if (!string.IsNullOrEmpty(result["id_D6"].Item1[0]))
+            {
+                d6Entry = $"Entry with dataset name {D5} and version {D6} is already in the database";
+                dt.Rows.Add("D6", D6, D6);
+            }
+            string d8Entry = string.Empty;
+            if (string.IsNullOrEmpty(result["id_D8"].Item1[0]))
+            {
+                d8Entry = $"<span style='color:red;'>ERROR: The chosen data category {D8} does not exist. Please enter a valid iedc data category id for this dataset (number from 1-8). The list of defined categories is available under: https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</span>";
+                dt.Rows.Add("D8", D8, string.Empty);
+            }
+            else if (!string.IsNullOrEmpty(result["id_D8"].Item1[0]))
+            {
+                d8Entry = $"The data category (ID: {result["id_D8"].Item1[0]}, name: {result["id_D8"].Item2}) of the dataset is valid";
+                dt.Rows.Add("D8", result["id_D8"].Item2, result["id_D8"].Item2);
+            }
+
+            string d9Entry = string.Empty;
+            string d9EntrySub = string.Empty;
+            if (string.IsNullOrEmpty(result["list_D9"].Item1[0]))
+            {
+                d9Entry = $"<span style='color:red;'>ERROR: The chosen data type {D9} does not exist. Please enter a valid iedc data type name for this dataset. The list of defined data types is available under http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf</span>";
+            }
+            else if (!string.IsNullOrEmpty(result["list_D9"].Item1[0]))
+            {
+                d9Entry = $"The data type (ID: {result["list_D9"].Item1[0]}, name: {result["list_D9"].Item2}) of the dataset is valid";
+                if (result["list_D9"].Item3 == D8)
+                {
+                    d9EntrySub = $"The indicated data type fits to the indicated data category";
+                }
+                else
+                {
+                    d9EntrySub = $"The indicated data type {D9} does not fit to the indicated data category {D8}. The data type must match the broader data category. The list of defined data types and the data categories they belong to is available under (http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf)";
+                }
+            }
+
+            string d10Entry = string.Empty;
+            if (string.IsNullOrEmpty(result["list_D10"].Item1[0]))
+            {
+                d10Entry = $"<span style='color:red;'>ERROR: The chosen data layer {D10} does not exist. Please enter a valid iedc data layer name for this dataset. The list of defined data layers is available under: https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</span>";
+            }
+            else if (!string.IsNullOrEmpty(result["list_D10"].Item1[0]))
+            {
+                d10Entry = $"The data layer (ID: {result["list_D10"].Item1[0]}, name: {result["list_D10"].Item2}) of the dataset is valid";
+            }
+
+            string d23Entry = string.Empty;
+            if (string.IsNullOrEmpty(result["list_D23"].Item1[0]))
+            {
+                d23Entry = $"<span style='color:red;'>ERROR: The indicated data provenance {D23} does not exist. Please enter a valid iedc data provenance name. The list of defined provenance categories is available under: https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</span>";
+            }
+            else if (!string.IsNullOrEmpty(result["list_D23"].Item1[0]))
+            {
+                d23Entry = $"The data provenance (ID: {result["list_D23"].Item1[0]}, name: {result["list_D23"].Item2}) of the dataset is valid";
+            }
+
+            string d53Entry = string.Empty;
+            if (string.IsNullOrEmpty(result["list_D53"].Item1[0]))
+            {
+                d53Entry = $"<span style='color:red;'>ERROR: The indicated type of data source {D53} does not exist. Please enter the name of a valid iedc type of data source. The list of defined types of data source is available under: https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</span>";
+            }
+            else if (!string.IsNullOrEmpty(result["list_D53"].Item1[0]))
+            {
+                d53Entry = $"The data category (ID: {result["list_D53"].Item1[0]}, name: {result["list_D53"].Item2}) of the dataset is valid";
+            }            
+            
+            string d54Entry = string.Empty;
+            if (string.IsNullOrEmpty(result["list_D54"].Item1[0]))
+            {
+                d54Entry = $"<span style='color:red;'>ERROR: The indicated licence of the dataset {D54} does not exist. Please enter a valid iedc dataset licence name. The list of defined dataset licences is available under: https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</span>";
+            }
+            else if (!string.IsNullOrEmpty(result["list_D54"].Item1[0]))
+            {
+                d54Entry = $"The license provided for this dateset (ID: {result["list_D54"].Item1[0]}, name: {result["list_D54"].Item2}) of the dataset is valid";
+            }
+
+
+            //dt.Rows.Add("D6", D6, string.Empty);
             dt.Rows.Add("D9", D9, result["list_D9"].Item2 ?? string.Empty);
             dt.Rows.Add("D10", D10, result["list_D10"].Item2 ?? string.Empty);
             dt.Rows.Add("D23", D23, result["list_D23"].Item2 ?? string.Empty);
@@ -1435,68 +1538,69 @@ namespace IEF_Home
             compareTable.DataSource = dt;
             compareTable.DataBind();
 
-
-            //// Number of entries NoR
-
-            string d5Entry = $"{result["id_D5"].Item1.Count} entr(y/ies) with dataset name [D5] were found in the IEDC database.";
-            string d6Entry =  string.Empty;
-            if (result["id_D6"].Item1.Count == 0)
-            { 
-                d6Entry = $"No entry with dataset name {D5} and version {D6} where found in database. Please write 'none' if dataset   is unique and does not have a version ID.";
-            }else if (result["id_D6"].Item1.Count == 1)
-            {
-                d6Entry = $"Entry with dataset name {D5} and version {D6} is already in the database";
-            }
-            string d8Entry = string.Empty;
-            if (result["id_D8"].Item1.Count == 0)
-            {
-                d8Entry = $"ERROR: The chosen data category {D8} does not exist. Please enter a valid iedc data category id for this dataset (number from 1-8). The list of defined categories is available under: https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx";
-            }
-            else if (result["id_D8"].Item1.Count == 1)
-            {
-                d8Entry = $"The data category (ID: {result["id_D8"].Item1[0]}, name: {result["id_D8"].Item2}) of the dataset is valid";
-            }
-
-            string d9Entry = string.Empty;
-            if (result["id_D9"].Item1.Count == 0)
-            {
-                d8Entry = $"ERROR: The chosen data category {D9} does not exist. Please enter a valid iedc data type name for this dataset. The list of defined categories is available under: https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx";
-            }
-            else if (result["id_D9"].Item1.Count == 1)
-            {
-                d8Entry = $"The data category (ID: {result["id_D9"].Item1[0]}, name: {result["id_D9"].Item2}) of the dataset is valid";
-                if (result["id_D9"].Item3 == D8)
-                {
-
-                }
-            }
-
-            string d10Entry = $"{result["list_D10"].Item1.Count} entr(y/ies) with dataset name [D10] were found in the IEDC database.";
-            string d23Entry = $"{result["list_D23"].Item1.Count} entr(y/ies) with dataset name [D23] were found in the IEDC database.";
-            string d53Entry = $"{result["list_D53"].Item1.Count} entr(y/ies) with dataset name [D53] were found in the IEDC database.";
-            string d54Entry = $"{result["list_D54"].Item1.Count} entr(y/ies) with dataset name [D54] were found in the IEDC database.";
-
-
-
             //// Report Table
             DataTable reportTable = new DataTable();
             // Report Table Columns
-            reportTable.Columns.Add("", typeof(string));
-            reportTable.Columns.Add("", typeof(string));
+            reportTable.Columns.Add("Cell", typeof(string));
+            reportTable.Columns.Add("Remark", typeof(string));
             // Report Table Rows
             reportTable.Rows.Add("D5:", d5Entry);
-            reportTable.Rows.Add("D6:", d6Entry);
+            reportTable.Rows.Add("D6:", $"<span style='color:red;'>{d6Entry}</span>");
             reportTable.Rows.Add("D8:", d8Entry);
             reportTable.Rows.Add("D9:", d9Entry);
+            reportTable.Rows.Add("", d9EntrySub);
             reportTable.Rows.Add("D10:", d10Entry);
             reportTable.Rows.Add("D23:", d23Entry);
             reportTable.Rows.Add("D53:", d53Entry);
-            reportTable.Rows.Add("D54:", d54Entry);
+            reportTable.Rows.Add("D54:", d54Entry); ;
             //Bind the cells to the table
             reportView.DataSource = reportTable;
             reportView.DataBind();
-        }
 
+        }
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        public void DoesAspectExist(string cellCheck, GridView aspectReportTable , string item)
+        {
+            var query = "SELECT aspect,dimension FROM iedc.aspects WHERE aspect = @cellCheck";
+            if (!cn.OpenConnection()) return;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@cellCheck", cellCheck);
+            var reader = cmd.ExecuteReader();
+            DataTable AspectReportCell = new DataTable();
+            AspectReportCell.Columns.Add("Aspect Error");
+            if (!reader.HasRows)
+            {
+                // Handle case where no rows are returned
+                AspectReportCell.Rows.Add($"ERROR: The indicated {item} of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/aspects.aspx'>https://www.database.industrialecology.uni-freiburg.de/aspects.aspx <a/>");
+            }
+            else
+            {
+                while (reader.Read())
+                {
+                    try
+                    {
+                        //// Assuming "columnName" is the column you're checking
+                        //var columnValue = reader["columnName"].ToString();
+
+                        //if (string.IsNullOrEmpty(columnValue)) // Check if the value is null or empty
+                        //{
+                        //    AspectReportCell.Rows.Add($"ERROR: The indicated [Cx] of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: https://www.database.industrialecology.uni-freiburg.de/aspects.aspx");
+                        //}
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        // Handle duplicate key scenarios if necessary
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+
+            cn.CloseConnection();
+            aspectReportTable.DataSource = AspectReportCell;
+            aspectReportTable.DataBind();
+        }
     }
 
 }
