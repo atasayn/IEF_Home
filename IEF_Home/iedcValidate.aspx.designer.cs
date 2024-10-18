@@ -15,6 +15,15 @@ namespace IEF_Home
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// FileUpload control.
         /// </summary>
         /// <remarks>
@@ -69,6 +78,15 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.GridView missingCellTable;
 
         /// <summary>
+        /// reportView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView reportView;
+
+        /// <summary>
         /// aspectReportTable control.
         /// </summary>
         /// <remarks>
@@ -78,13 +96,22 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.GridView aspectReportTable;
 
         /// <summary>
-        /// reportView control.
+        /// classificationReportTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView reportView;
+        protected global::System.Web.UI.WebControls.GridView classificationReportTable;
+
+        /// <summary>
+        /// dimensionCompareTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dimensionCompareTable;
 
         /// <summary>
         /// ButtonReport control.

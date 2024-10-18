@@ -21,10 +21,17 @@ namespace IEF_Home
         {
 
         }
+        protected void ShowCompareTable(object sender, EventArgs e)
+        {
+            // Register a JavaScript code to set the style to display block
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable", "document.getElementById('compareTableSection').style.display = 'block';", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable1", "document.getElementById('remarksSection').style.display = 'block';", true);
+        }
         protected void ButtonUpload(object sender, EventArgs e)
         {
             try
             {
+                this.ShowCompareTable(this, EventArgs.Empty);
                 if (FileUpload.HasFile)
                 {
 
@@ -47,7 +54,7 @@ namespace IEF_Home
                             validatingDateAndTime.Text = htmlContent;
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
-                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, reportView, missingCellTable,aspectReportTable);
+                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, reportView, missingCellTable,aspectReportTable, classificationReportTable,dimensionCompareTable);
                         }
                         else
                         {
@@ -240,50 +247,6 @@ namespace IEF_Home
                         xStart += cellwidth;
                     }
 
-                    // Starting X position with padding
-                    //// Reset xStart for row rendering
-                    //xStart = 5;
-                    //// Move yStart to start rendering the next row of the table
-                    //yStart += rowHeight;
-
-                    // Draw Table Rows
-                    //foreach (GridViewRow row in compareTable.Rows)
-                    //{
-                    //    var maxColumnWidthsCount = 0;
-
-                    //    foreach (TableCell cell in row.Cells)
-                    //    {
-                    //         Measure the width and height of the text in the current cell
-                    //        XSize textSizeRow = gfx.MeasureString(cell.Text, contentFont);
-
-                    //         Define the rectangle for the current cell
-                    //        double cellWidth = textSizeRow.Width + 5; // Add some padding if needed
-                    //        gfx.DrawRectangle(XPens.Black, XBrushes.White, xStart, yStart, maxColumnWidths[maxColumnWidthsCount], rowHeight);
-
-                    //         Center the text vertically and horizontally within the rectangle
-                    //        double textX = xStart + (cellWidth - textSizeRow.Width) / 2;  // Center horizontally
-                    //        double textY = yStart + (rowHeight - textSizeRow.Height) / 2; // Center vertically
-
-                    //         Draw the text inside the rectangle
-                    //        gfx.DrawString(cell.Text, contentFont, XBrushes.Black,
-                    //            new XRect(textX, textY, textSizeRow.Width, textSizeRow.Height), XStringFormats.TopLeft);
-
-                    //         Move xStart to the position for the next cell
-                    //        xStart += cellWidth;
-                    //        if (maxColumnWidthsCount != 2)
-                    //        {
-                    //            maxColumnWidthsCount = maxColumnWidthsCount + 1;
-                    //        }
-                    //        else
-                    //        {
-                    //            maxColumnWidthsCount = 0;
-                    //        }
-
-                    //    }
-
-                    //     Move yStart to the next row
-                    //    yStart += rowHeight;
-                    //}
                     
                     // Loop through each row in the GridView
                     foreach (GridViewRow row in compareTable.Rows)
@@ -348,7 +311,6 @@ namespace IEF_Home
 
             
         }
-
 
     }
 

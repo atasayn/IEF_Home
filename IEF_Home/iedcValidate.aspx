@@ -64,6 +64,10 @@
                 background-color: #0f8ca7
             }
 
+        .center-caption-remarks {
+            text-align: left;
+        }
+
         .caption-bold caption {
             font-weight: bold;
         }
@@ -92,7 +96,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div>
         <h2 id="title">Welcome to the industrial ecology data commons (iedc) data validator!</h2>
         <p style="color: red">This feature is currently under development and will be released in November of 2024</p>
@@ -118,24 +122,65 @@
         <asp:Label ID="validatingDateAndTime" runat="server" Text=""></asp:Label>
         <div id="section1">
             <p><b>Section 1:</b> Consistent description of the data</p>
-            <div class="row">
+            <p id="compareTableSection" style="display: none">
+                <b></b> The data match between the Uploaded Excel Sheet and Iedc Database is displayed below on the left table. In case of a non-matching data between two columns, it is marked with the red font. Please check these cells
+                in the Uploaded Excel Sheet and replace them with a valid data.  in order to match to the database. In case of a missing cell(s) in the Uploaded Excel Sheet, it is displayed with the red font below on the right table. Please check these cells and replace them with a valid data.
+            </p>
+            <div class="row" style="row-gap: 20px">
                 <div class="column">
-                    <asp:GridView ID="compareTable" runat="server" CssClass="center-caption zebra-grid"></asp:GridView>
+                    <asp:GridView ID="compareTable" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                            <asp:BoundField DataField="Uploaded Excel Sheet" HeaderText="Uploaded Excel Sheet" HtmlEncode="False" />
+                            <asp:BoundField DataField="Iedc Database" HeaderText="Iedc Database" HtmlEncode="False" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
-                <div class="column">
-                    <div class="row">
-                        <asp:GridView ID="missingCellTable" runat="server" CssClass="center-caption zebra-grid"></asp:GridView>
-                    </div>
-                    <div class="row">
-                        <asp:GridView ID="aspectReportTable" runat="server" CssClass="center-caption zebra-grid"></asp:GridView>
-                    </div>
+                <div class="column" style="margin-left: 30px">
+                    <asp:GridView ID="missingCellTable" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                            <asp:BoundField DataField="Warning Message" HeaderText="Warning Message" HtmlEncode="False" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
             </div>
-            <div class="row" style="margin-top: 15px">
-                <asp:GridView ID="reportView" runat="server" ShowHeader="False" Caption="Remarks" CaptionStyle-HorizontalAlign="Center" CssClass="caption-bold zebra-grid" GridLines="Both" AutoGenerateColumns="False">
+            <p id="remarksSection" style="display: none;margin-top: 20px">
+                <b></b> The detailed description of the cells and their comparison with the iedc database is displayed in Remarks table.Non-matching data is displayed with the red font. Please check these cells and replace them with a valid data.
+            </p>
+            <div class="row" style="row-gap: 20px">
+                <asp:GridView ID="reportView" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" GridLines="Both" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:BoundField DataField="Cell"/>
-                        <asp:BoundField DataField="Remark" HtmlEncode="False"/>
+                        <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                        <asp:BoundField DataField="Remark" HeaderText="Remarks" HtmlEncode="False" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+            <br/>
+            <div class="row" style="row-gap: 20px">
+                <asp:GridView ID="aspectReportTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                        <asp:BoundField DataField="Aspect Remarks" HeaderText="Aspect Remarks" HtmlEncode="False" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+            <br/>
+            <div class="row" style="row-gap: 20px">
+                <asp:GridView ID="classificationReportTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                        <asp:BoundField DataField="Classification Remarks" HeaderText="Classification Remarks" HtmlEncode="False" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+            <br/>
+            <div class="row" style="row-gap: 20px">
+                <asp:GridView ID="dimensionCompareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="Aspect Dimension" HeaderText="Aspect Dimension" HtmlEncode="False" />
+                        <asp:BoundField DataField="Classificiation Dimension" HeaderText="Classificiation Dimension" HtmlEncode="False" />
+                        <asp:BoundField DataField="Dimension Remarks" HeaderText="Dimension Remarks" HtmlEncode="False" />
                     </Columns>
                 </asp:GridView>
             </div>
@@ -149,7 +194,7 @@
         <div id="section4">
             <p><b>Section 4:</b> Use of consistent classifications</p>
         </div>
-        <asp:Button ID="ButtonReport" runat="server" Text="Export the report above to pdf" CssClass=" btn btn-primary" OnClick="Report"/>
+        <asp:Button ID="ButtonReport" runat="server" Text="Export the report above to pdf" CssClass=" btn btn-primary" OnClick="Report" />
     </div>
     <hr />
     <div class="row">

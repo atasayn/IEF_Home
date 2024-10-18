@@ -8,6 +8,9 @@ using System.Reflection.Emit;
 using ClosedXML.Excel;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Security.Cryptography.X509Certificates;
+using DocumentFormat.OpenXml.Office2021.MipLabelMetaData;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 
 namespace IEF_Home.cls
@@ -50,7 +53,7 @@ namespace IEF_Home.cls
             return false;
         }
 
-        public void DoesDataExist(string file, string sheetName, GridView compareTable, GridView reportView, GridView missingCellTable, GridView aspectReportTable)
+        public void DoesDataExist(string file, string sheetName, GridView compareTable, GridView reportView, GridView missingCellTable, GridView aspectReportTable, GridView classificationReportTable, GridView dimensionCompareTable)
         {
             // Call method from the service
             var coverCellCheck = new circomodService();
@@ -80,41 +83,64 @@ namespace IEF_Home.cls
                     "D60", "D61", "D62", "D63", "D64"
                 };
 
-                //// Report Table
+                // Report Table
                 DataTable reportCell = new DataTable();
-                reportCell.Columns.Add("Warning Message"); // Ensure column is added to the DataTable
+                // Aspect Remarrks Table
+                DataTable AspectReportCell = new DataTable();
+                // Classification Remark Table
+                DataTable classificationTable = new DataTable();
+
+                // Report Table Columns
+                reportCell.Columns.Add("Cell",typeof(string)); 
+                reportCell.Columns.Add("Warning Message",typeof(string));
+                // Aspect Table Columns
+                AspectReportCell.Columns.Add("Cell", typeof(string));
+                AspectReportCell.Columns.Add("Aspect Remarks", typeof(string));
+                // Classificiation Table Columns
+                classificationTable.Columns.Add("Cell", typeof(string));
+                classificationTable.Columns.Add("Classification Remarks", typeof(string));
+
+                //Dimension List Var
+                var dimAspectList = new List<string>();
+                var dimClassList = new List<string>();
 
                 foreach (var item in cellsToCheck)
                 {
                     var cellCheck = worksheet.Cell(item).Value.ToString();
                     if (string.IsNullOrEmpty(cellCheck)) // Check for empty or null string
                     {
-                        reportCell.Rows.Add($"WARNING: Dataset description for cell {item} is empty, please provide some description here");
+                        reportCell.Rows.Add($"<span style='color: red;'>{item}</span>",$"<span style='color: red;'>WARNING: Dataset description for cell {item} is empty, please provide some description here</span>");
                     }
                 }
 
                 List<string> aspectList = new List<string>
                 {
-                    "D26", "D28", "D30", "D32", "D34", "D36", "D38", "D40", "D42", "D44", "D46", "D48"
+                    "26", "28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48"
 
                 };
+                var CxList = new List<string>();
+                var Cxplus1List = new List<string>();
                 foreach (var item in aspectList)
                 {
-                    var cellCheck = worksheet.Cell(item).Value.ToString();
-                    coverCellCheck.DoesAspectExist(cellCheck,aspectReportTable,item);
+                    var cellDxCheck = worksheet.Cell("D"+item).Value.ToString();
+                    var cellCxCheck = worksheet.Cell("C"+item).Value.ToString();
+                    CxList.Add(cellCxCheck);
+                    var itemPlusOne = (int.Parse(item) + 1).ToString();
+                    var cellDxplus1Check = worksheet.Cell("D" + itemPlusOne).Value.ToString();
+                    var cellCxplus1Check = worksheet.Cell("C" + itemPlusOne).Value.ToString();
+                    Cxplus1List.Add(cellCxplus1Check);
+                    coverCellCheck.DoesAspectExist(cellDxCheck, cellCxCheck, cellDxplus1Check, cellCxplus1Check,aspectReportTable, 
+                        classificationReportTable,  AspectReportCell  , classificationTable, dimensionCompareTable, "D" + item, dimAspectList, dimClassList);
 
+                    coverCellCheck.CoverCellCheck(cellD5Value, cellD6Value,
+                        cellD8Value, cellD9Value, cellD10Value, cellD23Value, cellD53Value, cellD54Value, aspectList, compareTable, reportView);
                 }
                 // Bind the cells to the table after the loop
                 missingCellTable.DataSource = reportCell;
                 missingCellTable.DataBind();
 
-                coverCellCheck.CoverCellCheck(cellD5Value, cellD6Value, 
-                    cellD8Value, cellD9Value, cellD10Value, cellD23Value, cellD53Value, cellD54Value, aspectList, compareTable, reportView);
-
-
             }
 
         }
-
     }
 }
