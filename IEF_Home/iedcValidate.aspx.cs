@@ -29,12 +29,15 @@ namespace IEF_Home
         }
         protected void ButtonUpload(object sender, EventArgs e)
         {
+
             try
             {
                 this.ShowCompareTable(this, EventArgs.Empty);
                 if (FileUpload.HasFile)
                 {
-
+                    circomodService.counterGlobal.Reset();
+                    columnDiv.Style["display"] = "block";
+                    section1Full.Style["display"] = "block";
 
                     var fileChecker = new excelSheetCheck();
                     if (fileChecker.IsExcelFile(FileUpload.PostedFile))
@@ -50,11 +53,12 @@ namespace IEF_Home
                         {
                             // Date and Time of Upload + File name + Success
                             string dateTime = DateTime.Now.ToString();
-                            string htmlContent = $"<h4>On {dateTime}: Parsing and validating dataset {fileName} against the definitions of the iedc.</h4>";
+                            string htmlContent = $"<h4>On {dateTime}: Parsing and validating dataset {fileName} against the specifications of the iedc.</h4>";
                             validatingDateAndTime.Text = htmlContent;
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
-                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, reportView, missingCellTable,aspectReportTable, classificationReportTable,dimensionCompareTable);
+                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,Ok,Warning,Error);
+                            fileChecker.isListOrTable(filePath, sheetName, templateType);
                         }
                         else
                         {
@@ -312,6 +316,31 @@ namespace IEF_Home
             
         }
 
+        public static void ErrorCounter(int errCount, int warningCount, int oKCount, BulletedList Ok, BulletedList Warning, BulletedList Error)
+        {
+
+            // Update OK ListItem
+            if (Ok.Items.Count > 0) // Check if the ListItem exists
+            {
+                Ok.Items[0].Text = "Ok: " + oKCount; // Update the text of the first ListItem
+                Ok.Items[0].Attributes["style"] = "color: green;"; // Ensure the color remains green
+            }
+
+            // Update Warning ListItem
+            if (Warning.Items.Count > 0) // Check if the ListItem exists
+            {
+                Warning.Items[0].Text = "Warning: " + warningCount; // Update the text of the first ListItem
+                Warning.Items[0].Attributes["style"] = "color: orange;"; // Ensure the color remains orange
+            }
+
+            // Update Error ListItem
+            if (Error.Items.Count > 0) // Check if the ListItem exists
+            {
+                Error.Items[0].Text = "Error: " + errCount; // Update the text of the first ListItem
+                Error.Items[0].Attributes["style"] = "color: red;"; // Ensure the color remains red
+            }
+
+        }
     }
 
 }

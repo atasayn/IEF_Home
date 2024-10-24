@@ -51,6 +51,42 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
+        /// columnDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl columnDiv;
+
+        /// <summary>
+        /// Ok control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.BulletedList Ok;
+
+        /// <summary>
+        /// Warning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.BulletedList Warning;
+
+        /// <summary>
+        /// Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.BulletedList Error;
+
+        /// <summary>
         /// validatingDateAndTime control.
         /// </summary>
         /// <remarks>
@@ -58,6 +94,15 @@ namespace IEF_Home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label validatingDateAndTime;
+
+        /// <summary>
+        /// section1Full control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl section1Full;
 
         /// <summary>
         /// compareTable control.
@@ -78,13 +123,13 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.GridView missingCellTable;
 
         /// <summary>
-        /// reportView control.
+        /// templateType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView reportView;
+        protected global::System.Web.UI.WebControls.GridView templateType;
 
         /// <summary>
         /// aspectReportTable control.
@@ -94,15 +139,6 @@ namespace IEF_Home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView aspectReportTable;
-
-        /// <summary>
-        /// classificationReportTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView classificationReportTable;
 
         /// <summary>
         /// dimensionCompareTable control.

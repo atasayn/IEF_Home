@@ -38,7 +38,7 @@
             transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
         }
 
-        #title {
+        .title {
             text-align: center
         }
 
@@ -98,45 +98,71 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div>
-        <h2 id="title">Welcome to the industrial ecology data commons (iedc) data validator!</h2>
+        <h2 class="title"> Industrial ecology data commons (iedc) data template validator </h2>
+        <h3 class="title"> Validate your data formatting and classifications against a general standard </h3>
         <p style="color: red">This feature is currently under development and will be released in November of 2024</p>
-        <p>
-            Most iedc datasets have between 1 and 10000 data points and are handled via xlsx spreadsheets. 
-            For supplying own data to the iedc via excel spreadsheets, these need to be properly formatted, including a consistent description of the data, 
-            sufficient metadata, a proper formatting of the data themselves, and the use of consistent classifications. Two spreadsheet templates and a tutorial video are available:
-        </p>
+        <p>Datasets in industrial ecology and socio-metabolic research typically have between 1 and 10000 data points and are frequently stored in xlsx spreadsheets. The industrial ecology data commons (iedc) offers a general data model, a set of classifications, 
+            and spreadsheet templates to consistently format such data in order to facilitate data updating, archiving, and exchange across projects.</p>
+        <p>The iedc data model and formatting standard requires datasets to properly formatted, including a consistent description of the data, sufficient metadata, 
+            a proper formatting of the data themselves, and the use of consistent classifications.</p>
+        <p>This page provides a web-based tool to validate datasets formatted as spreadsheets against the iedc data model, data formatting, and classifications. 
+            Detailed info on the data model can be found on the (iedc homepage) [<a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">https://www.database.industrialecology.uni-freiburg.de/</a> ].</p>
+        <p>The following material is available: a spreadsheet template for list-shaped data (tbd.), a working example for list-shaped data (tbd.), and an example for list-based data with multiple errors included (tbd.); 
+            a spreadsheet template for table-shaped data (tbd.), a working example for table-shaped data (tbd.), and an example for table-based data with multiple errors included (tbd.).</p>
+        <p>A tutorial video (tbd.) shows how to format the data according to the iedc specifications and how to use the data template validator:</p>
     </div>
 
     <hr />
     <div class="mb-3">
         <label for="formFile" class="form-label">Validate your data template against the iedc:</label>
         <div class="row">
-            <asp:FileUpload ID="FileUpload" class="form-control" runat="server" accept=".xlsx" />
-            <asp:Button ID="upload" runat="server" Text="Upload File" CssClass="upload-button btn btn-primary" OnClick="ButtonUpload" />
-            <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message"></asp:Label>
-        </div>
+            <div class="column">
+                <div class="row">
+                    <asp:FileUpload ID="FileUpload" class="form-control" runat="server" accept=".xlsx" />
+                    <asp:Button ID="upload" runat="server" Text="Upload File" CssClass="upload-button btn btn-primary" OnClick="ButtonUpload" />
+                    <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message"></asp:Label>
+                </div>
+            </div>
+            <div class="column" ID="columnDiv" runat="server" style="display:none">
+                <asp:BulletedList runat="server" ID="Ok" >
+                    <asp:ListItem  />
+                </asp:BulletedList>
+    
+                <asp:BulletedList runat="server" ID="Warning">
+                    <asp:ListItem  />
+                </asp:BulletedList>
+    
+                <asp:BulletedList runat="server" ID="Error">
+                    <asp:ListItem  />
 
+                </asp:BulletedList>
+            </div>
+        </div>
     </div>
     <hr />
     <div>
         <asp:Label ID="validatingDateAndTime" runat="server" Text=""></asp:Label>
         <div id="section1">
             <p><b>Section 1:</b> Consistent description of the data</p>
-            <p id="compareTableSection" style="display: none">
-                <b></b> The data match between the Uploaded Excel Sheet and Iedc Database is displayed below on the left table. In case of a non-matching data between two columns, it is marked with the red font. Please check these cells
-                in the Uploaded Excel Sheet and replace them with a valid data.  in order to match to the database. In case of a missing cell(s) in the Uploaded Excel Sheet, it is displayed with the red font below on the right table. Please check these cells and replace them with a valid data.
+            <div ID="section1Full" runat="server" style="display: none">
+                            <p id="compareTableSection" style="display: none">
+                <b></b> The match between the uploaded excel data template and the iedc database is displayed below in the left table. Non-matching data between the two columns are marked in red. Please check these cells in the uploaded excel template and replace them with valid entries. In case of missing information in the uploaded excel template, the corresponding cell is displayed in red font in the right table. Please check these cells and fill them with valid data
             </p>
             <div class="row" style="row-gap: 20px">
                 <div class="column">
-                    <asp:GridView ID="compareTable" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
+                    <asp:GridView ID="compareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
                         <Columns>
                             <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
-                            <asp:BoundField DataField="Uploaded Excel Sheet" HeaderText="Uploaded Excel Sheet" HtmlEncode="False" />
-                            <asp:BoundField DataField="Iedc Database" HeaderText="Iedc Database" HtmlEncode="False" />
+                            <asp:BoundField DataField="Name/Label" HeaderText="Name/label" HtmlEncode="False" />
+                            <asp:BoundField DataField="Given Value/Text" HeaderText="Given Value/Text" HtmlEncode="False" />
+                            <asp:BoundField DataField="Closest Iedc Match" HeaderText="Closest Iedc Match" HtmlEncode="False" />
+                            <asp:BoundField DataField="Validation Report" HeaderText="Validation Report" HtmlEncode="False" />
                         </Columns>
                     </asp:GridView>
                 </div>
-                <div class="column" style="margin-left: 30px">
+            </div>
+            <div class="row">
+                    <div class="column" style="margin-top: 30px;">
                     <asp:GridView ID="missingCellTable" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
                         <Columns>
                             <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
@@ -144,38 +170,31 @@
                         </Columns>
                     </asp:GridView>
                 </div>
+                  <div class="column" style="margin-top: 30px">
+                    <asp:GridView ID="templateType" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="Template Type" HeaderText="Template Type" HtmlEncode="False" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
             </div>
             <p id="remarksSection" style="display: none;margin-top: 20px">
-                <b></b> The detailed description of the cells and their comparison with the iedc database is displayed in Remarks table.Non-matching data is displayed with the red font. Please check these cells and replace them with a valid data.
+                
             </p>
-            <div class="row" style="row-gap: 20px">
-                <asp:GridView ID="reportView" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" GridLines="Both" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
-                        <asp:BoundField DataField="Remark" HeaderText="Remarks" HtmlEncode="False" />
-                    </Columns>
-                </asp:GridView>
-            </div>
             <br/>
-            <div class="row" style="row-gap: 20px">
+            <div class="row">
                 <asp:GridView ID="aspectReportTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                        <asp:BoundField DataField="Aspect" HeaderText="Aspect" HtmlEncode="False" />
                         <asp:BoundField DataField="Aspect Remarks" HeaderText="Aspect Remarks" HtmlEncode="False" />
-                    </Columns>
-                </asp:GridView>
-            </div>
-            <br/>
-            <div class="row" style="row-gap: 20px">
-                <asp:GridView ID="classificationReportTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                        <asp:BoundField DataField="Classification" HeaderText="Classification" HtmlEncode="False" />
                         <asp:BoundField DataField="Classification Remarks" HeaderText="Classification Remarks" HtmlEncode="False" />
+                        <asp:BoundField DataField="Dimension Remarks" HeaderText="Dimension Remarks" HtmlEncode="False" />
                     </Columns>
                 </asp:GridView>
             </div>
             <br/>
-            <div class="row" style="row-gap: 20px">
+            <div class="row">
                 <asp:GridView ID="dimensionCompareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
                     <Columns>
                         <asp:BoundField DataField="Aspect Dimension" HeaderText="Aspect Dimension" HtmlEncode="False" />
@@ -184,6 +203,8 @@
                     </Columns>
                 </asp:GridView>
             </div>
+            </div>
+
         </div>
         <div id="section2">
             <p><b>Section 2:</b> Sufficient metadata</p>
@@ -194,10 +215,10 @@
         <div id="section4">
             <p><b>Section 4:</b> Use of consistent classifications</p>
         </div>
-        <asp:Button ID="ButtonReport" runat="server" Text="Export the report above to pdf" CssClass=" btn btn-primary" OnClick="Report" />
+        <asp:Button ID="ButtonReport" runat="server" Text="Export the report above to pdf" CssClass=" btn btn-primary" OnClick="Report" /> <span style="color: red">Not working yet, currently under development.</span>
     </div>
     <hr />
-    <div class="row">
+   <%-- <div class="row">
         <div class="col">
             <label for="formFile" class="form-label">Upload field 2: for PDF xls</label>
             <div class="row">
@@ -206,8 +227,8 @@
             </div>
 
         </div>
-    </div>
-    <div class="row">
+    </div>--%>
+  <%--  <div class="row">
         <div class="col">
             <label for="formFile" class="form-label">Upload field 2: for PDF report</label>
             <div class="row">
@@ -225,9 +246,8 @@
             </div>
 
         </div>
-    </div>
-
-    <hr />
+    </div>--%>
+    <%--<hr />--%>
 
     <h5>(c) 2024 - Nildem Atasayar and Stefan Pauliuk. For questions and support, contact <a href="in4mation@indecol.uni-freiburg.de">in4mation@indecol.uni-freiburg.de</a></h5>
 </asp:Content>

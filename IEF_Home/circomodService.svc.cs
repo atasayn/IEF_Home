@@ -33,6 +33,19 @@ namespace IEF_Home
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class circomodService
     {
+         public static class counterGlobal
+        {
+
+            public static int errCount = 0;
+            public static int warningCount = 0;
+            public static int oKCount = 0;
+            public static void Reset()
+            {
+                errCount = 0;
+                warningCount = 0;
+                oKCount = 0;
+            }
+        }
 
         DbConnect cn = new DbConnect();
         
@@ -1342,19 +1355,18 @@ namespace IEF_Home
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         public void CoverCellCheck(string D5, string D6, string D8, string D9,
-            string D10, string D23, string D53, string D54, List<string> aspectList, GridView compareTable, GridView reportView)
+            string D10, string D23, string D53, string D54, string C5, string C6, string C8, string C9,
+            string C10, string C23, string C53, string C54 ,List<string> aspectList, GridView compareTable,BulletedList Ok,BulletedList Warning,BulletedList Error)
         {
+
             // Create a new DataTable
             DataTable dt = new DataTable();
-            // Report Table
-            DataTable reportTable = new DataTable();
             // Add Column to Datatable
             dt.Columns.Add("Cell", typeof(string));
-            dt.Columns.Add("Uploaded Excel Sheet", typeof(string));
-            dt.Columns.Add("Iedc Database", typeof(string));
-            // Report Table Columns
-            reportTable.Columns.Add("Cell", typeof(string));
-            reportTable.Columns.Add("Remark", typeof(string));
+            dt.Columns.Add("Name/label", typeof(string));
+            dt.Columns.Add("Given Value/Text", typeof(string));
+            dt.Columns.Add("Closest Iedc Match", typeof(string));
+            dt.Columns.Add("Validation Report", typeof(string));
 
             var queryList = new Dictionary<string, string>
             {
@@ -1440,132 +1452,131 @@ namespace IEF_Home
             string d5Entry = string.Empty;
             if (string.IsNullOrEmpty(result["id_D5"].Item1[0]))
             {
-                d5Entry = $"<span style='color:red;'>No entry with dataset name {D5} were found in the IEDC database.</span>";
-                dt.Rows.Add("<span style='color:red;'>D5</span >", $"<span style='color:red;'>{D5} </ span >", string.Empty);
-                reportTable.Rows.Add("<span style='color:red'>D5</span>", d5Entry);
+                d5Entry = $"<span style='color:#FFA500;'>No entry with dataset name <b>{D5}</b> were found in the IEDC database.</span>";
+                dt.Rows.Add("<span style='color:red;'>D5</span >", C5,$"<span style='color:red;'>{D5} </ span >", string.Empty, d5Entry);
+                counterGlobal.warningCount++;
             }
             else if (!string.IsNullOrEmpty(result["id_D5"].Item1[0]))
             {
-                d5Entry = $"{result["id_D5"].Item1.Count} entr(y/ies) with dataset name {D5} were found in the IEDC database.";
-                dt.Rows.Add("D5", D5, D5);
-                reportTable.Rows.Add("D5:", d5Entry);
+                d5Entry = $"<span style='color: green;'><b>{result["id_D5"].Item1.Count}</b> entr(y/ies) with dataset name <b>{D5}</b> were found in the IEDC database.</span>";
+                dt.Rows.Add("D5", C5,D5, D5, d5Entry);
+                counterGlobal.oKCount++;
             }
 
 
             string d6Entry =  string.Empty;
             if (string.IsNullOrEmpty(result["id_D6"].Item1[0]))
             {
-                d6Entry = $"<span style='color:red;'>No entry with dataset name {HttpUtility.HtmlEncode(D5)} and version {HttpUtility.HtmlEncode(D6)} were found in database. Please write 'none' if dataset is unique and does not have a version ID.</span>";
-                dt.Rows.Add($"<span style='color:red;'>D6</span >", $"<span style='color:red;'>{D6} </span >", string.Empty);
-                reportTable.Rows.Add($"<span style='color:red;'>D6</span>", d6Entry);
+                d6Entry = $"<span style='color:#FFA500;'>No entry with dataset name <b>{D5}</b> and version {D6} were found in database. Please write 'none' if dataset is unique and does not have a version ID.</span>";
+                dt.Rows.Add($"<span style='color:red;'>D6</span >",C6, $"<span style='color:red;'>{D6} </span >", string.Empty, d6Entry);
+                counterGlobal.warningCount++;
             }
             else if (!string.IsNullOrEmpty(result["id_D6"].Item1[0]))
             {
-                d6Entry = $"Entry with dataset name {D5} and version {D6} is already in the database";
-                dt.Rows.Add("D6", D6, D6);
-                reportTable.Rows.Add("D6:", d6Entry);
+                d6Entry = $"<span style='color: green;'>Entry with dataset name <b>{D5}</b> and version <b>{D6}</b> is already in the database.</span>";
+                dt.Rows.Add("D6",C6, D6, D6, d6Entry);
+                counterGlobal.oKCount++;
             }
             string d8Entry = string.Empty;
             if (string.IsNullOrEmpty(result["id_D8"].Item1[0]))
             {
-                d8Entry = $"<span style='color:red;'>ERROR: The chosen data category {D8} does not exist. Please enter a valid iedc data category id for this dataset (number from 1-8). The list of defined categories is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</a></span>";
-                dt.Rows.Add($"<span style='color:red;'>D8</span >", $"<span style='color:red;'>{D8} </ span >", string.Empty);
-                reportTable.Rows.Add("<span style='color:red'>D8</span>", d8Entry);
+                d8Entry = $"<span style='color:red;'>ERROR: The chosen data category <b>{D8}</b> does not exist. Please enter a valid iedc data category id for this dataset (number from 1-8). The list of defined categories is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</a></span>";
+                dt.Rows.Add($"<span style='color:red;'>D8</span >",C8, $"<span style='color:red;'>{D8} </ span >", string.Empty, d8Entry);
+                counterGlobal.errCount++;
             }
             else if (!string.IsNullOrEmpty(result["id_D8"].Item1[0]))
             {
-                d8Entry = $"The data category (ID: {result["id_D8"].Item1[0]}, name: {result["id_D8"].Item2}) of the dataset is valid";
-                dt.Rows.Add("D8", result["id_D8"].Item2, result["id_D8"].Item2);
-                reportTable.Rows.Add("D8:", d8Entry);
+                d8Entry = $"<span style='color: green;'>The data category (<b>ID: {result["id_D8"].Item1[0]}, name: {result["id_D8"].Item2}</b>) of the dataset is valid.</span>";
+                dt.Rows.Add("D8", C8,result["id_D8"].Item2, result["id_D8"].Item2, d8Entry);
+                counterGlobal.oKCount++;
             }
 
             string d9Entry = string.Empty;
             string d9EntrySub = string.Empty;
             if (string.IsNullOrEmpty(result["list_D9"].Item1[0]))
             {
-                d9Entry = $"<span style='color:red;'>ERROR: The chosen data type {D9} does not exist. Please enter a valid iedc data type name for this dataset. The list of defined data types is available under <a href='http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf'target='_blank'>http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf</a></span>";
-                dt.Rows.Add($"<span style='color:red;'>D9</span >", $"<span style='color:red;'>{D9} </ span >", string.Empty);
-                reportTable.Rows.Add("<span style='color:red'>D9</span>", d9Entry);
+                d9Entry = $"<span style='color:red;'>ERROR: The chosen data type <b>{D9}</b> does not exist. Please enter a valid iedc data type name for this dataset. The list of defined data types is available under <a href='http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf'target='_blank'>http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf</a></span>";
+                dt.Rows.Add($"<span style='color:red;'>D9</span >", C9,$"<span style='color:red;'>{D9} </ span >", string.Empty, d9Entry);
+                counterGlobal.errCount++;
             }
             else if (!string.IsNullOrEmpty(result["list_D9"].Item1[0]))
             {
-                d9Entry = $"The data type (ID: {result["list_D9"].Item1[0]}, name: {result["list_D9"].Item2}) of the dataset is valid";
-                dt.Rows.Add("D9", D9, result["list_D9"].Item2 ?? string.Empty);
-                reportTable.Rows.Add("D9:", d9Entry);
+                d9Entry = $"<span style='color: green;'>The data type (<b>ID: {result["list_D9"].Item1[0]}, name: {result["list_D9"].Item2}</b>) of the dataset is valid.</span>";
+                dt.Rows.Add("D9",C9, D9, result["list_D9"].Item2 ?? string.Empty, d9Entry);
+                counterGlobal.oKCount++;
                 if (result["list_D9"].Item3 == D8)
                 {
-                    d9EntrySub = $"The indicated data type fits to the indicated data category";
-                    reportTable.Rows.Add("", d9EntrySub);
+                    d9EntrySub = $"<span style='color: green;'>The indicated data type fits to the indicated data category.</span>";
+                    dt.Rows.Add("","", "","",d9EntrySub);
+                    counterGlobal.oKCount++;
                 }
                 else
                 {
-                    d9EntrySub = $"The indicated data type {D9} does not fit to the indicated data category {D8}. The data type must match the broader data category. The list of defined data types and the data categories they belong to is available under (<a href='http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf'target='_blank'>http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf</a>)";
-                    reportTable.Rows.Add("", $"<span style='color:red'>{d9EntrySub}</span>");
+                    d9EntrySub = $"The indicated data type <b>{D9}</b> does not fit to the indicated data category <b>{D8}</b>. The data type must match the broader data category. The list of defined data types and the data categories they belong to is available under (<a href='http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf'target='_blank'>http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf</a>)";
+                    dt.Rows.Add("","","","", $"<span style='color:red'>{d9EntrySub}</span>");
+                    counterGlobal.errCount++;
                 }
             }
 
             string d10Entry = string.Empty;
             if (string.IsNullOrEmpty(result["list_D10"].Item1[0]))
             {
-                d10Entry = $"<span style='color:red;'>ERROR: The chosen data layer {D10} does not exist. Please enter a valid iedc data layer name for this dataset. The list of defined data layers is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</a></span>";
-                dt.Rows.Add($"<span style='color:red;'>D10</span >", $"<span style='color:red;'>{D10} </ span >", string.Empty);
-                reportTable.Rows.Add("<span style='color:red'>D10</span>", d10Entry);
+                d10Entry = $"<span style='color:red;'>ERROR: The chosen data layer <b>{D10}</b> does not exist. Please enter a valid iedc data layer name for this dataset. The list of defined data layers is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</a></span>";
+                dt.Rows.Add($"<span style='color:red;'>D10</span >",C10, $"<span style='color:red;'>{D10} </ span >", string.Empty, d10Entry);
+                counterGlobal.errCount++;
             }
             else if (!string.IsNullOrEmpty(result["list_D10"].Item1[0]))
             {
-                d10Entry = $"The data layer (ID: {result["list_D10"].Item1[0]}, name: {result["list_D10"].Item2}) of the dataset is valid";
-                dt.Rows.Add("D10", D10, result["list_D10"].Item2 ?? string.Empty);
-                reportTable.Rows.Add("D10:", d10Entry);
+                d10Entry = $"<span style='color: green;'>The data layer (<b>ID: {result["list_D10"].Item1[0]}, name: {result["list_D10"].Item2}</b>) of the dataset is valid.</span>";
+                dt.Rows.Add("D10", C10,D10, result["list_D10"].Item2 ?? string.Empty, d10Entry);
+                counterGlobal.oKCount++;
             }
 
             string d23Entry = string.Empty;
             if (string.IsNullOrEmpty(result["list_D23"].Item1[0]))
             {
-                d23Entry = $"<span style='color:red;'>ERROR: The indicated data provenance {D23} does not exist. Please enter a valid iedc data provenance name. The list of defined provenance categories is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></span>";
-                dt.Rows.Add($"<span style='color:red;'>D23</span >", $"<span style='color:red;'>{D23} </ span >", string.Empty);
-                reportTable.Rows.Add("<span style='color:red'>D23</span>", d23Entry);
+                d23Entry = $"<span style='color:red;'>ERROR: The indicated data provenance <b>{D23}</b> does not exist. Please enter a valid iedc data provenance name. The list of defined provenance categories is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></span>";
+                dt.Rows.Add($"<span style='color:red;'>D23</span >", C23,$"<span style='color:red;'>{D23} </ span >", string.Empty, d23Entry);
+                counterGlobal.errCount++;
             }
             else if (!string.IsNullOrEmpty(result["list_D23"].Item1[0]))
             {
-                d23Entry = $"The data provenance (ID: {result["list_D23"].Item1[0]}, name: {result["list_D23"].Item2}) of the dataset is valid";
-                dt.Rows.Add("D23", D23, result["list_D23"].Item2 ?? string.Empty);
-                reportTable.Rows.Add("D23:", d23Entry);
+                d23Entry = $"<span style='color: green;'>The data provenance (<b>ID: {result["list_D23"].Item1[0]}, name: {result["list_D23"].Item2}</b>) of the dataset is valid.</span>";
+                dt.Rows.Add("D23", C23,D23, result["list_D23"].Item2 ?? string.Empty, d23Entry);
+                counterGlobal.oKCount++;
             }
 
             string d53Entry = string.Empty;
             if (string.IsNullOrEmpty(result["list_D53"].Item1[0]))
             {
-                d53Entry = $"<span style='color:red;'>ERROR: The indicated type of data source {D53} does not exist. Please enter the name of a valid iedc type of data source. The list of defined types of data source is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></span>";
-                dt.Rows.Add($"<span style='color:red;'>D53</span >", $"<span style='color:red;'>{D53} </ span >", string.Empty);
-                reportTable.Rows.Add("<span style='color:red'>D53</span>", d53Entry);
+                d53Entry = $"<span style='color:red;'>ERROR: The indicated type of data source <b>{D53}</b> does not exist. Please enter the name of a valid iedc type of data source. The list of defined types of data source is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></span>";
+                dt.Rows.Add($"<span style='color:red;'>D53</span >",C53, $"<span style='color:red;'>{D53} </ span >", string.Empty, d53Entry);
+                counterGlobal.errCount++;
             }
             else if (!string.IsNullOrEmpty(result["list_D53"].Item1[0]))
             {
-                d53Entry = $"The data category (ID: {result["list_D53"].Item1[0]}, name: {result["list_D53"].Item2}) of the dataset is valid";
-                dt.Rows.Add("D53", D53, result["list_D53"].Item2 ?? string.Empty);
-                reportTable.Rows.Add("D53:", d53Entry);
+                d53Entry = $"<span style='color: green;'>The data category (<b>ID: {result["list_D53"].Item1[0]}, name: {result["list_D53"].Item2}</b>) of the dataset is valid.</span>";
+                dt.Rows.Add("D53",C53, D53, result["list_D53"].Item2 ?? string.Empty, d53Entry);
+                counterGlobal.oKCount++;
             }            
             
             string d54Entry = string.Empty;
             if (string.IsNullOrEmpty(result["list_D54"].Item1[0]))
             {
-                d54Entry = $"<span style='color:red;'>ERROR: The indicated licence of the dataset {D54} does not exist. Please enter a valid iedc dataset licence name. The list of defined dataset licences is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></span>";
-                dt.Rows.Add($"<span style='color:red;'>D54</span >", $"<span style='color:red;'>{D54} </ span >", string.Empty);
-                reportTable.Rows.Add("<span style='color:red'>D54</span>", d54Entry);
+                d54Entry = $"<span style='color:red;'>ERROR: The indicated licence of the dataset <b>{D54}</b> does not exist. Please enter a valid iedc dataset licence name. The list of defined dataset licences is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></span>";
+                dt.Rows.Add($"<span style='color:red;'>D54</span >",C54, $"<span style='color:red;'>{D54} </ span >", string.Empty, d54Entry);
+                counterGlobal.errCount++;
             }
             else if (!string.IsNullOrEmpty(result["list_D54"].Item1[0]))
             {
-                d54Entry = $"The license provided for this dateset (ID: {result["list_D54"].Item1[0]}, name: {result["list_D54"].Item2}) of the dataset is valid";
-                dt.Rows.Add("D54", D54, result["list_D54"].Item2 ?? string.Empty);
-                reportTable.Rows.Add("D54:", d54Entry);
+                d54Entry = $"<span style='color: green;'>The license provided for this dataset (<b>ID: {result["list_D54"].Item1[0]}, name: {result["list_D54"].Item2}</b>) of the dataset is valid.</span>";
+                dt.Rows.Add("D54", C54,D54, result["list_D54"].Item2 ?? string.Empty, d54Entry);
+                counterGlobal.oKCount++;
             }
-
             //Bind the cells to the table
             compareTable.DataSource = dt;
             compareTable.DataBind();
-            //Bind the cells to the table
-            reportView.DataSource = reportTable;
-            reportView.DataBind();
+            iedcValidate.ErrorCounter(counterGlobal.errCount,  counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
 
         }
 
@@ -1573,10 +1584,15 @@ namespace IEF_Home
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         public void DoesAspectExist(string cellDxCheck, string cellCxCheck,string cellDxplus1Check, string cellCxplus1Check, 
-            GridView aspectReportTable,GridView classificationReportTable, DataTable AspectReportCell, DataTable classificationTable, 
-            GridView dimensionCompareTable, string item, List<string> dimAspectList,List<string> dimClassList)
+            GridView aspectReportTable, DataTable AspectReportCell, 
+            GridView dimensionCompareTable, string item, List<string> dimAspectList,List<string> dimClassList,
+            List<string> aspectReportTemp1StList,List<string> aspectReportTemp2NdList,List<string> classificationReportTemp1StList,
+            List<string> classificationReportTemp2NdList, BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
-
+            // Error Counter
+            int errCount2 = 0;
+            int warningCount2 = 0;
+            int oKCount2 = 0;
             //Aspect Vars
             var aspect = new List<string>();
             var dimension = new List<string>();
@@ -1592,17 +1608,16 @@ namespace IEF_Home
             var CxClass = new List<string>();
             var Dxplus1Class = new List<string>();
             var Cxplus1Class = new List<string>();
-            DataTable compareTableTemp = new DataTable();
-            //Columns
-            compareTableTemp.Columns.Add("Aspect Dimension", typeof(string));
-            compareTableTemp.Columns.Add("Classificiation Dimension", typeof(string));
-            compareTableTemp.Columns.Add("Dimension Remarks", typeof(string));
+ 
+
+            // compareTableTemp.Columns.Add("Dimension Remarks", typeof(string));
+            // Temp Vars
+            string dimRemark = String.Empty;
 
             var queryList = new Dictionary<string, string>
             {
                 ["aspect_list"] = @"SELECT aspect,dimension FROM iedc.aspects WHERE aspect = @cellDxCheck",
                 ["classification_list"] = @"SELECT id, classification_name,dimension FROM iedc.classification_definition WHERE id = @cellDxplus1Check"
-,
             };
 
             try
@@ -1631,9 +1646,10 @@ namespace IEF_Home
                             itemList.Add(item);
                             Dx.Add(cellDxCheck);
                             Cx.Add(cellCxCheck);
-                            AspectReportCell.Rows.Add($"<span style='color:red;'>{item}</span>",
-                                $"<span style='color:red;'>ERROR: The indicated {Dx.Last()} of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/aspects.aspx' target='_blank'>https://www.database.industrialecology.uni-freiburg.de/aspects.aspx <a/></span>");
+                            aspectReportTemp1StList.Add($"<span style='color:red;'>{item}</span>");
+                            aspectReportTemp2NdList.Add($"<span style='color:red;'>ERROR: The indicated <b>{Dx.Last()}</b> of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/aspects.aspx' target='_blank'>https://www.database.industrialecology.uni-freiburg.de/aspects.aspx <a/></span>");
                             dimAspectList.Add("");
+                            counterGlobal.errCount++;
                         }
                         else if (queryName == "classification_list")
                         {
@@ -1645,8 +1661,10 @@ namespace IEF_Home
                             CxClass.Add(cellCxCheck);
                             Dxplus1Class.Add(cellDxplus1Check);
                             Cxplus1Class.Add(cellCxplus1Check);
-                            classificationTable.Rows.Add($"<span style='color:red;'>{cellCxplus1Check}</span>", $"<span style='color:red;'>ERROR: The indicated {Cxplus1Class.Last()} of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/classifications.aspx' target='_blank'>https://www.database.industrialecology.uni-freiburg.de/classifications.aspx <a/></span>");
+                            classificationReportTemp1StList.Add($"<span style='color:red;'>{cellCxplus1Check}</span>");
+                            classificationReportTemp2NdList.Add($"<span style='color:red;'>ERROR: The indicated <b>{Cxplus1Class.Last()}</b> of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <a href='https://www.database.industrialecology.uni-freiburg.de/classifications.aspx' target='_blank'>https://www.database.industrialecology.uni-freiburg.de/classifications.aspx <a/></span>");
                             dimClassList.Add("");
+                            counterGlobal.errCount++;
                         }
                     }
                     else
@@ -1666,11 +1684,15 @@ namespace IEF_Home
                                 {
                                     for (int i = 0; i < aspect.Count(); i++)
                                     {
-                                        AspectReportCell.Rows.Add($"{Cx[i]}",
-                                            $"{Cx[i]} provided for this dataset (aspect: {aspect[i]}, dimension: {dimension[i]}) is valid.");
+                                        aspectReportTemp1StList.Add($"{Cx[i]}");
+                                        aspectReportTemp2NdList.Add($"<span style='color:green;'>{Cx[i]} provided for this dataset <b>(aspect: {aspect[i]}, dimension: {dimension[i]})</b> is valid.</span>"); 
                                         dimAspectList.Add(dimension[i]);
+                                        counterGlobal.oKCount++;
                                     }
+
+                                    
                                 }
+
                             }
                             else if (queryName == "classification_list")
                             {
@@ -1690,43 +1712,57 @@ namespace IEF_Home
                                 {
                                     for (int i = 0; i < classificationName.Count(); i++)
                                     {
-                                        classificationTable.Rows.Add($"{Cxplus1Class[i]}", $"{Cxplus1Class[i]} provided for this dataset (classification_name: {classificationName[i]}, dimension: {dimensionClass[i]}) is valid.");
+                                        classificationReportTemp1StList.Add($"{Cxplus1Class[i]}");
+                                        classificationReportTemp2NdList.Add($"<span style='color:green;'>{Cxplus1Class[i]} provided for this dataset <b>(classification_name: {classificationName[i]}, dimension: {dimensionClass[i]})</b> is valid.</span>");
                                         dimClassList.Add(dimensionClass[i]);
+                                        counterGlobal.oKCount++;
                                     }
+
+                                    
                                 }
                             }
                         }
                     }
                     cn.CloseConnection();
-                }
-                // Compare Dimension from Aspect and Classification Remark Table
-                foreach (var i in dimAspectList)
-                {
-                    int index = dimAspectList.IndexOf(i);
-                    if (i == dimClassList[index] && !string.IsNullOrEmpty(i))
+                    if (queryName == "classification_list" && cellCxplus1Check == "aspect_12_classification")
                     {
-                        compareTableTemp.Rows.Add(i, dimClassList[index], $"The dimension {i} of aspect_{index+1}_classification provided for this dataset matches the classification of aspect_{index+1} exists.");
-                    }
-                    else
-                    {
-                        compareTableTemp.Rows.Add(i, dimClassList[index], $"<span style='color:red;'>ERROR: The dimension {dimClassList[index+1]} of aspect_{index+1}_classification provided for this dataset does not match the classification of aspect_{index+1}. " +
-                                                                          $"Please check your aspect and the classifications that you want to use for this aspect and pick a classification that points to the same dimension as the aspect." +
-                                                                          $" See <a href=\"https://www.database.industrialecology.uni-freiburg.de/aspects.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/aspects.aspx</a>\r\n for a list of all dimensions and aspects. " +
-                                                                          $"See <a href=\"https://www.database.industrialecology.uni-freiburg.de/classifications.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/classifications.aspx</a>\r\n for a list of all classifications defined so far.</span>");
+                        for (int i = 0; i < dimAspectList.Count(); i++)
+                        {
+                            var dimAspect = dimAspectList[i];
+                            int index = dimAspectList.IndexOf(dimAspect);
+
+                            if (dimAspect == dimClassList[index] && !string.IsNullOrEmpty(dimAspect))
+                            {
+                                dimRemark = $"<span style='color: green;'><b>The dimension {dimAspect} of aspect_{index + 1}_classification</b> provided for this dataset matches the classification of aspect_{index + 1} that exists.</span>";
+                                counterGlobal.oKCount++;
+                            }
+                            else
+                            {
+                                dimRemark = $"<span style='color:red;'>ERROR:<b> The dimension {dimClassList[index + 1]} of aspect_{index + 1}_classification</b> provided for this dataset does not match the classification of aspect_{index + 1}. " +
+                                            $"Please check your aspect and the classifications that you want to use for this aspect and pick a classification that points to the same dimension as the aspect." +
+                                            $" See <a href=\"https://www.database.industrialecology.uni-freiburg.de/aspects.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/aspects.aspx</a>\r\n for a list of all dimensions and aspects. " +
+                                            $"See <a href=\"https://www.database.industrialecology.uni-freiburg.de/classifications.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/classifications.aspx</a>\r\n for a list of all classifications defined so far.</span>";
+                                counterGlobal.errCount++;
+                            }
+
+                            AspectReportCell.Rows.Add(aspectReportTemp1StList[i], aspectReportTemp2NdList[i], classificationReportTemp1StList[i], classificationReportTemp2NdList[i], dimRemark); 
+                        }
+
+
                     }
                 }
+                
+
             }
             catch (ArgumentException ex)
             {
                 // Handle duplicate key scenarios if necessary
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
-            dimensionCompareTable.DataSource = compareTableTemp;
-            dimensionCompareTable.DataBind();
+
             aspectReportTable.DataSource = AspectReportCell;
             aspectReportTable.DataBind();
-            classificationReportTable.DataSource = classificationTable;
-            classificationReportTable.DataBind();
+
             
         }
     }
