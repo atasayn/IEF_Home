@@ -123,8 +123,8 @@ namespace IEF_Home.cls
                     var cellCheck = worksheet.Cell(item).Value.ToString();
                     if (string.IsNullOrEmpty(cellCheck)) // Check for empty or null string
                     {
-                        reportCell.Rows.Add($"<span style='color: red;'>{item}</span>",$"<span style='color: red;'>WARNING: Dataset description for cell <b>{item} ({"C"+ System.Text.RegularExpressions.Regex.Match(item, @"\d+").Value})</b> is empty, please provide some description here</span>");
-                        circomodService.counterGlobal.errCount++;
+                        reportCell.Rows.Add($"<span style='color: orange;'>{item}</span>",$"<span style='color: orange;'>WARNING: Dataset description for cell <b>{item} ({"C"+ System.Text.RegularExpressions.Regex.Match(item, @"\d+").Value})</b> is empty, please provide some description here</span>");
+                        circomodService.counterGlobal.warningCount++;
                     }
                 }
 
