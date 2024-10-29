@@ -1738,10 +1738,16 @@ namespace IEF_Home
                             }
                             else
                             {
-                                dimRemark = $"<span style='color:red;'>ERROR:<b> The dimension {dimClassList[index + 1]} of aspect_{index + 1}_classification</b> provided for this dataset does not match the classification of aspect_{index + 1}. " +
+                                string dimClassText = (index + 1 < dimClassList.Count()) ? dimClassList[index + 1] : dimClassList[index];
+
+                                dimRemark = $"<span style='color:red;'>ERROR:<b> The dimension {dimClassText} of aspect_{index + 1}_classification</b> provided for this dataset does not match the classification of aspect_{index + 1}. " +
                                             $"Please check your aspect and the classifications that you want to use for this aspect and pick a classification that points to the same dimension as the aspect." +
                                             $" See <a href=\"https://www.database.industrialecology.uni-freiburg.de/aspects.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/aspects.aspx</a>\r\n for a list of all dimensions and aspects. " +
                                             $"See <a href=\"https://www.database.industrialecology.uni-freiburg.de/classifications.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/classifications.aspx</a>\r\n for a list of all classifications defined so far.</span>";
+                                //dimRemark = $"<span style='color:red;'>ERROR:<b> The dimension {dimClassList[index + 1]} of aspect_{index + 1}_classification</b> provided for this dataset does not match the classification of aspect_{index + 1}. " +
+                                //            $"Please check your aspect and the classifications that you want to use for this aspect and pick a classification that points to the same dimension as the aspect." +
+                                //            $" See <a href=\"https://www.database.industrialecology.uni-freiburg.de/aspects.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/aspects.aspx</a>\r\n for a list of all dimensions and aspects. " +
+                                //            $"See <a href=\"https://www.database.industrialecology.uni-freiburg.de/classifications.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/classifications.aspx</a>\r\n for a list of all classifications defined so far.</span>";
                                 counterGlobal.errCount++;
                             }
 
