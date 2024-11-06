@@ -144,7 +144,7 @@ table {
     border-spacing: 0;
 }
 td, th {
-    padding: 0;
+    padding: 3px;
 }
 @media print {
     * {

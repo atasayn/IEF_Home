@@ -6,10 +6,12 @@ using OfficeOpenXml;
 using ClosedXML.Excel;
 using System.Web.UI.WebControls;
 using System.Data;
-
+using System.Linq;
 using DocumentFormat.OpenXml.Wordprocessing;
 using ListItem = System.Web.UI.WebControls.ListItem;
 using DocumentFormat.OpenXml.Drawing.Spreadsheet;
+using System.Windows.Forms;
+using static IEF_Home.circomodService;
 
 
 
@@ -17,7 +19,6 @@ namespace IEF_Home.cls
 {
     public class excelSheetCheck
     {
-         
         public bool IsExcelFile(HttpPostedFile file)
         {
             // Check if the file has an .xlsx extension
@@ -53,7 +54,8 @@ namespace IEF_Home.cls
             return false;
         }
 
-        public void DoesDataExist(string file, string sheetName, GridView compareTable, GridView missingCellTable, GridView aspectReportTable, GridView dimensionCompareTable,BulletedList Ok, BulletedList Warning,BulletedList Error)
+        public void DoesDataExist(string file, string sheetName, GridView compareTable, GridView missingCellTable, GridView aspectReportTable, GridView dimensionCompareTable,
+            GridView aspectMatch,GridView aspectMatchRemarks)
         {
             // Call method from the service
             var coverCellCheck = new circomodService();
@@ -133,32 +135,99 @@ namespace IEF_Home.cls
                     "26", "28", "30", "32", "34", "36", "38", "40", "42", "44", "46", "48"
 
                 };
-                var CxList = new List<string>();
-                var Cxplus1List = new List<string>();
+
+                var cellDxCheckList = new List<string>();
                 foreach (var item in aspectList)
                 {
                     var cellDxCheck = HttpUtility.HtmlEncode(worksheet.Cell("D"+item).Value.ToString());
                     var cellCxCheck = HttpUtility.HtmlEncode(worksheet.Cell("C"+item).Value.ToString());
-                    CxList.Add(cellCxCheck);
+                    if (!string.IsNullOrEmpty(cellDxCheck) && cellDxCheck != "none") cellDxCheckList.Add(cellDxCheck);
                     var itemPlusOne = (int.Parse(item) + 1).ToString();
                     var cellDxplus1Check = HttpUtility.HtmlEncode(worksheet.Cell("D" + itemPlusOne).Value.ToString());
                     var cellCxplus1Check = HttpUtility.HtmlEncode(worksheet.Cell("C" + itemPlusOne).Value.ToString());
-                    Cxplus1List.Add(cellCxplus1Check);
                     coverCellCheck.DoesAspectExist(cellDxCheck, cellCxCheck, cellDxplus1Check, cellCxplus1Check,aspectReportTable,  AspectReportCell  , 
-                        dimensionCompareTable, "D" + item, dimAspectList, dimClassList, aspectReportTemp1StList,  aspectReportTemp2NdList, classificationReportTemp1StList,classificationReportTemp2NdList,Ok,Warning,Error);
+                        dimensionCompareTable, "D" + item, dimAspectList, dimClassList, aspectReportTemp1StList,  aspectReportTemp2NdList, classificationReportTemp1StList,classificationReportTemp2NdList);
 
                 }
                 coverCellCheck.CoverCellCheck(cellD5Value, cellD6Value,
-                    cellD8Value, cellD9Value, cellD10Value, cellD23Value, cellD53Value, cellD54Value, cellC5Value, cellC6Value, cellC8Value, cellC9Value, cellC10Value, cellC23Value, cellC53Value, cellC54Value, aspectList, compareTable, Ok, Warning, Error);
+                    cellD8Value, cellD9Value, cellD10Value, cellD23Value, cellD53Value, cellD54Value, cellC5Value, cellC6Value, cellC8Value, cellC9Value, cellC10Value, cellC23Value, cellC53Value, cellC54Value, aspectList, compareTable);
                 // Bind the cells to the table after the loop
                 missingCellTable.DataSource = reportCell;
                 missingCellTable.DataBind();
 
-            }
+                //Aspect match
+                int i = 12;
+                var aspectDoesExist = new List<string>();
+                DataTable aspectMatchDataTable = new DataTable();
+                DataTable aspectMatchRemarkTable = new DataTable();
+                // Aspect Match Table Columns
+                aspectMatchDataTable.Columns.Add("Aspect (D23-D46)", typeof(string));
+                aspectMatchDataTable.Columns.Add("Aspect (F12-..)", typeof(string));
+                // Aspect Match Remark Table Columns
+                aspectMatchRemarkTable.Columns.Add("Remarks", typeof(string));
+                while (true)
+                {
+                    string cellF12Value = HttpUtility.HtmlEncode(worksheet.Cell("F" + i).Value.ToString()).Trim();
 
+                    // Break the loop if cellF12Value is empty or "none"
+                    if (string.IsNullOrEmpty(cellF12Value) || cellF12Value.Equals("none", StringComparison.OrdinalIgnoreCase))
+                    {
+                        break;
+                    }
+                    aspectDoesExist.Add(cellF12Value);
+                    i++;
+                }
+                int maxCount = Math.Max(cellDxCheckList.Count, aspectDoesExist.Count);
+
+                // Populate the DataTable
+                for (int t = 0; t < maxCount; t++)
+                {
+                    string checklistValue = t < cellDxCheckList.Count ? cellDxCheckList[t] : null; // or "" for empty string
+                    string aspectValue = t < aspectDoesExist.Count ? aspectDoesExist[t] : null; // or "" for empty string
+
+                    aspectMatchDataTable.Rows.Add(checklistValue, aspectValue);
+                }
+
+                
+                // Assuming you have a DataGridView named dataGridView
+                aspectMatch.DataSource = aspectMatchDataTable;
+                aspectMatch.DataBind();
+
+                // After populating, check for mismatches and color cells
+                foreach (GridViewRow row in aspectMatch.Rows)
+                {
+                    string checklistValue = row.Cells[0].Text;
+                    string aspectValue = row.Cells[1].Text;
+
+                    if (string.IsNullOrEmpty(checklistValue) || !aspectDoesExist.Contains(checklistValue))
+                    {
+                        row.Cells[0].Text = $"<span style='color:red;'>{checklistValue}</span>";
+                        if (!string.IsNullOrEmpty(checklistValue) && checklistValue.Trim() != "&nbsp;")
+                        {
+                            aspectMatchRemarkTable.Rows.Add($"<span style='color:red;'>ERROR: <b>{checklistValue}</b> does not exit in Aspects column in Dataset format information table." +
+                                                            $"Please make sure that the indicated aspect exist in both Dataset information table and Dateset format Information table. </span>");
+                        }
+                        circomodService.counterGlobal.errCount++;
+                    }
+
+                    if (string.IsNullOrEmpty(aspectValue) || !cellDxCheckList.Contains(aspectValue))
+                    {
+                        row.Cells[1].Text = $"<span style='color:red;'>{aspectValue}</span>";
+                        if (!string.IsNullOrEmpty(aspectValue) && aspectValue.Trim() != "&nbsp;")
+                        {
+                            aspectMatchRemarkTable.Rows.Add($"<span style='color:red;'>ERROR: <b>{aspectValue}</b> does not exit in Aspects column in Dataset format information table." +
+                                                            $"Please make sure that the indicated aspect exist in both Dataset information table and Dateset format Information table. </span>");
+                        }
+
+                        circomodService.counterGlobal.errCount++;
+                    }
+                }
+                aspectMatchRemarks.DataSource = aspectMatchRemarkTable;
+                aspectMatchRemarks.DataBind();
+            }
         }
 
-        public void isListOrTable(string file, string sheetName, GridView templateType)
+        public void isListOrTable(string file, string sheetName, GridView templateType,GridView aspectSequence, GridView dataSheetRowNumber, BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
             try
             {
@@ -167,26 +236,54 @@ namespace IEF_Home.cls
                 List<string> aspectAttributeList = new List<string>();
                 List<string> colaApectList = new List<string>();
                 List<string> colAspectAttributeList = new List<string>();
-                
+                List<string> dataSheetAspectList = new List<string>();
+                List<string> expectedSheetAspectList = new List<string>();
+                List<string> coverSheetValueList = new List<string>();
                 var startPos = 12;
 
                 // Data Table 
                 DataTable isListTable = new DataTable();
-                //Columns
+                DataTable aspectSequenceMatch = new DataTable();
+                DataTable noRowsTable = new DataTable();
+                //Data Table Columns
                 isListTable.Columns.Add("Template Type");
+
+                aspectSequenceMatch.Columns.Add("Given Value/Text");
+                aspectSequenceMatch.Columns.Add("Expected Order of Values");
+                aspectSequenceMatch.Columns.Add("Remarks");
+
+                noRowsTable.Columns.Add("Number of rows with data");
+
+                //Value,Unit nominator, Unit denominator,Stats_array, comment 
+                List<string> dataSheetOrderList = new List<string>
+                {
+                    "value",
+                    "unit nominator",
+                    "unit denominator",
+                    "stats_array string",
+                    "comment"
+                };
 
                 // Open the Excel workbook
                 using (var workbook = new XLWorkbook(file))
                 {
                     // Access the specified sheet
                     var worksheet = workbook.Worksheet(sheetName);
-
+                    var worksheetData = workbook.Worksheet("Data");
                     // Retrieve the value from cell G10
                     var cellG10Value = worksheet.Cell("G10").Value.ToString();
+                    var noRowsI10Value = worksheet.Cell("I10").Value.ToString();
+                    // Bind Number of Rows Table
+                    noRowsTable.Rows.Add($"Number of rows with data: <b>{noRowsI10Value}</b>");
+                    dataSheetRowNumber.DataSource = noRowsTable;
+                    dataSheetRowNumber.DataBind();
                     int fPos = startPos;
                     switch (cellG10Value)
                     {
                         case "LIST":
+                            // Aspect Order Check
+                            aspectSequence.DataSource = null;
+                            aspectSequence.DataBind();
                             isListTable.Rows.Add($"Type of data template (Dataset_RecordType) indicated: <b>LIST</b>");
                             templateType.DataSource = isListTable;
                             templateType.DataBind();
@@ -202,10 +299,74 @@ namespace IEF_Home.cls
                                 // Move to the next row
                                 fPos++;
                             }
-                            // Additional handling for LIST if needed
+                            // Does Aspect sequence meet the sequence in Data sheet?
+                            // Loop through the alphabet
+                            int rowIndex = 1;
+                            int i = 12;
+                            for (char c = 'A'; c <= 'Z'; c++)
+                            {
+                                string cellValue = HttpUtility.HtmlEncode(worksheetData.Cell(c + rowIndex.ToString()).Value.ToString()).Trim();
+                                // Break the loop if cellValue is empty or "none"
+                                if (string.IsNullOrEmpty(cellValue))
+                                {
+                                    
+                                    break;
+                                }
+                                dataSheetAspectList.Add(cellValue);
+                            }
+                            while (true)
+                            {
+                                string cellF12Value = HttpUtility.HtmlEncode(worksheet.Cell("F" + i).Value.ToString()).Trim();
+
+                                // Break the loop if cellF12Value is empty or "none"
+                                if (string.IsNullOrEmpty(cellF12Value) || cellF12Value.Equals("none", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    break;
+                                }
+                                expectedSheetAspectList.Add(cellF12Value);
+                                
+                                i++;
+                            }
+                            expectedSheetAspectList.AddRange(dataSheetOrderList);
+                            // Populate the DataTable
+                            int maxCountAps = Math.Max(dataSheetAspectList.Count, expectedSheetAspectList.Count);
+                            for (int t = 0; t < maxCountAps; t++)
+                            {
+                                string givenValue = t < dataSheetAspectList.Count ? dataSheetAspectList[t] : null; // or "" for empty string
+                                string expectedValue = t < expectedSheetAspectList.Count ? expectedSheetAspectList[t] : null; // or "" for empty string
+
+                                if (expectedValue == givenValue)
+                                {
+                                    var aspectSeqRemark =
+                                        $"<span style='color: green;'>The order of <b>{givenValue}</b> as given value matches the order of {expectedValue} in idec database.</span>";
+                                    circomodService.counterGlobal.oKCount++;
+                                    aspectSequenceMatch.Rows.Add(givenValue, expectedValue, aspectSeqRemark);
+                                }
+                                else if(expectedValue != givenValue && !string.IsNullOrEmpty(expectedValue))
+                                {
+                                    var aspectSeqRemark =
+                                        $"<span style='color: red;'>ERROR: The order of <b>{givenValue}</b> as given value does not match the order of <b>{expectedValue}</b> in iedc database. Please correct " +
+                                        $"the aspect columns with the same order as in Expected Order of Values.</span>";
+                                    circomodService.counterGlobal.errCount++;
+                                    aspectSequenceMatch.Rows.Add($"<span style='color: red;'>{givenValue}</span>", expectedValue,
+                                         aspectSeqRemark);
+                                }else if (!expectedSheetAspectList.Contains(givenValue))
+                                {
+                                    var aspectSeqRemark =
+                                        $"<span style='color: orange;'>Data sheet contains additional information right of the 'comment' column: " +
+                                            $" <b>{givenValue}</b>. This data will not be validated and transferred to the iedc, it is only visible in the excel template.</span>";
+                                    circomodService.counterGlobal.warningCount++;
+                                    aspectSequenceMatch.Rows.Add($"<span style='color: orange;'>{givenValue}</span>", expectedValue, aspectSeqRemark);
+                                }
+                            }
+                            aspectSequence.DataSource = aspectSequenceMatch;
+                            aspectSequence.DataBind();
                             break;
+                            
 
                         case "TABLE":
+                            aspectSequence.DataSource = null;
+                            aspectSequence.DataBind();
                             isListTable.Rows.Add($"Type of data template (Dataset_RecordType) indicated: <b>TABLE</b>");
                             templateType.DataSource = isListTable;
                             templateType.DataBind();
@@ -225,6 +386,7 @@ namespace IEF_Home.cls
                                 // Move to the next row
                                 fPos++;
                             }
+
                             // Additional handling for TABLE if needed
                             break;
 
@@ -235,7 +397,7 @@ namespace IEF_Home.cls
                     }
 
                 }
-
+                iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
             }
             catch (ArgumentException ex)
             {
@@ -243,6 +405,7 @@ namespace IEF_Home.cls
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
+
 
     }
 }

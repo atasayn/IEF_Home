@@ -26,6 +26,7 @@ namespace IEF_Home
             // Register a JavaScript code to set the style to display block
             ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable", "document.getElementById('compareTableSection').style.display = 'block';", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable1", "document.getElementById('remarksSection').style.display = 'block';", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable2", "document.getElementById('section2Row').style.display = 'block';", true);
         }
         protected void ButtonUpload(object sender, EventArgs e)
         {
@@ -38,6 +39,7 @@ namespace IEF_Home
                     circomodService.counterGlobal.Reset();
                     columnDiv.Style["display"] = "block";
                     section1Full.Style["display"] = "block";
+                    section2Row.Style["display"] = "block";
 
                     var fileChecker = new excelSheetCheck();
                     if (fileChecker.IsExcelFile(FileUpload.PostedFile))
@@ -57,8 +59,8 @@ namespace IEF_Home
                             validatingDateAndTime.Text = htmlContent;
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
-                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,Ok,Warning,Error);
-                            fileChecker.isListOrTable(filePath, sheetName, templateType);
+                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,aspectMatch,aspectMatchRemarks);
+                            fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber, Ok, Warning, Error);
                         }
                         else
                         {

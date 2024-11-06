@@ -51,6 +51,24 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
+        /// templateType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView templateType;
+
+        /// <summary>
+        /// dataSheetRowNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dataSheetRowNumber;
+
+        /// <summary>
         /// columnDiv control.
         /// </summary>
         /// <remarks>
@@ -123,15 +141,6 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.GridView missingCellTable;
 
         /// <summary>
-        /// templateType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView templateType;
-
-        /// <summary>
         /// aspectReportTable control.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,42 @@ namespace IEF_Home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dimensionCompareTable;
+
+        /// <summary>
+        /// aspectMatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView aspectMatch;
+
+        /// <summary>
+        /// aspectMatchRemarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView aspectMatchRemarks;
+
+        /// <summary>
+        /// section2Row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl section2Row;
+
+        /// <summary>
+        /// aspectSequence control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView aspectSequence;
 
         /// <summary>
         /// ButtonReport control.
