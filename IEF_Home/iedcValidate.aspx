@@ -61,7 +61,7 @@
 
             .center-caption th {
                 text-align: center;
-                background-color: #0f8ca7
+                background-color: #6CB4EE
             }
 
         .center-caption-remarks {
