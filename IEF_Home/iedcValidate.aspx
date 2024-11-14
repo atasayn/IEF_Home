@@ -257,6 +257,19 @@
                     </asp:GridView>
                 </div>
             </div>
+            
+            <div class="row"  style="margin-top: 10px;display:block" runat="server">
+                <div class="column">
+                    <asp:GridView ID="dataSheetMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
+                        <columns>
+                            <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                            <asp:BoundField DataField="Aspect" HeaderText="Aspect" HtmlEncode="False" />
+                            <asp:BoundField DataField="Given Value/Text" HeaderText="Given Value/Text" HtmlEncode="False" />
+                            <asp:BoundField DataField="Remarks" HeaderText="Remarks" HtmlEncode="False" />
+                        </columns>
+                    </asp:GridView>
+                </div>
+            </div>
         </div>
        
         <div id="section3">

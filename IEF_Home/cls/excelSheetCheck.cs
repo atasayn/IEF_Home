@@ -12,6 +12,7 @@ using ListItem = System.Web.UI.WebControls.ListItem;
 using DocumentFormat.OpenXml.Drawing.Spreadsheet;
 using System.Windows.Forms;
 using static IEF_Home.circomodService;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 
 
@@ -149,6 +150,8 @@ namespace IEF_Home.cls
                         dimensionCompareTable, "D" + item, dimAspectList, dimClassList, aspectReportTemp1StList,  aspectReportTemp2NdList, classificationReportTemp1StList,classificationReportTemp2NdList);
 
                 }
+
+                
                 coverCellCheck.CoverCellCheck(cellD5Value, cellD6Value,
                     cellD8Value, cellD9Value, cellD10Value, cellD23Value, cellD53Value, cellD54Value, cellC5Value, cellC6Value, cellC8Value, cellC9Value, cellC10Value, cellC23Value, cellC53Value, cellC54Value, aspectList, compareTable);
                 // Bind the cells to the table after the loop
@@ -227,7 +230,7 @@ namespace IEF_Home.cls
             }
         }
 
-        public void isListOrTable(string file, string sheetName, GridView templateType,GridView aspectSequence, GridView dataSheetRowNumber, BulletedList Ok, BulletedList Warning, BulletedList Error)
+        public void isListOrTable(string file, string sheetName, GridView templateType,GridView aspectSequence, GridView dataSheetRowNumber,GridView dataSheetMatch, BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
             try
             {
@@ -245,6 +248,14 @@ namespace IEF_Home.cls
                 DataTable isListTable = new DataTable();
                 DataTable aspectSequenceMatch = new DataTable();
                 DataTable noRowsTable = new DataTable();
+                // DataTable
+                DataTable dataMatch = new DataTable();
+                DataTable dataMatchResult = new DataTable();
+                //Columns
+                dataMatch.Columns.Add("Cell", typeof(string));
+                dataMatch.Columns.Add("Aspect", typeof(string));
+                dataMatch.Columns.Add("Given Value/Text", typeof(string));
+                dataMatch.Columns.Add("Remarks", typeof(string));
                 //Data Table Columns
                 isListTable.Columns.Add("Template Type");
 
@@ -341,6 +352,7 @@ namespace IEF_Home.cls
                                         $"<span style='color: green;'>The order of <b>{givenValue}</b> as given value matches the order of {expectedValue} in idec database.</span>";
                                     circomodService.counterGlobal.oKCount++;
                                     aspectSequenceMatch.Rows.Add(givenValue, expectedValue, aspectSeqRemark);
+                                    isDataRowValid(sheetName, "Data", file, givenValue, dataSheetMatch,  dataMatch,  dataMatchResult,  Ok,  Warning,  Error);
                                 }
                                 else if(expectedValue != givenValue && !string.IsNullOrEmpty(expectedValue))
                                 {
@@ -372,10 +384,10 @@ namespace IEF_Home.cls
                             templateType.DataBind();
                             while (true)
                             {
-                                var cellFValue = worksheet.Cell("F" + fPos).Value.ToString();
-                                var cellGValue = worksheet.Cell("G" + fPos).Value.ToString();
-                                var cellHValue = worksheet.Cell("H" + fPos).Value.ToString();
-                                var cellIValue = worksheet.Cell("I" + fPos).Value.ToString();
+                                var cellFValue = HttpUtility.HtmlEncode(worksheet.Cell("F" + fPos).Value.ToString().Trim());
+                                var cellGValue = HttpUtility.HtmlEncode(worksheet.Cell("G" + fPos).Value.ToString().Trim());
+                                var cellHValue = HttpUtility.HtmlEncode(worksheet.Cell("H" + fPos).Value.ToString().Trim());
+                                var cellIValue = HttpUtility.HtmlEncode(worksheet.Cell("I" + fPos).Value.ToString().Trim());
                                 if (string.IsNullOrEmpty(cellFValue)) break;
                                 // Add to the lists
                                 aspectList.Add(cellFValue);
@@ -397,13 +409,86 @@ namespace IEF_Home.cls
                     }
 
                 }
-                iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
+                
             }
             catch (ArgumentException ex)
             {
                 // Handle exception
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
+        }
+
+        public void isDataRowValid(string sheetName1, string sheetName2,string file,string givenValue,GridView dataSheetMatch,DataTable dataMatch,DataTable dataMatchResult, BulletedList Ok, BulletedList Warning, BulletedList Error)
+        {
+            // Empty Variables
+            Dictionary<string, string> aspectNames = new Dictionary<string, string>();
+            Dictionary<string, string> classificationIDs = new Dictionary<string, string>();
+            DataTable tempDataMatchResult = new DataTable();
+            using (var workbook = new XLWorkbook(file))
+            {
+                // Worksheet with the sheet name
+                var worksheet = workbook.Worksheet(sheetName1);
+                // Retrieve the value from cell G Column
+                var fPos = 12;
+                var dPosAsp = 26;
+                var dPosClas = 27;
+                while (true)
+                {
+                    var cellDValueAsp = HttpUtility.HtmlEncode(worksheet.Cell("D" + dPosAsp).Value.ToString().Trim());
+                    var cellDValueClass = HttpUtility.HtmlEncode(worksheet.Cell("D" + dPosClas).Value.ToString().Trim());
+                    var cellFValue = HttpUtility.HtmlEncode(worksheet.Cell("F" + fPos).Value.ToString().Trim());
+                    var cellGValue = HttpUtility.HtmlEncode(worksheet.Cell("G" + fPos).Value.ToString().Trim());
+                    
+                    // Stop the loop only if all cells contain "none" or are empty/null
+                    if ((string.IsNullOrEmpty(cellDValueAsp) || cellDValueAsp == "none") &&
+                        (string.IsNullOrEmpty(cellDValueClass) || cellDValueClass == "none") &&
+                        (string.IsNullOrEmpty(cellFValue) || cellFValue == "none") &&
+                        (string.IsNullOrEmpty(cellGValue) || cellGValue == "none"))
+                    {
+                        break;
+                    }
+
+                    // Add non-null and non-"none" values to respective lists
+                    if (!string.IsNullOrEmpty(cellDValueAsp) && !string.IsNullOrEmpty(cellDValueClass) && cellDValueAsp != "none" && cellDValueClass != "none") classificationIDs.Add(cellDValueAsp, cellDValueClass);
+                    if (!string.IsNullOrEmpty(cellFValue) && !string.IsNullOrEmpty(cellGValue) && cellFValue != "none" && cellGValue != "none") aspectNames.Add(cellFValue, cellGValue);
+
+                    
+                  
+                    // Move to the next row
+                    fPos++;
+                    dPosAsp+=2;
+                    dPosClas+=2;
+                }
+
+                // Worksheet with the sheet name
+                var worksheet2 = workbook.Worksheet(sheetName2);
+                var indexData = 2;
+                circomodService serviceInstance = new circomodService();
+                for (char c = 'A'; c <= 'Z'; c++)
+                {
+                    var cellDataColValue = HttpUtility.HtmlEncode(worksheet2.Cell(c + "1").Value.ToString().Trim());
+                    if (cellDataColValue == givenValue)
+                    {
+                        while (true)
+                        {
+                            var cellNo = c.ToString() + indexData;
+                            var cellDataValue = HttpUtility.HtmlEncode(worksheet2.Cell(cellNo).Value.ToString().Trim());
+                           if (string.IsNullOrEmpty(cellDataValue)) break;
+                           tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + aspectNames.FirstOrDefault(x => x.Key == cellDataColValue).Value + "_oto",
+                               classificationIDs.FirstOrDefault(x => x.Key == cellDataColValue).Value, classificationIDs.Keys.ToList(),cellDataValue, cellDataColValue, cellNo, dataSheetMatch, 
+                               dataMatch,Ok,  Warning,  Error);
+                           
+                            indexData++;
+                        }
+                        break;
+                    }
+
+                }
+
+            }
+            iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
+            dataSheetMatch.DataSource = tempDataMatchResult;
+            dataSheetMatch.DataBind();
         }
 
 

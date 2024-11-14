@@ -195,6 +195,15 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.GridView aspectSequence;
 
         /// <summary>
+        /// dataSheetMatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dataSheetMatch;
+
+        /// <summary>
         /// ButtonReport control.
         /// </summary>
         /// <remarks>

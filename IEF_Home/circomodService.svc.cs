@@ -309,48 +309,6 @@ namespace IEF_Home
             return output;
         }
 
-        //[OperationContract]
-        //[WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-
-        //public List<List<string>> Classification_ResultItemBuilding(string SELECTedRegion)
-        //{
-
-        //    var output = new List<List<string>>();
-        //    if (!cn.OpenConnection()) return null;
-        //    foreach (var SELECTedScenario in new List<string> { "LED", "SSP1", "SSP2" })
-        //    {
-        //        var scenarioArray = new List<string>();
-        //        var yearArray = new List<string>();
-        //        const string query = @"SELECT d.value * 1e+6 AS multiplied_value
-        //    FROM iedc.data d
-        //    LEFT JOIN iedc.units u1 ON d.unit_nominator = u1.id
-        //    LEFT JOIN iedc.units u2 ON d.unit_denominator = u2.id
-        //    LEFT JOIN iedc.classification_items ci4 ON d.aspect4 = ci4.id
-        //    INNER JOIN iedc.datasets ds ON d.dataset_id = ds.id
-        //    WHERE d.dataset_id = 303
-        //    AND d.aspect4 = (SELECT id FROM iedc.classification_items WHERE classification_id = 8 AND attribute1_oto = @SELECTedScenario)
-        //    AND d.aspect1 = (SELECT id FROM iedc.classification_items WHERE classification_id = 77 AND attribute1_oto = @SELECTedRegion)";
-        //        var cmd = new MySqlCommand(query, cn.Connection);
-
-        //        cmd.Parameters.AddWithValue("@SELECTedScenario", SELECTedScenario);
-        //        cmd.Parameters.AddWithValue("@SELECTedRegion", SELECTedRegion);
-
-        //        var reader = cmd.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-
-        //            scenarioArray.Add(reader["value"].ToString().Replace(",", "."));
-        //            yearArray.Add(reader["aspect_6"].ToString().Replace(",", "."));
-
-        //        }
-        //        output.Add(scenarioArray);
-        //        output.Add(yearArray);
-
-        //        reader.Close();
-        //    }
-        //    cn.CloseConnection();
-        //    return output;
-        //}
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
@@ -1536,7 +1494,7 @@ namespace IEF_Home
             if (string.IsNullOrEmpty(result["list_D23"].Item1[0]))
             {
                 d23Entry = $"<span style='color:red;'>ERROR: The indicated data provenance <b>{D23}</b> does not exist. Please enter a valid iedc data provenance name. The list of defined provenance categories is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></b></span>";
-                dt.Rows.Add($"<span style='color:red;'>D23</span >", C23,$"<span style='color:red;'>{D23} </ span >", string.Empty, d23Entry);
+                dt.Rows.Add($"<span style='color:red;'>D23</span >", C23,$"<span style='color:red;'>{D23} </span >", string.Empty, d23Entry);
                 counterGlobal.errCount++;
             }
             else if (!string.IsNullOrEmpty(result["list_D23"].Item1[0]))
@@ -1763,6 +1721,157 @@ namespace IEF_Home
 
             aspectReportTable.DataSource = AspectReportCell;
             aspectReportTable.DataBind();
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        public DataTable selectAttrClosestMatch(string thisattribute, string classificationId, List<string> aspectList,string dataCell,string cellDataColValue, string cellNo,GridView dataSheetMatch,DataTable dataMatch,
+            BulletedList Ok, BulletedList Warning, BulletedList Error)
+        {
+            var closestMatch = new List<string>();
+
+            if (cn.OpenConnection() == true)
+            {
+                if (aspectList.Contains(cellDataColValue))
+                {
+
+                    var query =
+                        $"SELECT {thisattribute} FROM iedc.classification_items WHERE classification_id = @classificationId AND {thisattribute} = @dataCell";
+                    bool exactMatchFound = false;
+                    using (var cmd = new MySqlCommand(query, cn.Connection))
+                    {
+                        cmd.Parameters.AddWithValue("@classificationId", classificationId);
+                        cmd.Parameters.AddWithValue("@dataCell", dataCell);
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var theMatchVal = reader[thisattribute].ToString();
+                                if (theMatchVal == dataCell)
+                                {
+                                    exactMatchFound = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!exactMatchFound)
+                        {
+
+                            var closestMatchQuery =
+                                $"SELECT {thisattribute} " +
+                                $"FROM iedc.classification_items " +
+                                $"WHERE classification_id = @classificationId " +
+                                $"AND MATCH({thisattribute}) " +
+                                $"AGAINST (@dataCell IN NATURAL LANGUAGE MODE)  " +
+                                $"OR {thisattribute} LIKE @dataCell " +
+                                $"GROUP BY {thisattribute} " +
+                                $"LIMIT 10";
+
+                            using (var cmdMatch = new MySqlCommand(closestMatchQuery, cn.Connection))
+                            {
+                                cmdMatch.Parameters.AddWithValue("@classificationId", classificationId);
+                                cmdMatch.Parameters.AddWithValue("@dataCell", "'%" + dataCell + "%'"); // Using wildcards for partial matching
+
+                                using (var reader = cmdMatch.ExecuteReader())
+                                {
+                                    Console.WriteLine("No exact match found. Displaying closest matches:");
+
+                                    while (reader.Read())
+                                    {
+                                        closestMatch.Add(reader[thisattribute].ToString());
+
+                                    }
+                                    string closestMatchString = string.Join(", ", closestMatch);
+                                    string closestMatchRemark;
+                                    if (string.IsNullOrEmpty(closestMatchString))
+                                    {
+                                        closestMatchRemark = $"ERROR:No exact match for label {dataCell} in classification {cellDataColValue}. " +
+                                                             $"Here are the ten closest matches: <b>0</b>";
+                                        counterGlobal.errCount++;
+                                    }
+                                    else
+                                    {
+                                        closestMatchRemark = $"ERROR:No exact match for label {dataCell} in classification {cellDataColValue}. " +
+                                                             $"Here are the ten closest matches: <b>{closestMatchString}</b>";
+                                        counterGlobal.errCount++;
+                                    }
+                                    dataMatch.Rows.Add($"<span style='color: red;'>{cellNo}</span>",
+                                        $"<span style='color: red;'>{cellDataColValue}</span>",
+                                        $"<span style='color: red;'>{dataCell}</span>",
+                                        $"<span style='color: red;'>{closestMatchRemark}</span>");
+                                    
+                                    
+                                }
+
+                            }
+                        }
+                    }
+                }
+                else if (cellDataColValue == "unit nominator")
+                {
+                    var closestMatchQuery =
+                        $"SELECT id " +
+                        $"FROM iedc.units " +
+                        $"WHERE unitcode = @dataCell " +
+                        $"OR alt_unitcode = @dataCell " +
+                        $"OR alt_unitcode2 = @dataCell";
+
+
+                    using (var cmdMatch = new MySqlCommand(closestMatchQuery, cn.Connection))
+                    {
+                        cmdMatch.Parameters.AddWithValue("@dataCell", dataCell);
+                        using (var reader = cmdMatch.ExecuteReader())
+                        {
+                            if(!reader.HasRows)
+                            {
+                                
+                                var unitCodeRemark = $"ERROR: “For data in row {cellNo}: unit nominator {dataCell} is not defined in the iedc units table." +
+                                                     $" Please fix the unit or add a new unit to the units table.";
+
+                                dataMatch.Rows.Add($"<span style='color: red;'>{cellNo}</span>",
+                                    $"<span style='color: red;'>{cellDataColValue}</span>",
+                                    $"<span style='color: red;'>{dataCell}</span>",
+                                    $"<span style='color: red;'>{unitCodeRemark}</span>");
+                                counterGlobal.errCount++;
+                                
+                            }
+                        }
+                    }
+                }
+                else if (cellDataColValue == "unit denominator")
+                {
+
+                    var closestMatchQuery =
+                        $"SELECT id " +
+                        $"FROM iedc.units " +
+                        $"WHERE unitcode = @dataCell " +
+                        $"OR alt_unitcode = @dataCell " +
+                        $"OR alt_unitcode2 = @dataCell";
+                    using (var cmdMatch = new MySqlCommand(closestMatchQuery, cn.Connection))
+                    {
+
+                        cmdMatch.Parameters.AddWithValue("@dataCell", dataCell);
+                        using (var reader = cmdMatch.ExecuteReader())
+                        {
+                            if (!reader.HasRows)
+                            {
+                                var unitCodeRemark = $"ERROR: “For data in row {cellNo}: unit nominator {dataCell} is not defined in the iedc units table." +
+                                                     $" Please fix the unit or add a new unit to the units table.";
+
+                                dataMatch.Rows.Add($"<span style='color: red;'>{cellNo}</span>",
+                                    $"<span style='color: red;'>{cellDataColValue}</span>",
+                                    $"<span style='color: red;'>{dataCell}</span>",
+                                    $"<span style='color: red;'>{unitCodeRemark}</span>");
+                                    counterGlobal.errCount++;
+                            }
+                        }
+                    }
+                }
+            }
+            cn.CloseConnection();
+            return dataMatch;
         }
     }
 }
