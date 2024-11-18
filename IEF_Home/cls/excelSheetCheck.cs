@@ -7,12 +7,12 @@ using ClosedXML.Excel;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Linq;
-using DocumentFormat.OpenXml.Wordprocessing;
-using ListItem = System.Web.UI.WebControls.ListItem;
-using DocumentFormat.OpenXml.Drawing.Spreadsheet;
-using System.Windows.Forms;
 using static IEF_Home.circomodService;
 using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.Office.Interop.Excel;
+using DataTable = System.Data.DataTable;
+using OfficeOpenXml.FormulaParsing.Ranges;
+
 
 
 
@@ -352,7 +352,11 @@ namespace IEF_Home.cls
                                         $"<span style='color: green;'>The order of <b>{givenValue}</b> as given value matches the order of {expectedValue} in idec database.</span>";
                                     circomodService.counterGlobal.oKCount++;
                                     aspectSequenceMatch.Rows.Add(givenValue, expectedValue, aspectSeqRemark);
-                                    isDataRowValid(sheetName, "Data", file, givenValue, dataSheetMatch,  dataMatch,  dataMatchResult,  Ok,  Warning,  Error);
+                                    if (givenValue == dataSheetAspectList.Last())
+                                    {
+                                        isDataRowValid(sheetName, "Data", file, givenValue, dataSheetMatch, dataMatch, dataMatchResult, Int32.Parse(noRowsI10Value), Ok, Warning, Error);
+
+                                    }
                                 }
                                 else if(expectedValue != givenValue && !string.IsNullOrEmpty(expectedValue))
                                 {
@@ -398,13 +402,13 @@ namespace IEF_Home.cls
                                 // Move to the next row
                                 fPos++;
                             }
+                            isListTable.Rows.Add($"<span style='color: red;'>Dataset_RecordType (Cell G10) must either be LIST or TABLE. Please check the sample datasets provided on the iedc validation page</span>");
 
                             // Additional handling for TABLE if needed
                             break;
 
                         default:
                             // If other cases are needed in the future, handle them here
-                            isListTable.Rows.Add($"<span style='color: red;'>Dataset_RecordType (Cell G10) must either be LIST or TABLE. Please check the sample datasets provided on the iedc validation page</span>");
                             break;
                     }
 
@@ -418,7 +422,7 @@ namespace IEF_Home.cls
             }
         }
 
-        public void isDataRowValid(string sheetName1, string sheetName2,string file,string givenValue,GridView dataSheetMatch,DataTable dataMatch,DataTable dataMatchResult, BulletedList Ok, BulletedList Warning, BulletedList Error)
+        public void isDataRowValid(string sheetName1, string sheetName2,string file,string givenValue,GridView dataSheetMatch,DataTable dataMatch,DataTable dataMatchResult,int noRowsI10Value, BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
             // Empty Variables
             Dictionary<string, string> aspectNames = new Dictionary<string, string>();
@@ -438,7 +442,7 @@ namespace IEF_Home.cls
                     var cellDValueClass = HttpUtility.HtmlEncode(worksheet.Cell("D" + dPosClas).Value.ToString().Trim());
                     var cellFValue = HttpUtility.HtmlEncode(worksheet.Cell("F" + fPos).Value.ToString().Trim());
                     var cellGValue = HttpUtility.HtmlEncode(worksheet.Cell("G" + fPos).Value.ToString().Trim());
-                    
+
                     // Stop the loop only if all cells contain "none" or are empty/null
                     if ((string.IsNullOrEmpty(cellDValueAsp) || cellDValueAsp == "none") &&
                         (string.IsNullOrEmpty(cellDValueClass) || cellDValueClass == "none") &&
@@ -459,36 +463,50 @@ namespace IEF_Home.cls
                     dPosAsp+=2;
                     dPosClas+=2;
                 }
-
+                
                 // Worksheet with the sheet name
-                var worksheet2 = workbook.Worksheet(sheetName2);
-                var indexData = 2;
+                var excelApp = new Application();
+                Microsoft.Office.Interop.Excel.Workbook wb = excelApp.Workbooks.Open(file);
+                Microsoft.Office.Interop.Excel.Worksheet ws;
+                ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets[sheetName2];
+                // Determine used range and worksheet name
+                int countRows = ws.UsedRange.Rows.Count;
+                int countCols = ws.UsedRange.Columns.Count;
                 circomodService serviceInstance = new circomodService();
-                for (char c = 'A'; c <= 'Z'; c++)
-                {
-                    var cellDataColValue = HttpUtility.HtmlEncode(worksheet2.Cell(c + "1").Value.ToString().Trim());
-                    if (cellDataColValue == givenValue)
-                    {
-                        while (true)
-                        {
-                            var cellNo = c.ToString() + indexData;
-                            var cellDataValue = HttpUtility.HtmlEncode(worksheet2.Cell(cellNo).Value.ToString().Trim());
-                           if (string.IsNullOrEmpty(cellDataValue)) break;
-                           tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + aspectNames.FirstOrDefault(x => x.Key == cellDataColValue).Value + "_oto",
-                               classificationIDs.FirstOrDefault(x => x.Key == cellDataColValue).Value, classificationIDs.Keys.ToList(),cellDataValue, cellDataColValue, cellNo, dataSheetMatch, 
-                               dataMatch,Ok,  Warning,  Error);
-                           
-                            indexData++;
-                        }
-                        break;
-                    }
+                int NumRow =1;
+                int NumCol = 1;
+                Range range = ws.Cells[NumRow, NumCol];
+                Range targetRange = range.Resize[countRows, countCols];
+                object[,] cellValues = (object[,])targetRange.Value2;
+                // Find the "commodity" column index
+                Range headerRow = targetRange.Rows[1]; // First row for headers
+                List<string> column1Values = new List<string>();
 
+                for (int col = 1; col <= countCols; col++)
+                {
+                    var headerValue = (headerRow.Cells[1, col] as Range)?.Value2;
+                    if (headerValue != null && headerValue != "value" && headerValue != "comment" && headerValue != "stats_array string")
+                    {
+                        column1Values.Clear();
+                        for (int row = 2; row < countRows+1; row++)
+                        {
+                            
+                            column1Values.Add(cellValues[row, col]?.ToString());
+                        }
+                        tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + aspectNames.FirstOrDefault(x => x.Key == headerValue).Value + "_oto",
+                            classificationIDs.FirstOrDefault(x => x.Key == headerValue).Value, classificationIDs.Keys.ToList(), column1Values, headerValue, dataSheetMatch,
+                            dataMatch, Ok, Warning, Error);
+                    }
                 }
 
+                wb.Close();
+                excelApp.Quit();
+                iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
+                dataSheetMatch.DataSource = tempDataMatchResult;
+                dataSheetMatch.DataBind();
+
             }
-            iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
-            dataSheetMatch.DataSource = tempDataMatchResult;
-            dataSheetMatch.DataBind();
+;
         }
 
 

@@ -5,6 +5,7 @@ using IEF_Home.cls;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
 using MySqlX.XDevAPI.Relational;
+using OfficeOpenXml.FormulaParsing.Ranges;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -1726,148 +1727,241 @@ namespace IEF_Home
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
-        public DataTable selectAttrClosestMatch(string thisattribute, string classificationId, List<string> aspectList,string dataCell,string cellDataColValue, string cellNo,GridView dataSheetMatch,DataTable dataMatch,
+        public DataTable selectAttrClosestMatch(string thisattribute, string classificationId, List<string> aspectList, List<string> dataCell,string cellDataColValue,GridView dataSheetMatch,DataTable dataMatch,
             BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
             var closestMatch = new List<string>();
-
+            var nonExistingMatch = dataCell;
+            var nonMatchingFromList1 = new List<string>();
+            var nonMatchingUnitNom = new List<string>();
+            var itemIndices = new Dictionary<string, List<int>>();
+            var att = new List<string>();
+            var nominoList = new List<string>();
+            string inClause = String.Empty;
+            inClause = "'" + string.Join("', '", dataCell) + "'";
             if (cn.OpenConnection() == true)
             {
                 if (aspectList.Contains(cellDataColValue))
                 {
 
                     var query =
-                        $"SELECT {thisattribute} FROM iedc.classification_items WHERE classification_id = @classificationId AND {thisattribute} = @dataCell";
-                    bool exactMatchFound = false;
+                        $"SELECT {thisattribute} FROM iedc.classification_items WHERE classification_id = @classificationId AND {thisattribute} IN ({inClause})";
+
+
                     using (var cmd = new MySqlCommand(query, cn.Connection))
                     {
                         cmd.Parameters.AddWithValue("@classificationId", classificationId);
-                        cmd.Parameters.AddWithValue("@dataCell", dataCell);
 
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                var theMatchVal = reader[thisattribute].ToString();
-                                if (theMatchVal == dataCell)
-                                {
-                                    exactMatchFound = true;
-                                    break;
-                                }
-                            }
-                        }
-                        if (!exactMatchFound)
-                        {
+                                att.Add(reader[thisattribute].ToString());
 
+                            }
+
+                            nonMatchingFromList1 = nonExistingMatch.Except(att).ToList();
+
+                        }
+                    }
+
+                    if (nonMatchingFromList1.Count != 0)
+                    {
+                        foreach (var item in nonMatchingFromList1)
+                        {
+                            var indices = new List<int>();
                             var closestMatchQuery =
                                 $"SELECT {thisattribute} " +
                                 $"FROM iedc.classification_items " +
                                 $"WHERE classification_id = @classificationId " +
                                 $"AND MATCH({thisattribute}) " +
-                                $"AGAINST (@dataCell IN NATURAL LANGUAGE MODE)  " +
-                                $"OR {thisattribute} LIKE @dataCell " +
+                                $"AGAINST (@item IN NATURAL LANGUAGE MODE)  " +
+                                $"OR {thisattribute} LIKE @item " +
                                 $"GROUP BY {thisattribute} " +
                                 $"LIMIT 10";
-
-                            using (var cmdMatch = new MySqlCommand(closestMatchQuery, cn.Connection))
+                            using (var cmd2 = new MySqlCommand(closestMatchQuery, cn.Connection))
                             {
-                                cmdMatch.Parameters.AddWithValue("@classificationId", classificationId);
-                                cmdMatch.Parameters.AddWithValue("@dataCell", "'%" + dataCell + "%'"); // Using wildcards for partial matching
 
-                                using (var reader = cmdMatch.ExecuteReader())
+                                cmd2.Parameters.AddWithValue("@classificationId", classificationId);
+                                cmd2.Parameters.AddWithValue("@item", item);
+                                using (var reader = cmd2.ExecuteReader())
                                 {
-                                    Console.WriteLine("No exact match found. Displaying closest matches:");
-
                                     while (reader.Read())
                                     {
                                         closestMatch.Add(reader[thisattribute].ToString());
 
                                     }
-                                    string closestMatchString = string.Join(", ", closestMatch);
-                                    string closestMatchRemark;
-                                    if (string.IsNullOrEmpty(closestMatchString))
-                                    {
-                                        closestMatchRemark = $"ERROR:No exact match for label {dataCell} in classification {cellDataColValue}. " +
-                                                             $"Here are the ten closest matches: <b>0</b>";
-                                        counterGlobal.errCount++;
-                                    }
-                                    else
-                                    {
-                                        closestMatchRemark = $"ERROR:No exact match for label {dataCell} in classification {cellDataColValue}. " +
-                                                             $"Here are the ten closest matches: <b>{closestMatchString}</b>";
-                                        counterGlobal.errCount++;
-                                    }
-                                    dataMatch.Rows.Add($"<span style='color: red;'>{cellNo}</span>",
-                                        $"<span style='color: red;'>{cellDataColValue}</span>",
-                                        $"<span style='color: red;'>{dataCell}</span>",
-                                        $"<span style='color: red;'>{closestMatchRemark}</span>");
                                     
-                                    
-                                }
+                                    for (int i = 0; i < nonExistingMatch.Count; i++)
+                                    {
+                                        if (nonExistingMatch[i] == item)
+                                        {
+                                            indices.Add(i);
+                                            string closestMatchString = string.Join(", ", closestMatch);
+                                            string closestMatchRemark;
+                                            if (string.IsNullOrEmpty(closestMatchString))
+                                            {
+                                                closestMatchRemark =
+                                                    $"ERROR:No exact match for label {item} in classification {cellDataColValue}. " +
+                                                    $"Here are the ten closest matches: <b>0</b>";
+                                                counterGlobal.errCount++;
+                                            }
+                                            else
+                                            {
+                                                closestMatchRemark =
+                                                    $"ERROR:No exact match for label {item} in classification {cellDataColValue}. " +
+                                                    $"Here are the ten closest matches: <b>{closestMatchString}</b>";
+                                                counterGlobal.errCount++;
+                                            }
+                                            //    string indices = string.Join(", ", itemIndices[item.ToString()]);  // Join indices into a string
+                                            dataMatch.Rows.Add($"<span style='color: red;'>{i}</span>",
+                                                $"<span style='color: red;'>{cellDataColValue}</span>",
+                                                $"<span style='color: red;'>{item}</span>",
+                                                $"<span style='color: red;'>{closestMatchRemark}</span>");
+                                        }
+                                       
+                                    }
 
+
+                                    
+                                   
+                                }
                             }
                         }
+
+                    }
+                    else
+                    {
+                        dataMatch.Rows.Add($"all is good",
+                            $"{cellDataColValue}",
+                            $"all is good",
+                            $"all is good");
                     }
                 }
                 else if (cellDataColValue == "unit nominator")
                 {
                     var closestMatchQuery =
-                        $"SELECT id " +
+                        $"SELECT id,unitcode,alt_unitcode,alt_unitcode2 " +
                         $"FROM iedc.units " +
-                        $"WHERE unitcode = @dataCell " +
-                        $"OR alt_unitcode = @dataCell " +
-                        $"OR alt_unitcode2 = @dataCell";
+                        $"WHERE unitcode IN ({inClause}) " +
+                        $"OR alt_unitcode IN ({inClause}) " +
+                        $"OR alt_unitcode2 IN ({inClause})";
 
 
                     using (var cmdMatch = new MySqlCommand(closestMatchQuery, cn.Connection))
                     {
-                        cmdMatch.Parameters.AddWithValue("@dataCell", dataCell);
+
                         using (var reader = cmdMatch.ExecuteReader())
                         {
-                            if(!reader.HasRows)
+                  
+                            while (reader.Read())
                             {
-                                
-                                var unitCodeRemark = $"ERROR: “For data in row {cellNo}: unit nominator {dataCell} is not defined in the iedc units table." +
-                                                     $" Please fix the unit or add a new unit to the units table.";
-
-                                dataMatch.Rows.Add($"<span style='color: red;'>{cellNo}</span>",
-                                    $"<span style='color: red;'>{cellDataColValue}</span>",
-                                    $"<span style='color: red;'>{dataCell}</span>",
-                                    $"<span style='color: red;'>{unitCodeRemark}</span>");
-                                counterGlobal.errCount++;
-                                
+                                foreach (var key in new[] { "id", "unitcode", "alt_unitcode", "alt_unitcode2" })
+                                {
+                                    nominoList.Add(reader[key]?.ToString() ?? string.Empty);
+                                }
                             }
+
+                            nonMatchingUnitNom = nonExistingMatch.Except(nominoList).ToList();
+
+                            if (nonMatchingUnitNom.Count != 0)
+                            {
+                                foreach (var item in nonMatchingUnitNom)
+                                {
+                                    for (int i = 0; i < nonExistingMatch.Count; i++)
+                                    {
+                                        if (nonExistingMatch[i] == item)
+                                        {
+                                            var unitCodeRemark =
+                                                $"ERROR: “For data in row {item}: unit nominator {item} is not defined in the iedc units table." +
+                                                $" Please fix the unit or add a new unit to the units table.";
+
+                                            dataMatch.Rows.Add($"<span style='color: red;'>{i}</span>",
+                                                $"<span style='color: red;'>{cellDataColValue}</span>",
+                                                $"<span style='color: red;'>{item}</span>",
+                                                $"<span style='color: red;'>{unitCodeRemark}</span>");
+                                            counterGlobal.errCount++;
+
+                                        }
+                                    }
+
+                                }
+
+                            }
+                            else
+                            {
+                                dataMatch.Rows.Add($"all is good",
+                                    $"unit denominator",
+                                    $"all is good",
+                                    $"all is good");
+                            }
+
+
                         }
                     }
                 }
                 else if (cellDataColValue == "unit denominator")
                 {
-
                     var closestMatchQuery =
-                        $"SELECT id " +
+                        $"SELECT id,unitcode,alt_unitcode,alt_unitcode2 " +
                         $"FROM iedc.units " +
-                        $"WHERE unitcode = @dataCell " +
-                        $"OR alt_unitcode = @dataCell " +
-                        $"OR alt_unitcode2 = @dataCell";
+                        $"WHERE unitcode IN ({inClause}) " +
+                        $"OR alt_unitcode IN ({inClause}) " +
+                        $"OR alt_unitcode2 IN ({inClause})";
+
                     using (var cmdMatch = new MySqlCommand(closestMatchQuery, cn.Connection))
                     {
 
-                        cmdMatch.Parameters.AddWithValue("@dataCell", dataCell);
                         using (var reader = cmdMatch.ExecuteReader())
                         {
-                            if (!reader.HasRows)
+                          
+                            while (reader.Read())
                             {
-                                var unitCodeRemark = $"ERROR: “For data in row {cellNo}: unit nominator {dataCell} is not defined in the iedc units table." +
-                                                     $" Please fix the unit or add a new unit to the units table.";
-
-                                dataMatch.Rows.Add($"<span style='color: red;'>{cellNo}</span>",
-                                    $"<span style='color: red;'>{cellDataColValue}</span>",
-                                    $"<span style='color: red;'>{dataCell}</span>",
-                                    $"<span style='color: red;'>{unitCodeRemark}</span>");
-                                    counterGlobal.errCount++;
+                                foreach (var key in new[] { "id", "unitcode", "alt_unitcode", "alt_unitcode2" })
+                                {
+                                    nominoList.Add(reader[key]?.ToString() ?? string.Empty);
+                                }
                             }
+
+                            nonMatchingUnitNom = nonExistingMatch.Except(nominoList).ToList();
+                            
+
+                            if (nonMatchingUnitNom.Count != 0)
+                            {
+
+                                foreach (var item in nonMatchingUnitNom)
+                                {
+                                    for (int i = 0; i < nonExistingMatch.Count; i++)
+                                    {
+                                        if (nonExistingMatch[i] == item)
+                                        {
+                                            var unitCodeRemark =
+                                                $"ERROR: “For data in row {item}: unit nominator {item} is not defined in the iedc units table." +
+                                                $" Please fix the unit or add a new unit to the units table.";
+
+                                            dataMatch.Rows.Add($"<span style='color: red;'>{i}</span>",
+                                                $"<span style='color: red;'>{cellDataColValue}</span>",
+                                                $"<span style='color: red;'>{item}</span>",
+                                                $"<span style='color: red;'>{unitCodeRemark}</span>");
+                                            counterGlobal.errCount++;
+                                        }
+                                    }
+
+                                }
+
+                            }
+                            else
+                            {
+                                dataMatch.Rows.Add($"all is good",
+                                    $"unit denominator",
+                                    $"all is good",
+                                    $"all is good");
+                            }
+
                         }
+
                     }
+
                 }
             }
             cn.CloseConnection();
