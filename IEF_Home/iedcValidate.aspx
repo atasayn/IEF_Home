@@ -258,7 +258,7 @@
                 </div>
             </div>
             
-            <div class="row"  style="margin-top: 10px;display:block" runat="server">
+            <div class="row"  style="margin-top: 10px; display: block;max-height:600px;overflow-y:scroll;" runat="server">
                 <div class="column">
                     <asp:GridView ID="dataSheetMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
                         <columns>
