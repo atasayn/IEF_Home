@@ -132,6 +132,15 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.GridView compareTable;
 
         /// <summary>
+        /// missingCellTableSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl missingCellTableSec;
+
+        /// <summary>
         /// missingCellTable control.
         /// </summary>
         /// <remarks>
@@ -193,6 +202,15 @@ namespace IEF_Home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView aspectSequence;
+
+        /// <summary>
+        /// section2DataCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl section2DataCheck;
 
         /// <summary>
         /// dataSheetMatch control.

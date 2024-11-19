@@ -12,6 +12,7 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.Office.Interop.Excel;
 using DataTable = System.Data.DataTable;
 using OfficeOpenXml.FormulaParsing.Ranges;
+using System.Web.UI.HtmlControls;
 
 
 
@@ -56,7 +57,7 @@ namespace IEF_Home.cls
         }
 
         public void DoesDataExist(string file, string sheetName, GridView compareTable, GridView missingCellTable, GridView aspectReportTable, GridView dimensionCompareTable,
-            GridView aspectMatch,GridView aspectMatchRemarks)
+            GridView aspectMatch,GridView aspectMatchRemarks, HtmlGenericControl missingCellTableSec)
         {
             // Call method from the service
             var coverCellCheck = new circomodService();
@@ -120,16 +121,23 @@ namespace IEF_Home.cls
                 var aspectReportTemp2NdList = new List<string>();
                 var classificationReportTemp1StList = new List<string>();
                 var classificationReportTemp2NdList = new List<string>();
-
+                
                 foreach (var item in cellsToCheck)
                 {
                     var cellCheck = worksheet.Cell(item).Value.ToString();
                     if (string.IsNullOrEmpty(cellCheck)) // Check for empty or null string
                     {
-                        reportCell.Rows.Add($"<span style='color: orange;'>{item}</span>",$"<span style='color: orange;'>WARNING: Dataset description for cell <b>{item} ({"C"+ System.Text.RegularExpressions.Regex.Match(item, @"\d+").Value})</b> is empty, please provide some description here</span>");
+                        reportCell.Rows.Add($"<span style='color: orange;'>{item}</span>",
+                            $"<span style='color: orange;'>WARNING: Dataset description for cell <b>{item} ({"C" + System.Text.RegularExpressions.Regex.Match(item, @"\d+").Value})</b> is empty, please provide some description here</span>");
                         circomodService.counterGlobal.warningCount++;
                     }
                 }
+
+                if(reportCell.Rows.Count ==0 )
+                {
+                    missingCellTableSec.Style["display"] = "none";
+                }
+
 
                 List<string> aspectList = new List<string>
                 {
@@ -209,8 +217,9 @@ namespace IEF_Home.cls
                         {
                             aspectMatchRemarkTable.Rows.Add($"<span style='color:red;'>ERROR: <b>{checklistValue}</b> does not exit in Aspects column in Dataset format information table." +
                                                             $"Please make sure that the indicated aspect exist in both Dataset information table and Dateset format Information table. </span>");
+                            circomodService.counterGlobal.errCount++;
                         }
-                        circomodService.counterGlobal.errCount++;
+                        
                     }
 
                     if (string.IsNullOrEmpty(aspectValue) || !cellDxCheckList.Contains(aspectValue))
@@ -220,9 +229,10 @@ namespace IEF_Home.cls
                         {
                             aspectMatchRemarkTable.Rows.Add($"<span style='color:red;'>ERROR: <b>{aspectValue}</b> does not exit in Aspects column in Dataset format information table." +
                                                             $"Please make sure that the indicated aspect exist in both Dataset information table and Dateset format Information table. </span>");
+                            circomodService.counterGlobal.errCount++;
                         }
 
-                        circomodService.counterGlobal.errCount++;
+                        
                     }
                 }
                 aspectMatchRemarks.DataSource = aspectMatchRemarkTable;
@@ -377,6 +387,7 @@ namespace IEF_Home.cls
                             }
                             aspectSequence.DataSource = aspectSequenceMatch;
                             aspectSequence.DataBind();
+                            iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
                             break;
                             
 
@@ -402,13 +413,15 @@ namespace IEF_Home.cls
                                 // Move to the next row
                                 fPos++;
                             }
-                            isListTable.Rows.Add($"<span style='color: red;'>Dataset_RecordType (Cell G10) must either be LIST or TABLE. Please check the sample datasets provided on the iedc validation page</span>");
+                            iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
 
                             // Additional handling for TABLE if needed
                             break;
 
                         default:
                             // If other cases are needed in the future, handle them here
+                            isListTable.Rows.Add($"<span style='color: red;'>Dataset_RecordType (Cell G10) must either be LIST or TABLE. Please check the sample datasets provided on the iedc validation page</span>");
+                            circomodService.counterGlobal.errCount++;
                             break;
                     }
 
@@ -501,7 +514,6 @@ namespace IEF_Home.cls
 
                 wb.Close();
                 excelApp.Quit();
-                iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
                 dataSheetMatch.DataSource = tempDataMatchResult;
                 dataSheetMatch.DataBind();
 

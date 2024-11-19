@@ -1439,7 +1439,7 @@ namespace IEF_Home
             string d8Entry = string.Empty;
             if (string.IsNullOrEmpty(result["id_D8"].Item1[0]))
             {
-                d8Entry = $"<span style='color:red;'>ERROR: The chosen data category <b>{D8}</b> does not exist. Please enter a valid iedc data category id for this dataset (number from 1-8). The list of defined categories is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</a></b></span>";
+                d8Entry = $"<span style='color:red;'>ERROR:The chosen data category <b>{D8}</b> does not exist. Please enter a valid iedc data category id for this dataset (number from 1-8). The list of defined categories is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</a></b></span>";
                 dt.Rows.Add($"<span style='color:red;'>D8</span >",C8, $"<span style='color:red;'>{D8} </ span >", string.Empty, d8Entry);
                 counterGlobal.errCount++;
             }
@@ -1454,7 +1454,7 @@ namespace IEF_Home
             string d9EntrySub = string.Empty;
             if (string.IsNullOrEmpty(result["list_D9"].Item1[0]))
             {
-                d9Entry = $"<span style='color:red;'>ERROR: The chosen data type <b>{D9}</b> does not exist. Please enter a valid iedc data type name for this dataset. The list of defined data types is available under <b><a href='http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf'target='_blank'>http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf</a></b></span>";
+                d9Entry = $"<span style='color:red;'>ERROR:The chosen data type <b>{D9}</b> does not exist. Please enter a valid iedc data type name for this dataset. The list of defined data types is available under <b><a href='http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf'target='_blank'>http://www.database.industrialecology.uni-freiburg.de/resources/IEDC_DataTypes_Overview.pdf</a></b></span>";
                 dt.Rows.Add($"<span style='color:red;'>D9</span >", C9,$"<span style='color:red;'>{D9} </ span >", string.Empty, d9Entry);
                 counterGlobal.errCount++;
             }
@@ -1480,7 +1480,7 @@ namespace IEF_Home
             string d10Entry = string.Empty;
             if (string.IsNullOrEmpty(result["list_D10"].Item1[0]))
             {
-                d10Entry = $"<span style='color:red;'>ERROR: The chosen data layer <b>{D10}</b> does not exist. Please enter a valid iedc data layer name for this dataset. The list of defined data layers is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</a></b></span>";
+                d10Entry = $"<span style='color:red;'>ERROR:The chosen data layer <b>{D10}</b> does not exist. Please enter a valid iedc data layer name for this dataset. The list of defined data layers is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx</a></b></span>";
                 dt.Rows.Add($"<span style='color:red;'>D10</span >",C10, $"<span style='color:red;'>{D10} </ span >", string.Empty, d10Entry);
                 counterGlobal.errCount++;
             }
@@ -1494,7 +1494,7 @@ namespace IEF_Home
             string d23Entry = string.Empty;
             if (string.IsNullOrEmpty(result["list_D23"].Item1[0]))
             {
-                d23Entry = $"<span style='color:red;'>ERROR: The indicated data provenance <b>{D23}</b> does not exist. Please enter a valid iedc data provenance name. The list of defined provenance categories is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></b></span>";
+                d23Entry = $"<span style='color:red;'>ERROR:The indicated data provenance <b>{D23}</b> does not exist. Please enter a valid iedc data provenance name. The list of defined provenance categories is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></b></span>";
                 dt.Rows.Add($"<span style='color:red;'>D23</span >", C23,$"<span style='color:red;'>{D23} </span >", string.Empty, d23Entry);
                 counterGlobal.errCount++;
             }
@@ -1508,7 +1508,7 @@ namespace IEF_Home
             string d53Entry = string.Empty;
             if (string.IsNullOrEmpty(result["list_D53"].Item1[0]))
             {
-                d53Entry = $"<span style='color:red;'>ERROR: The indicated type of data source <b>{D53}</b> does not exist. Please enter the name of a valid iedc type of data source. The list of defined types of data source is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></b></span>";
+                d53Entry = $"<span style='color:red;'>ERROR:The indicated type of data source <b>{D53}</b> does not exist. Please enter the name of a valid iedc type of data source. The list of defined types of data source is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></b></span>";
                 dt.Rows.Add($"<span style='color:red;'>D53</span >",C53, $"<span style='color:red;'>{D53} </ span >", string.Empty, d53Entry);
                 counterGlobal.errCount++;
             }
@@ -1522,7 +1522,7 @@ namespace IEF_Home
             string d54Entry = string.Empty;
             if (string.IsNullOrEmpty(result["list_D54"].Item1[0]))
             {
-                d54Entry = $"<span style='color:red;'>ERROR: The indicated licence of the dataset <b>{D54}</b> does not exist. Please enter a valid iedc dataset licence name. The list of defined dataset licences is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></b></span>";
+                d54Entry = $"<span style='color:red;'>ERROR:The indicated licence of the dataset <b>{D54}</b> does not exist. Please enter a valid iedc dataset licence name. The list of defined dataset licences is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/provenance.aspx'target='_blank'>https://www.database.industrialecology.uni-freiburg.de/provenance.aspx</a></b></span>";
                 dt.Rows.Add($"<span style='color:red;'>D54</span >",C54, $"<span style='color:red;'>{D54} </ span >", string.Empty, d54Entry);
                 counterGlobal.errCount++;
             }
@@ -1606,7 +1606,7 @@ namespace IEF_Home
                             Dx.Add(cellDxCheck);
                             Cx.Add(cellCxCheck);
                             aspectReportTemp1StList.Add($"<span style='color:red;'>{item}</span>");
-                            aspectReportTemp2NdList.Add($"<span style='color:red;'>ERROR: The indicated <b>{Dx.Last()}</b> of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/aspects.aspx' target='_blank'>https://www.database.industrialecology.uni-freiburg.de/aspects.aspx <a/></b></span>");
+                            aspectReportTemp2NdList.Add($"<span style='color:red;'>ERROR:The indicated <b>{Dx.Last()}</b> of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/aspects.aspx' target='_blank'>https://www.database.industrialecology.uni-freiburg.de/aspects.aspx <a/></b></span>");
                             dimAspectList.Add("");
                             counterGlobal.errCount++;
                         }
@@ -1621,7 +1621,7 @@ namespace IEF_Home
                             Dxplus1Class.Add(cellDxplus1Check);
                             Cxplus1Class.Add(cellCxplus1Check);
                             classificationReportTemp1StList.Add($"<span style='color:red;'>{cellCxplus1Check}</span>");
-                            classificationReportTemp2NdList.Add($"<span style='color:red;'>ERROR: The indicated <b>{Cxplus1Class.Last()}</b> of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/classifications.aspx' target='_blank'>https://www.database.industrialecology.uni-freiburg.de/classifications.aspx <a/></b></span>");
+                            classificationReportTemp2NdList.Add($"<span style='color:red;'>ERROR:The indicated <b>{Cxplus1Class.Last()}</b> of the dataset does not exist in the database. Please enter a valid aspect. The list of defined dataset aspects is available under: <b><a href='https://www.database.industrialecology.uni-freiburg.de/classifications.aspx' target='_blank'>https://www.database.industrialecology.uni-freiburg.de/classifications.aspx <a/></b></span>");
                             dimClassList.Add("");
                             counterGlobal.errCount++;
                         }
@@ -1699,7 +1699,7 @@ namespace IEF_Home
                             {
                                 string dimClassText = (index + 1 < dimClassList.Count()) ? dimClassList[index + 1] : dimClassList[index];
 
-                                dimRemark = $"<span style='color:red;'>ERROR:<b> The dimension {dimClassText} of aspect_{index + 1}_classification</b> provided for this dataset does not match the classification of aspect_{index + 1}. " +
+                                dimRemark = $"<span style='color:red;'>ERROR:<b>The dimension {dimClassText} of aspect_{index + 1}_classification</b> provided for this dataset does not match the classification of aspect_{index + 1}. " +
                                             $"Please check your aspect and the classifications that you want to use for this aspect and pick a classification that points to the same dimension as the aspect." +
                                             $" See <b><a href=\"https://www.database.industrialecology.uni-freiburg.de/aspects.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/aspects.aspx</a>\r\n</b> for a list of all dimensions and aspects. " +
                                             $"See <b><a href=\"https://www.database.industrialecology.uni-freiburg.de/classifications.aspx\" target=\"_blank\">https://www.database.industrialecology.uni-freiburg.de/classifications.aspx</a>\r\n</b> for a list of all classifications defined so far.</span>";
@@ -1814,7 +1814,7 @@ namespace IEF_Home
                                                 counterGlobal.errCount++;
                                             }
                                             //    string indices = string.Join(", ", itemIndices[item.ToString()]);  // Join indices into a string
-                                            dataMatch.Rows.Add($"<span style='color: red;'>{i}</span>",
+                                            dataMatch.Rows.Add($"<span style='color: red;'>{i+1}</span>",
                                                 $"<span style='color: red;'>{cellDataColValue}</span>",
                                                 $"<span style='color: red;'>{item}</span>",
                                                 $"<span style='color: red;'>{closestMatchRemark}</span>");
@@ -1832,10 +1832,11 @@ namespace IEF_Home
                     }
                     else
                     {
-                        dataMatch.Rows.Add($"all is good",
-                            $"{cellDataColValue}",
-                            $"all is good",
-                            $"all is good");
+                        dataMatch.Rows.Add($"<span style='color: green;'>all is good</span>",
+                            $"<span style='color: green;'>{cellDataColValue}</span>",
+                            $"<span style='color: green;'>all is good</span>",
+                            $"<span style='color: green;'>all is good</span>");
+                        counterGlobal.oKCount++;
                     }
                 }
                 else if (cellDataColValue == "unit nominator")
@@ -1873,10 +1874,10 @@ namespace IEF_Home
                                         if (nonExistingMatch[i] == item)
                                         {
                                             var unitCodeRemark =
-                                                $"ERROR: “For data in row {item}: unit nominator {item} is not defined in the iedc units table." +
+                                                $"ERROR:For data in row {item}: unit nominator {item} is not defined in the iedc units table." +
                                                 $" Please fix the unit or add a new unit to the units table.";
 
-                                            dataMatch.Rows.Add($"<span style='color: red;'>{i}</span>",
+                                            dataMatch.Rows.Add($"<span style='color: red;'>{i+1}</span>",
                                                 $"<span style='color: red;'>{cellDataColValue}</span>",
                                                 $"<span style='color: red;'>{item}</span>",
                                                 $"<span style='color: red;'>{unitCodeRemark}</span>");
@@ -1890,10 +1891,11 @@ namespace IEF_Home
                             }
                             else
                             {
-                                dataMatch.Rows.Add($"all is good",
-                                    $"unit denominator",
-                                    $"all is good",
-                                    $"all is good");
+                                dataMatch.Rows.Add($"<span style='color: green;'>all is good</span>",
+                                    $"<span style='color: green;'>unit nominator</span>",
+                                    $"<span style='color: green;'>all is good</span>",
+                                    $"<span style='color: green;'>all is good</span>");
+                                counterGlobal.oKCount++;
                             }
 
 
@@ -1936,10 +1938,10 @@ namespace IEF_Home
                                         if (nonExistingMatch[i] == item)
                                         {
                                             var unitCodeRemark =
-                                                $"ERROR: “For data in row {item}: unit nominator {item} is not defined in the iedc units table." +
+                                                $"ERROR:For data in row {item}: unit nominator {item} is not defined in the iedc units table." +
                                                 $" Please fix the unit or add a new unit to the units table.";
 
-                                            dataMatch.Rows.Add($"<span style='color: red;'>{i}</span>",
+                                            dataMatch.Rows.Add($"<span style='color: red;'>{i + 1}</span>",
                                                 $"<span style='color: red;'>{cellDataColValue}</span>",
                                                 $"<span style='color: red;'>{item}</span>",
                                                 $"<span style='color: red;'>{unitCodeRemark}</span>");
@@ -1952,10 +1954,11 @@ namespace IEF_Home
                             }
                             else
                             {
-                                dataMatch.Rows.Add($"all is good",
-                                    $"unit denominator",
-                                    $"all is good",
-                                    $"all is good");
+                                dataMatch.Rows.Add($"<span style='color: green;'>all is good</span>",
+                                    $"<span style='color: green;'>unit denominator</span>",
+                                    $"<span style='color: green;'>all is good</span>",
+                                    $"<span style='color: green;'>all is good</span>");
+                                counterGlobal.oKCount++;
                             }
 
                         }

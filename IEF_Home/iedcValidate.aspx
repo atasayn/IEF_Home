@@ -184,7 +184,7 @@
                         </asp:GridView>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="missingCellTableSec" style="display: none" runat="server">
                     <div class="column" style="margin-top: 30px;">
                         <ul>
                             <li style="font-size: 1.17em;">Check sufficient description and metadata</li>
@@ -258,7 +258,7 @@
                 </div>
             </div>
             
-            <div class="row"  style="margin-top: 10px; display: block;max-height:600px;overflow-y:scroll;" runat="server">
+            <div class="row" id="section2DataCheck" style="margin-top: 10px; display: none;max-height:600px;overflow-y:scroll;" runat="server">
                 <div class="column">
                     <asp:GridView ID="dataSheetMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
                         <columns>

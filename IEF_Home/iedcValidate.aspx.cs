@@ -24,9 +24,11 @@ namespace IEF_Home
         protected void ShowCompareTable(object sender, EventArgs e)
         {
             // Register a JavaScript code to set the style to display block
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable", "document.getElementById('compareTableSection').style.display = 'block';", true);
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable1", "document.getElementById('remarksSection').style.display = 'block';", true);
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable2", "document.getElementById('section2Row').style.display = 'block';", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable", "document.getElementById('compareTableSection').style.display = 'block';", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable1", "document.getElementById('remarksSection').style.display = 'block';", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable2", "document.getElementById('section2Row').style.display = 'block';", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable3", "document.getElementById('section2DataCheck').style.display = 'block';", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable4", "document.getElementById('bok').style.display = 'block';", true);
         }
         protected void ButtonUpload(object sender, EventArgs e)
         {
@@ -40,7 +42,10 @@ namespace IEF_Home
                     columnDiv.Style["display"] = "block";
                     section1Full.Style["display"] = "block";
                     section2Row.Style["display"] = "block";
-
+                    section2DataCheck.Style["display"] = "block";
+                    missingCellTableSec.Style["display"] = "block";
+                    dataSheetMatch.DataSource=null;
+                    dataSheetMatch.DataBind();
                     var fileChecker = new excelSheetCheck();
                     if (fileChecker.IsExcelFile(FileUpload.PostedFile))
                     {
@@ -59,7 +64,7 @@ namespace IEF_Home
                             validatingDateAndTime.Text = htmlContent;
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
-                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,aspectMatch,aspectMatchRemarks);
+                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,aspectMatch,aspectMatchRemarks,missingCellTableSec);
                             fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber,dataSheetMatch, Ok, Warning, Error);
                         }
                         else
