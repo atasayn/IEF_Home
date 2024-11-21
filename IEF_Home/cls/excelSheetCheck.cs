@@ -240,7 +240,8 @@ namespace IEF_Home.cls
             }
         }
 
-        public void isListOrTable(string file, string sheetName, GridView templateType,GridView aspectSequence, GridView dataSheetRowNumber,GridView dataSheetMatch, BulletedList Ok, BulletedList Warning, BulletedList Error)
+        public void isListOrTable(string file, string sheetName, GridView templateType,GridView aspectSequence, GridView dataSheetRowNumber,GridView dataSheetMatch, 
+            BulletedList Ok, BulletedList Warning, BulletedList Error, HtmlGenericControl loaderControl)
         {
             try
             {
@@ -388,6 +389,7 @@ namespace IEF_Home.cls
                             aspectSequence.DataSource = aspectSequenceMatch;
                             aspectSequence.DataBind();
                             iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
+                            loaderControl.Style["display"] = "none";
                             break;
                             
 
@@ -414,14 +416,16 @@ namespace IEF_Home.cls
                                 fPos++;
                             }
                             iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
-
+                            loaderControl.Style["display"] = "none";
                             // Additional handling for TABLE if needed
                             break;
 
                         default:
                             // If other cases are needed in the future, handle them here
                             isListTable.Rows.Add($"<span style='color: red;'>Dataset_RecordType (Cell G10) must either be LIST or TABLE. Please check the sample datasets provided on the iedc validation page</span>");
+                            iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
                             circomodService.counterGlobal.errCount++;
+                            loaderControl.Style["display"] = "none";
                             break;
                     }
 
@@ -435,7 +439,8 @@ namespace IEF_Home.cls
             }
         }
 
-        public void isDataRowValid(string sheetName1, string sheetName2,string file,string givenValue,GridView dataSheetMatch,DataTable dataMatch,DataTable dataMatchResult,int noRowsI10Value, BulletedList Ok, BulletedList Warning, BulletedList Error)
+        public void isDataRowValid(string sheetName1, string sheetName2,string file,string givenValue,GridView dataSheetMatch,DataTable dataMatch,
+            DataTable dataMatchResult,int noRowsI10Value, BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
             // Empty Variables
             Dictionary<string, string> aspectNames = new Dictionary<string, string>();

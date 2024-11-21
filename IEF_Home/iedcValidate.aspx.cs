@@ -23,15 +23,12 @@ namespace IEF_Home
         }
         protected void ShowCompareTable(object sender, EventArgs e)
         {
-            // Register a JavaScript code to set the style to display block
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable", "document.getElementById('compareTableSection').style.display = 'block';", true);
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable1", "document.getElementById('remarksSection').style.display = 'block';", true);
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable2", "document.getElementById('section2Row').style.display = 'block';", true);
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable3", "document.getElementById('section2DataCheck').style.display = 'block';", true);
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "showTable4", "document.getElementById('bok').style.display = 'block';", true);
+
         }
         protected void ButtonUpload(object sender, EventArgs e)
         {
+           // loaderControl.Style["display"] = "block";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showLoader", "document.getElementById('loaderControl').style.display='block';", true);
 
             try
             {
@@ -49,6 +46,7 @@ namespace IEF_Home
                     var fileChecker = new excelSheetCheck();
                     if (fileChecker.IsExcelFile(FileUpload.PostedFile))
                     {
+                        
                         // Save the file to the server
                         string fileName = Path.GetFileName(FileUpload.PostedFile.FileName);
                         string filePath = Server.MapPath("~/UploadedFiles/" + fileName);
@@ -65,7 +63,7 @@ namespace IEF_Home
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
                             fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,aspectMatch,aspectMatchRemarks,missingCellTableSec);
-                            fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber,dataSheetMatch, Ok, Warning, Error);
+                            fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber,dataSheetMatch, Ok, Warning, Error,loaderControl);
                         }
                         else
                         {

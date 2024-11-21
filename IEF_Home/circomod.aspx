@@ -50,10 +50,6 @@
             grid-column-gap: 5px;
         }
 
-        a:link {
-            color: blue;
-        }
-
         p {
             margin: 5px;
             font-size: 13px

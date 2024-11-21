@@ -79,6 +79,15 @@
         .zebra-grid tr:nth-child(odd) {
             background-color: #dddddd
         }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 30px;
+            height: 0px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
 
         @media only screen and (min-width: 600px) {
             /* For tablets: */
@@ -92,6 +101,15 @@
             .column {
                 width: 100%;
             }
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </asp:Content>
@@ -123,14 +141,17 @@
     <hr />
     <div class="mb-3">
         <label for="formFile" class="form-label">Validate your data template against the iedc:</label>
+        
         <div class="row">
             <div class="column">
                 <div class="row">
                     <asp:FileUpload ID="FileUpload" class="form-control" runat="server" accept=".xlsx" />
                     <asp:Button ID="upload" runat="server" Text="Upload File" CssClass="upload-button btn btn-primary" OnClick="ButtonUpload" />
                     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message"></asp:Label>
+                    <div class="loader" id="loaderControl" style="display:none" runat="server"></div>
                 </div>
             </div>
+       
             <div class="column">
                 <asp:GridView ID="templateType" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
                     <columns>
@@ -143,6 +164,7 @@
                         </columns>
                     </asp:GridView>
                 </div>
+        
             <div class="column" id="columnDiv" runat="server" style="display: none">
                 <asp:BulletedList runat="server" ID="Ok">
                     <asp:ListItem />
@@ -159,6 +181,7 @@
             </div>
         </div>
     </div>
+
     <hr />
     <div>
         <asp:Label ID="validatingDateAndTime" runat="server" Text=""></asp:Label>
