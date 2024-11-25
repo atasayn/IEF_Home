@@ -351,7 +351,8 @@ namespace IEF_Home.cls
                             }
                             expectedSheetAspectList.AddRange(dataSheetOrderList);
                             // Populate the DataTable
-                            int maxCountAps = Math.Max(dataSheetAspectList.Count, expectedSheetAspectList.Count);
+                            int mistakeCount = 0;
+                            var maxCountAps = Math.Max(dataSheetAspectList.Count, expectedSheetAspectList.Count);
                             for (int t = 0; t < maxCountAps; t++)
                             {
                                 string givenValue = t < dataSheetAspectList.Count ? dataSheetAspectList[t] : null; // or "" for empty string
@@ -363,7 +364,7 @@ namespace IEF_Home.cls
                                         $"<span style='color: green;'>The order of <b>{givenValue}</b> as given value matches the order of {expectedValue} in idec database.</span>";
                                     circomodService.counterGlobal.oKCount++;
                                     aspectSequenceMatch.Rows.Add(givenValue, expectedValue, aspectSeqRemark);
-                                    if (givenValue == dataSheetAspectList.Last())
+                                    if (givenValue == dataSheetAspectList.Last() && mistakeCount < 1)
                                     {
                                         isDataRowValid(sheetName, "Data", file, givenValue, dataSheetMatch, dataMatch, dataMatchResult, Int32.Parse(noRowsI10Value), Ok, Warning, Error);
 
@@ -377,6 +378,8 @@ namespace IEF_Home.cls
                                     circomodService.counterGlobal.errCount++;
                                     aspectSequenceMatch.Rows.Add($"<span style='color: red;'>{givenValue}</span>", expectedValue,
                                          aspectSeqRemark);
+                                    mistakeCount++;
+
                                 }else if (!expectedSheetAspectList.Contains(givenValue))
                                 {
                                     var aspectSeqRemark =
