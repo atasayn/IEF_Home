@@ -1730,7 +1730,7 @@ namespace IEF_Home
         public DataTable selectAttrClosestMatch(string thisattribute, string classificationId, List<string> aspectList, List<string> dataCell,string cellDataColValue,GridView dataSheetMatch,DataTable dataMatch,
             BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
-            var closestMatch = new List<string>();
+            
             var nonExistingMatch = dataCell;
             var nonMatchingFromList1 = new List<string>();
             var nonMatchingUnitNom = new List<string>();
@@ -1769,6 +1769,7 @@ namespace IEF_Home
                     {
                         foreach (var item in nonMatchingFromList1)
                         {
+                            var closestMatch = new List<string>();
                             var indices = new List<int>();
                             var closestMatchQuery =
                                 $"SELECT {thisattribute} " +
@@ -1778,7 +1779,7 @@ namespace IEF_Home
                                 $"AGAINST (@item IN NATURAL LANGUAGE MODE)  " +
                                 $"OR {thisattribute} LIKE @item " +
                                 $"GROUP BY {thisattribute} " +
-                                $"LIMIT 10";
+                                $"LIMIT 5";
                             using (var cmd2 = new MySqlCommand(closestMatchQuery, cn.Connection))
                             {
 
@@ -1801,15 +1802,17 @@ namespace IEF_Home
                                             string closestMatchRemark;
                                             if (string.IsNullOrEmpty(closestMatchString))
                                             {
+                                                var label = string.IsNullOrWhiteSpace(item) ? "EMPTY CELL" : item;
                                                 closestMatchRemark =
-                                                    $"ERROR:No exact match for label {item} in classification {cellDataColValue}. " +
+                                                    $"ERROR:No exact match for label {label} in classification {cellDataColValue}. " +
                                                     $"Here are the ten closest matches: <b>0</b>";
                                                 counterGlobal.errCount++;
                                             }
                                             else
                                             {
+                                                var label = string.IsNullOrWhiteSpace(item) ? "EMPTY CELL" : item;
                                                 closestMatchRemark =
-                                                    $"ERROR:No exact match for label {item} in classification {cellDataColValue}. " +
+                                                    $"ERROR:No exact match for label {label} in classification {cellDataColValue}. " +
                                                     $"Here are the ten closest matches: <b>{closestMatchString}</b>";
                                                 counterGlobal.errCount++;
                                             }
@@ -1873,8 +1876,9 @@ namespace IEF_Home
                                     {
                                         if (nonExistingMatch[i] == item)
                                         {
+                                            var label = string.IsNullOrWhiteSpace(item) ? "EMPTY CELL" : item;
                                             var unitCodeRemark =
-                                                $"ERROR:For data in row {item}: unit nominator {item} is not defined in the iedc units table." +
+                                                $"ERROR:For data in row {label}: unit nominator {label} is not defined in the iedc units table." +
                                                 $" Please fix the unit or add a new unit to the units table.";
 
                                             dataMatch.Rows.Add($"<span style='color: red;'>{i+1}</span>",
@@ -1937,8 +1941,9 @@ namespace IEF_Home
                                     {
                                         if (nonExistingMatch[i] == item)
                                         {
+                                            var label = string.IsNullOrWhiteSpace(item) ? "EMPTY CELL" : item;
                                             var unitCodeRemark =
-                                                $"ERROR:For data in row {item}: unit nominator {item} is not defined in the iedc units table." +
+                                                $"ERROR:For data in row {label}: unit nominator {label} is not defined in the iedc units table." +
                                                 $" Please fix the unit or add a new unit to the units table.";
 
                                             dataMatch.Rows.Add($"<span style='color: red;'>{i + 1}</span>",

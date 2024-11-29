@@ -252,7 +252,7 @@ namespace IEF_Home.cls
                 List<string> colAspectAttributeList = new List<string>();
                 List<string> dataSheetAspectList = new List<string>();
                 List<string> expectedSheetAspectList = new List<string>();
-                List<string> coverSheetValueList = new List<string>();
+                List<string> aspectConfirmList = new List<string>();
                 var startPos = 12;
 
                 // Data Table 
@@ -292,11 +292,23 @@ namespace IEF_Home.cls
                     // Access the specified sheet
                     var worksheet = workbook.Worksheet(sheetName);
                     var worksheetData = workbook.Worksheet("Data");
+                    var rowCount = worksheetData.LastRowUsed().RowNumber().ToString();
                     // Retrieve the value from cell G10
                     var cellG10Value = worksheet.Cell("G10").Value.ToString();
                     var noRowsI10Value = worksheet.Cell("I10").Value.ToString();
                     // Bind Number of Rows Table
-                    noRowsTable.Rows.Add($"Number of rows with data: <b>{noRowsI10Value}</b>");
+                    if (rowCount == noRowsI10Value)
+                    {
+                        noRowsTable.Rows.Add($"<span style='color:green;'>NoR in Cover Sheet (I10): <b>{noRowsI10Value}</b><br/>NoR in Data Sheet: <b>{rowCount}</b></span>");
+                        circomodService.counterGlobal.oKCount++;
+                    }
+                    else
+                    {
+                        noRowsTable.Rows.Add($"<span style='color:red;'>NoR in Cover Sheet: <b>{noRowsI10Value}</b><br/>NoR in Data Sheet: <b>{rowCount}</b><br/>" +
+                                             $"The NoR has to match in the both sheets</span>");
+                        circomodService.counterGlobal.errCount++;
+                    }
+
                     dataSheetRowNumber.DataSource = noRowsTable;
                     dataSheetRowNumber.DataBind();
                     int fPos = startPos;
@@ -351,7 +363,6 @@ namespace IEF_Home.cls
                             }
                             expectedSheetAspectList.AddRange(dataSheetOrderList);
                             // Populate the DataTable
-                            int mistakeCount = 0;
                             var maxCountAps = Math.Max(dataSheetAspectList.Count, expectedSheetAspectList.Count);
                             for (int t = 0; t < maxCountAps; t++)
                             {
@@ -364,11 +375,8 @@ namespace IEF_Home.cls
                                         $"<span style='color: green;'>The order of <b>{givenValue}</b> as given value matches the order of {expectedValue} in idec database.</span>";
                                     circomodService.counterGlobal.oKCount++;
                                     aspectSequenceMatch.Rows.Add(givenValue, expectedValue, aspectSeqRemark);
-                                    if (givenValue == dataSheetAspectList.Last() && mistakeCount < 1)
-                                    {
-                                        isDataRowValid(sheetName, "Data", file, givenValue, dataSheetMatch, dataMatch, dataMatchResult, Int32.Parse(noRowsI10Value), Ok, Warning, Error);
+                                    aspectConfirmList.Add(givenValue);
 
-                                    }
                                 }
                                 else if(expectedValue != givenValue && !string.IsNullOrEmpty(expectedValue))
                                 {
@@ -378,7 +386,7 @@ namespace IEF_Home.cls
                                     circomodService.counterGlobal.errCount++;
                                     aspectSequenceMatch.Rows.Add($"<span style='color: red;'>{givenValue}</span>", expectedValue,
                                          aspectSeqRemark);
-                                    mistakeCount++;
+                                
 
                                 }else if (!expectedSheetAspectList.Contains(givenValue))
                                 {
@@ -388,6 +396,14 @@ namespace IEF_Home.cls
                                     circomodService.counterGlobal.warningCount++;
                                     aspectSequenceMatch.Rows.Add($"<span style='color: orange;'>{givenValue}</span>", expectedValue, aspectSeqRemark);
                                 }
+                            }
+
+                            if (circomodService.counterGlobal.errCount == 0)
+                            {
+
+                                isDataRowValid(sheetName, "Data", file, dataSheetMatch, dataMatch, dataMatchResult, Int32.Parse(noRowsI10Value), Ok, Warning, Error);
+
+
                             }
                             aspectSequence.DataSource = aspectSequenceMatch;
                             aspectSequence.DataBind();
@@ -442,7 +458,7 @@ namespace IEF_Home.cls
             }
         }
 
-        public void isDataRowValid(string sheetName1, string sheetName2,string file,string givenValue,GridView dataSheetMatch,DataTable dataMatch,
+        public void isDataRowValid(string sheetName1, string sheetName2,string file,GridView dataSheetMatch,DataTable dataMatch,
             DataTable dataMatchResult,int noRowsI10Value, BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
             // Empty Variables
