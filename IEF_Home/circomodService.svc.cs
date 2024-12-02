@@ -1804,30 +1804,29 @@ namespace IEF_Home
                                             {
                                                 var label = string.IsNullOrWhiteSpace(item) ? "EMPTY CELL" : item;
                                                 closestMatchRemark =
-                                                    $"ERROR:No exact match for label {label} in classification {cellDataColValue}. " +
+                                                    $"Warning:No exact match for label {label} in classification {cellDataColValue}. " +
                                                     $"Here are the ten closest matches: <b>0</b>";
-                                                counterGlobal.errCount++;
+                                                counterGlobal.warningCount++;
+                                                dataMatch.Rows.Add($"<span style='color: orange;'>{i + 1}</span>",
+                                                    $"<span style='color: orange;'>{cellDataColValue}</span>",
+                                                    $"<span style='color: orange;'>{item}</span>",
+                                                    $"<span style='color: orange;'>{closestMatchRemark}</span>");
                                             }
                                             else
                                             {
-                                                var label = string.IsNullOrWhiteSpace(item) ? "EMPTY CELL" : item;
+                                                
                                                 closestMatchRemark =
-                                                    $"ERROR:No exact match for label {label} in classification {cellDataColValue}. " +
+                                                    $"ERROR:No exact match for label {item} in classification {cellDataColValue}. " +
                                                     $"Here are the ten closest matches: <b>{closestMatchString}</b>";
                                                 counterGlobal.errCount++;
+                                                dataMatch.Rows.Add($"<span style='color: red;'>{i + 1}</span>",
+                                                    $"<span style='color: red;'>{cellDataColValue}</span>",
+                                                    $"<span style='color: red;'>{item}</span>",
+                                                    $"<span style='color: red;'>{closestMatchRemark}</span>");
                                             }
-                                            //    string indices = string.Join(", ", itemIndices[item.ToString()]);  // Join indices into a string
-                                            dataMatch.Rows.Add($"<span style='color: red;'>{i+1}</span>",
-                                                $"<span style='color: red;'>{cellDataColValue}</span>",
-                                                $"<span style='color: red;'>{item}</span>",
-                                                $"<span style='color: red;'>{closestMatchRemark}</span>");
                                         }
-                                       
                                     }
 
-
-                                    
-                                   
                                 }
                             }
                         }
@@ -1880,18 +1879,25 @@ namespace IEF_Home
                                             var unitCodeRemark =
                                                 $"ERROR:For data in row {label}: unit nominator {label} is not defined in the iedc units table." +
                                                 $" Please fix the unit or add a new unit to the units table.";
-
-                                            dataMatch.Rows.Add($"<span style='color: red;'>{i+1}</span>",
-                                                $"<span style='color: red;'>{cellDataColValue}</span>",
-                                                $"<span style='color: red;'>{item}</span>",
-                                                $"<span style='color: red;'>{unitCodeRemark}</span>");
-                                            counterGlobal.errCount++;
-
+                                            if (label == "EMPTY CELL")
+                                            {
+                                                dataMatch.Rows.Add($"<span style='color: orange;'>{i + 1}</span>",
+                                                    $"<span style='color: orange;'>{cellDataColValue}</span>",
+                                                    $"<span style='color: orange;'>{item}</span>",
+                                                    $"<span style='color: orange;'>{unitCodeRemark}</span>");
+                                                counterGlobal.warningCount++;
+                                            }
+                                            else
+                                            {
+                                                dataMatch.Rows.Add($"<span style='color: red;'>{i + 1}</span>",
+                                                    $"<span style='color: red;'>{cellDataColValue}</span>",
+                                                    $"<span style='color: red;'>{item}</span>",
+                                                    $"<span style='color: red;'>{unitCodeRemark}</span>");
+                                                counterGlobal.errCount++;
+                                            }
                                         }
                                     }
-
                                 }
-
                             }
                             else
                             {
@@ -1945,17 +1951,25 @@ namespace IEF_Home
                                             var unitCodeRemark =
                                                 $"ERROR:For data in row {label}: unit nominator {label} is not defined in the iedc units table." +
                                                 $" Please fix the unit or add a new unit to the units table.";
-
-                                            dataMatch.Rows.Add($"<span style='color: red;'>{i + 1}</span>",
-                                                $"<span style='color: red;'>{cellDataColValue}</span>",
-                                                $"<span style='color: red;'>{item}</span>",
-                                                $"<span style='color: red;'>{unitCodeRemark}</span>");
-                                            counterGlobal.errCount++;
+                                            if (label == "EMPTY CELL")
+                                            {
+                                                dataMatch.Rows.Add($"<span style='color: orange;'>{i + 1}</span>",
+                                                    $"<span style='color: orange;'>{cellDataColValue}</span>",
+                                                    $"<span style='color: orange;'>{item}</span>",
+                                                    $"<span style='color: orange;'>{unitCodeRemark}</span>");
+                                                counterGlobal.warningCount++;
+                                            }
+                                            else
+                                            {
+                                                dataMatch.Rows.Add($"<span style='color: red;'>{i + 1}</span>",
+                                                    $"<span style='color: red;'>{cellDataColValue}</span>",
+                                                    $"<span style='color: red;'>{item}</span>",
+                                                    $"<span style='color: red;'>{unitCodeRemark}</span>");
+                                                counterGlobal.errCount++;
+                                            }
                                         }
                                     }
-
                                 }
-
                             }
                             else
                             {

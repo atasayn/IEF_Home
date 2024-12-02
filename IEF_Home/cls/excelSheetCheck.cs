@@ -263,7 +263,7 @@ namespace IEF_Home.cls
                 DataTable dataMatch = new DataTable();
                 DataTable dataMatchResult = new DataTable();
                 //Columns
-                dataMatch.Columns.Add("Cell", typeof(string));
+                dataMatch.Columns.Add("Line", typeof(string));
                 dataMatch.Columns.Add("Aspect", typeof(string));
                 dataMatch.Columns.Add("Given Value/Text", typeof(string));
                 dataMatch.Columns.Add("Remarks", typeof(string));
@@ -274,7 +274,7 @@ namespace IEF_Home.cls
                 aspectSequenceMatch.Columns.Add("Expected Order of Values");
                 aspectSequenceMatch.Columns.Add("Remarks");
 
-                noRowsTable.Columns.Add("Number of rows with data");
+                noRowsTable.Columns.Add("Number of rows with text");
 
                 //Value,Unit nominator, Unit denominator,Stats_array, comment 
                 List<string> dataSheetOrderList = new List<string>
@@ -299,12 +299,14 @@ namespace IEF_Home.cls
                     // Bind Number of Rows Table
                     if (rowCount == noRowsI10Value)
                     {
-                        noRowsTable.Rows.Add($"<span style='color:green;'>NoR in Cover Sheet (I10): <b>{noRowsI10Value}</b><br/>NoR in Data Sheet: <b>{rowCount}</b></span>");
+                        noRowsTable.Rows.Add($"<span style='color:green;'>Number of rows with data as indicated in cell I10 on the Cover Sheet: <b>{noRowsI10Value}</b>" +
+                                             $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount}</b></span>");
                         circomodService.counterGlobal.oKCount++;
                     }
                     else
                     {
-                        noRowsTable.Rows.Add($"<span style='color:red;'>NoR in Cover Sheet: <b>{noRowsI10Value}</b><br/>NoR in Data Sheet: <b>{rowCount}</b><br/>" +
+                        noRowsTable.Rows.Add($"<span style='color:red;'>Number of rows with data as indicated in cell I10 on the Cover Sheet: <b>{noRowsI10Value}</b>" +
+                                             $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount}</b><br/>" +
                                              $"The NoR has to match in the both sheets</span>");
                         circomodService.counterGlobal.errCount++;
                     }

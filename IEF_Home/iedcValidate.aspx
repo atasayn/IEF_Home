@@ -160,7 +160,7 @@
                 </asp:GridView>
                 <asp:GridView ID="dataSheetRowNumber" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
                         <columns>
-                            <asp:BoundField DataField="Number of rows with data" HeaderText="Number of rows with data" HtmlEncode="False" />
+                            <asp:BoundField DataField="Number of rows with text" HeaderText="Number of rows with text" HtmlEncode="False" />
                         </columns>
                     </asp:GridView>
                 </div>
@@ -285,7 +285,7 @@
                 <div class="column">
                     <asp:GridView ID="dataSheetMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
                         <columns>
-                            <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                            <asp:BoundField DataField="Line" HeaderText="Line" HtmlEncode="False" />
                             <asp:BoundField DataField="Aspect" HeaderText="Aspect" HtmlEncode="False" />
                             <asp:BoundField DataField="Given Value/Text" HeaderText="Given Value/Text" HtmlEncode="False" />
                             <asp:BoundField DataField="Remarks" HeaderText="Remarks" HtmlEncode="False" />
