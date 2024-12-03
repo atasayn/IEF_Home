@@ -292,21 +292,21 @@ namespace IEF_Home.cls
                     // Access the specified sheet
                     var worksheet = workbook.Worksheet(sheetName);
                     var worksheetData = workbook.Worksheet("Data");
-                    var rowCount = worksheetData.LastRowUsed().RowNumber().ToString();
+                    var rowCount = worksheetData.LastRowUsed().RowNumber()-1;
                     // Retrieve the value from cell G10
                     var cellG10Value = worksheet.Cell("G10").Value.ToString();
                     var noRowsI10Value = worksheet.Cell("I10").Value.ToString();
                     // Bind Number of Rows Table
-                    if (rowCount == noRowsI10Value)
+                    if (rowCount.ToString() == noRowsI10Value)
                     {
                         noRowsTable.Rows.Add($"<span style='color:green;'>Number of rows with data as indicated in cell I10 on the Cover Sheet: <b>{noRowsI10Value}</b>" +
-                                             $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount}</b></span>");
+                                             $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount.ToString()}</b></span>");
                         circomodService.counterGlobal.oKCount++;
                     }
                     else
                     {
                         noRowsTable.Rows.Add($"<span style='color:red;'>Number of rows with data as indicated in cell I10 on the Cover Sheet: <b>{noRowsI10Value}</b>" +
-                                             $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount}</b><br/>" +
+                                             $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount.ToString()}</b><br/>" +
                                              $"The NoR has to match in the both sheets</span>");
                         circomodService.counterGlobal.errCount++;
                     }
