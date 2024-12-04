@@ -345,7 +345,6 @@ namespace IEF_Home.cls
                                 // Break the loop if cellValue is empty or "none"
                                 if (string.IsNullOrEmpty(cellValue))
                                 {
-                                    
                                     break;
                                 }
                                 dataSheetAspectList.Add(cellValue);
@@ -360,7 +359,6 @@ namespace IEF_Home.cls
                                     break;
                                 }
                                 expectedSheetAspectList.Add(cellF12Value);
-                                
                                 i++;
                             }
                             expectedSheetAspectList.AddRange(dataSheetOrderList);
@@ -378,7 +376,6 @@ namespace IEF_Home.cls
                                     circomodService.counterGlobal.oKCount++;
                                     aspectSequenceMatch.Rows.Add(givenValue, expectedValue, aspectSeqRemark);
                                     aspectConfirmList.Add(givenValue);
-
                                 }
                                 else if(expectedValue != givenValue && !string.IsNullOrEmpty(expectedValue))
                                 {
@@ -388,8 +385,6 @@ namespace IEF_Home.cls
                                     circomodService.counterGlobal.errCount++;
                                     aspectSequenceMatch.Rows.Add($"<span style='color: red;'>{givenValue}</span>", expectedValue,
                                          aspectSeqRemark);
-                                
-
                                 }else if (!expectedSheetAspectList.Contains(givenValue))
                                 {
                                     var aspectSeqRemark =
@@ -402,10 +397,7 @@ namespace IEF_Home.cls
 
                             if (circomodService.counterGlobal.errCount == 0)
                             {
-
                                 isDataRowValid(sheetName, "Data", file, dataSheetMatch, dataMatch, dataMatchResult, Int32.Parse(noRowsI10Value), Ok, Warning, Error);
-
-
                             }
                             aspectSequence.DataSource = aspectSequenceMatch;
                             aspectSequence.DataBind();
@@ -449,9 +441,7 @@ namespace IEF_Home.cls
                             loaderControl.Style["display"] = "none";
                             break;
                     }
-
                 }
-                
             }
             catch (ArgumentException ex)
             {
@@ -511,6 +501,8 @@ namespace IEF_Home.cls
                 // Determine used range and worksheet name
                 int countRows = ws.UsedRange.Rows.Count;
                 int countCols = ws.UsedRange.Columns.Count;
+
+
                 circomodService serviceInstance = new circomodService();
                 int NumRow =1;
                 int NumCol = 1;
