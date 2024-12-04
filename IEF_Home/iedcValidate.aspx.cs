@@ -36,11 +36,6 @@ namespace IEF_Home
                 if (FileUpload.HasFile)
                 {
                     circomodService.counterGlobal.Reset();
-                    columnDiv.Style["display"] = "block";
-                    section1Full.Style["display"] = "block";
-                    section2Row.Style["display"] = "block";
-                    section2DataCheck.Style["display"] = "block";
-                    missingCellTableSec.Style["display"] = "block";
                     dataSheetMatch.DataSource=null;
                     dataSheetMatch.DataBind();
                     var fileChecker = new excelSheetCheck();
@@ -56,6 +51,11 @@ namespace IEF_Home
                         string sheetName = "Cover"; // Replace with your actual sheet name
                         if (fileChecker.DoesCoverExist(FileUpload.PostedFile, sheetName))
                         {
+                            columnDiv.Style["display"] = "block";
+                            section1Full.Style["display"] = "block";
+                            section2Row.Style["display"] = "block";
+                            section2DataCheck.Style["display"] = "block";
+                            missingCellTableSec.Style["display"] = "block";
                             // Date and Time of Upload + File name + Success
                             string dateTime = DateTime.Now.ToString();
                             string htmlContent = $"<h4>On {dateTime}: Parsing and validating dataset {fileName} against the specifications of the iedc.</h4>";
