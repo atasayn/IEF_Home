@@ -13,6 +13,7 @@ using Microsoft.Office.Interop.Excel;
 using DataTable = System.Data.DataTable;
 using OfficeOpenXml.FormulaParsing.Ranges;
 using System.Web.UI.HtmlControls;
+using DocumentFormat.OpenXml.Vml.Office;
 
 
 
@@ -176,6 +177,9 @@ namespace IEF_Home.cls
                 aspectMatchDataTable.Columns.Add("Aspect (F12-..)", typeof(string));
                 // Aspect Match Remark Table Columns
                 aspectMatchRemarkTable.Columns.Add("Remarks", typeof(string));
+                //Table or List
+                var cellG10Value = worksheet.Cell("G10").Value.ToString();
+                // Take the apect labels from F12
                 while (true)
                 {
                     string cellF12Value = HttpUtility.HtmlEncode(worksheet.Cell("F" + i).Value.ToString()).Trim();
@@ -188,6 +192,28 @@ namespace IEF_Home.cls
                     aspectDoesExist.Add(cellF12Value);
                     i++;
                 }
+                switch (cellG10Value)
+                {
+                    case "LIST":
+                        break;
+                    case "TABLE":
+                        int t = 12;
+                        while (true)
+                        {
+                            string cellH12Value = HttpUtility.HtmlEncode(worksheet.Cell("H" + t).Value.ToString()).Trim();
+
+                            // Break the loop if cellF12Value is empty or "none"
+                            if (string.IsNullOrEmpty(cellH12Value) || cellH12Value.Equals("none", StringComparison.OrdinalIgnoreCase))
+                            {
+                                break;
+                            }
+                            aspectDoesExist.Add(cellH12Value);
+                            t++;
+                        }
+
+                        break;
+                }
+
                 int maxCount = Math.Max(cellDxCheckList.Count, aspectDoesExist.Count);
 
                 // Populate the DataTable
@@ -199,7 +225,6 @@ namespace IEF_Home.cls
                     aspectMatchDataTable.Rows.Add(checklistValue, aspectValue);
                 }
 
-                
                 // Assuming you have a DataGridView named dataGridView
                 aspectMatch.DataSource = aspectMatchDataTable;
                 aspectMatch.DataBind();
@@ -240,16 +265,16 @@ namespace IEF_Home.cls
             }
         }
 
-        public void isListOrTable(string file, string sheetName, GridView templateType,GridView aspectSequence, GridView dataSheetRowNumber,GridView dataSheetMatch, 
+        public void isListOrTable(string file, string sheetName, GridView templateType,GridView aspectSequence, GridView dataSheetRowNumber,GridView dataSheetMatch,GridView unitMoniDenomi,
             BulletedList Ok, BulletedList Warning, BulletedList Error, HtmlGenericControl loaderControl)
         {
             try
             {
+                circomodService serviceInstance = new circomodService();
+
                 // Vars
                 List<string> aspectList = new List<string>();
                 List<string> aspectAttributeList = new List<string>();
-                List<string> colaApectList = new List<string>();
-                List<string> colAspectAttributeList = new List<string>();
                 List<string> dataSheetAspectList = new List<string>();
                 List<string> expectedSheetAspectList = new List<string>();
                 List<string> aspectConfirmList = new List<string>();
@@ -276,47 +301,46 @@ namespace IEF_Home.cls
 
                 noRowsTable.Columns.Add("Number of rows with text");
 
-                //Value,Unit nominator, Unit denominator,Stats_array, comment 
-                List<string> dataSheetOrderList = new List<string>
-                {
-                    "value",
-                    "unit nominator",
-                    "unit denominator",
-                    "stats_array string",
-                    "comment"
-                };
-
                 // Open the Excel workbook
                 using (var workbook = new XLWorkbook(file))
                 {
                     // Access the specified sheet
                     var worksheet = workbook.Worksheet(sheetName);
                     var worksheetData = workbook.Worksheet("Data");
-                    var rowCount = worksheetData.LastRowUsed().RowNumber()-1;
                     // Retrieve the value from cell G10
                     var cellG10Value = worksheet.Cell("G10").Value.ToString();
-                    var noRowsI10Value = worksheet.Cell("I10").Value.ToString();
-                    // Bind Number of Rows Table
-                    if (rowCount.ToString() == noRowsI10Value)
-                    {
-                        noRowsTable.Rows.Add($"<span style='color:green;'>Number of rows with data as indicated in cell I10 on the Cover Sheet: <b>{noRowsI10Value}</b>" +
-                                             $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount.ToString()}</b></span>");
-                        circomodService.counterGlobal.oKCount++;
-                    }
-                    else
-                    {
-                        noRowsTable.Rows.Add($"<span style='color:red;'>Number of rows with data as indicated in cell I10 on the Cover Sheet: <b>{noRowsI10Value}</b>" +
-                                             $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount.ToString()}</b><br/>" +
-                                             $"The NoR has to match in the both sheets</span>");
-                        circomodService.counterGlobal.errCount++;
-                    }
-
-                    dataSheetRowNumber.DataSource = noRowsTable;
-                    dataSheetRowNumber.DataBind();
-                    int fPos = startPos;
                     switch (cellG10Value)
                     {
                         case "LIST":
+
+                            //Value,Unit nominator, Unit denominator,Stats_array, comment 
+                            List<string> dataSheetOrderList = new List<string>
+                            {
+                                "value",
+                                "unit nominator",
+                                "unit denominator",
+                                "stats_array string",
+                                "comment"
+                            };
+                            var noRowsI10Value = worksheet.Cell("I10").Value.ToString();
+                            var rowCount = worksheetData.LastRowUsed().RowNumber() - 1;
+                            int fPos = startPos;
+                            // Bind Number of Rows Table
+                            if (rowCount.ToString() == noRowsI10Value)
+                            {
+                                noRowsTable.Rows.Add($"<span style='color:green;'>Number of rows with data as indicated in cell I10 on the Cover Sheet: <b>{noRowsI10Value}</b>" +
+                                                     $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount.ToString()}</b></span>");
+                                circomodService.counterGlobal.oKCount++;
+                            }
+                            else
+                            {
+                                noRowsTable.Rows.Add($"<span style='color:red;'>Number of rows with data as indicated in cell I10 on the Cover Sheet: <b>{noRowsI10Value}</b>" +
+                                                     $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCount.ToString()}</b><br/>" +
+                                                     $"The NoR has to match in the both sheets</span>");
+                                circomodService.counterGlobal.errCount++;
+                            }
+                            dataSheetRowNumber.DataSource = noRowsTable;
+                            dataSheetRowNumber.DataBind();
                             // Aspect Order Check
                             aspectSequence.DataSource = null;
                             aspectSequence.DataBind();
@@ -394,7 +418,6 @@ namespace IEF_Home.cls
                                     aspectSequenceMatch.Rows.Add($"<span style='color: orange;'>{givenValue}</span>", expectedValue, aspectSeqRemark);
                                 }
                             }
-
                             if (circomodService.counterGlobal.errCount == 0)
                             {
                                 isDataRowValid(sheetName, "Data", file, dataSheetMatch, dataMatch, dataMatchResult, Int32.Parse(noRowsI10Value), Ok, Warning, Error);
@@ -412,25 +435,112 @@ namespace IEF_Home.cls
                             isListTable.Rows.Add($"Type of data template (Dataset_RecordType) indicated: <b>TABLE</b>");
                             templateType.DataSource = isListTable;
                             templateType.DataBind();
+                            // Empty Lists
+                            Dictionary<string, string> rowAspectNamesandIDs = new Dictionary<string, string>();
+                            Dictionary<string, string> colAspectNamesandIDs = new Dictionary<string, string>();
+                            Dictionary<string, string> classIDList = new Dictionary<string, string>();
+                            List<string> columnAspects = new List<string>();
+                            List<string> rowAspects = new List<string>();
+                            List<string> rowClassIDs = new List<string>();
+                            List<string> colClassIDs = new List<string>();
+                            DataTable tempDataMatchResult = new DataTable();
+                            DataTable tempDataMatchResult2 = new DataTable();
+                            loaderControl.Style["display"] = "none";
+                            void PopulateAspects(string aspectLetter, string classIdLetter, int startRow)
+                            {
+                                int currentRow = startRow;
+                                while (true)
+                                {
+                                    string cellAspectValue = HttpUtility.HtmlEncode(worksheet.Cell($"{aspectLetter}{currentRow}").Value.ToString()).Trim();
+                                    string cellClassIdValue = HttpUtility.HtmlEncode(worksheet.Cell($"{classIdLetter}{currentRow}").Value.ToString()).Trim();
+
+                                    // Break the loop if cellValue is empty or "none"
+                                    if (string.IsNullOrEmpty(cellAspectValue) || cellAspectValue.Equals("none", StringComparison.OrdinalIgnoreCase) ||
+                                        string.IsNullOrEmpty(cellClassIdValue) || cellClassIdValue.Equals("none", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        break;
+                                    }
+                                    if (aspectLetter == "F" )
+                                    {
+                                        colAspectNamesandIDs.Add(cellAspectValue, cellClassIdValue);
+                                        columnAspects.Add(cellAspectValue);
+                                    }
+                                    else if (aspectLetter == "H" && startRow == 12)
+                                    {
+                                        rowAspectNamesandIDs.Add(cellAspectValue, cellClassIdValue);
+                                        rowAspects.Add(cellAspectValue);
+                                    }
+                                    else if (startRow == 6)
+                                    {
+                                        cellAspectValue = HttpUtility.HtmlEncode(worksheet.Cell($"{aspectLetter}{currentRow}").Value.ToString()).Trim();
+                                        cellClassIdValue = HttpUtility.HtmlEncode(worksheet.Cell($"{classIdLetter}{currentRow+1}").Value.ToString()).Trim();
+                                        tempDataMatchResult = serviceInstance.UnitNomiDenomi($"{aspectLetter}{currentRow}", cellClassIdValue, cellAspectValue,
+                                            Ok, Warning, Error);
+                                        tempDataMatchResult2.Merge(tempDataMatchResult);
+                                        break;
+                                    }
+                                    currentRow++;
+                                }
+                            }
+                            PopulateAspects("F", "G",12);
+                            PopulateAspects("H", "I",12);
+                            PopulateAspects("H", "H",6);
+                            PopulateAspects("I", "I",6);
+                            unitMoniDenomi.DataSource = tempDataMatchResult2;
+                            unitMoniDenomi.DataBind();
+
+                            // Worksheet with the sheet name
+                            var dPosClas = 27;
+                            var dPos = 26;
                             while (true)
                             {
-                                var cellFValue = HttpUtility.HtmlEncode(worksheet.Cell("F" + fPos).Value.ToString().Trim());
-                                var cellGValue = HttpUtility.HtmlEncode(worksheet.Cell("G" + fPos).Value.ToString().Trim());
-                                var cellHValue = HttpUtility.HtmlEncode(worksheet.Cell("H" + fPos).Value.ToString().Trim());
-                                var cellIValue = HttpUtility.HtmlEncode(worksheet.Cell("I" + fPos).Value.ToString().Trim());
-                                if (string.IsNullOrEmpty(cellFValue)) break;
-                                // Add to the lists
-                                aspectList.Add(cellFValue);
-                                aspectAttributeList.Add(cellGValue);
-                                colaApectList.Add(cellHValue);
-                                colAspectAttributeList.Add(cellIValue);
+
+                                var cellPosDValueClass = HttpUtility.HtmlEncode(worksheet.Cell("D" + dPos).Value.ToString().Trim());
+                                var cellClassDValueClass = HttpUtility.HtmlEncode(worksheet.Cell("D" + dPosClas).Value.ToString().Trim());
+                            
+                                // Stop the loop only if all cells contain "none" or are empty/null
+                                if (string.IsNullOrEmpty(cellPosDValueClass) || cellPosDValueClass == "none" || 
+                                    string.IsNullOrEmpty(cellClassDValueClass) || cellClassDValueClass == "none")
+                                {
+                                    break;
+                                }
+                                // Add non-null and non-"none" values to respective lists
+                                if (!string.IsNullOrEmpty(cellPosDValueClass) && !string.IsNullOrEmpty(cellClassDValueClass)) classIDList.Add(cellPosDValueClass, cellClassDValueClass);
 
                                 // Move to the next row
-                                fPos++;
+                                dPosClas += 2;
+                                dPos += 2;
+                            }
+                            // Get Row and Column Numbers
+                            // Safely get cell values
+                            var rowNo = HttpUtility.HtmlEncode(worksheet.Cell("I" + 10).Value);
+                            var colNo = HttpUtility.HtmlEncode(worksheet.Cell("K" + 10).Value);
+                            // Encode if needed for HTML contexts
+                            var rowCountTable = worksheetData.LastRowUsed().RowNumber() - colAspectNamesandIDs.Keys.Count;
+                            var colCountTable = worksheetData.LastColumnUsed().ColumnNumber() - rowAspectNamesandIDs.Keys.Count;
+
+                            // Bind Number of Rows Table
+                            if (rowNo == rowCountTable.ToString() && colNo == colCountTable.ToString())
+                            {
+                                noRowsTable.Rows.Add($"<span style='color:green;'>Number of rows with data as indicated in cell I10 and K10 on the Cover Sheet: <b>{rowNo} and {colNo}</b>" +
+                                                     $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCountTable.ToString()} and {colCountTable.ToString()}</b></span>");
+                                circomodService.counterGlobal.oKCount++;
+                            }
+                            else
+                            {
+                                noRowsTable.Rows.Add($"<span style='color:red;'>Number of rows with data as indicated in cell I10 and K10 on the Cover Sheet: <b>{rowNo} and {colNo} </b>" +
+                                                     $"<br/>Number of rows with data as indicated on the Data Sheet: <b>{rowCountTable.ToString()} and {colCountTable.ToString()}</b><br/>" +
+                                                     $"The NoR has to match in the both sheets</span>");
+                                circomodService.counterGlobal.errCount++;
+                            }
+                            dataSheetRowNumber.DataSource = noRowsTable;
+                            dataSheetRowNumber.DataBind();
+                            // Additional handling for TABLE if needed
+                            if (circomodService.counterGlobal.errCount == 0)
+                            {
+                                isDataForTableValid(file, columnAspects ,rowAspects ,rowAspectNamesandIDs, colAspectNamesandIDs, classIDList,rowClassIDs, colClassIDs, rowNo, colNo, dataSheetMatch, dataMatch, dataMatchResult, Ok, Warning, Error);
                             }
                             iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
-                            loaderControl.Style["display"] = "none";
-                            // Additional handling for TABLE if needed
                             break;
 
                         default:
@@ -439,6 +549,8 @@ namespace IEF_Home.cls
                             iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
                             circomodService.counterGlobal.errCount++;
                             loaderControl.Style["display"] = "none";
+                            templateType.DataSource = isListTable;
+                            templateType.DataBind();
                             break;
                     }
                 }
@@ -450,6 +562,79 @@ namespace IEF_Home.cls
             }
         }
 
+        public void isDataForTableValid(string file, List<string> columnAspects, List<string> rowAspects, Dictionary<string, string> rowAspectNamesandIDs, 
+            Dictionary<string, string> colAspectNamesandIDs,Dictionary<string, string> classIDList, List<string> rowClassIDs,List<string> colClassIDs, string rowNo,string colNo,
+            GridView dataSheetMatch, DataTable dataMatch, DataTable dataMatchResult,BulletedList Ok, BulletedList Warning, BulletedList Error)
+        {
+            // Vars
+            circomodService serviceInstance = new circomodService();
+            List<string> cellDataList = new List<string>();
+            DataTable tempDataMatchResult = new DataTable();
+
+            using (var workbook = new XLWorkbook(file))
+            {
+                var worksheet = workbook.Worksheet("Data");
+                // Worksheet with the sheet name
+                var excelApp = new Application();
+                Microsoft.Office.Interop.Excel.Workbook wb = excelApp.Workbooks.Open(file);
+                Microsoft.Office.Interop.Excel.Worksheet ws;
+                ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets["Data"];
+                // Get Col Aspects
+                Range rangeRow = ws.Cells[rowAspects.Count + 1, 1];
+                Range targetRangeCol = rangeRow.Resize[rowNo, columnAspects.Count];
+                object[,] cellValues = (object[,])targetRangeCol.Value2;
+
+                for (int col = 1; col <= columnAspects.Count; col++)
+                {
+                    cellDataList.Clear();
+                    
+                    for (int row = 1; row <= Int32.Parse(rowNo); row++)
+                    {
+                        cellDataList.Add(HttpUtility.HtmlEncode(cellValues[row, col]?.ToString()));
+                        
+                    }
+                    
+                    tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + colAspectNamesandIDs.FirstOrDefault(x => x.Key == columnAspects[col-1]).Value + "_oto",
+                        classIDList.FirstOrDefault(x => x.Key == columnAspects[col-1]).Value, 
+                        colAspectNamesandIDs.Keys.ToList(), 
+                        cellDataList, 
+                        columnAspects[col-1],
+                        columnAspects.Count() + 1, 
+                        dataSheetMatch,
+                        dataMatch, Ok, Warning, Error);
+                }
+
+                //// Get Row Aspects
+                Range range = ws.Cells[1, rowAspects.Count + 1];
+                Range targetRange = range.Resize[rowAspects.Count, colNo];
+                object[,] cellValues2 = (object[,])targetRange.Value2;
+                for (int row = 1; row <= rowAspects.Count; row++)
+                {
+                    cellDataList.Clear();
+                    for (int col = 1; col <= Int32.Parse(colNo); col++)
+                    {
+                        cellDataList.Add(HttpUtility.HtmlEncode(cellValues2[row, col]?.ToString()));
+                    }
+
+                    tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + rowAspectNamesandIDs.FirstOrDefault(x => x.Key == rowAspects[row - 1]).Value + "_oto",
+                        classIDList.FirstOrDefault(x => x.Key == rowAspects[row - 1]).Value,
+                        rowAspectNamesandIDs.Keys.ToList(),
+                        cellDataList,
+                        rowAspects[row - 1],
+                        rowAspects.Count() + 1,
+                        dataSheetMatch,
+                        dataMatch, Ok, Warning, Error);
+
+                }
+                wb.Close();
+                excelApp.Quit();
+                dataSheetMatch.DataSource = tempDataMatchResult;
+                dataSheetMatch.DataBind();
+            }
+            iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
+
+        }
+
         public void isDataRowValid(string sheetName1, string sheetName2,string file,GridView dataSheetMatch,DataTable dataMatch,
             DataTable dataMatchResult,int noRowsI10Value, BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
@@ -457,6 +642,7 @@ namespace IEF_Home.cls
             Dictionary<string, string> aspectNames = new Dictionary<string, string>();
             Dictionary<string, string> classificationIDs = new Dictionary<string, string>();
             DataTable tempDataMatchResult = new DataTable();
+
             using (var workbook = new XLWorkbook(file))
             {
                 // Worksheet with the sheet name
@@ -515,17 +701,22 @@ namespace IEF_Home.cls
 
                 for (int col = 1; col <= countCols; col++)
                 {
-                    var headerValue = (headerRow.Cells[1, col] as Range)?.Value2;
+                    var headerValue = HttpUtility.HtmlEncode((headerRow.Cells[1, col] as Range)?.Value2);
                     if (headerValue != null && headerValue != "value" && headerValue != "comment" && headerValue != "stats_array string")
                     {
                         column1Values.Clear();
                         for (int row = 2; row < countRows+1; row++)
                         {
                             
-                            column1Values.Add(cellValues[row, col]?.ToString());
+                            column1Values.Add(HttpUtility.HtmlEncode(cellValues[row, col]?.ToString()));
                         }
                         tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + aspectNames.FirstOrDefault(x => x.Key == headerValue).Value + "_oto",
-                            classificationIDs.FirstOrDefault(x => x.Key == headerValue).Value, classificationIDs.Keys.ToList(), column1Values, headerValue, dataSheetMatch,
+                            classificationIDs.FirstOrDefault(x => x.Key == headerValue).Value, 
+                            classificationIDs.Keys.ToList(), 
+                            column1Values, 
+                            headerValue, 
+                            1,
+                            dataSheetMatch,
                             dataMatch, Ok, Warning, Error);
                     }
                 }
