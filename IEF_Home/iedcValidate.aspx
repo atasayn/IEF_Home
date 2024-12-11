@@ -252,8 +252,18 @@
         </div>
         <div id="section2">
             <p><b>Section 2:</b> Proper formatting of the numerical data</p>
+            <div class="row" style="margin-top: 10px;">
+                <asp:GridView ID="unitMoniDenomi" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
+                    <columns>
+                        <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
+                        <asp:BoundField DataField="Unit name" HeaderText="Unit name" HtmlEncode="False" />
+                        <asp:BoundField DataField="Given Value/Text" HeaderText="Given Value/Text" HtmlEncode="False" />
+                        <asp:BoundField DataField="Remarks" HeaderText="Remarks" HtmlEncode="False" />
+                    </columns>
+                </asp:GridView>
+            </div>
             <div class="row">
-                <div class="column" style="max-width: fit-content;margin-left: auto;margin-right: auto;">
+                <div class="column" style="max-width: fit-content;margin-left: auto;margin-right: auto;margin-top:10px ">
                     <asp:GridView ID="aspectMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
                     <columns>
                         <asp:BoundField DataField="Aspect (D23-D46)" HeaderText="Aspect (D23-D46)" HtmlEncode="False" />
