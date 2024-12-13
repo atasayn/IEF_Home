@@ -2065,19 +2065,20 @@ namespace IEF_Home
             dataMatch.Columns.Add("Unit name", typeof(string));
             dataMatch.Columns.Add("Given Value/Text", typeof(string));
             dataMatch.Columns.Add("Remarks", typeof(string));
+
             if (cn.OpenConnection() == true)
             {
                 var closestMatchQuery =
                     $"SELECT id,unitcode,alt_unitcode,alt_unitcode2 " +
                     $"FROM iedc.units " +
-                    $"WHERE unitcode IN ({dataCell}) " +
-                    $"OR alt_unitcode IN ({dataCell}) " +
-                    $"OR alt_unitcode2 IN ({dataCell})";
+                    $"WHERE unitcode = @dataCell " +
+                    $"OR alt_unitcode = @dataCell " +
+                    $"OR alt_unitcode2 = @dataCell ";
 
 
                 using (var cmdMatch = new MySqlCommand(closestMatchQuery, cn.Connection))
                 {
-
+                    cmdMatch.Parameters.AddWithValue("@dataCell", dataCell);
                     using (var reader = cmdMatch.ExecuteReader())
                     {
 

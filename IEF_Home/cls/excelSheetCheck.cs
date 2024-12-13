@@ -516,8 +516,8 @@ namespace IEF_Home.cls
                             var rowNo = HttpUtility.HtmlEncode(worksheet.Cell("I" + 10).Value);
                             var colNo = HttpUtility.HtmlEncode(worksheet.Cell("K" + 10).Value);
                             // Encode if needed for HTML contexts
-                            var rowCountTable = worksheetData.LastRowUsed().RowNumber() - colAspectNamesandIDs.Keys.Count;
-                            var colCountTable = worksheetData.LastColumnUsed().ColumnNumber() - rowAspectNamesandIDs.Keys.Count;
+                            var rowCountTable = worksheetData.LastRowUsed().RowNumber() - rowAspectNamesandIDs.Keys.Count;
+                            var colCountTable = worksheetData.LastColumnUsed().ColumnNumber() - colAspectNamesandIDs.Keys.Count;
 
                             // Bind Number of Rows Table
                             if (rowNo == rowCountTable.ToString() && colNo == colCountTable.ToString())
@@ -605,9 +605,23 @@ namespace IEF_Home.cls
                 }
 
                 //// Get Row Aspects
-                Range range = ws.Cells[1, rowAspects.Count + 1];
+                Range range = ws.Cells[1, columnAspects.Count + 1];
                 Range targetRange = range.Resize[rowAspects.Count, colNo];
                 object[,] cellValues2 = (object[,])targetRange.Value2;
+                // Initialize a new array to include cell addresses along with values
+                int rowCount = targetRange.Rows.Count;
+                int colCount = targetRange.Columns.Count;
+                string[,] cellValuesWithAddresses = new string[rowCount, colCount];
+                for (int i = 1; i <= rowCount; i++)
+                {
+                    for (int j = 1; j <= colCount; j++)
+                    {
+                        // Combine cell value and address
+                        string cellAddress = targetRange.Cells[i, j].Address[false, false];
+                        object cellValue = cellValues2[i, j];
+                        cellValuesWithAddresses[i - 1, j - 1] = $"{cellAddress}";
+                    }
+                }
                 for (int row = 1; row <= rowAspects.Count; row++)
                 {
                     cellDataList.Clear();
