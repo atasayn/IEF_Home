@@ -171,7 +171,7 @@
                 On these pages, we blog about our research and the projects we are involved in, host a database with our research results, share model information and teaching material, and provide visualisation tools.
                 <br>
                 <br>
-                You can find out more about our group, our research approach, and our teaching on our <a href="http://www.indecol.uni-freiburg.de/en" target="_blank">official homepage</a>
+                <b> You can find out more about our group, our research approach, and our teaching on our <a href="http://www.indecol.uni-freiburg.de/en" target="_blank">official homepage</a></b>
             </p>
         </div>
 
