@@ -17,7 +17,7 @@
                 <br>
                 <img src="/Content/IEooc_Logo_V2.png" width="250">
                 <h2>Industrial Ecology Open Online Course </h2>
-                <h4>Online since 2018 - Last update: July 2024</h4>
+                <h4>Online since 2018 - Last update: January 2025</h4>
                 <br>
                 <br>
             </center>
@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: October 6th, 2024.</h4>
+                <h4>Last update: January 21st, 2025.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -410,6 +410,11 @@ difficulty: (+)</b><br>
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
+                        <b>Short reading</b> on the research on socio-economic metabolism (SEM), the main methods used, and recent advances of the field. <b>Prerequisites:</b> Basic unterstanding of industial ecology principles. <b>Level of difficulty: (+)</b>
+                        <br>
+                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2024/10/30/socio-economic-metabolism-an-overview/" target="new">IEooc_Methods2_Reading0</a>
+                        <br>
+                        <br>
                         <b>Video lecture</b> on MFA system models and their analytical and numerical solution. <b>Prerequisites:</b> Matrix algebra and its implementation in Excel. <b>Level of difficulty: (++)</b>
                         <br>
                         <a href="https://youtu.be/562-lBuoF1Q" target="new">IEooc_Methods2_Lecture1</a>
@@ -1317,6 +1322,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 		<b>Martin Hillenbrand, </b> University of Bayreuth, Germany, helped debug and update the dynamic MFA-related exercises and workbooks. <br>
 		<b>Julius Noah Jandl, </b>for spotting and correcting errors in IEooc_Methods3_Software1.<br>
 		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.<br>
+		<b>Simon Schulte and Johan Vélez, </b>for preparing the MRIO-based exercises to calculate income-specific footprint and their uncertainty: IEooc_Methods5_Exercise4a+b.<br>
                 <br>
                 <br>
                 <br>
