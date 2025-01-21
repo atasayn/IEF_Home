@@ -71,7 +71,9 @@
             <br>
             <br>
             Overview [presentation (pdf)] on the RECC model framework:  <a href="/research/Documents/RECC_Model_Overview_July_2023.pdf" target="_blank">RECC_Model_Overview_July_2023.pdf </a>
-      
+            <br>
+            <br>
+            RECC overview page on Zenodo, with list of reports and publications: <a href="https://zenodo.org/records/14194614" target="_blank">https://zenodo.org/records/14194614</a>
             <br>
             <br>
             First RECC results: IRP report link:  <a href="https://www.resourcepanel.org/reports/resource-efficiency-and-climate-change " target="_blank">https://www.resourcepanel.org/reports/resource-efficiency-and-climate-change  </a>

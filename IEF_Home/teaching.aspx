@@ -17,7 +17,7 @@
                 <br>
                 <img src="/Content/IEooc_Logo_V2.png" width="250">
                 <h2>Industrial Ecology Open Online Course </h2>
-                <h4>Online since 2018 - Last update: July 2024</h4>
+                <h4>Online since 2018 - Last update: January 2025</h4>
                 <br>
                 <br>
             </center>
@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: October 6th, 2024.</h4>
+                <h4>Last update: January 21st, 2025.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -410,6 +410,11 @@ difficulty: (+)</b><br>
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
+                        <b>Short reading</b> on the research on socio-economic metabolism (SEM), the main methods used, and recent advances of the field. <b>Prerequisites:</b> Basic unterstanding of industial ecology principles. <b>Level of difficulty: (+)</b>
+                        <br>
+                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2024/10/30/socio-economic-metabolism-an-overview/" target="new">IEooc_Methods2_Reading0</a>
+                        <br>
+                        <br>
                         <b>Video lecture</b> on MFA system models and their analytical and numerical solution. <b>Prerequisites:</b> Matrix algebra and its implementation in Excel. <b>Level of difficulty: (++)</b>
                         <br>
                         <a href="https://youtu.be/562-lBuoF1Q" target="new">IEooc_Methods2_Lecture1</a>
@@ -835,6 +840,25 @@ and several impact assessment methods. The use of parameters, choice of electric
 			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA_SampleSolution.xlsx" target="new">IEooc_Application1_Exercise2a, Sample solution (xlsx)</a>
                         <br>
 			<br>
+                        <b>Exercise: "Calculating income specific footprints for Germany"</b> Learn how to use pymrio with a new final demand matrix to calculate footprints for that final demand. Learn how to analyze and plot the results.<b> Prerequisites:</b> Basic knowledge of Input-Output Analysis (completed part Methodology 5: Input-output analysis of the IEooc). Basic knowledge on Python, and the Python MRIO package pmrio, in particular. <b>Level of difficulty: (++ to +++)</b><br>
+                        <a href="/Content/IEooc_Methods5_Exercise4a_income_specific_footprints_germany.pdf" target="new">IEooc_Methods5_Exercise4a_income_specific_footprints_germany (pdf)</a><br>
+			<a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
+			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg (data file, xlsx)</a><br>
+                        For this exercise a sample solution is available:<br>
+			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Intermediate level sample solution");</script><br>
+			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_SOLUTION.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Basic level sample solution");</script><br>
+                        <br>
+                        <br>	
+			<b>Exercise: "Uncertainty Analysis of the income-specific footprints"</b> Learn how to use Monte-Carlo simulations to estimate the uncertainty of income specific footprints for Germany. Learn how to visualize uncertainties. .<b> Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. Completed “IEooc_Methods5_Exercise4a: Calculating income specific footprints for Germany” Basic knowledge on error propagation and sensitivity analysis. <b>Level of difficulty: (+++)</b><br>
+                        <a href="/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis.pdf" target="new">IEooc_Methods5_Exercise4b_uncertainty_analysis (pdf)</a><br>
+			<a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
+			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg (data file, xlsx)</a><br>
+			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_std.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_std (data file, xlsx)</a><br>
+			For this exercise a sample solution is available:<br>
+			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis_TODO.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Intermediate level sample solution");</script><br>
+			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis_SOLUTION.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Basic level sample solution");</script><br>
+                        <br>
+                        <br>	
                         <br>
                     </td>
                 </tr>
@@ -1317,6 +1341,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 		<b>Martin Hillenbrand, </b> University of Bayreuth, Germany, helped debug and update the dynamic MFA-related exercises and workbooks. <br>
 		<b>Julius Noah Jandl, </b>for spotting and correcting errors in IEooc_Methods3_Software1.<br>
 		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.<br>
+		<b>Simon Schulte and Johan Vélez, </b>for preparing the MRIO-based exercises to calculate income-specific footprint and their uncertainty: IEooc_Methods5_Exercise4a+b.<br>
                 <br>
                 <br>
                 <br>
