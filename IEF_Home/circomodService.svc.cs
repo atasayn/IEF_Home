@@ -1364,14 +1364,14 @@ namespace IEF_Home
                     if (!cn.OpenConnection()) return;
 
                     var cmd = new MySqlCommand(query, cn.Connection);
-                    cmd.Parameters.AddWithValue("@D5", D5);
-                    cmd.Parameters.AddWithValue("@D6", D6);
-                    cmd.Parameters.AddWithValue("@D8", D8);
-                    cmd.Parameters.AddWithValue("@D9", D9);
-                    cmd.Parameters.AddWithValue("@D10", D10);
-                    cmd.Parameters.AddWithValue("@D23", D23);
-                    cmd.Parameters.AddWithValue("@D53", D53);
-                    cmd.Parameters.AddWithValue("@D54", D54);
+                    cmd.Parameters.AddWithValue("@D5", HttpUtility.HtmlDecode(D5));
+                    cmd.Parameters.AddWithValue("@D6", HttpUtility.HtmlDecode(D6));
+                    cmd.Parameters.AddWithValue("@D8", HttpUtility.HtmlDecode(D8));
+                    cmd.Parameters.AddWithValue("@D9", HttpUtility.HtmlDecode(D9));
+                    cmd.Parameters.AddWithValue("@D10", HttpUtility.HtmlDecode(D10));
+                    cmd.Parameters.AddWithValue("@D23", HttpUtility.HtmlDecode(D23));
+                    cmd.Parameters.AddWithValue("@D53", HttpUtility.HtmlDecode(D53));
+                    cmd.Parameters.AddWithValue("@D54", HttpUtility.HtmlDecode(D54));
                     cmd.Parameters.AddWithValue("@aspectList", aspectList);
 
                     var reader = cmd.ExecuteReader();
@@ -1786,21 +1786,23 @@ namespace IEF_Home
             BulletedList Ok, BulletedList Warning, BulletedList Error)
         {
 
-        
+            var decodedParams = "\"" + string.Join("\", \"", dataCell.Select(value => HttpUtility.HtmlDecode(value))) + "\"";
             var nonExistingMatch = dataCell;
             var nonMatchingFromList1 = new List<string>();
             var nonMatchingUnitNom = new List<string>();
             var att = new List<string>();
             var nominoList = new List<string>();
             string inClause = String.Empty;
+
             if (dataCell.Count > 1)
             {
-                inClause = "'" + string.Join("', '", dataCell) + "'";
+                inClause = decodedParams;
             }
             else
             {
-                inClause = dataCell[0];
+                inClause = HttpUtility.HtmlDecode(dataCell[0]);
             }
+
 
             if (cn.OpenConnection() == true)
             {
@@ -1819,7 +1821,7 @@ namespace IEF_Home
                         {
                             while (reader.Read())
                             {
-                                att.Add(reader[thisattribute].ToString());
+                                att.Add(HttpUtility.HtmlEncode(reader[thisattribute].ToString()));
 
                             }
 
@@ -2078,7 +2080,7 @@ namespace IEF_Home
 
                 using (var cmdMatch = new MySqlCommand(closestMatchQuery, cn.Connection))
                 {
-                    cmdMatch.Parameters.AddWithValue("@dataCell", dataCell);
+                    cmdMatch.Parameters.AddWithValue("@dataCell", HttpUtility.HtmlDecode(dataCell));
                     using (var reader = cmdMatch.ExecuteReader())
                     {
 

@@ -80,6 +80,7 @@ namespace IEF_Home.cls
                 var cellD23Value = HttpUtility.HtmlEncode(worksheet.Cell("D23").Value.ToString());
                 var cellD53Value = HttpUtility.HtmlEncode(worksheet.Cell("D53").Value.ToString());
                 var cellD54Value = HttpUtility.HtmlEncode(worksheet.Cell("D54").Value.ToString());
+               
 
                 var cellC5Value = HttpUtility.HtmlEncode(worksheet.Cell("C5").Value.ToString());
                 var cellC6Value = HttpUtility.HtmlEncode(worksheet.Cell("C6").Value.ToString());
@@ -573,7 +574,6 @@ namespace IEF_Home.cls
 
             using (var workbook = new XLWorkbook(file))
             {
-                var worksheet = workbook.Worksheet("Data");
                 // Worksheet with the sheet name
                 var excelApp = new Application();
                 Microsoft.Office.Interop.Excel.Workbook wb = excelApp.Workbooks.Open(file);
@@ -618,7 +618,6 @@ namespace IEF_Home.cls
                     {
                         // Combine cell value and address
                         string cellAddress = targetRange.Cells[i, j].Address[false, false];
-                        object cellValue = cellValues2[i, j];
                         cellValuesWithAddresses[i - 1, j - 1] = $"{cellAddress}";
                     }
                 }
