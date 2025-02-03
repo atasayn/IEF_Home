@@ -101,7 +101,7 @@ namespace IEF_Home
             }
             
         }
-        static void ConvertExcelToPdf(string excelPath, string pdfPath)
+        public void ConvertExcelToPdf(string excelPath, string pdfPath, string pdfName)
         {
             using (var package = new ExcelPackage(new FileInfo(excelPath)))
             {
@@ -225,6 +225,14 @@ namespace IEF_Home
                     pdfDocument.Add(table);
                     pdfDocument.Close();
                     stream.Close();
+                    // Serve the file for download
+                    // Save the document
+                    string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    // Serve the file for download
+                    Response.ContentType = "application/pdf";
+                    Response.AppendHeader("Content-Disposition", "attachment; filename=" + pdfName);
+                    Response.TransmitFile(pdfPath);
+                    Response.End();
 
                 }
             }
@@ -287,11 +295,10 @@ namespace IEF_Home
                 {
                     System.IO.Directory.CreateDirectory(directoryPath);
                 }
-                string filename =  $"iedcValidatorReport_{dateTime}.pdf";
+                string filename = System.IO.Path.Combine(directoryPath, $"iedcValidatorReport_{dateTime}.pdf");
                 // Ensure the directory exists
-                ConvertExcelToPdf(ViewState["FilePath"].ToString(), filename);
-                // Serve the file for download
-                DownloadFile(ViewState["FilePath"].ToString(), filename);
+                ConvertExcelToPdf(ViewState["FilePath"].ToString(), filename, $"iedcValidatorReport_{dateTime}.pdf");
+
                
             }
             catch (Exception exception)
@@ -301,18 +308,6 @@ namespace IEF_Home
             }
 
 
-        }
-        private void DownloadFile(string filePath, string fileName)
-        {
-            FileInfo file = new FileInfo(filePath);
-            if (file.Exists)
-            {
-                Response.Clear();
-                Response.ContentType = "application/pdf";
-                Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
-                Response.WriteFile(file.FullName);
-                Response.End();
-            }
         }
 
         public static void ErrorCounter(int errCount, int warningCount, int oKCount, BulletedList Ok, BulletedList Warning, BulletedList Error)
