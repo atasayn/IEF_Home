@@ -14,6 +14,7 @@ using DataTable = System.Data.DataTable;
 using OfficeOpenXml.FormulaParsing.Ranges;
 using System.Web.UI.HtmlControls;
 using DocumentFormat.OpenXml.Vml.Office;
+using System.Text;
 
 
 
@@ -583,7 +584,20 @@ namespace IEF_Home.cls
                 Range rangeRow = ws.Cells[rowAspects.Count + 1, 1];
                 Range targetRangeCol = rangeRow.Resize[rowNo, columnAspects.Count];
                 object[,] cellValues = (object[,])targetRangeCol.Value2;
+                int rowCountCol = targetRangeCol.Rows.Count;
+                int colCountCol = targetRangeCol.Columns.Count;
+                var resultDictionary = new Dictionary<string, string>();
+                for (int i = 1; i <= rowCountCol; i++)
+                {
+                    for (int j = 1; j <= colCountCol; j++)
+                    {
+                        // Combine cell value and address
+                        string cellAddress = targetRangeCol.Cells[i, j].Address[false, false];
+                        string cellValue = targetRangeCol.Cells[i, j].Value; // Assuming you want to store the cell's value as well.
+                        resultDictionary.Add(cellAddress, cellValue);
 
+                    }
+                }
                 for (int col = 1; col <= columnAspects.Count; col++)
                 {
                     cellDataList.Clear();
@@ -593,13 +607,15 @@ namespace IEF_Home.cls
                         cellDataList.Add(HttpUtility.HtmlEncode(cellValues[row, col]?.ToString()));
                         
                     }
-                    
-                    tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + colAspectNamesandIDs.FirstOrDefault(x => x.Key == columnAspects[col-1]).Value + "_oto",
-                        classIDList.FirstOrDefault(x => x.Key == columnAspects[col-1]).Value, 
-                        colAspectNamesandIDs.Keys.ToList(), 
-                        cellDataList, 
-                        columnAspects[col-1],
-                        columnAspects.Count() + 1, 
+
+                    tempDataMatchResult = serviceInstance.selectAttrClosestMatch(
+                        "attribute" + colAspectNamesandIDs.FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value +
+                        "_oto",
+                        classIDList.FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value,
+                        colAspectNamesandIDs.Keys.ToList(),
+                        cellDataList,
+                        columnAspects[col - 1],
+                        resultDictionary,
                         dataSheetMatch,
                         dataMatch, Ok, Warning, Error);
                 }
@@ -611,14 +627,18 @@ namespace IEF_Home.cls
                 // Initialize a new array to include cell addresses along with values
                 int rowCount = targetRange.Rows.Count;
                 int colCount = targetRange.Columns.Count;
-                string[,] cellValuesWithAddresses = new string[rowCount, colCount];
+                var cellValuesWithAddresses = new Dictionary<string,string>();
+                
                 for (int i = 1; i <= rowCount; i++)
                 {
                     for (int j = 1; j <= colCount; j++)
                     {
                         // Combine cell value and address
                         string cellAddress = targetRange.Cells[i, j].Address[false, false];
-                        cellValuesWithAddresses[i - 1, j - 1] = $"{cellAddress}";
+                        object cellValueObj = targetRange.Cells[i, j].Value; // Assuming you want to store the cell's value as well.
+                        string cellValue = cellValueObj != null ? cellValueObj.ToString() : string.Empty;
+                        cellValuesWithAddresses.Add(cellAddress, cellValue) ;
+
                     }
                 }
                 for (int row = 1; row <= rowAspects.Count; row++)
@@ -634,7 +654,7 @@ namespace IEF_Home.cls
                         rowAspectNamesandIDs.Keys.ToList(),
                         cellDataList,
                         rowAspects[row - 1],
-                        rowAspects.Count() + 1,
+                        cellValuesWithAddresses,
                         dataSheetMatch,
                         dataMatch, Ok, Warning, Error);
 
@@ -708,10 +728,23 @@ namespace IEF_Home.cls
                 Range range = ws.Cells[NumRow, NumCol];
                 Range targetRange = range.Resize[countRows, countCols];
                 object[,] cellValues = (object[,])targetRange.Value2;
+
                 // Find the "commodity" column index
                 Range headerRow = targetRange.Rows[1]; // First row for headers
                 List<string> column1Values = new List<string>();
+                var cellValuesWithAddresses = new Dictionary<string, string>();
 
+                for (int i = 1; i <= countRows; i++)
+                {
+                    for (int j = 1; j <= countCols; j++)
+                    {
+                        // Combine cell value and address
+                        object cellValueObj = targetRange.Cells[i, j].Value; // Assuming you want to store the cell's value as well.
+                        string cellValue = cellValueObj != null ? cellValueObj.ToString() : string.Empty;
+                        cellValuesWithAddresses.Add(GetCellAddress(i,j), cellValue);
+
+                    }
+                }
                 for (int col = 1; col <= countCols; col++)
                 {
                     var headerValue = HttpUtility.HtmlEncode((headerRow.Cells[1, col] as Range)?.Value2);
@@ -722,13 +755,14 @@ namespace IEF_Home.cls
                         {
                             
                             column1Values.Add(HttpUtility.HtmlEncode(cellValues[row, col]?.ToString()));
+                         
                         }
                         tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + aspectNames.FirstOrDefault(x => x.Key == headerValue).Value + "_oto",
                             classificationIDs.FirstOrDefault(x => x.Key == headerValue).Value, 
                             classificationIDs.Keys.ToList(), 
                             column1Values, 
-                            headerValue, 
-                            1,
+                            headerValue,
+                            cellValuesWithAddresses,
                             dataSheetMatch,
                             dataMatch, Ok, Warning, Error);
                     }
@@ -743,6 +777,18 @@ namespace IEF_Home.cls
 ;
         }
 
+        static string GetCellAddress(int row, int col)
+        {
+            StringBuilder sb = new StringBuilder();
 
+            do
+            {
+                col--;
+                sb.Insert(0, (char)('A' + (col % 26)));
+                col /= 26;
+            } while (col > 0);
+            sb.Append(row);
+            return sb.ToString();
+        }
     }
 }
