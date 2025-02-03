@@ -292,7 +292,7 @@ namespace IEF_Home
                 // Save the document
                 string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
                 // Combine directory path and filename
-                string directoryPath = @"C:\Users\na1041\Desktop\Nildem_Start_Package\home\IEF_Home\imagesToPDF";
+                string directoryPath = @"C:\Windows\Temp";
                 if (!System.IO.Directory.Exists(directoryPath))
                 {
                     System.IO.Directory.CreateDirectory(directoryPath);
