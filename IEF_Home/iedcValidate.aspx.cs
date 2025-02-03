@@ -229,6 +229,8 @@ namespace IEF_Home
                     // Save the document
                     string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
                     // Serve the file for download
+                    Response.Clear();
+                    Response.Buffer = true;
                     Response.ContentType = "application/pdf";
                     Response.AppendHeader("Content-Disposition", "attachment; filename=" + pdfName);
                     Response.TransmitFile(pdfPath);
