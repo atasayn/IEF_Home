@@ -280,13 +280,19 @@ namespace IEF_Home
            
             
 
-                // Save the document
-                string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                // Combine directory path and filename
-                string directoryPath = @"C:\Users\na1041\Desktop\Nildem_Start_Package\home\IEF_Home\imagesToPDF";
-                string filename = System.IO.Path.Combine(directoryPath, $"iedcValidatorReport_{dateTime}.pdf");
-                Console.WriteLine($"PDF file '{filename}' created successfully!");
-                ConvertExcelToPdf(ViewState["FilePath"].ToString(), filename);
+            // Save the document
+            string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            // Combine directory path and filename
+            string directoryPath = @"C:\Users\na1041\Desktop\Nildem_Start_Package\home\IEF_Home\imagesToPDF";
+            if (!System.IO.Directory.Exists(directoryPath))
+            {
+                System.IO.Directory.CreateDirectory(directoryPath);
+            }
+            string filename = System.IO.Path.Combine(directoryPath, $"iedcValidatorReport_{dateTime}.pdf");
+
+            Console.WriteLine($"PDF file '{filename}' created successfully!");
+            // Ensure the directory exists
+            ConvertExcelToPdf(ViewState["FilePath"].ToString(), filename);
             
 
             try
