@@ -29,17 +29,8 @@ function done() {
     var popDens = document.getElementById("populationDensity").innerHTML;
     var warning = document.getElementById("proxyWarning").innerHTML;
     // LINE GRAPHS FROM dropDownMenu
-    //var popLine = graphs.populationLine;
-    //var scenerioLine = graphs.scenarioLine;
-    //var imgPopChart = popLine.toBase64Image();
-    //var imgScenerioChart = scenerioLine.toBase64Image();
-    //var imgAreaChart = areaGraph.toBase64Image();
-    //var imgWaterfallChart = chartImageURL.waterfall;
-    //var imgBarChart = barGraph.toBase64Image();
     var popLine = document.getElementById("Graph1Line");
     var scenerioLine = document.getElementById("GraphPopulationLine");
-    //var imgPopChart = popLine.toBase64Image();
-    //var imgScenerioChart = scenerioLine.toBase64Image();
     var imgAreaChart = areaGraph.toBase64Image("image/png", 1);
     var imgWaterfallChart = chartImageURL.waterfall;
     var imgBarChart = barGraph.toBase64Image();

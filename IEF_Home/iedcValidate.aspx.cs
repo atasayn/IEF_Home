@@ -277,279 +277,22 @@ namespace IEF_Home
         }
         protected void Report(object sender, EventArgs e)
         {
-           
-            
-
-            // Save the document
-            string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            // Combine directory path and filename
-            string directoryPath = @"C:\Users\na1041\Desktop\Nildem_Start_Package\home\IEF_Home\imagesToPDF";
-            if (!System.IO.Directory.Exists(directoryPath))
-            {
-                System.IO.Directory.CreateDirectory(directoryPath);
-            }
-            string filename = System.IO.Path.Combine(directoryPath, $"iedcValidatorReport_{dateTime}.pdf");
-
-            Console.WriteLine($"PDF file '{filename}' created successfully!");
-            // Ensure the directory exists
-            ConvertExcelToPdf(ViewState["FilePath"].ToString(), filename);
-            
-
             try
             {
-
-
-                //if (lblMessage.Text == "File uploaded successfully.")
-                //{
-
-                //    // Create a new PDF document
-                //    PdfDocument document = new PdfDocument();
-                //    document.Info.Title = "Iedc Validator Report";
-
-                //    // Create an empty page
-                //    PdfPage page = document.AddPage();
-
-                //    // Get an XGraphics object for drawing
-                //    XGraphics gfx = XGraphics.FromPdfPage(page);
-
-                //    // Create a font
-                //    XFont font = new XFont("Verdana", 10, XFontStyle.Bold);
-
-
-                //    // Define the relative path to the image
-                //    string relativeImagePath = "resources/iedcValidatorReportHeader.png";
-                //    string imagePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativeImagePath);
-                //    // Load the image
-                //    XImage headerImage = XImage.FromFile(imagePath);
-
-                //    // Draw the image at the top of the page
-                //    // Calculate image dimensions to match page width
-                //    double pageWidth = page.Width;
-                //    double imageWidth = pageWidth; // Set the image width to the page width
-                //    double imageHeight =
-                //        headerImage.PixelHeight * imageWidth / headerImage.PixelWidth; // Maintain aspect ratio
-                //    gfx.DrawImage(headerImage, 0, 0, imageWidth, imageHeight); // Adjust coordinates as needed
-
-
-
-                //    // Draw the text
-                //    XFont contentFont = new XFont("Verdana", 12, XFontStyle.Regular);
-                //    string text = validatingDateAndTime.Text;
-
-                //    // Remove <h4> and </h4> tags
-                //    text = text.Replace("<h4>", "").Replace("</h4>", "");
-                //    // Padding is 5px for the text. So -10 for fitting in the page
-                //    double maxWidth = page.Width - 10;
-
-
-                //    // Measure the width of the text
-                //    XSize textSize = gfx.MeasureString(text, contentFont);
-
-                //    // Scale the font size down if the text is too wide
-                //    if (textSize.Width > maxWidth)
-                //    {
-                //        double scaleFactor = maxWidth / textSize.Width;
-                //        contentFont = new XFont(contentFont.FontFamily.Name, contentFont.Size * scaleFactor);
-                //    }
-
-                //    var textYpos = imageHeight + 10;
-                //    gfx.DrawString(text, contentFont, XBrushes.Black,
-                //        new XRect(5, textYpos, page.Width, 0),
-                //        XStringFormats.TopCenter);
-
-
-                //    // Table settings
-                //    int columns = 3;
-                //    int rows = 71;
-                //    double margin = 40; // Margin from left
-                //    double startY = 50; // Starting Y position
-                //    double cellWidth = 180; // Column width
-                //    double cellHeight = 20; // Row height
-
-                //    // Draw table borders
-                //    for (int row = 0; row <= rows; row++)
-                //    {
-                //        double y = startY + row * cellHeight;
-                //        gfx.DrawLine(XPens.Black, margin, y, margin + columns * cellWidth, y); // Horizontal lines
-                //    }
-
-                //    for (int col = 0; col <= columns; col++)
-                //    {
-                //        double x = margin + col * cellWidth;
-                //        gfx.DrawLine(XPens.Black, x, startY, x, startY + rows * cellHeight); // Vertical lines
-                //    }
-
-                //    // Fill the table with text
-                //    for (int row = 0; row < rows; row++)
-                //    {
-                //        for (int col = 0; col < columns; col++)
-                //        {
-                //            double x = margin + col * cellWidth + 5;
-                //            double y = startY + row * cellHeight + 5;
-                //            gfx.DrawString($"Row {row + 1}, Col {col + 1}", font, XBrushes.Black, new XPoint(x, y));
-                //        }
-                //    }
-
-                //    // Save the document
-                //    string filename = "TableWithoutMigraDoc.pdf";
-                //    document.Save(filename);
-                //    Console.WriteLine($"PDF saved: {filename}");
-                //    //    // Draw table header
-                //    //    GridViewRow headerRow = compareTable.HeaderRow;
-                //    //    // Create a list to store the maximum width for each column
-                //    //    var maxColumnCell1Col = new List<double>();
-                //    //    var maxColumnCell2Col = new List<double>();
-                //    //    var maxColumnCell3Col = new List<double>();
-
-                //    //    // Iterate through all rows in the GridView
-                //    //    foreach (GridViewRow row in compareTable.Rows)
-                //    //    {
-                //    //        // Iterate through all columns (cells) in the current row
-                //    //        for (int i = 0; i < row.Cells.Count; i++)
-                //    //        {
-                //    //            TableCell cell = row.Cells[i];
-                //    //            // Measure the width of the text in the current cell
-                //    //            XSize textSizeColumnMax = gfx.MeasureString(cell.Text, contentFont);
-
-                //    //            // Update the maximum width for the column if this text is wider
-                //    //            if (i == 0 || i == 3 || i == 6)
-                //    //            {
-                //    //                maxColumnCell1Col.Add(textSizeColumnMax.Width);
-                //    //            }
-                //    //            else if (i == 1 || i == 4 || i == 7)
-                //    //            {
-                //    //                maxColumnCell2Col.Add(textSizeColumnMax.Width);
-                //    //            }
-                //    //            else if (i == 2 || i == 5 || i == 8)
-                //    //            {
-                //    //                maxColumnCell3Col.Add(textSizeColumnMax.Width);
-                //    //            }
-
-                //    //        }
-                //    //    }
-
-                //    //    // Determine the total width of the columns before scaling
-                //    //    double totalColumnWidth = 0;
-                //    //    for (int i = 0; i < headerRow.Cells.Count; i++)
-                //    //    {
-                //    //        double cellwidth = 0;
-                //    //        if (i == 0)
-                //    //        {
-                //    //            cellwidth = maxColumnCell1Col.Max() + 5; // adding padding
-                //    //        }
-                //    //        else if (i == 1)
-                //    //        {
-                //    //            cellwidth = maxColumnCell2Col.Max() + 5; // adding padding
-                //    //        }
-                //    //        else if (i == 2)
-                //    //        {
-                //    //            cellwidth = maxColumnCell3Col.Max() + 5; // adding padding
-                //    //        }
-                //    //        totalColumnWidth += cellwidth;
-                //    //    }
-
-                //    //    // Get page dimensions
-                //    //    double pageWidthSc = gfx.PageSize.Width;
-                //    //    double pageHeight = gfx.PageSize.Height;
-
-                //    //    // Calculate the scaling factor based on page width
-                //    //    double scalingFactor = (pageWidthSc - 20) / totalColumnWidth; // subtracting some padding
-
-                //    //    // Apply scaling factor to cell widths and font size
-                //    //    double xStart = 5; // Starting X position with padding
-                //    //    double rowHeight = 20 * scalingFactor; // Scale row height as well
-                //    //    double yStart = textYpos + 40;
-
-
-                //    //    for (int i = 0; i < headerRow.Cells.Count; i++)
-                //    //    {
-                //    //        double cellwidth = 0;
-                //    //        if (i == 0)
-                //    //        {
-                //    //            cellwidth = (maxColumnCell1Col.Max() + 5) * scalingFactor; // scaling width
-                //    //        }
-                //    //        else if (i == 1)
-                //    //        {
-                //    //            cellwidth = (maxColumnCell2Col.Max() + 5) * scalingFactor; // scaling width
-                //    //        }
-                //    //        else if (i == 2)
-                //    //        {
-                //    //            cellwidth = (maxColumnCell3Col.Max() + 5) * scalingFactor; // scaling width
-                //    //        }
-
-                //    //        gfx.DrawRectangle(XPens.Black, XBrushes.LightGray, xStart, yStart, cellwidth, rowHeight);
-
-                //    //        // Measure the text size after scaling font size
-                //    //        XSize textsizecell = gfx.MeasureString(headerRow.Cells[i].Text, contentFont);
-
-                //    //        // Center the text vertically and horizontally within the rectangle
-                //    //        double textx = xStart + (cellwidth - textsizecell.Width) / 2;  // center horizontally
-                //    //        double texty = yStart + (rowHeight - textsizecell.Height) / 2; // center vertically
-
-                //    //        // Draw the text inside the rectangle
-                //    //        gfx.DrawString(headerRow.Cells[i].Text, contentFont, XBrushes.Black,
-                //    //            new XRect(textx, texty, cellwidth, textsizecell.Height), XStringFormats.TopLeft);
-
-                //    //        // Move the xStart to the position for the next cell
-                //    //        xStart += cellwidth;
-                //    //    }
-
-
-                //    //    // Loop through each row in the GridView
-                //    //    foreach (GridViewRow row in compareTable.Rows)
-                //    //    {
-
-                //    //        for (int i = 0; i < row.Cells.Count; i++)
-                //    //        {
-                //    //            var cellwidth = new double(); ;
-                //    //            if (i == 0)
-                //    //            {
-                //    //                // define the rectangle for the current cell
-                //    //                cellwidth = (maxColumnCell1Col.Max() + 5) * scalingFactor;  // adding some padding if needed
-                //    //            }
-                //    //            else if (i == 1)
-                //    //            {
-                //    //                cellwidth = (maxColumnCell2Col.Max() + 5) * scalingFactor; // adding some padding if needed
-                //    //            }
-                //    //            else if (i == 2)
-                //    //            {
-                //    //                cellwidth = (maxColumnCell3Col.Max() + 5) * scalingFactor; // adding some padding if needed
-                //    //            }
-                //    //            // measure the width of the text in the current cell
-                //    //            XSize textsizecell = gfx.MeasureString(row.Cells[i].Text, contentFont);
-
-                //    //            gfx.DrawRectangle(XPens.Black, XBrushes.White, xStart, yStart, cellwidth, rowHeight);
-                //    //            // center the text vertically and horizontally within the rectangle
-                //    //            double textx = xStart + (cellwidth - textsizecell.Width) / 2;  // center horizontally
-                //    //            double texty = yStart + (rowHeight - textsizecell.Height) / 2; // center vertically
-                //    //                                                                           // Draw the text inside the rectangle
-                //    //            gfx.DrawString(row.Cells[i].Text, contentFont, XBrushes.Black,
-                //    //                new XRect(textx, texty, cellwidth, textsizecell.Height), XStringFormats.TopLeft);
-                //    //            xStart += cellwidth;
-                //    //        }
-                //    //        yStart += rowHeight;
-                //    //        xStart = 5;  // Reset xStart for the next row
-                //    //    }
-                //    //    // Define the directory path (example: "C:\\Reports")
-                //    //    string directoryPath = @"C:\Users\na1041\Desktop\Nildem_Start_Package\home\IEF_Home\imagesToPDF";
-
-                //    //    // Ensure the directory exists
-                //    //    if (!System.IO.Directory.Exists(directoryPath))
-                //    //    {
-                //    //        System.IO.Directory.CreateDirectory(directoryPath);
-                //    //    }
-
-                //    //    // Save the document
-                //    //    string dateTime = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                //    //    // Combine directory path and filename
-                //    //    string filename = System.IO.Path.Combine(directoryPath, $"iedcValidatorReport_{dateTime}.pdf");
-                //    //    document.Save(filename);
-                //    //    Console.WriteLine($"PDF file '{filename}' created successfully!");
-
-                //    //    // Open the created PDF (optional)
-                //    //    System.Diagnostics.Process.Start(filename);
-                //    //}
-                //}
+                // Save the document
+                string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                // Combine directory path and filename
+                string directoryPath = @"C:\Users\na1041\Desktop\Nildem_Start_Package\home\IEF_Home\imagesToPDF";
+                if (!System.IO.Directory.Exists(directoryPath))
+                {
+                    System.IO.Directory.CreateDirectory(directoryPath);
+                }
+                string filename =  $"iedcValidatorReport_{dateTime}.pdf";
+                // Ensure the directory exists
+                ConvertExcelToPdf(ViewState["FilePath"].ToString(), filename);
+                // Serve the file for download
+                DownloadFile(ViewState["FilePath"].ToString(), filename);
+               
             }
             catch (Exception exception)
             {
@@ -558,6 +301,18 @@ namespace IEF_Home
             }
 
 
+        }
+        private void DownloadFile(string filePath, string fileName)
+        {
+            FileInfo file = new FileInfo(filePath);
+            if (file.Exists)
+            {
+                Response.Clear();
+                Response.ContentType = "application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
+                Response.WriteFile(file.FullName);
+                Response.End();
+            }
         }
 
         public static void ErrorCounter(int errCount, int warningCount, int oKCount, BulletedList Ok, BulletedList Warning, BulletedList Error)
