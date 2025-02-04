@@ -22,7 +22,7 @@ namespace IEF_Home.cls
             float y = document.BottomMargin - 10; // Bottom margin, adjust for spacing
 
             // Set up the font for the date text
-            Font font = new Font(Font.FontFamily.HELVETICA, 8, Font.NORMAL);
+            Font font = new Font(Font.FontFamily.HELVETICA, 6, Font.NORMAL);
 
             // Create a Phrase and place it at the specified position
             Phrase footerText = new Phrase(currentDate, font);
