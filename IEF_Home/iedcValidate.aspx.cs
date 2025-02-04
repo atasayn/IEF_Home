@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static ClosedXML.Excel.XLPredefinedFormat;
@@ -118,8 +119,8 @@ namespace IEF_Home
                 string imagePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativeImagePath);
                 XImage headerImage = XImage.FromFile(imagePath);
                 iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
-
-                // Calculate image dimensions to match page width
+                // Define a font with a custom size (e.g., 16)
+                Font customFont = FontFactory.GetFont(FontFactory.HELVETICA, 8, Font.NORMAL);             
 
 
                 int startRow = 2, endRow = 72;
@@ -147,6 +148,7 @@ namespace IEF_Home
 
                     PdfPTable table = new PdfPTable(4);
                     table.WidthPercentage = 100;
+                
 
                     for (int row = startRow; row <= endRow; row++)
                     {
@@ -154,7 +156,7 @@ namespace IEF_Home
                         if (row == 2)
                         {
                             string mergedText = worksheet.Cells[row, 2].Text; // Take text from A2
-                            PdfPCell mergedCell = new PdfPCell(new Phrase(mergedText))
+                            PdfPCell mergedCell = new PdfPCell(new Phrase(mergedText, customFont))
                             {
                                 Colspan = 4, // Spanning 
                                 HorizontalAlignment = Element.ALIGN_CENTER,
@@ -168,13 +170,13 @@ namespace IEF_Home
                         if (row == 3)
                         {
                             string mergedText = worksheet.Cells[row, 1].Text; // Take text from A2
-                            table.AddCell(new PdfPCell(new Phrase(mergedText)));
+                            table.AddCell(new PdfPCell(new Phrase(mergedText, customFont)));
                             string mergedText2 = worksheet.Cells[row, 2].Text; // Take text from A2
-                            table.AddCell(new PdfPCell(new Phrase(mergedText2)));
+                            table.AddCell(new PdfPCell(new Phrase(mergedText2, customFont)));
                             string mergedText3 = worksheet.Cells[row, 3].Text; // Take text from A2
-                            table.AddCell(new PdfPCell(new Phrase(mergedText3)));
+                            table.AddCell(new PdfPCell(new Phrase(mergedText3, customFont)));
                             string mergedText4 = worksheet.Cells[row, 4].Text; // Take text from A2
-                            table.AddCell(new PdfPCell(new Phrase(mergedText4)));
+                            table.AddCell(new PdfPCell(new Phrase(mergedText4, customFont)));
                         }
                         if (row >= 4)
                         {
@@ -188,7 +190,7 @@ namespace IEF_Home
                             {
                                 string colB = worksheet.Cells[row, 2].Text;
                                 bgColor = GetExcelCellColor(worksheet.Cells[row, 2]); // Get background color
-                                PdfPCell mergedCell = new PdfPCell(new Phrase(colB))
+                                PdfPCell mergedCell = new PdfPCell(new Phrase(colB, customFont))
                                 {
                                     Rowspan = rowspan,
                                     VerticalAlignment = Element.ALIGN_MIDDLE,
@@ -204,7 +206,7 @@ namespace IEF_Home
                             // Column C (Always added)
                             string colC = worksheet.Cells[row, 3].Text;
                             bgColor = GetExcelCellColor(worksheet.Cells[row, 3]); // Get background color
-                            PdfPCell cellC = new PdfPCell(new Phrase(colC))
+                            PdfPCell cellC = new PdfPCell(new Phrase(colC, customFont))
                             {
                                 BackgroundColor = bgColor // Apply background color
                             };
@@ -212,7 +214,7 @@ namespace IEF_Home
 
                             // Column D (Always added)
                             string colD = worksheet.Cells[row, 4].Text;
-                            PdfPCell cellD = new PdfPCell(new Phrase(colD))
+                            PdfPCell cellD = new PdfPCell(new Phrase(colD, customFont))
                             {
                                 BackgroundColor = bgColor // Apply background color
                             };
