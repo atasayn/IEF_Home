@@ -18,9 +18,12 @@ using System.IO;
 using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using static ClosedXML.Excel.XLPredefinedFormat;
 using Font = iTextSharp.text.Font;
-using Paragraph = iTextSharp.text.Paragraph;
+using System.Text.RegularExpressions;
+using System.Web;
+using iTextSharp.text.html.simpleparser;
+using DocumentFormat.OpenXml.Drawing.Charts;
+
 
 
 namespace IEF_Home
@@ -225,6 +228,55 @@ namespace IEF_Home
                     }
 
                     pdfDocument.Add(table);
+                    // Second Table
+                    PdfPTable tableSummary = new PdfPTable(5);
+                    tableSummary.WidthPercentage = 100;
+                    tableSummary.SpacingBefore = 20f; // Adding spacing before the table
+                   
+           
+                    // Add header row
+                    AddCellToTable(tableSummary, "Cell", customFont,true);
+                    AddCellToTable(tableSummary, "Name/label", customFont,true);
+                    AddCellToTable(tableSummary, "Given Value/Text", customFont, true);
+                    AddCellToTable(tableSummary, "Closest Iedc Match", customFont, true);
+                    AddCellToTable(tableSummary, "Validation Report", customFont, true);
+
+                    int index = 1;
+                    // Add rows dynamically
+                    foreach (GridViewRow row in compareTable.Rows)
+                    {
+                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[0].Text, index)); // Cell column
+                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[1].Text, index)); // Name/label column
+                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[2].Text, index)); // Given Value/Text column
+                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[3].Text, index)); // Closest IEDC Match column
+                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[4].Text, index)); // Closest IEDC Match column
+                        index++;
+                    }
+                    pdfDocument.Add(tableSummary);
+
+                    // Second Table
+                    PdfPTable tableSummaryAspects = new PdfPTable(5);
+                    tableSummaryAspects.WidthPercentage = 100;
+                    tableSummaryAspects.SpacingBefore = 20f; // Adding spacing before the table
+                    // Add header row
+                    AddCellToTable(tableSummaryAspects, "Aspect", customFont, true);
+                    AddCellToTable(tableSummaryAspects, "Aspect Remarks", customFont, true);
+                    AddCellToTable(tableSummaryAspects, "Classification", customFont, true);
+                    AddCellToTable(tableSummaryAspects, "Classification Remarks", customFont, true);
+                    AddCellToTable(tableSummaryAspects, "Dimension Remarks", customFont, true);
+
+                    int indexAspects = 1;
+                    // Add rows dynamically
+                    foreach (GridViewRow row in aspectReportTable.Rows)
+                    {
+                        foreach (System.Web.UI.WebControls.TableCell cell in row.Cells)
+                        {
+                            tableSummaryAspects.AddCell(ConvertHtmlToPdfPCell(writer, cell.Text, indexAspects));
+                            indexAspects++;
+                        }
+                    }
+
+                    pdfDocument.Add(tableSummaryAspects);
                     pdfDocument.Close();
                     stream.Close();
                     // Serve the file for download
@@ -287,6 +339,61 @@ namespace IEF_Home
             }
             return null; // No background color
         }
+
+        static void AddCellToTable(PdfPTable table, string text, Font customFont, bool isHeader = false)
+        {
+            PdfPCell cell = new PdfPCell(new Phrase(text, customFont));
+            if (isHeader)
+            {
+                cell.BackgroundColor = BaseColor.LIGHT_GRAY;
+                cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            }
+            else
+            {
+                cell.HorizontalAlignment = Element.ALIGN_LEFT;
+            }
+            table.AddCell(cell);
+        }
+
+        private PdfPCell ConvertHtmlToPdfPCell(PdfWriter writer, string htmlContent, int index)
+        {
+            // Set the custom font size, but we will merge it with existing styles
+            Font baseFont = FontFactory.GetFont(FontFactory.HELVETICA, 8, Font.NORMAL);
+            PdfPCell cell = new PdfPCell(new Phrase("", baseFont));
+            // Apply grey background to every second cell (index is 1-based)
+            if (index % 2 == 0)
+            {
+                cell.BackgroundColor = new BaseColor(221, 221, 221); ; // Grey background
+            }
+            using (StringReader sr = new StringReader(htmlContent))
+            {
+                // Parse the HTML into elements
+                List<IElement> elements = HTMLWorker.ParseToList(sr, null);
+
+                foreach (IElement element in elements)
+                {
+                    if (element is Phrase phrase)
+                    {
+                        foreach (Chunk chunk in phrase.Chunks)
+                        {
+                            // Create a new Font that keeps the chunk's existing styles
+                            Font updatedFont = new Font(chunk.Font) // Copy the existing Font properties
+                            {
+                                Size = 8 // Set the new font size
+                            };
+
+                            chunk.Font = updatedFont; // Apply the updated font to the chunk
+                        }
+                    }
+
+                    // Add the element (with the updated font) to the cell
+                    cell.AddElement(element);
+                }
+            }
+
+            return cell;
+        }
+
         protected void Report(object sender, EventArgs e)
         {
             try
