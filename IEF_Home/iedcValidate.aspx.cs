@@ -23,6 +23,9 @@ using System.Text.RegularExpressions;
 using System.Web;
 using iTextSharp.text.html.simpleparser;
 using DocumentFormat.OpenXml.Drawing.Charts;
+using GrapeCity.Documents.Pdf.Layers;
+using static ClosedXML.Excel.XLPredefinedFormat;
+using Paragraph = iTextSharp.text.Paragraph;
 
 
 
@@ -36,10 +39,7 @@ namespace IEF_Home
         {
 
         }
-        protected void ShowCompareTable(object sender, EventArgs e)
-        {
 
-        }
         protected void ButtonUpload(object sender, EventArgs e)
         {
            // loaderControl.Style["display"] = "block";
@@ -105,8 +105,10 @@ namespace IEF_Home
             }
             
         }
-        public void ConvertExcelToPdf(string excelPath, string pdfPath, string pdfName)
+        public void ConvertExcelToPdf(string excelPath)
         {
+            
+
             using (var package = new ExcelPackage(new FileInfo(excelPath)))
             {
                 var workbook = package.Workbook;
@@ -114,8 +116,14 @@ namespace IEF_Home
                 {
                     throw new Exception("No worksheets found in the Excel file.");
                 }
-
+                
                 var worksheet = workbook.Worksheets[0];
+                string pdfName = worksheet.Cells[5, 4].Text;
+                // Date
+                string dateTime = System.DateTime.Now.ToString("ddMMyyyy");
+                // Combine directory path and filename
+                string directoryPath = @"C:\Windows\Temp";
+                string pdfPath = System.IO.Path.Combine(directoryPath, $"{pdfName}_validation_{dateTime}.pdf");
                 // Header
                 // Define the relative path to the image
                 string relativeImagePath = "resources/iedcValidatorReportHeader.png";
@@ -123,8 +131,8 @@ namespace IEF_Home
                 XImage headerImage = XImage.FromFile(imagePath);
                 iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
                 // Define a font with a custom size (e.g., 16)
-                Font customFont = FontFactory.GetFont(FontFactory.HELVETICA, 8, Font.NORMAL);             
-
+                Font customFont = FontFactory.GetFont(FontFactory.HELVETICA, 8, Font.NORMAL);
+                Font baseFont = FontFactory.GetFont(FontFactory.HELVETICA, 9, Font.BOLD);
 
                 int startRow = 2, endRow = 72;
                 int startCol = 1, endCol = 4; // Columns A to D
@@ -148,11 +156,129 @@ namespace IEF_Home
                     logo.SetAbsolutePosition(0, pdfDocument.PageSize.Height-30);
                     logo.ScaleAbsolute(imageWidth, imageHeight);
                     pdfDocument.Add(logo);
+                    // Parent Table
 
+
+                    // Ok,Warning, Error List
+                    // Create table for BulletedLists
+                    PdfPTable tableBulletedLists = new PdfPTable(1); // Two columns: Type and Items
+                    tableBulletedLists.WidthPercentage = 30;
+                    tableBulletedLists.SpacingBefore = 10f;
+                    tableBulletedLists.HorizontalAlignment = Element.ALIGN_RIGHT;
+
+                    // Add header row
+                   // AddCellToTable(tableBulletedLists, "Item Feedback", customFont, true);
+                    int indexBulletList = 1;
+                    // Function to extract only the number from "OK: 5"
+                    string ExtractNumber(string text)
+                    {
+                        Match match = Regex.Match(text, @"\d+"); // Extracts the first number found
+                        return match.Success ? match.Value : ""; // Return number or empty string if none found
+                    }
+                    // Function to add items from a BulletedList
+                    void AddBulletedListToTable(BulletedList bl, string type, BaseColor color)
+                    {
+                        if (bl.Items.Count > 0)
+                        {
+                            foreach (System.Web.UI.WebControls.ListItem item in bl.Items)
+                            {
+                                PdfPCell typeCell = new PdfPCell(new Phrase(type, customFont));
+                                typeCell.BackgroundColor = color;
+                                tableBulletedLists.AddCell(typeCell);
+                                tableBulletedLists.AddCell(ConvertHtmlToPdfPCell(writer, ExtractNumber(item.Text), indexBulletList));  // Column 2: Item
+                                indexBulletList++;
+                            }
+                        }
+                    }
+
+                    // Add items from each BulletedList
+                    AddBulletedListToTable(Ok, "OK", BaseColor.GREEN);
+                    AddBulletedListToTable(Warning, "Warning", BaseColor.ORANGE);
+                    AddBulletedListToTable(Error, "Error", BaseColor.RED);
+
+                    // Template Type
+                    PdfPTable tableTemplate = new PdfPTable(1);
+                    tableTemplate.WidthPercentage = 50;
+                    tableTemplate.SpacingBefore = 10f; // Adding spacing before the table
+                    tableTemplate.HorizontalAlignment = Element.ALIGN_LEFT;
+                    ;
+                    // Add header row
+                    AddCellToTable(tableTemplate, "Template Type", customFont, true);
+
+
+                    int indexTemplate = 1;
+                    // Add rows dynamically
+                    foreach (GridViewRow row in templateType.Rows)
+                    {
+                        tableTemplate.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[0].Text, indexTemplate)); // Cell column
+
+                        indexTemplate++;
+                    }
+
+
+                    // Number of rows with text
+                    PdfPTable tableNoR = new PdfPTable(1);
+                    tableNoR.WidthPercentage = 50;
+                    tableNoR.SpacingBefore = 10f; // Adding spacing before the table
+            
+                    // Add header row
+                    AddCellToTable(tableNoR, "Number of rows with text", customFont, true);
+                    int indexNoR = 1;
+                    // Add rows dynamically
+                    foreach (GridViewRow row in dataSheetRowNumber.Rows)
+                    {
+                        tableNoR.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[0].Text, indexNoR)); // Cell column
+
+                        indexNoR++;
+                    }
+
+                    // Create parent table with three columns
+                    PdfPTable parentTable = new PdfPTable(2);
+                    parentTable.WidthPercentage = 100;
+                    parentTable.SpacingBefore = 10f;
+                    parentTable.SetWidths(new float[] { 6, 2}); // Adjust column width ratios as needed
+
+                    // Wrap the tables into cells
+                    PdfPCell bulletListCell = new PdfPCell(tableBulletedLists);
+                    bulletListCell.Border = Rectangle.NO_BORDER;
+                    bulletListCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+
+                    PdfPCell templateNoRCell = new PdfPCell();
+                    templateNoRCell.Border = Rectangle.NO_BORDER;
+                    templateNoRCell.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                    // Create a new table to hold tableTemplate and tableNoR
+                    PdfPTable templateAndNoRTable = new PdfPTable(1);
+                    templateAndNoRTable.WidthPercentage = 100;
+                    templateAndNoRTable.SpacingBefore = 10f;
+                    templateAndNoRTable.DefaultCell.Border = Rectangle.NO_BORDER;
+                    templateAndNoRTable.AddCell(tableTemplate);
+                    templateAndNoRTable.AddCell(tableNoR);
+                 
+
+                    // Add the combined template and NoR table to the cell
+                    templateNoRCell.AddElement(templateAndNoRTable);
+
+                    // Add the cells to the parent table
+                    parentTable.AddCell(templateNoRCell); // Both tableTemplate and tableNoR are now in the same column
+                    parentTable.AddCell(bulletListCell);
+                    parentTable.AddCell(new PdfPCell());
+
+
+                    // Add parent table to document
+                    pdfDocument.Add(parentTable);
+
+                    Paragraph captionParagraphTable1 = new Paragraph("Table 1 and 2: Template Type and Number of rows with text", baseFont);
+                    captionParagraphTable1.Alignment = Element.ALIGN_CENTER; // Center-align the caption
+                    pdfDocument.Add(captionParagraphTable1);
+
+                    // Dataset information Table
                     PdfPTable table = new PdfPTable(4);
                     table.WidthPercentage = 100;
-                
-
+                    table.SpacingBefore = 20f; // Adding spacing before the table
+                    float[] columnWidths = { 1f, 2f, 3f, 3f };
+                    table.SetWidths(columnWidths);
+                   
                     for (int row = startRow; row <= endRow; row++)
                     {
                         // Merge  B2, C2, D2 into one cell spanning all 3 columns
@@ -228,12 +354,19 @@ namespace IEF_Home
                     }
 
                     pdfDocument.Add(table);
+                    // Create a Paragraph for the caption
+                    Paragraph captionParagraph = new Paragraph("Table 3: Dataset information from Excel Sheet", baseFont);
+                    captionParagraph.Alignment = Element.ALIGN_CENTER; // Center-align the caption
+                    // Add the caption phrase to the document
+                    pdfDocument.Add(captionParagraph);
+
                     // Second Table
                     PdfPTable tableSummary = new PdfPTable(5);
                     tableSummary.WidthPercentage = 100;
                     tableSummary.SpacingBefore = 20f; // Adding spacing before the table
-                   
-           
+                    float[] columnWidths2 = { 1f, 3f, 3f, 3f, 3f };
+                    tableSummary.SetWidths(columnWidths2);
+
                     // Add header row
                     AddCellToTable(tableSummary, "Cell", customFont,true);
                     AddCellToTable(tableSummary, "Name/label", customFont,true);
@@ -254,7 +387,13 @@ namespace IEF_Home
                     }
                     pdfDocument.Add(tableSummary);
 
-                    // Second Table
+                    // Create a Paragraph for the caption
+                    Paragraph captionDatasetWeb = new Paragraph("Table 4: Dataset type and other specifications against iedc standards", baseFont);
+                    captionDatasetWeb.Alignment = Element.ALIGN_CENTER; // Center-align the caption
+                    // Add the caption phrase to the document
+                    pdfDocument.Add(captionDatasetWeb);
+
+                    // Aspect/Classification Comparasion Table
                     PdfPTable tableSummaryAspects = new PdfPTable(5);
                     tableSummaryAspects.WidthPercentage = 100;
                     tableSummaryAspects.SpacingBefore = 20f; // Adding spacing before the table
@@ -275,18 +414,20 @@ namespace IEF_Home
                             indexAspects++;
                         }
                     }
-
+                    Paragraph captionParagraphAspect = new Paragraph("Table 5: Dataset aspects and classifications to iedc specifications", baseFont);
+                    captionParagraphAspect.Alignment = Element.ALIGN_CENTER; // Center-align the caption
+                    
+                    // Add the caption phrase to the document
                     pdfDocument.Add(tableSummaryAspects);
+                    pdfDocument.Add(captionParagraphAspect);
                     pdfDocument.Close();
                     stream.Close();
                     // Serve the file for download
-                    // Save the document
-                    string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
                     // Serve the file for download
                     Response.Clear();
                     Response.Buffer = true;
                     Response.ContentType = "application/pdf";
-                    Response.AppendHeader("Content-Disposition", "attachment; filename=" + pdfName);
+                    Response.AppendHeader("Content-Disposition", "attachment; filename=" + pdfName + "_validation_" + $"{dateTime}");
                     Response.TransmitFile(pdfPath);
                     Response.End();
 
@@ -398,17 +539,9 @@ namespace IEF_Home
         {
             try
             {
-                // Save the document
-                string dateTime = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                // Combine directory path and filename
-                string directoryPath = @"C:\Windows\Temp";
-                if (!System.IO.Directory.Exists(directoryPath))
-                {
-                    System.IO.Directory.CreateDirectory(directoryPath);
-                }
-                string filename = System.IO.Path.Combine(directoryPath, $"iedcValidatorReport_{dateTime}.pdf");
+
                 // Ensure the directory exists
-                ConvertExcelToPdf(ViewState["FilePath"].ToString(), filename, $"iedcValidatorReport_{dateTime}.pdf");
+                ConvertExcelToPdf(ViewState["FilePath"].ToString());
 
                
             }
