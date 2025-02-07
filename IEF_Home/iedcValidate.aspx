@@ -118,7 +118,7 @@
     <div>
         <h2 class="title">Industrial ecology data commons (iedc) data template validator </h2>
         <h3 class="title">Validate your data formatting and classifications against a general standard </h3>
-        <p style="color: red">This feature is currently under development and will be released in November of 2024</p>
+        <%--<p style="color: red">This feature is currently under development and will be released in November of 2024</p>--%>
         <p>
             Datasets in industrial ecology and socio-metabolic research typically have between 1 and 10000 data points and are frequently stored in xlsx spreadsheets. The industrial ecology data commons (iedc) offers a general data model, a set of classifications, 
             and spreadsheet templates to consistently format such data in order to facilitate data updating, archiving, and exchange across projects.
