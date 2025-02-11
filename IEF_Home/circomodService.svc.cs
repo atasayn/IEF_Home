@@ -1870,7 +1870,7 @@ namespace IEF_Home
                                                 var label = string.IsNullOrWhiteSpace(item) ? "EMPTY CELL" : item;
                                                 closestMatchRemark =
                                                     $"Warning:No exact match for label {label} in classification {cellDataColValue}. " +
-                                                    $"Here are the ten closest matches: <b>0</b>";
+                                                    $"Here are the five closest matches: <b>0</b>";
                                                 counterGlobal.warningCount++;
                                                 dataMatch.Rows.Add($"<span style='color: orange;'>{indexFormat.FirstOrDefault(x => x.Value == item).Key}</span>",
                                                     $"<span style='color: orange;'>{cellDataColValue}</span>",
@@ -1882,7 +1882,7 @@ namespace IEF_Home
 
                                                 closestMatchRemark =
                                                     $"ERROR:No exact match for label {item} in classification {cellDataColValue}. " +
-                                                    $"Here are the ten closest matches: <b>{closestMatchString}</b>";
+                                                    $"Here are the five closest matches: <b>{closestMatchString}</b>";
                                                 counterGlobal.errCount++;
                                                 dataMatch.Rows.Add($"<span style='color: red;'>{indexFormat.FirstOrDefault(x => x.Value == item).Key}</span>",
                                                     $"<span style='color: red;'>{cellDataColValue}</span>",
