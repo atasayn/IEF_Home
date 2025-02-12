@@ -1862,6 +1862,7 @@ namespace IEF_Home
                                     {
                                         if (nonExistingMatch[i] == item)
                                         {
+                                            var element = nonExistingMatch[i];
                                             indices.Add(i);
                                             string closestMatchString = string.Join(", ", closestMatch);
                                             string closestMatchRemark;
@@ -1872,7 +1873,7 @@ namespace IEF_Home
                                                     $"Warning:No exact match for label {label} in classification {cellDataColValue}. " +
                                                     $"Here are the five closest matches: <b>0</b>";
                                                 counterGlobal.warningCount++;
-                                                dataMatch.Rows.Add($"<span style='color: orange;'>{indexFormat.FirstOrDefault(x => x.Value == item).Key}</span>",
+                                                dataMatch.Rows.Add($"<span style='color: orange;'>{indexFormat.ElementAt(i).Key}</span>",
                                                     $"<span style='color: orange;'>{cellDataColValue}</span>",
                                                     $"<span style='color: orange;'>{item}</span>",
                                                     $"<span style='color: orange;'>{closestMatchRemark}</span>");
@@ -1884,7 +1885,7 @@ namespace IEF_Home
                                                     $"ERROR:No exact match for label {item} in classification {cellDataColValue}. " +
                                                     $"Here are the five closest matches: <b>{closestMatchString}</b>";
                                                 counterGlobal.errCount++;
-                                                dataMatch.Rows.Add($"<span style='color: red;'>{indexFormat.FirstOrDefault(x => x.Value == item).Key}</span>",
+                                                dataMatch.Rows.Add($"<span style='color: red;'>{indexFormat.ElementAt(i).Key}</span>",
                                                     $"<span style='color: red;'>{cellDataColValue}</span>",
                                                     $"<span style='color: red;'>{item}</span>",
                                                     $"<span style='color: red;'>{closestMatchRemark}</span>");
@@ -1946,7 +1947,7 @@ namespace IEF_Home
                                                 $" Please fix the unit or add a new unit to the units table.";
                                             if (label == "EMPTY CELL")
                                             {
-                                                dataMatch.Rows.Add($"<span style='color: orange;'>{indexFormat.FirstOrDefault(x => x.Value == item).Key}</span>",
+                                                dataMatch.Rows.Add($"<span style='color: orange;'>{indexFormat.ElementAt(i).Key}</span>",
                                                     $"<span style='color: orange;'>{cellDataColValue}</span>",
                                                     $"<span style='color: orange;'>{item}</span>",
                                                     $"<span style='color: orange;'>{unitCodeRemark}</span>");
@@ -1954,7 +1955,7 @@ namespace IEF_Home
                                             }
                                             else
                                             {
-                                                dataMatch.Rows.Add($"<span style='color: red;'>{indexFormat.FirstOrDefault(x => x.Value == item).Key}</span>",
+                                                dataMatch.Rows.Add($"<span style='color: red;'>{indexFormat.ElementAt(i).Key}</span>",
                                                     $"<span style='color: red;'>{cellDataColValue}</span>",
                                                     $"<span style='color: red;'>{item}</span>",
                                                     $"<span style='color: red;'>{unitCodeRemark}</span>");
@@ -2018,7 +2019,7 @@ namespace IEF_Home
                                                 $" Please fix the unit or add a new unit to the units table.";
                                             if (label == "EMPTY CELL")
                                             {
-                                                dataMatch.Rows.Add($"<span style='color: orange;'>{indexFormat.FirstOrDefault(x => x.Value == item).Key}</span>",
+                                                dataMatch.Rows.Add($"<span style='color: orange;'>{indexFormat.ElementAt(i).Key}</span>",
                                                     $"<span style='color: orange;'>{cellDataColValue}</span>",
                                                     $"<span style='color: orange;'>{item}</span>",
                                                     $"<span style='color: orange;'>{unitCodeRemark}</span>");
@@ -2026,7 +2027,7 @@ namespace IEF_Home
                                             }
                                             else
                                             {
-                                                dataMatch.Rows.Add($"<span style='color: red;'>{indexFormat.FirstOrDefault(x => x.Value == item).Key}</span>",
+                                                dataMatch.Rows.Add($"<span style='color: red;'>{indexFormat.ElementAt(i).Key}</span>",
                                                     $"<span style='color: red;'>{cellDataColValue}</span>",
                                                     $"<span style='color: red;'>{item}</span>",
                                                     $"<span style='color: red;'>{unitCodeRemark}</span>");
