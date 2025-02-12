@@ -15,6 +15,8 @@ using OfficeOpenXml.FormulaParsing.Ranges;
 using System.Web.UI.HtmlControls;
 using DocumentFormat.OpenXml.Vml.Office;
 using System.Text;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using MySqlX.XDevAPI.Relational;
 
 
 
@@ -570,7 +572,7 @@ namespace IEF_Home.cls
         {
             // Vars
             circomodService serviceInstance = new circomodService();
-            List<string> cellDataList = new List<string>();
+
             DataTable tempDataMatchResult = new DataTable();
 
             using (var workbook = new XLWorkbook(file))
@@ -586,38 +588,26 @@ namespace IEF_Home.cls
                 object[,] cellValues = (object[,])targetRangeCol.Value2;
                 int rowCountCol = targetRangeCol.Rows.Count;
                 int colCountCol = targetRangeCol.Columns.Count;
-                var resultDictionary = new Dictionary<string, string>();
-                for (int i = 1; i <= rowCountCol; i++)
-                {
-                    for (int j = 1; j <= colCountCol; j++)
-                    {
-                        // Combine cell value and address
-                        string cellAddress = targetRangeCol.Cells[i, j].Address[false, false];
-                        string cellValue = targetRangeCol.Cells[i, j].Value; // Assuming you want to store the cell's value as well.
-                        resultDictionary.Add(cellAddress, cellValue);
 
-                    }
-                }
                 for (int col = 1; col <= columnAspects.Count; col++)
                 {
-                    cellDataList.Clear();
-                    
-                    for (int row = 1; row <= Int32.Parse(rowNo); row++)
-                    {
-                        cellDataList.Add(HttpUtility.HtmlEncode(cellValues[row, col]?.ToString()));
-                        
-                    }
+                
+                    var cellAddresses = createCellAddress(rowAspects.Count+1 , rowCountCol + rowAspects.Count-1, col,"row based");
+                    List<string> firstColumnValuesList = Enumerable.Range(1, cellValues.GetLength(0))
+                        .Select(i => System.Net.WebUtility.HtmlEncode(cellValues[i, col]?.ToString()) ?? string.Empty)
+                        .ToList();
+                    var resultDictionary = cellAddresses.Zip(firstColumnValuesList, (key, value) => new { key, value })
+                        .ToDictionary(x => x.key, x => x.value);
 
                     tempDataMatchResult = serviceInstance.selectAttrClosestMatch(
-                        "attribute" + colAspectNamesandIDs.FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value +
-                        "_oto",
-                        classIDList.FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value,
-                        colAspectNamesandIDs.Keys.ToList(),
-                        cellDataList,
-                        columnAspects[col - 1],
-                        resultDictionary,
-                        dataSheetMatch,
-                        dataMatch, Ok, Warning, Error);
+                    "attribute" + colAspectNamesandIDs.FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value + "_oto",
+                    classIDList.FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value,
+                    colAspectNamesandIDs.Keys.ToList(),
+                    firstColumnValuesList,
+                    columnAspects[col - 1],
+                    resultDictionary,
+                    dataSheetMatch,
+                    dataMatch, Ok, Warning, Error);
                 }
 
                 //// Get Row Aspects
@@ -627,34 +617,24 @@ namespace IEF_Home.cls
                 // Initialize a new array to include cell addresses along with values
                 int rowCount = targetRange.Rows.Count;
                 int colCount = targetRange.Columns.Count;
-                var cellValuesWithAddresses = new Dictionary<string,string>();
+  
                 
-                for (int i = 1; i <= rowCount; i++)
-                {
-                    for (int j = 1; j <= colCount; j++)
-                    {
-                        // Combine cell value and address
-                        string cellAddress = targetRange.Cells[i, j].Address[false, false];
-                        object cellValueObj = targetRange.Cells[i, j].Value; // Assuming you want to store the cell's value as well.
-                        string cellValue = cellValueObj != null ? cellValueObj.ToString() : string.Empty;
-                        cellValuesWithAddresses.Add(cellAddress, cellValue) ;
 
-                    }
-                }
                 for (int row = 1; row <= rowAspects.Count; row++)
                 {
-                    cellDataList.Clear();
-                    for (int col = 1; col <= Int32.Parse(colNo); col++)
-                    {
-                        cellDataList.Add(HttpUtility.HtmlEncode(cellValues2[row, col]?.ToString()));
-                    }
+                    var cellAddresses = createCellAddress(columnAspects.Count+1, colCount + columnAspects.Count, row, "column based");
+                    List<string> firstColumnValuesList = Enumerable.Range(1, cellValues2.GetLength(1))
+                        .Select(i => System.Net.WebUtility.HtmlEncode(cellValues2[row, i]?.ToString()) ?? string.Empty)
+                        .ToList();
+                    var resultDictionary = cellAddresses.Zip(firstColumnValuesList, (key, value) => new { key, value })
+                        .ToDictionary(x => x.key, x => x.value);
 
                     tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + rowAspectNamesandIDs.FirstOrDefault(x => x.Key == rowAspects[row - 1]).Value + "_oto",
                         classIDList.FirstOrDefault(x => x.Key == rowAspects[row - 1]).Value,
                         rowAspectNamesandIDs.Keys.ToList(),
-                        cellDataList,
+                        firstColumnValuesList,
                         rowAspects[row - 1],
-                        cellValuesWithAddresses,
+                        resultDictionary,
                         dataSheetMatch,
                         dataMatch, Ok, Warning, Error);
 
@@ -728,47 +708,38 @@ namespace IEF_Home.cls
                 Range range = ws.Cells[NumRow, NumCol];
                 Range targetRange = range.Resize[countRows, countCols];
                 object[,] cellValues = (object[,])targetRange.Value2;
-
                 // Find the "commodity" column index
                 Range headerRow = targetRange.Rows[1]; // First row for headers
-                List<string> column1Values = new List<string>();
-                var cellValuesWithAddresses = new Dictionary<string, string>();
 
-                for (int i = 1; i <= countRows; i++)
-                {
-                    for (int j = 1; j <= countCols; j++)
-                    {
-                        // Combine cell value and address
-                        object cellValueObj = targetRange.Cells[i, j].Value; // Assuming you want to store the cell's value as well.
-                        string cellValue = cellValueObj != null ? cellValueObj.ToString() : string.Empty;
-                        cellValuesWithAddresses.Add(GetCellAddress(i,j), cellValue);
+            
 
-                    }
-                }
+
                 for (int col = 1; col <= countCols; col++)
                 {
+
                     var headerValue = HttpUtility.HtmlEncode((headerRow.Cells[1, col] as Range)?.Value2);
                     if (headerValue != null && headerValue != "value" && headerValue != "comment" && headerValue != "stats_array string")
                     {
-                        column1Values.Clear();
-                        for (int row = 2; row < countRows+1; row++)
-                        {
-                            
-                            column1Values.Add(HttpUtility.HtmlEncode(cellValues[row, col]?.ToString()));
-                         
-                        }
+                        
+                        var cellAddresses = createCellAddress(2, countRows, col, "row based");
+                        List<string> firstColumnValuesList = Enumerable.Range(2, cellValues.GetLength(0)-1)
+                            .Select(i => System.Net.WebUtility.HtmlEncode(cellValues[i, col]?.ToString()) ?? string.Empty)
+                            .ToList();
+                        var resultDictionary = cellAddresses.Zip(firstColumnValuesList, (key, value) => new { key, value })
+                            .ToDictionary(x => x.key, x => x.value);
                         tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + aspectNames.FirstOrDefault(x => x.Key == headerValue).Value + "_oto",
-                            classificationIDs.FirstOrDefault(x => x.Key == headerValue).Value, 
-                            classificationIDs.Keys.ToList(), 
-                            column1Values, 
+                            classificationIDs.FirstOrDefault(x => x.Key == headerValue).Value,
+                            classificationIDs.Keys.ToList(),
+                            firstColumnValuesList,
                             headerValue,
-                            cellValuesWithAddresses,
+                            resultDictionary,
                             dataSheetMatch,
                             dataMatch, Ok, Warning, Error);
+
                     }
                 }
 
-                wb.Close();
+                wb.Close(); 
                 excelApp.Quit();
                 dataSheetMatch.DataSource = tempDataMatchResult;
                 dataSheetMatch.DataBind();
@@ -777,18 +748,43 @@ namespace IEF_Home.cls
 ;
         }
 
-        static string GetCellAddress(int row, int col)
+        static List<string> createCellAddress(int start, int end,int index,string movementDiraction)
         {
-            StringBuilder sb = new StringBuilder();
-
-            do
+            List<string> cellAddresses = new List<string>();
+            if (movementDiraction == "row based")
             {
-                col--;
-                sb.Insert(0, (char)('A' + (col % 26)));
-                col /= 26;
-            } while (col > 0);
-            sb.Append(row);
-            return sb.ToString();
+                char letter = (char)('A' + (index - 1));
+                cellAddresses = Enumerable.Range(start, end - start + 1)
+                    .Select(i => $"{letter}{i}")
+                    .ToList();
+            }
+            else
+            {
+                cellAddresses = Enumerable.Range(start,end - start + 1)
+                    .Select(i => $"{GetExcelColumnName(i)}{index}")
+                    .ToList();
+            }
+            
+
+
+            return cellAddresses; // Join array elements into a single string, separated by commas
         }
+        // Helper function to convert numbers to Excel-style column names
+        static string GetExcelColumnName(int columnNumber)
+        {
+            return string.Concat(
+                Enumerable.Reverse(
+                    Enumerable
+                        .Range(0, (int)Math.Log(columnNumber, 26) + 1)
+                        .Select(_ => {
+                            columnNumber--;
+                            char letter = (char)('A' + (columnNumber % 26));
+                            columnNumber /= 26;
+                            return letter;
+                        })
+                )
+            );
+        }
+
     }
 }
