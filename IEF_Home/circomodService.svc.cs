@@ -1425,8 +1425,8 @@ namespace IEF_Home
             if (string.IsNullOrEmpty(result["id_D5"].Item1[0]))
             {
                 d5Entry =
-                    $"<span style='color:#FFA500;'>No entry with dataset name <b>{D5}</b> were found in the IEDC database.</span>";
-                dt.Rows.Add("<span style='color:red;'>D5</span >", C5, $"<span style='color:red;'>{D5} </ span >",
+                    $"<span style='color:orange;'>No entry with dataset name <b>{D5}</b> were found in the IEDC database.</span>";
+                dt.Rows.Add("<span style='color:orange;'>D5</span >", C5, $"<span style='color:orange;'>{D5} </ span >",
                     string.Empty, d5Entry);
                 counterGlobal.warningCount++;
             }
