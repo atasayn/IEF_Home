@@ -592,7 +592,7 @@ namespace IEF_Home.cls
                 for (int col = 1; col <= columnAspects.Count; col++)
                 {
                 
-                    var cellAddresses = createCellAddress(rowAspects.Count+1 , rowCountCol + rowAspects.Count-1, col,"row based");
+                    var cellAddresses = createCellAddress(rowAspects.Count+1 , rowCountCol + rowAspects.Count, col,"row based");
                     List<string> firstColumnValuesList = Enumerable.Range(1, cellValues.GetLength(0))
                         .Select(i => System.Net.WebUtility.HtmlEncode(cellValues[i, col]?.ToString()) ?? string.Empty)
                         .ToList();

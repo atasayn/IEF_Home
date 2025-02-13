@@ -83,6 +83,14 @@ namespace IEF_Home
                         }
                         else
                         {
+                            columnDiv.Style["display"] = "none";
+                            section1Full.Style["display"] = "none";
+                            section2Row.Style["display"] = "none";
+                            section2DataCheck.Style["display"] = "none";
+                            missingCellTableSec.Style["display"] = "none";
+                            templateType.Style["display"] = "none";
+                            aspectMatch.Style["display"] = "none";
+                            dataSheetRowNumber.Style["display"] = "none";
                             lblMessage.Text = "Uploaded file must contain a ‘Cover’ sheet.";
                             lblMessage.ForeColor = System.Drawing.Color.Red;
                         }
