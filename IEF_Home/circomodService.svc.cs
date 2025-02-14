@@ -1836,14 +1836,20 @@ namespace IEF_Home
                         {
                             var closestMatch = new List<string>();
                             var indices = new List<int>();
+                            //var closestMatchQuery =
+                            //    $"SELECT {thisattribute} " +
+                            //    $"FROM iedc.classification_items " +
+                            //    $"WHERE classification_id = @classificationId " +
+                            //    $"AND MATCH({thisattribute}) " +
+                            //    $"AGAINST (@item IN NATURAL LANGUAGE MODE)  " +
+                            //    $"OR {thisattribute} LIKE @item " +
+                            //    $"GROUP BY {thisattribute} " +
+                            //    $"LIMIT 10";
                             var closestMatchQuery =
-                                $"SELECT {thisattribute} " +
+                                $"SELECT {thisattribute}, iedc.levenshtein({thisattribute}, @item) AS lev_distance " +
                                 $"FROM iedc.classification_items " +
                                 $"WHERE classification_id = @classificationId " +
-                                $"AND MATCH({thisattribute}) " +
-                                $"AGAINST (@item IN NATURAL LANGUAGE MODE)  " +
-                                $"OR {thisattribute} LIKE @item " +
-                                $"GROUP BY {thisattribute} " +
+                                $"ORDER BY lev_distance " +
                                 $"LIMIT 10";
                             using (var cmd2 = new MySqlCommand(closestMatchQuery, cn.Connection))
                             {
@@ -1864,7 +1870,7 @@ namespace IEF_Home
                                         {
                                             var element = nonExistingMatch[i];
                                             indices.Add(i);
-                                            string closestMatchString = string.Join(", ", closestMatch);
+                                            string closestMatchString = string.Join("; ", closestMatch);
                                             string closestMatchRemark;
                                             if (string.IsNullOrEmpty(closestMatchString))
                                             {
