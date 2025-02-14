@@ -37,7 +37,7 @@ namespace IEF_Home
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Page.EnableViewState = false;
         }
 
         protected void ButtonUpload(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace IEF_Home
                         string fileName = Path.GetFileName(FileUpload.PostedFile.FileName);
                         string filePath = Server.MapPath("~/UploadedFiles/" + fileName);
                         FileUpload.SaveAs(filePath);
-                        ViewState["FilePath"] = filePath; // Store filePath in ViewState
+                        Session["FilePath"] = filePath; // Store filePath in Session
                         // Check if the specific worksheet exists
                         string sheetName = "Cover"; // Replace with your actual sheet name
                         if (fileChecker.DoesCoverExist(FileUpload.PostedFile, sheetName))
@@ -549,7 +549,7 @@ namespace IEF_Home
             {
 
                 // Ensure the directory exists
-                ConvertExcelToPdf(ViewState["FilePath"].ToString());
+                ConvertExcelToPdf(Session["FilePath"].ToString());
 
                
             }
