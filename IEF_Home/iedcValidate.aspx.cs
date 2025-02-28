@@ -26,6 +26,7 @@ using DocumentFormat.OpenXml.Drawing.Charts;
 using GrapeCity.Documents.Pdf.Layers;
 using static ClosedXML.Excel.XLPredefinedFormat;
 using Paragraph = iTextSharp.text.Paragraph;
+using System.Linq;
 
 
 
@@ -40,7 +41,7 @@ namespace IEF_Home
             Page.EnableViewState = false;
         }
 
-        protected void ButtonUpload(object sender, EventArgs e)
+        public void ButtonUpload(object sender, EventArgs e)
         {
            // loaderControl.Style["display"] = "block";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showLoader", "document.getElementById('loaderControl').style.display='block';", true);
@@ -80,6 +81,13 @@ namespace IEF_Home
                             lblMessage.ForeColor = System.Drawing.Color.Green;
                             fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,aspectMatch,aspectMatchRemarks,missingCellTableSec);
                             fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber,dataSheetMatch, unitMoniDenomi, Ok, Warning, Error,loaderControl);
+                            Session["OkList"] = Ok;
+                            Session["WarningList"] = Warning;
+                            Session["ErrorList"] = Error;
+                            Session["templateType"] = templateType;
+                            Session["dataSheetRowNumber"] = dataSheetRowNumber;
+                            Session["compareTable"] = compareTable;
+                            Session["aspectReportTable"] = aspectReportTable;
                         }
                         else
                         {
@@ -113,7 +121,8 @@ namespace IEF_Home
             }
             
         }
-        public void ConvertExcelToPdf(string excelPath)
+        public void ConvertExcelToPdf(string excelPath,BulletedList Ok, BulletedList Warning, BulletedList Error,GridView templateType,
+            GridView dataSheetRowNumber,GridView compareTable, GridView aspectReportTable)
         {
             
 
@@ -155,7 +164,7 @@ namespace IEF_Home
 
                     iTextSharp.text.Document pdfDocument = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4);
                     // Initialize the PDF writer to write to the file stream
-                    PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDocument, stream);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDocument, stream);
                     // Attach the custom page event to the writer
                     writer.PageEvent = new FooterPageEvent();
                     float imageWidth = pdfDocument.PageSize.Width;
@@ -549,9 +558,19 @@ namespace IEF_Home
             {
 
                 // Ensure the directory exists
-                ConvertExcelToPdf(Session["FilePath"].ToString());
+                ConvertExcelToPdf(
+                    Session["FilePath"]?.ToString(),
+                    Session["OkList"] as BulletedList,
+                    Session["WarningList"] as BulletedList,
+                    Session["ErrorList"] as BulletedList,
+                    Session["templateType"] as GridView,
+                    Session["dataSheetRowNumber"] as GridView,
+                    Session["compareTable"] as GridView,
+                    Session["aspectReportTable"] as GridView
+                );
 
-               
+
+
             }
             catch (Exception exception)
             {
