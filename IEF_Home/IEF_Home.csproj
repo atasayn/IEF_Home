@@ -332,6 +332,7 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jspdf.min.js" />
     <Content Include="js\mapConfig.js" />
+    <Content Include="js\MathJax.js" />
     <Content Include="js\pdfMaker.js" />
     <Content Include="js\PDFmaker\jspdf.es.min.js" />
     <Content Include="js\PDFmaker\jspdf.plugin.autotable.js" />
@@ -354,6 +355,7 @@
     <Content Include="resources\Login_Button.jpg" />
     <Content Include="resources\News_Update_Sept_14.png" />
     <Content Include="resources\Opening_Pic_v2.png" />
+    <Content Include="resources\Pauliuk_DLS_LorenzCurve_2024_pcs_1 %28002%29.png" />
     <Content Include="resources\pexels-photo-209137.jpeg" />
     <Content Include="resources\ReccScheme.png" />
     <Content Include="resources\RECC_SysDef_Model_v2_5a.png" />
@@ -366,6 +368,7 @@
     <Content Include="resources\SysDef_Model_v2_4.png" />
     <Content Include="resources\SystemDef_MaterialStockModelling_Mueller2006.png" />
     <Content Include="resources\uniFreiburg.png" />
+    <Content Include="resources\Webinar.png" />
     <Content Include="Site1.Master" />
     <Content Include="main.aspx" />
     <Content Include="Content\IEooc_Application1_Exercise1_Area_Constraints.pdf" />
@@ -622,6 +625,7 @@
     <Content Include="research\Documents\ODYM_Data_Processes_ODP_Manual.pdf" />
     <Content Include="research\Documents\2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" />
     <None Include="packages.config" />
+    <Content Include="resources\Homepage_News_2.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

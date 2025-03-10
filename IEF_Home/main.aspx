@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
     <style>
         .grid-main {
             grid-area: main;
@@ -40,12 +43,12 @@
         .not-show-twitter {
             background-color: white;
             width: 470px;
-            height: auto;
-            font-weight: bold;
-            font-size: large;
+            height: 740px;
+            font-size: inherit;
             padding: 0.5em 1em;
             border-radius: 1em;
             display: block;
+            overflow: scroll
         }
 
         .not-show-twitter-content {
@@ -184,8 +187,30 @@
         <div class="grid-twitter">
 
             <div class="not-show-twitter">
-                Tweets from @StefanPauliuk
-           <img class="img-responsive center-block" src="resources/Gini_Paper_Link.png" height="">
+             <h3><b>Indecol News</b></h3> 
+     <%--      <img class="img-responsive center-block" src="resources/Gini_Paper_Link.png" height="">--%>
+                <h5><b>Successful EU Horizon project meeting in Freiburg</b></h5>
+                <p> In February 2025, more than 30 European researchers gathered at Industrial Ecology Freiburg for an annual project meeting to coordinate their research on estimating the impact of the circular economy (saving material resources by sufficiency, eco-design and better recycling) on the EU material industries and their climate impact.
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" src="resources/Webinar.png">
+                    Read more about the CIRCOMOD (Circular Economy Modelling for Climate Change Mitigation) project here: <a href="https://circomod.eu/" target="_blank">https://circomod.eu/ </a>
+                </p>
+                <hr>
+                <h5><b>Material Requirements of Decent Living Standards – new publication by Johan Vélez and Stefan Pauliuk</b></h5>
+                <p> Decent living standards are practical threshold for the energy, GHG, and material consumption required to alleviate poverty. 
+                    We quantify the amount of materials in stocks and flows needed to provide a decent living standard to an individual: a material footprint (MF) of about \(6 \frac{t}{\text{cap} \cdot \text{yr}}\) and in-use stocks of about 43 \(\frac{t}{\text{cap}}\) are required. 
+                    We also estimate which lifestyle and technology choices are effective in reducing material demand.
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block"  src="resources/Homepage_News_2.png"/>
+                    Read the paper here:  <a href="https://doi.org/10.1021/acs.est.3c03957 " target="_blank">https://doi.org/10.1021/acs.est.3c03957 </a>
+                </p>
+                <hr>
+                <h5><b>New paper linking the indicators for poverty fight, inequality, and growth</b></h5>
+                <p> Decent living standards, economic inequality, and total economic output are not independent! A new paper by Stefan Pauliuk shows that per average capita service \( \text{pcs} \), 
+                    the Gini coefficient of inequality \( G \), and the personal decent living standard \( 5 \, \text{dls} \) are coupled as below:
+                    <img style="padding-top: 10px; padding-bottom: 10px;width:200px" class="img-responsive center-block"  src="resources/Pauliuk_DLS_LorenzCurve_2024_pcs_1 (002).png"/>
+                    The work concludes with calling upon the research community to assess the inequality of physical stock and flow indicators related to human wellbeing, identify suitable physical wellbeing measures, 
+                    and extend the debate on desirable levels of inequality to physical socio-metabolic indicators.
+                    Read the paper here:  <a href="https://doi.org/10.1016/j.ecolecon.2024.108161  " target="_blank">https://doi.org/10.1016/j.ecolecon.2024.108161 </a>
+                </p>
             </div>
 
 
