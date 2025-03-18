@@ -1853,7 +1853,7 @@ namespace IEF_Home
                                 $"LIMIT 10";
                             using (var cmd2 = new MySqlCommand(closestMatchQuery, cn.Connection))
                             {
-
+                                cmd2.CommandTimeout = 600;
                                 cmd2.Parameters.AddWithValue("@classificationId", classificationId);
                                 cmd2.Parameters.AddWithValue("@item", item);
                                 using (var reader = cmd2.ExecuteReader())
