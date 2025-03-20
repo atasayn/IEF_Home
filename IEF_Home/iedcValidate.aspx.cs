@@ -74,6 +74,7 @@ namespace IEF_Home
                         // Save the file to the server
                         string fileName = Path.GetFileName(FileUpload.PostedFile.FileName);
                         string filePath = Server.MapPath("~/UploadedFiles/" + fileName);
+
                         FileUpload.SaveAs(filePath);
                         Session["FilePath"] = filePath; // Store filePath in Session
                         // Check if the specific worksheet exists
@@ -101,6 +102,11 @@ namespace IEF_Home
                             Session["dataSheetRowNumber"] = dataSheetRowNumber;
                             Session["compareTable"] = compareTable;
                             Session["aspectReportTable"] = aspectReportTable;
+                            if (File.Exists(filePath))
+                            {
+                                File.Delete(filePath); // Delete the file from the server
+                            }
+
                         }
                         else
                         {
