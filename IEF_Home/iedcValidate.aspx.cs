@@ -13,6 +13,7 @@ using PdfSharp.Pdf;
 using PdfSharpCore.Pdf;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.IO;
 using System.Threading;
@@ -39,6 +40,18 @@ namespace IEF_Home
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.EnableViewState = false;
+        }
+        public static string IsMyCheckboxChecked(System.Web.UI.WebControls.CheckBox simpleSearch, System.Web.UI.WebControls.CheckBox levenshteinSearch)
+        {
+            if (simpleSearch.Checked)
+            {
+                return "simpleSearch";
+            }
+            else if (levenshteinSearch.Checked)
+            {
+                return "levenshteinSearch";
+            }
+            return ""; // Return empty string if nothing is checked
         }
 
         public void ButtonUpload(object sender, EventArgs e)
@@ -80,7 +93,7 @@ namespace IEF_Home
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
                             fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,aspectMatch,aspectMatchRemarks,missingCellTableSec);
-                            fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber,dataSheetMatch, unitMoniDenomi, Ok, Warning, Error,loaderControl);
+                            fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber,dataSheetMatch, unitMoniDenomi, Ok, Warning, Error,loaderControl,simpleSearch,levenshteinSearch);
                             Session["OkList"] = Ok;
                             Session["WarningList"] = Warning;
                             Session["ErrorList"] = Error;

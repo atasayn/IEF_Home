@@ -1783,7 +1783,7 @@ namespace IEF_Home
         public DataTable selectAttrClosestMatch(string thisattribute, string classificationId, List<string> aspectList,
             List<string> dataCell,
             string cellDataColValue, Dictionary<string,string> indexFormat, GridView dataSheetMatch, DataTable dataMatch,
-            BulletedList Ok, BulletedList Warning, BulletedList Error)
+            BulletedList Ok, BulletedList Warning, BulletedList Error, string choice)
         {
 
             var decodedParams = "\"" + string.Join("\", \"", dataCell.Select(value => HttpUtility.HtmlDecode(value))) + "\"";
@@ -1793,6 +1793,7 @@ namespace IEF_Home
             var att = new List<string>();
             var nominoList = new List<string>();
             string inClause = String.Empty;
+            
 
             if (dataCell.Count > 1)
             {
@@ -1836,24 +1837,31 @@ namespace IEF_Home
                         {
                             var closestMatch = new List<string>();
                             var indices = new List<int>();
-                            //var closestMatchQuery =
-                            //    $"SELECT {thisattribute} " +
-                            //    $"FROM iedc.classification_items " +
-                            //    $"WHERE classification_id = @classificationId " +
-                            //    $"AND MATCH({thisattribute}) " +
-                            //    $"AGAINST (@item IN NATURAL LANGUAGE MODE)  " +
-                            //    $"OR {thisattribute} LIKE @item " +
-                            //    $"GROUP BY {thisattribute} " +
-                            //    $"LIMIT 10";
-                            var closestMatchQuery =
-                                $"SELECT {thisattribute}, iedc.levenshtein({thisattribute}, @item) AS lev_distance " +
-                                $"FROM iedc.classification_items " +
-                                $"WHERE classification_id = @classificationId " +
-                                $"ORDER BY lev_distance " +
-                                $"LIMIT 10";
+                            string closestMatchQuery = "";
+                            if (choice == "simpleSearch")
+                            {
+                                closestMatchQuery =
+                                    $"SELECT {thisattribute} " +
+                                    $"FROM iedc.classification_items " +
+                                    $"WHERE classification_id = @classificationId " +
+                                    $"AND MATCH({thisattribute}) " +
+                                    $"AGAINST (@item IN NATURAL LANGUAGE MODE)  " +
+                                    $"OR {thisattribute} LIKE @item " +
+                                    $"GROUP BY {thisattribute} " +
+                                    $"LIMIT 10";
+                            }else if (choice == "levenshteinSearch")
+                            {
+                                closestMatchQuery =
+                                    $"SELECT {thisattribute}, iedc.levenshtein({thisattribute}, @item) AS lev_distance " +
+                                    $"FROM iedc.classification_items " +
+                                    $"WHERE classification_id = @classificationId " +
+                                    $"ORDER BY lev_distance " +
+                                    $"LIMIT 10";
+                            }
+
                             using (var cmd2 = new MySqlCommand(closestMatchQuery, cn.Connection))
                             {
-                                cmd2.CommandTimeout = 600;
+                                
                                 cmd2.Parameters.AddWithValue("@classificationId", classificationId);
                                 cmd2.Parameters.AddWithValue("@item", item);
                                 using (var reader = cmd2.ExecuteReader())
