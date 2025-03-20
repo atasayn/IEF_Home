@@ -65,6 +65,32 @@
         .checkbox-label input[type="checkbox"]  {
             margin-right: 5px; /* Adjust spacing as needed */
             margin-top: 10px; /* Adjust spacing as needed */
+            width: 1.3em;
+            height: 1.3em;
+            background-color: white;
+            border-radius: 50%;
+            vertical-align: text-bottom;
+            border: 1px solid gray;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        .checkbox-label input[type="checkbox"]:checked {
+            background-color: white; /* Keep background white */
+            border: 1px solid gray; /* Optional: make border red */
+        }
+        .checkbox-label input[type="checkbox"]:checked::after {
+            content: "";
+            width: 0.5em; /* Size of the dot */
+            height: 0.5em; /* Size of the dot */
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the dot */
         }
 
         .center-caption {
