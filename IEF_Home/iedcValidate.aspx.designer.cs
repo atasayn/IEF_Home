@@ -60,6 +60,24 @@ namespace IEF_Home
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl loaderControl;
 
         /// <summary>
+        /// simpleSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox simpleSearch;
+
+        /// <summary>
+        /// levenshteinSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox levenshteinSearch;
+
+        /// <summary>
         /// templateType control.
         /// </summary>
         /// <remarks>

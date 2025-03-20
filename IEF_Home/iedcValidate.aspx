@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="iedcValidate.aspx.cs" Inherits="IEF_Home.iedcValidate" EnableViewState="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
+    <script type="text/javascript">
+        function enforceSingleSelection(checkbox) {
+            document.getElementById('<%= simpleSearch.ClientID %>').checked = (checkbox.id === '<%= simpleSearch.ClientID %>') ? checkbox.checked : false;
+            document.getElementById('<%= levenshteinSearch.ClientID %>').checked = (checkbox.id === '<%= levenshteinSearch.ClientID %>') ? checkbox.checked : false;
+        }
+    </script>
     <style>
         .row {
             display: flex;
@@ -48,11 +54,17 @@
 
         .upload-button, .message {
             margin-left: 5px;
+            margin-bottom: 5px;
         }
 
         .message {
             margin-bottom: auto;
             margin-top: auto;
+        }
+
+        .checkbox-label input[type="checkbox"]  {
+            margin-right: 5px; /* Adjust spacing as needed */
+            margin-top: 10px; /* Adjust spacing as needed */
         }
 
         .center-caption {
@@ -150,6 +162,8 @@
                     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message"></asp:Label>
                     <div class="loader" id="loaderControl" style="display:none" runat="server"></div>
                 </div>
+                <asp:CheckBox ID="simpleSearch" runat="server" CssClass="checkbox-label" Text="Simple Search" AutoPostBack="false" OnClick="enforceSingleSelection(this)"/>
+                <asp:CheckBox ID="levenshteinSearch" runat="server" CssClass="checkbox-label" Text="Levenshtein Search" Checked="True" AutoPostBack="false" OnClick ="enforceSingleSelection(this)"/>
             </div>
        
             <div class="column">

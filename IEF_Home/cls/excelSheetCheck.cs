@@ -17,8 +17,7 @@ using DocumentFormat.OpenXml.Vml.Office;
 using System.Text;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using MySqlX.XDevAPI.Relational;
-
-
+using CheckBox = Microsoft.Office.Interop.Excel.CheckBox;
 
 
 namespace IEF_Home.cls
@@ -270,7 +269,7 @@ namespace IEF_Home.cls
         }
 
         public void isListOrTable(string file, string sheetName, GridView templateType,GridView aspectSequence, GridView dataSheetRowNumber,GridView dataSheetMatch,GridView unitMoniDenomi,
-            BulletedList Ok, BulletedList Warning, BulletedList Error, HtmlGenericControl loaderControl)
+            BulletedList Ok, BulletedList Warning, BulletedList Error, HtmlGenericControl loaderControl,System.Web.UI.WebControls.CheckBox simpleSearch, System.Web.UI.WebControls.CheckBox levenshteinSearch)
         {
             try
             {
@@ -424,7 +423,7 @@ namespace IEF_Home.cls
                             }
                             if (circomodService.counterGlobal.errCount == 0)
                             {
-                                isDataRowValid(sheetName, "Data", file, dataSheetMatch, dataMatch, dataMatchResult, Int32.Parse(noRowsI10Value), Ok, Warning, Error);
+                                isDataRowValid(sheetName, "Data", file, dataSheetMatch, dataMatch, dataMatchResult, Int32.Parse(noRowsI10Value), Ok, Warning, Error, simpleSearch, levenshteinSearch);
                             }
                             aspectSequence.DataSource = aspectSequenceMatch;
                             aspectSequence.DataBind();
@@ -542,7 +541,8 @@ namespace IEF_Home.cls
                             // Additional handling for TABLE if needed
                             if (circomodService.counterGlobal.errCount == 0)
                             {
-                                isDataForTableValid(file, columnAspects ,rowAspects ,rowAspectNamesandIDs, colAspectNamesandIDs, classIDList,rowClassIDs, colClassIDs, rowNo, colNo, dataSheetMatch, dataMatch, dataMatchResult, Ok, Warning, Error);
+                                isDataForTableValid(file, columnAspects ,rowAspects ,rowAspectNamesandIDs, colAspectNamesandIDs, classIDList,rowClassIDs, colClassIDs, rowNo, colNo, dataSheetMatch, dataMatch, 
+                                    dataMatchResult, Ok, Warning, Error, simpleSearch, levenshteinSearch);
                             }
                             iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
                             break;
@@ -568,8 +568,10 @@ namespace IEF_Home.cls
 
         public void isDataForTableValid(string file, List<string> columnAspects, List<string> rowAspects, Dictionary<string, string> rowAspectNamesandIDs, 
             Dictionary<string, string> colAspectNamesandIDs,Dictionary<string, string> classIDList, List<string> rowClassIDs,List<string> colClassIDs, string rowNo,string colNo,
-            GridView dataSheetMatch, DataTable dataMatch, DataTable dataMatchResult,BulletedList Ok, BulletedList Warning, BulletedList Error)
+            GridView dataSheetMatch, DataTable dataMatch, DataTable dataMatchResult,BulletedList Ok, BulletedList Warning, BulletedList Error, System.Web.UI.WebControls.CheckBox simpleSearch, 
+            System.Web.UI.WebControls.CheckBox levenshteinSearch)
         {
+            string choice = iedcValidate.IsMyCheckboxChecked(simpleSearch, levenshteinSearch);
             // Vars
             circomodService serviceInstance = new circomodService();
 
@@ -607,7 +609,7 @@ namespace IEF_Home.cls
                     columnAspects[col - 1],
                     resultDictionary,
                     dataSheetMatch,
-                    dataMatch, Ok, Warning, Error);
+                    dataMatch, Ok, Warning, Error, choice);
                 }
 
                 //// Get Row Aspects
@@ -636,7 +638,7 @@ namespace IEF_Home.cls
                         rowAspects[row - 1],
                         resultDictionary,
                         dataSheetMatch,
-                        dataMatch, Ok, Warning, Error);
+                        dataMatch, Ok, Warning, Error, choice);
 
                 }
                 wb.Close();
@@ -649,8 +651,11 @@ namespace IEF_Home.cls
         }
 
         public void isDataRowValid(string sheetName1, string sheetName2,string file,GridView dataSheetMatch,DataTable dataMatch,
-            DataTable dataMatchResult,int noRowsI10Value, BulletedList Ok, BulletedList Warning, BulletedList Error)
+            DataTable dataMatchResult,int noRowsI10Value, BulletedList Ok, BulletedList Warning, BulletedList Error, System.Web.UI.WebControls.CheckBox simpleSearch, 
+            System.Web.UI.WebControls.CheckBox levenshteinSearch)
         {
+            string choice = iedcValidate.IsMyCheckboxChecked(simpleSearch, levenshteinSearch);
+
             // Empty Variables
             Dictionary<string, string> aspectNames = new Dictionary<string, string>();
             Dictionary<string, string> classificationIDs = new Dictionary<string, string>();
@@ -734,7 +739,7 @@ namespace IEF_Home.cls
                             headerValue,
                             resultDictionary,
                             dataSheetMatch,
-                            dataMatch, Ok, Warning, Error);
+                            dataMatch, Ok, Warning, Error,choice);
 
                     }
                 }
