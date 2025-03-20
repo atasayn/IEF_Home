@@ -89,7 +89,7 @@ namespace IEF_Home
                             missingCellTableSec.Style["display"] = "block";
                             // Date and Time of Upload + File name + Success
                             string dateTime = System.DateTime.Now.ToString();
-                            string htmlContent = $"<h4>On {dateTime}: Parsing and validating dataset {fileName} against the specifications of the iedc.</h4>";
+                            string htmlContent = $"<h5>IEDC validation report for {fileName}, uploaded on {dateTime}</h5>";
                             validatingDateAndTime.Text = htmlContent;
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;

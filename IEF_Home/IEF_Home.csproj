@@ -626,6 +626,10 @@
     <Content Include="research\Documents\2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" />
     <None Include="packages.config" />
     <Content Include="resources\Homepage_News_2.webp" />
+    <Content Include="resources\3_LT_Vehicles_LIST_Sample.xlsx" />
+    <Content Include="resources\3_LT_Vehicles_LIST_Sample_Errors.xlsx" />
+    <Content Include="resources\3_MC_VehicleArchetypes_TABLE_Sample.xlsx" />
+    <Content Include="resources\3_MC_VehicleArchetypes_TABLE_Sample_Errors.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -778,6 +782,7 @@
   <ItemGroup>
     <Folder Include="imagesToPDF\" />
     <Folder Include="resources\countryFlags\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

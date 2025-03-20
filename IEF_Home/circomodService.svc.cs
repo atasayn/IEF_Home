@@ -1914,10 +1914,10 @@ namespace IEF_Home
                     }
                     else
                     {
-                        dataMatch.Rows.Add($"<span style='color: green;'>all is good</span>",
+                        dataMatch.Rows.Add($"<span style='color: green;'></span>",
                             $"<span style='color: green;'>{cellDataColValue}</span>",
-                            $"<span style='color: green;'>all is good</span>",
-                            $"<span style='color: green;'>all is good</span>");
+                            $"<span style='color: green;'></span>",
+                            $"<span style='color: green;'>all labels could be matched to the selected classification for this aspect</span>");
                         counterGlobal.oKCount++;
                     }
                 }
@@ -1981,10 +1981,10 @@ namespace IEF_Home
                             }
                             else
                             {
-                                dataMatch.Rows.Add($"<span style='color: green;'>all is good</span>",
+                                dataMatch.Rows.Add($"<span style='color: green;'></span>",
                                     $"<span style='color: green;'>unit nominator</span>",
-                                    $"<span style='color: green;'>all is good</span>",
-                                    $"<span style='color: green;'>all is good</span>");
+                                    $"<span style='color: green;'></span>",
+                                    $"<span style='color: green;'>all units could be found in the units table</span>");
                                 counterGlobal.oKCount++;
                             }
 
@@ -2053,10 +2053,10 @@ namespace IEF_Home
                             }
                             else
                             {
-                                dataMatch.Rows.Add($"<span style='color: green;'>all is good</span>",
+                                dataMatch.Rows.Add($"<span style='color: green;'></span>",
                                     $"<span style='color: green;'>unit denominator</span>",
-                                    $"<span style='color: green;'>all is good</span>",
-                                    $"<span style='color: green;'>all is good</span>");
+                                    $"<span style='color: green;'></span>",
+                                    $"<span style='color: green;'>all units could be found in the units table</span>");
                                 counterGlobal.oKCount++;
                             }
 
@@ -2137,7 +2137,7 @@ namespace IEF_Home
                             dataMatch.Rows.Add($"<span style='color: green;'>{coverCell} (Cover) </span>",
                                 $"<span style='color: green;'>{unitWhat}</span>",
                                 $"<span style='color: green;'>{dataCell}</span>",
-                                $"<span style='color: green;'>all is good</span>");
+                                $"<span style='color: green;'>all units could be found in the units table</span>");
                             counterGlobal.oKCount++;
                         }
                     }

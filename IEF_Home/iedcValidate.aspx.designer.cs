@@ -78,6 +78,15 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.CheckBox levenshteinSearch;
 
         /// <summary>
+        /// validatingDateAndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label validatingDateAndTime;
+
+        /// <summary>
         /// templateType control.
         /// </summary>
         /// <remarks>
@@ -130,15 +139,6 @@ namespace IEF_Home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.BulletedList Error;
-
-        /// <summary>
-        /// validatingDateAndTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label validatingDateAndTime;
 
         /// <summary>
         /// section1Full control.
