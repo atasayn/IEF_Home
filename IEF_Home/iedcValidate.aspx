@@ -366,36 +366,7 @@
         <asp:Button ID="ButtonReport" runat="server" Text="Export the report above to pdf" CssClass=" btn btn-primary" OnClick="Report" />
     </div>
     <hr />
-    <%-- <div class="row">
-        <div class="col">
-            <label for="formFile" class="form-label">Upload field 2: for PDF xls</label>
-            <div class="row">
-                <input class="form-control" type="file" id="formFile">
-                <input class="btn btn-primary" type="submit" value="Submit" style="margin-left: 5px;">
-            </div>
 
-        </div>
-    </div>--%>
-    <%--  <div class="row">
-        <div class="col">
-            <label for="formFile" class="form-label">Upload field 2: for PDF report</label>
-            <div class="row">
-                <input class="form-control" type="file" id="formFile">
-                <input class="btn btn-primary" type="submit" value="Submit" style="margin-left: 5px;">
-            </div>
-            <div class="row">
-                <div class="column">
-                    <p>Download link: <a href="">iedc data template, spreadsheet, LIST format</a></p>
-                    <p>Download link: <a href="">iedc data template, spreadsheet, TABLE format</a></p>
-                </div>
-                <div class="column">
-                    <p>Tutorial video "How to use the iedc data templates and data validator"</p>
-                </div>
-            </div>
-
-        </div>
-    </div>--%>
-    <%--<hr />--%>
 
     <h5>(c) 2024 - Nildem Atasayar and Stefan Pauliuk. For questions and support, contact <a href="in4mation@indecol.uni-freiburg.de">in4mation@indecol.uni-freiburg.de</a></h5>
 </asp:Content>

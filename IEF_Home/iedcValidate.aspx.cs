@@ -102,10 +102,11 @@ namespace IEF_Home
                             Session["dataSheetRowNumber"] = dataSheetRowNumber;
                             Session["compareTable"] = compareTable;
                             Session["aspectReportTable"] = aspectReportTable;
-                            if (File.Exists(filePath))
-                            {
-                                File.Delete(filePath); // Delete the file from the server
-                            }
+                            Session["dataSheetMatch"] = dataSheetMatch;
+                            //if (File.Exists(filePath))
+                            //{
+                            //    File.Delete(filePath); // Delete the file from the server
+                            //}
 
                         }
                         else
@@ -141,7 +142,7 @@ namespace IEF_Home
             
         }
         public void ConvertExcelToPdf(string excelPath,BulletedList Ok, BulletedList Warning, BulletedList Error,GridView templateType,
-            GridView dataSheetRowNumber,GridView compareTable, GridView aspectReportTable)
+            GridView dataSheetRowNumber,GridView compareTable, GridView aspectReportTable, GridView dataSheetMatch)
         {
             
 
@@ -168,7 +169,10 @@ namespace IEF_Home
                 iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
                 // Define a font with a custom size (e.g., 16)
                 Font customFont = FontFactory.GetFont(FontFactory.HELVETICA, 8, Font.NORMAL);
-                Font baseFont = FontFactory.GetFont(FontFactory.HELVETICA, 9, Font.BOLD);
+                Font excelFont = FontFactory.GetFont(FontFactory.HELVETICA, 6, Font.NORMAL);
+                Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA, 6, Font.BOLD);
+                Font baseFont = FontFactory.GetFont(FontFactory.HELVETICA, 7, Font.BOLD);
+                Font tableColumnFont = FontFactory.GetFont(FontFactory.HELVETICA, 7, Font.BOLD);
 
                 int startRow = 2, endRow = 72;
                 int startCol = 1, endCol = 4; // Columns A to D
@@ -192,17 +196,32 @@ namespace IEF_Home
                     logo.SetAbsolutePosition(0, pdfDocument.PageSize.Height-30);
                     logo.ScaleAbsolute(imageWidth, imageHeight);
                     pdfDocument.Add(logo);
-                    // Parent Table
+                    // Spacing
+                    pdfDocument.Add(new Paragraph("\n")); // Add extra space before the table
 
+                    // Dataset Name and Time Table
+                    PdfPTable tableDatasetName = new PdfPTable(1);
+                    tableDatasetName.WidthPercentage = 50;
+                    tableDatasetName.HorizontalAlignment = Element.ALIGN_LEFT;
+                    // Add header row
+                    AddCellToTable(tableDatasetName, "Name of Dataset", tableColumnFont, true);
+                    tableDatasetName.AddCell(new PdfPCell(new Phrase(pdfName, customFont))); // Apply font to data cell
+                    pdfDocument.Add(tableDatasetName);
+                    // Time
+                    PdfPTable tableTime = new PdfPTable(1);
+                    tableTime.WidthPercentage = 50;
+                    tableTime.SpacingBefore = 5f; // Adding spacing before the table
+                    tableTime.HorizontalAlignment = Element.ALIGN_LEFT;
+                    ;
+                    // Add header row
+                    AddCellToTable(tableTime, "Time Stap of Validation", tableColumnFont, true);
+                    tableTime.AddCell(new PdfPCell(new Phrase(System.DateTime.Now.ToString(), customFont))); // Apply font to data cell
+                    pdfDocument.Add(tableTime);
 
                     // Ok,Warning, Error List
                     // Create table for BulletedLists
                     PdfPTable tableBulletedLists = new PdfPTable(1); // Two columns: Type and Items
-                    tableBulletedLists.WidthPercentage = 30;
-                    tableBulletedLists.SpacingBefore = 10f;
-                    tableBulletedLists.HorizontalAlignment = Element.ALIGN_RIGHT;
-
-                    // Add header row
+                    
                    // AddCellToTable(tableBulletedLists, "Item Feedback", customFont, true);
                     int indexBulletList = 1;
                     // Function to extract only the number from "OK: 5"
@@ -232,14 +251,11 @@ namespace IEF_Home
                     AddBulletedListToTable(Warning, "Warning", BaseColor.ORANGE);
                     AddBulletedListToTable(Error, "Error", BaseColor.RED);
 
+
                     // Template Type
                     PdfPTable tableTemplate = new PdfPTable(1);
-                    tableTemplate.WidthPercentage = 50;
-                    tableTemplate.SpacingBefore = 10f; // Adding spacing before the table
-                    tableTemplate.HorizontalAlignment = Element.ALIGN_LEFT;
-                    ;
                     // Add header row
-                    AddCellToTable(tableTemplate, "Template Type", customFont, true);
+                    AddCellToTable(tableTemplate, "Template Type", tableColumnFont, true);
 
 
                     int indexTemplate = 1;
@@ -254,11 +270,10 @@ namespace IEF_Home
 
                     // Number of rows with text
                     PdfPTable tableNoR = new PdfPTable(1);
-                    tableNoR.WidthPercentage = 50;
-                    tableNoR.SpacingBefore = 10f; // Adding spacing before the table
-            
+                 
+
                     // Add header row
-                    AddCellToTable(tableNoR, "Number of rows with text", customFont, true);
+                    AddCellToTable(tableNoR, "Number of rows with text", tableColumnFont, true);
                     int indexNoR = 1;
                     // Add rows dynamically
                     foreach (GridViewRow row in dataSheetRowNumber.Rows)
@@ -272,24 +287,19 @@ namespace IEF_Home
                     PdfPTable parentTable = new PdfPTable(2);
                     parentTable.WidthPercentage = 100;
                     parentTable.SpacingBefore = 10f;
-                    parentTable.SetWidths(new float[] { 6, 2}); // Adjust column width ratios as needed
+                    parentTable.SetWidths(new float[] {7, 1}); // Adjust column width ratios as needed
 
                     // Wrap the tables into cells
                     PdfPCell bulletListCell = new PdfPCell(tableBulletedLists);
-                    bulletListCell.Border = Rectangle.NO_BORDER;
-                    bulletListCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    
 
                     PdfPCell templateNoRCell = new PdfPCell();
-                    templateNoRCell.Border = Rectangle.NO_BORDER;
-                    templateNoRCell.HorizontalAlignment = Element.ALIGN_LEFT;
-
                     // Create a new table to hold tableTemplate and tableNoR
                     PdfPTable templateAndNoRTable = new PdfPTable(1);
                     templateAndNoRTable.WidthPercentage = 100;
-                    templateAndNoRTable.SpacingBefore = 10f;
-                    templateAndNoRTable.DefaultCell.Border = Rectangle.NO_BORDER;
                     templateAndNoRTable.AddCell(tableTemplate);
                     templateAndNoRTable.AddCell(tableNoR);
+                    
                  
 
                     // Add the combined template and NoR table to the cell
@@ -304,15 +314,16 @@ namespace IEF_Home
                     // Add parent table to document
                     pdfDocument.Add(parentTable);
 
-                    Paragraph captionParagraphTable1 = new Paragraph("Table 1 and 2: Template Type and Number of rows with text", baseFont);
-                    captionParagraphTable1.Alignment = Element.ALIGN_CENTER; // Center-align the caption
+                    Paragraph captionParagraphTable1 = new Paragraph("Table 1: Dataset Information", tableColumnFont);
+                    captionParagraphTable1.Alignment = Element.ALIGN_LEFT; // Center-align the caption
+                    captionParagraphTable1.SpacingBefore = 10f;
                     pdfDocument.Add(captionParagraphTable1);
 
                     // Dataset information Table
                     PdfPTable table = new PdfPTable(4);
                     table.WidthPercentage = 100;
-                    table.SpacingBefore = 20f; // Adding spacing before the table
-                    float[] columnWidths = { 1f, 2f, 3f, 3f };
+                    table.SpacingBefore = 5f; // Adding spacing before the table
+                    float[] columnWidths = { 0.3f, 1f,2f, 3f };
                     table.SetWidths(columnWidths);
                    
                     for (int row = startRow; row <= endRow; row++)
@@ -321,7 +332,7 @@ namespace IEF_Home
                         if (row == 2)
                         {
                             string mergedText = worksheet.Cells[row, 2].Text; // Take text from A2
-                            PdfPCell mergedCell = new PdfPCell(new Phrase(mergedText, customFont))
+                            PdfPCell mergedCell = new PdfPCell(new Phrase(mergedText, titleFont))
                             {
                                 Colspan = 4, // Spanning 
                                 HorizontalAlignment = Element.ALIGN_CENTER,
@@ -335,19 +346,23 @@ namespace IEF_Home
                         if (row == 3)
                         {
                             string mergedText = worksheet.Cells[row, 1].Text; // Take text from A2
-                            table.AddCell(new PdfPCell(new Phrase(mergedText, customFont)));
+                            table.AddCell(new PdfPCell(new Phrase(mergedText, excelFont)));
                             string mergedText2 = worksheet.Cells[row, 2].Text; // Take text from A2
-                            table.AddCell(new PdfPCell(new Phrase(mergedText2, customFont)));
+                            table.AddCell(new PdfPCell(new Phrase(mergedText2, excelFont)));
                             string mergedText3 = worksheet.Cells[row, 3].Text; // Take text from A2
-                            table.AddCell(new PdfPCell(new Phrase(mergedText3, customFont)));
+                            if (mergedText3 == "Column name")
+                            {
+                                mergedText3 = "Property name";
+                            }
+                            table.AddCell(new PdfPCell(new Phrase(mergedText3, excelFont)));
                             string mergedText4 = worksheet.Cells[row, 4].Text; // Take text from A2
-                            table.AddCell(new PdfPCell(new Phrase(mergedText4, customFont)));
+                            table.AddCell(new PdfPCell(new Phrase(mergedText4, excelFont)));
                         }
                         if (row >= 4)
                         {
                             // Column A (Always added)
                             string colA = worksheet.Cells[row, 1].Text;
-                            table.AddCell(new PdfPCell(new Phrase(colA)));
+                            table.AddCell(new PdfPCell(new Phrase(colA, excelFont)));
 
                             // Column B (Merged Handling)
                             int rowspan = GetRowspanForMergedRange(row, mergedRanges);
@@ -355,7 +370,7 @@ namespace IEF_Home
                             {
                                 string colB = worksheet.Cells[row, 2].Text;
                                 bgColor = GetExcelCellColor(worksheet.Cells[row, 2]); // Get background color
-                                PdfPCell mergedCell = new PdfPCell(new Phrase(colB, customFont))
+                                PdfPCell mergedCell = new PdfPCell(new Phrase(colB, excelFont))
                                 {
                                     Rowspan = rowspan,
                                     VerticalAlignment = Element.ALIGN_MIDDLE,
@@ -371,7 +386,7 @@ namespace IEF_Home
                             // Column C (Always added)
                             string colC = worksheet.Cells[row, 3].Text;
                             bgColor = GetExcelCellColor(worksheet.Cells[row, 3]); // Get background color
-                            PdfPCell cellC = new PdfPCell(new Phrase(colC, customFont))
+                            PdfPCell cellC = new PdfPCell(new Phrase(colC, excelFont))
                             {
                                 BackgroundColor = bgColor // Apply background color
                             };
@@ -379,7 +394,7 @@ namespace IEF_Home
 
                             // Column D (Always added)
                             string colD = worksheet.Cells[row, 4].Text;
-                            PdfPCell cellD = new PdfPCell(new Phrase(colD, customFont))
+                            PdfPCell cellD = new PdfPCell(new Phrase(colD, excelFont))
                             {
                                 BackgroundColor = bgColor // Apply background color
                             };
@@ -391,24 +406,25 @@ namespace IEF_Home
 
                     pdfDocument.Add(table);
                     // Create a Paragraph for the caption
-                    Paragraph captionParagraph = new Paragraph("Table 3: Dataset information from Excel Sheet", baseFont);
-                    captionParagraph.Alignment = Element.ALIGN_CENTER; // Center-align the caption
+                    Paragraph captionParagraph = new Paragraph("Table 2: Validation report for the data category, type, layer, and metadata", tableColumnFont);
+                    captionParagraph.Alignment = Element.ALIGN_LEFT; // Center-align the caption
+                    captionParagraph.SpacingBefore = 10f;
                     // Add the caption phrase to the document
                     pdfDocument.Add(captionParagraph);
 
                     // Second Table
                     PdfPTable tableSummary = new PdfPTable(5);
                     tableSummary.WidthPercentage = 100;
-                    tableSummary.SpacingBefore = 20f; // Adding spacing before the table
-                    float[] columnWidths2 = { 1f, 3f, 3f, 3f, 3f };
+                    tableSummary.SpacingBefore = 5f; // Adding spacing before the table
+                    float[] columnWidths2 = { 0.3f, 0.7f, 1f, 1f, 2f };
                     tableSummary.SetWidths(columnWidths2);
 
                     // Add header row
-                    AddCellToTable(tableSummary, "Cell", customFont,true);
-                    AddCellToTable(tableSummary, "Name/label", customFont,true);
-                    AddCellToTable(tableSummary, "Given Value/Text", customFont, true);
-                    AddCellToTable(tableSummary, "Closest Iedc Match", customFont, true);
-                    AddCellToTable(tableSummary, "Validation Report", customFont, true);
+                    AddCellToTable(tableSummary, "Cell", tableColumnFont, true);
+                    AddCellToTable(tableSummary, "Name/label", tableColumnFont, true);
+                    AddCellToTable(tableSummary, "Given Value/Text", tableColumnFont, true);
+                    AddCellToTable(tableSummary, "Closest Iedc Match", tableColumnFont, true);
+                    AddCellToTable(tableSummary, "Validation Report", tableColumnFont, true);
 
                     int index = 1;
                     // Add rows dynamically
@@ -424,21 +440,25 @@ namespace IEF_Home
                     pdfDocument.Add(tableSummary);
 
                     // Create a Paragraph for the caption
-                    Paragraph captionDatasetWeb = new Paragraph("Table 4: Dataset type and other specifications against iedc standards", baseFont);
-                    captionDatasetWeb.Alignment = Element.ALIGN_CENTER; // Center-align the caption
+                    Paragraph captionDatasetWeb = new Paragraph("Table 3: Validation report for the data aspects and their classifications", tableColumnFont);
+                    captionDatasetWeb.Alignment = Element.ALIGN_LEFT; // Center-align the caption
+                    captionDatasetWeb.SpacingBefore = 10f;
+
                     // Add the caption phrase to the document
                     pdfDocument.Add(captionDatasetWeb);
 
                     // Aspect/Classification Comparasion Table
                     PdfPTable tableSummaryAspects = new PdfPTable(5);
                     tableSummaryAspects.WidthPercentage = 100;
-                    tableSummaryAspects.SpacingBefore = 20f; // Adding spacing before the table
+                    float[] columnWidth = { 0.3f, 1f,1f, 1f, 1f };
+                    tableSummaryAspects.SetWidths(columnWidth);
+                    tableSummaryAspects.SpacingBefore = 5f; // Adding spacing before the table
                     // Add header row
-                    AddCellToTable(tableSummaryAspects, "Aspect", customFont, true);
-                    AddCellToTable(tableSummaryAspects, "Aspect Remarks", customFont, true);
-                    AddCellToTable(tableSummaryAspects, "Classification", customFont, true);
-                    AddCellToTable(tableSummaryAspects, "Classification Remarks", customFont, true);
-                    AddCellToTable(tableSummaryAspects, "Dimension Remarks", customFont, true);
+                    AddCellToTable(tableSummaryAspects, "Aspect", tableColumnFont, true);
+                    AddCellToTable(tableSummaryAspects, "Aspect Remarks", tableColumnFont, true);
+                    AddCellToTable(tableSummaryAspects, "Classification", tableColumnFont, true);
+                    AddCellToTable(tableSummaryAspects, "Classification Remarks", tableColumnFont, true);
+                    AddCellToTable(tableSummaryAspects, "Dimension Remarks", tableColumnFont, true);
 
                     int indexAspects = 1;
                     // Add rows dynamically
@@ -450,12 +470,38 @@ namespace IEF_Home
                             indexAspects++;
                         }
                     }
-                    Paragraph captionParagraphAspect = new Paragraph("Table 5: Dataset aspects and classifications to iedc specifications", baseFont);
-                    captionParagraphAspect.Alignment = Element.ALIGN_CENTER; // Center-align the caption
-                    
+                    Paragraph captionParagraphAspect = new Paragraph("Table 4: Use of consistent classifications", tableColumnFont);
+                    captionParagraphAspect.Alignment = Element.ALIGN_LEFT; // Center-align the caption
+                    captionParagraphAspect.SpacingBefore = 10f;
+
+
                     // Add the caption phrase to the document
                     pdfDocument.Add(tableSummaryAspects);
                     pdfDocument.Add(captionParagraphAspect);
+
+                    //Use of Consistent Classification, FINAL table
+                    PdfPTable finalTable = new PdfPTable(4);
+                    finalTable.WidthPercentage = 100;
+                    finalTable.SpacingBefore = 5f; // Adding spacing before the table
+                    float[] columnWidthFinal = { 0.1f, 0.5f, 1f, 1f };
+                    finalTable.SetWidths(columnWidthFinal);
+                    // Add header row
+                    AddCellToTable(finalTable, "Line", tableColumnFont, true);
+                    AddCellToTable(finalTable, "Aspect", tableColumnFont, true);
+                    AddCellToTable(finalTable, "Given Value/Text", tableColumnFont, true);
+                    AddCellToTable(finalTable, "Remarks", tableColumnFont, true);
+                    int indexFinal = 1;
+                    // Add rows dynamically
+                    foreach (GridViewRow row in dataSheetMatch.Rows)
+                    {
+                        foreach (System.Web.UI.WebControls.TableCell cell in row.Cells)
+                        {
+                            finalTable.AddCell(ConvertHtmlToPdfPCell(writer, cell.Text, indexFinal));
+                            indexFinal++;
+                        }
+                    }
+
+                    pdfDocument.Add(finalTable);
                     pdfDocument.Close();
                     stream.Close();
                     // Serve the file for download
@@ -585,8 +631,11 @@ namespace IEF_Home
                     Session["templateType"] as GridView,
                     Session["dataSheetRowNumber"] as GridView,
                     Session["compareTable"] as GridView,
-                    Session["aspectReportTable"] as GridView
+                    Session["aspectReportTable"] as GridView,
+                    Session["dataSheetMatch"] as GridView
                 );
+
+
 
 
 

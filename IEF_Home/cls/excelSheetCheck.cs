@@ -5,19 +5,12 @@ using System.Web;
 using OfficeOpenXml;
 using ClosedXML.Excel;
 using System.Web.UI.WebControls;
-using System.Data;
 using System.Linq;
 using static IEF_Home.circomodService;
-using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.Office.Interop.Excel;
 using DataTable = System.Data.DataTable;
-using OfficeOpenXml.FormulaParsing.Ranges;
 using System.Web.UI.HtmlControls;
-using DocumentFormat.OpenXml.Vml.Office;
-using System.Text;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using MySqlX.XDevAPI.Relational;
-using CheckBox = Microsoft.Office.Interop.Excel.CheckBox;
+
 
 
 namespace IEF_Home.cls
