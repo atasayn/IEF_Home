@@ -358,10 +358,10 @@ The following topics are covered:
                         <b>Reading:</b> The supporting documents of the material and energy flow analysis software <a href="http://www.stan2web.net/" target="new">STAN</a> are a good reference for building proper system definitions and for data modelling in material and energy flow analysis and industrial in general. An overview of the different documents can be found <a href="http://www.stan2web.net/support/mfa-basics" target="new">here</a>.
                         <br>
                         Recommended STAN reading 1: Glossary of basic systems analysis terms:<br>
-                        <a href="http://www.stan2web.net/support/mfa-basics/terms" target="new">IEooc_Methods1_Reading1</a>
+                        <a href="https://www.stan2web.net/NetHelp/default.htm?turl=HTMLDocuments%2FContentManual.htm " target="new">IEooc_Methods1_Reading1</a>
                         <br>
                         Recommended STAN reading 2: Principles of establishing a system definition:<br>
-                        <a href="http://www.stan2web.net/support/mfa-basics/building-a-mfa-model" target="new">IEooc_Methods1_Reading2</a>
+                        <a href="https://www.stan2web.net/NetHelp/default.htm?turl=HTMLDocuments%2FContentManual.htm " target="new">IEooc_Methods1_Reading2</a>
 
                         <br>
                         <br>
