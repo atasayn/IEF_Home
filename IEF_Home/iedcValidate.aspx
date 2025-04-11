@@ -44,6 +44,11 @@
             transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
         }
 
+        .bold-label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
         .title {
             text-align: center
         }
@@ -61,10 +66,15 @@
             margin-bottom: auto;
             margin-top: auto;
         }
+        .nobreak-caption caption {
+            white-space: nowrap;
+            font-size: 15px;
+        }
+
 
         .checkbox-label input[type="checkbox"]  {
-            margin-right: 5px; /* Adjust spacing as needed */
-            margin-top: 10px; /* Adjust spacing as needed */
+            margin-left: 3px; /* Adjust spacing as needed */
+            margin-top: 3px; /* Adjust spacing as needed */
             width: 1.3em;
             height: 1.3em;
             background-color: white;
@@ -190,21 +200,24 @@
                     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message"></asp:Label>
                     <div class="loader" id="loaderControl" style="display:none" runat="server"></div>
                 </div>
-                <asp:CheckBox ID="simpleSearch" runat="server" CssClass="checkbox-label" Text="Simple Search" AutoPostBack="false" OnClick="enforceSingleSelection(this)"/>
-                <asp:CheckBox ID="levenshteinSearch" runat="server" CssClass="checkbox-label" Text="Levenshtein Search" Checked="True" AutoPostBack="false" OnClick ="enforceSingleSelection(this)"/>
+                <div class="row" style="padding-top: 5px">
+                    <asp:Label runat="server">Suggestion of alternative labels for products, materials, etc</asp:Label>
+                </div>
+                <div class="row">
+                    <asp:CheckBox ID="simpleSearch" runat="server" CssClass="checkbox-label" Text="Simple Search" AutoPostBack="false" OnClick="enforceSingleSelection(this)"/>
+                    <asp:CheckBox ID="levenshteinSearch" runat="server" CssClass="checkbox-label" Text="Levenshtein Search" Checked="True" AutoPostBack="false" OnClick ="enforceSingleSelection(this)"/>
+                </div>
             </div>
-       
-            <div class="column">
-                <asp:Label ID="validatingDateAndTime" runat="server" Text=""></asp:Label>
-            </div>
-
         </div>
     </div>
 
     <hr />
     <div>
+        <div class="row">
+            <asp:Label ID="validatingDateAndTime" runat="server" Text="" CssClass="bold-label"></asp:Label>
+        </div>
         <div class="row" style="margin-top:20px ">
-
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             <div class="column">
                 <asp:GridView ID="templateType" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
                     <columns>
@@ -235,16 +248,14 @@
             </div>
         </div>
         <div id="section1">
-            <p><b>Section 1: Consistent description of the data</b></p>
+            <p style="font-size:16px"><b>Section 1: Consistent description of the data</b></p>
             <div id="section1Full" runat="server" style="display: none">
                 <p id="compareTableSection" style="display: none">
                     <b></b>The match between the uploaded excel data template and the iedc database is displayed below in the left table. Non-matching data between the two columns are marked in red. Please check these cells in the uploaded excel template and replace them with valid entries. In case of missing information in the uploaded excel template, the corresponding cell is displayed in red font in the right table. Please check these cells and fill them with valid data
                 </p>
                 <div class="row" style="row-gap: 20px">
                     <div class="column" style="overflow: auto">
-                        <ul>
-                            <li style="font-size: 1.17em;"> <b>Table 1:</b> Check dataset type and other specifications against iedc standards.</li>
-                        </ul>
+                        <asp:Label runat="server" Text="<b>Table 1:</b> Check dataset type and other specifications against iedc standards." Style="font-size: 15px;" />
                         <asp:GridView ID="compareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
                             <columns>
                                 <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
@@ -259,7 +270,7 @@
                 <div class="row" id="missingCellTableSec" style="display: none" runat="server">
                     <div class="column" style="margin-top: 30px;">
                         <ul>
-                            <li style="font-size: 1.17em;">Check sufficient description and metadata</li>
+                            <li style="font-size: 15px;">Check sufficient description and metadata</li>
                         </ul>
                         <asp:GridView ID="missingCellTable" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
                             <columns>
@@ -273,9 +284,7 @@
                 </p>
                 <br />
                 <div class="row">
-                    <ul>
-                        <li style="font-size: 1.17em;"><b>Table 2:</b> Validation for the data aspects and their classifications.</li>
-                    </ul>
+                    <asp:Label runat="server" Text="<b>Table 2:</b> Validation for the data aspects and their classifications." Style="font-size: 15px;" />
                     <asp:GridView ID="aspectReportTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
                         <columns>
                             <asp:BoundField DataField="Aspect" HeaderText="Aspect" HtmlEncode="False" />
@@ -300,7 +309,7 @@
 
         </div>
         <div id="section2">
-            <p><b>Section 2: Proper formatting of the numerical data</b></p>
+            <p style="font-size:16px"><b>Section 2: Proper formatting of the numerical data</b></p>
             <div class="row" style="margin-top: 10px;">
                 <asp:GridView ID="unitMoniDenomi" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
                     <columns>
@@ -314,7 +323,8 @@
             <div class="row">
                 <div class="column" style="max-width: fit-content;margin-left: auto;margin-right: auto; ">
 
-                    <asp:GridView ID="aspectMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False" Caption="Table 3: Validation for the aspects on the cells D23-D46 and F12-..">
+                    <asp:GridView ID="aspectMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid nobreak-caption"  AutoGenerateColumns="False" 
+                                  Caption="<strong>Table 3:</strong> Validation for the aspects on the cells D23-D46 and F12-..">
                     <columns>
                         <asp:BoundField DataField="Aspect (D23-D46)" HeaderText="Aspect (D23-D46)" HtmlEncode="False" />
                         <asp:BoundField DataField="Aspect (F12-..)" HeaderText="Aspect (F12-..)" HtmlEncode="False" />
@@ -331,9 +341,7 @@
                 </div>
             <div class="row" id="section2Row" style="margin-top: 10px;margin-bottom:10px;display:none" runat="server">
                 <div class="column">
-                    <ul>
-                        <li style="font-size: 1.17em;"><b>Table 4:</b> Validation for the orders of the aspects and data columns </li>
-                    </ul>
+                    <asp:Label runat="server" Text="<b>Table 4:</b> Validation for the orders of the aspects and data columns" Style="font-size: 15px;" />
                     <asp:GridView ID="aspectSequence" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
                         <columns>
                             <asp:BoundField DataField="Given Value/Text" HeaderText="Given Value/Text" HtmlEncode="False" />
@@ -346,12 +354,10 @@
         </div>
        
         <div id="section3">
-            <p><b>Section 3: Use of consistent classifications</b></p>
+            <p style="font-size:16px"><b>Section 3: Use of consistent classifications</b></p>
             <div class="row" id="section2DataCheck" style="margin-top: 10px;margin-bottom: 10px; display: none;max-height:600px;overflow-y:scroll;" runat="server">
                 <div class="column">
-                    <ul>
-                        <li style="font-size: 1.17em;"><b>Table 5:</b> Validation of the data against IEDC database </li>
-                    </ul>
+                    <asp:Label runat="server" Text="<b>Table 5:</b> Validation of the data against IEDC database" Style="font-size:15px;" />
                     <asp:GridView ID="dataSheetMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
                         <columns>
                             <asp:BoundField DataField="Line" HeaderText="Line" HtmlEncode="False" />

@@ -28,6 +28,7 @@ using GrapeCity.Documents.Pdf.Layers;
 using static ClosedXML.Excel.XLPredefinedFormat;
 using Paragraph = iTextSharp.text.Paragraph;
 using System.Linq;
+using MySqlX.XDevAPI.Relational;
 
 
 
@@ -89,7 +90,7 @@ namespace IEF_Home
                             missingCellTableSec.Style["display"] = "block";
                             // Date and Time of Upload + File name + Success
                             string dateTime = System.DateTime.Now.ToString();
-                            string htmlContent = $"<h5>IEDC validation report for {fileName}, uploaded on {dateTime}</h5>";
+                            string htmlContent = $"<h5 style='font-weight:bold;font-size:18px'>IEDC validation report for {fileName}, uploaded on {dateTime}</h5>";
                             validatingDateAndTime.Text = htmlContent;
                             lblMessage.Text = "File uploaded successfully.";
                             lblMessage.ForeColor = System.Drawing.Color.Green;
@@ -103,10 +104,6 @@ namespace IEF_Home
                             Session["compareTable"] = compareTable;
                             Session["aspectReportTable"] = aspectReportTable;
                             Session["dataSheetMatch"] = dataSheetMatch;
-                            //if (File.Exists(filePath))
-                            //{
-                            //    File.Delete(filePath); // Delete the file from the server
-                            //}
 
                         }
                         else
@@ -163,7 +160,7 @@ namespace IEF_Home
                 string pdfPath = System.IO.Path.Combine(directoryPath, $"{pdfName}_validation_{dateTime}.pdf");
                 // Header
                 // Define the relative path to the image
-                string relativeImagePath = "resources/iedcValidatorReportHeader.png";
+                string relativeImagePath = "resources/iedcValidationReport.png";
                 string imagePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativeImagePath);
                 XImage headerImage = XImage.FromFile(imagePath);
                 iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
@@ -171,7 +168,6 @@ namespace IEF_Home
                 Font customFont = FontFactory.GetFont(FontFactory.HELVETICA, 8, Font.NORMAL);
                 Font excelFont = FontFactory.GetFont(FontFactory.HELVETICA, 6, Font.NORMAL);
                 Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA, 6, Font.BOLD);
-                Font baseFont = FontFactory.GetFont(FontFactory.HELVETICA, 7, Font.BOLD);
                 Font tableColumnFont = FontFactory.GetFont(FontFactory.HELVETICA, 7, Font.BOLD);
 
                 int startRow = 2, endRow = 72;
@@ -199,14 +195,24 @@ namespace IEF_Home
                     // Spacing
                     pdfDocument.Add(new Paragraph("\n")); // Add extra space before the table
 
+
+                    // Dataset vesion
+                    PdfPTable datasetVersion = new PdfPTable(1);
+                    datasetVersion.WidthPercentage = 50;
+                    datasetVersion.HorizontalAlignment = Element.ALIGN_LEFT;
+                    // Add header
+                    AddCellToTable(datasetVersion, "Version of Dataset",tableColumnFont,true);
+
+
                     // Dataset Name and Time Table
                     PdfPTable tableDatasetName = new PdfPTable(1);
                     tableDatasetName.WidthPercentage = 50;
                     tableDatasetName.HorizontalAlignment = Element.ALIGN_LEFT;
+                    tableDatasetName.SpacingBefore = 5f;
                     // Add header row
                     AddCellToTable(tableDatasetName, "Name of Dataset", tableColumnFont, true);
                     tableDatasetName.AddCell(new PdfPCell(new Phrase(pdfName, customFont))); // Apply font to data cell
-                    pdfDocument.Add(tableDatasetName);
+                    
                     // Time
                     PdfPTable tableTime = new PdfPTable(1);
                     tableTime.WidthPercentage = 50;
@@ -216,7 +222,8 @@ namespace IEF_Home
                     // Add header row
                     AddCellToTable(tableTime, "Time Stap of Validation", tableColumnFont, true);
                     tableTime.AddCell(new PdfPCell(new Phrase(System.DateTime.Now.ToString(), customFont))); // Apply font to data cell
-                    pdfDocument.Add(tableTime);
+
+
 
                     // Ok,Warning, Error List
                     // Create table for BulletedLists
@@ -311,13 +318,12 @@ namespace IEF_Home
                     parentTable.AddCell(new PdfPCell());
 
 
-                    // Add parent table to document
-                    pdfDocument.Add(parentTable);
+
 
                     Paragraph captionParagraphTable1 = new Paragraph("Table 1: Dataset Information", tableColumnFont);
                     captionParagraphTable1.Alignment = Element.ALIGN_LEFT; // Center-align the caption
                     captionParagraphTable1.SpacingBefore = 10f;
-                    pdfDocument.Add(captionParagraphTable1);
+                    
 
                     // Dataset information Table
                     PdfPTable table = new PdfPTable(4);
@@ -354,6 +360,7 @@ namespace IEF_Home
                             {
                                 mergedText3 = "Property name";
                             }
+                     
                             table.AddCell(new PdfPCell(new Phrase(mergedText3, excelFont)));
                             string mergedText4 = worksheet.Cells[row, 4].Text; // Take text from A2
                             table.AddCell(new PdfPCell(new Phrase(mergedText4, excelFont)));
@@ -394,6 +401,11 @@ namespace IEF_Home
 
                             // Column D (Always added)
                             string colD = worksheet.Cells[row, 4].Text;
+                            if (colC == "dataset_version")
+                            {
+                                datasetVersion.AddCell(new PdfPCell(new Phrase(colD, customFont)));
+                                
+                            }
                             PdfPCell cellD = new PdfPCell(new Phrase(colD, excelFont))
                             {
                                 BackgroundColor = bgColor // Apply background color
@@ -404,6 +416,12 @@ namespace IEF_Home
 
                     }
 
+                    pdfDocument.Add(datasetVersion);
+                    // Add parent table to document
+                    pdfDocument.Add(tableDatasetName);
+                    pdfDocument.Add(tableTime);
+                    pdfDocument.Add(parentTable);
+                    pdfDocument.Add(captionParagraphTable1);
                     pdfDocument.Add(table);
                     // Create a Paragraph for the caption
                     Paragraph captionParagraph = new Paragraph("Table 2: Validation report for the data category, type, layer, and metadata", tableColumnFont);
@@ -427,14 +445,24 @@ namespace IEF_Home
                     AddCellToTable(tableSummary, "Validation Report", tableColumnFont, true);
 
                     int index = 1;
+
                     // Add rows dynamically
                     foreach (GridViewRow row in compareTable.Rows)
                     {
-                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[0].Text, index)); // Cell column
-                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[1].Text, index)); // Name/label column
-                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[2].Text, index)); // Given Value/Text column
-                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[3].Text, index)); // Closest IEDC Match column
-                        tableSummary.AddCell(ConvertHtmlToPdfPCell(writer, row.Cells[4].Text, index)); // Closest IEDC Match column
+                        bool isEvenRow = index % 2 == 0; // every second row
+
+                        for (int i = 0; i < 5; i++) // assuming 5 columns
+                        {
+                            PdfPCell pdfCell = ConvertHtmlToPdfPCell(writer, row.Cells[i].Text, index);
+
+                            if (isEvenRow)
+                            {
+                                pdfCell.BackgroundColor = new BaseColor(230, 230, 230); // light grey
+                            }
+
+                            tableSummary.AddCell(pdfCell);
+                        }
+
                         index++;
                     }
                     pdfDocument.Add(tableSummary);
@@ -461,15 +489,27 @@ namespace IEF_Home
                     AddCellToTable(tableSummaryAspects, "Dimension Remarks", tableColumnFont, true);
 
                     int indexAspects = 1;
-                    // Add rows dynamically
+                    int rowIndex = 0;
                     foreach (GridViewRow row in aspectReportTable.Rows)
                     {
+                        bool isEvenRow = rowIndex % 2 == 1; // zero-based index; every second row
+
                         foreach (System.Web.UI.WebControls.TableCell cell in row.Cells)
                         {
-                            tableSummaryAspects.AddCell(ConvertHtmlToPdfPCell(writer, cell.Text, indexAspects));
+                            PdfPCell pdfCell = ConvertHtmlToPdfPCell(writer, cell.Text, indexAspects);
+
+                            if (isEvenRow)
+                            {
+                                pdfCell.BackgroundColor = new BaseColor(230, 230, 230); // light grey
+                            }
+
+                            tableSummaryAspects.AddCell(pdfCell);
                             indexAspects++;
                         }
+
+                        rowIndex++;
                     }
+
                     Paragraph captionParagraphAspect = new Paragraph("Table 4: Use of consistent classifications", tableColumnFont);
                     captionParagraphAspect.Alignment = Element.ALIGN_LEFT; // Center-align the caption
                     captionParagraphAspect.SpacingBefore = 10f;
@@ -491,15 +531,29 @@ namespace IEF_Home
                     AddCellToTable(finalTable, "Given Value/Text", tableColumnFont, true);
                     AddCellToTable(finalTable, "Remarks", tableColumnFont, true);
                     int indexFinal = 1;
+                    int rowIndex2 = 0;
+
                     // Add rows dynamically
                     foreach (GridViewRow row in dataSheetMatch.Rows)
                     {
+                        bool isEvenRow = rowIndex2 % 2 == 1; // every second row (0-based index)
+
                         foreach (System.Web.UI.WebControls.TableCell cell in row.Cells)
                         {
-                            finalTable.AddCell(ConvertHtmlToPdfPCell(writer, cell.Text, indexFinal));
+                            PdfPCell pdfCell = ConvertHtmlToPdfPCell(writer, cell.Text, indexFinal);
+
+                            if (isEvenRow)
+                            {
+                                pdfCell.BackgroundColor = new BaseColor(230, 230, 230); // light grey
+                            }
+
+                            finalTable.AddCell(pdfCell);
                             indexFinal++;
                         }
+
+                        rowIndex2++;
                     }
+
 
                     pdfDocument.Add(finalTable);
                     pdfDocument.Close();
@@ -516,7 +570,7 @@ namespace IEF_Home
                 }
             }
         }
-        
+
         // Helper function to check if a row is the start of a merged range
         static int GetRowspanForMergedRange(int currentRow, List<(int start, int end)> mergedRanges)
         {
@@ -583,11 +637,6 @@ namespace IEF_Home
             // Set the custom font size, but we will merge it with existing styles
             Font baseFont = FontFactory.GetFont(FontFactory.HELVETICA, 8, Font.NORMAL);
             PdfPCell cell = new PdfPCell(new Phrase("", baseFont));
-            // Apply grey background to every second cell (index is 1-based)
-            if (index % 2 == 0)
-            {
-                cell.BackgroundColor = new BaseColor(221, 221, 221); ; // Grey background
-            }
             using (StringReader sr = new StringReader(htmlContent))
             {
                 // Parse the HTML into elements
