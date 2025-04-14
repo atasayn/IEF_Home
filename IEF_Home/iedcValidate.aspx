@@ -180,12 +180,12 @@
             Detailed info on the data model can be found on the (IEDC homepage) [<a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">https://www.database.industrialecology.uni-freiburg.de/</a> ].
         </p>
         <p>
-            The following material is available: a spreadsheet template for list-shaped data <a href="resources/3_LT_Vehicles_LIST_Sample.xlsx" >3_LT_Vehicles_LIST_Sample.xlsx</a>, a working example for list-shaped data <a href="resources/3_LT_Vehicles_LIST_Sample.xlsx" >3_LT_Vehicles_LIST_Sample.xlsx</a>, 
+            The following material is available: a working example for list-shaped data <a href="resources/3_LT_Vehicles_LIST_Sample.xlsx" >3_LT_Vehicles_LIST_Sample.xlsx</a>, 
             and an example for list-based data with multiple errors included <a href="resources/3_LT_Vehicles_LIST_Sample_Errors.xlsx">3_LT_Vehicles_LIST_Sample_Errors.xlsx</a>; 
-            a spreadsheet template for table-shaped data <a href="resources/3_MC_VehicleArchetypes_TABLE_Sample.xlsx" >3_MC_VehicleArchetypes_TABLE_Sample.xlsx</a>, a working example for table-shaped data <a href="resources/3_MC_VehicleArchetypes_TABLE_Sample.xlsx" >3_MC_VehicleArchetypes_TABLE_Sample.xlsx</a>, 
+            a working example for table-shaped data <a href="resources/3_MC_VehicleArchetypes_TABLE_Sample.xlsx" >3_MC_VehicleArchetypes_TABLE_Sample.xlsx</a>, 
             and an example for table-based data with multiple errors included <a href="resources/3_MC_VehicleArchetypes_TABLE_Sample_Errors.xlsx">3_MC_VehicleArchetypes_TABLE_Sample_Errors.xlsx</a>.
         </p>
-        <p>A tutorial video (tbd.) shows how to format the data according to the IEDC specifications and how to use the data template validator:</p>
+        <p>A tutorial video <a href="https://youtu.be/XcUBUaWhKUc" target="_blank">https://youtu.be/XcUBUaWhKUc</a> shows how to format the data according to the IEDC specifications and how to use the data template validator:</p>
     </div>
 
     <hr />
@@ -204,8 +204,8 @@
                     <asp:Label runat="server">Suggestion of alternative labels for products, materials, etc</asp:Label>
                 </div>
                 <div class="row">
-                    <asp:CheckBox ID="simpleSearch" runat="server" CssClass="checkbox-label" Text="Simple Search" AutoPostBack="false" OnClick="enforceSingleSelection(this)"/>
-                    <asp:CheckBox ID="levenshteinSearch" runat="server" CssClass="checkbox-label" Text="Levenshtein Search" Checked="True" AutoPostBack="false" OnClick ="enforceSingleSelection(this)"/>
+                    <asp:CheckBox ID="simpleSearch" runat="server" CssClass="checkbox-label" Text="Simple Search (not very accurate, fast)" AutoPostBack="false" OnClick="enforceSingleSelection(this)"/>
+                    <asp:CheckBox ID="levenshteinSearch" runat="server" CssClass="checkbox-label" Text="Levenshtein Search (accurate, slow)" Checked="True" AutoPostBack="false" OnClick ="enforceSingleSelection(this)"/>
                 </div>
             </div>
         </div>

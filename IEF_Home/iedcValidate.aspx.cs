@@ -200,6 +200,7 @@ namespace IEF_Home
                     PdfPTable datasetVersion = new PdfPTable(1);
                     datasetVersion.WidthPercentage = 50;
                     datasetVersion.HorizontalAlignment = Element.ALIGN_LEFT;
+                    datasetVersion.SpacingBefore = 5f;
                     // Add header
                     AddCellToTable(datasetVersion, "Version of Dataset",tableColumnFont,true);
 
@@ -415,10 +416,9 @@ namespace IEF_Home
                         }
 
                     }
-
-                    pdfDocument.Add(datasetVersion);
-                    // Add parent table to document
+                    // Add tables to the pdf
                     pdfDocument.Add(tableDatasetName);
+                    pdfDocument.Add(datasetVersion);
                     pdfDocument.Add(tableTime);
                     pdfDocument.Add(parentTable);
                     pdfDocument.Add(captionParagraphTable1);
