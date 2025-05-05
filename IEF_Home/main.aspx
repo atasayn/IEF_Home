@@ -196,7 +196,13 @@
 
             <div class="not-show-twitter">
              <h3 style="text-align: center"><b>+++ News +++</b></h3> 
-     <%--      <img class="img-responsive center-block" src="resources/Gini_Paper_Link.png" height="">--%>
+                <h4><b>Critical Mass Sprint for the Industrial Ecology Community Database</b></h4>
+                <p> 2025 is the year when we move the industrial ecology data commons prototype, launched in 2018, into a functional and helpful data archiving and retrieval tool for the entire industrial ecology community! 
+                    We plan to collect, format, and upload a larger number of datasets on product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies.
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block"  src="resources/IEDC_CMS_2025.png"/>
+                    Read more about the 2025 Critical Mass Sprint for industrial ecology data here:   <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2025/03/03/2025-iedc-critical-mass-sprint/ " target="_blank">https://www.blog.industrialecology.uni-freiburg.de/index.php/2025/03/03/2025-iedc-critical-mass-sprint/  </a>
+                </p>
+                <hr>
                 <h4 style="padding-top:5px "><b>Successful EU Horizon project meeting in Freiburg</b></h4>
                 <p> In February 2025, more than 30 European researchers gathered at Industrial Ecology Freiburg for an annual project meeting to coordinate their research on estimating the impact of the circular economy (saving material resources by sufficiency, eco-design and better recycling) on the EU material industries and their climate impact.
                     <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" src="resources/Webinar.png">
