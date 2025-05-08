@@ -1,6 +1,8 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
+using GrapeCity.Documents.DX;
+using GrapeCity.Documents.DX.Direct3D11;
 using IEF_Home.cls;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
@@ -1153,6 +1155,53 @@ namespace IEF_Home
             cn.CloseConnection();
             return dataset_name;
         }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        public List<string> Dataset_names_quickSearch(string data_type, string aspect)
+        {
+            List<string> dataset_name = new List<string>();
+            string query = @"
+            WITH lead_items AS (
+                SELECT id FROM iedc.classification_items WHERE attribute1_oto = @aspect
+            )
+            SELECT DISTINCT d.dataset_name
+            FROM iedc.datasets d
+            JOIN iedc.data dat ON dat.dataset_id = d.id
+            WHERE d.data_type = @data_type
+              AND (
+                    dat.aspect1 IN (SELECT id FROM lead_items) OR
+                    dat.aspect2 IN (SELECT id FROM lead_items) OR
+                    dat.aspect3 IN (SELECT id FROM lead_items) OR
+                    dat.aspect4 IN (SELECT id FROM lead_items) OR
+                    dat.aspect5 IN (SELECT id FROM lead_items) OR
+                    dat.aspect6 IN (SELECT id FROM lead_items) OR
+                    dat.aspect7 IN (SELECT id FROM lead_items) OR
+                    dat.aspect8 IN (SELECT id FROM lead_items) OR
+                    dat.aspect9 IN (SELECT id FROM lead_items) OR
+                    dat.aspect10 IN (SELECT id FROM lead_items) OR
+                    dat.aspect11 IN (SELECT id FROM lead_items) OR
+                    dat.aspect12 IN (SELECT id FROM lead_items)
+                );
+        ";
+            if (!cn.OpenConnection()) return null;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@data_type", data_type);
+            cmd.Parameters.AddWithValue("@aspect", aspect);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string datasetname = reader["dataset_name"].ToString();
+                dataset_name.Add(datasetname);
+            }
+
+            reader.Close();
+            cn.CloseConnection();
+            return dataset_name;
+
+        }
+
 
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,

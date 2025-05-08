@@ -36,7 +36,6 @@ namespace IEF_Home
 {
     public partial class iedcValidate : System.Web.UI.Page
     {
-        ExcelToPDF exc = new ExcelToPDF();
 
         protected void Page_Load(object sender, EventArgs e)
         {

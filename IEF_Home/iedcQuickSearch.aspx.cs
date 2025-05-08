@@ -12,11 +12,13 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.Office.Interop.Excel;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DataTable = System.Data.DataTable;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace IEF_Home
 {
-    public partial class iedcNew : System.Web.UI.Page
+    public partial class iedcQuickSearch : System.Web.UI.Page
     {
+        private circomodService circo = new circomodService();
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -60,6 +62,16 @@ namespace IEF_Home
 
         protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
+            dataset_names.DataSource = null;
+            dataset_names.DataBind();
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
+                document.getElementById('dataset-preview').innerHTML = '';
+                document.getElementById('dataset-previewInfo').innerHTML = '';
+                document.getElementById('hiddentable').innerHTML = '';
+                ", true);
+
+
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvDataType, "Select$" + e.Row.RowIndex);
@@ -77,12 +89,74 @@ namespace IEF_Home
             gvDataType.DataSource = GetData();
             gvDataType.DataBind();
 
-            var value = gvDataType.SelectedIndex;
-            Read_Aspect_Label(value.ToString());
+            var index = gvDataType.SelectedIndex;
+            Read_Aspect_Label(index.ToString());
         }
+
+        protected void OnRowDataBoundAspect(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            dataset_names.DataSource = null;
+            dataset_names.DataBind();
+            ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
+                document.getElementById('dataset-preview').innerHTML = '';
+                document.getElementById('dataset-previewInfo').innerHTML = '';
+                document.getElementById('hiddentable').innerHTML = '';
+                ", true);
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["style"] = "cursor:pointer";
+            }
+        }
+        protected void OnSelectedIndexChangedAspect(object sender, EventArgs e)
+        {
+            // Report Table
+            DataTable datasetTable = new DataTable();
+            List<string> datasetList = new List<string>();
+            if (divDatasetname.Visible == false)
+            {
+                divDatasetname.Visible = true;
+
+            };
+            datasetTable.Columns.Add("Dataset List", typeof(string));
+
+            var index = gvDataType.SelectedIndex;
+            var value = gvAspects.SelectedValue?.ToString();
+
+            string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vMarch2025 (002).xlsx");
+            var file = new FileInfo(sheet);
+            using (var package = new ExcelPackage(file))
+            {
+                var sheetName = package.Workbook.Worksheets[0];
+                string dataType = sheetName.Cells[index + 2, 2].Text;
+                datasetList = circo.Dataset_names_quickSearch(dataType, value);
+                foreach (var data in datasetList)
+                {
+                    datasetTable.Rows.Add(data);
+                }
+                dataset_names.DataSource = datasetTable;
+                dataset_names.DataBind();
+            }
+
+        }
+        protected void dataset_names_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            // Check if it's a data row (not header or footer)
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Loop through all the cells in the row
+                foreach (TableCell cell in e.Row.Cells)
+                {
+                    // Add a client-side JavaScript click event to each cell
+                    cell.Attributes["onclick"] = "cellClicked(this);";
+                }
+            }
+        }
+
 
         public void Read_Aspect_Label(string choiceIndex)
         {
+
             // Report Table
             DataTable dataAspectTable = new DataTable();
             dataAspectTable.Columns.Add("Aspect List", typeof(string));

@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+        
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -61,6 +62,7 @@
             </nav>
         </header>
         <main>
+            
             <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
             </asp:ContentPlaceHolder>
         </main>

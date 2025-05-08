@@ -311,7 +311,7 @@
     <Content Include="css\svgMap.min.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="iedc.aspx" />
-    <Content Include="iedcNew.aspx" />
+    <Content Include="iedcQuickSearch.aspx" />
     <Content Include="iedcValidate.aspx" />
     <Content Include="iefWorkingPaper.aspx" />
     <Content Include="internal.aspx" />
@@ -619,6 +619,7 @@
     <Content Include="resources\Example_data.xlsx" />
     <Content Include="data_indecol_205939343242\EXIOBASE2_Mon_48R_2017_3_8_ITC.zip" />
     <Content Include="data_indecol_205939343242\EXIOBASEv3_2011_ITC.zip" />
+    <Content Include="testPage.aspx" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -707,12 +708,12 @@
     <Compile Include="iedc.aspx.designer.cs">
       <DependentUpon>iedc.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iedcNew.aspx.cs">
-      <DependentUpon>iedcNew.aspx</DependentUpon>
+    <Compile Include="iedcQuickSearch.aspx.cs">
+      <DependentUpon>iedcQuickSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="iedcNew.aspx.designer.cs">
-      <DependentUpon>iedcNew.aspx</DependentUpon>
+    <Compile Include="iedcQuickSearch.aspx.designer.cs">
+      <DependentUpon>iedcQuickSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="iedcValidate.aspx.cs">
       <DependentUpon>iedcValidate.aspx</DependentUpon>
@@ -784,6 +785,13 @@
     </Compile>
     <Compile Include="teaching.aspx.designer.cs">
       <DependentUpon>teaching.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testPage.aspx.cs">
+      <DependentUpon>testPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testPage.aspx.designer.cs">
+      <DependentUpon>testPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

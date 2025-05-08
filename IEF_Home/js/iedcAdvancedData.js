@@ -16,7 +16,7 @@
             }
         }
     });
-
+    
     var selections = [];
 
     $('#data-type').on('click', 'tbody tr td', function (e) {
@@ -277,9 +277,7 @@
                 var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                 var columnNames = Array.from(res.values());
                 var columnTitle = Array.from(res.keys());
-                console.log(columnNames)
-                console.log(columnTitle)
-              
+
                 var ColumnNotNullValues = [...res.values()].filter(array =>
                     array.some(value => value !== null)
                 );
@@ -299,7 +297,7 @@
                 }
 
         
-                innerHtml = "<thead><tr>";
+                innerHtml = "<caption>Dataset Description</caption><thead><tr>";
                 for (var i = 0; i < ColumnNotNullKeys.slice(0, -2).length; i++) {
                     innerHtml += `<th><div>${ColumnNotNullKeys[i]}</div></th>`;
                 }
@@ -338,7 +336,7 @@
                         // Create the table
 
                         var thead = $("<thead></thead>");
-                        var tbody = $("<tbody></tbody>");
+                        var tbody = $("<tbody></tbody></table>");
                         var tr = $("<tr></tr>");
 
                         // Create the first column (1st td)
@@ -395,6 +393,9 @@
     });
 
 });
+
+
+
 function generateTable(data, columns, rows, tbody) {
 
     var index = 0;
