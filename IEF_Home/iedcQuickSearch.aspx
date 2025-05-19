@@ -357,15 +357,22 @@
     <div class="grid-container">
         <div class="grid-intro">
             <div class="grid-intro-title">
-                <asp:Label ID="lblTitle" runat="server" Text="<h3><b>Industrial Ecology Data Commons (IEDC): Advanced search interface</b></h3>" />
-                <asp:Label ID="lblIntroText" runat="server" Text="This page offers advanced search options to browse the entire IEDC for data." />
-
+                <asp:Label ID="lblTitle" runat="server" Text="<h3><b>Industrial Ecology Data Commons (IEDC): Quick search by data type</b></h3>" />
                 <p>
+                    Data in the IEDC are organized into pre-defined data types 
+                    <a href="https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx" target="_blank">[https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx]</a>, 
+                    such as data for flows, stocks, material composition, or unit process inventories. In this interface, you first select a data type together with a central aspect that is characteristic for this type. 
+                    E.g., choose “Lifetime by product”, after which all product (or other central aspect) entries for which this data type is available are shown. 
+                    After selecting a product or other central label, all available datasets that contain data for this label in the given aspect are shown and can be previewed and downloaded.
+                </p>
+
+
+<%--                <p>
                     Back to standard interface and IEDC homepage
                     <asp:HyperLink ID="hlIedc" runat="server" NavigateUrl="https://www.database.industrialecology.uni-freiburg.de/" Target="_blank">
                         <asp:Image ID="imgLink" runat="server" ImageUrl="~/resources/link.png" Width="20" Height="20" />
                     </asp:HyperLink>
-                </p>
+                </p>--%>
             </div>
 
             <div class="grid-intro-logo">

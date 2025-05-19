@@ -24,33 +24,6 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
-        /// lblIntroText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIntroText;
-
-        /// <summary>
-        /// hlIedc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlIedc;
-
-        /// <summary>
-        /// imgLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLink;
-
-        /// <summary>
         /// iedcLogo control.
         /// </summary>
         /// <remarks>
