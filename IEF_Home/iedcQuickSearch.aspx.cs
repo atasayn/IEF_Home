@@ -39,22 +39,23 @@ namespace IEF_Home
             dt.Columns.Add("Data Type");
 
             // Add rows combining the Category, Subcategory, and Entries into one string
-            dt.Rows.Add("Flow (1_F_) by material (1580052 entries)");
+            dt.Rows.Add("Flow (1_F_) by material (1580173 entries)");
             dt.Rows.Add("Flow (1_F_) by product/commodity (1777545 entries)");
             dt.Rows.Add("In-use stock (2_IUS_) by material (11354 entries)");
-            dt.Rows.Add("In-use stock (2_IUS_) by product/commodity (96089 entries)");
+            dt.Rows.Add("In-use stock (2_IUS_) by product/commodity (97200 entries)");
             dt.Rows.Add("Population (2_P_) by country/region (62856 entries)");
-            dt.Rows.Add("Lifetime (3_LT_) by product/commodity (1709 entries)");
-            dt.Rows.Add("Material composition (3_MC_) by material (72637 entries)");
-            dt.Rows.Add("Material composition (3_MC_) by product/commodity (67408 entries)");
+            dt.Rows.Add("Lifetime (3_LT_) by product/commodity (1934 entries)");
+            dt.Rows.Add("Material composition (3_MC_) by material (77290 entries)");
+            dt.Rows.Add("Material composition (3_MC_) by product/commodity (72061 entries)");
             dt.Rows.Add("Specific energy consumption of products (3_EI_) by product/commodity (496 entries)");
             dt.Rows.Add("Sector splits and other shares (3_SHA_) by chemical element (2834 entries)");
-            dt.Rows.Add("Yield coefficient (4_PY_) by product/manufacturing process (7152 entries)");
+            dt.Rows.Add("Sector splits and other shares (3_SHA_) by material (0 entries)");
+            dt.Rows.Add("Yield coefficient (4_PY_) by product/manufacturing process (7245 entries)");
             dt.Rows.Add("Yield coefficient (4_PY_) by material (33 entries)");
-            dt.Rows.Add("Process extension (4_PE_) by process (105 entries)");
+            dt.Rows.Add("Process extension (4_PE_) by process (112 entries)");
             dt.Rows.Add("Unit process inventory (4_UPI_) by process (568 entries)");
             dt.Rows.Add("Criticality indicators (6_CR) by chemical element (496 entries)");
-            dt.Rows.Add("Criticality indicators (6_CR) by material (4011 entries)");
+            dt.Rows.Add("Criticality indicators (6_CR) by material (4020 entries)");
 
             return dt;
         }
@@ -123,7 +124,7 @@ namespace IEF_Home
             var index = gvDataType.SelectedIndex;
             var value = gvAspects.SelectedValue?.ToString();
 
-            string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vMarch2025 (002).xlsx");
+            string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vMay2025.xlsx");
             var file = new FileInfo(sheet);
             using (var package = new ExcelPackage(file))
             {
@@ -161,7 +162,7 @@ namespace IEF_Home
             DataTable dataAspectTable = new DataTable();
             dataAspectTable.Columns.Add("Aspect List", typeof(string));
             // Excel Sheet to read
-            string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vMarch2025 (002).xlsx");
+            string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vMay2025.xlsx");
             var file = new FileInfo(sheet);
             using (var package = new ExcelPackage(file))
             {
@@ -169,7 +170,7 @@ namespace IEF_Home
                 string columnName = "Labels_" + choiceIndex;
                 int colIndex = 0;
                 // Step 1: Find the column index
-                for (int col = 1; col <= sheetName.Dimension.End.Column; col++)
+                for (int col = 4; col <= sheetName.Dimension.End.Column ; col++)
                 {
                     var header = sheetName.Cells[1, col].Text;
                     if (header.Equals(columnName, StringComparison.OrdinalIgnoreCase))
