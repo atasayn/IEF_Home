@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <script src="js/jquery.min.js"></script>
@@ -351,6 +351,17 @@
             });
         }
 
+        function highlightCell(cell) {
+            // Optional: Remove highlight from other cells first
+            var grid = document.getElementById('<%= gvAspects.ClientID %>');
+            var cells = grid.getElementsByTagName('td');
+            for (var i = 0; i < cells.length; i++) {
+                cells[i].style.backgroundColor = ''; // reset color
+            }
+            // Highlight the clicked cell
+            cell.style.backgroundColor = 'yellow';
+        }
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -366,13 +377,6 @@
                     After selecting a product or other central label, all available datasets that contain data for this label in the given aspect are shown and can be previewed and downloaded.
                 </p>
 
-
-<%--                <p>
-                    Back to standard interface and IEDC homepage
-                    <asp:HyperLink ID="hlIedc" runat="server" NavigateUrl="https://www.database.industrialecology.uni-freiburg.de/" Target="_blank">
-                        <asp:Image ID="imgLink" runat="server" ImageUrl="~/resources/link.png" Width="20" Height="20" />
-                    </asp:HyperLink>
-                </p>--%>
             </div>
 
             <div class="grid-intro-logo">
@@ -394,12 +398,16 @@
                                           OnRowDataBound="OnRowDataBound"
                                           DataKeyNames="Data Type">
                             </asp:GridView>
+
                         </div>
                         <div class="grid-item-dataset" id="gvAspectDiv" runat="server" visible="false" style="padding-left: 10px">
                             <asp:GridView ID="gvAspects" runat="server" AutoGenerateColumns="true" CssClass="table-style"
                                           OnSelectedIndexChanged="OnSelectedIndexChangedAspect"
                                           OnRowDataBound="OnRowDataBoundAspect"
                                           DataKeyNames="Aspect List"/>
+                            <input type="hidden" id="hdnSelectedRow" runat="server" />
+                            <input type="hidden" id="hdnSelectedCell" runat="server" />
+
                         </div>
                         <div class="grid-item-dataset" id="divDatasetname" runat="server" visible="false" style="padding-left: 10px">
                             <asp:GridView ID="dataset_names" runat="server" AutoGenerateColumns="true" CssClass="table-style"
@@ -407,13 +415,13 @@
                                           DataKeyNames="Dataset List"/>
                         </div>
                     </div>
-
                 </div>
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="gvDataType" EventName="SelectedIndexChanged" />
                 <asp:AsyncPostBackTrigger ControlID="gvAspects" EventName="SelectedIndexChanged" />
             </Triggers>
+
         </asp:UpdatePanel>
         <div class="grid-dataset-preview">
             <div class="loader2" style="display:none"></div>

@@ -78,6 +78,24 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.GridView gvAspects;
 
         /// <summary>
+        /// hdnSelectedRow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnSelectedRow;
+
+        /// <summary>
+        /// hdnSelectedCell control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnSelectedCell;
+
+        /// <summary>
         /// divDatasetname control.
         /// </summary>
         /// <remarks>

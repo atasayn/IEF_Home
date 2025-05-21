@@ -24,9 +24,10 @@ namespace IEF_Home
             
             if (!IsPostBack)
             {
-                //Read_Excel(Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vMarch2025 (002).xlsx"));
+                
                 gvDataType.DataSource = GetData();
                 gvDataType.DataBind();
+
                 
             }
         }
@@ -61,24 +62,30 @@ namespace IEF_Home
         }
 
 
-        protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
             dataset_names.DataSource = null;
             dataset_names.DataBind();
 
             ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
-                document.getElementById('dataset-preview').innerHTML = '';
-                document.getElementById('dataset-previewInfo').innerHTML = '';
-                document.getElementById('hiddentable').innerHTML = '';
-                ", true);
-
-
+        document.getElementById('dataset-preview').innerHTML = '';
+        document.getElementById('dataset-previewInfo').innerHTML = '';
+        document.getElementById('hiddentable').innerHTML = '';
+    ", true);
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvDataType, "Select$" + e.Row.RowIndex);
+                string postBack = Page.ClientScript.GetPostBackClientHyperlink(gvDataType, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = postBack;
                 e.Row.Attributes["style"] = "cursor:pointer";
+
+                // Highlight the selected row after postback
+                if (e.Row.RowIndex == gvDataType.SelectedIndex)
+                {
+                    e.Row.BackColor = System.Drawing.Color.Yellow;
+                }
             }
         }
+
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
             if (gvAspectDiv.Visible == false)
@@ -93,22 +100,30 @@ namespace IEF_Home
             var index = gvDataType.SelectedIndex;
             Read_Aspect_Label(index.ToString());
         }
-
-        protected void OnRowDataBoundAspect(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void OnRowDataBoundAspect(object sender, GridViewRowEventArgs e)
         {
-            dataset_names.DataSource = null;
-            dataset_names.DataBind();
-            ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
-                document.getElementById('dataset-preview').innerHTML = '';
-                document.getElementById('dataset-previewInfo').innerHTML = '';
-                document.getElementById('hiddentable').innerHTML = '';
-                ", true);
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
-                e.Row.Attributes["style"] = "cursor:pointer";
+                for (int cellIndex = 0; cellIndex < e.Row.Cells.Count; cellIndex++)
+                {
+                    string postBack = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
+
+                    string script = $@"
+                document.getElementById('{hdnSelectedRow.ClientID}').value = '{e.Row.RowIndex}';
+                document.getElementById('{hdnSelectedCell.ClientID}').value = '{cellIndex}';
+                highlightCell(this);
+                {postBack};
+                return false;";
+
+                    e.Row.Cells[cellIndex].Attributes["onclick"] = script;
+                    e.Row.Cells[cellIndex].Attributes["style"] = "cursor:pointer";
+                }
             }
         }
+
+
+
+
         protected void OnSelectedIndexChangedAspect(object sender, EventArgs e)
         {
             // Report Table
@@ -123,7 +138,6 @@ namespace IEF_Home
 
             var index = gvDataType.SelectedIndex;
             var value = gvAspects.SelectedValue?.ToString();
-
             string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vMay2025.xlsx");
             var file = new FileInfo(sheet);
             using (var package = new ExcelPackage(file))
@@ -131,14 +145,15 @@ namespace IEF_Home
                 var sheetName = package.Workbook.Worksheets[0];
                 string dataType = sheetName.Cells[index + 2, 2].Text;
                 datasetList = circo.Dataset_names_quickSearch(dataType, value);
+
                 foreach (var data in datasetList)
                 {
                     datasetTable.Rows.Add(data);
                 }
-                dataset_names.DataSource = datasetTable;
-                dataset_names.DataBind();
-            }
 
+            }
+            dataset_names.DataSource = datasetTable;
+            dataset_names.DataBind();
         }
         protected void dataset_names_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -188,9 +203,10 @@ namespace IEF_Home
                     dataAspectTable.Rows.Add(value);
                     
                 }
-                
+
                 gvAspects.DataSource = dataAspectTable;
                 gvAspects.DataBind();
+
             }
 
         }
