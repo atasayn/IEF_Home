@@ -424,13 +424,7 @@
 </head>
 <body>
     <form method="post" action="./circomod.aspx" id="form1" runat="server">
-        <div class="aspNetHidden">
-            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="0xLbnx0TJ9xSkJB30Vq6AWRQmOEF6fjpC/O9F9EyX+2Lj56Xv4mXKREgZ1TZ5cb5aQf+6YQAo2Fe4i2ZuMIHDenLMYXy/SB/vi47GBhf/3M=" />
-        </div>
-    <div class="aspNetHidden">
-            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5FB1E55D" />
-        </div>
-        <header>
+    <header>
             <div class="jumbotron">
                 <div class="container-fluid">
 

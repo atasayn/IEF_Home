@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="iedcValidate.aspx.cs" Inherits="IEF_Home.iedcValidate" EnableViewState="false"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" ViewStateMode="Disabled" CodeBehind="iedcValidate.aspx.cs" Inherits="IEF_Home.iedcValidate" EnableViewState="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <script type="text/javascript">
@@ -6,6 +6,7 @@
             document.getElementById('<%= simpleSearch.ClientID %>').checked = (checkbox.id === '<%= simpleSearch.ClientID %>') ? checkbox.checked : false;
             document.getElementById('<%= levenshteinSearch.ClientID %>').checked = (checkbox.id === '<%= levenshteinSearch.ClientID %>') ? checkbox.checked : false;
         }
+
     </script>
     <style>
         .row {
@@ -161,8 +162,8 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" EnableViewState="false" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableViewState="false"></asp:ScriptManager>
     <div>
         <h2 class="title">Industrial ecology data commons (IEDC) data template validator </h2>
         <h3 class="title">Validate your data formatting and classifications against a general standard </h3>
@@ -198,22 +199,22 @@
 
     <hr />
     <div class="mb-3">
-        <label for="formFile" class="form-label">Upload and validate your data against the IEDC</label>
+        <label for="formFile" EnableViewState="false"  class="form-label">Upload and validate your data against the IEDC</label>
         
         <div class="row">
             <div class="column">
                 <div class="row">
-                    <asp:FileUpload ID="FileUpload" class="form-control" runat="server" accept=".xlsx" />
-                    <asp:Button ID="upload" runat="server" Text="Upload File" CssClass="upload-button btn btn-primary" OnClick="ButtonUpload" />
-                    <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message"></asp:Label>
-                    <div class="loader" id="loaderControl" style="display:none" runat="server"></div>
+                    <asp:FileUpload ID="FileUpload" class="form-control" runat="server" accept=".xlsx" EnableViewState="false" />
+                    <asp:Button ID="upload" runat="server" Text="Upload File" CssClass="upload-button btn btn-primary" OnClick="ButtonUpload" EnableViewState="false" />
+                    <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message" EnableViewState="false"></asp:Label>
+                    <div class="loader" id="loaderControl" style="display:none" runat="server" EnableViewState="false"></div>
                 </div>
                 <div class="row" style="padding-top: 5px">
-                    <asp:Label runat="server">Suggestion of alternative labels for products, materials, etc</asp:Label>
+                    <asp:Label runat="server" EnableViewState="false" >Suggestion of alternative labels for products, materials, etc</asp:Label>
                 </div>
                 <div class="row">
-                    <asp:CheckBox ID="simpleSearch" runat="server" CssClass="checkbox-label" Text="Simple Search (not very accurate, fast)" AutoPostBack="false" OnClick="enforceSingleSelection(this)"/>
-                    <asp:CheckBox ID="levenshteinSearch" runat="server" CssClass="checkbox-label" Text="Levenshtein Search (accurate, slow)" Checked="True" AutoPostBack="false" OnClick ="enforceSingleSelection(this)"/>
+                    <asp:CheckBox ID="simpleSearch" runat="server" CssClass="checkbox-label" Text="Simple Search (not very accurate, fast)" AutoPostBack="false" EnableViewState="false" OnClick="enforceSingleSelection(this)"/>
+                    <asp:CheckBox ID="levenshteinSearch" runat="server" CssClass="checkbox-label" Text="Levenshtein Search (accurate, slow)" Checked="True" AutoPostBack="false" EnableViewState="false" OnClick ="enforceSingleSelection(this)"/>
                 </div>
             </div>
         </div>
@@ -222,34 +223,34 @@
     <hr />
     <div>
         <div class="row">
-            <asp:Label ID="validatingDateAndTime" runat="server" Text="" CssClass="bold-label"></asp:Label>
+            <asp:Label ID="validatingDateAndTime" runat="server" EnableViewState="false"  Text="" CssClass="bold-label"></asp:Label>
         </div>
         <div class="row" style="margin-top:20px ">
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             <div class="column">
-                <asp:GridView ID="templateType" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
+                <asp:GridView ID="templateType" runat="server" CssClass="center-caption zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                     <columns>
-                        <asp:BoundField DataField="Template Type" HeaderText="Template Type" HtmlEncode="False" />
+                        <asp:BoundField DataField="Template Type" HeaderText="Template Type" HtmlEncode="False"/>
                     </columns>
                 </asp:GridView>
             </div>
             <div class="column">
-                <asp:GridView ID="dataSheetRowNumber" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
+                <asp:GridView ID="dataSheetRowNumber" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                     <columns>
-                        <asp:BoundField DataField="Number of rows with text" HeaderText="Number of rows with text" HtmlEncode="False" />
+                        <asp:BoundField DataField="Number of rows with text" HeaderText="Number of rows with text"  HtmlEncode="False" />
                     </columns>
                 </asp:GridView>
             </div>
             <div class="column" id="columnDiv" runat="server" style="display: none;">
-                <asp:BulletedList runat="server" ID="Ok" >
+                <asp:BulletedList runat="server" ID="Ok" EnableViewState="false">
                     <asp:ListItem />
                 </asp:BulletedList>
 
-                <asp:BulletedList runat="server" ID="Warning">
+                <asp:BulletedList runat="server" ID="Warning" EnableViewState="false">
                     <asp:ListItem />
                 </asp:BulletedList>
 
-                <asp:BulletedList runat="server" ID="Error">
+                <asp:BulletedList runat="server" ID="Error" EnableViewState="false">
                     <asp:ListItem />
 
                 </asp:BulletedList>
@@ -263,8 +264,8 @@
                 </p>
                 <div class="row" style="row-gap: 20px">
                     <div class="column" style="overflow: auto">
-                        <asp:Label runat="server" Text="<b>Table 1:</b> Check dataset type and other specifications against iedc standards." Style="font-size: 15px;" />
-                        <asp:GridView ID="compareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
+                        <asp:Label runat="server" Text="<b>Table 1:</b> Check dataset type and other specifications against iedc standards." EnableViewState="false" Style="font-size: 15px;" />
+                        <asp:GridView ID="compareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                             <columns>
                                 <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
                                 <asp:BoundField DataField="Name/Label" HeaderText="Name/label" HtmlEncode="False" />
@@ -280,7 +281,7 @@
                         <ul>
                             <li style="font-size: 15px;">Check sufficient description and metadata</li>
                         </ul>
-                        <asp:GridView ID="missingCellTable" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
+                        <asp:GridView ID="missingCellTable" runat="server" CssClass="center-caption zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                             <columns>
                                 <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
                                 <asp:BoundField DataField="Warning Message" HeaderText="Warning Message" HtmlEncode="False" />
@@ -292,8 +293,8 @@
                 </p>
                 <br />
                 <div class="row">
-                    <asp:Label runat="server" Text="<b>Table 2:</b> Validation for the data aspects and their classifications." Style="font-size: 15px;" />
-                    <asp:GridView ID="aspectReportTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
+                    <asp:Label runat="server" Text="<b>Table 2:</b> Validation for the data aspects and their classifications." EnableViewState="false" Style="font-size: 15px;" />
+                    <asp:GridView ID="aspectReportTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                         <columns>
                             <asp:BoundField DataField="Aspect" HeaderText="Aspect" HtmlEncode="False" />
                             <asp:BoundField DataField="Aspect Remarks" HeaderText="Aspect Remarks" HtmlEncode="False" />
@@ -305,7 +306,7 @@
                 </div>
                 <br />
                 <div class="row">
-                    <asp:GridView ID="dimensionCompareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" AutoGenerateColumns="False">
+                    <asp:GridView ID="dimensionCompareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                         <columns>
                             <asp:BoundField DataField="Aspect Dimension" HeaderText="Aspect Dimension" HtmlEncode="False" />
                             <asp:BoundField DataField="Classificiation Dimension" HeaderText="Classificiation Dimension" HtmlEncode="False" />
@@ -319,7 +320,7 @@
         <div id="section2">
             <p style="font-size:16px"><b>Section 2: Proper formatting of the numerical data</b></p>
             <div class="row" style="margin-top: 10px;">
-                <asp:GridView ID="unitMoniDenomi" runat="server" CssClass="center-caption zebra-grid" AutoGenerateColumns="False">
+                <asp:GridView ID="unitMoniDenomi" runat="server" CssClass="center-caption zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                     <columns>
                         <asp:BoundField DataField="Cell" HeaderText="Cell" HtmlEncode="False" />
                         <asp:BoundField DataField="Unit name" HeaderText="Unit name" HtmlEncode="False" />
@@ -331,7 +332,7 @@
             <div class="row">
                 <div class="column" style="max-width: fit-content;margin-left: auto;margin-right: auto; ">
 
-                    <asp:GridView ID="aspectMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid nobreak-caption"  AutoGenerateColumns="False" 
+                    <asp:GridView ID="aspectMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid nobreak-caption" EnableViewState="false"  AutoGenerateColumns="False" 
                                   Caption="<strong>Table 3:</strong> Validation for the aspects on the cells D23-D46 and F12-..">
                     <columns>
                         <asp:BoundField DataField="Aspect (D23-D46)" HeaderText="Aspect (D23-D46)" HtmlEncode="False" />
@@ -349,8 +350,8 @@
                 </div>
             <div class="row" id="section2Row" style="margin-top: 10px;margin-bottom:10px;display:none" runat="server">
                 <div class="column">
-                    <asp:Label runat="server" Text="<b>Table 4:</b> Validation for the orders of the aspects and data columns" Style="font-size: 15px;" />
-                    <asp:GridView ID="aspectSequence" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
+                    <asp:Label runat="server" Text="<b>Table 4:</b> Validation for the orders of the aspects and data columns" EnableViewState="false" Style="font-size: 15px;" />
+                    <asp:GridView ID="aspectSequence" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                         <columns>
                             <asp:BoundField DataField="Given Value/Text" HeaderText="Given Value/Text" HtmlEncode="False" />
                             <asp:BoundField DataField="Expected Order of Values" HeaderText="Expected Order of Values" HtmlEncode="False" />
@@ -365,8 +366,8 @@
             <p style="font-size:16px"><b>Section 3: Use of consistent classifications</b></p>
             <div class="row" id="section2DataCheck" style="margin-top: 10px;margin-bottom: 10px; display: none;max-height:600px;overflow-y:scroll;" runat="server">
                 <div class="column">
-                    <asp:Label runat="server" Text="<b>Table 5:</b> Validation of the data against IEDC database" Style="font-size:15px;" />
-                    <asp:GridView ID="dataSheetMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid"  AutoGenerateColumns="False">
+                    <asp:Label runat="server" Text="<b>Table 5:</b> Validation of the data against IEDC database" EnableViewState="false" Style="font-size:15px;" />
+                    <asp:GridView ID="dataSheetMatch" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                         <columns>
                             <asp:BoundField DataField="Line" HeaderText="Line" HtmlEncode="False" />
                             <asp:BoundField DataField="Aspect" HeaderText="Aspect" HtmlEncode="False" />
@@ -377,7 +378,16 @@
                 </div>
             </div>
         </div>
-        <asp:Button ID="ButtonReport" runat="server" Text="Export the report above to pdf" CssClass=" btn btn-primary" OnClick="Report" />
+        <asp:Button ID="ButtonReport" runat="server" Text="Export the report above to pdf" CssClass=" btn btn-primary" EnableViewState="false" OnClick="Report" />
+        <asp:HiddenField ID="hiddenOkList" runat="server" />
+        <asp:HiddenField ID="hiddenWarningList" runat="server" />
+        <asp:HiddenField ID="hiddenErrorList" runat="server" />
+        <asp:HiddenField ID="hiddenTemplateType" runat="server" />
+        <asp:HiddenField ID="hiddenDataSheetRowNumber" runat="server" />
+        <asp:HiddenField ID="hiddenCompareTable" runat="server" />
+        <asp:HiddenField ID="hiddenAspectReportTable" runat="server" />
+        <asp:HiddenField ID="hiddenDataSheetMatch" runat="server" />
+
     </div>
     <hr />
 

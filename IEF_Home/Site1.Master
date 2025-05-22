@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="IEF_Home.privacy.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" ViewStateMode="Disabled" EnableViewState="false" Inherits="IEF_Home.privacy.Site1" %>
 
 <!DOCTYPE html>
 <html>
@@ -12,12 +12,12 @@
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server" EnableViewState="false" >
         
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
         <header>
             <div class="jumbotron">
                 <div class="container-fluid">
@@ -54,7 +54,7 @@
                             <li style="display:none"><a href="/circomodVisualization">circomodVisualization</a></li>
                             
                             
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server"></asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server" EnableViewState="false" ></asp:ContentPlaceHolder>
                         </ul>
 
                     </div>
@@ -63,7 +63,7 @@
         </header>
         <main>
             
-            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server" EnableViewState="false">
             </asp:ContentPlaceHolder>
         </main>
         <footer>

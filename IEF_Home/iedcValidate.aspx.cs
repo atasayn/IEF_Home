@@ -1,35 +1,23 @@
-﻿using DocumentFormat.OpenXml.Bibliography;
-using DocumentFormat.OpenXml.Math;
-using DocumentFormat.OpenXml.Spreadsheet;
-using DocumentFormat.OpenXml.Wordprocessing;
-using GrapeCity.Documents.Pdf;
-using IEF_Home.cls;
+﻿using IEF_Home.cls;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using OfficeOpenXml;
 using Org.BouncyCastle.Asn1.Pkcs;
 using PdfSharp.Drawing;
-using PdfSharp.Pdf;
-using PdfSharpCore.Pdf;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.IO;
-using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Font = iTextSharp.text.Font;
 using System.Text.RegularExpressions;
 using System.Web;
 using iTextSharp.text.html.simpleparser;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using GrapeCity.Documents.Pdf.Layers;
-using static ClosedXML.Excel.XLPredefinedFormat;
 using Paragraph = iTextSharp.text.Paragraph;
-using System.Linq;
-using MySqlX.XDevAPI.Relational;
-
+using System.Web.Caching;
+using System.Diagnostics;
+using System.Linq.Expressions;
 
 
 namespace IEF_Home
@@ -40,6 +28,7 @@ namespace IEF_Home
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.EnableViewState = false;
+
         }
         public static string IsMyCheckboxChecked(System.Web.UI.WebControls.CheckBox simpleSearch, System.Web.UI.WebControls.CheckBox levenshteinSearch)
         {
@@ -76,7 +65,11 @@ namespace IEF_Home
                         string filePath = Server.MapPath("~/UploadedFiles/" + fileName);
 
                         FileUpload.SaveAs(filePath);
-                        Session["FilePath"] = filePath; // Store filePath in Session
+                        Cache["filePath"] = filePath;
+                        var test = Cache["filePath"]; // Should not be null
+                        Debug.WriteLine("SessionID: " + test);
+
+
                         // Check if the specific worksheet exists
                         string sheetName = "Cover"; // Replace with your actual sheet name
                         if (fileChecker.DoesCoverExist(FileUpload.PostedFile, sheetName))
@@ -95,14 +88,14 @@ namespace IEF_Home
                             lblMessage.ForeColor = System.Drawing.Color.Green;
                             fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,aspectMatch,aspectMatchRemarks,missingCellTableSec);
                             fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber,dataSheetMatch, unitMoniDenomi, Ok, Warning, Error,loaderControl,simpleSearch,levenshteinSearch);
-                            Session["OkList"] = Ok;
-                            Session["WarningList"] = Warning;
-                            Session["ErrorList"] = Error;
-                            Session["templateType"] = templateType;
-                            Session["dataSheetRowNumber"] = dataSheetRowNumber;
-                            Session["compareTable"] = compareTable;
-                            Session["aspectReportTable"] = aspectReportTable;
-                            Session["dataSheetMatch"] = dataSheetMatch;
+                            Cache["OkList"] = Ok;
+                            Cache["WarningList"] = Warning;
+                            Cache["ErrorList"] = Error;
+                            Cache["templateType"] = templateType;
+                            Cache["dataSheetRowNumber"] = dataSheetRowNumber;
+                            Cache["compareTable"] = compareTable;
+                            Cache["aspectReportTable"] = aspectReportTable;
+                            Cache["dataSheetMatch"] = dataSheetMatch;
 
                         }
                         else
@@ -668,19 +661,25 @@ namespace IEF_Home
         protected void Report(object sender, EventArgs e)
         {
             try
-            {
+            { 
+                
+               var test = Cache["filePath"]?.ToString();
+               //var test = HttpRuntime.Cache["OkList_" + Session.SessionID];
+
+               Debug.WriteLine(test);
+
 
                 // Ensure the directory exists
-                ConvertExcelToPdf(
-                    Session["FilePath"]?.ToString(),
-                    Session["OkList"] as BulletedList,
-                    Session["WarningList"] as BulletedList,
-                    Session["ErrorList"] as BulletedList,
-                    Session["templateType"] as GridView,
-                    Session["dataSheetRowNumber"] as GridView,
-                    Session["compareTable"] as GridView,
-                    Session["aspectReportTable"] as GridView,
-                    Session["dataSheetMatch"] as GridView
+                ConvertExcelToPdf(Cache["filePath"]?.ToString(),
+                Cache["OkList"] as BulletedList,
+                Cache["WarningList"] as BulletedList,
+                Cache["ErrorList"] as BulletedList,
+                Cache["templateType"] as GridView,
+                Cache["dataSheetRowNumber"] as GridView,
+                Cache["compareTable"] as GridView,
+                Cache["aspectReportTable"] as GridView,
+               Cache["dataSheetMatch"] as GridView
+
                 );
 
 
