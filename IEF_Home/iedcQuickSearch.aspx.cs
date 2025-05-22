@@ -1,18 +1,12 @@
 ﻿using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using GrapeCity.Documents.Pdf;
 using System.IO;
-using System.Data;
-using DocumentFormat.OpenXml.Spreadsheet;
-using Microsoft.Office.Interop.Excel;
-using DocumentFormat.OpenXml.Office2010.Excel;
 using DataTable = System.Data.DataTable;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using DocumentFormat.OpenXml.Drawing.Charts;
+
 
 namespace IEF_Home
 {
@@ -21,15 +15,13 @@ namespace IEF_Home
         private circomodService circo = new circomodService();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if (!IsPostBack)
             {
-                
                 gvDataType.DataSource = GetData();
                 gvDataType.DataBind();
 
-                
             }
+
         }
 
         // Declare a DataTable to hold the data
@@ -94,33 +86,26 @@ namespace IEF_Home
 
             };
 
-            gvDataType.DataSource = GetData();
-            gvDataType.DataBind();
-
             var index = gvDataType.SelectedIndex;
-            Read_Aspect_Label(index.ToString());
+
+            gvAspects.DataSource = Read_Aspect_Label(index.ToString()); ;
+            gvAspects.DataBind();
+;
         }
         protected void OnRowDataBoundAspect(object sender, GridViewRowEventArgs e)
         {
+            
+            ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
+                document.getElementById('dataset-preview').innerHTML = '';
+                document.getElementById('dataset-previewInfo').innerHTML = '';
+                document.getElementById('hiddentable').innerHTML = '';
+                ", true);
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                for (int cellIndex = 0; cellIndex < e.Row.Cells.Count; cellIndex++)
-                {
-                    string postBack = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
-
-                    string script = $@"
-                document.getElementById('{hdnSelectedRow.ClientID}').value = '{e.Row.RowIndex}';
-                document.getElementById('{hdnSelectedCell.ClientID}').value = '{cellIndex}';
-                highlightCell(this);
-                {postBack};
-                return false;";
-
-                    e.Row.Cells[cellIndex].Attributes["onclick"] = script;
-                    e.Row.Cells[cellIndex].Attributes["style"] = "cursor:pointer";
-                }
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["style"] = "cursor:pointer";
             }
         }
-
 
 
 
@@ -170,7 +155,7 @@ namespace IEF_Home
         }
 
 
-        public void Read_Aspect_Label(string choiceIndex)
+        private DataTable Read_Aspect_Label(string choiceIndex)
         {
 
             // Report Table
@@ -185,7 +170,7 @@ namespace IEF_Home
                 string columnName = "Labels_" + choiceIndex;
                 int colIndex = 0;
                 // Step 1: Find the column index
-                for (int col = 4; col <= sheetName.Dimension.End.Column ; col++)
+                for (int col = 4; col <= sheetName.Dimension.End.Column; col++)
                 {
                     var header = sheetName.Cells[1, col].Text;
                     if (header.Equals(columnName, StringComparison.OrdinalIgnoreCase))
@@ -201,14 +186,12 @@ namespace IEF_Home
                     var value = sheetName.Cells[row, colIndex].Text;
                     if (value == "") break;
                     dataAspectTable.Rows.Add(value);
-                    
-                }
 
-                gvAspects.DataSource = dataAspectTable;
-                gvAspects.DataBind();
+                }
 
             }
 
+            return dataAspectTable;
         }
 
     }

@@ -196,6 +196,12 @@
 
             <div class="not-show-twitter">
              <h3 style="text-align: center"><b>+++ News +++</b></h3> 
+                <h4><b>Successful doctoral defense - congratulations Dr. Gilang Hardadi</b></h4>
+                <p> On May 22, 2025, Gilang Hardadi successfully defended his doctoral thesis” Using Econometrics and Multi-Regional Input-Output (MRIO) Models to Simulate Short-Term Socio-Economic Impacts of a Just and Equitable Low-Carbon Transition.” In his work, Gilang demonstrates how Multi-Regional Input-Output (MRIO) Models can be used to assess the impact of climate economic instruments, such as carbon taxation, tax revenue recycling, or carbon border adjustments on the tax load of different income groups and on industrial transformation. The results of his work inform policy makers on the effectiveness and social implications of climate policy. Profs. Stefan Pauliuk and Yasushi Kondo were the thesis advisors, and Prof. Karsten Neuhoff wrote the second thesis review.
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block"  src="resources/20250522_111124s.jpg"/>
+                    Read more about Gilang’s work here: <a href="https://doi.org/10.1111/jiec.13045  " target="_blank">https://doi.org/10.1111/jiec.13045 </a>
+                </p>
+                <hr>
                 <h4><b>Critical Mass Sprint for the Industrial Ecology Community Database</b></h4>
                 <p> 2025 is the year when we move the industrial ecology data commons prototype, launched in 2018, into a functional and helpful data archiving and retrieval tool for the entire industrial ecology community! 
                     We plan to collect, format, and upload a larger number of datasets on product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies.

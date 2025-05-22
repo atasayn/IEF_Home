@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <script src="js/jquery.min.js"></script>
@@ -351,7 +351,7 @@
             });
         }
 
-        function highlightCell(cell) {
+           function highlightCell(cell) {
             // Optional: Remove highlight from other cells first
             var grid = document.getElementById('<%= gvAspects.ClientID %>');
             var cells = grid.getElementsByTagName('td');
@@ -360,7 +360,7 @@
             }
             // Highlight the clicked cell
             cell.style.backgroundColor = 'yellow';
-        }
+           }
 
     </script>
 </asp:Content>
@@ -396,8 +396,7 @@
                             <asp:GridView ID="gvDataType" runat="server" AutoGenerateColumns="true" CssClass="table-style"
                                           OnSelectedIndexChanged="OnSelectedIndexChanged"
                                           OnRowDataBound="OnRowDataBound"
-                                          DataKeyNames="Data Type">
-                            </asp:GridView>
+                                          DataKeyNames="Data Type"/>
 
                         </div>
                         <div class="grid-item-dataset" id="gvAspectDiv" runat="server" visible="false" style="padding-left: 10px">
@@ -405,9 +404,6 @@
                                           OnSelectedIndexChanged="OnSelectedIndexChangedAspect"
                                           OnRowDataBound="OnRowDataBoundAspect"
                                           DataKeyNames="Aspect List"/>
-                            <input type="hidden" id="hdnSelectedRow" runat="server" />
-                            <input type="hidden" id="hdnSelectedCell" runat="server" />
-
                         </div>
                         <div class="grid-item-dataset" id="divDatasetname" runat="server" visible="false" style="padding-left: 10px">
                             <asp:GridView ID="dataset_names" runat="server" AutoGenerateColumns="true" CssClass="table-style"
