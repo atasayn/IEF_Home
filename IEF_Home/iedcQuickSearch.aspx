@@ -351,16 +351,21 @@
             });
         }
 
-           function highlightCell(cell) {
-            // Optional: Remove highlight from other cells first
-            var grid = document.getElementById('<%= gvAspects.ClientID %>');
-            var cells = grid.getElementsByTagName('td');
-            for (var i = 0; i < cells.length; i++) {
-                cells[i].style.backgroundColor = ''; // reset color
+        var previouslyHighlightedCell = null;
+
+        function highlightCell(cell) {
+            // Reset the previously highlighted cell
+            if (previouslyHighlightedCell) {
+                previouslyHighlightedCell.style.backgroundColor = ''; // or set to the original color if it's not empty string
             }
-            // Highlight the clicked cell
+
+            // Highlight the new cell
             cell.style.backgroundColor = 'yellow';
-           }
+
+            // Update the reference
+            previouslyHighlightedCell = cell;
+        }
+
 
     </script>
 </asp:Content>
@@ -413,10 +418,10 @@
                     </div>
                 </div>
             </ContentTemplate>
-            <Triggers>
+<%--            <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="gvDataType" EventName="SelectedIndexChanged" />
                 <asp:AsyncPostBackTrigger ControlID="gvAspects" EventName="SelectedIndexChanged" />
-            </Triggers>
+            </Triggers>--%>
 
         </asp:UpdatePanel>
         <div class="grid-dataset-preview">

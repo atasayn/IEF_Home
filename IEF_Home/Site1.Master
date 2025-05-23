@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server" EnableViewState="false" >
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server" >
         
     </asp:ContentPlaceHolder>
 </head>
@@ -63,7 +63,7 @@
         </header>
         <main>
             
-            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server" EnableViewState="false">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server" >
             </asp:ContentPlaceHolder>
         </main>
         <footer>
