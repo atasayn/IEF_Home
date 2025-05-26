@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>--%>
     <script type="text/javascript" src="js/iedcAdvancedData.js"></script>
+
     <style>
         .row {
             display: flex;
@@ -209,7 +210,12 @@
         .gray-row {
             background-color: #dddddd; /* Change this color to the desired shade of gray */
         }
-        
+        .scrollable-container {
+            height: 460px;
+            width: 100%;
+            overflow: auto;
+            border: 0;
+        }
     </style>
     <script type="text/javascript" src="js/xlsx.core.min.js"></script>
     <script type="text/javascript" src="js/xlsx.full.min.js"></script>
@@ -365,9 +371,33 @@
             // Update the reference
             previouslyHighlightedCell = cell;
         }
+        // It is important to place this JavaScript code after ScriptManager1
+        var xPos, yPos;
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+        function BeginRequestHandler(sender, args) {
+            if ($get('<%=gvDataType.ClientID%>') != null) {
+                // Get X and Y positions of scrollbar before the partial postback
+                xPos = $get('<%=gvDataType.ClientID%>').scrollLeft;
+                yPos = $get('<%=gvDataType.ClientID%>').scrollTop;
+            }
+        }
+
+        function EndRequestHandler(sender, args) {
+            if ($get('<%=gvDataType.ClientID%>') != null) {
+                // Set X and Y positions back to the scrollbar
+                // after partial postback
+                $get('<%=gvDataType.ClientID%>').scrollLeft = xPos;
+                $get('<%=gvDataType.ClientID%>').scrollTop = yPos;
+            }
+        }
+
+        prm.add_beginRequest(BeginRequestHandler);
+        prm.add_endRequest(EndRequestHandler);
 
 
     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="grid-container">
@@ -392,18 +422,18 @@
                 <!-- Labels and HyperLinks continue... -->
             </div>
         </div>
-        <asp:ScriptManager ID="ScriptManager" runat="server" EnableCdn="true" />
         <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
                 <div class="grid-item-data">
                     <div class="row">
-                        <div class="grid-item-dataframe">
+                        <div class="grid-item-dataframe" onscroll="$(scroll.Y).val(this.scrollTop);">
                             <asp:GridView ID="gvDataType" runat="server" AutoGenerateColumns="true" CssClass="table-style"
                                           OnSelectedIndexChanged="OnSelectedIndexChanged"
                                           OnRowDataBound="OnRowDataBound"
                                           DataKeyNames="Data Type"/>
 
                         </div>
+                        <asp:HiddenField ID="hfScrollPosition" runat="server" Value="0" />
                         <div class="grid-item-dataset" id="gvAspectDiv" runat="server" visible="false" style="padding-left: 10px">
                             <asp:GridView ID="gvAspects" runat="server" AutoGenerateColumns="true" CssClass="table-style"
                                           OnSelectedIndexChanged="OnSelectedIndexChangedAspect"

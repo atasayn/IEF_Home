@@ -33,15 +33,6 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.Image iedcLogo;
 
         /// <summary>
-        /// ScriptManager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager;
-
-        /// <summary>
         /// UpdatePanel control.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,15 @@ namespace IEF_Home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvDataType;
+
+        /// <summary>
+        /// hfScrollPosition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfScrollPosition;
 
         /// <summary>
         /// gvAspectDiv control.

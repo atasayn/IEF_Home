@@ -18,6 +18,7 @@
 </head>
 <body>
     <form id="form1" runat="server" >
+        <asp:ScriptManager ID="ScriptManager" runat="server" EnableCdn="true" />
         <header>
             <div class="jumbotron">
                 <div class="container-fluid">

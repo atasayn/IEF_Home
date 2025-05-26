@@ -36,23 +36,23 @@ namespace IEF_Home
             dt.Columns.Add("Data Type");
 
             // Add rows combining the Category, Subcategory, and Entries into one string
-            dt.Rows.Add("Flow (1_F_) by material (1580173 entries)");
+            dt.Rows.Add("Flow (1_F_) by material (1580544 entries)");
             dt.Rows.Add("Flow (1_F_) by product/commodity (1777545 entries)");
             dt.Rows.Add("In-use stock (2_IUS_) by material (11354 entries)");
-            dt.Rows.Add("In-use stock (2_IUS_) by product/commodity (97200 entries)");
+            dt.Rows.Add("In-use stock (2_IUS_) by product/commodity (97620 entries)");
             dt.Rows.Add("Population (2_P_) by country/region (62856 entries)");
-            dt.Rows.Add("Lifetime (3_LT_) by product/commodity (1934 entries)");
-            dt.Rows.Add("Material composition (3_MC_) by material (77290 entries)");
-            dt.Rows.Add("Material composition (3_MC_) by product/commodity (72061 entries)");
-            dt.Rows.Add("Specific energy consumption of products (3_EI_) by product/commodity (496 entries)");
+            dt.Rows.Add("Lifetime (3_LT_) by product/commodity (2474 entries)");
+            dt.Rows.Add("Material composition (3_MC_) by material (78037 entries)");
+            dt.Rows.Add("Material composition (3_MC_) by product/commodity (72808 entries)");
+            dt.Rows.Add("Specific energy consumption of products (3_EI_) by product/commodity (690 entries)");
             dt.Rows.Add("Sector splits and other shares (3_SHA_) by chemical element (2834 entries)");
-            dt.Rows.Add("Sector splits and other shares (3_SHA_) by material (0 entries)");
-            dt.Rows.Add("Yield coefficient (4_PY_) by product/manufacturing process (7245 entries)");
-            dt.Rows.Add("Yield coefficient (4_PY_) by material (33 entries)");
+            dt.Rows.Add("Sector splits and other shares (3_SHA_) by material (63496 entries)");
+            dt.Rows.Add("Yield coefficient (4_PY_) by product/manufacturing process (7334 entries)");
+            dt.Rows.Add("Yield coefficient (4_PY_) by material (1300 entries)");
             dt.Rows.Add("Process extension (4_PE_) by process (112 entries)");
             dt.Rows.Add("Unit process inventory (4_UPI_) by process (568 entries)");
             dt.Rows.Add("Criticality indicators (6_CR) by chemical element (496 entries)");
-            dt.Rows.Add("Criticality indicators (6_CR) by material (4020 entries)");
+            dt.Rows.Add("Criticality indicators (6_CR) by material (4434 entries)");
 
             return dt;
         }
