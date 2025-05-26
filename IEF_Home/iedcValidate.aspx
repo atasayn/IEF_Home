@@ -163,8 +163,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" EnableViewState="false" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableViewState="false"></asp:ScriptManager>
-    <div>
+<div>
         <h2 class="title">Industrial ecology data commons (IEDC) data template validator </h2>
         <h3 class="title">Validate your data formatting and classifications against a general standard </h3>
         <%--<p style="color: red">This feature is currently under development and will be released in November of 2024</p>--%>
