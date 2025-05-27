@@ -51,15 +51,6 @@ namespace IEF_Home
         protected global::System.Web.UI.WebControls.GridView gvDataType;
 
         /// <summary>
-        /// hfScrollPosition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfScrollPosition;
-
-        /// <summary>
         /// gvAspectDiv control.
         /// </summary>
         /// <remarks>

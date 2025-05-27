@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <script src="js/jquery.min.js"></script>--%>
+    <script type="text/javascript" src="js/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+    <script src="js/jquery-1.4.1.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/iedcAdvancedData.js"></script>
-
+    <script src="js/ScrollableGridPlugin_ASP.NetAJAX_3.0.js" type="text/javascript"></script>
     <style>
         .row {
             display: flex;
@@ -35,14 +38,11 @@
 
 
         .grid-item-dataframe {
-            overflow-y: scroll;
-            max-height: 400px;
             width: fit-content;
         }
 
 
         .grid-item-dataset {
-            overflow-y: scroll;
             max-height: 400px;
             width: fit-content;
         }
@@ -210,6 +210,7 @@
         .gray-row {
             background-color: #dddddd; /* Change this color to the desired shade of gray */
         }
+
         .scrollable-container {
             height: 460px;
             width: 100%;
@@ -217,16 +218,93 @@
             border: 0;
         }
     </style>
-    <script type="text/javascript" src="js/xlsx.core.min.js"></script>
-    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
+    <div class="grid-container">
+        <div class="grid-intro">
+            <div class="grid-intro-title">
+                <asp:Label ID="lblTitle" runat="server" Text="<h3><b>Industrial Ecology Data Commons (IEDC): Quick search by data type</b></h3>" />
+                <p>
+                    Data in the IEDC are organized into pre-defined data types 
+                    <a href="https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx" target="_blank">[https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx]</a>, 
+                    such as data for flows, stocks, material composition, or unit process inventories. In this interface, you first select a data type together with a central aspect that is characteristic for this type. 
+                    E.g., choose “Lifetime by product”, after which all product (or other central aspect) entries for which this data type is available are shown. 
+                    After selecting a product or other central label, all available datasets that contain data for this label in the given aspect are shown and can be previewed and downloaded.
+                </p>
+
+            </div>
+
+            <div class="grid-intro-logo">
+                <asp:Image ID="iedcLogo" runat="server" CssClass="iedcLogo" ImageUrl="~/resources/iedcLogo23.png" Width="200" />
+            </div>
+
+            <div class="grid-intro-expl">
+                <!-- Labels and HyperLinks continue... -->
+            </div>
+        </div>
+        <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Conditional">
+            <ContentTemplate>
+                <div class="grid-item-data">
+                    <div class="row">
+                        <div class="grid-item-dataframe">
+                            <asp:GridView ID="gvDataType" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
+                                OnSelectedIndexChanged="OnSelectedIndexChanged"
+                                OnRowDataBound="OnRowDataBound"
+                                DataKeyNames="Data Type" />
+
+                        </div>
+
+                        <div class="grid-item-dataset" id="gvAspectDiv" runat="server" visible="true" style="padding-left: 10px">
+                            <asp:GridView ID="gvAspects" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
+                                OnSelectedIndexChanged="OnSelectedIndexChangedAspect"
+                                OnRowDataBound="OnRowDataBoundAspect"
+                                DataKeyNames="Aspect List" />
+                        </div>
+                        <div class="grid-item-dataset" id="divDatasetname" runat="server" visible="false" style="padding-left: 10px">
+                            <asp:GridView ID="dataset_names" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
+                                OnRowDataBound="dataset_names_RowDataBound"
+                                DataKeyNames="Dataset List" />
+                        </div>
+                    </div>
+                </div>
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="gvDataType" EventName="SelectedIndexChanged" />
+                <asp:AsyncPostBackTrigger ControlID="gvAspects" EventName="SelectedIndexChanged" />
+            </Triggers>
+
+        </asp:UpdatePanel>
+        <div class="grid-dataset-preview" style="display: none">
+            <h3>Preview: sample from selected dataset</h3>
+            <h4>The entry you are looking for may not be shown in this sample but will be included in the download</h4>
+            <div class="loader2" style="display: none"></div>
+            <table id="dataset-preview">
+            </table>
+            <table id="hiddentable" style="display: none">
+            </table>
+
+
+        </div>
+
+        <div class="grid-dataset-previewInfo" style="display: none">
+            <h3>Description of selected dataset</h3>
+            <table id="dataset-previewInfo">
+            </table>
+            <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display: none" type="button">Download</button>
+        </div>
+    </div>
     <script>
-       
+
         function cellClicked(cell) {
             var userInputDataPreview = $(cell).text();
-            console.log(userInputDataPreview);
             $("#dataset-preview").empty();
             $("#dataset-previewInfo").empty();
             $("#hiddentable").empty();
+            $(".grid-dataset-preview").css("display", "block");
+            $(".grid-dataset-previewInfo").css("display", "block");
+
+
             //$('.loader2').css("display", "block");
             $.ajax({
                 type: "POST",
@@ -366,112 +444,28 @@
             }
 
             // Highlight the new cell
-            cell.style.backgroundColor = 'yellow';
+            cell.style.backgroundColor = 'orange';
 
             // Update the reference
             previouslyHighlightedCell = cell;
         }
-        // It is important to place this JavaScript code after ScriptManager1
-        var xPos, yPos;
-        var prm = Sys.WebForms.PageRequestManager.getInstance();
-
-        function BeginRequestHandler(sender, args) {
-            if ($get('<%=gvDataType.ClientID%>') != null) {
-                // Get X and Y positions of scrollbar before the partial postback
-                xPos = $get('<%=gvDataType.ClientID%>').scrollLeft;
-                yPos = $get('<%=gvDataType.ClientID%>').scrollTop;
-            }
-        }
-
-        function EndRequestHandler(sender, args) {
-            if ($get('<%=gvDataType.ClientID%>') != null) {
-                // Set X and Y positions back to the scrollbar
-                // after partial postback
-                $get('<%=gvDataType.ClientID%>').scrollLeft = xPos;
-                $get('<%=gvDataType.ClientID%>').scrollTop = yPos;
-            }
-        }
-
-        prm.add_beginRequest(BeginRequestHandler);
-        prm.add_endRequest(EndRequestHandler);
 
 
+   
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+
+
+            $('#<%=gvAspects.ClientID %>').Scrollable({
+                ScrollHeight: 300,
+                IsInUpdatePanel: false
+            });
+
+            $('#<%=dataset_names.ClientID%>').Scrollable({
+                ScrollHeight: 300,
+                IsInUpdatePanel: false
+            });
+        });
     </script>
-
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-    <div class="grid-container">
-        <div class="grid-intro">
-            <div class="grid-intro-title">
-                <asp:Label ID="lblTitle" runat="server" Text="<h3><b>Industrial Ecology Data Commons (IEDC): Quick search by data type</b></h3>" />
-                <p>
-                    Data in the IEDC are organized into pre-defined data types 
-                    <a href="https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx" target="_blank">[https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx]</a>, 
-                    such as data for flows, stocks, material composition, or unit process inventories. In this interface, you first select a data type together with a central aspect that is characteristic for this type. 
-                    E.g., choose “Lifetime by product”, after which all product (or other central aspect) entries for which this data type is available are shown. 
-                    After selecting a product or other central label, all available datasets that contain data for this label in the given aspect are shown and can be previewed and downloaded.
-                </p>
-
-            </div>
-
-            <div class="grid-intro-logo">
-                <asp:Image ID="iedcLogo" runat="server" CssClass="iedcLogo" ImageUrl="~/resources/iedcLogo23.png" Width="200" />
-            </div>
-
-            <div class="grid-intro-expl">
-                <!-- Labels and HyperLinks continue... -->
-            </div>
-        </div>
-        <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Conditional">
-            <ContentTemplate>
-                <div class="grid-item-data">
-                    <div class="row">
-                        <div class="grid-item-dataframe" onscroll="$(scroll.Y).val(this.scrollTop);">
-                            <asp:GridView ID="gvDataType" runat="server" AutoGenerateColumns="true" CssClass="table-style"
-                                          OnSelectedIndexChanged="OnSelectedIndexChanged"
-                                          OnRowDataBound="OnRowDataBound"
-                                          DataKeyNames="Data Type"/>
-
-                        </div>
-                        <asp:HiddenField ID="hfScrollPosition" runat="server" Value="0" />
-                        <div class="grid-item-dataset" id="gvAspectDiv" runat="server" visible="false" style="padding-left: 10px">
-                            <asp:GridView ID="gvAspects" runat="server" AutoGenerateColumns="true" CssClass="table-style"
-                                          OnSelectedIndexChanged="OnSelectedIndexChangedAspect"
-                                          OnRowDataBound="OnRowDataBoundAspect"
-                                          DataKeyNames="Aspect List"/>
-                        </div>
-                        <div class="grid-item-dataset" id="divDatasetname" runat="server" visible="false" style="padding-left: 10px">
-                            <asp:GridView ID="dataset_names" runat="server" AutoGenerateColumns="true" CssClass="table-style"
-                                          OnRowDataBound="dataset_names_RowDataBound"
-                                          DataKeyNames="Dataset List"/>
-                        </div>
-                    </div>
-                </div>
-            </ContentTemplate>
-<%--            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="gvDataType" EventName="SelectedIndexChanged" />
-                <asp:AsyncPostBackTrigger ControlID="gvAspects" EventName="SelectedIndexChanged" />
-            </Triggers>--%>
-
-        </asp:UpdatePanel>
-        <div class="grid-dataset-preview">
-            <div class="loader2" style="display:none"></div>
-            <table id="dataset-preview">
-            </table>
-            <table id="hiddentable" style="display:none">
-         
-            </table>
-
-
-        </div>
-
-        <div class="grid-dataset-previewInfo">
-            <table id="dataset-previewInfo">
-               
-            </table>
-            <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display: none" type="button">Download</button>
-        </div>
-    </div>
 </asp:Content>
 
 

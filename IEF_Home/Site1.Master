@@ -13,12 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server" >
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server" >
-        <asp:ScriptManager ID="ScriptManager" runat="server" EnableCdn="true" />
+        <asp:ScriptManager ID="ScriptManager" runat="server" EnableCdn="true" EnablePartialRendering="true" />
         <header>
             <div class="jumbotron">
                 <div class="container-fluid">

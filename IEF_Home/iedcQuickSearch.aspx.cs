@@ -76,7 +76,7 @@ namespace IEF_Home
                 // Highlight the selected row after postback
                 if (e.Row.RowIndex == gvDataType.SelectedIndex)
                 {
-                    e.Row.BackColor = System.Drawing.Color.Yellow;
+                    e.Row.BackColor = System.Drawing.Color.Orange;
                 }
             }
         }
@@ -105,7 +105,7 @@ namespace IEF_Home
                 // Highlight the selected row after postback
                 if (e.Row.RowIndex == gvAspects.SelectedIndex)
                 {
-                    e.Row.BackColor = System.Drawing.Color.Yellow;
+                    e.Row.BackColor = System.Drawing.Color.Orange;
                 }
             }
         }

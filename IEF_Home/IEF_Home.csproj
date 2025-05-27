@@ -328,6 +328,7 @@
     <Content Include="js\iedcAdvancedData.js" />
     <Content Include="js\circular_sankey_script.js" />
     <Content Include="js\jquery-1.11.3.min.js" />
+    <Content Include="js\jquery-1.4.1.min.js" />
     <Content Include="js\jquery-1.6.2.js" />
     <Content Include="js\jquery-1.7.1.min.js" />
     <Content Include="js\jquery.js" />
@@ -338,6 +339,7 @@
     <Content Include="js\pdfMaker.js" />
     <Content Include="js\PDFmaker\jspdf.es.min.js" />
     <Content Include="js\PDFmaker\jspdf.plugin.autotable.js" />
+    <Content Include="js\ScrollableGridPlugin_ASP.NetAJAX_3.0.js" />
     <Content Include="js\svg-pan-zoom.min.js" />
     <Content Include="js\svgMap\main.min.js" />
     <Content Include="js\svgMap\svgMap.js" />
