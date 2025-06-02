@@ -262,7 +262,6 @@
                                               OnRowDataBound="OnRowDataBoundAspect"
                                               DataKeyNames="Aspect List" />
                             </div>
-                            <div class="loader" id="loadingIcon" runat="server" style="display:none" ClientIDMode="Static"></div>
                             <div class="grid-item-dataset" id="divDatasetname" runat="server" visible="false" style="padding-left: 10px;padding-top: 10px">
                                 <asp:GridView ID="dataset_names" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
                                               OnRowDataBound="dataset_names_RowDataBound"
@@ -271,12 +270,13 @@
                         
 
                         </div>
+                        <div class="loader" id="loadingIcon" runat="server" style="display: none;margin:50px" ClientIDMode="Static"></div>
                     </div>
                     <div class="row">
                             <div class="grid-dataset-preview"  style="display: none;padding-top: 20px">
                                 <h3>Preview: sample from selected dataset</h3>
                                 <h4>The entry you are looking for may not be shown in this sample but will be included in the download</h4>
-                                <div class="loader2" style="display: none"></div>
+    <%--                            <div class="loader2" style="display: none"></div>--%>
                                 <table id="dataset-preview">
                                 </table>
                                 <table id="hiddentable" style="display: none">
@@ -314,6 +314,7 @@
         }
 
         function cellClicked(cell) {
+            showLoadingIcon();
             var userInputDataPreview = $(cell).text();
             $("#dataset-preview").empty();
             $("#dataset-previewInfo").empty();
@@ -331,7 +332,7 @@
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
-                    $('.loader2').hide();
+                    hideLoadingIcon();
                     var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                     var columnNames = Array.from(res.values());
                     var columnTitle = Array.from(res.keys());

@@ -103,7 +103,7 @@ namespace IEF_Home
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 string postback = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
-                string combinedScript = $"showLoadingIcon(); {postback}";
+                string combinedScript = $"showLoadingIcon(); setTimeout(function() {{{postback}}}, 100);";
                 e.Row.Attributes["onclick"] = combinedScript;
                 e.Row.Attributes["style"] = "cursor:pointer";
 
