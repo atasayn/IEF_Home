@@ -19,7 +19,8 @@ namespace IEF_Home
             {
                 gvDataType.DataSource = GetData();
                 gvDataType.DataBind();
-
+                //// initial state
+                //loadingIcon.Style["display"] = "none";
             }
             else
             {
@@ -62,12 +63,12 @@ namespace IEF_Home
         {
             dataset_names.DataSource = null;
             dataset_names.DataBind();
-
             ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
-        document.getElementById('dataset-preview').innerHTML = '';
-        document.getElementById('dataset-previewInfo').innerHTML = '';
-        document.getElementById('hiddentable').innerHTML = '';
-    ", true);
+                document.getElementById('dataset-preview').innerHTML = '';
+                document.getElementById('dataset-previewInfo').innerHTML = '';
+                document.getElementById('hiddentable').innerHTML = '';
+                ", true);
+
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvDataType, "Select$" + e.Row.RowIndex);
@@ -91,6 +92,7 @@ namespace IEF_Home
         }
         protected void OnRowDataBoundAspect(object sender, GridViewRowEventArgs e)
         {
+
             dataset_names.DataSource = null;
             dataset_names.DataBind();
             ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
@@ -100,21 +102,27 @@ namespace IEF_Home
                 ", true);
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
+                string postback = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
+                string combinedScript = $"showLoadingIcon(); {postback}";
+                e.Row.Attributes["onclick"] = combinedScript;
                 e.Row.Attributes["style"] = "cursor:pointer";
-                // Highlight the selected row after postback
+
                 if (e.Row.RowIndex == gvAspects.SelectedIndex)
                 {
                     e.Row.BackColor = System.Drawing.Color.Orange;
                 }
             }
+
         }
 
 
 
         protected void OnSelectedIndexChangedAspect(object sender, EventArgs e)
         {
+
             Read_Aspect_Label(gvDataType.SelectedIndex.ToString());
+            // Optionally hide the loader after data is bound
+            ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "hideLoadingIcon();", true);
             // Report Table
             DataTable datasetTable = new DataTable();
             List<string> datasetList = new List<string>();
@@ -123,6 +131,7 @@ namespace IEF_Home
                 divDatasetname.Visible = true;
 
             };
+
             datasetTable.Columns.Add("Dataset List", typeof(string));
 
             var index = gvDataType.SelectedIndex;
@@ -148,11 +157,10 @@ namespace IEF_Home
             dataset_names.DataSource = datasetTable;
             dataset_names.DataBind();
 
-
-
         }
         protected void dataset_names_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+
             // Check if it's a data row (not header or footer)
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -174,6 +182,7 @@ namespace IEF_Home
                 gvAspectDiv.Visible = true;
 
             };
+
             // Report Table
             DataTable dataAspectTable = new DataTable();
             dataAspectTable.Columns.Add("Aspect List", typeof(string));
@@ -204,7 +213,6 @@ namespace IEF_Home
                     dataAspectTable.Rows.Add(value);
 
                 }
-
                 gvAspects.DataSource = dataAspectTable;
                 gvAspects.DataBind();
             }

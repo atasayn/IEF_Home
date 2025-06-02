@@ -45,6 +45,7 @@
         .grid-item-dataset {
             max-height: 400px;
             width: fit-content;
+            width: 600px
         }
 
         .grid-dataset-list {
@@ -212,7 +213,7 @@
         }
 
         .scrollable-container {
-            height: 460px;
+            height: 400px;
             width: 100%;
             overflow: auto;
             border: 0;
@@ -254,47 +255,63 @@
                                 DataKeyNames="Data Type" />
 
                         </div>
+                        <div class="column">
+                            <div class="grid-item-dataset" id="gvAspectDiv" runat="server" visible="true" style="padding-left: 10px">
+                                <asp:GridView ID="gvAspects" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
+                                              OnSelectedIndexChanged="OnSelectedIndexChangedAspect"
+                                              OnRowDataBound="OnRowDataBoundAspect"
+                                              DataKeyNames="Aspect List" />
+                            </div>
+                            <div class="loader" id="loadingIcon" runat="server" style="display:none" ClientIDMode="Static"></div>
+                            <div class="grid-item-dataset" id="divDatasetname" runat="server" visible="false" style="padding-left: 10px;padding-top: 10px">
+                                <asp:GridView ID="dataset_names" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
+                                              OnRowDataBound="dataset_names_RowDataBound"
+                                              DataKeyNames="Dataset List" />
+                            </div>
+                        
 
-                        <div class="grid-item-dataset" id="gvAspectDiv" runat="server" visible="true" style="padding-left: 10px">
-                            <asp:GridView ID="gvAspects" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
-                                OnSelectedIndexChanged="OnSelectedIndexChangedAspect"
-                                OnRowDataBound="OnRowDataBoundAspect"
-                                DataKeyNames="Aspect List" />
-                        </div>
-                        <div class="grid-item-dataset" id="divDatasetname" runat="server" visible="false" style="padding-left: 10px">
-                            <asp:GridView ID="dataset_names" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
-                                OnRowDataBound="dataset_names_RowDataBound"
-                                DataKeyNames="Dataset List" />
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                            <div class="grid-dataset-preview"  style="display: none;padding-top: 20px">
+                                <h3>Preview: sample from selected dataset</h3>
+                                <h4>The entry you are looking for may not be shown in this sample but will be included in the download</h4>
+                                <div class="loader2" style="display: none"></div>
+                                <table id="dataset-preview">
+                                </table>
+                                <table id="hiddentable" style="display: none">
+                                </table>
+
+
+                            </div>
+
+                            <div class="grid-dataset-previewInfo" style="display: none">
+                                <h3>Description of selected dataset</h3>
+                                <table id="dataset-previewInfo">
+                                </table>
+                                <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display: none" type="button">Download</button>
+                            </div>
+                        </div>
+
+                    </div>
+               
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="gvDataType" EventName="SelectedIndexChanged" />
                 <asp:AsyncPostBackTrigger ControlID="gvAspects" EventName="SelectedIndexChanged" />
             </Triggers>
-
         </asp:UpdatePanel>
-        <div class="grid-dataset-preview" style="display: none">
-            <h3>Preview: sample from selected dataset</h3>
-            <h4>The entry you are looking for may not be shown in this sample but will be included in the download</h4>
-            <div class="loader2" style="display: none"></div>
-            <table id="dataset-preview">
-            </table>
-            <table id="hiddentable" style="display: none">
-            </table>
 
-
-        </div>
-
-        <div class="grid-dataset-previewInfo" style="display: none">
-            <h3>Description of selected dataset</h3>
-            <table id="dataset-previewInfo">
-            </table>
-            <button id="btnExport" onclick="ExportToExcel('xlsx');" style="display: none" type="button">Download</button>
-        </div>
     </div>
     <script>
+
+        function showLoadingIcon() {
+            document.getElementById("loadingIcon").style.display = "block";
+        }
+
+        function hideLoadingIcon() {
+            document.getElementById("loadingIcon").style.display = "none";
+        }
 
         function cellClicked(cell) {
             var userInputDataPreview = $(cell).text();
@@ -318,8 +335,6 @@
                     var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
                     var columnNames = Array.from(res.values());
                     var columnTitle = Array.from(res.keys());
-                    console.log(columnNames);
-                    console.log(columnTitle);
 
                     var ColumnNotNullValues = [...res.values()].filter(array =>
                         array.some(value => value !== null)
@@ -338,7 +353,6 @@
                             }
                         }
                     }
-
 
                     innerHtml = "<thead><tr>";
                     for (var i = 0; i < ColumnNotNullKeys.slice(0, -2).length; i++) {
@@ -450,21 +464,33 @@
             previouslyHighlightedCell = cell;
         }
 
-
-   
+        // Preserve state and reapply after UpdatePanel request ends
         Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+            var aspectsId = '<%=gvAspects.ClientID %>';
+            var datasetId = '<%=dataset_names.ClientID%>';
 
+            // Save scroll + search before rebuilding
+            var aspectsDiv = document.querySelector("#header" + aspectsId)?.nextElementSibling;
+            if (aspectsDiv) scrollPositions[aspectsId] = aspectsDiv.scrollTop;
 
-            $('#<%=gvAspects.ClientID %>').Scrollable({
+            var aspectsSearch = document.querySelector("#header" + aspectsId)?.previousSibling?.querySelector(".table-search-box");
+            if (aspectsSearch) searchValues[aspectsId] = aspectsSearch.value.toLowerCase();
+
+            $("#" + aspectsId).Scrollable({
                 ScrollHeight: 300,
                 IsInUpdatePanel: false
             });
 
-            $('#<%=dataset_names.ClientID%>').Scrollable({
+            var datasetDiv = document.querySelector("#header" + datasetId)?.nextElementSibling;
+            if (datasetDiv) scrollPositions[datasetId] = datasetDiv.scrollTop;
+
+            $("#" + datasetId).Scrollable({
                 ScrollHeight: 300,
                 IsInUpdatePanel: false
             });
         });
+
+
     </script>
 </asp:Content>
 
