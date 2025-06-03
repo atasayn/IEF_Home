@@ -299,6 +299,7 @@
     <Content Include="Content\workingPaperPngs\documentationOfTheRecc2.5.png" />
     <Content Include="Content\workingPaperPngs\guidelinesAndGoodPractice.png" />
     <Content Include="Content\workingPaperPngs\guidelinesForDataModeling.png" />
+    <Content Include="Content\workingPaperPngs\IEF_WP_1_2025_Thumbnail.png" />
     <Content Include="Content\workingPaperPngs\portableAndFlexibleTech.png" />
     <Content Include="Content\workingPaperPngs\szenarioanalyseFürMaterialverbrauch.png" />
     <Content Include="Content\workingPaperPngs\treibhausgasbilanzDerUniversitat.png" />

@@ -58,10 +58,21 @@
         </p>
     </div>
     <div class="row">
+        <div class="column">
+            <img src="Content/workingPaperPngs/IEF_WP_1_2025_Thumbnail.png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 1 (2025)</p>
+            <p>
+                <b>Flächennutzung und Materialverbrauch der Infrastruktur für den motorisierten Individualverkehr in Freiburg im Breisgau. </b>
+                Alexander McShane und Stefan Pauliuk. Industrial Ecology Freiburg (IEF) Working Paper 1(2025), Universität Freiburg im Breisgau.
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/266378 " target="_blank">https://doi.org/10.6094/UNIFR/266378</a>
+        </div>
 
         <div class="column">
             <img src="Content/workingPaperPngs/guidelinesAndGoodPractice.png" width="300">
-        </div>
+        </div>        
         <div class="column">
             <p>IEF Working paper 1 (2024)</p>
             <p>
@@ -72,6 +83,9 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/255618" target="_blank">https://doi.org/10.6094/UNIFR/255618</a>
         </div>
+
+    </div>
+    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/IEF_WP_2_2024 (002).png" width="300">
         </div>
@@ -83,9 +97,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/257136" target="_blank">https://doi.org/10.6094/UNIFR/257136</a>
         </div>
-
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/documentationOfTheRecc2.5.png" width="300">
         </div>
@@ -97,6 +108,8 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/242061" target="_blank">https://doi.org/10.6094/UNIFR/242061</a>
         </div>
+    </div>
+    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/characterizationFactorsFor.png" width="300">
         </div>
@@ -108,8 +121,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/226265" target="_blank">https://doi.org/10.6094/UNIFR/226265</a>
         </div>
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/szenarioanalyseFürMaterialverbrauch.png" width="300">
         </div>
@@ -121,6 +132,8 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/225544" target="_blank">https://doi.org/10.6094/UNIFR/225544</a>
         </div>
+    </div>
+    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/portableAndFlexibleTech.png" width="300">
         </div>
@@ -132,9 +145,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/224838" target="_blank">https://doi.org/10.6094/UNIFR/224838</a>
         </div>
-
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/guidelinesForDataModeling.png" width="300">
         </div>
@@ -147,6 +157,8 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/217970" target="_blank">https://doi.org/10.6094/UNIFR/217970</a>
         </div>
+    </div>
+    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/treibhausgasbilanzDerUniversitat.png" width="300">
         </div>
@@ -158,6 +170,7 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/176419" target="_blank">https://doi.org/10.6094/UNIFR/176419 </a>
         </div>
-
+        <div class="column"></div>
+        <div class="column"></div>
     </div>
 </asp:Content>
