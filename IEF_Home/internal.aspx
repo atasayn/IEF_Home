@@ -717,6 +717,78 @@ For some of the works there is more research material available than what is ava
                         <tr>
                             <td><b>MSc</b></td>
                             <td>REM</td>
+                            <td>Yusif Azizli</td>
+                            <td><b>Comprehensive Analysis of Carbon Footprints Across Socioeconomic Strata in Turkey</b></td>
+                            <td>05.05.2025</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Thesis_Master_Yusif_Azizli_05_2025.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Khalid Alyassin</td>
+                            <td><b>Improving the Water and Land Footprint Estimate of Future Low Carbon Energy Supply Technologies</b></td>
+                            <td>30.04.2025</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_Khalid_Alyassin.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>SSE</td>
+                            <td>Alexander Harry McShane</td>
+                            <td><b>Ressourcenverbrauch der Infrastruktur für den motorisierten Individualverkehr in Freiburg im Breisgau</b></td>
+                            <td>20.11.2024</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/AlexMcShane_MasterThesis_2024.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Youssef Elhenawy</td>
+                            <td><b>Scenarios of resources and emission savings from material efficiency in private mobility: A case study in Egypt</b></td>
+                            <td>30.10.2024</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/5579102_MasterThesis_youssef_elhenawy.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Mahmood Hebah</td>
+                            <td><b>Assessing the Lifecycle Impacts of Integrating Renewable Energy Systems in Buildings with Smart Grid Technology versus Conventional Power Sources in Saudi Arabia</b></td>
+                            <td>30.10.2024</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Final Report_MSc_Thesis_MAHMOOD_HEBAH.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Binish Mohan</td>
+                            <td><b>Material trade-off of low carbon energy services: LCA Analysis of the carbon and material footprint of various steel production routes</b></td>
+                            <td>10.10.2024</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master Thesis_Binish Mohan_FINAL.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
                             <td>Marcel Geller</td>
                             <td><b>Investigating Potential Effects of Economic Factors on the Circularity of Global Steel Flows by Applying a Material Flow Analysis (MFA)</b></td>
                             <td>08.07.2024</td>
