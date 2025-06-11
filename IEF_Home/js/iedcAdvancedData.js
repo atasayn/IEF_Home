@@ -410,128 +410,171 @@ function generateTable(data, columns, rows, tbody) {
     }
 }
 
-//function ExportToExcel() {
-//    const workbook = new ExcelJS.Workbook();
+function ExportToExcel() {
+    const workbook = new ExcelJS.Workbook();
 
-//    // 1. Dataset Description Sheet
-//    const sheet1 = workbook.addWorksheet('Dataset Description');
+    const sheet1 = workbook.addWorksheet('Dataset Description');
 
-//    // Merge B2:D2 and style the title
-//    sheet1.mergeCells('B2:D2');
-//    const titleCell = sheet1.getCell('B2');
-//    titleCell.value = 'Dataset Information';
-//    titleCell.alignment = { horizontal: 'center', vertical: 'middle' };
-//    titleCell.font = { bold: true };
-//    titleCell.fill = {
-//        type: 'pattern',
-//        pattern: 'solid',
-//        fgColor: { argb: 'FFD9D9D9' } // Light grey
-//    };
+    // Set column widths to prevent overflow
+    sheet1.getColumn(2).width = 40; // B column
+    sheet1.getColumn(3).width = 30; // C column
+    sheet1.getColumn(4).width = 50; // D column
 
-//    // Add "Column name" in C3 and "Data entries" in D4
-//    sheet1.getCell('C3').value = 'Column name';
-//    sheet1.getCell('D3').value = 'Data entries';
+    // Merge B2:D2 and style the title
+    sheet1.mergeCells('B2:D2');
+    const titleCell = sheet1.getCell('B2');
+    titleCell.value = 'Dataset Information';
+    titleCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true, shrinkToFit: true };
+    titleCell.font = { bold: true };
+    titleCell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'FFD9D9D9' }
+    };
 
-//    // Add black border around B3, C3, and D3
-//    const borderStyle = {
-//        top: { style: 'thin', color: { argb: 'FF000000' } },
-//        left: { style: 'thin', color: { argb: 'FF000000' } },
-//        bottom: { style: 'thin', color: { argb: 'FF000000' } },
-//        right: { style: 'thin', color: { argb: 'FF000000' } }
-//    };
+    // Header row C3 and D3
+    sheet1.getCell('C3').value = 'Column name';
+    sheet1.getCell('D3').value = 'Data entries';
+    sheet1.getCell('C3').font = { bold: true };
+    sheet1.getCell('D3').font = { bold: true };
+    const headerBorderStyle = {
+        top: { style: 'thin', color: { argb: 'FF000000' } },
+        left: { style: 'thin', color: { argb: 'FF000000' } },
+        bottom: { style: 'thin', color: { argb: 'FF000000' } },
+        right: { style: 'thin', color: { argb: 'FF000000' } }
+    };
 
-//    ['B3', 'C3', 'D3'].forEach(cellAddress => {
-//        const cell = sheet1.getCell(cellAddress);
-//        cell.border = borderStyle;
-//    });
+    ['B4', 'C4', 'D4'].forEach(cellAddress => {
+        const cell = sheet1.getCell(cellAddress);
+        cell.border = headerBorderStyle;
+        cell.alignment = { wrapText: true, shrinkToFit: true, vertical: 'middle' };
+    });
 
-//    // Get the Dataset Description table from DOM and insert starting at C4
-//    const table1 = document.getElementById('dataset-previewInfo');
-//    const rowOffset = 4; // row 4 in Excel (1-based)
-//    const colOffset = 3; // C = 3rd column
+    const mergedRegions = [
+        { range: 'B4:B6', text: 'Identification', color: '#F4CCCC' },
+        { range: 'B7:B10', text: 'Grouping', color: '#FCE5CD' },
+        { range: 'B11:B20', text: 'System location: What elements and objects in the system are described?', color: '#FCF2CC' },
+        { range: 'B21:B25', text: 'Description', color: '#D9EAD3' },
+        { range: 'B26:B52', text: 'System location: Dataset aspects and semantics. For aspects: [Aspect;symbol;classification]. Mandatory aspects in gray shading', color: '#D0E0E3' },
+        { range: 'B53:B60', text: 'Data access and licence', color: '#C9DAF8' },
+        { range: 'B61:B67', text: 'Data submission, review, and conversion info', color: '#CFE2F3' },
+        { range: 'B68:B72', text: 'Reserve', color: '#EEECE1' }
+    ];
 
-//    for (let i = 0; i < table1.rows.length; i++) {
-//        const row = table1.rows[i];
-//        for (let j = 0; j < row.cells.length; j++) {
-//            const cell = sheet1.getCell(i + rowOffset, j + colOffset);
-//            cell.value = row.cells[j].innerText;
-//        }
-//    }
+    mergedRegions.forEach(region => {
+        sheet1.mergeCells(region.range);
+        const cell = sheet1.getCell(region.range.split(":")[0]);
+        cell.value = region.text;
+        cell.alignment = { vertical: 'middle', horizontal: 'center', wrapText: true, shrinkToFit: true };
+        cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: convertColor(region.color) }
+        };
+        cell.font = { bold: true };
+    });
 
-//    // 2. Data Sheet
-//    const sheet2 = workbook.addWorksheet('Data');
-//    const table2 = document.getElementById('hiddentable');
+    function convertColor(hex) {
+        const rgb = hex.replace('#', '');
+        return `FF${rgb.toUpperCase()}`;
+    }
 
-//    for (let i = 0; i < table2.rows.length; i++) {
-//        const row = table2.rows[i];
-//        for (let j = 0; j < row.cells.length; j++) {
-//            const cell = sheet2.getCell(i + 1, j + 1);
-//            cell.value = row.cells[j].innerText;
-//        }
-//    }
+    const table1 = document.getElementById('dataset-previewInfo');
+    const rowOffset = 4;
+    const colOffset = 3;
 
-//    // 3. Get filename from D5 in Dataset Description HTML table
-//    const cell = sheet1.getCell('D5');
-//    const text = cell.text || cell.value || '';
-//    let fileName = text; // default fallback
-
-
-//    // 4. Export the workbook
-//    workbook.xlsx.writeBuffer().then(function (buffer) {
-//        const blob = new Blob([buffer], {
-//            type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-//        });
-//        saveAs(blob, fileName);
-//    });
-//}
-
-
-
-
-
-
-function ExportToExcel(type, fn, dl) {
-    var sheet1 = document.getElementById('dataset-previewInfo');
-    var sheet2 = document.getElementById('hiddentable');
-    var wb1 = XLSX.utils.table_to_book(sheet1, { sheet: "Dataset Description" });
-    var wb2 = XLSX.utils.table_to_book(sheet2, { sheet: "Data" });
-
-    // Append the second sheet to the first Workbook
-    XLSX.utils.book_append_sheet(wb1, wb2.Sheets[wb2.SheetNames[0]], "Data");
-
-
-
-    for (var sheetName in wb1.Sheets) {
-        if (wb1.Sheets.hasOwnProperty(sheetName)) {
-            // Get the sheet using the sheetName
-            var ws = wb1.Sheets[sheetName];
-
-            // Define a style object with bold font and centered text
-            var style = {
-                font: { bold: true },
-                alignment: { horizontal: 'center' }
-            };
-
-            // Apply the style to the entire worksheet
-            ws['!cols'] = [{ wpx: 80 }, { wpx: 80 }]; // Set column width (adjust as needed)
-            ws['!rows'] = [{ hpt: 20 }]; // Set row height (adjust as needed)
-
-            for (var cellAddress in ws) {
-                if (ws.hasOwnProperty(cellAddress)) {
-                    if (cellAddress === '!ref') continue; // Skip the !ref key
-                    ws[cellAddress].s = style;
-                }
-            }
+    for (let i = 0; i < table1.rows.length; i++) {
+        const row = table1.rows[i];
+        for (let j = 0; j < row.cells.length; j++) {
+            const cell = sheet1.getCell(i + rowOffset, j + colOffset);
+            cell.value = row.cells[j].innerText;
+            cell.alignment = { wrapText: true, shrinkToFit: true, vertical: 'middle' };
         }
     }
 
-   
-    // Get the value of cell B2
-    var cellB2 = ws['B2'];
-    var sheetName = cellB2 ? cellB2.v : 'MySheetName'; // Use B2 value as the sheet name or fallback to 'MySheetName'
+    const lastRow = table1.rows.length + rowOffset - 1;
+    const outerBorderStyle = { style: 'thin', color: { argb: 'FF000000' } };
 
-    // Export the Excel file
-    return dl ?
-        XLSX.write(wb1, { bookType: type, bookSST: true, type: 'base64' }) :
-        XLSX.writeFile(wb1, fn || (sheetName + '.' + (type || 'xlsx')));
+    for (let i = 3; i <= lastRow; i++) {
+        for (let j = 2; j <= 4; j++) {
+            const cell = sheet1.getCell(i, j);
+            cell.border = {
+                top: i === 3 ? outerBorderStyle : undefined,
+                bottom: i === lastRow ? outerBorderStyle : undefined,
+                left: j === 2 ? outerBorderStyle : undefined,
+                right: j === 4 ? outerBorderStyle : undefined,
+       
+            };
+        }
+    }
+
+    const sheet2 = workbook.addWorksheet('Data');
+    const table2 = document.getElementById('hiddentable');
+
+    for (let i = 0; i < table2.rows.length; i++) {
+        const row = table2.rows[i];
+        for (let j = 0; j < row.cells.length; j++) {
+            const cell = sheet2.getCell(i + 1, j + 1);
+            cell.value = row.cells[j].innerText;
+        }
+    }
+
+    const cellD5 = sheet1.getCell('D5');
+    const text = cellD5.text || cellD5.value || '';
+    let fileName = text || 'export.xlsx';
+
+    workbook.xlsx.writeBuffer().then(function (buffer) {
+        const blob = new Blob([buffer], {
+            type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        });
+        saveAs(blob, fileName);
+    });
 }
+
+
+
+//function ExportToExcel(type, fn, dl) {
+//    var sheet1 = document.getElementById('dataset-previewInfo');
+//    var sheet2 = document.getElementById('hiddentable');
+//    var wb1 = XLSX.utils.table_to_book(sheet1, { sheet: "Dataset Description" });
+//    var wb2 = XLSX.utils.table_to_book(sheet2, { sheet: "Data" });
+
+//    // Append the second sheet to the first Workbook
+//    XLSX.utils.book_append_sheet(wb1, wb2.Sheets[wb2.SheetNames[0]], "Data");
+
+
+
+//    for (var sheetName in wb1.Sheets) {
+//        if (wb1.Sheets.hasOwnProperty(sheetName)) {
+//            // Get the sheet using the sheetName
+//            var ws = wb1.Sheets[sheetName];
+
+//            // Define a style object with bold font and centered text
+//            var style = {
+//                font: { bold: true },
+//                alignment: { horizontal: 'center' }
+//            };
+
+//            // Apply the style to the entire worksheet
+//            ws['!cols'] = [{ wpx: 80 }, { wpx: 80 }]; // Set column width (adjust as needed)
+//            ws['!rows'] = [{ hpt: 20 }]; // Set row height (adjust as needed)
+
+//            for (var cellAddress in ws) {
+//                if (ws.hasOwnProperty(cellAddress)) {
+//                    if (cellAddress === '!ref') continue; // Skip the !ref key
+//                    ws[cellAddress].s = style;
+//                }
+//            }
+//        }
+//    }
+
+   
+//    // Get the value of cell B2
+//    var cellB2 = ws['B2'];
+//    var sheetName = cellB2 ? cellB2.v : 'MySheetName'; // Use B2 value as the sheet name or fallback to 'MySheetName'
+
+//    // Export the Excel file
+//    return dl ?
+//        XLSX.write(wb1, { bookType: type, bookSST: true, type: 'base64' }) :
+//        XLSX.writeFile(wb1, fn || (sheetName + '.' + (type || 'xlsx')));
+//}
