@@ -59,6 +59,20 @@
     </div>
     <div class="row">
         <div class="column">
+            <img src="Content/workingPaperPngs/IEF_WP_2_2025_Thumbnail.png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 2 (2025)</p>
+            <p>
+                <b>FShort-Term Socio-Economic Impacts of EU Carbon Border Adjustment Mechanism (CBAM) on
+                    EU Countries and Their Trade Partners under Different Revenue Redistribution Schemes.</b>
+                Gilang
+                Hardadi. Industrial Ecology Freiburg (IEF) Working Paper 2(2025), University of Freiburg, Germany.
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/266690 " target="_blank">https://doi.org/10.6094/UNIFR/266690 </a>
+        </div>
+
+        <div class="column">
             <img src="Content/workingPaperPngs/IEF_WP_1_2025_Thumbnail.png" width="300">
         </div>
         <div class="column">
@@ -70,6 +84,8 @@
             <a href="https://doi.org/10.6094/UNIFR/266378 " target="_blank">https://doi.org/10.6094/UNIFR/266378</a>
         </div>
 
+    </div>
+    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/guidelinesAndGoodPractice.png" width="300">
         </div>        
@@ -78,14 +94,12 @@
             <p>
                 <b>Guidelines and Good Practice Examples for Complete Traceability of Workflows and Reproducibility of Results in Industrial Ecology Research.</b>
                 Stefan Pauliuk, Christoph Helbig, Richard C Lupton, Peter Paul Pichler, Simon Schulte, Konstantin Stadler, Peng Wang, and Dominik Wiedenhofer. 
-                        Endorsed by the Board of the Topical Section for Research on Socio-Economic Metabolism (SEM) of the International Society for Industrial Ecology (ISIE).
-                        Industrial Ecology Freiburg (IEF) Working Paper 1(2024), University of Freiburg, Germany. 
+                Endorsed by the Board of the Topical Section for Research on Socio-Economic Metabolism (SEM) of the International Society for Industrial Ecology (ISIE).
+                Industrial Ecology Freiburg (IEF) Working Paper 1(2024), University of Freiburg, Germany. 
             </p>
             <a href="https://doi.org/10.6094/UNIFR/255618" target="_blank">https://doi.org/10.6094/UNIFR/255618</a>
         </div>
 
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/IEF_WP_2_2024 (002).png" width="300">
         </div>
@@ -97,6 +111,8 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/257136" target="_blank">https://doi.org/10.6094/UNIFR/257136</a>
         </div>
+    </div>
+    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/documentationOfTheRecc2.5.png" width="300">
         </div>
@@ -108,8 +124,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/242061" target="_blank">https://doi.org/10.6094/UNIFR/242061</a>
         </div>
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/characterizationFactorsFor.png" width="300">
         </div>
@@ -121,6 +135,8 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/226265" target="_blank">https://doi.org/10.6094/UNIFR/226265</a>
         </div>
+    </div>
+    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/szenarioanalyseFürMaterialverbrauch.png" width="300">
         </div>
@@ -132,8 +148,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/225544" target="_blank">https://doi.org/10.6094/UNIFR/225544</a>
         </div>
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/portableAndFlexibleTech.png" width="300">
         </div>
@@ -144,18 +158,6 @@
                 Stefan Pauliuk. Industrial Ecology Freiburg (IEF) Working Paper 1(2022), University of Freiburg, Germany.
             </p>
             <a href="https://doi.org/10.6094/UNIFR/224838" target="_blank">https://doi.org/10.6094/UNIFR/224838</a>
-        </div>
-        <div class="column">
-            <img src="Content/workingPaperPngs/guidelinesForDataModeling.png" width="300">
-        </div>
-        <div class="column">
-            <p>IEF Working paper 2 (2021)</p>
-            <p>
-                <b>Guidelines for Data Modeling and Data Integration for Material Flow Analysis and Socio-Metabolic Research.</b>
-                Issued by the Board of the Topical Section for Research on Socio-Economic Metabolism (SEM) of the International Society for Industrial Ecology (ISIE). 
-                Industrial Ecology Freiburg (IEF) Working Paper 2(2021), University of Freiburg, Germany
-            </p>
-            <a href="https://doi.org/10.6094/UNIFR/217970" target="_blank">https://doi.org/10.6094/UNIFR/217970</a>
         </div>
     </div>
     <div class="row">
@@ -170,7 +172,17 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/176419" target="_blank">https://doi.org/10.6094/UNIFR/176419 </a>
         </div>
-        <div class="column"></div>
-        <div class="column"></div>
+        <div class="column">
+            <img src="Content/workingPaperPngs/guidelinesForDataModeling.png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 2 (2021)</p>
+            <p>
+                <b>Guidelines for Data Modeling and Data Integration for Material Flow Analysis and Socio-Metabolic Research.</b>
+                Issued by the Board of the Topical Section for Research on Socio-Economic Metabolism (SEM) of the International Society for Industrial Ecology (ISIE). 
+                Industrial Ecology Freiburg (IEF) Working Paper 2(2021), University of Freiburg, Germany
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/217970" target="_blank">https://doi.org/10.6094/UNIFR/217970</a>
+        </div>
     </div>
 </asp:Content>

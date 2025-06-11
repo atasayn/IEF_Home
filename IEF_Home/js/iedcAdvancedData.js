@@ -410,6 +410,84 @@ function generateTable(data, columns, rows, tbody) {
     }
 }
 
+//function ExportToExcel() {
+//    const workbook = new ExcelJS.Workbook();
+
+//    // 1. Dataset Description Sheet
+//    const sheet1 = workbook.addWorksheet('Dataset Description');
+
+//    // Merge B2:D2 and style the title
+//    sheet1.mergeCells('B2:D2');
+//    const titleCell = sheet1.getCell('B2');
+//    titleCell.value = 'Dataset Information';
+//    titleCell.alignment = { horizontal: 'center', vertical: 'middle' };
+//    titleCell.font = { bold: true };
+//    titleCell.fill = {
+//        type: 'pattern',
+//        pattern: 'solid',
+//        fgColor: { argb: 'FFD9D9D9' } // Light grey
+//    };
+
+//    // Add "Column name" in C3 and "Data entries" in D4
+//    sheet1.getCell('C3').value = 'Column name';
+//    sheet1.getCell('D3').value = 'Data entries';
+
+//    // Add black border around B3, C3, and D3
+//    const borderStyle = {
+//        top: { style: 'thin', color: { argb: 'FF000000' } },
+//        left: { style: 'thin', color: { argb: 'FF000000' } },
+//        bottom: { style: 'thin', color: { argb: 'FF000000' } },
+//        right: { style: 'thin', color: { argb: 'FF000000' } }
+//    };
+
+//    ['B3', 'C3', 'D3'].forEach(cellAddress => {
+//        const cell = sheet1.getCell(cellAddress);
+//        cell.border = borderStyle;
+//    });
+
+//    // Get the Dataset Description table from DOM and insert starting at C4
+//    const table1 = document.getElementById('dataset-previewInfo');
+//    const rowOffset = 4; // row 4 in Excel (1-based)
+//    const colOffset = 3; // C = 3rd column
+
+//    for (let i = 0; i < table1.rows.length; i++) {
+//        const row = table1.rows[i];
+//        for (let j = 0; j < row.cells.length; j++) {
+//            const cell = sheet1.getCell(i + rowOffset, j + colOffset);
+//            cell.value = row.cells[j].innerText;
+//        }
+//    }
+
+//    // 2. Data Sheet
+//    const sheet2 = workbook.addWorksheet('Data');
+//    const table2 = document.getElementById('hiddentable');
+
+//    for (let i = 0; i < table2.rows.length; i++) {
+//        const row = table2.rows[i];
+//        for (let j = 0; j < row.cells.length; j++) {
+//            const cell = sheet2.getCell(i + 1, j + 1);
+//            cell.value = row.cells[j].innerText;
+//        }
+//    }
+
+//    // 3. Get filename from D5 in Dataset Description HTML table
+//    const cell = sheet1.getCell('D5');
+//    const text = cell.text || cell.value || '';
+//    let fileName = text; // default fallback
+
+
+//    // 4. Export the workbook
+//    workbook.xlsx.writeBuffer().then(function (buffer) {
+//        const blob = new Blob([buffer], {
+//            type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+//        });
+//        saveAs(blob, fileName);
+//    });
+//}
+
+
+
+
 
 
 function ExportToExcel(type, fn, dl) {

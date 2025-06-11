@@ -300,6 +300,7 @@
     <Content Include="Content\workingPaperPngs\guidelinesAndGoodPractice.png" />
     <Content Include="Content\workingPaperPngs\guidelinesForDataModeling.png" />
     <Content Include="Content\workingPaperPngs\IEF_WP_1_2025_Thumbnail.png" />
+    <Content Include="Content\workingPaperPngs\IEF_WP_2_2025_Thumbnail.png" />
     <Content Include="Content\workingPaperPngs\portableAndFlexibleTech.png" />
     <Content Include="Content\workingPaperPngs\szenarioanalyseFürMaterialverbrauch.png" />
     <Content Include="Content\workingPaperPngs\treibhausgasbilanzDerUniversitat.png" />
@@ -705,7 +706,6 @@
     <Compile Include="cls\ExcelToPDF.cs" />
     <Compile Include="cls\FooterPageEvent.cs" />
     <Compile Include="cls\Hash.cs" />
-    <Compile Include="cls\HtmlToPdf.cs" />
     <Compile Include="iedc.aspx.cs">
       <DependentUpon>iedc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

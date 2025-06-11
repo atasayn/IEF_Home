@@ -7,6 +7,9 @@
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/iedcAdvancedData.js"></script>
     <script src="js/ScrollableGridPlugin_ASP.NetAJAX_3.0.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
     <style>
         .row {
             display: flex;
