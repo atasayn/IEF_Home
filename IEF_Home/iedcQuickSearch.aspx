@@ -284,11 +284,8 @@
                                 </table>
                                 <table id="hiddentable" style="display: none">
                                 </table>
-
-
                             </div>
-
-                            <div class="grid-dataset-previewInfo" style="display: none">
+                        <div class="grid-dataset-previewInfo" style="display: none">
                                 <h3>Description of selected dataset</h3>
                                 <table id="dataset-previewInfo">
                                 </table>

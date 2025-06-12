@@ -433,8 +433,8 @@ function ExportToExcel() {
     };
 
     // Header row C3 and D3
-    sheet1.getCell('C3').value = 'Column name';
-    sheet1.getCell('D3').value = 'Data entries';
+    sheet1.getCell('C3').value = 'Dataset descriptors';
+    sheet1.getCell('D3').value = 'Dataset description from IEDC dataset catalogue';
     sheet1.getCell('C3').font = { bold: true };
     sheet1.getCell('D3').font = { bold: true };
     const headerBorderStyle = {
@@ -455,10 +455,10 @@ function ExportToExcel() {
         { range: 'B7:B10', text: 'Grouping', color: '#FCE5CD' },
         { range: 'B11:B20', text: 'System location: What elements and objects in the system are described?', color: '#FCF2CC' },
         { range: 'B21:B25', text: 'Description', color: '#D9EAD3' },
-        { range: 'B26:B52', text: 'System location: Dataset aspects and semantics. For aspects: [Aspect;symbol;classification]. Mandatory aspects in gray shading', color: '#D0E0E3' },
+        { range: 'B26:B52', text: 'Data model for this dataset: Aspects, classifications, tuple notation, and semantic strings.', color: '#D0E0E3' },
         { range: 'B53:B60', text: 'Data access and licence', color: '#C9DAF8' },
         { range: 'B61:B67', text: 'Data submission, review, and conversion info', color: '#CFE2F3' },
-        { range: 'B68:B72', text: 'Reserve', color: '#EEECE1' }
+        { range: 'B68:B72', text: 'Reserve – currently not used.', color: '#EEECE1' }
     ];
 
     mergedRegions.forEach(region => {
