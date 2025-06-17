@@ -64,7 +64,7 @@
         <div class="column">
             <p>IEF Working paper 2 (2025)</p>
             <p>
-                <b>FShort-Term Socio-Economic Impacts of EU Carbon Border Adjustment Mechanism (CBAM) on
+                <b>Short-Term Socio-Economic Impacts of EU Carbon Border Adjustment Mechanism (CBAM) on
                     EU Countries and Their Trade Partners under Different Revenue Redistribution Schemes.</b>
                 Gilang
                 Hardadi. Industrial Ecology Freiburg (IEF) Working Paper 2(2025), University of Freiburg, Germany.
