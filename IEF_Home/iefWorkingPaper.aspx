@@ -59,6 +59,18 @@
     </div>
     <div class="row">
         <div class="column">
+            <img src="Content/workingPaperPngs/IEF_WP_3_2025_Thumbnail.png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 3 (2025)</p>
+            <p>
+                <b>Environmental Assessment of Circular Economy Strategies in an Element-based Multi-Purpose Wooden Building.</b>
+                Christian Buschbeck, Stefan Pauliuk, Stephan Birk, Konstantin Goldschmidt, Cheng Lu, Hamid Sadegh-Azar, Viktor Poteschkin, 
+                Reiner Klopfer, Wenchang Shi, and Jürgen Graf. Industrial Ecology Freiburg (IEF) Working Paper 3(2025), University of Freiburg, Germany.
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/268540 " target="_blank">https://doi.org/10.6094/UNIFR/268540 </a>
+        </div>
+        <div class="column">
             <img src="Content/workingPaperPngs/IEF_WP_2_2025_Thumbnail.png" width="300">
         </div>
         <div class="column">
@@ -72,6 +84,10 @@
             <a href="https://doi.org/10.6094/UNIFR/266690 " target="_blank">https://doi.org/10.6094/UNIFR/266690 </a>
         </div>
 
+    </div>
+
+    <div class="row">
+
         <div class="column">
             <img src="Content/workingPaperPngs/IEF_WP_1_2025_Thumbnail.png" width="300">
         </div>
@@ -83,9 +99,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/266378 " target="_blank">https://doi.org/10.6094/UNIFR/266378</a>
         </div>
-
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/guidelinesAndGoodPractice.png" width="300">
         </div>        
@@ -99,6 +112,8 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/255618" target="_blank">https://doi.org/10.6094/UNIFR/255618</a>
         </div>
+    </div>
+    <div class="row">
 
         <div class="column">
             <img src="Content/workingPaperPngs/IEF_WP_2_2024 (002).png" width="300">
@@ -111,8 +126,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/257136" target="_blank">https://doi.org/10.6094/UNIFR/257136</a>
         </div>
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/documentationOfTheRecc2.5.png" width="300">
         </div>
@@ -124,6 +137,9 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/242061" target="_blank">https://doi.org/10.6094/UNIFR/242061</a>
         </div>
+    </div>
+    <div class="row">
+       
         <div class="column">
             <img src="Content/workingPaperPngs/characterizationFactorsFor.png" width="300">
         </div>
@@ -135,8 +151,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/226265" target="_blank">https://doi.org/10.6094/UNIFR/226265</a>
         </div>
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/szenarioanalyseFürMaterialverbrauch.png" width="300">
         </div>
@@ -148,6 +162,9 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/225544" target="_blank">https://doi.org/10.6094/UNIFR/225544</a>
         </div>
+    </div>
+    <div class="row">
+       
         <div class="column">
             <img src="Content/workingPaperPngs/portableAndFlexibleTech.png" width="300">
         </div>
@@ -159,8 +176,6 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/224838" target="_blank">https://doi.org/10.6094/UNIFR/224838</a>
         </div>
-    </div>
-    <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/treibhausgasbilanzDerUniversitat.png" width="300">
         </div>
@@ -172,6 +187,9 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/176419" target="_blank">https://doi.org/10.6094/UNIFR/176419 </a>
         </div>
+    </div>
+    <div class="row">
+        
         <div class="column">
             <img src="Content/workingPaperPngs/guidelinesForDataModeling.png" width="300">
         </div>
@@ -184,5 +202,7 @@
             </p>
             <a href="https://doi.org/10.6094/UNIFR/217970" target="_blank">https://doi.org/10.6094/UNIFR/217970</a>
         </div>
+        <div class="column"></div>
+        <div class="column"></div>
     </div>
 </asp:Content>

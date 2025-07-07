@@ -301,6 +301,7 @@
     <Content Include="Content\workingPaperPngs\guidelinesForDataModeling.png" />
     <Content Include="Content\workingPaperPngs\IEF_WP_1_2025_Thumbnail.png" />
     <Content Include="Content\workingPaperPngs\IEF_WP_2_2025_Thumbnail.png" />
+    <Content Include="Content\workingPaperPngs\IEF_WP_3_2025_thumbnail.png" />
     <Content Include="Content\workingPaperPngs\portableAndFlexibleTech.png" />
     <Content Include="Content\workingPaperPngs\szenarioanalyseFürMaterialverbrauch.png" />
     <Content Include="Content\workingPaperPngs\treibhausgasbilanzDerUniversitat.png" />
