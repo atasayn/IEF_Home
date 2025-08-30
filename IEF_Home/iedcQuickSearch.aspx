@@ -228,13 +228,12 @@
     <div class="grid-container">
         <div class="grid-intro">
             <div class="grid-intro-title">
-                <asp:Label ID="lblTitle" runat="server" Text="<h3><b>Industrial Ecology Data Commons (IEDC): Quick search by data type</b></h3>" />
+                <asp:Label ID="lblTitle" runat="server" Text="<h3><b>Industrial Ecology Data Commons (IEDC): Find datasets by data type and main aspect</b></h3>" />
                 <p>
-                    Data in the IEDC are organized into pre-defined data types 
-                    <a href="https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx" target="_blank">[https://www.database.industrialecology.uni-freiburg.de/datatypes.aspx]</a>, 
-                    such as data for flows, stocks, material composition, or unit process inventories. In this interface, you first select a data type together with a central aspect that is characteristic for this type. 
-                    E.g., choose “Lifetime by product”, after which all product (or other central aspect) entries for which this data type is available are shown. 
-                    After selecting a product or other central label, all available datasets that contain data for this label in the given aspect are shown and can be previewed and downloaded.
+                    The list below shows the most commonly used IEDC data types, together with their different main aspects. 
+                    After selecting a combination of data type and aspect from the list below, all labels for this aspect for which the IEDC contains data for the given data type are shown. <br>
+                    After searching and selecting a label, all available datasets for this data type that contain data for this label in the given aspect are shown and can be previewed and downloaded.<br>
+                    E.g., if you select “Lifetime by product/commodity”, all products for which the IEDC contains lifetime data are shown and can be selected, upon which the list of datasets that contain lifetime data for this product is shown.
                 </p>
 
             </div>
