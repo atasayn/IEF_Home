@@ -297,7 +297,7 @@
                 }
 
         
-                innerHtml = "<caption>Dataset Description</caption><thead><tr>";
+                innerHtml = "<caption class='caption-dataset-description'>Dataset Description</caption>.<thead><tr>";
                 for (var i = 0; i < ColumnNotNullKeys.slice(0, -2).length; i++) {
                     innerHtml += `<th><div>${ColumnNotNullKeys[i]}</div></th>`;
                 }

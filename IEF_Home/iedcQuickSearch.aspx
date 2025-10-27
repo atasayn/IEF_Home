@@ -180,16 +180,6 @@
             flex-wrap: wrap;
         }
 
-        .loader, .loader2 {
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid #3498db;
-            width: 50px;
-            height: 50px;
-            -webkit-animation: spin 2s linear infinite; /* Safari */
-            animation: spin 2s linear infinite;
-        }
-
         /* Safari */
         @-webkit-keyframes spin {
             0% {
@@ -272,7 +262,10 @@
                         
 
                         </div>
-                        <div class="loader" id="loadingIcon" runat="server" style="display: none;margin:50px" ClientIDMode="Static"></div>
+                        <div class="loader" id="loadingIcon" runat="server" style="display: none;margin:50px" ClientIDMode="Static">
+                            <img  src="resources/IEDC_working.gif" style="height: 100px;width: 100px" >
+                        </div>
+
                     </div>
                     <div class="row">
                             <div class="grid-dataset-preview"  style="display: none;padding-top: 20px">
