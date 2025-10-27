@@ -358,6 +358,7 @@
     <Content Include="resources\flag-germany.png" />
     <Content Include="resources\Global_2007.png" />
     <Content Include="resources\IEDC_CMS_2025.png" />
+    <Content Include="resources\IEDC_working.gif" />
     <Content Include="resources\IEF_LogoV_23_3-Tab7.png" />
     <Content Include="resources\IEF_LogoV_23_3.png" />
     <Content Include="resources\Login_Button.jpg" />

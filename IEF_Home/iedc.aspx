@@ -157,13 +157,10 @@
         }
 
         .loader, .loader2 {
-          border: 16px solid #f3f3f3;
-          border-radius: 50%;
-          border-top: 16px solid #3498db;
-          width: 50px;
-          height: 50px;
-          -webkit-animation: spin 2s linear infinite; /* Safari */
-          animation: spin 2s linear infinite;
+
+          width: 80px;
+          height: 80px;
+
         }
 
         /* Safari */
@@ -281,14 +278,14 @@
         </div>
 
         <div class="grid-dataset-list">
-            <div class="loader" style="display:none"></div>
+            <img class="loader" src="resources/IEDC_working.gif" style="display:none">       
             <table id="dataset-list">
             </table>
 
         </div>
 
         <div class="grid-dataset-preview">
-            <div class="loader2" style="display:none"></div>
+            <img class="loader2" src="resources/IEDC_working.gif" style="display:none">
             <table id="dataset-preview">
             </table>
             <table id="hiddentable" style="display:none">
