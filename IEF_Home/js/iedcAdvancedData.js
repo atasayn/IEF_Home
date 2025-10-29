@@ -521,7 +521,7 @@ function ExportToExcel() {
 
     const cellD5 = sheet1.getCell('D5');
     const text = cellD5.text || cellD5.value || '';
-    let fileName = text || 'export.xlsx';
+    let fileName = text + ".xlsx" || 'export.xlsx';
 
     workbook.xlsx.writeBuffer().then(function (buffer) {
         const blob = new Blob([buffer], {

@@ -4,7 +4,10 @@
 
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/iedcAdvancedData.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <script type="text/javascript" src="js/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
     <style>
         .grid-container {
             padding: 20px;
@@ -221,8 +224,7 @@
         
 
     </script>
-    <script type="text/javascript" src="js/xlsx.core.min.js"></script>
-    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
