@@ -167,7 +167,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="grid-container">
         <div class="grid-main">
-            <h3>Welcome to the research portal of Industrial Ecology Freiburg (IEF)!</h3>
+            <h3>Welcome to the open science portal of Industrial Ecology Freiburg (IEF)!</h3>
             <p style="margin-top:35px">
                 We are the research group for sustainable energy and material flow management (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment and Natural Resources.
                 <br>
