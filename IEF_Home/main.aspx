@@ -155,11 +155,8 @@
 
         function set_check(me) {
             setCookie(me.name, me.checked, 60 * 60 * 1);
-            //console.log(me.name);
-            //console.log(me.checked);
-            //console.log(document.cookie);
-        }
 
+        }
 
     </script>
 
