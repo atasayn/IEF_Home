@@ -106,9 +106,7 @@
         <div class="col-md-12">
             <table border="0">
 
-                <tr colspan="2">
-                    <td><a name="Background"></a><b>Background 1: Conceptual Foundations</b></td>
-                </tr>
+                <tr><td colspan="2"><a name="Background"></a><b>Background 1: Conceptual Foundations</b></td></tr>
 
                 <tr>
                     <td width="30%"></td>
@@ -167,9 +165,7 @@
                     </td>
                 </tr>
 
-                <tr colspan="2">
-                    <td><b>Background 2: Climate, circular economy, sustainability, and the contribution of industrial ecology</b></td>
-                </tr>
+                <tr><td colspan="2"><b>Background 2: Climate, circular economy, sustainability, and the contribution of industrial ecology</b></td></tr>
 
                 <tr>
                     <td width="30%"></td>
@@ -249,9 +245,7 @@
                     </td>
                 </tr>
 
-                <tr colspan="2">
-                    <td><b>Background 3: Open science for sustainability</b></td>
-                </tr>
+                <tr><td colspan="2"><b>Background 3: Open science for sustainability</b></td></tr>
 
                 <tr>
                     <td width="30%"></td>
@@ -319,9 +313,7 @@ The following topics are covered:
                     </td>
                 </tr>
 
-                <tr colspan="2">
-                    <td><a name="Accounting"></a><b>Methodology 1: Basics of industrial ecology data and accounting.</b></td>
-                </tr>
+                <tr><td colspan="2"><a name="Accounting"></a><b>Methodology 1: Basics of industrial ecology data and accounting.</b></td></tr>
 
                 <tr>
                     <td width="30%"></td>
@@ -403,6 +395,84 @@ difficulty: (+)</b><br>
                     </td>
                 </tr>
 
+                <tr><td colspan="2"><b>Methodology 2: Basics of material and energy flow analysis.</b></td></tr>
+
+                <tr>
+                    <td width="30%"></td>
+                    <td width="70%">
+                        <b>Short reading</b> on the research on socio-economic metabolism (SEM), the main methods used, and recent advances of the field. <b>Prerequisites:</b> Basic unterstanding of industial ecology principles. <b>Level of difficulty: (+)</b>
+                        <br>
+                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2024/10/30/socio-economic-metabolism-an-overview/" target="new">IEooc_Methods2_Reading0</a>
+                        <br>
+                        <br>
+                        <b>Video lecture</b> on MFA system models and their analytical and numerical solution. <b>Prerequisites:</b> Matrix algebra and its implementation in Excel. <b>Level of difficulty: (++)</b>
+                        <br>
+                        <a href="https://youtu.be/562-lBuoF1Q" target="new">IEooc_Methods2_Lecture1</a>
+                        <br>
+                        <br>
+                        <b>Video lecture </b>on data uncertainty and sensitivity of results in MFA system models. <b>Prerequisites:</b> Calculus. Random variables, discrete and continuous probability distributions. <b>Level of difficulty: (+++)</b>
+                        <br>
+                        <a href="https://youtu.be/VpK2NgY5FlQ" target="new">IEooc_Methods2_Lecture2</a>
+                        <br>
+                        <br>
+                        <b>Reading material:</b><b> "Guidelines for Data Modeling and Data Integration for Material Flow Analysis and Socio-Metabolic Research"</b>, document with basic standards and best practice on data formats, system definition, indicator definition, use of common classifications, uncertainty treatment and sensitivity analysis, and data traceability and provenance. These guidelines were issued by the Board of the ISIE Section on Socioeconomic Metabolism (ISIE-SEM), and are a standard reference for all who are in the process of publishing, documenting, or archiving MFA research, either within a software such as STAN or in a custom modelling environment. <b>Level of difficulty: (++)</b>
+                        <br>
+                        <a href="http://www.blog.industrialecology.uni-freiburg.de/wp-content/uploads/2021/06/SEM_MFA_Guidelines_V1.0_June_2021.pdf" target="new">IEooc_Methods2_Reading1</a>
+                        <br>
+                        <br>
+                        <b>Exercise: Cement production, efficiency strategies and related indicators:</b> The goal of this exercise is to consolidate your understanding of basic quantitative system analysis. Also, to get some detailed knowledge about energy use and greenhouse gas emissions of the cement industry. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Methods2_Exercise1_Cement.pdf" target="new">IEooc_Methods2_Exercise1</a>.
+                        <br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods2_Exercise1_Cement_Solution.pdf" target="new">IEooc_Methods2_Exercise1_Solution (pdf)</a><br>
+                        <a href="/Content/IEooc_Methods2_Exercise1_Cement_Solution.xlsx" target="new">IEooc_Methods2_Exercise1_Solution (xlsx)</a>
+                        <br>
+                        <br>
+
+                        <b>Exercise: Recycling systems: Efficiency strategies and uncertainty propagation:</b> from a systems perspective, you will gain basic insights into material cycles
+and recycling systems using the example of beverage cans in Germany. You will conduct a sensitivity analysis, error propagation and calculation of result 
+elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical error propagation. <b>Level of difficulty: (+++)</b>
+                        <br>
+                        <a href="/Content/IEooc_Methods2_Exercise2_Cycle.pdf" target="new">IEooc_Methods2_Exercise2</a>.
+                        <br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods2_Exercise2_Cycle_Solution.pdf" target="new">IEooc_Methods2_Exercise2_Solution (pdf)</a>
+                        <br>
+                        <br>
+                        Check also this <b>exercise from the application section, which contains a Monte-Carlo Simulation:</b> "Inclusion of Consumption of carbon intensive materials in emissions trading. You will gain a basic systems understanding  of  material  markets, learn about the material  content  of  merchandise  groups,  error propagation, and the application of Monte-Carlo-Simulation in material flow analysis." <b>Prerequisites:</b> Calculus. Random variables, discrete and continuous probability distributions, Monte-Carlo-Simulation. <b>Level of difficulty: (+++)</b><br>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC.pdf" target="new">IEooc_Application3_Exercise1 (pdf)</a><br>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Data.xlsx" target="new">IEooc_Application3_Exercise1 (data and workbook)</a><br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Solution.pdf" target="new">IEooc_Application3_Exercise1_Solution (pdf)</a> and
+                        <br>
+                        <a href="/Content/IEooc_Application3_Exercise1_IoC_Solution.xlsx" target="new">IEooc_Application3_Exercise1_Solution (xlsx)</a>
+                        <br>
+                        <br>
+                        <b>Video lecture</b> on the concept 'urban metabolism' and how it can be useful to local governments. Urban metabolism studies help cities and city regions assess current resource use and identify pathways for improvement. (from UN Environment):
+                        <br>
+                        <a href="https://www.youtube.com/watch?v=uu-a1hFEV7Q" target="new">IEooc_Methods2_Lecture3</a>
+                        <br>
+                        <br>
+                        <b>Reading material:</b><b> "Concise description of application fields for different MFA approaches and indicators"</b>, deliverable D3.2 of the EU MinFuture project. This report describes the various methods of material flow analysis (MFA) that are applied to studying raw materials stocks and flows, and it lists the definitions of and reviews the major material system indicators. It also contains various case studies illustrating MFA methods and indicators.<b> Level of difficulty: (++)</b><br>
+                        <a href="https://minfuture.eu/downloads/MinFuture_WP3_Task3.1%20_D3.2%20(Final%20incl.%20Annex)%20-%20Revised.pdf" target="new">IEooc_Methods2_Reading2</a>
+                        <br>
+                        <br>
+                        <b>Reading material:</b><b> "Compilation of uncertainty approaches and recommendations for reporting data uncertainty"</b>, deliverable D3.3 of the EU MinFuture project. This report provides a systematic way to consider uncertainty in MFA and suggests a procedure for consistently communicating the uncertainty quantification approaches used in different MFA studies. <b>Level of difficulty: (++)</b><br>
+                        <a href="https://minfuture.eu/downloads/D3.3_uncertainty.pdf" target="new">IEooc_Methods2_Reading3</a>
+                        <br>
+                        <br>
+                        <b>Reading material:</b><b> "Visualising Material Systems"</b>, deliverable D3.4 of the EU MinFuture project. This report contains a detailed overview of the different visualisation principles for MFA systems. <b>Level of difficulty: (++)</b><br>
+                        <a href="https://minfuture.eu/downloads/MinFuture_WP3_Visualisation_D3.4_final.pdf" target="new">IEooc_Methods2_Reading4</a>
+                        <br>
+                        <br>
+                        <b>Reading material:</b><b> Blog entry on "Material flow acccounting and material footprint calculation"</b> This piece introduces the method of economy-wide material flow accounting and defines its central flows and indicators in the system description language of material flow analysis. <b>Level of difficulty: (++)</b><br>
+                        <a href="http://www.blog.industrialecology.uni-freiburg.de/index.php/2022/04/20/material-flow-accounting-and-material-footprints-system-definition-and-data-sources/" target="new">IEooc_Methods2_Reading5</a>
+                        <br>
+                        <br>
+                    </td>
+                </tr>
+
+
                 <tr colspan="2">
                     <td><a name="MFA"></a><b>Methodology 2: Basics of material and energy flow analysis.</b></td>
                 </tr>
@@ -483,9 +553,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                 </tr>
 
 
-                <tr colspan="2">
-                    <td><b>Methodology 3: Dynamic Material Flow Analysis.</b></td>
-                </tr>
+                <tr><td colspan="2"><b>Methodology 3: Dynamic Material Flow Analysis.</b></td></tr>
 
                 <tr>
                     <td width="30%"></td>
@@ -590,9 +658,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                 </tr>
 
 
-                <tr colspan="2">
-                    <td><a name="LCA"></a></a><b>Methodology 4: Life cycle assessment.</b></td>
-                </tr>
+                <tr><td colspan="2"><a name="LCA"></a></a><b>Methodology 4: Life cycle assessment.</b></td></tr>
 
                 <tr>
                     <td width="30%"></td>
@@ -677,76 +743,6 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
                         <br>
                         <br>
-                        <b>Exercise on extracting data from the literature and using them in your own LCA in openLCA </b> Goal: Learn about the standard procedure for extracting data from the literature and using them in your own LCA in openLCA. This exercise follows four steps: (1) Convert raw data to a material and energy flow analysis diagram. (2) Scale down stocks down to represent them as consumption of fixed capital flows. (3) Convert process descriptions to unit process inventories. (4) Add unit process inventories as foreground processes to the ecoinvent database. Prerequisites: Basic MEFA and handling of ecoinvent in openLCA. <b> Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Methods4_Exercise6a_Process_Inventory_Compilation.pdf" target="new">IEooc_Methods4_Exercise6a (pdf)</a><br>
-                        For this exercise, a journal article with data and a sample solution are available:<br>
-			<a href="https://doi.org/10.1016/j.apenergy.2019.01.001" target="new">IEooc_Application4_Exercise6a Input data (open access journal publication)</a><br>
-                        <a href="/Content/IEooc_Methods4_Exercise6a_SampleSolution.pdf" target="new">IEooc_Application4_Exercise6a Sample Solution (pdf)</a>
-                        <br>
-                        <br>
-                        <b>Exercise from the application section on on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
-			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Woorkbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
-                        <br>
-                        <br>
-                        <b>Advanced LCA exercises with openLCA. An ecoinvent license is required:</b>
-                        <br>
-                        <br>
-                        A <b>list of openLCA tutorials</b> and info videos can be found on GreenDelta's
-                        <br>
-                        <a href="https://www.youtube.com/channel/UCGiahq1YZWK4pRXDVXuIi6w" target="new">Youtube channel</a>. 
-                        <br>
-                        <br>
-                        <b>Getting started with openLCA:</b> The goal of this tutorial is to install and learn how to use the openLCA software for life cycle assessments using ecoinvent v3.2 
-and several impact assessment methods. The use of parameters, choice of electricity mix, sensitivity analysis, export of data, and a small test case are described. <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Methods4_Exercise6_openLCA.pdf" target="new">IEooc_Methods4_Exercise6</a>. 
-                        <br>
-                        <br>
-                        <b>Modifying processes in openLCA:</b> Copy processes, modify processes, change the electricity source, and conduct a comparative LCA of different steel recycling routes. <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Methods4_Exercise7_Process_Modification.pdf" target="new">IEooc_Methods4_Exercise7</a>.
-                        <br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods4_Exercise7_Process_Modification_Solution.pdf" target="new">IEooc_Methods4_Exercise7_Solution (pdf)</a>
-                        <br>
-                        <br>
-                        <b>Allocation and recycling in ecoinvent:</b> Learn how waste treatment, recycling, and allocation are handled in ecoinvent and openLCA. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods4_Exercise8_Recycling_Allocation.pdf" target="new">IEooc_Methods4_Exercise8</a>.
-                        <br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods4_Exercise8_Recycling_Allocation_Solution.pdf" target="new">IEooc_Methods4_Exercise8_Solution (pdf)</a>
-                        <br>
-                        <br>
-                        <b>Other advanced LCA exercises:</b>
-                        <br>
-                        <br>
-                        <b>Reading exercise on a comparative LCA of electric and conventional passenger vehicles:</b> Understand the content and policy relevance of a recent LCA research article on electric transportation.
-                        <br>
-                        <a href="/Content/IEooc_Methods4_Exercise9_Reading.pdf" target="new">IEooc_Methods4_Exercise9</a>.<br>
-                        Material for reading exercise:
-                        <br>
-                        <a href="https://doi.org/10.1111/j.1530-9290.2012.00532.x" target="new">IEooc_Methods4_Exercise9_Reading</a>.
-                        <br>
-                        <br>
-                        <b>The matrix method for LCA: Equivalence of two approaches:</b> Learn more about the two matrix approaches to LCA: The Heijungs and Suh (2002) technology matrix and the Leontief input-output model. Show that both approaches are equivalent. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods.pdf" target="new">IEooc_Methods4_Exercise10</a>.
-                        <br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.pdf" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (pdf)</a><br>
-                        <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (xlsx)</a><br>
-			<b> Related journal paper on the topic by Heijungs et al. (2022):</b> "A or I-A? Unifying the computational structures of process- and IO-based LCA for clarity and consistency.<br>
-			<a href="https://doi.org/10.1111/jiec.13323" target="new">Link to paper (open access).</a>
-			<br>
-                        <br>
-                        <b>Advanced Life Cycle Impact Assessment:</b> Considering time in life cycle inventories: dynamic characterization factors for greenhouse gases. Goal: Get familiar with the global warming potential of greenhouse gases and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). Apply dynamic GHG accounting to different test cases.<b> Prerequisites:</b> Calculus, global warming potential (see IEooc_Background2_Exercise2). <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA.pdf" target="new">IEooc_Methods4_Exercise11</a>.
-                        <br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA_Workbook.xlsx" target="new">IEooc_Methods4_Exercise11 (data and workbook)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA_Sample_Solution.xlsx" target="new">IEooc_Methods4_Exercise11_Solution (xlsx)</a>
-                        <br>
-                        <br>
                         <b>Advanced tutorials and LCA exercises with Brightway2LCA. An ecoinvent license is required:</b>
                         <br>
                         <br>
@@ -758,7 +754,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Brightway2LCA tutorial 2:</b> A comprehensive introductory tutorial for learning Brightway2LCA was developed by Maximilian Koslowski from Uni Freiburg. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb" download target="new">New Brightway2 tutorial</a> | <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb">Run externally in nbviewer</a>. 
+                        <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb" download target="new">New Brightway2 tutorial</a> | <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb">Run externally in nbviewer</a> 
                         <br>
                         <br>
                         <br>
@@ -766,9 +762,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                 </tr>
 
 
-                <tr colspan="2">
-                    <td><a name="MRIO"></a><b>Methodology 5: Input-output analysis.</b></td>
-                </tr>
+                <tr><td colspan="2"><b>Methodology 5: Input-output analysis.</b></td></tr>
 
                 <tr>
                     <td width="30%"></td>
@@ -821,124 +815,18 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Software tutorial from the application section: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Application3_Software1.ipynb", "IEooc_Application3_Software1");</script><br>
-                        <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.zip" target="new">IEooc_Application3_Software1 (data file)</a><br>
+                        <script>jupyterLink("/Content/IEooc_Application3_Software1.ipynb", "IEooc_Application3_Software1");</script>
+                        <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
+                        <br>
+                        <b>Journal article about the unequal distribution of household carbon footprints in Europe and its link to sustainability:</b> The distribution of household carbon footprints is largely unequal within and across countries. Here, Diana Ivanova and Richard Wood explore household-level consumption data to illustrate the distribution of carbon footprints and consumption within 26 European Union countries, regions and social groups. The analysis further sheds light on the relationships between carbon footprints and socially desirable outcomes such as income, equality, education, nutrition, sanitation, employment and adequate living conditions.<br>
+                        <a href="https://doi.org/10.1017/sus.2020.12" target="new">IEooc_Application3_Reading6</a>
                         <br>
                         <br>
-                        <b>Exercise: "Determining Sector Impact in IO Models With the Hypothetical Extraction Method – Hypothetical Extraction Method with Projection Matrices"</b> This exercise shows how to determine the impact or contribution of individual industrial sectors to the total enviromental footprint, an analysis that is increasingly applied in the literature. Topics covered: Understand the power series expansion of the L-matrix. Understand how the contribution of an individual industrial sector to the supply chain of a good or service can be identified by filtering out certain paths in the A matrix power series. Understand how the impact of several industrial sectors in the supply chain of a good or service can be determined without double-counting contribution, using projection matrices.<b> Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO.pdf" target="new">IEooc_Methods5_Exercise3 (pdf)</a><br>
-                        <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO_Workbook.xlsx" target="new">IEooc_Methods5_Exercise3 (data and workbook)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO_SampleSolution.xlsx" target="new">IEooc_Methods5_Exercise3_Solution (xlsx)</a>
-                        <br>
-                        <br>		
-                        <b>From the application section: Exercise on the structural decomposition of the IPAT equation: How much do individual factors contribute to change?</b> Learn about how to determine how the change in different factors contributes to the overall change in a product of these factors and apply the method of structural decomposition analysis to the IPAT equation. Prerequisites: Basic algebra.  <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.pdf" target="new">IEooc_Application1_Exercise2a</a>.
-                        <br>
-                        For this exercise, a dataset and a sample solution are available:<br>
-			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.xlsx" target="new">IEooc_Application1_Exercise2a_IPAT_SDA (data file, xlsx)</a><br>                        
-			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA_SampleSolution.xlsx" target="new">IEooc_Application1_Exercise2a, Sample solution (xlsx)</a>
-                        <br>
-			<br>
-                        <b>Exercise: "Calculating income specific footprints for Germany"</b> Learn how to use pymrio with a new final demand matrix to calculate footprints for that final demand. Learn how to analyze and plot the results.<b> Prerequisites:</b> Basic knowledge of Input-Output Analysis (completed part Methodology 5: Input-output analysis of the IEooc). Basic knowledge on Python, and the Python MRIO package pmrio, in particular. <b>Level of difficulty: (++ to +++)</b><br>
-                        <a href="/Content/IEooc_Methods5_Exercise4a_income_specific_footprints_germany.pdf" target="new">IEooc_Methods5_Exercise4a_income_specific_footprints_germany (pdf)</a><br>
-			<a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
-			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg (data file, xlsx)</a><br>
-                        For this exercise a sample solution is available:<br>
-			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Intermediate level sample solution");</script><br>
-			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_SOLUTION.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Basic level sample solution");</script><br>
-                        <br>
-                        <br>	
-			<b>Exercise: "Uncertainty Analysis of the income-specific footprints"</b> Learn how to use Monte-Carlo simulations to estimate the uncertainty of income specific footprints for Germany. Learn how to visualize uncertainties. .<b> Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. Completed “IEooc_Methods5_Exercise4a: Calculating income specific footprints for Germany” Basic knowledge on error propagation and sensitivity analysis. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis.pdf" target="new">IEooc_Methods5_Exercise4b_uncertainty_analysis (pdf)</a><br>
-			<a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
-			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg (data file, xlsx)</a><br>
-			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_std.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_std (data file, xlsx)</a><br>
-			For this exercise a sample solution is available:<br>
-			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis_TODO.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Intermediate level sample solution");</script><br>
-			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis_SOLUTION.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Basic level sample solution");</script><br>
-                        <br>
-                        <br>	
-                        <br>
-                    </td>
-                </tr>
 
-
-                <tr colspan="2">
-                    <td><b>Methodology 6: Method integration.</b></td>
-                </tr>
-
-                <tr>
-                    <td width="30%"></td>
-                    <td width="70%">
-                        <b>Reading material (blog entry) on the differences between process-based LCA and monetary MRIO.</b> Knowing about these differences is important when comparing MRIO and LCA results and when combining the two methods.
-                        <br>
-                        <a href="http://www.blog.industrialecology.uni-freiburg.de/index.php/2018/01/24/a-note-on-the-differences-between-process-based-lca-and-mrio/" target="new">IEooc_Methods6_Reading1</a>
-                        <br>
-                        <br>
-                        <b>Reading material (book chapter) on prospective (forward-looking) assessment of sustainable development strategies using industrial ecology tools.</b> In this text the general principles of prospective modeling are lined out and the current development status of two prospective model types is described: extended dynamic material flow analysis and THEMIS (Technology-Hybridized Environmental-Economic Model with Integrated Scenarios). These models combine the high level of technological detail known from life-cycle assessment (LCA) and material flow analysis (MFA) with the comprehensiveness of, respectively, dynamic stock models and input/output analysis (I/O). These models are dynamic; they build future scenarios with a time horizon until 2050 and beyond. They were applied to study the potential effect of a wide spectrum of sustainable development strategies, including renewable energy supply, home weatherization, material efficiency, and light-weighting.
-                        <br>
-                        <a href="https://link.springer.com/content/pdf/10.1007%2F978-3-319-20571-7_2.pdf" target="new">IEooc_Methods6_Reading2</a>
-                        <br>
-                        <br>
-                        <b>Reading material:</b><b> "Linking economy-wide material flow accounting to product-level life cycle assessment." </b>This report first explains the methods of material flow acccounting and material footprint calculations and then defines these methods and their central flows and indicators in the system description language of material flow analysis. Finally and mainly, it explains and documents an implementation of the material footprint calculation methodology for life cycle assessment (LCA) studies. With this new characterisation method, all material inflows into LCA product systems can be converted to their respective raw material equivalents and added up to the total extracted or processed material in the supply chain of goods or services. <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Methods6_Reading3_Material_Footprint_LCIA_ecoinvent_3_7__3_8.pdf" target="new">IEooc_Methods6_Reading3</a>
-                        <br>
-                        <br>
-                        <b>Exercise: "Passenger vehicle light-weighting. A quantitative analysis of the coupling between the transportation and material production sectors.</b> Application of material flow analysis and life cycle assessment in a common framework." Estimate the system-wide impact of a climate change mitigation strategy in a specific sector. Learn about light-weighting of vehicle as a strategy to reduce GHG emissions on the medium scale. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b><br>
-                        <a href="/Content/IEooc_Methods6_Exercise1_CoupledSectors.pdf" target="new">IEooc_Methods6_Exercise1 (pdf)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods6_Exercise1_CoupledSectors_Solution.pdf" target="new">IEooc_Methods6_Exercise1_Solution (pdf)</a> and
-                        <br>
-                        <a href="/Content/IEooc_Methods6_Exercise1_CoupledSectors_Solution.xlsx" target="new">IEooc_Methods6_Exercise1_Solution (xlsx)</a>
-                        <br>
-                        <br>
-			<b>Reading material: Resource tracing with input output (IO) models – an overview.</b> This reading material explains how to trace resources through input-output tables. First, the differences between Leontief input-output (IO), Leontief price, Ghosh IO and absorbing Markov Chain models are explained. Then, it is shown how they all can be used to determine the distribution of natural resource or value added input into different final demand sectors (so-called end-use shares). This reading material is the supplement of a review, conceptual work, and empirical analysis on estimating end-use shares for material flows (how many % of total steel production go into vehicles, etc.) with monetary input-output tables. 
-		  	 This material is taken from a <a href="https://doi.org/10.1111/jiec.13380" target="new">2023 publication in the Journal of Industrial Ecology by Streeck et al</a>.  <br>
-                        <a href="/Content/IEooc_Methods6_Reading4_Resource_Tracing_IO.pdf" target="new">IEooc_Methods6_Reading4_Resource_Tracing_IO</a>.
-                        <br>
-                        <br>
-                        <b>Tracing resources through input-output tables.</b> Goal: Understand the differences between Leontief input-output (IO), Leontief price, Ghosh IO and absorbing Markov Chain models. Learn how they all can be used to determine the distribution of natural resource or value added input into different final demand sectors (so-called end-use shares). Apply the resulting equations to a test IO table.<b> Prerequisites:</b> Input-Output table and model equations, matrix algebra.  <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods6_Exercise2_Resource_tracing_IO.pdf" target="new">IEooc_Methods6_Exercise2</a>.
-                        <br>
-                        <a href="/Content/IEooc_Methods6_Exercise2_Resource_tracing_IO_Workbook.xlsx" target="new">IEooc_Methods6_Exercise2_Resource_tracing_IO_Workbook (data and workbook)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods6_Exercise2_Resource_tracing_IO_Solution.xlsx" target="new">IEooc_Methods6_Exercise2_Resource_tracing_IO_Solution (xlsx)</a>
-                        <br>
-                        <br>
-                        <b>Reading material (blog entry) on the material implications of low-carbon energy supply and use.</b> The text explains the relation between the transition to low-carbon energy and what it means for material consumption. It argues that all forms of energy supply have major downsides, and that the high material consumption of renewables is one potential problem. It quantifies the material footprint of different technologies for the energy transition and shows that while the fossil component of the material footprint declines, the metal ore component sharply rises, largely driven by the increased copper demand of electrification of end-use sectors. See IEooc_Methods2_Reading5 for the methodology of the material footprint applied here.
-                        <br>
-                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2022/10/30/material-footprint-implications-of-low-carbon-technologies/" target="new">IEooc_Methods6_Reading5</a>
-                        <br>
-                        <br>			    
-                        <b>from the LCA section: Advanced Life Cycle Impact Assessment:</b> Considering time in life cycle inventories: dynamic characterization factors for greenhouse gases. Goal: Get familiar with the global warming potential of greenhouse gases and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). Apply dynamic GHG accounting to different test cases. <b>Prerequisites:</b> Calculus, global warming potential (see IEooc_Background2_Exercise2). <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA.pdf" target="new">IEooc_Methods4_Exercise11</a>.
-                        <br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA_Workbook.xlsx" target="new">IEooc_Methods4_Exercise11 (data and workbook)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA_Sample_Solution.xlsx" target="new">IEooc_Methods4_Exercise11_Solution (xlsx)</a>
                         <br>
                         <br>
                     </td>
                 </tr>
-
-            </table>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <br>
-            <br>
-            <br>
-            <a name="Applications"></a>
-            <h3>Part III: Applications </h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <table border="0">
 
                 <tr colspan="2">
                     <td><b>Application 1: Sociometabolic regimes and transitions</b></td>
@@ -1116,11 +1004,10 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
 
                         <b>Software tutorial: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 
-3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, cf. Methods section 5. Sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
+3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
                         <script>jupyterLink("/Content/IEooc_Application3_Software1.ipynb", "IEooc_Application3_Software1");</script>
                         <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.mat" target="new">IEooc_Application3_Software1 (data file)</a><br>
                         <br>
-
                         <b>Journal article about the unequal distribution of household carbon footprints in Europe and its link to sustainability:</b> The distribution of household carbon footprints is largely unequal within and across countries. Here, Diana Ivanova and Richard Wood explore household-level consumption data to illustrate the distribution of carbon footprints and consumption within 26 European Union countries, regions and social groups. The analysis further sheds light on the relationships between carbon footprints and socially desirable outcomes such as income, equality, education, nutrition, sanitation, employment and adequate living conditions.<br>
                         <a href="https://doi.org/10.1017/sus.2020.12" target="new">IEooc_Application3_Reading6</a>
                         <br>
@@ -1419,3 +1306,4 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             <b>PS:</b> The IEooc is not to be confused with the Idaho-Eastern Oregon Onion Committee (IEOOC).<br>
         </div>
 </asp:Content>
+
