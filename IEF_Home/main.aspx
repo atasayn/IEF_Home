@@ -17,9 +17,6 @@
     </script>
     <!-- End Matomo Code -->
     <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-<%--    <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>--%>
 
     <style>
         .grid-main {
