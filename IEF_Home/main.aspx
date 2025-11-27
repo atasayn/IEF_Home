@@ -1,11 +1,6 @@
 ﻿<%@ Page Title="Industrial Ecology Freiburg" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="IEF_Home.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-    <!-- Matomo -->
     <script type="text/javascript">
         var _paq = window._paq = window._paq || [];
         _paq.push(['setCookieDomain', '*.industrialecology.uni-freiburg.de']);
@@ -20,6 +15,11 @@
             g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
         })();
     </script>
+    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <!-- Matomo -->
 
     <!-- End Matomo Code -->
     <style>

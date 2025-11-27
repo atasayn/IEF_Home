@@ -1,14 +1,6 @@
 ﻿<%@ Page Title="Teaching" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <script>
-        function jupyterLink(path, text) {
-            document.write(`<a href="${path}" download target="new">${text} (ipynb)</a> | `);
-            document.write(`<a href="https://nbviewer.org/urls/www.industrialecology.uni-freiburg.de${path}" target="_blank">Run externally in nbviewer</a>`);
-        }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Matomo -->
     <script type="text/javascript">
         var _paq = window._paq = window._paq || [];
         _paq.push(['setCookieDomain', '*.industrialecology.uni-freiburg.de']);
@@ -23,6 +15,15 @@
             g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
         })();
     </script>
+    <script>
+
+        function jupyterLink(path, text) {
+            document.write(`<a href="${path}" download target="new">${text} (ipynb)</a> | `);
+            document.write(`<a href="https://nbviewer.org/urls/www.industrialecology.uni-freiburg.de${path}" target="_blank">Run externally in nbviewer</a>`);
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Matomo -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="row">
