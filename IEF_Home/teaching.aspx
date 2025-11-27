@@ -7,6 +7,22 @@
             document.write(`<a href="https://nbviewer.org/urls/www.industrialecology.uni-freiburg.de${path}" target="_blank">Run externally in nbviewer</a>`);
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['setCookieDomain', '*.industrialecology.uni-freiburg.de']);
+        _paq.push(['enableCrossDomainLinking']);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://www.blog.industrialecology.uni-freiburg.de/matomo/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="row">
