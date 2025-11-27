@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Teaching" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
+    <!-- Matomo -->
     <script type="text/javascript">
         var _paq = window._paq = window._paq || [];
         _paq.push(['setCookieDomain', '*.industrialecology.uni-freiburg.de']);
@@ -15,6 +16,7 @@
             g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
         })();
     </script>
+    <!-- End Matomo Code -->
     <script>
 
         function jupyterLink(path, text) {
