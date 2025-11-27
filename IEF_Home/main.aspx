@@ -3,23 +3,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <!-- Google Search Console verification -->
     <script type="text/javascript">
-        var _paq = window._paq = window._paq || [];
-        _paq.push(['setCookieDomain', '*.industrialecology.uni-freiburg.de']);
-        _paq.push(['enableCrossDomainLinking']);
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function () {
-            var u = "https://www.blog.industrialecology.uni-freiburg.de/matomo/";
+            var u = "//www.blog.industrialecology.uni-freiburg.de/matomo/";
             _paq.push(['setTrackerUrl', u + 'matomo.php']);
-            _paq.push(['setSiteId', '1']);
+            _paq.push(['setSiteId', '7']);
             var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
             g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
         })();
     </script>
     <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript" async
+<%--    <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+    </script>--%>
 
     <style>
         .grid-main {
@@ -237,7 +235,7 @@
     <div class="grid-container">
         <div class="grid-main">
             <h1 class="main-title">Welcome to the open science portal of Industrial Ecology Freiburg (IEF)</h1>
-            <section class="intro" aria-labelledby="intro-title">
+            <section aria-labelledby="intro-title">
                 <div class="grid-intro">
                     <p>
                         We are the research group for sustainable energy and material flow management
@@ -292,26 +290,26 @@
                 <h4><b>Delegation from Nagoya University visiting our research group</b></h4>
                 <p> On November 18, 2025, we strengthened our ties to the research group around Profs. Hiroki Tanikawa and Hiroaki Shirakawa from Nagoya University, Japan. The work of our Japanese colleagues focusses on social and urban metabolism in terms of material input, stock, and output for sustainability. 
                     Material stocks of buildings and infrastructure provide numerous services such as dwelling, transport, and communication, and therefore need to be monitored. During the visit, we updated each other on the ongoing collaboration on scenarios for the low carbon transformation of the Japanese residential building sector, and we discussed new ideas and research questions for common projects.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block"  src="resources/Nagoya_Delegation_Nov_2025_s.jpg"/>
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Delegation from Nagoya"  src="resources/Nagoya_Delegation_Nov_2025_s.jpg"/>
                     Read more about the Tanikawa Lab at Nagoya University: <a href="https://www.civil.nagoya-u.ac.jp/ceeipo/research_lab/tanikawa_shirakawa-lab.html " target="_blank">https://www.civil.nagoya-u.ac.jp/ceeipo/research_lab/tanikawa_shirakawa-lab.html  </a>
                 </p>
                 <hr>
                 <h4><b>Successful doctoral defense - congratulations Dr. Gilang Hardadi</b></h4>
                 <p> On May 22, 2025, Gilang Hardadi successfully defended his doctoral thesis” Using Econometrics and Multi-Regional Input-Output (MRIO) Models to Simulate Short-Term Socio-Economic Impacts of a Just and Equitable Low-Carbon Transition.” In his work, Gilang demonstrates how Multi-Regional Input-Output (MRIO) Models can be used to assess the impact of climate economic instruments, such as carbon taxation, tax revenue recycling, or carbon border adjustments on the tax load of different income groups and on industrial transformation. The results of his work inform policy makers on the effectiveness and social implications of climate policy. Profs. Stefan Pauliuk and Yasushi Kondo were the thesis advisors, and Prof. Karsten Neuhoff wrote the second thesis review.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block"  src="resources/20250522_111124s.jpg"/>
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Successful doctoral defense" src="resources/20250522_111124s.jpg"/>
                     Read more about Gilang’s work here: <a href="https://doi.org/10.1111/jiec.13045  " target="_blank">https://doi.org/10.1111/jiec.13045 </a>
                 </p>
                 <hr>
                 <h4><b>Critical Mass Sprint for the Industrial Ecology Community Database</b></h4>
                 <p> 2025 is the year when we move the industrial ecology data commons prototype, launched in 2018, into a functional and helpful data archiving and retrieval tool for the entire industrial ecology community! 
                     We plan to collect, format, and upload a larger number of datasets on product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block"  src="resources/IEDC_CMS_2025.png"/>
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Critical Mass Sprint for the Industrial Ecology" src="resources/IEDC_CMS_2025.png"/>
                     Read more about the 2025 Critical Mass Sprint for industrial ecology data here:   <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2025/03/03/2025-iedc-critical-mass-sprint/ " target="_blank">https://www.blog.industrialecology.uni-freiburg.de/index.php/2025/03/03/2025-iedc-critical-mass-sprint/  </a>
                 </p>
                 <hr>
                 <h4 style="padding-top:5px "><b>Successful EU Horizon project meeting in Freiburg</b></h4>
                 <p> In February 2025, more than 30 European researchers gathered at Industrial Ecology Freiburg for an annual project meeting to coordinate their research on estimating the impact of the circular economy (saving material resources by sufficiency, eco-design and better recycling) on the EU material industries and their climate impact.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" src="resources/Webinar.png">
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="EU Horizon project meeting" src="resources/Webinar.png">
                     Read more about the CIRCOMOD (Circular Economy Modelling for Climate Change Mitigation) project here: <a href="https://circomod.eu/" target="_blank">https://circomod.eu/ </a>
                 </p>
                 <hr>
@@ -319,14 +317,14 @@
                 <p> Decent living standards are practical threshold for the energy, GHG, and material consumption required to alleviate poverty. 
                     We quantify the amount of materials in stocks and flows needed to provide a decent living standard to an individual: a material footprint (MF) of about \(6 \frac{t}{\text{cap} \cdot \text{yr}}\) and in-use stocks of about 43 \(\frac{t}{\text{cap}}\) are required. 
                     We also estimate which lifestyle and technology choices are effective in reducing material demand.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block"  src="resources/Homepage_News_2.png"/>
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Material Requirements of Decent Living Standards" src="resources/Homepage_News_2.png"/>
                     Read the paper here:  <a href="https://doi.org/10.1021/acs.est.3c03957 " target="_blank">https://doi.org/10.1021/acs.est.3c03957 </a>
                 </p>
                 <hr>
                 <h4><b>New paper linking the indicators for poverty fight, inequality, and growth</b></h4>
                 <p> Decent living standards, economic inequality, and total economic output are not independent! A new paper by Stefan Pauliuk shows that per average capita service \( \text{pcs} \), 
                     the Gini coefficient of inequality \( G \), and the personal decent living standard \( 5 \, \text{dls} \) are coupled as below:
-                    <img style="padding-top: 10px; padding-bottom: 10px;width:200px" class="img-responsive center-block"  src="resources/Pauliuk_DLS_LorenzCurve_2024_pcs_1 (002).png"/>
+                    <img style="padding-top: 10px; padding-bottom: 10px;width:200px" class="img-responsive center-block" alt="Decent living standards" src="resources/Pauliuk_DLS_LorenzCurve_2024_pcs_1 (002).png"/>
                     The work concludes with calling upon the research community to assess the inequality of physical stock and flow indicators related to human wellbeing, identify suitable physical wellbeing measures, 
                     and extend the debate on desirable levels of inequality to physical socio-metabolic indicators.
                     Read the paper here:  <a href="https://doi.org/10.1016/j.ecolecon.2024.108161  " target="_blank">https://doi.org/10.1016/j.ecolecon.2024.108161 </a>
