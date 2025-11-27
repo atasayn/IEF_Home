@@ -19,9 +19,6 @@
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-    <!-- Matomo -->
-
-    <!-- End Matomo Code -->
     <style>
         .grid-main {
             grid-area: main;
@@ -108,6 +105,53 @@
             .grid-link::before {
                 content: "\1F517  ";
             }
+        /* spacing and typography for the introduction text */
+        .grid-intro {
+            margin-top: 35px;           /* replaces the inline style */
+            text-align: justify;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 800px;          /* keep same width as .grid-main layout if needed */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* paragraph spacing */
+        .grid-intro p {
+            margin: 0 0 1em 0;         /* bottom margin defines spacing between paragraphs */
+        }
+
+        /* slightly larger bottom spacing before the strong call-to-action */
+        .grid-intro p:last-of-type {
+            margin-bottom: 0;          /* if you want no extra space after final paragraph */
+        }
+
+        /* accessible hidden heading used for SEO / screen readers */
+        .visually-hidden {
+            position: absolute !important;
+            height: 1px; width: 1px;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap;
+            border: 0;
+            padding: 0;
+            margin: -1px;
+        }
+
+        /* link emphasis */
+        .grid-intro a {
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* responsive tweak if needed */
+        @media screen and (max-width: 768px) {
+            .grid-intro {
+                padding: 0 1rem;
+                font-size: 15px;
+            }
+        }
+
 
         @media screen and (max-width: 768px) {
             .grid-container {
@@ -182,22 +226,48 @@
     <div class="grid-container">
         <div class="grid-main">
             <h3>Welcome to the open science portal of Industrial Ecology Freiburg (IEF)!</h3>
-            <p style="margin-top:35px">
-                We are the research group for sustainable energy and material flow management (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment and Natural Resources.
-                <br>
-                <br>
-                We study the link between human development and material and energy use and estimate the environmental impacts of material production and energy supply. 
-                <br>
-                We use material cycle and scenario models to quantify the impact on energy and material demand of different resource efficiency strategies (circular economy), different urban forms, different levels of societal inequality, and of sufficiency strategies. 
-                <br>
-                With our research, we help identify the most effective policy levers for decoupling human wellbeing from resource use and environmental destruction.
-                <br>
-                <br>
-                On these pages, we blog about our research and the projects we are involved in, host a database with our research results, share model information and teaching material, and provide visualisation tools.
-                <br>
-                <br>
-                <b> You can find out more about our group, our research approach, and our teaching on our <a href="https://uni-freiburg.de/enr-indecol" target="_blank">official homepage</a></b>
-            </p>
+            <section class="intro" aria-labelledby="intro-title">
+                <h1 id="intro-title" class="visually-hidden">Welcome to the open science portal of Industrial Ecology Freiburg (IEF)</h1>
+
+                <div class="grid-intro">
+                    <p>
+                        We are the research group for sustainable energy and material flow management
+                        (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment and Natural Resources.
+                    </p>
+
+                    <p>
+                        We study the link between human development and material and energy use and estimate
+                        the environmental impacts of material production and energy supply.
+                    </p>
+
+                    <p>
+                        We use material cycle and scenario models to quantify the impact on energy and material
+                        demand of different resource efficiency strategies (circular economy), different urban forms,
+                        different levels of societal inequality, and of sufficiency strategies.
+                    </p>
+
+                    <p>
+                        With our research, we help identify the most effective policy levers for decoupling human
+                        wellbeing from resource use and environmental destruction.
+                    </p>
+
+                    <p>
+                        On these pages, we blog about our research and the projects we are involved in, host a database
+                        with our research results, share model information and teaching material, and provide
+                        visualisation tools.
+                    </p>
+
+                    <p>
+                        <strong>
+                            You can find out more about our group, our research approach, and our teaching on our
+                            <a href="https://uni-freiburg.de/enr-indecol" target="_blank" rel="noopener noreferrer">
+                                official homepage
+                            </a>
+                        </strong>
+                    </p>
+                </div>
+            </section>
+
         </div>
 
         <div class="grid-photo">

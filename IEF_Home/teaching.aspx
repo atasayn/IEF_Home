@@ -16,7 +16,6 @@
         })();
     </script>
     <!-- End Matomo Code -->
-
     <script>
 
         function jupyterLink(path, text) {
