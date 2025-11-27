@@ -4,7 +4,8 @@
 <html>
 <head runat="server">
     <%-- ReSharper disable once EmptyTitleTag --%>
-    <title></title>
+    <title>Industrial Ecology Freiburg – Sustainable Energy & Material Flow Research</title>
+    <meta name="description" content="Industrial Ecology Freiburg (IEF) – Research on sustainable energy, material flow management, circular economy, and environmental impacts.">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="vzW3tD9liOFdKI_FEjWdZbsqoWH7naL_NtL3HLLA6K4" />

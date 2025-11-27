@@ -160,6 +160,15 @@
                 display: block;
             }
         }
+
+        .main-title {
+            font-size: 23px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
     </style>
     <script type="text/javascript">
 
@@ -227,10 +236,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="grid-container">
         <div class="grid-main">
-            <h3>Welcome to the open science portal of Industrial Ecology Freiburg (IEF)!</h3>
+            <h1 class="main-title">Welcome to the open science portal of Industrial Ecology Freiburg (IEF)</h1>
             <section class="intro" aria-labelledby="intro-title">
-                <h1 id="intro-title" class="visually-hidden">Welcome to the open science portal of Industrial Ecology Freiburg (IEF)</h1>
-
                 <div class="grid-intro">
                     <p>
                         We are the research group for sustainable energy and material flow management
