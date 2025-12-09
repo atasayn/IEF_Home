@@ -717,6 +717,30 @@ For some of the works there is more research material available than what is ava
                         <tr>
                             <td><b>MSc</b></td>
                             <td>REM</td>
+                            <td>Towfiq Al-Dhaheri</td>
+                            <td><b>Material Trade-off of Low Carbon Energy Services</b></td>
+                            <td>11.11.2025</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Master_Thesis_TowfiqAldhaheri.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Ilham Chekrad</td>
+                            <td><b>Mapping Supply Chain Origins and Environmental Impacts of EU Photovoltaic Installations</b></td>
+                            <td>28.10.2025</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Thesis_Project_Chekrad.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
                             <td>Yusif Azizli</td>
                             <td><b>Comprehensive Analysis of Carbon Footprints Across Socioeconomic Strata in Turkey</b></td>
                             <td>05.05.2025</td>
