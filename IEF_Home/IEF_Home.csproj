@@ -379,6 +379,7 @@
     <Content Include="resources\SystemDef_MaterialStockModelling_Mueller2006.png" />
     <Content Include="resources\uniFreiburg.png" />
     <Content Include="resources\Webinar.png" />
+    <Content Include="resources\Yuan_Sem_Pic.jpg" />
     <Content Include="Site1.Master" />
     <Content Include="main.aspx" />
     <Content Include="Content\IEooc_Application1_Exercise1_Area_Constraints.pdf" />
