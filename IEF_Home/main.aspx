@@ -289,6 +289,12 @@
 
             <div class="not-show-twitter">
              <h3 style="text-align: center"><b>+++ News +++</b></h3> 
+                <h4><b>Prof. Yuan Yao from the Yale School of Environment visiting our research group</b></h4>
+                <p> On November 20, 2025, we welcomed Yuan Yao, an Associate Professor of Industrial Ecology and Sustainable Systems at Yale University, who presented her and her team’s recent research on integrated systems modelling for sustainable wood utilization. Her research combines industrial ecology methods with ecological and economic modelling to understand the environmental and economic implications of forest-based solutions to climate change, such as afforestation/reforestation, biochar, and long-lived wood products, across various temporal and geospatial scales. Dr. Yao presented several case studies, ranging from local use of forest residues to global adoption of emerging engineered wood products.
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Delegation from Nagoya"  src="resources/Yuan_Sem_Pic.jpg"/>
+                    Read more about Yuan's work Yale: <a href="https://environment.yale.edu/directory/faculty/yuan-yao" target="_blank">https://environment.yale.edu/directory/faculty/yuan-yao </a>
+                </p>
+                <hr>
                 <h4><b>Delegation from Nagoya University visiting our research group</b></h4>
                 <p> On November 18, 2025, we strengthened our ties to the research group around Profs. Hiroki Tanikawa and Hiroaki Shirakawa from Nagoya University, Japan. The work of our Japanese colleagues focusses on social and urban metabolism in terms of material input, stock, and output for sustainability. 
                     Material stocks of buildings and infrastructure provide numerous services such as dwelling, transport, and communication, and therefore need to be monitored. During the visit, we updated each other on the ongoing collaboration on scenarios for the low carbon transformation of the Japanese residential building sector, and we discussed new ideas and research questions for common projects.
