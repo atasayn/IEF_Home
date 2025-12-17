@@ -236,34 +236,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="grid-container">
         <div class="grid-main">
-            <h1 class="main-title">Welcome to the open science portal of Industrial Ecology Freiburg (IEF)</h1>
+            <h1 class="main-title">Welcome to the open science portal of the industrial ecology research group (IEF), University of Freiburg</h1>
             <section aria-labelledby="intro-title">
                 <div class="grid-intro">
                     <p>
-                        We are the research group for sustainable energy and material flow management
-                        (Nachhaltiges Energie- und Stoffstrommanagement) at the Faculty of Environment and Natural Resources.
+                        On these pages, members of the industrial ecology research group at the Faculty of Environment and Natural Resources of the University of Freiburg, Germany offer a comprehensive open science environment for industrial ecology and socio-metabolic research. We blog about sustainable use of material and energy, our research, and the projects we are involved in. We host the IEDC, a database on social metabolism with global scope. We share information and material related to our research software, offer a large compilation of teaching material, and provide tools to visualise energy and material flows in society.
                     </p>
 
                     <p>
-                        We study the link between human development and material and energy use and estimate
-                        the environmental impacts of material production and energy supply.
-                    </p>
-
-                    <p>
-                        We use material cycle and scenario models to quantify the impact on energy and material
-                        demand of different resource efficiency strategies (circular economy), different urban forms,
-                        different levels of societal inequality, and of sufficiency strategies.
-                    </p>
-
-                    <p>
-                        With our research, we help identify the most effective policy levers for decoupling human
-                        wellbeing from resource use and environmental destruction.
-                    </p>
-
-                    <p>
-                        On these pages, we blog about our research and the projects we are involved in, host a database
-                        with our research results, share model information and teaching material, and provide
-                        visualisation tools.
+                        Open science is a global movement to make scientific research (including data, models, software, visualisation tools, and related teaching material) transparent and accessible to all levels of society. Open science is part of the DNA of our research group, and we use public funding to strengthen the research infrastructure, teaching material, and public knowledge base related to energy and material flows in society and their sustainable management.
                     </p>
 
                     <p>
@@ -280,7 +261,7 @@
         </div>
 
         <div class="grid-photo">
-            <img class="img-responsive center-block" src="resources/Opening_Pic_v3a.png" height="800px" width="800px" alt="Stacker at open pit lignite mine, Nochten, Germany">
+            <img class="img-responsive center-block" src="resources/FOSP_Homepage_1.png" height="800px" width="800px" alt="illustration of the content of this portal">
             <div class="caption">
             </div>
         </div>
@@ -289,62 +270,30 @@
 
             <div class="not-show-twitter">
              <h3 style="text-align: center"><b>+++ News +++</b></h3> 
-                <h4><b>Prof. Yuan Yao from the Yale School of Environment visiting our research group</b></h4>
-                <p> On November 20, 2025, we welcomed Yuan Yao, an Associate Professor of Industrial Ecology and Sustainable Systems at Yale University, who presented her and her team’s recent research on integrated systems modelling for sustainable wood utilization. Her research combines industrial ecology methods with ecological and economic modelling to understand the environmental and economic implications of forest-based solutions to climate change, such as afforestation/reforestation, biochar, and long-lived wood products, across various temporal and geospatial scales. Dr. Yao presented several case studies, ranging from local use of forest residues to global adoption of emerging engineered wood products.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Delegation from Nagoya"  src="resources/Yuan_Sem_Pic.jpg"/>
-                    Read more about Yuan's work Yale: <a href="https://environment.yale.edu/directory/faculty/yuan-yao" target="_blank">https://environment.yale.edu/directory/faculty/yuan-yao </a>
+
+                <h4><b>CIRCOMOD project input data now available on the Industrial Ecology Community Database</b></h4>
+                <p> [Summer 2025] During the first phase of the CIRCOMOD EU-Horizon project (Circular Economy Modelling for Climate Change Mitigation), about two dozen of researchers have collected, formatted, and validated a larger number of datasets on service provision, in-use stocks, product material composition, energy intensity, and lifetimes of products, focussing on appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies. Many of these datasets are now available on the IEDC.
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="CIRCOMOD project" src="resources/CIMO_1.png"/>
+                    Find the CIRCOMOD-related datasets on the IEDC, by searching for ‘CIRCOMOD’:   <a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">https://www.database.industrialecology.uni-freiburg.de/</a>
                 </p>
                 <hr>
-                <h4><b>Delegation from Nagoya University visiting our research group</b></h4>
-                <p> On November 18, 2025, we strengthened our ties to the research group around Profs. Hiroki Tanikawa and Hiroaki Shirakawa from Nagoya University, Japan. The work of our Japanese colleagues focusses on social and urban metabolism in terms of material input, stock, and output for sustainability. 
-                    Material stocks of buildings and infrastructure provide numerous services such as dwelling, transport, and communication, and therefore need to be monitored. During the visit, we updated each other on the ongoing collaboration on scenarios for the low carbon transformation of the Japanese residential building sector, and we discussed new ideas and research questions for common projects.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Delegation from Nagoya"  src="resources/Nagoya_Delegation_Nov_2025_s.jpg"/>
-                    Read more about the Tanikawa Lab at Nagoya University: <a href="https://www.civil.nagoya-u.ac.jp/ceeipo/research_lab/tanikawa_shirakawa-lab.html " target="_blank">https://www.civil.nagoya-u.ac.jp/ceeipo/research_lab/tanikawa_shirakawa-lab.html  </a>
-                </p>
-                <hr>
-                <h4><b>Successful doctoral defense - congratulations Dr. Gilang Hardadi</b></h4>
-                <p> On May 22, 2025, Gilang Hardadi successfully defended his doctoral thesis” Using Econometrics and Multi-Regional Input-Output (MRIO) Models to Simulate Short-Term Socio-Economic Impacts of a Just and Equitable Low-Carbon Transition.” In his work, Gilang demonstrates how Multi-Regional Input-Output (MRIO) Models can be used to assess the impact of climate economic instruments, such as carbon taxation, tax revenue recycling, or carbon border adjustments on the tax load of different income groups and on industrial transformation. The results of his work inform policy makers on the effectiveness and social implications of climate policy. Profs. Stefan Pauliuk and Yasushi Kondo were the thesis advisors, and Prof. Karsten Neuhoff wrote the second thesis review.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Successful doctoral defense" src="resources/20250522_111124s.jpg"/>
-                    Read more about Gilang’s work here: <a href="https://doi.org/10.1111/jiec.13045  " target="_blank">https://doi.org/10.1111/jiec.13045 </a>
-                </p>
-                <hr>
+
                 <h4><b>Critical Mass Sprint for the Industrial Ecology Community Database</b></h4>
-                <p> 2025 is the year when we move the industrial ecology data commons prototype, launched in 2018, into a functional and helpful data archiving and retrieval tool for the entire industrial ecology community! 
+                <p> [Spring 2025] 2025 is the year when we move the industrial ecology data commons prototype, launched in 2018, into a functional and helpful data archiving and retrieval tool for the entire industrial ecology community! 
                     We plan to collect, format, and upload a larger number of datasets on product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies.
                     <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Critical Mass Sprint for the Industrial Ecology" src="resources/IEDC_CMS_2025.png"/>
                     Read more about the 2025 Critical Mass Sprint for industrial ecology data here:   <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2025/03/03/2025-iedc-critical-mass-sprint/ " target="_blank">https://www.blog.industrialecology.uni-freiburg.de/index.php/2025/03/03/2025-iedc-critical-mass-sprint/  </a>
                 </p>
-                <hr>
-                <h4 style="padding-top:5px "><b>Successful EU Horizon project meeting in Freiburg</b></h4>
-                <p> In February 2025, more than 30 European researchers gathered at Industrial Ecology Freiburg for an annual project meeting to coordinate their research on estimating the impact of the circular economy (saving material resources by sufficiency, eco-design and better recycling) on the EU material industries and their climate impact.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="EU Horizon project meeting" src="resources/Webinar.png">
-                    Read more about the CIRCOMOD (Circular Economy Modelling for Climate Change Mitigation) project here: <a href="https://circomod.eu/" target="_blank">https://circomod.eu/ </a>
-                </p>
-                <hr>
-                <h4><b>Material Requirements of Decent Living Standards – new publication by Johan Vélez and Stefan Pauliuk</b></h4>
-                <p> Decent living standards are practical threshold for the energy, GHG, and material consumption required to alleviate poverty. 
-                    We quantify the amount of materials in stocks and flows needed to provide a decent living standard to an individual: a material footprint (MF) of about \(6 \frac{t}{\text{cap} \cdot \text{yr}}\) and in-use stocks of about 43 \(\frac{t}{\text{cap}}\) are required. 
-                    We also estimate which lifestyle and technology choices are effective in reducing material demand.
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Material Requirements of Decent Living Standards" src="resources/Homepage_News_2.png"/>
-                    Read the paper here:  <a href="https://doi.org/10.1021/acs.est.3c03957 " target="_blank">https://doi.org/10.1021/acs.est.3c03957 </a>
-                </p>
-                <hr>
-                <h4><b>New paper linking the indicators for poverty fight, inequality, and growth</b></h4>
-                <p> Decent living standards, economic inequality, and total economic output are not independent! A new paper by Stefan Pauliuk shows that per average capita service \( \text{pcs} \), 
-                    the Gini coefficient of inequality \( G \), and the personal decent living standard \( 5 \, \text{dls} \) are coupled as below:
-                    <img style="padding-top: 10px; padding-bottom: 10px;width:200px" class="img-responsive center-block" alt="Decent living standards" src="resources/Pauliuk_DLS_LorenzCurve_2024_pcs_1 (002).png"/>
-                    The work concludes with calling upon the research community to assess the inequality of physical stock and flow indicators related to human wellbeing, identify suitable physical wellbeing measures, 
-                    and extend the debate on desirable levels of inequality to physical socio-metabolic indicators.
-                    Read the paper here:  <a href="https://doi.org/10.1016/j.ecolecon.2024.108161  " target="_blank">https://doi.org/10.1016/j.ecolecon.2024.108161 </a>
-                </p>
+
             </div>
 
 
 
 
             <h4 style="color: white">Links:</h4>
+            <span class="grid-link" style="color: white">Our research group's official (<a href="https://uni-freiburg.de/enr-indecol" target="_blank">website</a>)</span>
+            <span class="grid-link" style="color: white">Faculty of Environment and Natural Resources (<a href="https://uni-freiburg.de/unr/" target="_blank">website</a>)</span>
             <span class="grid-link" style="color: white">International Society for Industrial Ecology (<a href="http://www.is4ie.org/" target="_blank">website</a>)</span>
-            <span class="grid-link" style="color: white">Faculty of Environment and Natural Resources (<a href=" https://www.unr.uni-freiburg.de/de" target="_blank">website</a>)</span>
 
         </div>
     </div>
