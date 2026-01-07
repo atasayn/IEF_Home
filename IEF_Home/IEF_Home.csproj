@@ -354,6 +354,8 @@
     <Content Include="research\Documents\RECC_Aggregation_Visualisation_HowTo.mp4" />
     <Content Include="research\Documents\RECC_Multiple_Scenarios_HowTo.mp4" />
     <Content Include="research\research.aspx" />
+    <Content Include="resources\CIMO_1.png" />
+    <Content Include="resources\circomodLogo.png" />
     <Content Include="resources\flag-england.png" />
     <Content Include="resources\flag-germany.png" />
     <Content Include="resources\Global_2007.png" />

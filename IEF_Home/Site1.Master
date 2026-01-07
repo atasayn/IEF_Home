@@ -36,7 +36,7 @@
                         <p style="font-size: 16px;"> </p>
                     </div>
 
-                    <div class="logo" >
+                    <div class="logo" style="padding-top: 20px" >
                         <img src="/resources/uniFreiburg.png"  width="300" alt="Uni Freiburg logo">
                     </div>
                 </div>
