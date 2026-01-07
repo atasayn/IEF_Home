@@ -449,11 +449,10 @@
                     </div>
 
                     <div class="col-md-8" style=" height: 0px;">
-                        <h2>Industrial Ecology Freiburg</h2>
-                        <p style="font-size: 16px;">Research group at the Faculty of Environment and Natural Resources</p>
+                        <h2>Freiburg Open Science Portal for Industrial Ecology and Socio-Metabolic Research</h2>
                     </div>
 
-                    <div class="logo">
+                    <div class="logo" style="padding-top: 20px">
                         <img src="/resources/uniFreiburg.png" width="300" alt="Uni Freiburg logo">
                     </div>
                 </div>
