@@ -10,7 +10,6 @@ namespace IEF_Home.privacy
 
             // Tüm li classlarını temizle
             liHome.Attributes["class"] = "";
-            liBlog.Attributes["class"] = "";
             liDatabase.Attributes["class"] = "";
             liModels.Attributes["class"] = "";
             liTeaching.Attributes["class"] = "";
