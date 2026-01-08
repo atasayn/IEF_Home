@@ -20,7 +20,7 @@ namespace IEF_Home.privacy
             liInternal.Attributes["class"] = "";
 
             // Aktif sayfayı seç
-            if (path == "https://www.industrialecology.uni-freiburg.de/")
+            if (path == "/main.aspx")
                 liHome.Attributes["class"] = "active";
             else if (path.Contains("/odym-recc"))
                 liModels.Attributes["class"] = "active";
