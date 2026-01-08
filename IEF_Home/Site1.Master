@@ -18,7 +18,16 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     </asp:ContentPlaceHolder>
+    <style>
+        .navbar-nav > li > a:hover,
+        .navbar-nav > li.active > a,
+        .navbar-nav > li.active > a:hover,
+        .navbar-nav > li.active > a:focus {
+            background-color: #4CAF50; /* yeşil */
+            color: #fff;
+        }
 
+    </style>
 </head>
 <body>
     <form id="form1" runat="server" >
@@ -47,24 +56,23 @@
                     <input id="collapsible" class="toggle" type="checkbox">
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
-                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">IEDC Database</a></li>
-                            <li><a href="/odym-recc">Our Models</a></li>
-                            <li><a href="/teaching">TEACHING: IEooc</a></li>
-                            <li><a href="/circomod">CIRCULAR ECONOMY PROFILES</a></li>
-                            <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">CIRCULAR SANKEY APP</a></li>
-                            <li><a href="/iefWorkingPaper">IEF Working Papers</a></li>       
-                            <li><a href="/internal">Internal</a></li>
-                            <li style="display:none"><a href="/circomodVisualization">circomodVisualization</a></li>
-                            
-                            
+                            <li id="liHome" runat="server"><a href="/">Home</a></li>
+                            <li id="liBlog" runat="server"><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
+                            <li id="liDatabase" runat="server"><a href="https://www.database.industrialecology.uni-freiburg.de" >IEDC Database</a></li>
+                            <li id="liModels" runat="server"><a href="/odym-recc">Our Models</a></li>
+                            <li id="liTeaching" runat="server"><a href="/teaching">TEACHING: IEooc</a></li>
+                            <li id="liCircomod" runat="server"><a href="/circomod">CIRCULAR ECONOMY PROFILES</a></li>
+                            <li id="liSankey" runat="server"><a href="https://www.visualisation.industrialecology.uni-freiburg.de" >CIRCULAR SANKEY APP</a></li>
+                            <li id="liPapers" runat="server"><a href="/iefWorkingPaper">IEF Working Papers</a></li>       
+                            <li id="liInternal" runat="server"><a href="/internal">Internal</a></li>
+
+
                             <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server" EnableViewState="false" ></asp:ContentPlaceHolder>
                         </ul>
-
                     </div>
                 </div>
             </nav>
+
         </header>
         <main>
             
