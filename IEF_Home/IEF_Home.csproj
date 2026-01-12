@@ -363,6 +363,7 @@
     <Content Include="resources\IEDC_working.gif" />
     <Content Include="resources\IEF_LogoV_23_3-Tab7.png" />
     <Content Include="resources\IEF_LogoV_23_3.png" />
+    <Content Include="resources\IEF_LogoV_23_3_original.png" />
     <Content Include="resources\Login_Button.jpg" />
     <Content Include="resources\Nagoya_Delegation_Nov_2025_s.jpg" />
     <Content Include="resources\News_Update_Sept_14.png" />
@@ -646,6 +647,7 @@
     <Content Include="resources\3_MC_VehicleArchetypes_TABLE_Sample_Errors.xlsx" />
     <Content Include="resources\IEDC_advanced_search_lookupvalues_vMarch2025 %28002%29.xlsx" />
     <Content Include="resources\IEDC_advanced_search_lookupvalues_vMay2025.xlsx" />
+    <Content Include="resources\IEDC_advanced_search_lookupvalues_vJanuary2026.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
