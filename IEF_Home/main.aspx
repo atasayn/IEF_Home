@@ -271,6 +271,13 @@
             <div class="not-show-twitter">
              <h3 style="text-align: center"><b>+++ News +++</b></h3> 
 
+                <h4><b>New tool to search the industrial ecology data commons by author and DOI</b></h4>
+                <p> [Winter 2026] Users of the industrial ecology data commons (IEDC) can now search for data by specific authors (by name) and publications (by DOI). The new search feature browses through both, the catalogue of datasets and the comment feature of each individual data point, so that data from specific authors or publication that are part of larger compilations can also be found.
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="DOI icon" src="resources/doi-1.png"/>
+                    Access to the new search function:   <a href="https://www.database.industrialecology.uni-freiburg.de/iedc_author_DOI_search.aspx" target="_blank">https://www.database.industrialecology.uni-freiburg.de/iedc_author_DOI_search.aspx</a>
+                </p>
+                <hr>
+
                 <h4><b>CIRCOMOD project input data now available on the Industrial Ecology Community Database</b></h4>
                 <p> [Summer 2025] During the first phase of the CIRCOMOD EU-Horizon project (Circular Economy Modelling for Climate Change Mitigation), about two dozen of researchers have collected, formatted, and validated a larger number of datasets on service provision, in-use stocks, product material composition, energy intensity, and lifetimes of products, focussing on appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies. Many of these datasets are now available on the IEDC.
                     <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="CIRCOMOD project" src="resources/CIMO_1.png"/>
