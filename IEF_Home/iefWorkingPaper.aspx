@@ -57,6 +57,28 @@
             To see all our publications, please check the Google Scholar profiles of the different group members.
         </p>
     </div>
+
+   <div class="row">
+        <div class="column">
+            <p> </p>
+        </div>
+        <div class="column">
+            <p> </p>
+        </div>
+
+        <div class="column">
+            <img src="Content/workingPaperPngs/IEF_WP_1_2026.png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 1 (2026)</p>
+            <p>
+                <b>Industrial Ecology Data Commons Handbook. </b>
+                Stefan Pauliuk and Nildem Atasayar (2026). Industrial Ecology Freiburg (IEF) Working Paper 1(2026), Universität Freiburg im Breisgau.
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/xxx" target="_blank">To be published soon! </a>
+        </div>
+    </div>
+
     <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/IEF_WP_4_2025_Thumbnail.png" width="300">
@@ -212,6 +234,28 @@
             <a href="https://doi.org/10.6094/UNIFR/217970" target="_blank">https://doi.org/10.6094/UNIFR/217970</a>
         </div>
     </div>
+
+   <div class="row">
+
+        <div class="column">
+            <img src="Content/workingPaperPngs/IEF_WP_1_2017.png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 1 (2017)</p>
+            <p>
+                <b>Die Umweltauswirkungen der FreiburgCup – Eine Ökobilanzierung und Evaluierung des Freiburger Mehrwegsystems für ToGo-Becher. </b>
+                Johannes Althammer, Kaja Weldner, Stefan Pauliuk (2017). Industrial Ecology Freiburg (IEF) Working Paper 1(2017), Universität Freiburg im Breisgau.
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/275671" target="_blank">https://doi.org/10.6094/UNIFR/275671 </a>
+        </div>
+        <div class="column">
+            <p> </p>
+        </div>
+        <div class="column">
+            <p> </p>
+        </div>
+    </div>
+
 <%--    <div class="row">
         
         
