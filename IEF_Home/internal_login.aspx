@@ -43,7 +43,7 @@
             <br />
 
             When preparing your work, please check the university’s guidelines for <a href="https://uni-freiburg.de/forschung/redlichkeit-in-der-wissenschaft/" target="new">academic integrity</a>
-            and the group's <a href="https://www.indecol.uni-freiburg.de/de/supervision-scheme" target="new">guidelines for good scientific practice and supervision</a>.
+            and the group's <a href="https://uni-freiburg.de/enr-indecol/wp-content/uploads/sites/303/ScientificConduct_IndEcolFreiburg_2025.pdf" target="new">guidelines for good scientific practice and supervision</a>.
                     <br />
             <br />
             &nbsp;<img class="img-responsive center-block" src="resources/pexels-photo-209137.jpeg" style="align-self: center; width: 500px;" alt="Industrial Ecology Freiburg Internal Database" />
