@@ -63,10 +63,12 @@
         }
 
         .grid-dataset-preview {
-            margin: auto;
+/*            margin: auto;
             border-radius: 10px;
             overflow: hidden;
-            max-width: 100%
+            max-width: 100%*/
+            width: 100%;
+            table-layout: fixed;
         }
 
         .grid-dataset-previewInfo {
@@ -108,6 +110,22 @@
             overflow: hidden;
             max-height: 400px;
         }
+
+
+
+                    .table-wrapper {
+                        width: 100%;
+                        overflow-x: auto;
+                    }
+
+
+
+        #dataset-preview td:not(:first-child),
+        #dataset-preview th:not(:first-child) {
+            word-break: break-word;
+            white-space: normal;
+        }
+
 
 
         .table-style {
