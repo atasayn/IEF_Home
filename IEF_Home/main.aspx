@@ -270,10 +270,10 @@
 
             <div class="not-show-twitter">
              <h3 style="text-align: center"><b>+++ News +++</b></h3> 
-
+                <img src="https://localhost:44346/resources/SysDef_General.png" />
                 <h4><b>First datasets on socio-metabolic inequality – plus new tool to browse IEDC datasets by project</b></h4>
                 <p> [Winter 2026] Inequality is a major issue of our time, but data on inequality are still scarce. The new IEDC project “Socio_metabolic_inequality_SMI” offers to the community a compilation of around 20 datasets on Lorenz curves, Gini coefficients, and other inequality indicators from more than 50 literature sources. The data cover non-monetary socio-metabolic indicators (service provision, stocks, flows, energy, material, water, GHG/emissions, and land). The datasets can be found by using a new search tool that allows users to quickly find all IEDC datasets linked to a certain project. Submission of own datasets to the IEDC to this and other projects is welcome!
-                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/SMI_Project_Gini.png"/>
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/SMI_Project_Gini.jpg"/>
                     See all datasets in this and other projects:   <a href="https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI" target="_blank">https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI</a>
                 </p>
                 <hr>
