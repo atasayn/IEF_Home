@@ -69,7 +69,7 @@ namespace IEF_Home
                     return;
                 }
 
-                // Save the uploaded file with a unique name
+                // Save the uploaded file with a unique name to avoid locking issues
                 string originalName = Path.GetFileName(FileUpload.PostedFile.FileName);
                 string safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(originalName);
                 filePath = Server.MapPath("~/UploadedFiles/" + safeFileName);
@@ -78,7 +78,7 @@ namespace IEF_Home
 
                 string sheetName = "Cover";
 
-                // Check if the sheet exists
+                // Check if the Cover sheet exists
                 if (!fileChecker.DoesCoverExist(FileUpload.PostedFile, sheetName))
                 {
                     HideAllSections();
@@ -87,7 +87,7 @@ namespace IEF_Home
                     return;
                 }
 
-                // Show UI sections
+                // Show sections
                 columnDiv.Style["display"] = "block";
                 section1Full.Style["display"] = "block";
                 section2Row.Style["display"] = "block";
@@ -100,26 +100,39 @@ namespace IEF_Home
                 lblMessage.Text = "File uploaded successfully.";
                 lblMessage.ForeColor = System.Drawing.Color.Green;
 
-                // Reset cached lists
+                // Reset counters and tables
                 circomodService.counterGlobal.Reset();
                 dataSheetMatch.DataSource = null;
                 dataSheetMatch.DataBind();
-                // Correctly clear BulletedLists
-                Ok.Items.Clear();
-                Warning.Items.Clear();
-                Error.Items.Clear();
 
-                // ✅ Call your existing methods
-                fileChecker.DoesDataExist(filePath, sheetName,
-                    compareTable, missingCellTable, aspectReportTable, dimensionCompareTable,
-                    aspectMatch, aspectMatchRemarks, missingCellTableSec);
 
-                fileChecker.isListOrTable(filePath, sheetName,
-                    templateType, aspectSequence, dataSheetRowNumber, dataSheetMatch,
-                    unitMoniDenomi, Ok, Warning, Error, loaderControl,
-                    simpleSearch, levenshteinSearch);
 
-                // Cache results
+                // ✅ Process Cover sheet safely
+                try
+                {
+                    fileChecker.DoesDataExist(filePath, sheetName,
+                        compareTable, missingCellTable, aspectReportTable, dimensionCompareTable,
+                        aspectMatch, aspectMatchRemarks, missingCellTableSec);
+                }
+                catch (Exception ex)
+                {
+                    Warning.Items.Add("Error processing Cover sheet: " + ex.Message);
+                }
+
+                // ✅ Process Data sheet safely
+                try
+                {
+                    fileChecker.isListOrTable(filePath, sheetName,
+                        templateType, aspectSequence, dataSheetRowNumber, dataSheetMatch,
+                        unitMoniDenomi, Ok, Warning, Error, loaderControl,
+                        simpleSearch, levenshteinSearch);
+                }
+                catch (Exception ex)
+                {
+                    Warning.Items.Add("Error processing Data sheet: " + ex.Message);
+                }
+
+                // Cache results for later use
                 Cache["OkList"] = Ok;
                 Cache["WarningList"] = Warning;
                 Cache["ErrorList"] = Error;
@@ -131,7 +144,9 @@ namespace IEF_Home
             }
             catch (Exception ex)
             {
+                // Log any unexpected errors
                 Console.WriteLine(ex);
+                Warning.Items.Add("Unexpected error: " + ex.Message);
                 lblMessage.Text = "An error occurred while processing the file.";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
             }
@@ -141,15 +156,15 @@ namespace IEF_Home
                 ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader",
                     "document.getElementById('loaderControl').style.display='none';", true);
 
-                // Delete temp file
+                // Delete temporary file to avoid server accumulation
                 if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
                 {
-                    try { File.Delete(filePath); } catch { /* file may be locked by another process */ }
+                    try { File.Delete(filePath); } catch { /* file may be locked */ }
                 }
             }
         }
 
-        // Helper to hide all sections
+        // Helper method to hide all UI sections
         private void HideAllSections()
         {
             columnDiv.Style["display"] = "none";
@@ -161,6 +176,7 @@ namespace IEF_Home
             aspectMatch.Style["display"] = "none";
             dataSheetRowNumber.Style["display"] = "none";
         }
+
 
         public void ConvertExcelToPdf(string excelPath,BulletedList Ok, BulletedList Warning, BulletedList Error,GridView templateType,
             GridView dataSheetRowNumber,GridView compareTable, GridView aspectReportTable, GridView dataSheetMatch)
