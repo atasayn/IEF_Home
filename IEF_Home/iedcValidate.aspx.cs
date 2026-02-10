@@ -45,91 +45,123 @@ namespace IEF_Home
 
         public void ButtonUpload(object sender, EventArgs e)
         {
-           // loaderControl.Style["display"] = "block";
-                ScriptManager.RegisterStartupScript(this, GetType(), "showLoader", "document.getElementById('loaderControl').style.display='block';", true);
+            // Show loader
+            ScriptManager.RegisterStartupScript(this, GetType(), "showLoader",
+                "document.getElementById('loaderControl').style.display='block';", true);
+
+            string filePath = null; // temp file path
 
             try
             {
-                // this.ShowCompareTable(this, EventArgs.Empty);
-                if (FileUpload.HasFile)
-                {
-                    circomodService.counterGlobal.Reset();
-                    dataSheetMatch.DataSource=null;
-                    dataSheetMatch.DataBind();
-                    var fileChecker = new excelSheetCheck();
-                    if (fileChecker.IsExcelFile(FileUpload.PostedFile))
-                    {
-                        
-                        // Save the file to the server
-                        string fileName = Path.GetFileName(FileUpload.PostedFile.FileName);
-                        string filePath = Server.MapPath("~/UploadedFiles/" + fileName);
-
-                        FileUpload.SaveAs(filePath);
-                        Cache["filePath"] = filePath;
-                        var test = Cache["filePath"]; // Should not be null
-                        Debug.WriteLine("SessionID: " + test);
-
-
-                        // Check if the specific worksheet exists
-                        string sheetName = "Cover"; // Replace with your actual sheet name
-                        if (fileChecker.DoesCoverExist(FileUpload.PostedFile, sheetName))
-                        {
-                            
-                            columnDiv.Style["display"] = "block";
-                            section1Full.Style["display"] = "block";
-                            section2Row.Style["display"] = "block";
-                            section2DataCheck.Style["display"] = "block";
-                            missingCellTableSec.Style["display"] = "block";
-                            // Date and Time of Upload + File name + Success
-                            string dateTime = System.DateTime.Now.ToString();
-                            string htmlContent = $"<h5 style='font-weight:bold;font-size:18px'>IEDC validation report for {fileName}, uploaded on {dateTime}</h5>";
-                            validatingDateAndTime.Text = htmlContent;
-                            lblMessage.Text = "File uploaded successfully.";
-                            lblMessage.ForeColor = System.Drawing.Color.Green;
-                            fileChecker.DoesDataExist(filePath, sheetName, compareTable, missingCellTable,aspectReportTable,dimensionCompareTable,aspectMatch,aspectMatchRemarks,missingCellTableSec);
-                            fileChecker.isListOrTable(filePath, sheetName, templateType, aspectSequence, dataSheetRowNumber,dataSheetMatch, unitMoniDenomi, Ok, Warning, Error,loaderControl,simpleSearch,levenshteinSearch);
-                            Cache["OkList"] = Ok;
-                            Cache["WarningList"] = Warning;
-                            Cache["ErrorList"] = Error;
-                            Cache["templateType"] = templateType;
-                            Cache["dataSheetRowNumber"] = dataSheetRowNumber;
-                            Cache["compareTable"] = compareTable;
-                            Cache["aspectReportTable"] = aspectReportTable;
-                            Cache["dataSheetMatch"] = dataSheetMatch;
-
-                        }
-                        else
-                        {
-                            columnDiv.Style["display"] = "none";
-                            section1Full.Style["display"] = "none";
-                            section2Row.Style["display"] = "none";
-                            section2DataCheck.Style["display"] = "none";
-                            missingCellTableSec.Style["display"] = "none";
-                            templateType.Style["display"] = "none";
-                            aspectMatch.Style["display"] = "none";
-                            dataSheetRowNumber.Style["display"] = "none";
-                            lblMessage.Text = "Uploaded file must contain a ‘Cover’ sheet.";
-                            lblMessage.ForeColor = System.Drawing.Color.Red;
-                        }
-                    }
-                    else
-                    {
-                        lblMessage.Text = "Please upload a valid Excel .xlsx file.";
-                        lblMessage.ForeColor = System.Drawing.Color.Red;
-                    }
-                }
-                else
+                if (!FileUpload.HasFile)
                 {
                     lblMessage.Text = "Please select a file to upload.";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
+
+                var fileChecker = new excelSheetCheck();
+
+                if (!fileChecker.IsExcelFile(FileUpload.PostedFile))
+                {
+                    lblMessage.Text = "Please upload a valid Excel .xlsx file.";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
+
+                // Save the uploaded file with a unique name
+                string originalName = Path.GetFileName(FileUpload.PostedFile.FileName);
+                string safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(originalName);
+                filePath = Server.MapPath("~/UploadedFiles/" + safeFileName);
+                FileUpload.SaveAs(filePath);
+                Cache["filePath"] = filePath;
+
+                string sheetName = "Cover";
+
+                // Check if the sheet exists
+                if (!fileChecker.DoesCoverExist(FileUpload.PostedFile, sheetName))
+                {
+                    HideAllSections();
+                    lblMessage.Text = "Uploaded file must contain a ‘Cover’ sheet.";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
+
+                // Show UI sections
+                columnDiv.Style["display"] = "block";
+                section1Full.Style["display"] = "block";
+                section2Row.Style["display"] = "block";
+                section2DataCheck.Style["display"] = "block";
+                missingCellTableSec.Style["display"] = "block";
+
+                // Display upload info
+                string dateTime = DateTime.Now.ToString();
+                validatingDateAndTime.Text = $"<h5 style='font-weight:bold;font-size:18px'>IEDC validation report for {originalName}, uploaded on {dateTime}</h5>";
+                lblMessage.Text = "File uploaded successfully.";
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+
+                // Reset cached lists
+                circomodService.counterGlobal.Reset();
+                dataSheetMatch.DataSource = null;
+                dataSheetMatch.DataBind();
+                // Correctly clear BulletedLists
+                Ok.Items.Clear();
+                Warning.Items.Clear();
+                Error.Items.Clear();
+
+                // ✅ Call your existing methods
+                fileChecker.DoesDataExist(filePath, sheetName,
+                    compareTable, missingCellTable, aspectReportTable, dimensionCompareTable,
+                    aspectMatch, aspectMatchRemarks, missingCellTableSec);
+
+                fileChecker.isListOrTable(filePath, sheetName,
+                    templateType, aspectSequence, dataSheetRowNumber, dataSheetMatch,
+                    unitMoniDenomi, Ok, Warning, Error, loaderControl,
+                    simpleSearch, levenshteinSearch);
+
+                // Cache results
+                Cache["OkList"] = Ok;
+                Cache["WarningList"] = Warning;
+                Cache["ErrorList"] = Error;
+                Cache["templateType"] = templateType;
+                Cache["dataSheetRowNumber"] = dataSheetRowNumber;
+                Cache["compareTable"] = compareTable;
+                Cache["aspectReportTable"] = aspectReportTable;
+                Cache["dataSheetMatch"] = dataSheetMatch;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                lblMessage.Text = "An error occurred while processing the file.";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+            }
+            finally
+            {
+                // Hide loader
+                ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader",
+                    "document.getElementById('loaderControl').style.display='none';", true);
+
+                // Delete temp file
+                if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+                {
+                    try { File.Delete(filePath); } catch { /* file may be locked by another process */ }
                 }
             }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-                throw;
-            }
-            
         }
+
+        // Helper to hide all sections
+        private void HideAllSections()
+        {
+            columnDiv.Style["display"] = "none";
+            section1Full.Style["display"] = "none";
+            section2Row.Style["display"] = "none";
+            section2DataCheck.Style["display"] = "none";
+            missingCellTableSec.Style["display"] = "none";
+            templateType.Style["display"] = "none";
+            aspectMatch.Style["display"] = "none";
+            dataSheetRowNumber.Style["display"] = "none";
+        }
+
         public void ConvertExcelToPdf(string excelPath,BulletedList Ok, BulletedList Warning, BulletedList Error,GridView templateType,
             GridView dataSheetRowNumber,GridView compareTable, GridView aspectReportTable, GridView dataSheetMatch)
         {
