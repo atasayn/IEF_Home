@@ -401,12 +401,9 @@ The following topics are covered:
                     <td width="70%">
                         <b>Video lecture on the basic principles of industrial ecology data modelling and accounting: material and energy flow analysis: </b>
                         <br>
-                        <a href="https://youtu.be/wK_02bGTh1E" target="new">IEooc_Methods1_Lecture1</a>
-                        <br>
-                        In this lecture, the definitions and basic methodology for material and energy flow accounting are presented, including the basic elements of the quantitative system definition, the process balancing equations, indicator elements, units of measurement, multi-layer system descriptions, and a number of examples. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b>
-                        <br>
-                        NOTE: An update of the slides with minor corrections is available here:<br>
-                        <a href="/Content/IEooc_Methods1_Lecture1.pdf" target="new">IEooc_Methods1_Lecture1_CorrectedSlides</a>
+                        <a href="https://youtu.be/wK_02bGTh1E" target="new">IEooc_Methods1_Lecture1</a><br>
+                        In this lecture, the definitions and basic methodology for material and energy flow accounting are presented, including the basic elements of the quantitative system definition, the process balancing equations, indicator elements, units of measurement, multi-layer system descriptions, and a number of examples. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
+						Link to the <a href="/Content/IEooc_Methods1_Lecture1_Updated_public.zip">slide deck for IEooc_Methods1_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise: Locating data in a system definition and indicator development.</b> Learn how to establish a system definition to allocate quantitative information that is given as text. Define and calculate indicators based on the system definition. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
@@ -448,10 +445,9 @@ difficulty: (++)</b><br>
                         <br>
                         <b>Video lecture and reading on a general data model for socioeconomic metabolism: </b>
                         <br>
-                        <a href="https://youtu.be/1aCynUvSVRY" target="new">IEooc_Methods1_Lecture2</a>
-                        <br>
-                        In this lecture, a general data model for locating data in the systems context is presented. It allows researchers to format data describing stocks, flows, material composition of products, lifetimes, prices, life cycle inventories, IO tables, etc. in a common structure. The data model can be used to build databases that combine data that are commonly associated with specific methods, but which are of use to many researchers. It can also be used to develop data sharing infrastructure for research groups, institutions, and the entire community.
-                        <br>
+                        <a href="https://youtu.be/1aCynUvSVRY" target="new">IEooc_Methods1_Lecture2</a><br>
+                        In this lecture, a general data model for locating data in the systems context is presented. It allows researchers to format data describing stocks, flows, material composition of products, lifetimes, prices, life cycle inventories, IO tables, etc. in a common structure. The data model can be used to build databases that combine data that are commonly associated with specific methods, but which are of use to many researchers. It can also be used to develop data sharing infrastructure for research groups, institutions, and the entire community.<br>
+						Link to the <a href="/Content/IEooc_Methods1_Lecture2_Updated_public.zip">slide deck for IEooc_Methods1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.<br>
                         <a href="/Content/IEooc_Methods1_Reading4_SEM_DataModel.pdf" target="new">IEooc_Methods1_Reading4 (related journal article)</a>
                         <br>
                         <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (++)</b>
@@ -490,12 +486,14 @@ difficulty: (+)</b><br>
                         <br>
                         <b>Video lecture</b> on MFA system models and their analytical and numerical solution. <b>Prerequisites:</b> Matrix algebra and its implementation in Excel. <b>Level of difficulty: (++)</b>
                         <br>
-                        <a href="https://youtu.be/562-lBuoF1Q" target="new">IEooc_Methods2_Lecture1</a>
+                        <a href="https://youtu.be/562-lBuoF1Q" target="new">IEooc_Methods2_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Methods2_Lecture1_public.zip">slide deck for IEooc_Methods2_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture </b>on data uncertainty and sensitivity of results in MFA system models. <b>Prerequisites:</b> Calculus. Random variables, discrete and continuous probability distributions. <b>Level of difficulty: (+++)</b>
                         <br>
-                        <a href="https://youtu.be/VpK2NgY5FlQ" target="new">IEooc_Methods2_Lecture2</a>
+                        <a href="https://youtu.be/VpK2NgY5FlQ" target="new">IEooc_Methods2_Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Methods2_Lecture2_updated_public.zip">slide deck for IEooc_Methods2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Reading material:</b><b> "Guidelines for Data Modeling and Data Integration for Material Flow Analysis and Socio-Metabolic Research"</b>, document with basic standards and best practice on data formats, system definition, indicator definition, use of common classifications, uncertainty treatment and sensitivity analysis, and data traceability and provenance. These guidelines were issued by the Board of the ISIE Section on Socioeconomic Metabolism (ISIE-SEM), and are a standard reference for all who are in the process of publishing, documenting, or archiving MFA research, either within a software such as STAN or in a custom modelling environment. <b>Level of difficulty: (++)</b>
@@ -552,6 +550,14 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="http://www.blog.industrialecology.uni-freiburg.de/index.php/2022/04/20/material-flow-accounting-and-material-footprints-system-definition-and-data-sources/" target="new">IEooc_Methods2_Reading5</a>
                         <br>
                         <br>
+                        <b>Slide deck (without video recording): </b>Process inventories, product systems, life cycle indicators,footprints, and emissions scopes, IEooc_Methods2_Lecture4:<br>
+						Link to the <a href="/Content/IEooc_Methods2_Lecture4.zip">slide deck for IEooc_Methods2_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>PCarbon accounting and indicators, IEooc_Methods2_Lecture5:<br>
+						Link to the <a href="/Content/IEooc_Methods2_Lecture5.zip">slide deck for IEooc_Methods2_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
                     </td>
                 </tr>
 
@@ -568,7 +574,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         NOTE: An update of the slides with minor fixes to the notation is available here:<br>
                         <a href="/Content/IEooc_Methods3_Lecture1_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture1_CorrectedSlides</a><br>
-                        Thanks to Oliver Cencic (TU  Vienna) for the feedback!
+                        Thanks to Oliver Cencic (TU Vienna) for the feedback!
                         <br>
                         <br>
                         <b>Video lecture on dynamic stock models.</b> The following concepts are introduced and explained: Population balance models, the leaching model, impulse response functions, age-cohorts, and the lifetime model. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b>
@@ -577,7 +583,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         NOTE: An update of the slides with minor fixes to the notation is available here:<br>
                         <a href="/Content/IEooc_Methods3_Lecture2_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture2_CorrectedSlides</a><br>
-                        Thanks to Oliver Cencic (TU  Vienna) for the feedback!
+                        Thanks to Oliver Cencic (TU Vienna) for the feedback!
                         <br>
                         <br>
                         <b>Video lecture on inflow-driven and stock-driven modelling:</b> With inflow-driven modelling stocks can be determined from historic inflows using a convolution operation. With stock-driven modelling the inflow can be determined from a given stock scenario using inverse convolution. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b><br>
@@ -585,7 +591,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         NOTE: An update of the slides with minor fixes to the notation and a better distinction between discrete and continuous models is available here:<br>
                         <a href="/Content/IEooc_Methods3_Lecture3_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture3_CorrectedSlides</a><br>
-                        Thanks to Oliver Cencic (TU  Vienna) for the feedback!
+                        Thanks to Oliver Cencic (TU Vienna) for the feedback!
                         <br>
                         <br>
                         <b>Exercise: "Dynamic model of the German steel cycle, 1800-2008."</b> The goals of this exercise are twofold: first, to develop a systems understanding  regarding  the  development  of  flows  and  stocks  in  material cycles, using the example of the steel cycle in Germany. Second, to estimate steel stocks using dynamic stock modelling. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b><br>
@@ -610,11 +616,11 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <b>Jupyter notebooks for basic dynamic MFA in Python</b> This series of five Jupyter notebooks covers all core steps of building your own scenario models for the stock-flow-service nexus and link it to energy, materials, and emissions. The data handling and calculation steps are explained step by step. <b>Level of difficulty: (++)</b><br>
 						This Jupyter notebook series uses the European passenger vehicle fleet as example. It contains explanations on how to use the Python programming language for building a scenario model for the stock-flow-service nexus for passenger cars and for calculating energy use and emissions of the vehicle fleet for a future scenario.<br> 
-						<b>IEooc_Methods3_Software001 (ipynb): </b> Tutorial on basic data handling: Reading and inspecting data, performing basic time series calculations, plotting and saving results. <br>
-						<b>IEooc_Methods3_Software002 (ipynb): </b> Tutorial and exercise on implementing a simple inflow-driven model to estimate the fleet by age-cohort from the time series of new vehicle registration.<br>
-						<b>IEooc_Methods3_Software003 (ipynb): </b> Tutorial and exercise on implementing a simple stock-driven model to estimate the future fleet, new registration, and scrapping of passenger vehicles based on a given scenario for population and service (passenger-km) demand.<br>
-						<b>IEooc_Methods3_Software004 (ipynb): </b> Tutorial and exercise on linking the vehicle flows and stocks to material flows and stocks. A simple material cycle model is programmed to estimate the recycled content of future vehicles.<br>
-						<b>IEooc_Methods3_Software005 (ipynb): </b> Tutorial and exercise on linkink the vehicle fleet and material cycle model to energy demand and then to scope 1, 2, and 3 GHG.<br>
+						<b>IEooc_Methods3_Software001 (ipynb):</b> Tutorial on basic data handling: Reading and inspecting data, performing basic time series calculations, plotting and saving results. <br>
+						<b>IEooc_Methods3_Software002 (ipynb):</b> Tutorial and exercise on implementing a simple inflow-driven model to estimate the fleet by age-cohort from the time series of new vehicle registration.<br>
+						<b>IEooc_Methods3_Software003 (ipynb):</b> Tutorial and exercise on implementing a simple stock-driven model to estimate the future fleet, new registration, and scrapping of passenger vehicles based on a given scenario for population and service (passenger-km) demand.<br>
+						<b>IEooc_Methods3_Software004 (ipynb):</b> Tutorial and exercise on linking the vehicle flows and stocks to material flows and stocks. A simple material cycle model is programmed to estimate the recycled content of future vehicles.<br>
+						<b>IEooc_Methods3_Software005 (ipynb):</b> Tutorial and exercise on linkink the vehicle fleet and material cycle model to energy demand and then to scope 1, 2, and 3 GHG.<br>
                         This exercise series (as Jupyter notebooks in .ipynb files), the required input data, and the sample solutions are available as zipped folder:<br>
 						<a href="/Content/M3_Software_001_to_005.zip">IEooc_Methods3_Software_001 to _005, complete package (workbooks, data, solutions) as zip folder</a>
                         <br>
