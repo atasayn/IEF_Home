@@ -49,7 +49,7 @@
             The <i>Industrial Ecology Open Online Course (IEooc) </i>is a collection of online material that documents and explains the core industrial ecology concepts, methods, data, and applications. It serves as guide to new industrial ecology researchers by enabling them to conduct state-of-the-art science for sustainability.
             <br>
             <br>
-            The course was developed for university students at all levels. It features lectures (screencasts and webinars of 15-60 minutes), exercises with sample solutions, code samples or notebooks, and reading material (papers, essays, reports, blog entries). There are now more than 50 exercises and tutorials, and these form the core of this course. All material is freely available for educational use.
+            The course was developed for university students at all levels. It features lectures (screencasts and webinars of 15-60 minutes), exercises with sample solutions, code samples or notebooks, and reading material (papers, essays, reports, blog entries). There are now more than 50 exercises and tutorials, and these form the core of this course. All material is freely available for educational use and can be adapted to own teaching formats.
             <br>
             <br>
             The course is divided into three broad sections: background, methods, and applications. In the background section a general introduction to the topic is given and the theoretical foundations of interdisciplinary systems science in general, and industrial ecology in particular, are laid. In the methods section the core industrial ecology methods material flow analysis, life cycle assessment, and input-output analysis are introduced. In the application section a number of selected case studies and other examples are presented. Readers can choose their preferred level of exposure to conceptual foundations, and can jump to the methods section, which also contains most of the exercises, at any point. For fully appreciating the origin, structure, and interrelation of the different industrial ecology methods, however, some extra work with the background material will be helpful. To grasp the content of the application section some familiarity with the industrial ecology methods is necessary. For each course item a quick summary of the content is provided, the prerequisites are stated, and the level of difficulty is indicated on a scale reaching from (+) (not very difficult) to (+++) (rather difficult).
@@ -58,10 +58,10 @@
             The course is built using freely available tools and data wherever possible. For the basic parts of the course a pdf reader, Excel or a similar spreadsheet tool, and access to Youtube are sufficient. The more advanced parts make use of the programming language Python via <a href="https://jupyter.org/" target="new">Jupyter notebooks</a>, and some of the LCA exercises use <a href="http://www.openlca.org" target="new">openLCA</a> in Connection with the <a href="http://www.ecoinvent.org/" target="new">ecoinvent</a> life cycle database. For some exercises reading material that is not generally available is required.
             <br>
             <br>
-            The course consists of a combination of own and external material. I linked to content created by other scholars of the industrial ecology and other communities where appropriate. If you would like to have a link added or removed, let me know. If you would like to see your own content added, drop a line to stefan.pauliuk[at]indecol.uni-freiburg.de, and I will check whether it fits into the course. The course material will be improved and expanded over the next years, so that the syllabus can grow bit by bit. 
+            The course consists of a combination of own and external material. I linked to content created by other scholars of the industrial ecology and other communities where appropriate. If you would like to have a link added or removed, let me know. If you would like to see your own content added, drop a line to in4mation[at]indecol.uni-freiburg.de, and I will check whether it fits into the course. The course material is continuously improved and expanded, and the syllabus grows bit by bit. 
             <br>
             <br>
-            Most of the material is made available under a Creative Commons Licence. It can be used in own teaching, modified and expanded. The slide material is available upon request.
+            Most of the material is made available under a Creative Commons Licence. It can be used in own teaching, modified and expanded. Since 2026, the slide decks for the lectures are available, too, amounting to more than 1500 slides in total.
             <br>
             <br>
             The course and its parts are designed for self-study. I don't have the capacity for individual supervision and guidance and will decline such requests unless they are related to mistakes in the material or parts of it that are confusing. There is no exam for this course and no certificate of participation.
@@ -102,7 +102,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: January 21st, 2025.</h4>
+                <h4>Last update: March 2026.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -115,7 +115,9 @@
         <div class="col-md-12">
 
 		<b>A new introductory textbook for our field, "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, was published in 2023.</b> Details: 512 pages, ISBN-13: 9789811277603, Publisher: World Scientific Publishing Company. The book is available both as hardcover and as e-book. It can be ordered online via Amazon, Barnes and Noble, etc.
-            <br>
+			<br>
+        <b>Check out this new book, "Advanced Introduction to Industrial Ecology", by Christopher Kennedy, Professor of Industrial Ecology, University of Victoria, Canada, which was published in 2025.</b> Details: ISBN: 978-1-03532-055-4. Extent: 194 pp, link: https://www.e-elgar.com/shop/gbp/advanced-introduction-to-industrial-ecology-9781035320554.html
+			<br>
             <br>
         </div>
     </div>
@@ -704,7 +706,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <b>Exercise from the application section on on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
-			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Woorkbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
+			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Workbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
                         <br>
@@ -1017,7 +1019,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
-			<b>Introductory book: Sustainable Materials - with both eyes open</b>, by Julian M Allwood and Jonathan M Cullen. Available <a 			href="https://www.uselessgroup.org/publications/book/chapters" target="_blank">here</a> for download.
+			<b>Introductory book: Sustainable Materials - with both eyes open</b>, by Julian M Allwood and Jonathan M Cullen. Available <a href="https://www.uselessgroup.org/publications/book/chapters" target="_blank">here</a> for download.
+                        <br>
+            <b>Check out this new book, "An Introduction to Waste Management and Circular Economy", by Stijn van Ewijk and Julia Stegemann, which was published in 2023.</b> Details: DOI: 10.14324/111.9781800084650. Extent: 96 illustrations, link: https://uclpress.co.uk/book/an-introduction-to-waste-management-and-circular-economy/
                         <br>
                         <br>
                         <b>Classical reading: "Design Through the 12 Principles of Green Engineering"</b>, by By Paul T. Anastas and Julie B. Zimmerman (2003, DOI: 10.1021/es032373g):
@@ -1320,7 +1324,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>		
                         <b>Exercise on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
-			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Woorkbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
+			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Workbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
                         <br>
@@ -1360,6 +1364,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 		<b>Julius Noah Jandl, </b>for spotting and correcting errors in IEooc_Methods3_Software1.<br>
 		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.<br>
 		<b>Simon Schulte and Johan Vélez, </b>for preparing the MRIO-based exercises to calculate income-specific footprint and their uncertainty: IEooc_Methods5_Exercise4a+b.<br>
+ 		<b>Türkü Açar, </b>for providing feedback and a correction for IEooc_Background1_Exercise1_Stock_Flow_Service_Nexus.<br>
                 <br>
                 <br>
                 <br>
