@@ -204,7 +204,8 @@
 
                         <b>Video lecture</b> on the big picture: Sustainability and sustainable development:
                         <br>
-                        <a href="https://youtu.be/p6nvQYJFsDY" target="new">IEooc_Background2_Lecture2</a>
+                        <a href="https://youtu.be/p6nvQYJFsDY" target="new">IEooc_Background2_Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture2_updated_public.zip">slide deck for IEooc_Background2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -216,7 +217,8 @@
 
                         <b>Video lecture:</b> Systems thinking for sustainability:
                         <br>
-                        <a href="https://youtu.be/HJmNxi3nNh0" target="new">IEooc_Background2_Lecture4</a>
+                        <a href="https://youtu.be/HJmNxi3nNh0" target="new">IEooc_Background2_Lecture4</a><br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture4_updated_public.zip">slide deck for IEooc_Background2_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -230,7 +232,8 @@
 
                         <b>Video lecture:</b> Measuring sustainability and sustainable development:
                         <br>
-                        <a href="https://youtu.be/vSRyT7PJ7Z8" target="new">IEooc_Background2_Lecture5</a>
+                        <a href="https://youtu.be/vSRyT7PJ7Z8" target="new">IEooc_Background2_Lecture5</a><br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture5_updated_public.zip">slide deck for IEooc_Background2_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -266,6 +269,54 @@
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Background2_Exercise2_GWP_Sample_Solution.pdf" target="new">IEooc_Background2_Exercise2_GWP_Sample_Solution (pdf)</a><br>
                         <a href="/Content/IEooc_Background2_Exercise2_GWP_Sample_Solution.xlsx" target="new">IEooc_Background2_Exercise2_GWP Workbook (xlsx)</a>
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>Sustainability challenges of the building sector, IEooc_Background2_Lecture7:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture7.zip">slide deck for IEooc_Background2_Lecture7</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>Sustainability Challenges of Transport, IEooc_Background2_Lecture8:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture8.zip">slide deck for IEooc_Background2_Lecture8</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>The roles of material and energy in sustainable development, IEooc_Background2_Lecture9:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture9.zip">slide deck for IEooc_Background2_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>Agriculture, forestry, and land use (AFOLU), IEooc_Background2_Lecture10:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture10.zip">slide deck for IEooc_Background2_Lecture10</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>Mining, energy supply, and energy futures, IEooc_Background2_Lecture11:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture11.zip">slide deck for IEooc_Background2_Lecture11</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>Material Cycles, Circular Economy, and Material Futures, IEooc_Background2_Lecture12:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture12.zip">slide deck for IEooc_Background2_Lecture12</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Video lecture:</b> Towards a Corridor for the Sustainable Use of Materials – Insights from Industrial Ecology Research:
+                        <br>
+                        <a href="https://youtu.be/MuZjsj4_TjE" target="new">IEooc_Background2_Lecture13</a><br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture13.zip">slide deck for IEooc_Background2_Lecture13</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>Material and Energy in Emerging Economies, IEooc_Background2_Lecture14:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture14.zip">slide deck for IEooc_Background2_Lecture14</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>Technology materials and criticality, IEooc_Background2_Lecture15:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture15.zip">slide deck for IEooc_Background2_Lecture15</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Slide deck (without video recording): </b>Policy and industry applications, IEooc_Background2_Lecture16:<br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture16.zip">slide deck for IEooc_Background2_Lecture16</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+						<b>Video lecture:</b> Steel:
+                        <br>
+                        <a href="https://youtu.be/JaI5_YtkAwA" target="new">IEooc_Background2_Lecture17</a><br>
+						Link to the <a href="/Content/IEooc_Background2_Lecture17.zip">slide deck for IEooc_Background2_Lecture17</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                     </td>
