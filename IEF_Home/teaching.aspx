@@ -608,31 +608,21 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a>
                         <br>
                         <br>
-                        <b>Jupyter notebook with a tutorial on basic data handling:</b> Reading and inspecting data, performing basic time series calculations, plotting and saving results. This Jupyter notebook contains explanations on how to use the Python programming language for calculating energy use and emissions of the vehicle fleet for a future scenario. The data handling and calculation steps are explained step by step. <b>Level of difficulty: (++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software001.ipynb", "IEooc_Methods3_Software001 (ipynb)");</script><br/>
-                        <a href="/Content/IEooc_Methods3_Software001_Data.xlsx" target="new">IEooc_Methods3_Software001_Data (data file)</a>
-                        <br>
-                        <br>
-                        <b>Jupyter notebook on scenarios for the transformation of the vehicle fleet.</b> This workbook is a direct follow-up to IEooc_Methods3_Software001. It contains a number of additional tasks and calculations for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software002.ipynb", "IEooc_Methods3_Software002 (ipynb)");</script><br/>
-                        <a href="/Content/IEooc_Methods3_Software001_Data.xlsx" target="new">IEooc_Methods3_Software001_Data (data file, same as for IEooc_Methods3_Software001)</a>
-			<br>
-                        For this exercise a sample solution is available:<br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software002_SampleSolution.ipynb", "IEooc_Methods3_Software002_SampleSolution (ipynb)");</script><br/>
-                        <br>
-                        <br>
-                        <b>Jupyter notebook on scenarios for the material flows for the transformation of the vehicle fleet.</b> This workbook is a direct follow-up to IEooc_Methods3_Software002. It contains the calculation of the material content of in-use stock and flows, the estimation of recycling flows and recycled content, and the estimation of GHG emissions and material footprint for vehicle production for the same topic and dataset. <b>Level of difficulty: (++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software003.ipynb", "IEooc_Methods3_Software003 (ipynb)");</script><br/>
-                        <a href="/Content/IEooc_Methods3_Software001_Data.xlsx" target="new">IEooc_Methods3_Software001_Data (data file, same as for IEooc_Methods3_Software001)</a>
-			<br>
-                        For this exercise a sample solution is available:<br>
-			<script>jupyterLink("/Content/IEooc_Methods3_Software003_SampleSolution.ipynb", "IEooc_Methods3_Software003_SampleSolution (ipynb)");</script><br/>
+                        <b>Jupyter notebooks for basic dynamic MFA in Python</b> This series of five Jupyter notebooks covers all core steps of building your own scenario models for the stock-flow-service nexus and link it to energy, materials, and emissions. The data handling and calculation steps are explained step by step. <b>Level of difficulty: (++)</b><br>
+						This Jupyter notebook series uses the European passenger vehicle fleet as example. It contains explanations on how to use the Python programming language for building a scenario model for the stock-flow-service nexus for passenger cars and for calculating energy use and emissions of the vehicle fleet for a future scenario.<br> 
+						<b>IEooc_Methods3_Software001 (ipynb): </b> Tutorial on basic data handling: Reading and inspecting data, performing basic time series calculations, plotting and saving results. <br>
+						<b>IEooc_Methods3_Software002 (ipynb): </b> Tutorial and exercise on implementing a simple inflow-driven model to estimate the fleet by age-cohort from the time series of new vehicle registration.<br>
+						<b>IEooc_Methods3_Software003 (ipynb): </b> Tutorial and exercise on implementing a simple stock-driven model to estimate the future fleet, new registration, and scrapping of passenger vehicles based on a given scenario for population and service (passenger-km) demand.<br>
+						<b>IEooc_Methods3_Software004 (ipynb): </b> Tutorial and exercise on linking the vehicle flows and stocks to material flows and stocks. A simple material cycle model is programmed to estimate the recycled content of future vehicles.<br>
+						<b>IEooc_Methods3_Software005 (ipynb): </b> Tutorial and exercise on linkink the vehicle fleet and material cycle model to energy demand and then to scope 1, 2, and 3 GHG.<br>
+                        This exercise series (as Jupyter notebooks in .ipynb files), the required input data, and the sample solutions are available as zipped folder:<br>
+						<a href="/Content/M3_Software_001_to_005.zip">IEooc_Methods3_Software_001 to _005, complete package (workbooks, data, solutions) as zip folder</a>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
 			    For this notebook, two versions exist: <br>
                         <script>jupyterLink("/Content/IEooc_Methods3_Software1_ODYM.ipynb", "IEooc_Methods3_Software1 (ODYM)");</script> for use together with the dynamic MFA library of the <a href="https://github.com/IndEcol/ODYM" target="new">ODYM MFA</a> software. <br/>
-			<script>jupyterLink("/Content/IEooc_Methods3_Software1_old_dMFA_class.ipynb", "IEooc_Methods3_Software1 (old dynamid MFA class)");</script> for use together with the <a href="https://github.com/stefanpauliuk/dynamic_stock_model" target="new">stand-alone dynamic MFA library</a> that is no longer maintained. <br/>
+			<script>jupyterLink("/Content/IEooc_Methods3_Software1_old_dMFA_class.ipynb", "IEooc_Methods3_Software1 (old dynamic MFA class)");</script> for use together with the <a href="https://github.com/stefanpauliuk/dynamic_stock_model" target="new">stand-alone dynamic MFA library</a> that is no longer maintained. <br/>
                         <a href="/Content/IEooc_Methods3_Software1_Data.xlsx" target="new">IEooc_Methods3_Software1 (data file for both versions of the notebook)</a>
                         <br>
                         <br>
