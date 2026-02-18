@@ -165,12 +165,14 @@
                         <br>
                         <b>Theory lecture: </b>24 min video lecture on industrial ecology as systems science, metabolism of socio-ecological systems, the central system linkages studied by industrial ecology, and the relation between industrial ecology and its neighbouring disciplines:
                         <br>
-                        <a href="https://youtu.be/g3qa6zmSmGU" target="new">IEooc_Background1_Lecture2</a>
+                        <a href="https://youtu.be/g3qa6zmSmGU" target="new">IEooc_Background1_Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Background1_Lecture2_public.zip">slide deck for IEooc_Background1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Method overview lecture: </b>16 min video lecture on the five core industrial ecology methods, their main research questions and history. Overview of industrial ecology research infrastructure:
                         <br>
-                        <a href="https://youtu.be/atDWS9KnE_U" target="new">IEooc_Background1_Lecture3</a>
+                        <a href="https://youtu.be/atDWS9KnE_U" target="new">IEooc_Background1_Lecture3</a><br>
+						Link to the <a href="/Content/IEooc_Background1_Lecture3_public.zip">slide deck for IEooc_Background1_Lecture3</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Blog entry: "Why a Two-Pillar Model is a Better Choice for Conceptualizing Sustainability</b>  than the Common Three-Pillar Conceptualisation:
