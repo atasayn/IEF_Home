@@ -7,7 +7,6 @@ using ClosedXML.Excel;
 using System.Web.UI.WebControls;
 using System.Linq;
 using static IEF_Home.circomodService;
-using Microsoft.Office.Interop.Excel;
 using DataTable = System.Data.DataTable;
 using System.Web.UI.HtmlControls;
 
@@ -559,117 +558,176 @@ namespace IEF_Home.cls
             }
         }
 
-        public void isDataForTableValid(string file, List<string> columnAspects, List<string> rowAspects, Dictionary<string, string> rowAspectNamesandIDs, 
-            Dictionary<string, string> colAspectNamesandIDs,Dictionary<string, string> classIDList, List<string> rowClassIDs,List<string> colClassIDs, string rowNo,string colNo,
-            GridView dataSheetMatch, DataTable dataMatch, DataTable dataMatchResult,BulletedList Ok, BulletedList Warning, BulletedList Error, System.Web.UI.WebControls.CheckBox simpleSearch, 
-            System.Web.UI.WebControls.CheckBox levenshteinSearch)
+        public void isDataForTableValid(
+     string file,
+     List<string> columnAspects,
+     List<string> rowAspects,
+     Dictionary<string, string> rowAspectNamesandIDs,
+     Dictionary<string, string> colAspectNamesandIDs,
+     Dictionary<string, string> classIDList,
+     List<string> rowClassIDs,
+     List<string> colClassIDs,
+     string rowNo,
+     string colNo,
+     GridView dataSheetMatch,
+     DataTable dataMatch,
+     DataTable dataMatchResult,
+     BulletedList Ok,
+     BulletedList Warning,
+     BulletedList Error,
+     System.Web.UI.WebControls.CheckBox simpleSearch,
+     System.Web.UI.WebControls.CheckBox levenshteinSearch)
         {
             string choice = iedcValidate.IsMyCheckboxChecked(simpleSearch, levenshteinSearch);
-            // Vars
-            circomodService serviceInstance = new circomodService();
 
+            circomodService serviceInstance = new circomodService();
             DataTable tempDataMatchResult = new DataTable();
 
             using (var workbook = new XLWorkbook(file))
             {
-                // Worksheet with the sheet name
-                var excelApp = new Application();
-                Microsoft.Office.Interop.Excel.Workbook wb = excelApp.Workbooks.Open(file);
-                Microsoft.Office.Interop.Excel.Worksheet ws;
-                ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets["Data"];
-                // Get Col Aspects
-                Range rangeRow = ws.Cells[rowAspects.Count + 1, 1];
-                Range targetRangeCol = rangeRow.Resize[rowNo, columnAspects.Count];
-                object[,] cellValues = (object[,])targetRangeCol.Value2;
-                int rowCountCol = targetRangeCol.Rows.Count;
-                int colCountCol = targetRangeCol.Columns.Count;
+                var ws = workbook.Worksheet("Data");
 
+                int rowNoInt = int.Parse(rowNo);
+                int colNoInt = int.Parse(colNo);
+
+                // ==========================
+                // ✅ GET COLUMN ASPECT VALUES
+                // ==========================
                 for (int col = 1; col <= columnAspects.Count; col++)
                 {
-                
-                    var cellAddresses = createCellAddress(rowAspects.Count+1 , rowCountCol + rowAspects.Count, col,"row based");
-                    List<string> firstColumnValuesList = Enumerable.Range(1, cellValues.GetLength(0))
-                        .Select(i => System.Net.WebUtility.HtmlEncode(cellValues[i, col]?.ToString()) ?? string.Empty)
-                        .ToList();
-                    var resultDictionary = cellAddresses.Zip(firstColumnValuesList, (key, value) => new { key, value })
+                    List<string> firstColumnValuesList = new List<string>();
+
+                    for (int row = rowAspects.Count + 1; row <= rowAspects.Count + rowNoInt; row++)
+                    {
+                        var value = ws.Cell(row, col).GetValue<string>();
+                        firstColumnValuesList.Add(System.Net.WebUtility.HtmlEncode(value) ?? string.Empty);
+                    }
+
+                    var cellAddresses = createCellAddress(
+                        rowAspects.Count + 1,
+                        rowAspects.Count + rowNoInt,
+                        col,
+                        "row based");
+
+                    var resultDictionary = cellAddresses
+                        .Zip(firstColumnValuesList, (key, value) => new { key, value })
                         .ToDictionary(x => x.key, x => x.value);
 
                     tempDataMatchResult = serviceInstance.selectAttrClosestMatch(
-                    "attribute" + colAspectNamesandIDs.FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value + "_oto",
-                    classIDList.FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value,
-                    colAspectNamesandIDs.Keys.ToList(),
-                    firstColumnValuesList,
-                    columnAspects[col - 1],
-                    resultDictionary,
-                    dataSheetMatch,
-                    dataMatch, Ok, Warning, Error, choice);
+                        "attribute" + colAspectNamesandIDs
+                            .FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value + "_oto",
+                        classIDList
+                            .FirstOrDefault(x => x.Key == columnAspects[col - 1]).Value,
+                        colAspectNamesandIDs.Keys.ToList(),
+                        firstColumnValuesList,
+                        columnAspects[col - 1],
+                        resultDictionary,
+                        dataSheetMatch,
+                        dataMatch,
+                        Ok,
+                        Warning,
+                        Error,
+                        choice);
                 }
 
-                //// Get Row Aspects
-                Range range = ws.Cells[1, columnAspects.Count + 1];
-                Range targetRange = range.Resize[rowAspects.Count, colNo];
-                object[,] cellValues2 = (object[,])targetRange.Value2;
-                // Initialize a new array to include cell addresses along with values
-                int rowCount = targetRange.Rows.Count;
-                int colCount = targetRange.Columns.Count;
-  
-                
-
+                // ==========================
+                // ✅ GET ROW ASPECT VALUES
+                // ==========================
                 for (int row = 1; row <= rowAspects.Count; row++)
                 {
-                    var cellAddresses = createCellAddress(columnAspects.Count+1, colCount + columnAspects.Count, row, "column based");
-                    List<string> firstColumnValuesList = Enumerable.Range(1, cellValues2.GetLength(1))
-                        .Select(i => System.Net.WebUtility.HtmlEncode(cellValues2[row, i]?.ToString()) ?? string.Empty)
-                        .ToList();
-                    var resultDictionary = cellAddresses.Zip(firstColumnValuesList, (key, value) => new { key, value })
+                    List<string> firstColumnValuesList = new List<string>();
+
+                    for (int col = columnAspects.Count + 1; col <= columnAspects.Count + colNoInt; col++)
+                    {
+                        var value = ws.Cell(row, col).GetValue<string>();
+                        firstColumnValuesList.Add(System.Net.WebUtility.HtmlEncode(value) ?? string.Empty);
+                    }
+
+                    var cellAddresses = createCellAddress(
+                        columnAspects.Count + 1,
+                        columnAspects.Count + colNoInt,
+                        row,
+                        "column based");
+
+                    var resultDictionary = cellAddresses
+                        .Zip(firstColumnValuesList, (key, value) => new { key, value })
                         .ToDictionary(x => x.key, x => x.value);
 
-                    tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + rowAspectNamesandIDs.FirstOrDefault(x => x.Key == rowAspects[row - 1]).Value + "_oto",
-                        classIDList.FirstOrDefault(x => x.Key == rowAspects[row - 1]).Value,
+                    tempDataMatchResult = serviceInstance.selectAttrClosestMatch(
+                        "attribute" + rowAspectNamesandIDs
+                            .FirstOrDefault(x => x.Key == rowAspects[row - 1]).Value + "_oto",
+                        classIDList
+                            .FirstOrDefault(x => x.Key == rowAspects[row - 1]).Value,
                         rowAspectNamesandIDs.Keys.ToList(),
                         firstColumnValuesList,
                         rowAspects[row - 1],
                         resultDictionary,
                         dataSheetMatch,
-                        dataMatch, Ok, Warning, Error, choice);
-
+                        dataMatch,
+                        Ok,
+                        Warning,
+                        Error,
+                        choice);
                 }
-                wb.Close();
-                excelApp.Quit();
-                dataSheetMatch.DataSource = tempDataMatchResult;
-                dataSheetMatch.DataBind();
             }
-            iedcValidate.ErrorCounter(counterGlobal.errCount, counterGlobal.warningCount, counterGlobal.oKCount, Ok, Warning, Error);
 
+            dataSheetMatch.DataSource = tempDataMatchResult;
+            dataSheetMatch.DataBind();
+
+            iedcValidate.ErrorCounter(
+                counterGlobal.errCount,
+                counterGlobal.warningCount,
+                counterGlobal.oKCount,
+                Ok,
+                Warning,
+                Error);
         }
 
-        public void isDataRowValid(string sheetName1, string sheetName2,string file,GridView dataSheetMatch,DataTable dataMatch,
-            DataTable dataMatchResult,int noRowsI10Value, BulletedList Ok, BulletedList Warning, BulletedList Error, System.Web.UI.WebControls.CheckBox simpleSearch, 
+        public void isDataRowValid(
+            string sheetName1,
+            string sheetName2,
+            string file,
+            GridView dataSheetMatch,
+            DataTable dataMatch,
+            DataTable dataMatchResult,
+            int noRowsI10Value,
+            BulletedList Ok,
+            BulletedList Warning,
+            BulletedList Error,
+            System.Web.UI.WebControls.CheckBox simpleSearch,
             System.Web.UI.WebControls.CheckBox levenshteinSearch)
         {
             string choice = iedcValidate.IsMyCheckboxChecked(simpleSearch, levenshteinSearch);
 
-            // Empty Variables
             Dictionary<string, string> aspectNames = new Dictionary<string, string>();
             Dictionary<string, string> classificationIDs = new Dictionary<string, string>();
             DataTable tempDataMatchResult = new DataTable();
 
             using (var workbook = new XLWorkbook(file))
             {
-                // Worksheet with the sheet name
+                // ==========================
+                // ✅ FIRST SHEET (Metadata)
+                // ==========================
                 var worksheet = workbook.Worksheet(sheetName1);
-                // Retrieve the value from cell G Column
-                var fPos = 12;
-                var dPosAsp = 26;
-                var dPosClas = 27;
+
+                int fPos = 12;
+                int dPosAsp = 26;
+                int dPosClas = 27;
+
                 while (true)
                 {
-                    var cellDValueAsp = HttpUtility.HtmlEncode(worksheet.Cell("D" + dPosAsp).Value.ToString().Trim());
-                    var cellDValueClass = HttpUtility.HtmlEncode(worksheet.Cell("D" + dPosClas).Value.ToString().Trim());
-                    var cellFValue = HttpUtility.HtmlEncode(worksheet.Cell("F" + fPos).Value.ToString().Trim());
-                    var cellGValue = HttpUtility.HtmlEncode(worksheet.Cell("G" + fPos).Value.ToString().Trim());
+                    var cellDValueAsp = HttpUtility.HtmlEncode(
+                        worksheet.Cell("D" + dPosAsp).GetValue<string>()?.Trim());
 
-                    // Stop the loop only if all cells contain "none" or are empty/null
+                    var cellDValueClass = HttpUtility.HtmlEncode(
+                        worksheet.Cell("D" + dPosClas).GetValue<string>()?.Trim());
+
+                    var cellFValue = HttpUtility.HtmlEncode(
+                        worksheet.Cell("F" + fPos).GetValue<string>()?.Trim());
+
+                    var cellGValue = HttpUtility.HtmlEncode(
+                        worksheet.Cell("G" + fPos).GetValue<string>()?.Trim());
+
                     if ((string.IsNullOrEmpty(cellDValueAsp) || cellDValueAsp == "none") &&
                         (string.IsNullOrEmpty(cellDValueClass) || cellDValueClass == "none") &&
                         (string.IsNullOrEmpty(cellFValue) || cellFValue == "none") &&
@@ -678,72 +736,92 @@ namespace IEF_Home.cls
                         break;
                     }
 
-                    // Add non-null and non-"none" values to respective lists
-                    if (!string.IsNullOrEmpty(cellDValueAsp) && !string.IsNullOrEmpty(cellDValueClass) && cellDValueAsp != "none" && cellDValueClass != "none") classificationIDs.Add(cellDValueAsp, cellDValueClass);
-                    if (!string.IsNullOrEmpty(cellFValue) && !string.IsNullOrEmpty(cellGValue) && cellFValue != "none" && cellGValue != "none") aspectNames.Add(cellFValue, cellGValue);
+                    if (!string.IsNullOrEmpty(cellDValueAsp) &&
+                        !string.IsNullOrEmpty(cellDValueClass) &&
+                        cellDValueAsp != "none" &&
+                        cellDValueClass != "none")
+                    {
+                        classificationIDs[cellDValueAsp] = cellDValueClass;
+                    }
 
-                    
-                  
-                    // Move to the next row
+                    if (!string.IsNullOrEmpty(cellFValue) &&
+                        !string.IsNullOrEmpty(cellGValue) &&
+                        cellFValue != "none" &&
+                        cellGValue != "none")
+                    {
+                        aspectNames[cellFValue] = cellGValue;
+                    }
+
                     fPos++;
-                    dPosAsp+=2;
-                    dPosClas+=2;
+                    dPosAsp += 2;
+                    dPosClas += 2;
                 }
-                
-                // Worksheet with the sheet name
-                var excelApp = new Application();
-                Microsoft.Office.Interop.Excel.Workbook wb = excelApp.Workbooks.Open(file);
-                Microsoft.Office.Interop.Excel.Worksheet ws;
-                ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets[sheetName2];
-                // Determine used range and worksheet name
-                int countRows = ws.UsedRange.Rows.Count;
-                int countCols = ws.UsedRange.Columns.Count;
 
+                // ==========================
+                // ✅ SECOND SHEET (Data Sheet)
+                // ==========================
+                var ws = workbook.Worksheet(sheetName2);
+
+                var usedRange = ws.RangeUsed();
+                if (usedRange == null)
+                    return;
+
+                int countRows = usedRange.RowCount();
+                int countCols = usedRange.ColumnCount();
 
                 circomodService serviceInstance = new circomodService();
-                int NumRow =1;
-                int NumCol = 1;
-                Range range = ws.Cells[NumRow, NumCol];
-                Range targetRange = range.Resize[countRows, countCols];
-                object[,] cellValues = (object[,])targetRange.Value2;
-                // Find the "commodity" column index
-                Range headerRow = targetRange.Rows[1]; // First row for headers
 
-            
-
-
+                // ✅ Loop through headers (first row)
                 for (int col = 1; col <= countCols; col++)
                 {
+                    var headerValue = HttpUtility.HtmlEncode(
+                        ws.Cell(1, col).GetValue<string>());
 
-                    var headerValue = HttpUtility.HtmlEncode((headerRow.Cells[1, col] as Range)?.Value2);
-                    if (headerValue != null && headerValue != "value" && headerValue != "comment" && headerValue != "stats_array string")
+                    if (!string.IsNullOrEmpty(headerValue) &&
+                        headerValue != "value" &&
+                        headerValue != "comment" &&
+                        headerValue != "stats_array string")
                     {
-                        
-                        var cellAddresses = createCellAddress(2, countRows, col, "row based");
-                        List<string> firstColumnValuesList = Enumerable.Range(2, cellValues.GetLength(0)-1)
-                            .Select(i => System.Net.WebUtility.HtmlEncode(cellValues[i, col]?.ToString()) ?? string.Empty)
-                            .ToList();
-                        var resultDictionary = cellAddresses.Zip(firstColumnValuesList, (key, value) => new { key, value })
+                        List<string> firstColumnValuesList = new List<string>();
+
+                        for (int row = 2; row <= countRows; row++)
+                        {
+                            var value = ws.Cell(row, col).GetValue<string>();
+                            firstColumnValuesList.Add(
+                                System.Net.WebUtility.HtmlEncode(value) ?? string.Empty);
+                        }
+
+                        var cellAddresses = createCellAddress(
+                            2,
+                            countRows,
+                            col,
+                            "row based");
+
+                        var resultDictionary = cellAddresses
+                            .Zip(firstColumnValuesList, (key, value) => new { key, value })
                             .ToDictionary(x => x.key, x => x.value);
-                        tempDataMatchResult = serviceInstance.selectAttrClosestMatch("attribute" + aspectNames.FirstOrDefault(x => x.Key == headerValue).Value + "_oto",
-                            classificationIDs.FirstOrDefault(x => x.Key == headerValue).Value,
+
+                        tempDataMatchResult = serviceInstance.selectAttrClosestMatch(
+                            "attribute" + aspectNames
+                                .FirstOrDefault(x => x.Key == headerValue).Value + "_oto",
+                            classificationIDs
+                                .FirstOrDefault(x => x.Key == headerValue).Value,
                             classificationIDs.Keys.ToList(),
                             firstColumnValuesList,
                             headerValue,
                             resultDictionary,
                             dataSheetMatch,
-                            dataMatch, Ok, Warning, Error,choice);
-
+                            dataMatch,
+                            Ok,
+                            Warning,
+                            Error,
+                            choice);
                     }
                 }
 
-                wb.Close(); 
-                excelApp.Quit();
                 dataSheetMatch.DataSource = tempDataMatchResult;
                 dataSheetMatch.DataBind();
-
             }
-;
         }
 
         static List<string> createCellAddress(int start, int end,int index,string movementDiraction)
