@@ -270,10 +270,18 @@
 
             <div class="not-show-twitter">
              <h3 style="text-align: center"><b>+++ News +++</b></h3> <br>
+
+                <h4><b>IEDC Critical Mass Sprint completed</b></h4>
+                <p> [Winter 2026] During the 2025 critical mass sprint, in total 180 datasets were collected, formatted, and uploaded to the IEDC. These datasets cover service provision, in-use stocks, product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies. They are now part of one of the largest openly available compilations of material stock and flow and product group data, and can be found via the IEDC’s multiple search functions.
+                    <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/IEDC_CMS_Checked.jpg"/>
+                    Direct access to the IEDC and its multiple search functions: <a href="https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI" target="_blank">https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI</a>
+                </p>
+                <hr>
+
                 <h4><b>First datasets on socio-metabolic inequality – New tool to browse IEDC datasets by project</b></h4>
                 <p> [Winter 2026] Inequality is a major issue of our time, but data on inequality are still scarce. The new IEDC project “Socio_metabolic_inequality_SMI” offers to the community a compilation of around 20 datasets on Lorenz curves, Gini coefficients, and other inequality indicators from more than 50 literature sources. The data cover non-monetary socio-metabolic indicators (service provision, stocks, flows, energy, material, water, GHG/emissions, and land). The datasets can be found by using a new search tool that allows users to quickly find all IEDC datasets linked to a certain project. Submission of own datasets to the IEDC to this and other projects is welcome!
                     <img style="padding-top: 10px;padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/SMI_Project_Gini.jpg"/>
-                    See all datasets in this and other projects:   <a href="https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI" target="_blank">https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI</a>
+                    See all datasets in this and other projects:   <a href=" https://www.database.industrialecology.uni-freiburg.de/" target="_blank"> https://www.database.industrialecology.uni-freiburg.de/</a>
                 </p>
                 <hr>
 
