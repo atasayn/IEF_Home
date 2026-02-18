@@ -164,9 +164,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" EnableViewState="false" runat="server">
 <div>
-        <h2 class="title">Industrial ecology data commons (IEDC) data template validator </h2>
-        <h3 class="title">Validate your data formatting and classifications against a general standard </h3>
-        <%--<p style="color: red">This feature is currently under development and will be released in November of 2024</p>--%>
+    <div class="row" style="padding-bottom: 20px">
+        <div class="col-md-8" style="width:88.667%">
+            <h2 class="title">Industrial ecology data commons (IEDC) data template validator </h2>
+            <h3 class="title">Validate your data formatting and classifications against a general standard </h3>
+        </div>
+        <div class="col-md-1">
+            <img src="resources/iedcLogo.png" style="width: 120px; height: auto;" class="img-fluid">
+        </div>
+    </div>
+
         <p>
             Datasets in industrial ecology and socio-metabolic research typically have between 1 and 10000 data points and are frequently stored in xlsx spreadsheets. The industrial ecology data commons (IEDC) offers a general data model, a set of classifications, 
             and spreadsheet templates to consistently format such data in order to facilitate data updating, archiving, and exchange across projects.
