@@ -570,28 +570,23 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                     <td width="30%"></td>
                     <td width="70%">
                         <b>Video lecture introducing the basic principles of dynamic material flow analysis,</b> the main data sources for dynamic MFA models, some examples of dynamic MFA, and the most important approaches to solving mathematical models of dynamic MFA systems:  <b>Prerequisites:</b> Calculus. Linear difference equations, simple differential equations. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://youtu.be/ba7ykRIrih0" target="new">IEooc_Methods3_Lecture1</a>
-                        <br>
-                        NOTE: An update of the slides with minor fixes to the notation is available here:<br>
-                        <a href="/Content/IEooc_Methods3_Lecture1_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture1_CorrectedSlides</a><br>
-                        Thanks to Oliver Cencic (TU Vienna) for the feedback!
+                        <a href="https://youtu.be/ba7ykRIrih0" target="new">IEooc_Methods3_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip"> combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture on dynamic stock models.</b> The following concepts are introduced and explained: Population balance models, the leaching model, impulse response functions, age-cohorts, and the lifetime model. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b>
                         <br>
-                        <a href="https://youtu.be/PfRCTW5U7dk" target="new">IEooc_Methods3_Lecture2</a>
-                        <br>
-                        NOTE: An update of the slides with minor fixes to the notation is available here:<br>
-                        <a href="/Content/IEooc_Methods3_Lecture2_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture2_CorrectedSlides</a><br>
-                        Thanks to Oliver Cencic (TU Vienna) for the feedback!
+                        <a href="https://youtu.be/PfRCTW5U7dk" target="new">IEooc_Methods3_Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip"> combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture on inflow-driven and stock-driven modelling:</b> With inflow-driven modelling stocks can be determined from historic inflows using a convolution operation. With stock-driven modelling the inflow can be determined from a given stock scenario using inverse convolution. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://youtu.be/dZamxAXDOtY" target="new">IEooc_Methods3_Lecture3</a>
+                        <a href="https://youtu.be/dZamxAXDOtY" target="new">IEooc_Methods3_Lecture3</a><br>
+						Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip"> combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
-                        NOTE: An update of the slides with minor fixes to the notation and a better distinction between discrete and continuous models is available here:<br>
-                        <a href="/Content/IEooc_Methods3_Lecture3_Corrected_Cencic.pdf" target="new">IEooc_Methods3_Lecture3_CorrectedSlides</a><br>
-                        Thanks to Oliver Cencic (TU Vienna) for the feedback!
+                        <br>
+						<b>Slide deck (without video recording): </b>Dynamic MFA - Multi-layer MEFA for modelling the stock-flow service nexus and its implementation in Python, IEooc_Methods3_Lecture4:<br>
+						Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip"> combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise: "Dynamic model of the German steel cycle, 1800-2008."</b> The goals of this exercise are twofold: first, to develop a systems understanding  regarding  the  development  of  flows  and  stocks  in  material cycles, using the example of the steel cycle in Germany. Second, to estimate steel stocks using dynamic stock modelling. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b><br>
@@ -687,11 +682,13 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <b>Video lecture from the application section:</b> Bioenergy and Biomaterials from a Life Cycle Perspective.
                         <br>
-                        <a href="https://youtu.be/rhUVfkq_S8o" target="new">IEooc_Application4_Lecture9</a>
+                        <a href="https://youtu.be/rhUVfkq_S8o" target="new">IEooc_Application4_Lecture9</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture9_updated_public.zip"> slide deck for IEooc_Application4_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture on the computational structure of LCA:</b> In this lecture the maths of LCA are explained, following the Leontief input-output model. First, the processes and flows that are modeled and calculated are defined and located in the system. Then, the different calculation steps are explained step by step. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://youtu.be/3GDfNksiY0s" target="new">IEooc_Methods4_Lecture1</a>
+                        <a href="https://youtu.be/3GDfNksiY0s" target="new">IEooc_Methods4_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Methods4_Lecture1.zip"> slide deck for IEooc_Methods4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Basic LCA exercises, no LCA software and database required:</b>
@@ -858,6 +855,10 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="https://www.youtube.com/watch?v=PaAMb9WXc30" target="new">IEooc_Methods5_Lecture1_Part4</a>
                         <br>
                         <br>
+                        <b>Lecture (no video recording available) on the foundations of input-output analysis (IOA)</b>, covering (1) the industrial network or "Why nobody knows how a pencil is made.“ (2) Input-output tables and models (IO models), (3) IO models with environmental extension, (4) Relationship between IOA and other economic theories. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b><br>
+                        Link to the <a href="/Content/IEooc_Methods5_Lecture1a.zip"> slide deck for IEooc_Methods5_Lecture1a</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
                         <b>Exercise on IO basics:</b> This is an introductory exercise to IO analysis, covering the mathematical basics of IO modelling and the system structure of IO models. <b>Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Methods5_Exercise1_IO_Basics.pdf" target="new">IEooc_Methods5_Exercise1</a>.
                         <br>
@@ -868,7 +869,8 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Lecture on multiregional input-output analysis.</b>  <b>Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://youtu.be/0-2GCs8ifOs" target="new">IEooc_Methods5_Lecture2</a>
+                        <a href="https://youtu.be/0-2GCs8ifOs" target="new">IEooc_Methods5_Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Methods5_Lecture2.zip"> slide deck for IEooc_Methods5_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise: "Multiregional input-output analysis (Excel-based)."</b> This exercise contains a simple application of the MRIO analysis: construction of supply chains, carbon footprint calculations of final consumers in the EU, investigation of fine particulate matter and mercury emissions along the supply chain.<b> Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
