@@ -1225,7 +1225,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <br>
                         <b>Lecture: Energy and Sustainability - an introduction.</b> <b>Level of difficulty: (++)</b><br>
-                        <a href="https://youtu.be/BCeJto4cLCA" target="new">IEooc_Application4_Lecture1</a>
+                        <a href="https://youtu.be/BCeJto4cLCA" target="new">IEooc_Application4_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture1_updated_public.zip"> slide deck for IEooc_Application4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1257,7 +1258,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
 
                         <b>Lecture: Energy history, energy supply, and energy indicators.</b> <b>Level of difficulty: (++)</b><br>
-                        <a href="https://youtu.be/QOdFQH-iHE8" target="new">IEooc_Application4_Lecture2</a>
+                        <a href="https://youtu.be/QOdFQH-iHE8" target="new">IEooc_Application4_Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture2_updated_public.zip"> slide deck for IEooc_Application4_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1285,7 +1287,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Video lecture:</b> Energy conversion.
                         <br>
-                        <a href="https://youtu.be/RwORxAh6bNI" target="new">IEooc_Application4_Lecture3</a>
+                        <a href="https://youtu.be/RwORxAh6bNI" target="new">IEooc_Application4_Lecture3</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture3_updated_public.zip"> slide deck for IEooc_Application4_Lecture3</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1298,12 +1301,14 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Video lecture:</b> Energy indicators.
                         <br>
-                        <a href="https://youtu.be/Iolnw2UUCms" target="new">IEooc_Application4_Lecture4</a>
+                        <a href="https://youtu.be/Iolnw2UUCms" target="new">IEooc_Application4_Lecture4</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture4_updated_public.zip"> slide deck for IEooc_Application4_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture:</b> Environmental impacts of energy supply.
                         <br>
-                        <a href="https://youtu.be/RNeqWkviWHY" target="new">IEooc_Application4_Lecture5</a>
+                        <a href="https://youtu.be/RNeqWkviWHY" target="new">IEooc_Application4_Lecture5</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture5_updated_public.zip"> slide deck for IEooc_Application4_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1316,7 +1321,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Video lecture:</b> Energy Efficiency.
                         <br>
-                        <a href="https://youtu.be/HmLzaN2C8GI" target="new">IEooc_Application4_Lecture6</a>
+                        <a href="https://youtu.be/HmLzaN2C8GI" target="new">IEooc_Application4_Lecture6</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture6_updated_public.zip"> slide deck for IEooc_Application4_Lecture6</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1339,7 +1345,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Video lecture:</b> Energy Technology Revolution.
                         <br>
-                        <a href="https://youtu.be/U4PyLIhn9ZM" target="new">IEooc_Application4_Lecture7</a>
+                        <a href="https://youtu.be/U4PyLIhn9ZM" target="new">IEooc_Application4_Lecture7</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture7_updated_public.zip"> slide deck for IEooc_Application4_Lecture7</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1367,7 +1374,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Video lecture:</b> Bioenergy and Biomaterials from a Life Cycle Perspective.
                         <br>
-                        <a href="https://youtu.be/rhUVfkq_S8o" target="new">IEooc_Application4_Lecture9</a>
+                        <a href="https://youtu.be/rhUVfkq_S8o" target="new">IEooc_Application4_Lecture9</a><br>
+						Link to the <a href="/Content/IEooc_Application4_Lecture9.zip"> slide deck for IEooc_Application4_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
