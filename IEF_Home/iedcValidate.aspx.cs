@@ -196,7 +196,7 @@ namespace IEF_Home
                 // Date
                 string dateTime = System.DateTime.Now.ToString("ddMMyyyy");
                 // Combine directory path and filename
-                string directoryPath = @"C:\Windows\Temp";
+                string directoryPath = @"~\Temp";
                 string pdfPath = System.IO.Path.Combine(directoryPath, $"{pdfName}_validation_{dateTime}.pdf");
                 // Header
                 // Define the relative path to the image
