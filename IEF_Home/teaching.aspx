@@ -1023,6 +1023,11 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="https://www.youtube.com/watch?v=VV_bH8FRRtE" target="new">IEooc_Application1_Lecture1</a>
                         <br>
                         <br>
+                        <b>Video lecture "People-centered sustainability transition",</b> covering demand-side solutions and socio-metabolic inequality: Concept - Evidence - Policy<br>
+                        <a href="https://youtu.be/DVXgAOWnyec" target="new">IEooc_Application1_Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Application1_Lecture2.zip"> slide deck for IEooc_Application1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
                         <b>Exercise on land constraints in agricultural societies:</b> Develop a simple engineering model, learn about the physical distance and population constraints 
 in the agricultural society, and estimate the area yield of modern renewable energy technologies. <b>Prerequisites:</b> Calculus.  <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Application1_Exercise1_Area_Constraints.pdf" target="new">IEooc_Application1_Exercise1</a>.
@@ -1096,7 +1101,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <br>
                         <b>Lecture on a comprehensive resource efficiency-climate change mitigation assessment:</b> Presentation of the methods and results of a systematic industrial ecology assessment of the link between resource efficiency and climate change mitigation in the passenger vehicle and residential building sectors. <b>Prerequisites:</b> Dynamic Material Flow Analysis.  <b>Level of difficulty: (++)</b><br>
-                        <a href="https://youtu.be/Wkf72dUScV4" target="new">IEooc_Application2_Lecture1</a>
+                        <a href="https://youtu.be/Wkf72dUScV4" target="new">IEooc_Application2_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Application2_Lecture1.zip"> slide deck for IEooc_Application2_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Core reading:</b> "Critical appraisal of the circular economy standard BS 8001:2017 and a dashboard of quantitative system indicators for its implementation in organizations":
@@ -1106,7 +1112,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <b>Lecture: Sustainability in the steel cycle </b>The steel industry is responsible for 7-9% of global CO2 emissions. Reducing these emissions is not the only sustainability challenge in the steel sector but the dominant one. Four different system analysis perspectives are introduced (process/process cluster/material cycle/entire system) and it is shown how future steel demand can be estimated and the entire steel cycle be modelled to describe different sustainable futures for the steel industry. An introduction to material efficiency in the steel cycle is also given.
                         <b>Prerequisites:</b> Dynamic Material Flow Analysis.  <b>Level of difficulty: (++)</b><br>
-                        <a href="https://youtu.be/UcWF8UrjwEM" target="new">IEooc_Application2_Lecture2</a>
+                        <a href="https://youtu.be/UcWF8UrjwEM" target="new">IEooc_Application2_Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Application2_Lecture2.zip"> slide deck for IEooc_Application2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Blog entry about circular economy and in-use stocks:</b> In this piece the role played by in-use stocks of products, buildings, and infrastructure in closing material cycles (or the 'circular economy transition') is highlighted.
@@ -1142,11 +1149,13 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
 
                         <b>Lecture on the current applications of Life Cycle Assessment.</b> This video gives a brief overview of the major current applications of LCA as well as some of the main research frontiers in that field. <b>Prerequisites:</b> Basic understanding of life cycle thinking and life cycle assessment.  <b>Level of difficulty: (++)</b><br>
-                        <a href="https://youtu.be/ur4Uwtl2a8U" target="new">IEooc_Application3_Lecture1</a>
+                        <a href="https://youtu.be/ur4Uwtl2a8U" target="new">IEooc_Application3_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Application3_Lecture1.zip"> slide deck for IEooc_Application3_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Lecture on sustainable production and consumption.</b> The following topics are covered: i) Production-based and consumption-based accounting of environmental impacts and their applications ii) The difference between the environmental and the ecological footprint iii) System change for sustainable production and consumption. <b>Prerequisites:</b> life cycle thinking. <b>Level of difficulty: (++)</b><br>
-                        <a href="https://youtu.be/JYeyj_5T228" target="new">IEooc Application3 Lecture2</a>
+                        <a href="https://youtu.be/JYeyj_5T228" target="new">IEooc Application3 Lecture2</a><br>
+						Link to the <a href="/Content/IEooc_Application3_Lecture2_updated_public.zip"> slide deck for IEooc_Application3_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise: "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment). <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
