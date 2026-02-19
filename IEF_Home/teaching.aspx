@@ -501,7 +501,7 @@ difficulty: (+)</b><br>
                         <a href="http://www.blog.industrialecology.uni-freiburg.de/wp-content/uploads/2021/06/SEM_MFA_Guidelines_V1.0_June_2021.pdf" target="new">IEooc_Methods2_Reading1</a>
                         <br>
                         <br>
-                        <b>Exercise: Cement production, efficiency strategies and related indicators:</b> The goal of this exercise is to consolidate your understanding of basic quantitative system analysis. Also, to get some detailed knowledge about energy use and greenhouse gas emissions of the cement industry. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (++)</b><br>
+                        <b>Exercise: Cement demand and production, efficiency strategies and related indicators:</b> The goal of this exercise is to consolidate your understanding of the stock-flow-service nexus and of basic quantitative system analysis. Also, to get some detailed knowledge about energy use and greenhouse gas emissions of the cement industry. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Methods2_Exercise1_Cement.pdf" target="new">IEooc_Methods2_Exercise1</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
@@ -518,6 +518,16 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods2_Exercise2_Cycle_Solution.pdf" target="new">IEooc_Methods2_Exercise2_Solution (pdf)</a>
+                        <br>
+                        <br>
+                        <b>Exercise: Energy and buildings:</b> The goal of this exercise is to get to know the orders of magnitude of scope 1+2 GHG, energy use, and services in the residential building sector in different countries; practice systems thinking and quantitative systems analysis; work with system definitions and scope 1-2 emissions; stock-flow-service nexus. <b>Level of difficulty: (++)</b><br>
+                        <a href="/Content/IEooc_Methods2_Exercise3_Buildings_Energy.pdf" target="new">IEooc_Methods2_Exercise3</a>.
+                        <br>
+                        For this exercise a workbook with data is available:<br>
+                        <a href="/Content/IEooc_Methods2_Exercise3_Buildings_Energy_Workbook.xlsx" target="new">IEooc_Methods2_Exercise3_Buildings_Energy_Workbook (xlsx)</a>
+						<br>
+                        For this exercise a sample solution is available:<br>
+                        <a href="/Content/IEooc_Methods2_Exercise3_Buildings_Energy_Sample_Solution.xlsx" target="new">IEooc_Methods2_Exercise3_Buildings_Energy_Sample_Solution (xlsx)</a>
                         <br>
                         <br>
                         Check also this <b>exercise from the application section, which contains a Monte-Carlo Simulation:</b> "Inclusion of Consumption of carbon intensive materials in emissions trading. You will gain a basic systems understanding  of  material  markets, learn about the material  content  of  merchandise  groups,  error propagation, and the application of Monte-Carlo-Simulation in material flow analysis." <b>Prerequisites:</b> Calculus. Random variables, discrete and continuous probability distributions, Monte-Carlo-Simulation. <b>Level of difficulty: (+++)</b><br>
@@ -1208,6 +1218,10 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <br>
 
+                        <b>Blog entry about the limited information conveyed by aggregated footprint indicators, such as the material footprint: "Resource use matters, but material footprints are a poor way to measure it"</b> In her critique, Hannah Ritchie from Our World in Data (OWID) stresses that adding up the weight of very different materials doesn’t tell us about their scarcity, environmental, or socioeconomic impacts.<br>
+                        <a href="https://ourworldindata.org/material-footprint-limitations" target="new">IEooc_Application3_Reading7</a>
+                        <br>
+                        <br>
                         <br>
                         <br>
                     </td>
