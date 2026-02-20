@@ -16,226 +16,290 @@
             window.open('https://www.database.industrialecology.uni-freiburg.de/dataFilter.aspx?value=' + encodeURIComponent(datasetId), '_blank');
         }
     </script>
-    <style>
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
+<style>
 
-        .grid-container {
-            padding: 20px;
-            display: grid;
-            grid-gap: 15px
-        }
+/* ===============================
+   GLOBAL
+=================================*/
 
-        .grid-intro {
-            grid-template-columns: auto auto;
-            grid-template-columns: auto auto;
-            grid-template-rows: auto auto auto;
-            display: grid;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .grid-intro-title p {
-            font-size: 14px;
-            padding-top: 5px;
-        }
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 
-        .grid-intro-expl {
-            font-size: 14px;
-            padding-top: 5px;
-        }
+.grid-container {
+    padding: 20px;
+}
 
+/* ===============================
+   INTRO GRID
+=================================*/
 
-        .grid-item-dataframe {
-            width: fit-content;
-        }
+.grid-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
+.grid-intro-title p,
+.grid-intro-expl {
+    font-size: 14px;
+    padding-top: 5px;
+}
 
-        .grid-item-dataset {
-            max-height: 400px;
-            width: fit-content;
-            width: 600px
-        }
+/* ===============================
+   DATA AREA
+=================================*/
 
-        .grid-dataset-list {
-            padding-top: 30px;
-            margin: auto;
-        }
+.grid-item-dataframe,
+.grid-item-dataset {
+    width: 100%;
+    max-width: 600px;
+}
 
-        .grid-dataset-preview {
-/*            margin: auto;
-            border-radius: 10px;
-            overflow: hidden;
-            max-width: 100%*/
-            width: 100%;
-            table-layout: fixed;
-        }
+.grid-dataset-list {
+    padding-top: 30px;
+    margin: auto;
+}
 
-        .grid-dataset-previewInfo {
-            margin: auto;
-            border-radius: 10px;
-            overflow: hidden;
-            max-width: 100%;
-            padding-top: 20px
-        }
+/* ===============================
+   TABLE WRAPPER (IMPORTANT)
+=================================*/
 
-        td:hover {
-            background-color: #ffc000;
-            color: #000000;
-            cursor: pointer
-        }
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
 
-        .active {
-            background-color: #ffc000;
-        }
+/* ===============================
+   TABLE STYLE
+=================================*/
 
-        #data-type td, #aspects td, #aspectsClass1 td, #aspectsClass2 td, #aspectsClass3 td, #dataset-list td {
-            width: 100%
-        }
+.table-style {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+}
 
-        #data-type th, #aspects th, #aspectsClass1 th, #aspectsClass2 th, #aspectsClass3 th, #dataset-list th {
-            width: 100%
-        }
+.table-style th,
+.table-style td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    word-break: break-word;
+}
 
-        th {
-            padding: 5px;
-            background: #0f8ca7;
-            text-align: center;
-        }
+.table-style th {
+    background-color: #0f8ca7;
+    text-align: center;
+}
 
-        #data-type, #aspects, #aspectsClass1, #aspectsClass2, #aspectsClass3, #dataset-preview, #dataset-previewInfo {
-            /*border: 1px solid #0f8ca7;*/
-            border-radius: 10px;
-            border-collapse: separate;
-            overflow: hidden;
-            max-height: 400px;
-        }
+.table-style tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
 
+th {
+    padding: 5px;
+    background: #0f8ca7;
+    text-align: center;
+}
 
+/* ===============================
+   CLICK + ACTIVE STATES
+=================================*/
 
-                    .table-wrapper {
-                        width: 100%;
-                        overflow-x: auto;
-                    }
+td:hover {
+    background-color: #ffc000;
+    color: #000000;
+    cursor: pointer;
+}
 
+.active {
+    background-color: #ffc000;
+}
 
+/* ===============================
+   SCROLLABLE GRIDVIEW BODIES
+=================================*/
 
-        #dataset-preview td:not(:first-child),
-        #dataset-preview th:not(:first-child) {
-            word-break: break-word;
-            white-space: normal;
-        }
+#data-type tbody,
+#aspects tbody,
+#aspectsClass1 tbody,
+#aspectsClass2 tbody,
+#aspectsClass3 tbody {
+    display: block;
+    height: 400px;
+    overflow-y: auto;
+}
 
+#dataset-list tbody {
+    display: block;
+    height: 200px;
+    overflow-y: auto;
+}
 
+/* keep headers aligned */
+#data-type thead,
+#aspects thead,
+#aspectsClass1 thead,
+#aspectsClass2 thead,
+#aspectsClass3 thead,
+#dataset-list thead {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
 
-        .table-style {
-            border-collapse: collapse;
-            width: 100%;
-            overflow: hidden;
-            max-height: 200px;
-        }
+#data-type tbody tr,
+#aspects tbody tr,
+#dataset-list tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
 
-            .table-style th, .table-style td {
-                border: 1px solid #ddd;
-                padding: 8px;
-            }
+/* ===============================
+   DATASET PREVIEW TABLES
+=================================*/
 
-            .table-style th {
-                background-color: #0f8ca7;
-                text-align: center;
-            }
+.grid-dataset-preview,
+.grid-dataset-previewInfo {
+    width: 100%;
+    overflow-x: auto;
+    padding-top: 20px;
+}
 
-            .table-style tr:nth-child(even) {
-                background-color: #f0f0f0; /* Light gray */
-            }
+#dataset-preview,
+#dataset-previewInfo {
+    height: 400px;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    border-radius: 10px;
+}
 
+#dataset-preview th,
+#dataset-previewInfo th {
+    position: sticky;
+    top: 0;
+    background: #0f8ca7;
+    z-index: 2;
+}
 
-        #data-type tbody, #aspects tbody, #aspectsClass1 tbody, #aspectsClass2 tbody, #aspectsClass3 tbody {
-            display: block;
-            height: 400px;
-            overflow-y: auto;
-        }
+#dataset-preview td {
+    text-align: center;
+    vertical-align: middle;
+}
 
-        #dataset-list tbody {
-            display: block;
-            height: 200px;
-            overflow-y: auto;
-        }
+#dataset-preview td:not(:first-child),
+#dataset-preview th:not(:first-child) {
+    word-break: break-word;
+    white-space: normal;
+}
 
-        #dataset-preview, #dataset-previewInfo {
-            height: 400px;
-            display: block;
-            width: 100%;
-            overflow: auto;
-        }
+#dataset-preview tr:nth-child(even),
+#dataset-list tr:nth-child(even),
+#dataset-previewInfo tr:nth-child(even) {
+    background-color: #dddddd;
+}
 
-            #dataset-preview th, #dataset-previewInfo th {
-                position: sticky;
-                top: 0;
-            }
+/* ===============================
+   BUTTONS
+=================================*/
 
-            #dataset-preview td {
-                text-align: center;
-                vertical-align: middle;
-            }
+#btnExport,
+#fltrData {
+    display: block;
+    height: 45px;
+    width: 110px;
+    margin: 10px auto;
+    background: #ffc000;
+    border-color: #ffc000;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
 
-            #dataset-preview tbody, #dataset-previewInfo tbody {
-                max-height: 300px
-            }
+/* ===============================
+   LOADER ANIMATION
+=================================*/
 
-            #data-type tr:nth-child(even), #aspects tr:nth-child(even), #dataset-preview tr:nth-child(even), #dataset-list tr:nth-child(even), #dataset-previewInfo tr:nth-child(even) {
-                background-color: #dddddd;
-            }
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
 
-        #btnExport, #fltrData {
-            display: block;
-            height: 45px;
-            width: 110px;
-            margin: 10px auto;
-            background: #ffc000;
-            border-color: #ffc000;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 14px;
-        }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
-        #aspects tr, #aspectsClass1 tr, #aspectsClass2 tr, #aspectsClass3 tr {
-            display: flex;
-            flex-wrap: wrap;
-        }
+/* ===============================
+   HELPERS
+=================================*/
 
-        /* Safari */
-        @-webkit-keyframes spin {
-            0% {
-                -webkit-transform: rotate(0deg);
-            }
+.gray-row {
+    background-color: #dddddd;
+}
 
-            100% {
-                -webkit-transform: rotate(360deg);
-            }
-        }
+.scrollable-container {
+    height: 400px;
+    width: 100%;
+    overflow: auto;
+    border: 0;
+}
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+=================================*/
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+/* Tablet */
+@media (max-width: 1100px) {
 
-        .gray-row {
-            background-color: #dddddd; /* Change this color to the desired shade of gray */
-        }
+    .row {
+        flex-direction: column;
+    }
 
-        .scrollable-container {
-            height: 400px;
-            width: 100%;
-            overflow: auto;
-            border: 0;
-        }
-    </style>
+    .grid-item-dataframe,
+    .grid-item-dataset {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 0 !important;
+    }
+}
+
+/* Small tablet */
+@media (max-width: 900px) {
+
+    .grid-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 15px;
+    }
+
+    #btnExport,
+    #fltrData {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+</style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -254,7 +318,7 @@
             </div>
 
             <div class="grid-intro-logo">
-                <asp:Image ID="iedcLogo" runat="server" CssClass="iedcLogo" ImageUrl="~/resources/iedcLogo23.png" Width="200" />
+                <asp:Image ID="iedcLogo" runat="server" CssClass="iedcLogo" ImageUrl="~/resources/iedcLogo23.png" Width="150" />
             </div>
 
             <div class="grid-intro-expl">
