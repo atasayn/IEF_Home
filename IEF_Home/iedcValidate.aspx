@@ -228,7 +228,7 @@
 
     <hr />
     <div>
-        <div class="row">
+        <div class="column" style="overflow: auto">
             <asp:Label ID="validatingDateAndTime" runat="server" EnableViewState="false"  Text="" CssClass="bold-label"></asp:Label>
         </div>
         <div class="row" style="margin-top:20px ">
@@ -298,7 +298,7 @@
                 <p id="remarksSection" style="display: none; margin-top: 20px">
                 </p>
                 <br />
-                <div class="row">
+                <div class="column" style="overflow: auto">
                     <asp:Label runat="server" Text="<b>Table 2:</b> Validation for the data aspects and their classifications." EnableViewState="false" Style="font-size: 15px;" />
                     <asp:GridView ID="aspectReportTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                         <columns>
@@ -311,7 +311,7 @@
                     </asp:GridView>
                 </div>
                 <br />
-                <div class="row">
+                <div class="column" style="overflow: auto">
                     <asp:GridView ID="dimensionCompareTable" runat="server" CssClass="center-caption center-caption-remarks zebra-grid" EnableViewState="false" AutoGenerateColumns="False">
                         <columns>
                             <asp:BoundField DataField="Aspect Dimension" HeaderText="Aspect Dimension" HtmlEncode="False" />

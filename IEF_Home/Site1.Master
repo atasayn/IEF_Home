@@ -27,27 +27,66 @@
             color: #fff;
         }
 
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;          /* allows stacking on small screens */
+            gap: 20px;
+        }
+
+        .header-title {
+            flex: 1;                  /* takes remaining space */
+            text-align: center;
+            margin: 0;
+            min-width: 250px;         /* prevents logo collision */
+        }
+
+        .header-logo {
+            max-height: 110px;
+            height: auto;
+        }
+
+        /* Mobile layout */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-title {
+                order: 2;
+            }
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server" >
         <asp:ScriptManager ID="ScriptManager" runat="server" EnableCdn="true" EnablePartialRendering="true" />
         <header>
-            <div class="jumbotron">
+            <div class="jumbotron header-bar">
                 <div class="container-fluid">
 
-                    <div class="col-md-2">
-                        <img src="/resources/IEF_LogoV_23_3.png" style="padding-left: 0;" width="241" height="111" alt="IEF logo">
+                    <div class="header-inner">
+
+                        <!-- Left logo -->
+                        <img src="/resources/IEF_LogoV_23_3.png"
+                             class="header-logo"
+                             alt="IEF logo">
+
+                        <!-- Title -->
+                        <h2 class="header-title">
+                            Freiburg Open Science Portal for Industrial Ecology
+                            and Socio-Metabolic Research
+                        </h2>
+
+                        <!-- Right logo -->
+                        <img src="/resources/uniFreiburg.png"
+                             class="header-logo" style="background: white"
+                             alt="Uni Freiburg logo">
+
                     </div>
 
-                    <div class="col-md-8" style="padding-left: 30px; height: 0px;">
-                        <h2>Freiburg Open Science Portal for Industrial Ecology and Socio-Metabolic Research</h2>
-                        <p style="font-size: 16px;"> </p>
-                    </div>
-
-                    <div class="logo" style="padding-top: 20px" >
-                        <img src="/resources/uniFreiburg.png"  width="300" alt="Uni Freiburg logo">
-                    </div>
                 </div>
             </div>
             <nav class="navbar navbar-default navbar-custom navbar">
