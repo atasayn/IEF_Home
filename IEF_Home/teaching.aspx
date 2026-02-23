@@ -35,7 +35,7 @@
                 <br>
                 <img src="/Content/IEooc_Logo_V2.png" width="250">
                 <h2>Industrial Ecology Open Online Course </h2>
-                <h4>Online since 2018 - Last update: January 2025</h4>
+                <h4>Online since 2018 - Last update: March 2026</h4>
                 <br>
                 <br>
             </center>
@@ -49,10 +49,10 @@
             The <i>Industrial Ecology Open Online Course (IEooc) </i>is a collection of online material that documents and explains the core industrial ecology concepts, methods, data, and applications. It serves as guide to new industrial ecology researchers by enabling them to conduct state-of-the-art science for sustainability.
             <br>
             <br>
-            The course was developed for university students at all levels. It features lectures (screencasts and webinars of 15-60 minutes), exercises with sample solutions, code samples or notebooks, and reading material (papers, essays, reports, blog entries). There are now more than 50 exercises and tutorials, and these form the core of this course. All material is freely available for educational use and can be adapted to own teaching formats.
+            The course was developed for university students at all levels. It features lectures (screencasts and webinars of 15-60 minutes), slide decks, exercises with sample solutions, code samples or notebooks, and reading material (papers, essays, reports, blog entries). There are now more than 50 exercises and tutorials, and these form the core of this course. All material is freely available for educational use and can be adapted to own teaching formats.
             <br>
             <br>
-            The course is divided into three broad sections: background, methods, and applications. In the background section a general introduction to the topic is given and the theoretical foundations of interdisciplinary systems science in general, and industrial ecology in particular, are laid. In the methods section the core industrial ecology methods material flow analysis, life cycle assessment, and input-output analysis are introduced. In the application section a number of selected case studies and other examples are presented. Readers can choose their preferred level of exposure to conceptual foundations, and can jump to the methods section, which also contains most of the exercises, at any point. For fully appreciating the origin, structure, and interrelation of the different industrial ecology methods, however, some extra work with the background material will be helpful. To grasp the content of the application section some familiarity with the industrial ecology methods is necessary. For each course item a quick summary of the content is provided, the prerequisites are stated, and the level of difficulty is indicated on a scale reaching from (+) (not very difficult) to (+++) (rather difficult).
+            The course is divided into three broad sections: background, methods, and applications. In the background section a general introduction to the topic is given and the theoretical foundations of interdisciplinary systems science in general, and industrial ecology in particular, are laid. In the methods section the core industrial ecology methods material flow analysis, life cycle assessment, and input-output analysis are introduced. In the application section a number of selected case studies and other examples are presented. Readers can choose their preferred level of exposure to conceptual foundations, and can jump to the methods section, which also contains most of the exercises, at any point. For fully appreciating the origin, structure, and interrelation of the different industrial ecology methods, however, some extra work with the background material will be helpful. To grasp the content of the application section some familiarity with the industrial ecology methods is necessary. For each course item a quick summary of the content is provided, the prerequisites are stated, and the level of difficulty is indicated on a scale reaching from (+) (little previous knowledge required) to (+++) (expert-level material).
             <br>
             <br>
             The course is built using freely available tools and data wherever possible. For the basic parts of the course a pdf reader, Excel or a similar spreadsheet tool, and access to Youtube are sufficient. The more advanced parts make use of the programming language Python via <a href="https://jupyter.org/" target="new">Jupyter notebooks</a>, and some of the LCA exercises use <a href="http://www.openlca.org" target="new">openLCA</a> in Connection with the <a href="http://www.ecoinvent.org/" target="new">ecoinvent</a> life cycle database. For some exercises reading material that is not generally available is required.
@@ -115,8 +115,8 @@
         <div class="col-md-12">
 
 		<b>A new introductory textbook for our field, "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, was published in 2023.</b> Details: 512 pages, ISBN-13: 9789811277603, Publisher: World Scientific Publishing Company. The book is available both as hardcover and as e-book. It can be ordered online via Amazon, Barnes and Noble, etc.
-			<br>
-        <b>Check out this new book, "Advanced Introduction to Industrial Ecology", by Christopher Kennedy, Professor of Industrial Ecology, University of Victoria, Canada, which was published in 2025.</b> Details: ISBN: 978-1-03532-055-4. Extent: 194 pp, link: https://www.e-elgar.com/shop/gbp/advanced-introduction-to-industrial-ecology-9781035320554.html
+			<br><br>
+        <b>Another new book, "Advanced Introduction to Industrial Ecology", by Christopher Kennedy, Professor of Industrial Ecology, University of Victoria, Canada, was published in 2025.</b> Details: ISBN: 978-1-03532-055-4. Extent: 194 pp, link: https://www.e-elgar.com/shop/gbp/advanced-introduction-to-industrial-ecology-9781035320554.html
 			<br>
             <br>
         </div>
@@ -1086,8 +1086,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                     <td width="30%"></td>
                     <td width="70%">
 			<b>Introductory book: Sustainable Materials - with both eyes open</b>, by Julian M Allwood and Jonathan M Cullen. Available <a href="https://www.uselessgroup.org/publications/book/chapters" target="_blank">here</a> for download.
-                        <br>
-            <b>Check out this new book, "An Introduction to Waste Management and Circular Economy", by Stijn van Ewijk and Julia Stegemann, which was published in 2023.</b> Details: DOI: 10.14324/111.9781800084650. Extent: 96 illustrations, link: https://uclpress.co.uk/book/an-introduction-to-waste-management-and-circular-economy/
+                        <br><br>
+            <b>Another new book, "An Introduction to Waste Management and Circular Economy", by Stijn van Ewijk and Julia Stegemann, was published in 2023.</b> Details: DOI: 10.14324/111.9781800084650. Extent: 96 illustrations, link: https://uclpress.co.uk/book/an-introduction-to-waste-management-and-circular-economy/
                         <br>
                         <br>
                         <b>Classical reading: "Design Through the 12 Principles of Green Engineering"</b>, by By Paul T. Anastas and Julie B. Zimmerman (2003, DOI: 10.1021/es032373g):
