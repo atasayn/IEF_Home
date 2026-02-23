@@ -38,23 +38,23 @@ namespace IEF_Home
 
             // Add rows combining the Category, Subcategory, and Entries into one string
             dt.Rows.Add("Flow (1_F_) by material (1581093 data points)");
-            dt.Rows.Add("Flow (1_F_) by product/commodity (1804223 data points)");
+            dt.Rows.Add("Flow (1_F_) by product/commodity (1804511 data points)");
             dt.Rows.Add("In-use stock (2_IUS_) by material (11354 data points)");
-            dt.Rows.Add("In-use stock (2_IUS_) by product/commodity (194910 data points)");
+            dt.Rows.Add("In-use stock (2_IUS_) by product/commodity (215564 data points)");
             dt.Rows.Add("Population (2_P_) by country/region (62856 data points)");
-            dt.Rows.Add("Lifetime (3_LT_) by product/commodity (2718 daa points)");
-            dt.Rows.Add("Material composition (3_MC_) by material (101304 data points)");
-            dt.Rows.Add("Material composition (3_MC_) by product/commodity (93887 data points)");
+            dt.Rows.Add("Lifetime (3_LT_) by product/commodity (2752 daa points)");
+            dt.Rows.Add("Material composition (3_MC_) by material (103588 data points)");
+            dt.Rows.Add("Material composition (3_MC_) by product/commodity (96205 data points)");
             dt.Rows.Add("Material composition (3_MC_) by type of building and other products (37741 data points)");
-            dt.Rows.Add("Specific energy consumption of products (3_EI_) by product/commodity (1149 data points)");
+            dt.Rows.Add("Specific energy consumption of products (3_EI_) by product/commodity (3311 data points)");
             dt.Rows.Add("Specific energy consumption of products (3_EI_) by type of building and other products (6090 data points)");
             dt.Rows.Add("Sector splits and other shares (3_SHA_) by chemical element (2834 data points)");
             dt.Rows.Add("Sector splits and other shares (3_SHA_) by material (64134 data points)");
-            dt.Rows.Add("Market shares and other process shares (4_SHR) by material (229 data points)");
-            dt.Rows.Add("Yield coefficient (4_PY_) by product/manufacturing process (7505 data points)");
-            dt.Rows.Add("Yield coefficient (4_PY_) by material (1471 data points)");
+            dt.Rows.Add("Market shares and other process shares (4_SHR) by material (272 data points)");
+            dt.Rows.Add("Yield coefficient (4_PY_) by product/manufacturing process (7564 data points)");
+            dt.Rows.Add("Yield coefficient (4_PY_) by material (1530 data points)");
             dt.Rows.Add("Process extension (4_PE_) by process (112 data points)");
-            dt.Rows.Add("Unit process inventory (4_UPI_) by process (568 data points)");
+            dt.Rows.Add("Unit process inventory (4_UPI_) by process (939 data points)");
             dt.Rows.Add("Criticality indicators (6_CR) by chemical element (496 data points)");
             dt.Rows.Add("Criticality indicators (6_CR) by material (4434 data points)");
 
