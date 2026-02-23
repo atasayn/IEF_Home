@@ -330,6 +330,7 @@
     <Content Include="js\html2canvas.min.js" />
     <Content Include="js\iedcAdvancedData.js" />
     <Content Include="js\circular_sankey_script.js" />
+    <Content Include="js\iedcQuickSearch.js" />
     <Content Include="js\jquery-1.11.3.min.js" />
     <Content Include="js\jquery-1.4.1.min.js" />
     <Content Include="js\jquery-1.6.2.js" />

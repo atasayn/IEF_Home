@@ -69,7 +69,6 @@ namespace IEF_Home
             ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
                 document.getElementById('dataset-preview').innerHTML = '';
                 document.getElementById('dataset-previewInfo').innerHTML = '';
-                document.getElementById('hiddentable').innerHTML = '';
                 ", true);
 
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -101,7 +100,6 @@ namespace IEF_Home
             ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
                 document.getElementById('dataset-preview').innerHTML = '';
                 document.getElementById('dataset-previewInfo').innerHTML = '';
-                document.getElementById('hiddentable').innerHTML = '';
                 ", true);
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -221,6 +219,7 @@ namespace IEF_Home
             }
 
         }
+
 
     }
 }
