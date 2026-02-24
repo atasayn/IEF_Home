@@ -39,11 +39,6 @@
    INTRO GRID
 =================================*/
 
-        .grid-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
 
         .grid-intro-title p,
         .grid-intro-expl {
