@@ -820,6 +820,7 @@
   <ItemGroup>
     <Folder Include="imagesToPDF\" />
     <Folder Include="resources\countryFlags\" />
+    <Folder Include="Temp\" />
     <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <PropertyGroup>

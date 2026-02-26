@@ -45,11 +45,19 @@ namespace IEF_Home
 
         public void ButtonUpload(object sender, EventArgs e)
         {
+            // ✅ Delete previously uploaded file (if exists)
+            string oldPath = Cache["filePath"]?.ToString();
+            if (!string.IsNullOrEmpty(oldPath) && File.Exists(oldPath))
+            {
+                try { File.Delete(oldPath); } catch { }
+            }
+            Cache.Remove("filePath");
+
             // Show loader
             ScriptManager.RegisterStartupScript(this, GetType(), "showLoader",
                 "document.getElementById('loaderControl').style.display='block';", true);
 
-            string filePath = null; // temp file path
+            string filePath = null;
 
             try
             {
@@ -69,16 +77,30 @@ namespace IEF_Home
                     return;
                 }
 
-                // Save the uploaded file with a unique name to avoid locking issues
+                // ✅ Ensure Temp folder exists
+                string tempFolder = Server.MapPath("~/Temp/");
+                if (!Directory.Exists(tempFolder))
+                {
+                    Directory.CreateDirectory(tempFolder);
+                }
+
+                // ✅ Keep original file name
                 string originalName = Path.GetFileName(FileUpload.PostedFile.FileName);
-                string safeFileName = Guid.NewGuid().ToString() + Path.GetExtension(originalName);
-                filePath = Server.MapPath("~/UploadedFiles/" + safeFileName);
+                filePath = Path.Combine(tempFolder, originalName);
+
+                // ✅ If same file name exists, overwrite it
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+
                 FileUpload.SaveAs(filePath);
+
                 Cache["filePath"] = filePath;
 
                 string sheetName = "Cover";
 
-                // Check if the Cover sheet exists
+                // ✅ Check if Cover sheet exists
                 if (!fileChecker.DoesCoverExist(FileUpload.PostedFile, sheetName))
                 {
                     HideAllSections();
@@ -87,25 +109,25 @@ namespace IEF_Home
                     return;
                 }
 
-                // Show sections
+                // ✅ Show sections
                 columnDiv.Style["display"] = "block";
                 section1Full.Style["display"] = "block";
                 section2Row.Style["display"] = "block";
                 section2DataCheck.Style["display"] = "block";
                 missingCellTableSec.Style["display"] = "block";
 
-                // Display upload info
+                // ✅ Display upload info
                 string dateTime = DateTime.Now.ToString();
-                validatingDateAndTime.Text = $"<h5 style='font-weight:bold;font-size:18px'>IEDC validation report for {originalName}, uploaded on {dateTime}</h5>";
+                validatingDateAndTime.Text =
+                    $"<h5 style='font-weight:bold;font-size:18px'>IEDC validation report for {originalName}, uploaded on {dateTime}</h5>";
+
                 lblMessage.Text = "File uploaded successfully.";
                 lblMessage.ForeColor = System.Drawing.Color.Green;
 
-                // Reset counters and tables
+                // ✅ Reset counters and tables
                 circomodService.counterGlobal.Reset();
                 dataSheetMatch.DataSource = null;
                 dataSheetMatch.DataBind();
-
-
 
                 // ✅ Process Cover sheet safely
                 try
@@ -132,7 +154,7 @@ namespace IEF_Home
                     Warning.Items.Add("Error processing Data sheet: " + ex.Message);
                 }
 
-                // Cache results for later use
+                // ✅ Cache results
                 Cache["OkList"] = Ok;
                 Cache["WarningList"] = Warning;
                 Cache["ErrorList"] = Error;
@@ -144,23 +166,25 @@ namespace IEF_Home
             }
             catch (Exception ex)
             {
-                // Log any unexpected errors
                 Console.WriteLine(ex);
+
                 Warning.Items.Add("Unexpected error: " + ex.Message);
                 lblMessage.Text = "An error occurred while processing the file.";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
+
+                // ✅ Delete file if processing fails
+                if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+                {
+                    try { File.Delete(filePath); } catch { }
+                }
+
+                Cache.Remove("filePath");
             }
             finally
             {
-                // Hide loader
+                // ✅ Hide loader
                 ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader",
                     "document.getElementById('loaderControl').style.display='none';", true);
-
-                // Delete temporary file to avoid server accumulation
-                if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
-                {
-                    try { File.Delete(filePath); } catch { /* file may be locked */ }
-                }
             }
         }
 
@@ -196,7 +220,15 @@ namespace IEF_Home
                 // Date
                 string dateTime = System.DateTime.Now.ToString("ddMMyyyy");
                 // Combine directory path and filename
-                string directoryPath = @"~\Temp";
+                // ✅ Correctly resolve App_Data/Temp folder
+                string directoryPath = HttpContext.Current.Server.MapPath("~/Temp/");
+
+                // Ensure directory exists
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+
                 string pdfPath = System.IO.Path.Combine(directoryPath, $"{pdfName}_validation_{dateTime}.pdf");
                 // Header
                 // Define the relative path to the image
@@ -713,9 +745,7 @@ namespace IEF_Home
                 
                var test = Cache["filePath"]?.ToString();
                //var test = HttpRuntime.Cache["OkList_" + Session.SessionID];
-
-               Debug.WriteLine(test);
-
+               
 
                 // Ensure the directory exists
                 ConvertExcelToPdf(Cache["filePath"]?.ToString(),
@@ -729,9 +759,6 @@ namespace IEF_Home
                Cache["dataSheetMatch"] as GridView
 
                 );
-
-
-
 
 
             }
