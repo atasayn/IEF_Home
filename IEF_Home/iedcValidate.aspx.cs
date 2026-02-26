@@ -635,8 +635,8 @@ namespace IEF_Home
                     Response.Clear();
                     Response.Buffer = true;
                     Response.ContentType = "application/pdf";
-                    Response.AppendHeader("Content-Disposition", "attachment; filename=" + pdfName + "_validation_" + $"{dateTime}");
-                    Response.TransmitFile(pdfPath);
+                    Response.AppendHeader("Content-Disposition",
+                        "attachment; filename=" + pdfName + "_validation_" + dateTime + ".pdf"); Response.TransmitFile(pdfPath);
                     Response.End();
 
                 }
