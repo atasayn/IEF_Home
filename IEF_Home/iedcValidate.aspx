@@ -398,6 +398,6 @@
     <hr />
 
 
-    <h5>(c) 2024 - Nildem Atasayar and Stefan Pauliuk. For questions and support, contact <a href="in4mation@indecol.uni-freiburg.de">in4mation@indecol.uni-freiburg.de</a></h5>
+    <h5>(c) 2026 - Nildem Atasayar and Stefan Pauliuk. For questions and support, contact <a href="in4mation@indecol.uni-freiburg.de">in4mation@indecol.uni-freiburg.de</a></h5>
 </asp:Content>
 
