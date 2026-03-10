@@ -22,7 +22,6 @@
     <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
 
     <style>
-
         h1 {
             font-size: 30px;
         }
@@ -39,9 +38,9 @@
             font-size: 15px;
         }
 
-        .grid-main h3 {
-            margin-top: 0;
-        }
+            .grid-main h3 {
+                margin-top: 0;
+            }
 
         .grid-photo {
             grid-area: photo;
@@ -58,7 +57,7 @@
         .grid-container {
             display: grid;
             grid-template-areas: 'main  twitter'
-                                 'photo twitter';
+                'photo twitter';
             grid-template-rows: auto;
             grid-auto-columns: auto 500px;
             gap: 10px;
@@ -113,12 +112,12 @@
             display: block;
         }
 
-        .grid-link::before {
-            content: "\1F517  ";
-        }
+            .grid-link::before {
+                content: "\1F517  ";
+            }
         /* spacing and typography for the introduction text */
         .grid-intro {
-            margin-top: 35px; /* replaces the inline style */
+            margin-top: 10px; /* replaces the inline style */
             text-align: justify;
             font-size: 15px;
             line-height: 1.6;
@@ -127,15 +126,15 @@
             margin-right: auto;
         }
 
-        /* paragraph spacing */
-        .grid-intro p {
-            margin: 0 0 1em 0; /* bottom margin defines spacing between paragraphs */
-        }
+            /* paragraph spacing */
+            .grid-intro p {
+                margin: 0 0 1em 0; /* bottom margin defines spacing between paragraphs */
+            }
 
-        /* slightly larger bottom spacing before the strong call-to-action */
-        .grid-intro p:last-of-type {
-            margin-bottom: 0; /* if you want no extra space after final paragraph */
-        }
+                /* slightly larger bottom spacing before the strong call-to-action */
+                .grid-intro p:last-of-type {
+                    margin-bottom: 0; /* if you want no extra space after final paragraph */
+                }
 
         /* accessible hidden heading used for SEO / screen readers */
         .visually-hidden {
@@ -180,10 +179,10 @@
             transition: transform 0.3s ease;
         }
 
-        /* Rotate arrow when expanded */
-        .toggle-arrow.rotate {
-            transform: rotate(180deg);
-        }
+            /* Rotate arrow when expanded */
+            .toggle-arrow.rotate {
+                transform: rotate(180deg);
+            }
 
         .collapsible-content {
             display: none;
@@ -301,11 +300,21 @@
                     </p>
                 </div>
             </section>
-            <div class="w3-bar section-header" style="background-color: #ffc000; margin-top: 10px" onclick="toggleSection()">
+
+        </div>
+
+        <div class="grid-photo">
+            <img loading="lazy" class="img-responsive center-block" src="resources/FOSP_Homepage_1.png" height="800px" width="800px" alt="illustration of the content of this portal">
+            <div class="caption">
+            </div>
+            <div class="w3-bar section-header grid-intro" style="background-color: #ffc000; margin-top: 10px" onclick="toggleSection()">
                 <div class="w3-bar" style="margin-left: 10px; padding-right: 10px;"><b>Toggle section to know more about Industrial Ecology </b></div>
                 <span id="arrow" class="toggle-arrow">▼</span>
+
             </div>
-                    <div id="section-content" class="collapsible-content" style="display: none"> 
+        </div>
+
+        <div id="section-content" class="collapsible-content grid-intro" style="display: none">
             <h2><b>Industrial Ecology and Socio-Metabolic Research</b></h2>
 
             <h3><b>Challenge</b></h3>
@@ -425,14 +434,6 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <a href="https://is4ie.org/sections/metabolism/pages/40" target="_blank">https://is4ie.org/sections/metabolism/pages/40
 </a>
             </p>
-        </div>
-
-        </div>
-
-        <div class="grid-photo">
-            <img loading="lazy" class="img-responsive center-block" src="resources/FOSP_Homepage_1.png" height="800px" width="800px" alt="illustration of the content of this portal">
-            <div class="caption">
-            </div>
         </div>
 
         <div class="grid-twitter">
