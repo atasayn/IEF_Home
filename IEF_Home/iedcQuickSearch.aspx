@@ -54,6 +54,7 @@
             width: 100%;
             max-width: 600px;
             padding-bottom: 10px;
+            padding-right: 10px;
         }
 
         .grid-dataset-list {
@@ -163,7 +164,7 @@
         .grid-dataset-preview,
         .grid-dataset-previewInfo {
             overflow-x: auto;
-            padding-top: 20px;
+        
         }
 
         #dataset-preview,
