@@ -657,6 +657,13 @@
     <Content Include="resources\IEDC_advanced_search_lookupvalues_vMarch2025 %28002%29.xlsx" />
     <Content Include="resources\IEDC_advanced_search_lookupvalues_vMay2025.xlsx" />
     <Content Include="resources\IEDC_advanced_search_lookupvalues_vJanuary2026.xlsx" />
+    <Content Include="resources\webP\CIMO_1.webp" />
+    <Content Include="resources\webP\doi-1.webp" />
+    <Content Include="resources\webP\FOSP_Homepage_1.webp" />
+    <Content Include="resources\webP\iedcLogo.webp" />
+    <Content Include="resources\webP\IEDC_CMS_2025.webp" />
+    <Content Include="resources\webP\IEDC_CMS_Checked.webp" />
+    <Content Include="resources\webP\SMI_Project_Gini.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

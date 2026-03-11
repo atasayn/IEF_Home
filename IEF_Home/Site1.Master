@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" CodeBehind="Site1.master.cs"  EnableViewState="false" Inherits="IEF_Home.privacy.Site1" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head runat="server">
     <%-- ReSharper disable once EmptyTitleTag --%>
     <title>Industrial Ecology Research Portal | University of Freiburg</title>
@@ -9,8 +9,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="vzW3tD9liOFdKI_FEjWdZbsqoWH7naL_NtL3HLLA6K4" />
-    <link rel="preload" href="/css/bootstrap.css" as="style" id="bootstrapCss">
-    <link rel="preload" href="/css/master.css" as="style" id="masterCss">
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/master.css" />
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png">
     <link rel="preconnect" href="https://ajax.aspnetcdn.com" crossorigin="">
     <link rel="dns-prefetch" href="//ajax.aspnetcdn.com">
@@ -62,10 +62,7 @@
         }
     </style>
 </head>
-<script>
-    document.getElementById("bootstrapCss").rel = "stylesheet";
-    document.getElementById("masterCss").rel = "stylesheet";
-</script>
+
 <body>
     <form id="form1" runat="server" >
         <asp:ScriptManager 

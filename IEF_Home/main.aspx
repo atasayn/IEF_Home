@@ -308,7 +308,7 @@
         </div>
 
         <div class="grid-photo">
-            <img loading="lazy" class="img-responsive center-block" src="resources/FOSP_Homepage_1.png" height="800" width="800" alt="illustration of the content of this portal">
+            <img loading="lazy" class="img-responsive center-block" src="resources/webP/FOSP_Homepage_1.webp" height="800" width="800" alt="illustration of the content of this portal">
             <div class="caption">
             </div>
             <div class="w3-bar section-header grid-intro" style="background-color: #ffc000; margin-top: 10px" onclick="toggleSection()">
@@ -449,7 +449,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h4><b>IEDC Critical Mass Sprint completed</b></h4>
                 <p>
                     [Winter 2026] During the 2025 critical mass sprint, in total 180 datasets were collected, formatted, and uploaded to the IEDC. These datasets cover service provision, in-use stocks, product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies. They are now part of one of the largest openly available compilations of material stock and flow and product group data, and can be found via the IEDC’s multiple search functions.
-                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/IEDC_CMS_Checked.png" />
+                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/webP/IEDC_CMS_Checked.webp" />
                     Direct access to the IEDC and its multiple search functions: <a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">https://www.database.industrialecology.uni-freiburg.de/ </a>
                 </p>
                 <hr>
@@ -457,7 +457,11 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h4><b>First datasets on socio-metabolic inequality – New tool to browse IEDC datasets by project</b></h4>
                 <p>
                     [Winter 2026] Inequality is a major issue of our time, but data on inequality are still scarce. The new IEDC project “Socio_metabolic_inequality_SMI” offers to the community a compilation of around 20 datasets on Lorenz curves, Gini coefficients, and other inequality indicators from more than 50 literature sources. The data cover non-monetary socio-metabolic indicators (service provision, stocks, flows, energy, material, water, GHG/emissions, and land). The datasets can be found by using a new search tool that allows users to quickly find all IEDC datasets linked to a certain project. Submission of own datasets to the IEDC to this and other projects is welcome!
-                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/SMI_Project_Gini.jpg" />
+                    <img src="resources/webP/SMI_Project_Gini.webp" style="padding-top: 10px;padding-bottom: 10px;"
+                         width="444"
+                         height="269"
+                         loading="lazy"
+                         alt="Gini illustration">
                     See all datasets in this and other projects:   <a href="https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI" target="_blank">https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI </a>
                 </p>
                 <hr>
@@ -465,7 +469,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h4><b>New tool to search the industrial ecology data commons by author and DOI</b></h4>
                 <p>
                     [Winter 2026] Users of the industrial ecology data commons (IEDC) can now search for data by specific authors (by name) and publications (by DOI). The new search feature browses through both, the catalogue of datasets and the comment feature of each individual data point, so that data from specific authors or publication that are part of larger compilations can also be found.
-                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="DOI icon" src="resources/doi-1.png" />
+                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="DOI icon" src="resources/webP/doi-1.webp" />
                     Access to the new search function:   <a href="https://www.database.industrialecology.uni-freiburg.de/iedc_author_DOI_search.aspx" target="_blank">https://www.database.industrialecology.uni-freiburg.de/iedc_author_DOI_search.aspx</a>
                 </p>
                 <hr>
@@ -473,7 +477,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h4><b>CIRCOMOD project input data now available on the Industrial Ecology Community Database</b></h4>
                 <p>
                     [Summer 2025] During the first phase of the CIRCOMOD EU-Horizon project (Circular Economy Modelling for Climate Change Mitigation), about two dozen of researchers have collected, formatted, and validated a larger number of datasets on service provision, in-use stocks, product material composition, energy intensity, and lifetimes of products, focussing on appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies. Many of these datasets are now available on the IEDC.
-                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="CIRCOMOD project" src="resources/CIMO_1.png" />
+                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="CIRCOMOD project" src="resources/webP/CIMO_1.webp" />
                     Find the CIRCOMOD-related datasets on the IEDC, by searching for ‘CIRCOMOD’:   <a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">https://www.database.industrialecology.uni-freiburg.de/</a>
                 </p>
                 <hr>
@@ -482,7 +486,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <p>
                     [Spring 2025] 2025 is the year when we move the industrial ecology data commons prototype, launched in 2018, into a functional and helpful data archiving and retrieval tool for the entire industrial ecology community! 
                     We plan to collect, format, and upload a larger number of datasets on product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies.
-                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Critical Mass Sprint for the Industrial Ecology" src="resources/IEDC_CMS_2025.png" />
+                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Critical Mass Sprint for the Industrial Ecology" src="resources/webP/IEDC_CMS_2025.webp" />
                     Read more about the 2025 Critical Mass Sprint for industrial ecology data here:   <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2025/03/03/2025-iedc-critical-mass-sprint/ " target="_blank">https://www.blog.industrialecology.uni-freiburg.de/index.php/2025/03/03/2025-iedc-critical-mass-sprint/  </a>
                 </p>
 
