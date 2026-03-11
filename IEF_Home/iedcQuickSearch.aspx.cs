@@ -5,38 +5,28 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using DataTable = System.Data.DataTable;
-using DocumentFormat.OpenXml.Drawing.Charts;
-
 
 namespace IEF_Home
 {
     public partial class iedcQuickSearch : System.Web.UI.Page
     {
         private circomodService circo = new circomodService();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                gvDataType.DataSource = GetData();
-                gvDataType.DataBind();
-                //// initial state
-                //loadingIcon.Style["display"] = "none";
-            }
-            else
-            {
-
-            }
-
+            // Always bind (data is static — safe to rebind)
+            gvDataType.DataSource = GetData();
+            gvDataType.DataBind();
         }
 
-        // Declare a DataTable to hold the data
+        // ===============================
+        // Master Data Table (Static Data)
+        // ===============================
         private DataTable GetData()
         {
-            // Create a DataTable to hold the data
             DataTable dt = new DataTable();
             dt.Columns.Add("Data Type");
 
-            // Add rows combining the Category, Subcategory, and Entries into one string
             dt.Rows.Add("Flow (1_F_) by material (1581093 data points)");
             dt.Rows.Add("Flow (1_F_) by product/commodity (1804511 data points)");
             dt.Rows.Add("In-use stock (2_IUS_) by material (11354 data points)");
@@ -61,22 +51,26 @@ namespace IEF_Home
             return dt;
         }
 
-
+        // ===============================
+        // gvDataType Row Bind
+        // ===============================
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
             dataset_names.DataSource = null;
             dataset_names.DataBind();
+
             ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
                 document.getElementById('dataset-preview').innerHTML = '';
                 document.getElementById('dataset-previewInfo').innerHTML = '';
-                ", true);
+            ", true);
 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvDataType, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] =
+                    Page.ClientScript.GetPostBackClientHyperlink(gvDataType, "Select$" + e.Row.RowIndex);
+
                 e.Row.Attributes["style"] = "cursor:pointer";
 
-                // Highlight the selected row after postback
                 if (e.Row.RowIndex == gvDataType.SelectedIndex)
                 {
                     e.Row.BackColor = System.Drawing.Color.Orange;
@@ -84,27 +78,36 @@ namespace IEF_Home
             }
         }
 
+        // ===============================
+        // gvDataType Selection
+        // ===============================
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
-
             var index = gvDataType.SelectedIndex;
-            gvDataType.DataSource = GetData();
-            gvDataType.DataBind();
             Read_Aspect_Label(index.ToString());
         }
+
+        // ===============================
+        // gvAspects Row Bind
+        // ===============================
         protected void OnRowDataBoundAspect(object sender, GridViewRowEventArgs e)
         {
-
             dataset_names.DataSource = null;
             dataset_names.DataBind();
+
             ScriptManager.RegisterStartupScript(this, GetType(), "clearTables", @"
                 document.getElementById('dataset-preview').innerHTML = '';
                 document.getElementById('dataset-previewInfo').innerHTML = '';
-                ", true);
+            ", true);
+
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                string postback = Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
-                string combinedScript = $"showLoadingIcon(); setTimeout(function() {{{postback}}}, 100);";
+                string postback =
+                    Page.ClientScript.GetPostBackClientHyperlink(gvAspects, "Select$" + e.Row.RowIndex);
+
+                string combinedScript =
+                    $"showLoadingIcon(); setTimeout(function() {{{postback}}}, 100);";
+
                 e.Row.Attributes["onclick"] = combinedScript;
                 e.Row.Attributes["style"] = "cursor:pointer";
 
@@ -113,92 +116,92 @@ namespace IEF_Home
                     e.Row.BackColor = System.Drawing.Color.Orange;
                 }
             }
-
         }
 
-
-
+        // ===============================
+        // gvAspects Selection
+        // ===============================
         protected void OnSelectedIndexChangedAspect(object sender, EventArgs e)
         {
-
             Read_Aspect_Label(gvDataType.SelectedIndex.ToString());
-            // Optionally hide the loader after data is bound
-            ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "hideLoadingIcon();", true);
-            // Report Table
+
+            ScriptManager.RegisterStartupScript(
+                this,
+                GetType(),
+                "hideLoader",
+                "hideLoadingIcon();",
+                true
+            );
+
             DataTable datasetTable = new DataTable();
-            List<string> datasetList = new List<string>();
-            if (divDatasetname.Visible == false)
-            {
-                divDatasetname.Visible = true;
-
-            };
-
             datasetTable.Columns.Add("Dataset List", typeof(string));
 
-            var index = gvDataType.SelectedIndex;
+            List<string> datasetList = new List<string>();
 
+            if (!divDatasetname.Visible)
+                divDatasetname.Visible = true;
+
+            var index = gvDataType.SelectedIndex;
             var value = gvAspects.SelectedValue?.ToString();
+
             string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vJanuary2026.xlsx");
             var file = new FileInfo(sheet);
+
             using (var package = new ExcelPackage(file))
             {
                 var sheetName = package.Workbook.Worksheets[0];
                 string dataType = sheetName.Cells[index + 2, 2].Text;
+
                 datasetList = circo.Dataset_names_quickSearch(dataType, value);
 
                 foreach (var data in datasetList)
-                {
                     datasetTable.Rows.Add(data);
-                }
-
             }
-            gvDataType.DataSource = GetData();
-            gvDataType.DataBind();
 
             dataset_names.DataSource = datasetTable;
             dataset_names.DataBind();
-
         }
+
+        // ===============================
+        // dataset_names Row Bind
+        // ===============================
         protected void dataset_names_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
-            // Check if it's a data row (not header or footer)
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                // Loop through all the cells in the row
                 foreach (TableCell cell in e.Row.Cells)
                 {
-                    // Add a client-side JavaScript click event to each cell
-                    cell.Attributes["onclick"] = "cellClicked(this); + highlightCell(this)";
+                    cell.Attributes["onclick"] =
+                        "cellClicked(this); highlightCell(this);";
                 }
-
             }
         }
 
-
+        // ===============================
+        // Read Aspects from Excel
+        // ===============================
         public void Read_Aspect_Label(string choiceIndex)
         {
-            if (gvAspectDiv.Visible == false)
-            {
+            if (!gvAspectDiv.Visible)
                 gvAspectDiv.Visible = true;
 
-            };
-
-            // Report Table
             DataTable dataAspectTable = new DataTable();
             dataAspectTable.Columns.Add("Aspect List", typeof(string));
-            // Excel Sheet to read
+
             string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vJanuary2026.xlsx");
             var file = new FileInfo(sheet);
+
             using (var package = new ExcelPackage(file))
             {
                 var sheetName = package.Workbook.Worksheets[0];
                 string columnName = "Labels_" + choiceIndex;
                 int colIndex = 0;
-                // Step 1: Find the column index
+
+                // Find column index
                 for (int col = 4; col <= sheetName.Dimension.End.Column; col++)
                 {
                     var header = sheetName.Cells[1, col].Text;
+
                     if (header.Equals(columnName, StringComparison.OrdinalIgnoreCase))
                     {
                         colIndex = col;
@@ -206,20 +209,19 @@ namespace IEF_Home
                     }
                 }
 
-                // Step 2: Read values from that column
+                // Read column values
                 for (int row = 2; row <= sheetName.Dimension.End.Row; row++)
                 {
                     var value = sheetName.Cells[row, colIndex].Text;
-                    if (value == "") break;
-                    dataAspectTable.Rows.Add(value);
+                    if (string.IsNullOrEmpty(value))
+                        break;
 
+                    dataAspectTable.Rows.Add(value);
                 }
+
                 gvAspects.DataSource = dataAspectTable;
                 gvAspects.DataBind();
             }
-
         }
-
-
     }
 }
