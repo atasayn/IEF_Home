@@ -15,6 +15,24 @@ namespace IEF_Home.privacy
     {
 
         /// <summary>
+        /// bootstrapCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink bootstrapCss;
+
+        /// <summary>
+        /// masterCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink masterCss;
+
+        /// <summary>
         /// ContentPlaceHolderHead control.
         /// </summary>
         /// <remarks>
