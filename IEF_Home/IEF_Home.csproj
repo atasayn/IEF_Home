@@ -326,6 +326,8 @@
     <Content Include="js\canvasjs.min.js" />
     <Content Include="js\chart.min.js" />
     <Content Include="js\dropdownMenu.js" />
+    <Content Include="js\exceljs.min.js" />
+    <Content Include="js\FileSaver.min.js" />
     <Content Include="js\highlight.pack.min.js" />
     <Content Include="js\html2canvas.min.js" />
     <Content Include="js\iedcAdvancedData.js" />

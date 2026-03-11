@@ -1,14 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <script type="text/javascript" src="js/xlsx.core.min.js"></script>
-    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
     <script src="js/jquery-1.4.1.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/iedcQuickSearch.js"></script>
-    <script src="js/ScrollableGridPlugin_ASP.NetAJAX_3.0.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script type="text/javascript" src="js/iedcQuickSearch.js" ></script>
+    <script src="js/ScrollableGridPlugin_ASP.NetAJAX_3.0.js" type="text/javascript" defer></script>
+    <script src="js/exceljs.min.js" defer></script>
+    <script src="js/FileSaver.min.js" defer></script>
     <script>
         function openDataFilter() {
             const datasetId = document.getElementById('<%= hdnVal.ClientID %>').value;
