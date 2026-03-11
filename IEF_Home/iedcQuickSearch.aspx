@@ -53,6 +53,7 @@
         .grid-item-dataset {
             width: 100%;
             max-width: 600px;
+            padding-bottom: 10px;
         }
 
         .grid-dataset-list {
@@ -263,7 +264,7 @@
         @media (max-width: 1100px) {
 
             .row {
-                flex-direction: column;
+                flex-direction: row;
             }
 
             .grid-item-dataframe,
