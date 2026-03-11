@@ -12,10 +12,12 @@
     <link rel="preload" href="/css/bootstrap.css" as="style" id="bootstrapCss">
     <link rel="preload" href="/css/master.css" as="style" id="masterCss">
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png">
+    <link rel="preconnect" href="https://ajax.aspnetcdn.com" crossorigin="">
+    <link rel="dns-prefetch" href="//ajax.aspnetcdn.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server" >
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
     </asp:ContentPlaceHolder>
     <style>
