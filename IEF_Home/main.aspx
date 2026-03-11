@@ -200,7 +200,11 @@
 
         @media screen and (max-width: 768px) {
             .grid-container {
-                display: block;
+                grid-template-areas:
+                                   "main"
+                                   "photo"
+                                   "twitter";
+                grid-auto-columns: 1fr;
             }
         }
     </style>
@@ -304,7 +308,7 @@
         </div>
 
         <div class="grid-photo">
-            <img loading="lazy" class="img-responsive center-block" src="resources/FOSP_Homepage_1.png" height="800px" width="800px" alt="illustration of the content of this portal">
+            <img loading="lazy" class="img-responsive center-block" src="resources/FOSP_Homepage_1.png" height="800" width="800" alt="illustration of the content of this portal">
             <div class="caption">
             </div>
             <div class="w3-bar section-header grid-intro" style="background-color: #ffc000; margin-top: 10px" onclick="toggleSection()">
