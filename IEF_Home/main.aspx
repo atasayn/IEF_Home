@@ -470,7 +470,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <p>
                     [Winter 2026] Users of the industrial ecology data commons (IEDC) can now search for data by specific authors (by name) and publications (by DOI). The new search feature browses through both, the catalogue of datasets and the comment feature of each individual data point, so that data from specific authors or publication that are part of larger compilations can also be found.
                     <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="DOI icon" src="resources/webP/doi-1.webp" />
-                    Access to the new search function:   <a href="https://www.database.industrialecology.uni-freiburg.de/iedc_author_DOI_search.aspx" target="_blank">https://www.database.industrialecology.uni-freiburg.de/iedc_author_DOI_search.aspx</a>
+                    Access to the new search function: <a href="https://www.database.industrialecology.uni-freiburg.de/iedc_author_DOI_search.aspx" target="_blank">https://www.database.industrialecology.uni-freiburg.de/iedc_author_DOI_search.aspx</a>
                 </p>
                 <hr>
 
@@ -496,9 +496,9 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
 
 
             <h4 style="color: white">Links:</h4>
-            <span class="grid-link" style="color: white">Our research group's official <a href="https://uni-freiburg.de/enr-indecol" target="_blank">website</a></span>
-            <span class="grid-link" style="color: white">Faculty of Environment and Natural Resources: <a href="https://uni-freiburg.de/unr/" target="_blank">website</a></span>
-            <span class="grid-link" style="color: white">International Society for Industrial Ecology: <a href="http://www.is4ie.org/" target="_blank">website</a></span>
+             <a href="https://uni-freiburg.de/enr-indecol" target="_blank"><span class="grid-link" style="color: white">Our research group's official</span></a>
+             <a href="https://uni-freiburg.de/unr/" target="_blank"><span class="grid-link" style="color: white">Faculty of Environment and Natural Resources</span></a>
+             <a href="http://www.is4ie.org/" target="_blank"><span class="grid-link" style="color: white">International Society for Industrial Ecology</span></a>
 
         </div>
     </div>

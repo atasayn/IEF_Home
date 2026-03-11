@@ -132,16 +132,16 @@
                 <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a> 
             <!--<a href="research/research">Research</a> &#9679; -->
                 <a href="https://www.database.industrialecology.uni-freiburg.de">iedc Database</a>
-                <a href="/odym-recc">Our Models</a> 
-                <a href="/teaching">TEACHING: IEooc</a>
-                <a href="/circomod">Circular Economy</a><br/>
+                <a href="odym-recc">Our Models</a> 
+                <a href="teaching">TEACHING: IEooc</a>
+                <a href="circomod">Circular Economy</a><br/>
                 <a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a> 
-                <li><a href="/iefWorkingPaper">IEF Working Papers</a></li>    
-                <a href="/internal">Internal</a> 
-                <a href="/legal">Legal Notes & Privacy</a>
+                <a href="iefWorkingPaper">IEF Working Papers</a>
+                <a href="internal">Internal</a> 
+                <a href="legal">Legal Notes & Privacy</a>
                 
             </div>
-            <div>
+            <div style="padding-top: 5px">
                 <h3>Industrial Ecology <span>Freiburg 2026</span></h3>
             </div>
         </footer>
