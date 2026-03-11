@@ -94,7 +94,7 @@ footer a {
 
     .navbar-custom .navbar-nav > .active > a {
         color: #ffffff;
-        background-color: #33aa33;
+        background-color: #2e7d32;
     }
 
         .navbar-custom .navbar-nav > li > a:hover,
@@ -103,7 +103,7 @@ footer a {
         .navbar-custom .navbar-nav > .active > a:focus,
         .navbar-custom .navbar-nav > .open > a {
             text-decoration: none;
-            background-color: #33aa33;
+            background-color: #1b5e20;
         }
 
     .navbar-custom .navbar-brAND {
@@ -157,7 +157,7 @@ footer {
     }
 
         footer h3 span {
-            color: #4da3ff
+            color: #ffffff
         }
 
 label.lbl-toggle, input#collapsible {
