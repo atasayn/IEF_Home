@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" CodeBehind="Site1.master.cs" EnableViewState="false" Inherits="IEF_Home.privacy.Site1" %>
+﻿<%@ Master Language="C#" CodeBehind="Site1.master.cs"  EnableViewState="false" Inherits="IEF_Home.privacy.Site1" %>
 
 <!DOCTYPE html>
 <html lang="en">
