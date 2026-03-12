@@ -257,19 +257,19 @@
         //        tbody.appendChild(tr);
         //    }
         //}
-        //var previouslyHighlightedCell = null;
+        //var previouslyhighlightedcell = null;
 
-        //function highlightCell(cell) {
-        //    // Reset the previously highlighted cell
-        //    if (previouslyHighlightedCell) {
-        //        previouslyHighlightedCell.style.backgroundColor = ''; // or set to the original color if it's not empty string
+        //function highlightcell(cell) {
+        //    // reset the previously highlighted cell
+        //    if (previouslyhighlightedcell) {
+        //        previouslyhighlightedcell.style.backgroundcolor = ''; // or set to the original color if it's not empty string
         //    }
 
-        //    // Highlight the new cell
-        //    cell.style.backgroundColor = 'orange';
+        //    // highlight the new cell
+        //    cell.style.backgroundcolor = 'orange';
 
-        //    // Update the reference
-        //    previouslyHighlightedCell = cell;
+        //    // update the reference
+        //    previouslyhighlightedcell = cell;
         //}
 
 

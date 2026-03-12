@@ -128,16 +128,16 @@
         </main>
         <footer>
             <div>
-                <a href="/">Home</a> 
-                <a href="https://www.blog.industrialecology.uni-freiburg.de">Blog</a> 
+                <a href="/">HOME</a> 
+                <a href="https://www.blog.industrialecology.uni-freiburg.de">BLOG</a> 
             <!--<a href="research/research">Research</a> &#9679; -->
-                <a href="https://www.database.industrialecology.uni-freiburg.de">iedc Database</a>
-                <a href="odym-recc">Our Models</a> 
-                <a href="teaching">TEACHING: IEooc</a>
-                <a href="circomod">Circular Economy</a><br/>
+                <a href="https://www.database.industrialecology.uni-freiburg.de">IEDC DATABASE</a>
+                <a href="odym-recc">OUR MODELS</a> 
+                <a href="teaching">TEACHING: IEOOC</a>
+                <a href="circomod">CIRCILAR ECONOMY PROFILES</a><br/>
                 <a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a> 
-                <a href="iefWorkingPaper">IEF Working Papers</a>
-                <a href="internal">Internal</a> 
+                <a href="iefWorkingPaper">IEF WORKING PAPERS</a>
+                <a href="internal">INTERNAL</a> 
                 <a href="legal">Legal Notes & Privacy</a>
                 
             </div>

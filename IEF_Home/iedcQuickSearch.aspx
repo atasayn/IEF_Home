@@ -122,6 +122,7 @@
             padding: 5px;
             background: #0f8ca7;
             text-align: center;
+            color: white;
         }
 
         /* ===============================
@@ -344,7 +345,7 @@
                     </div>
                 </div>
                 <div class="col-md-1" style="padding-top: 20px">
-                    <asp:Image ID="iedcLogo" runat="server" CssClass="iedcLogo" ImageUrl="resources/webP/iedcLogo.webp" Width="120" />
+                    <asp:Image ID="iedcLogo" runat="server" CssClass="iedcLogo" ImageUrl="resources/webP/iedcLogo.webp" alt="industrial ecology logo" Width="120" />
                 </div>
 
 
@@ -379,7 +380,7 @@
 
                             </div>
                             <div class="loader" id="loadingIcon" runat="server" style="display: none; margin: 50px" clientidmode="Static">
-                                <img src="resources/IEDC_working.gif" style="height: 100px; width: 100px">
+                                <img src="resources/IEDC_working.gif" style="height: 100px; width: 100px" >
                             </div>
 
                         </div>
@@ -505,7 +506,7 @@
 
         function cellClicked(cell) {
             showLoadingIcon();
-            highlightCell(cell);
+        
             var userInputDataPreview = $(cell).text();
             console.log(userInputDataPreview);
             $("#dataset-preview").empty();
