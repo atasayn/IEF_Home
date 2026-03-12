@@ -34,9 +34,11 @@
                 <br>
                 <br>
                 <img src="/Content/webP/IEooc_Logo_V2.webp"
-                     width="250"
-                     height="102"
-                     alt="IEooc Logo">                <h2>Industrial Ecology Open Online Course </h2>
+                     width="438"
+                     height="179"
+                     fetchpriority="high"
+                     alt="IEooc Logo">           
+                <h2>Industrial Ecology Open Online Course </h2>
                 <h4>Online since 2018 - Last update: March 2026</h4>
                 <br>
                 <br>
@@ -87,17 +89,17 @@
                 <tr>
                     <td>
                     <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp"
-                         width="200"
-                         height="121"
+                         width="350"
+                         height="212"
                          alt="Global Educational Resources">
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
                     <img src="/Content/webP/OER.webp"
-                         width="250"
-                         height="150"
-                         alt="open resource logo">                
+                         width="438"
+                         height="263"
+                         alt="open resource logo">          
                     </tr>
             </table>
         </div>
