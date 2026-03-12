@@ -84,6 +84,9 @@ namespace IEF_Home
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
             var index = gvDataType.SelectedIndex;
+            // Rebind to refresh highlighting
+            gvDataType.DataSource = GetData();
+            gvDataType.DataBind();
             Read_Aspect_Label(index.ToString());
         }
 

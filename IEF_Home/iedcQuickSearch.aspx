@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <script src="js/jquery-1.4.1.min.js"></script>
-    <script type="text/javascript" src="js/iedcQuickSearch.js" ></script>
+    <script type="text/javascript" src="js/iedcQuickSearch.js" defer ></script>
     <script src="js/ScrollableGridPlugin_ASP.NetAJAX_3.0.js" type="text/javascript" defer></script>
     <script src="js/exceljs.min.js" defer></script>
     <script src="js/FileSaver.min.js" defer></script>
