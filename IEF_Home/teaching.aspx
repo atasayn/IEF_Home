@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Teaching" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
+﻿<%@ Page Title="Teaching" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" EnableViewState="false" Inherits="IEF_Home.teaching" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <!-- Matomo -->
@@ -23,7 +23,6 @@
             document.write(`<a href="https://nbviewer.org/urls/www.industrialecology.uni-freiburg.de${path}" target="_blank">Run externally in nbviewer</a>`);
         }
     </script>
-    <script src="js/jquery-3.6.0.min.js" defer></script>
     <!-- Matomo -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
