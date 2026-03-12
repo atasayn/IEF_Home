@@ -23,6 +23,7 @@
             document.write(`<a href="https://nbviewer.org/urls/www.industrialecology.uni-freiburg.de${path}" target="_blank">Run externally in nbviewer</a>`);
         }
     </script>
+    <script src="js/jquery-3.6.0.min.js" defer></script>
     <!-- Matomo -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
