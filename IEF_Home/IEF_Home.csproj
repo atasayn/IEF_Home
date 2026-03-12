@@ -649,6 +649,9 @@
     <Content Include="research\Documents\RECC_Model_Brief_Nov23.pdf" />
     <Content Include="research\Documents\ODYM_Data_Processes_ODP_Manual.pdf" />
     <Content Include="research\Documents\2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" />
+    <Content Include="Content\webP\440px-Global_Open_Educational_Resources_Logo.webp" />
+    <Content Include="Content\webP\IEooc_Logo_V2.webp" />
+    <Content Include="Content\webP\OER.webp" />
     <None Include="packages.config" />
     <Content Include="resources\Homepage_News_2.webp" />
     <Content Include="resources\3_LT_Vehicles_LIST_Sample.xlsx" />
