@@ -170,7 +170,7 @@
             <h3 class="title">Validate your data formatting and classifications against a general standard </h3>
         </div>
         <div class="col-md-1">
-            <img src="resources/iedcLogo.png" style="width: 120px; height: auto;" class="img-fluid">
+            <img src="resources/webP/iedcLogo.webp" style="width: 120px; height: auto;" class="img-fluid" alt="industrial ecology logo">
         </div>
     </div>
 
@@ -205,15 +205,45 @@
 
     <hr />
     <div class="mb-3">
-        <label for="formFile" EnableViewState="false"  class="form-label">Upload and validate your data against the IEDC</label>
-        
+       <%-- <label for="formFile" EnableViewState="false"  class="form-label">Upload and validate your data against the IEDC</label>--%>
+        <asp:Label 
+            ID="lblFileUpload" 
+            runat="server" 
+            AssociatedControlID="FileUpload">
+            Upload and validate your data against the IEDC
+        </asp:Label>
         <div class="row">
             <div class="column">
                 <div class="row">
-                    <asp:FileUpload ID="FileUpload" class="form-control" runat="server" accept=".xlsx" EnableViewState="false" />
-                    <asp:Button ID="upload" runat="server" Text="Upload File" CssClass="upload-button btn btn-primary" OnClick="ButtonUpload" EnableViewState="false" />
-                    <asp:Label ID="lblMessage" runat="server" Text="" CssClass="message" EnableViewState="false"></asp:Label>
-                    <div class="loader" id="loaderControl" style="display:none" runat="server" EnableViewState="false"></div>
+                    <asp:FileUpload 
+                        ID="FileUpload" 
+                        runat="server" 
+                        CssClass="form-control" 
+                        accept=".xlsx" 
+                        EnableViewState="false" />
+
+                    <asp:Button 
+                        ID="upload" 
+                        runat="server" 
+                        Text="Upload File" 
+                        CssClass="upload-button btn btn-primary" 
+                        OnClick="ButtonUpload" 
+                        EnableViewState="false" />
+
+                    <asp:Label 
+                        ID="lblMessage" 
+                        runat="server" 
+                        Text="" 
+                        CssClass="message" 
+                        EnableViewState="false">
+                    </asp:Label>
+
+                    <div class="loader" 
+                         id="loaderControl" 
+                         style="display:none" 
+                         runat="server">
+                    </div>
+
                 </div>
                 <div class="row" style="padding-top: 5px">
                     <asp:Label runat="server" EnableViewState="false" >Suggestion of alternative labels for products, materials, etc</asp:Label>
