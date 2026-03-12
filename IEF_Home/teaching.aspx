@@ -33,11 +33,7 @@
             <center>
                 <br>
                 <br>
-                <img src="/Content/webP/IEooc_Logo_V2.webp"
-                     width="438"
-                     height="179"
-                     fetchpriority="high"
-                     alt="IEooc Logo">           
+                <img src="/Content/webP/IEooc_Logo_V2.webp" alt="IEooc Logo" width="250">
                 <h2>Industrial Ecology Open Online Course </h2>
                 <h4>Online since 2018 - Last update: March 2026</h4>
                 <br>
@@ -1435,7 +1431,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <br>
                 <br>
                 <br>
-                <img src="/Content/webP/IEooc_Logo_V2.webp" width="250">
+                <img src="/Content/webP/IEooc_Logo_V2.webp" alt="IEooc logo" width="250">
             </center>
 
             <br>
@@ -1473,12 +1469,12 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 </tr>
                 <tr>
                     <td>
-                        <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp" width="200"></td>
+                        <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp" alt="Global Educational Resource" width="200"></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
-                        <img src="/Content/webP/OER.webp" width="250"></td>
+                        <img src="/Content/webP/OER.webp" alt="OER logo" width="250"></td>
                 </tr>
             </table>
 
