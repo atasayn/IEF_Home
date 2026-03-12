@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <script src="js/jquery-1.4.1.min.js"></script>
+    <script src="js/jquery-1.4.1.min.js" defer></script>
     <script type="text/javascript" src="js/iedcQuickSearch.js" defer ></script>
     <script src="js/ScrollableGridPlugin_ASP.NetAJAX_3.0.js" type="text/javascript" defer></script>
     <script src="js/exceljs.min.js" defer></script>
@@ -320,7 +320,7 @@
                     </div>
                 </div>
                 <div class="col-md-1" style="padding-top: 20px">
-                    <asp:Image ID="iedcLogo" runat="server" CssClass="iedcLogo" ImageUrl="~/resources/iedcLogo23.png" Width="120" />
+                    <asp:Image ID="iedcLogo" runat="server" CssClass="iedcLogo" ImageUrl="resources/webP/iedcLogo.webp" Width="120" />
                 </div>
 
 
