@@ -85,16 +85,14 @@
                 <tr>
                     <td>
                     <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp"
-                         width="350"
-                         height="212"
+                         width="250"
                          alt="Global Educational Resources">
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
                     <img src="/Content/webP/OER.webp"
-                         width="438"
-                         height="263"
+                         width="250"
                          alt="open resource logo">          
                     </tr>
             </table>
