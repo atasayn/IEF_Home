@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="Teaching"  Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
-<%@ OutputCache Duration="600" VaryByParam="None" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <!-- Matomo -->
     <script>
