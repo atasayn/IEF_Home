@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" CodeBehind="Site1.master.cs"  EnableViewState="false" Inherits="IEF_Home.privacy.Site1" %>
+﻿<%@ Master Language="C#" CodeBehind="Site1.master.cs" EnableViewState="false" Inherits="IEF_Home.privacy.Site1" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,17 +11,250 @@
     <meta name="google-site-verification" content="vzW3tD9liOFdKI_FEjWdZbsqoWH7naL_NtL3HLLA6K4" />
     <link rel="preload" href="/css/bootstrap.css" as="style">
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/master.css" />
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png">
     <link rel="preconnect" href="https://ajax.aspnetcdn.com" crossorigin="">
     <link rel="dns-prefetch" href="//ajax.aspnetcdn.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server" >
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     </asp:ContentPlaceHolder>
     <style>
+        /* master.css start*/
+        body {
+            font-size: 13px;
+            background-color: #f2f2f2;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .jumbotron {
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        /* Remove the navbar's default rounded borders AND increase the bottom margin */
+        .navbar {
+            border-radius: 0;
+            background-color: #215daa;
+            border: none;
+            color: #215daa;
+            min-height: inherit;
+        }
+
+            .navbar ul li {
+                color: #215daa;
+            }
+        /* Remove the jumbotron's default bottom margin */
+        .jumbotron {
+            margin-bottom: 0;
+            background: linear-gradient(-90deg, rgba(0,160,130,1) 30%, rgba(52,74,154,1) 100%);
+        }
+
+        /* Add a gray background color AND some padding to the footer */
+        footer {
+            background-color: #f2f2f2;
+            padding: 15px;
+        }
+
+        .logo {
+            position: relative;
+            /*max-width: 1500px;*/
+            /*width: 100%;*/
+            text-align: right;
+            /*    right: 0;
+    display: block;*/
+        }
+
+            .logo img {
+                display: inline-block;
+                padding-right: 0;
+                background: white;
+            }
+
+        .col-md-9 {
+            padding-right: 10%;
+            text-align: justify;
+        }
+
+        .caption {
+            text-align: center;
+        }
+        /*.row{
+        background-color: #ffffff;
+    }*/
+        .col-md-3 {
+            background-color: #CCDFF5;
+        }
+
+        footer a {
+            text-align: left;
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        .container {
+            text-align: justify;
+            text-justify: inter-word;
+            padding-left: 0px;
+            margin-right: 10%;
+            margin-left: 0px;
+        }
+
+        .navbar-custom {
+            background: #34499a;
+            color: #ffffff;
+            border-radius: 0;
+        }
+
+            .navbar-custom .navbar-nav > li > a {
+                color: #fff;
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+
+            .navbar-custom .navbar-nav > .active > a {
+                color: #ffffff;
+                background-color: #2e7d32;
+            }
+
+                .navbar-custom .navbar-nav > li > a:hover,
+                .navbar-custom .navbar-nav > li > a:focus,
+                .navbar-custom .navbar-nav > .active > a:hover,
+                .navbar-custom .navbar-nav > .active > a:focus,
+                .navbar-custom .navbar-nav > .open > a {
+                    text-decoration: none;
+                    background-color: #1b5e20;
+                }
+
+            .navbar-custom .navbar-brAND {
+                color: #eeeeee;
+            }
+
+            .navbar-custom .navbar-toggle {
+                background-color: #eeeeee;
+            }
+
+            .navbar-custom .icon-bar {
+                background-color: #33aa33;
+            }
+
+        main {
+            background-color: #ffffff;
+            padding: 15px;
+        }
+
+
+
+        footer {
+            background: #34499a;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            font: 14px sans-serif;
+            margin-top: 30px;
+            text-align: left;
+            width: 100%;
+        }
+
+            footer a {
+                display: inline-block;
+                line-height: 1.8;
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+            footer div {
+                display: block;
+                text-align: center;
+            }
+
+            /* The company logo */
+
+            footer h3 {
+                font: normal 16px 'Cookie', cursive;
+                margin: 0;
+                color: #ffffff;
+            }
+
+                footer h3 span {
+                    color: #ffffff
+                }
+
+        label.lbl-toggle, input#collapsible {
+            display: none;
+        }
+
+        thead td {
+            font-weight: bold;
+        }
+
+        table td {
+            padding: 5px;
+        }
+
+        .table-container {
+            max-width: 100%;
+            overflow: auto;
+        }
+
+        header div div div {
+            /*display: flex;*/
+        }
+
+        .lang-changer {
+            text-align: right;
+        }
+
+            .lang-changer img {
+                cursor: pointer;
+            }
+
+        .centered {
+            text-align: center;
+        }
+
+        .login-warning {
+            color: red;
+            font-weight: bolder;
+        }
+
+        /**
+    Media queries for responsive design
+*/
+        @media screen AND (max-width: 768px) {
+            label.lbl-toggle {
+                line-height: 20px;
+                padding: 10px 0;
+                margin: 0;
+                display: inline-block;
+            }
+
+            #collapsible:checked + div {
+                display: block;
+            }
+
+            footer {
+                margin-top: 0;
+            }
+        }
+
+        @media screen AND (max-width: 1000px) {
+            body {
+                margin: 0;
+            }
+
+            .navbar {
+                margin-bottom: 0;
+            }
+
+            header div div:nth-child(3) {
+                /*display: none;*/
+            }
+        }
+        /* master.css end*/
+
+
         .navbar-nav > li > a:hover,
         .navbar-nav > li.active > a,
         .navbar-nav > li.active > a:hover,
@@ -34,15 +267,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;          /* allows stacking on small screens */
+            flex-wrap: wrap; /* allows stacking on small screens */
             gap: 20px;
         }
 
         .header-title {
-            flex: 1;                  /* takes remaining space */
+            flex: 1; /* takes remaining space */
             text-align: center;
             margin: 0;
-            min-width: 250px;         /* prevents logo collision */
+            min-width: 250px; /* prevents logo collision */
         }
 
         .header-logo {
@@ -65,8 +298,8 @@
 </head>
 
 <body>
-    <form id="form1" runat="server" >
-        <asp:ScriptManager 
+    <form id="form1" runat="server">
+        <asp:ScriptManager
             ID="ScriptManager"
             runat="server"
             EnableCdn="true"
@@ -80,20 +313,18 @@
 
                         <!-- Left logo -->
                         <img src="/resources/IEF_LogoV_23_3.png"
-                             class="header-logo"
-                             alt="IEF logo">
+                            class="header-logo"
+                            alt="IEF logo">
 
                         <!-- Title -->
-                        <h2 class="header-title">
-                            Freiburg Open Science Portal for Industrial Ecology
+                        <h2 class="header-title">Freiburg Open Science Portal for Industrial Ecology
                             and Socio-Metabolic Research
                         </h2>
 
                         <!-- Right logo -->
                         <img src="/resources/uniFreiburg.png"
-                             class="header-logo" style="background: white"
-                             alt="Uni Freiburg logo">
-
+                            class="header-logo" style="background: white"
+                            alt="Uni Freiburg logo">
                     </div>
 
                 </div>
@@ -104,18 +335,18 @@
                     <input id="collapsible" class="toggle" type="checkbox">
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                            <li id="liHome" runat="server" ><a href="/main.aspx">Home</a></li>
+                            <li id="liHome" runat="server"><a href="/main.aspx">Home</a></li>
                             <li id="liBlog" runat="server"><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
-                            <li id="liDatabase" runat="server"><a href="https://www.database.industrialecology.uni-freiburg.de" >IEDC Database</a></li>
+                            <li id="liDatabase" runat="server"><a href="https://www.database.industrialecology.uni-freiburg.de">IEDC Database</a></li>
                             <li id="liModels" runat="server"><a href="/odym-recc">Our Models</a></li>
                             <li id="liTeaching" runat="server"><a href="/teaching">TEACHING: IEooc</a></li>
                             <li id="liCircomod" runat="server"><a href="/circomod">CIRCULAR ECONOMY PROFILES</a></li>
-                            <li id="liSankey" runat="server"><a href="https://www.visualisation.industrialecology.uni-freiburg.de" >CIRCULAR SANKEY APP</a></li>
-                            <li id="liPapers" runat="server"><a href="/iefWorkingPaper">IEF Working Papers</a></li>       
+                            <li id="liSankey" runat="server"><a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a></li>
+                            <li id="liPapers" runat="server"><a href="/iefWorkingPaper">IEF Working Papers</a></li>
                             <li id="liInternal" runat="server"><a href="/internal">Internal</a></li>
 
 
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server" EnableViewState="false" ></asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server" EnableViewState="false"></asp:ContentPlaceHolder>
                         </ul>
                     </div>
                 </div>
@@ -123,24 +354,24 @@
 
         </header>
         <main>
-            
-            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server" >
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
             </asp:ContentPlaceHolder>
         </main>
         <footer>
             <div>
-                <a href="/">HOME</a> 
-                <a href="https://www.blog.industrialecology.uni-freiburg.de">BLOG</a> 
-            <!--<a href="research/research">Research</a> &#9679; -->
+                <a href="/">HOME</a>
+                <a href="https://www.blog.industrialecology.uni-freiburg.de">BLOG</a>
+                <!--<a href="research/research">Research</a> &#9679; -->
                 <a href="https://www.database.industrialecology.uni-freiburg.de">IEDC DATABASE</a>
-                <a href="odym-recc">OUR MODELS</a> 
+                <a href="odym-recc">OUR MODELS</a>
                 <a href="teaching">TEACHING: IEOOC</a>
-                <a href="circomod">CIRCILAR ECONOMY PROFILES</a><br/>
-                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a> 
+                <a href="circomod">CIRCILAR ECONOMY PROFILES</a><br />
+                <a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a>
                 <a href="iefWorkingPaper">IEF WORKING PAPERS</a>
-                <a href="internal">INTERNAL</a> 
+                <a href="internal">INTERNAL</a>
                 <a href="legal">Legal Notes & Privacy</a>
-                
+
             </div>
             <div style="padding-top: 5px">
                 <h3>Industrial Ecology <span>Freiburg 2026</span></h3>
