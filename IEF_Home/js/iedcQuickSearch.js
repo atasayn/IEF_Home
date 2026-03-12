@@ -122,124 +122,140 @@
     //});
     //    }
 
-        // --- Export to Excel ---
-        function ExportToExcel() {
-            const workbook = new ExcelJS.Workbook();
+// --- Export to Excel ---
+    function loadExcelJS(callback) {
+        if (window.ExcelJS) {
+            callback();
+            return;
+        }
 
-            // --- Sheet1: Dataset Description ---
-            const sheet1 = workbook.addWorksheet('Dataset Description');
+        var script = document.createElement("script");
+        script.src = "/js/exceljs.min.js";
+        script.onload = function () {
+            callback();
+        };
+        document.body.appendChild(script);
+    }
+function ExportToExcel() {
+    loadExcelJS(function () {
+        const workbook = new ExcelJS.Workbook();
 
-            // KEEP THIS ENTIRE SECTION EXACTLY AS YOUR ORIGINAL CODE
-            sheet1.getColumn(2).width = 40;
-            sheet1.getColumn(3).width = 30;
-            sheet1.getColumn(4).width = 50;
+        // --- Sheet1: Dataset Description ---
+        const sheet1 = workbook.addWorksheet('Dataset Description');
 
-            sheet1.mergeCells('B2:D2');
-            const titleCell = sheet1.getCell('B2');
-            titleCell.value = 'Dataset Information';
-            titleCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true, shrinkToFit: true };
-            titleCell.font = { bold: true };
-            titleCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } };
+        // KEEP THIS ENTIRE SECTION EXACTLY AS YOUR ORIGINAL CODE
+        sheet1.getColumn(2).width = 40;
+        sheet1.getColumn(3).width = 30;
+        sheet1.getColumn(4).width = 50;
 
-            sheet1.getCell('C3').value = 'Dataset descriptors';
-            sheet1.getCell('D3').value = 'Dataset description from IEDC dataset catalogue';
-            sheet1.getCell('C3').font = { bold: true };
-            sheet1.getCell('D3').font = { bold: true };
+        sheet1.mergeCells('B2:D2');
+        const titleCell = sheet1.getCell('B2');
+        titleCell.value = 'Dataset Information';
+        titleCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true, shrinkToFit: true };
+        titleCell.font = { bold: true };
+        titleCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9D9D9' } };
 
-            const headerBorderStyle = {
-                top: { style: 'thin', color: { argb: 'FF000000' } },
-                left: { style: 'thin', color: { argb: 'FF000000' } },
-                bottom: { style: 'thin', color: { argb: 'FF000000' } },
-                right: { style: 'thin', color: { argb: 'FF000000' } }
-            };
+        sheet1.getCell('C3').value = 'Dataset descriptors';
+        sheet1.getCell('D3').value = 'Dataset description from IEDC dataset catalogue';
+        sheet1.getCell('C3').font = { bold: true };
+        sheet1.getCell('D3').font = { bold: true };
 
-            ['B4', 'C4', 'D4'].forEach(cellAddress => {
-                const cell = sheet1.getCell(cellAddress);
-                cell.border = headerBorderStyle;
+        const headerBorderStyle = {
+            top: { style: 'thin', color: { argb: 'FF000000' } },
+            left: { style: 'thin', color: { argb: 'FF000000' } },
+            bottom: { style: 'thin', color: { argb: 'FF000000' } },
+            right: { style: 'thin', color: { argb: 'FF000000' } }
+        };
+
+        ['B4', 'C4', 'D4'].forEach(cellAddress => {
+            const cell = sheet1.getCell(cellAddress);
+            cell.border = headerBorderStyle;
+            cell.alignment = { wrapText: true, shrinkToFit: true, vertical: 'middle' };
+        });
+
+        const mergedRegions = [
+            { range: 'B4:B6', text: 'Identification', color: '#F4CCCC' },
+            { range: 'B7:B10', text: 'Grouping', color: '#FCE5CD' },
+            { range: 'B11:B20', text: 'System location: What elements and objects in the system are described?', color: '#FCF2CC' },
+            { range: 'B21:B25', text: 'Description', color: '#D9EAD3' },
+            { range: 'B26:B52', text: 'Data model for this dataset: Aspects, classifications, tuple notation, and semantic strings.', color: '#D0E0E3' },
+            { range: 'B53:B60', text: 'Data access and licence', color: '#C9DAF8' },
+            { range: 'B61:B67', text: 'Data submission, review, and conversion info', color: '#CFE2F3' },
+            { range: 'B68:B72', text: 'Reserve – currently not used.', color: '#EEECE1' }
+        ];
+
+        function convertColor(hex) {
+            const rgb = hex.replace('#', '');
+            return `FF${rgb.toUpperCase()}`;
+        }
+
+        mergedRegions.forEach(region => {
+            sheet1.mergeCells(region.range);
+            const cell = sheet1.getCell(region.range.split(":")[0]);
+            cell.value = region.text;
+            cell.alignment = { vertical: 'middle', horizontal: 'center', wrapText: true, shrinkToFit: true };
+            cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: convertColor(region.color) } };
+            cell.font = { bold: true };
+        });
+
+        const table1 = document.getElementById('dataset-previewInfo');
+        const rowOffset = 4;
+        const colOffset = 3;
+        for (let i = 0; i < table1.rows.length; i++) {
+            const row = table1.rows[i];
+            for (let j = 0; j < row.cells.length; j++) {
+                const cell = sheet1.getCell(i + rowOffset, j + colOffset);
+                cell.value = row.cells[j].innerText;
                 cell.alignment = { wrapText: true, shrinkToFit: true, vertical: 'middle' };
-            });
-
-            const mergedRegions = [
-                { range: 'B4:B6', text: 'Identification', color: '#F4CCCC' },
-                { range: 'B7:B10', text: 'Grouping', color: '#FCE5CD' },
-                { range: 'B11:B20', text: 'System location: What elements and objects in the system are described?', color: '#FCF2CC' },
-                { range: 'B21:B25', text: 'Description', color: '#D9EAD3' },
-                { range: 'B26:B52', text: 'Data model for this dataset: Aspects, classifications, tuple notation, and semantic strings.', color: '#D0E0E3' },
-                { range: 'B53:B60', text: 'Data access and licence', color: '#C9DAF8' },
-                { range: 'B61:B67', text: 'Data submission, review, and conversion info', color: '#CFE2F3' },
-                { range: 'B68:B72', text: 'Reserve – currently not used.', color: '#EEECE1' }
-            ];
-
-            function convertColor(hex) {
-                const rgb = hex.replace('#', '');
-                return `FF${rgb.toUpperCase()}`;
             }
+        }
 
-            mergedRegions.forEach(region => {
-                sheet1.mergeCells(region.range);
-                const cell = sheet1.getCell(region.range.split(":")[0]);
-                cell.value = region.text;
-                cell.alignment = { vertical: 'middle', horizontal: 'center', wrapText: true, shrinkToFit: true };
-                cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: convertColor(region.color) } };
-                cell.font = { bold: true };
-            });
-
-            const table1 = document.getElementById('dataset-previewInfo');
-            const rowOffset = 4;
-            const colOffset = 3;
-            for (let i = 0; i < table1.rows.length; i++) {
-                const row = table1.rows[i];
-                for (let j = 0; j < row.cells.length; j++) {
-                    const cell = sheet1.getCell(i + rowOffset, j + colOffset);
-                    cell.value = row.cells[j].innerText;
-                    cell.alignment = { wrapText: true, shrinkToFit: true, vertical: 'middle' };
-                }
+        const lastRow = table1.rows.length + rowOffset - 1;
+        const outerBorderStyle = { style: 'thin', color: { argb: 'FF000000' } };
+        for (let i = 3; i <= lastRow; i++) {
+            for (let j = 2; j <= 4; j++) {
+                const cell = sheet1.getCell(i, j);
+                cell.border = {
+                    top: i === 3 ? outerBorderStyle : undefined,
+                    bottom: i === lastRow ? outerBorderStyle : undefined,
+                    left: j === 2 ? outerBorderStyle : undefined,
+                    right: j === 4 ? outerBorderStyle : undefined,
+                };
             }
+        }
 
-            const lastRow = table1.rows.length + rowOffset - 1;
-            const outerBorderStyle = { style: 'thin', color: { argb: 'FF000000' } };
-            for (let i = 3; i <= lastRow; i++) {
-                for (let j = 2; j <= 4; j++) {
-                    const cell = sheet1.getCell(i, j);
-                    cell.border = {
-                        top: i === 3 ? outerBorderStyle : undefined,
-                        bottom: i === lastRow ? outerBorderStyle : undefined,
-                        left: j === 2 ? outerBorderStyle : undefined,
-                        right: j === 4 ? outerBorderStyle : undefined,
-                    };
-                }
+        // --- Sheet2: Data ---
+        const sheet2 = workbook.addWorksheet('Data');
+
+        const colCount = window.fullDatasetColumns.length;
+
+        // Add headers
+        window.fullDatasetColumns.forEach((header, j) => {
+            const cell = sheet2.getCell(1, j + 1);
+            cell.value = header;
+            cell.font = { bold: true };
+        });
+
+        // Add all rows
+        const totalRows = Math.floor(window.fullDatasetForExcel.length / colCount);
+        for (let r = 0; r < totalRows; r++) {
+            for (let c = 0; c < colCount; c++) {
+                const idx = r * colCount + c;
+                sheet2.getCell(r + 2, c + 1).value = window.fullDatasetForExcel[idx];
             }
+        }
 
-            // --- Sheet2: Data ---
-            const sheet2 = workbook.addWorksheet('Data');
+        // --- Save Excel ---
+        const cellD5 = sheet1.getCell('D5');
+        const text = cellD5.text || cellD5.value || '';
+        const fileName = text ? text + '.xlsx' : 'export.xlsx';
 
-            const colCount = window.fullDatasetColumns.length;
-
-            // Add headers
-            window.fullDatasetColumns.forEach((header, j) => {
-                const cell = sheet2.getCell(1, j + 1);
-                cell.value = header;
-                cell.font = { bold: true };
-            });
-
-            // Add all rows
-            const totalRows = Math.floor(window.fullDatasetForExcel.length / colCount);
-            for (let r = 0; r < totalRows; r++) {
-                for (let c = 0; c < colCount; c++) {
-                    const idx = r * colCount + c;
-                    sheet2.getCell(r + 2, c + 1).value = window.fullDatasetForExcel[idx];
-                }
-            }
-
-            // --- Save Excel ---
-            const cellD5 = sheet1.getCell('D5');
-            const text = cellD5.text || cellD5.value || '';
-            const fileName = text ? text + '.xlsx' : 'export.xlsx';
-
-            workbook.xlsx.writeBuffer().then(buffer => {
-                const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-                saveAs(blob, fileName);
-            });
+        workbook.xlsx.writeBuffer().then(buffer => {
+            const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+            saveAs(blob, fileName);
+        });
+    });
+            
         }
 
         //// --- Helper: generateTable for preview ---

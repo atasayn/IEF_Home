@@ -13,30 +13,6 @@
             window.open('https://www.database.industrialecology.uni-freiburg.de/dataFilter.aspx?value=' + encodeURIComponent(datasetId), '_blank');
         }
     </script>
-    <script>
-        function loadExcelJS(callback) {
-            if (window.ExcelJS) {
-                callback();
-                return;
-            }
-
-            var script = document.createElement("script");
-            script.src = "/js/exceljs.min.js";
-            script.onload = function () {
-                callback();
-            };
-            document.body.appendChild(script);
-        }
-
-        function exportToExcel() {
-            loadExcelJS(function () {
-                var workbook = new ExcelJS.Workbook();
-
-                // your Excel export logic here
-                console.log("ExcelJS loaded and ready");
-            });
-        }
-    </script>
     <style>
         /* ===============================
    GLOBAL
