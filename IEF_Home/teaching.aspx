@@ -25,6 +25,11 @@
     </script>
 
     <!-- Matomo -->
+    <style>
+        a {
+            text-decoration: underline;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="row">
