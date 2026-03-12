@@ -33,8 +33,10 @@
             <center>
                 <br>
                 <br>
-                <img src="/Content/webP/IEooc_Logo_V2.webp" width="250" alt="IEooc Logo">
-                <h2>Industrial Ecology Open Online Course </h2>
+                <img src="/Content/webP/IEooc_Logo_V2.webp"
+                     width="250"
+                     height="102"
+                     alt="IEooc Logo">                <h2>Industrial Ecology Open Online Course </h2>
                 <h4>Online since 2018 - Last update: March 2026</h4>
                 <br>
                 <br>
@@ -84,13 +86,19 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp" width="200" alt="Global Educational Resources"></td>
+                    <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp"
+                         width="200"
+                         height="121"
+                         alt="Global Educational Resources">
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
-                        <img src="/Content/webP/OER.webp" width="250" alt="open resource logo"></td>
-                </tr>
+                    <img src="/Content/webP/OER.webp"
+                         width="250"
+                         height="150"
+                         alt="open resource logo">                
+                    </tr>
             </table>
         </div>
     </div>
@@ -1425,7 +1433,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <br>
                 <br>
                 <br>
-                <img src="/Content/IEooc_Logo_V2.png" width="250">
+                <img src="/Content/webP/IEooc_Logo_V2.webp" width="250">
             </center>
 
             <br>
@@ -1463,12 +1471,12 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 </tr>
                 <tr>
                     <td>
-                        <img src="/Content/440px-Global_Open_Educational_Resources_Logo.svg.png" width="200"></td>
+                        <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp" width="200"></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
-                        <img src="/Content/OER.png" width="250"></td>
+                        <img src="/Content/webP/OER.webp" width="250"></td>
                 </tr>
             </table>
 
