@@ -28,6 +28,8 @@
     <style>
         a {
             text-decoration: underline;
+            padding: 0 2px;
+            display: inline-block;
         }
     </style>
 </asp:Content>
@@ -1532,5 +1534,6 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             <br>
             <b>PS:</b> The IEooc is not to be confused with the Idaho-Eastern Oregon Onion Committee (IEOOC).<br>
         </div>
+    </div>
 </asp:Content>
 
