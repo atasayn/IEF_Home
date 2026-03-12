@@ -1,126 +1,126 @@
 ﻿    
-        function showLoadingIcon() {
-            document.getElementById("loadingIcon").style.display = "block";
-        }
+    //    function showLoadingIcon() {
+    //        document.getElementById("loadingIcon").style.display = "block";
+    //    }
 
-        function hideLoadingIcon() {
-            document.getElementById("loadingIcon").style.display = "none";
-        }
+    //    function hideLoadingIcon() {
+    //        document.getElementById("loadingIcon").style.display = "none";
+    //    }
 
-        function generateTable(data, colCount, maxRows, tbody) {
-            tbody.innerHTML = "";
-            const rows = Math.min(maxRows, Math.floor(data.length / colCount));
-            for (let r = 0; r < rows; r++) {
-                const tr = document.createElement("tr");
-                for (let c = 0; c < colCount; c++) {
-                    const td = document.createElement("td");
-                    const idx = r * colCount + c;
-                    td.textContent = data[idx] !== undefined ? data[idx] : "";
-                    tr.appendChild(td);
-                }
-                tbody.appendChild(tr);
-            }
-        }
+    //    function generateTable(data, colCount, maxRows, tbody) {
+    //        tbody.innerHTML = "";
+    //        const rows = Math.min(maxRows, Math.floor(data.length / colCount));
+    //        for (let r = 0; r < rows; r++) {
+    //            const tr = document.createElement("tr");
+    //            for (let c = 0; c < colCount; c++) {
+    //                const td = document.createElement("td");
+    //                const idx = r * colCount + c;
+    //                td.textContent = data[idx] !== undefined ? data[idx] : "";
+    //                tr.appendChild(td);
+    //            }
+    //            tbody.appendChild(tr);
+    //        }
+    //    }
 
-        // Global variables to store full dataset for Excel
-        window.fullDatasetForExcel = [];
-        window.fullDatasetColumns = [];
+    //    // Global variables to store full dataset for Excel
+    //    window.fullDatasetForExcel = [];
+    //    window.fullDatasetColumns = [];
 
-        function cellClicked(cell) {
-            showLoadingIcon();
-            var userInputDataPreview = $(cell).text();
-            console.log(userInputDataPreview);
-            $("#dataset-preview").empty();
-            $("#dataset-previewInfo").empty();
-            $(".grid-dataset-preview").css("display", "block");
-            $(".grid-dataset-previewInfo").css("display", "block");
+    //    function cellClicked(cell) {
+    //        showLoadingIcon();
+    //        var userInputDataPreview = $(cell).text();
+    //        console.log(userInputDataPreview);
+    //        $("#dataset-preview").empty();
+    //        $("#dataset-previewInfo").empty();
+    //        $(".grid-dataset-preview").css("display", "block");
+    //        $(".grid-dataset-previewInfo").css("display", "block");
 
-            $.ajax({
-                type: "POST",
-                url: "/circomodService.svc/iedcDataPreview",
-                data: JSON.stringify({ dataset_name: userInputDataPreview }),
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function (result) {
-                    hideLoadingIcon();
-                    var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
-                    var columnNames = Array.from(res.values());
-                    var columnTitle = Array.from(res.keys());
+    //        $.ajax({
+    //            type: "POST",
+    //            url: "/circomodService.svc/iedcDataPreview",
+    //            data: JSON.stringify({ dataset_name: userInputDataPreview }),
+    //            dataType: "json",
+    //            contentType: "application/json; charset=utf-8",
+    //            success: function (result) {
+    //                hideLoadingIcon();
+    //                var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
+    //                var columnNames = Array.from(res.values());
+    //                var columnTitle = Array.from(res.keys());
 
-                    var ColumnNotNullValues = [...res.values()].filter(array =>
-                        array.some(value => value !== null)
-                    );
-                    var ColumnNotNullKeys = [...res.keys()].filter(key =>
-                        res.get(key).some(value => value !== null)
-                    );
+    //                var ColumnNotNullValues = [...res.values()].filter(array =>
+    //                    array.some(value => value !== null)
+    //                );
+    //                var ColumnNotNullKeys = [...res.keys()].filter(key =>
+    //                    res.get(key).some(value => value !== null)
+    //                );
 
-                    // --- Store full dataset for Excel ---
-                    window.fullDatasetForExcel = [];
-                    window.fullDatasetColumns = ColumnNotNullKeys.slice(0, -2); // same as preview
-                    const maxLength = Math.max(...ColumnNotNullValues.slice(0, -2).map(arr => arr.length));
-                    for (let i = 0; i < maxLength; i++) {
-                        for (const arr of ColumnNotNullValues.slice(0, -2)) {
-                            window.fullDatasetForExcel.push(arr[i] !== undefined ? arr[i] : null);
-                        }
-                    }
+    //                // --- Store full dataset for Excel ---
+    //                window.fullDatasetForExcel = [];
+    //                window.fullDatasetColumns = ColumnNotNullKeys.slice(0, -2); // same as preview
+    //                const maxLength = Math.max(...ColumnNotNullValues.slice(0, -2).map(arr => arr.length));
+    //                for (let i = 0; i < maxLength; i++) {
+    //                    for (const arr of ColumnNotNullValues.slice(0, -2)) {
+    //                        window.fullDatasetForExcel.push(arr[i] !== undefined ? arr[i] : null);
+    //                    }
+    //                }
 
-                    // --- Build preview table (50 rows) ---
-                    innerHtml = "<thead><tr>";
-                    for (var i = 0; i < ColumnNotNullKeys.slice(0, -2).length; i++) {
-                        innerHtml += `<th><div>${ColumnNotNullKeys[i]}</div></th>`;
-                    }
-                    innerHtml += "</tr></thead><tbody>";
-                    $("#dataset-preview").append(innerHtml);
+    //                // --- Build preview table (50 rows) ---
+    //                innerHtml = "<thead><tr>";
+    //                for (var i = 0; i < ColumnNotNullKeys.slice(0, -2).length; i++) {
+    //                    innerHtml += `<th><div>${ColumnNotNullKeys[i]}</div></th>`;
+    //                }
+    //                innerHtml += "</tr></thead><tbody>";
+    //                $("#dataset-preview").append(innerHtml);
 
-                    document.getElementById("btnExport").style.display = "block";
-                    document.getElementById("fltrData").style.display = "block";
-                    var tbody = document.querySelector("#dataset-preview tbody ");
-                    generateTable(window.fullDatasetForExcel, window.fullDatasetColumns.length, 50, tbody);
+    //                document.getElementById("btnExport").style.display = "block";
+    //                document.getElementById("fltrData").style.display = "block";
+    //                var tbody = document.querySelector("#dataset-preview tbody ");
+    //                generateTable(window.fullDatasetForExcel, window.fullDatasetColumns.length, 50, tbody);
 
-                    // --- Dataset info (same as original) ---
-                    const headers1 = Array.from($("#dataset-preview th")).map(cell => cell.innerText);
-                    $.ajax({
-                        type: "POST",
-                        url: "circomodService.svc/iedcDatasetPreview",
-                        data: `{"dataset_name": "${String(userInputDataPreview)}"}`,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (result) {
-                            var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
-                            var columnNames = Array.from(res.values());
-                            document.getElementById('<%= hdnVal.ClientID %>').value = columnNames[1][0];
+    //                // --- Dataset info (same as original) ---
+    //                const headers1 = Array.from($("#dataset-preview th")).map(cell => cell.innerText);
+    //                $.ajax({
+    //                    type: "POST",
+    //                    url: "circomodService.svc/iedcDatasetPreview",
+    //                    data: `{"dataset_name": "${String(userInputDataPreview)}"}`,
+    //                    dataType: "json",
+    //                    contentType: "application/json; charset=utf-8",
+    //                    success: function (result) {
+    //                        var res = new Map(result["d"].map(obj => [obj.Key, obj.Value]));
+    //                        var columnNames = Array.from(res.values());
+    //                        document.getElementById('<%= hdnVal.ClientID %>').value = columnNames[1][0];
 
-                    for (i = 0; i < columnNames[0].length; i++) {
-                        var thead = $("<thead></thead>");
-                        var tbody = $("<tbody></tbody>");
-                        var tr = $("<tr></tr>");
-                        var td1 = $("<th></th>").text(columnNames[0][i]);
-                        var td2 = $("<td></td>").text(columnNames[1][i]);
-                        tr.append(td1, td2);
-                        tbody.append(tr);
-                        if (i % 2 === 1) td2.addClass("gray-row");
-                        $("#dataset-previewInfo").append(thead, tbody);
-                    }
+    //                for (i = 0; i < columnNames[0].length; i++) {
+    //                    var thead = $("<thead></thead>");
+    //                    var tbody = $("<tbody></tbody>");
+    //                    var tr = $("<tr></tr>");
+    //                    var td1 = $("<th></th>").text(columnNames[0][i]);
+    //                    var td2 = $("<td></td>").text(columnNames[1][i]);
+    //                    tr.append(td1, td2);
+    //                    tbody.append(tr);
+    //                    if (i % 2 === 1) td2.addClass("gray-row");
+    //                    $("#dataset-previewInfo").append(thead, tbody);
+    //                }
 
-                    var headerMapping = {};
-                    headers1.forEach((header, index) => {
-                        if (header.startsWith("aspect_")) {
-                            indexTitle = columnNames[0].indexOf(header);
-                            headerMapping[header] = columnNames[1][indexTitle];
-                        }
-                    });
+    //                var headerMapping = {};
+    //                headers1.forEach((header, index) => {
+    //                    if (header.startsWith("aspect_")) {
+    //                        indexTitle = columnNames[0].indexOf(header);
+    //                        headerMapping[header] = columnNames[1][indexTitle];
+    //                    }
+    //                });
 
-                    $("#dataset-preview th").each(function () {
-                        var headerText = $(this).text();
-                        if (headerMapping[headerText]) {
-                            $(this).text(headerText + "\n" + headerMapping[headerText]);
-                        }
-                    });
-                }
-            });
-        }
-    });
-        }
+    //                $("#dataset-preview th").each(function () {
+    //                    var headerText = $(this).text();
+    //                    if (headerMapping[headerText]) {
+    //                        $(this).text(headerText + "\n" + headerMapping[headerText]);
+    //                    }
+    //                });
+    //            }
+    //        });
+    //    }
+    //});
+    //    }
 
         // --- Export to Excel ---
         function ExportToExcel() {
@@ -242,34 +242,34 @@
             });
         }
 
-        // --- Helper: generateTable for preview ---
-        function generateTable(data, colCount, maxRows, tbody) {
-            tbody.innerHTML = "";
-            const rows = Math.min(maxRows, Math.floor(data.length / colCount));
-            for (let r = 0; r < rows; r++) {
-                const tr = document.createElement("tr");
-                for (let c = 0; c < colCount; c++) {
-                    const td = document.createElement("td");
-                    const idx = r * colCount + c;
-                    td.textContent = data[idx] !== undefined ? data[idx] : "";
-                    tr.appendChild(td);
-                }
-                tbody.appendChild(tr);
-            }
-        }
-        var previouslyHighlightedCell = null;
+        //// --- Helper: generateTable for preview ---
+        //function generateTable(data, colCount, maxRows, tbody) {
+        //    tbody.innerHTML = "";
+        //    const rows = Math.min(maxRows, Math.floor(data.length / colCount));
+        //    for (let r = 0; r < rows; r++) {
+        //        const tr = document.createElement("tr");
+        //        for (let c = 0; c < colCount; c++) {
+        //            const td = document.createElement("td");
+        //            const idx = r * colCount + c;
+        //            td.textContent = data[idx] !== undefined ? data[idx] : "";
+        //            tr.appendChild(td);
+        //        }
+        //        tbody.appendChild(tr);
+        //    }
+        //}
+        //var previouslyHighlightedCell = null;
 
-        function highlightCell(cell) {
-            // Reset the previously highlighted cell
-            if (previouslyHighlightedCell) {
-                previouslyHighlightedCell.style.backgroundColor = ''; // or set to the original color if it's not empty string
-            }
+        //function highlightCell(cell) {
+        //    // Reset the previously highlighted cell
+        //    if (previouslyHighlightedCell) {
+        //        previouslyHighlightedCell.style.backgroundColor = ''; // or set to the original color if it's not empty string
+        //    }
 
-            // Highlight the new cell
-            cell.style.backgroundColor = 'orange';
+        //    // Highlight the new cell
+        //    cell.style.backgroundColor = 'orange';
 
-            // Update the reference
-            previouslyHighlightedCell = cell;
-        }
+        //    // Update the reference
+        //    previouslyHighlightedCell = cell;
+        //}
 
 

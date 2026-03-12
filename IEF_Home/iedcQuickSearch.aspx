@@ -1,16 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="iedcQuickSearch.aspx.cs" Inherits="IEF_Home.iedcQuickSearch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <script src="js/jquery-1.4.1.min.js" defer></script>
+    <script src="js/jquery-1.4.1.min.js" ></script>
     <script type="text/javascript" src="js/iedcQuickSearch.js" defer ></script>
     <script src="js/ScrollableGridPlugin_ASP.NetAJAX_3.0.js" type="text/javascript" defer></script>
-    <script src="js/exceljs.min.js" defer></script>
+<%--    <script src="js/exceljs.min.js" defer></script>--%>
     <script src="js/FileSaver.min.js" defer></script>
     <script>
         function openDataFilter() {
             const datasetId = document.getElementById('<%= hdnVal.ClientID %>').value;
             console.log(datasetId);
             window.open('https://www.database.industrialecology.uni-freiburg.de/dataFilter.aspx?value=' + encodeURIComponent(datasetId), '_blank');
+        }
+    </script>
+    <script>
+        function loadExcelJS(callback) {
+            if (window.ExcelJS) {
+                callback();
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = "/js/exceljs.min.js";
+            script.onload = function () {
+                callback();
+            };
+            document.body.appendChild(script);
+        }
+
+        function exportToExcel() {
+            loadExcelJS(function () {
+                var workbook = new ExcelJS.Workbook();
+
+                // your Excel export logic here
+                console.log("ExcelJS loaded and ready");
+            });
         }
     </script>
     <style>
@@ -339,7 +363,7 @@
                                     DataKeyNames="Data Type" />
 
                             </div>
-                            <div class="column">
+                            <div class="column" >
                                 <div class="grid-item-dataset" id="gvAspectDiv" runat="server" visible="true" style="padding-left: 10px">
                                     <asp:GridView ID="gvAspects" runat="server" AutoGenerateColumns="true" CssClass="table-style" ClientIDMode="Static"
                                         OnSelectedIndexChanged="OnSelectedIndexChangedAspect"
@@ -481,6 +505,7 @@
 
         function cellClicked(cell) {
             showLoadingIcon();
+            highlightCell(cell);
             var userInputDataPreview = $(cell).text();
             console.log(userInputDataPreview);
             $("#dataset-preview").empty();
