@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Teaching"  Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
+﻿<%@ Page Title="Teaching"  Language="C#" MasterPageFile="~/Site1.Master" EnableViewState="false" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <!-- Matomo -->
     <script>
