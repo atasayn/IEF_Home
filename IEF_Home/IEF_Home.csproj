@@ -652,6 +652,11 @@
     <Content Include="Content\webP\440px-Global_Open_Educational_Resources_Logo.webp" />
     <Content Include="Content\webP\IEooc_Logo_V2.webp" />
     <Content Include="Content\webP\OER.webp" />
+    <Content Include="Content\webP\OER_438.webp" />
+    <Content Include="Content\webP\IEooc_Logo_438.webp" />
+    <Content Include="Content\webP\IEooc_Logo_876.webp" />
+    <Content Include="Content\webP\OER_876.webp" />
+    <Content Include="Content\webP\OER_1314.webp" />
     <None Include="packages.config" />
     <Content Include="resources\Homepage_News_2.webp" />
     <Content Include="resources\3_LT_Vehicles_LIST_Sample.xlsx" />
