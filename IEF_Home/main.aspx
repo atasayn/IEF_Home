@@ -449,7 +449,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h4><b>IEDC Critical Mass Sprint completed</b></h4>
                 <p>
                     [Winter 2026] During the 2025 critical mass sprint, in total 180 datasets were collected, formatted, and uploaded to the IEDC. These datasets cover service provision, in-use stocks, product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies. They are now part of one of the largest openly available compilations of material stock and flow and product group data, and can be found via the IEDC’s multiple search functions.
-                    <img loading="lazy" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/webP/IEDC_CMS_Checked.webp" />
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Gini illustration" src="resources/webP/IEDC_CMS_Checked.webp" />
                     Direct access to the IEDC and its multiple search functions: <a href="https://www.database.industrialecology.uni-freiburg.de/" target="_blank">https://www.database.industrialecology.uni-freiburg.de/ </a>
                 </p>
                 <hr>
@@ -460,7 +460,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                     <img src="resources/webP/SMI_Project_Gini.webp" style="padding-top: 10px;padding-bottom: 10px;"
                          width="444"
                          height="269"
-                         loading="lazy"
+                         fetchpriority="high"
                          alt="Gini illustration">
                     See all datasets in this and other projects:   <a href="https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI" target="_blank">https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI </a>
                 </p>
