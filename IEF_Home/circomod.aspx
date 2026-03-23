@@ -400,8 +400,8 @@
     <script type="text/javascript" src="js/svg-pan-zoom.min.js"></script>
     <script src="js/jspdf.min.js"></script>
     <script type="text/javascript" src="js/svgMap/svgmap.min.js"></script>
-    <script type="text/javascript" src="js/PDFmaker/jspdf.es.min.js"></script>
-    <script type="text/javascript" src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
+<%--    <script src="js/PDFmaker/jspdf.es.min.js"></script>--%>
+    <script src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
     <script type="text/javascript" src="js/svgMap/main.min.js"></script>
     <script type="text/javascript" src="js/mapConfig.js"></script>
