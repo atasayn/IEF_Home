@@ -1443,6 +1443,57 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                     </td>
                 </tr>
 
+                <tr colspan="2">
+                    <td><b>Application 5: Socio-metabolic research for a post-growth economy</b></td>
+                </tr>
+
+                <tr>
+                    <td width="30%"></td>
+                    <td width="70%">
+                        <b>Reading: Is Green Growth Possible?</b> by Jason Hickel & Giorgos Kallis: 
+                        <br>
+                        <a href="https://doi.org/10.1080/13563467.2019.1598964" target="new">IEooc_Application5_Reading1</a>
+                        <br>
+                        <br>
+                    </td>
+                </tr>
+
+                <tr colspan="2">
+                    <td><b>Application 6: Consumption corridors, decent living standards and socio-metabolic inequality</b></td>
+                </tr>
+
+                <tr>
+                    <td width="30%"></td>
+                    <td width="70%">
+                        <b>Reading: A corridors and power-oriented perspective on energy-service demand and needs satisfaction. </b> by Doris Fuchs and team: 
+                        <br>
+                        <a href="https://doi.org/10.1080/15487733.2021.1912907" target="new">IEooc_Application6_Reading1</a>
+                        <br>
+                        <br>
+                        <b>Reading: A review on decent living standards. </b> by N.N. (unpublished work, still under review!)
+                        <br>
+                        <a href="https://doi.org/abc123" target="new">IEooc_Application6_Reading2</a>
+                        <br>
+                        <br>
+                        <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
+                        <br>
+                        <a href="https://youtu.be/NiJi-7uQKPg" target="new">IEooc_Application6_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Application6_Lecture1.zip">slide deck for IEooc_Application6_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Reading: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
+                        <br>
+                        <a href="https://doi.org/10.1016/j.ecolecon.2024.108161" target="new">IEooc_Application6_Reading3</a>
+                        <br>
+                        <br>
+                        <b>Reading: Reducing global inequality to secure human wellbeing and climate safety: a modelling study. </b> by Joel Millward-Hopkins and team: 
+                        <br>
+                        <a href="https://doi.org/10.1016/S2542-5196(23)00004-9" target="new">IEooc_Application6_Reading4</a>
+                        <br>
+                        <br>
+                    </td>
+                </tr>
+
             </table>
         </div>
     </div>
@@ -1486,6 +1537,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.<br>
 		<b>Simon Schulte and Johan Vélez, </b>for preparing the MRIO-based exercises to calculate income-specific footprint and their uncertainty: IEooc_Methods5_Exercise4a+b.<br>
  		<b>Türkü Açar, </b>for providing feedback and a correction for IEooc_Background1_Exercise1_Stock_Flow_Service_Nexus.<br>
+		<b>H Scott Matthews and Bo Weidema, </b>for providing very detailed feedback on the LCA, IO, cross-methods, and related application sections.<br>
                 <br>
                 <br>
                 <br>
@@ -1565,7 +1617,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             The Introduction to Life Cycle Assessment <a href="https://ciraig.org/index.php/mooc-acv/" target="new">online course [link] </a>is designed for students and professionals who want to learn about life cycle thinking, embrace a systems view, and calculate and interpret the environmental footprint of a product, service or technology.
             <br>
             <br>
-
+            + EPFLx MOOC on Sustainability Assessment of Cities, released in 2026. Cities are key to achieving sustainability. Learn how to assess, design policies, and monitor progress towards sustainability <a href="https://www.edx.org/learn/environmental-studies/ecole-polytechnique-federale-de-lausanne-sustainable-assessment-of-cities" target="new">via direct access to the course</a>.
+            <br>
+            <br>
 
             <br>
             <br>
