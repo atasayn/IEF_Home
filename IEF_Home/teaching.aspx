@@ -1455,6 +1455,36 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://doi.org/10.1080/13563467.2019.1598964" target="new">IEooc_Application5_Reading1</a>
                         <br>
                         <br>
+                        <b>Reading: Is Green Growth Happening?</b> A systematic review of the evidence on decoupling of GDP, resource use and GHG emissions, by Helmut Haberl and team: 
+                        <br>
+                        <a href="https://doi.org/10.1088/1748-9326/ab842a" target="new">IEooc_Application5_Reading2</a>
+                        <br>
+                        <br>
+                        <b>Reading: Scientists’ warning on affluence</b> by Tommy Wiedmann and team: 
+                        <br>
+                        <a href="https://doi.org/10.1038/s41467-020-16941-y" target="new">IEooc_Application5_Reading3</a>
+                        <br>
+                        <br>
+                        <b>Reading: Living Well Within Limits In Ten Stylised Facts.</b> by Julia Steinberger and team: 
+                        <br>
+                        <a href="https://dx.doi.org/10.2139/ssrn.5687193" target="new">IEooc_Application5_Reading4</a>
+                        <br>
+                        <br>
+                        <b>Reading: Socio-metabolic research and industrial ecology in a post-growth world.</b> by Stefan Pauliuk: 
+                        <br>
+                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2026/03/27/socio-metabolic-research-and-industrial-ecology-in-a-post-growth-world/" target="new">IEooc_Application5_Reading5</a>
+                        <br>
+                        <br>
+                        <b>Reading: Post-growth: the science of wellbeing within planetary boundaries.</b> by Giorgos Kallis and team: 
+                        <br>
+                        <a href="https://doi.org/10.1016/S2542-5196(24)00310-3" target="new">IEooc_Application5_Reading6</a>
+                        <br>
+                        <br>
+                        <b>Reading: A low energy demand scenario</b> for meeting the 1.5 °C target and sustainable development goals without negative emission technologies. by Arnulf Grubler and team, published under https://doi.org/10.1038/s41560-018-0172-6 
+                        <br>
+                        <a href="https://pure.iiasa.ac.at/id/eprint/15301/" target="new">IEooc_Application5_Reading7 (open access verion of the paper)</a>
+                        <br>
+                        <br>
                     </td>
                 </tr>
 
