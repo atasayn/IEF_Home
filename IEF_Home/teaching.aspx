@@ -697,6 +697,9 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         To help you get started with openLCA, GreenDelta provides free resources, including case studies, for modeling your own LCA study on their <a href="https://www.openlca.org/learning/" target="new">homepage</a>.
                         <br>
                         <br>
+                        <b>Introductory material to LCA, no LCA software and database required:</b>
+                        <br>
+                        <br>
                         <b>Video on the thinking behind LCA:</b> <b>Prerequisites:</b> None. <b>Level of difficulty: (+)</b><br>
                         <a href="https://www.youtube.com/watch?v=zFaG4QZpzIs" target="new">IEooc_Methods4_Video1</a>
                         <br>
@@ -705,27 +708,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="https://www.youtube.com/watch?v=tyZBfgIcacQ" target="new">IEooc_Methods4_Video2</a>
                         <br>
                         <br>
-                        <b>Exercise (from application section): "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment).<b> Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
-                        <a href="/Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
-                        <br>
-                        <br>
-                        <b>Video lecture from the application section:</b> Bioenergy and Biomaterials from a Life Cycle Perspective.
-                        <br>
-                        <a href="https://youtu.be/rhUVfkq_S8o" target="new">IEooc_Application4_Lecture9</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture9_updated_public.zip"> slide deck for IEooc_Application4_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
-                        <br>
-                        <br>
-                        <b>Video lecture on the computational structure of LCA:</b> In this lecture the maths of LCA are explained, following the Leontief input-output model. First, the processes and flows that are modeled and calculated are defined and located in the system. Then, the different calculation steps are explained step by step. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://youtu.be/3GDfNksiY0s" target="new">IEooc_Methods4_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Methods4_Lecture1.zip"> slide deck for IEooc_Methods4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
-                        <br>
-                        <br>
-                        <b>Basic LCA exercises, no LCA software and database required:</b>
-                        <br>
-                        <br>
-                        LCA basics: <b>Simple comparative LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to electric vehicles and electric transportation. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
+                        <b>Exercise: Simple comparative LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to electric vehicles and electric transportation. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise1_ElectricVehicles.pdf" target="new">IEooc_Methods4_Exercise1</a>.
                         <br>
@@ -733,7 +716,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise1_ElectricVehicles_Solution.pdf" target="new">IEooc_Methods4_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
-                        LCA basics: <b>Process-based LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to  solar power by conducting a quick process-based LCA of PV module production. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
+                        <b>Exercise: Process-based LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to solar power by conducting a quick process-based LCA of PV module production. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise2_LifeCycle.pdf" target="new">IEooc_Methods4_Exercise2</a>.
                         <br>
@@ -742,7 +725,25 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise2_LifeCycle_Solution.xlsx" target="new">IEooc_Methods4_Exercise2_Solution (xlsx)</a>
                         <br>
                         <br>
-                        LCA basics: <b>Matrix algebra and the LCA master equation:</b> Apply the life cycle perspective, understand the computational structure of LCA, understand and implement basic matrix algebra operations on paper. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b>
+                        <b>Video on the methodology of LCIA:</b> <b>Prerequisites:</b> Introductory material as above. <b>Level of difficulty: (+)</b><br>
+                        <a href="https://www.youtube.com/watch?v=cR4k7ONILV0" target="new">IEooc_Methods4_Video3</a>
+                        <br>
+                        <br>
+                        <b>Training material on calculating the water footprint with the LCA framework</b> <b>Prerequisites:</b> Introductory material as above. <b>Level of difficulty: (+)</b><br>
+                        <a href="https://www.lifecycleinitiative.org/download/4492/?tmstv=1774691220" target="new">IEooc_Methods4_Reading1</a><br>
+						The website <a href="https://www.lifecycleinitiative.org/resources/training/" target="new">https://www.lifecycleinitiative.org/resources/training/</a> contains more training material on the water footprint and on other topics as well.
+                        <br>
+                        <br>
+
+                        <b>Intermediate level LCA material and exercises, no LCA software and database required:</b>
+                        <br>
+                        <br>
+                        <b>Video lecture on the computational structure of LCA:</b> In this lecture the maths of LCA are explained, following the Leontief input-output model. First, the processes and flows that are modeled and calculated are defined and located in the system. Then, the different calculation steps are explained step by step. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (+++)</b><br>
+                        <a href="https://youtu.be/3GDfNksiY0s" target="new">IEooc_Methods4_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Methods4_Lecture1.zip"> slide deck for IEooc_Methods4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+						<b>Exercise: Matrix algebra and the LCA master equation:</b> Apply the life cycle perspective, understand the computational structure of LCA, understand and implement basic matrix algebra operations on paper. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise3_Matrices_Paper.pdf" target="new">IEooc_Methods4_Exercise3</a>.
                         <br>
@@ -750,7 +751,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise3_Matrices_Paper_Solution.xlsx" target="new">IEooc_Methods4_Exercise3_Solution (xlsx)</a>
                         <br>
                         <br>
-                        LCA basics: <b>LCA with matrix algebra in Excel:</b> Understand the computational structure of LCA, understand and implement basic matrix algebra operations in Excel. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++) </b>
+                        <b>Exercise: LCA with matrix algebra in Excel:</b> Understand the computational structure of LCA, understand and implement basic matrix algebra operations in Excel. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++) </b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise4_LCA_Excel.pdf" target="new">IEooc_Methods4_Exercise4</a>.
                         <br>
@@ -759,7 +760,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise4_LCA_Excel_Solution.xlsx" target="new">IEooc_Methods4_Exercise4_Solution (xlsx)</a>
                         <br>
                         <br>
-                        LCA basics: <b>Life Cycle Impact Assessment:</b> Practice life cycle thinking, work with the LCIA method LC impact, calculate regional endpoint indicators, understand and implement basic matrix algebra operations. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b><br>
+                        <b>Exercise: Life Cycle Impact Assessment:</b> Practice life cycle thinking, work with the LCIA method LC impact, calculate regional endpoint indicators, understand and implement basic matrix algebra operations. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise5_LCIA.pdf" target="new">IEooc_Methods4_Exercise5</a>.
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise5_LCIA.xlsx" target="new">IEooc_Methods4_Exercise5 (data and workbook)</a><br>
@@ -768,32 +769,19 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise5_LCIA_Solution.xlsx" target="new">IEooc_Methods4_Exercise5_Solution (xlsx)</a>
                         <br>
                         <br>
-                        <b>Exercise from the application section on the concept of payback time in life cycle thinking and on how to take into account the timing of emissions and sequestration of carbon in the calculation of the global warming potential (GWP) </b>Goal: Get familiar with the carbon intensity of different energy carriers (orders of magnitude), understand the concept of distributing upfront emissions on the subsequently produced output, break-even emissions, and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). This exercise only considers GHG. Biodiversity and economic aspects of land conversion are highly relevant but are not studied here. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
-                        <br>
-                        <br>
                         <b>Exercise on extracting data from the literature and using them in your own LCA in openLCA </b> Goal: Learn about the standard procedure for extracting data from the literature and using them in your own LCA in openLCA. This exercise follows four steps: (1) Convert raw data to a material and energy flow analysis diagram. (2) Scale down stocks down to represent them as consumption of fixed capital flows. (3) Convert process descriptions to unit process inventories. (4) Add unit process inventories as foreground processes to the ecoinvent database. Prerequisites: Basic MEFA and handling of ecoinvent in openLCA. <b> Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise6a_Process_Inventory_Compilation.pdf" target="new">IEooc_Methods4_Exercise6a (pdf)</a><br>
                         For this exercise, a journal article with data and a sample solution are available:<br>
-			<a href="https://doi.org/10.1016/j.apenergy.2019.01.001" target="new">IEooc_Application4_Exercise6a Input data (open access journal publication)</a><br>
-                        <a href="/Content/IEooc_Methods4_Exercise6a_SampleSolution.pdf" target="new">IEooc_Application4_Exercise6a Sample Solution (pdf)</a>
+						<a href="https://doi.org/10.1016/j.apenergy.2019.01.001" target="new">IEooc_Methods4_Exercise6a Input data (open access journal publication)</a><br>
+                        <a href="/Content/IEooc_Methods4_Exercise6a_SampleSolution.pdf" target="new">IEooc_Methods4_Exercise6a Sample Solution (pdf)</a>
                         <br>
                         <br>
-                        <b>Exercise from the application section on on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
-			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Workbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
-                        <br>
-                        <br>
-                        <b>Advanced LCA exercises with openLCA. An ecoinvent license is required:</b>
+
+                        <b>Advanced LCA exercises with openLCA. For these exercises, an ecoinvent license is required (if not indicated otherwise):</b>
                         <br>
                         <br>
                         A <b>list of openLCA tutorials</b> and info videos can be found on GreenDelta's
-                        <br>
-                        <a href="https://www.youtube.com/channel/UCGiahq1YZWK4pRXDVXuIi6w" target="new">Youtube channel</a>. 
+                        <br> <a href="https://www.youtube.com/channel/UCGiahq1YZWK4pRXDVXuIi6w" target="new">Youtube channel</a>. 
                         <br>
                         <br>
                         <b>Getting started with openLCA:</b> The goal of this tutorial is to install and learn how to use the openLCA software for life cycle assessments using ecoinvent v3.2 
@@ -815,6 +803,22 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods4_Exercise8_Recycling_Allocation_Solution.pdf" target="new">IEooc_Methods4_Exercise8_Solution (pdf)</a>
                         <br>
                         <br>
+
+                        <b>Advanced tutorials and LCA exercises with Brightway2LCA. An ecoinvent license is required:</b>
+                        <br>
+                        <br>
+                        A <b>list of Brightway2LCA tutorials</b> and more info on this versatile and highly computationally efficient modular and open-source LCA software in Python can be found on the Brightway2LCA <a href=" https://2.docs.brightwaylca.org/notebooks.html#example-notebook" target="new">homepage</a>. Brightway2LCA is developed by Chris Mutel from PSI and other contributors.
+                        <br>
+                        <br>
+                        <b>Brightway2LCA tutorial 1:</b> A basic tutorial for learning Brightway2LCA is available from a 2017 seminar. <b>Level of difficulty: (+++)</b><br>
+                        <a href="https://github.com/PoutineandRosti/Brightway-Seminar-2017" target="new">Brightway2LCA seminar</a>. 
+                        <br>
+                        <br>
+                        <b>Brightway2LCA tutorial 2:</b> A comprehensive introductory tutorial for learning Brightway2LCA was developed by Maximilian Koslowski from Uni Freiburg. <b>Level of difficulty: (+++)</b><br>
+                        <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb" download target="new">New Brightway2 tutorial</a> | <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb">Run externally in nbviewer</a>. 
+                        <br>
+                        <br>
+
                         <b>Other advanced LCA exercises:</b>
                         <br>
                         <br>
@@ -832,9 +836,9 @@ and several impact assessment methods. The use of parameters, choice of electric
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.pdf" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (pdf)</a><br>
                         <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (xlsx)</a><br>
-			<b> Related journal paper on the topic by Heijungs et al. (2022):</b> "A or I-A? Unifying the computational structures of process- and IO-based LCA for clarity and consistency.<br>
-			<a href="https://doi.org/10.1111/jiec.13323" target="new">Link to paper (open access).</a>
-			<br>
+						<b> Related journal paper on the topic by Heijungs et al. (2022):</b> "A or I-A? Unifying the computational structures of process- and IO-based LCA for clarity and consistency.<br>
+						<a href="https://doi.org/10.1111/jiec.13323" target="new">Link to paper (open access).</a>
+						<br>
                         <br>
                         <b>Advanced Life Cycle Impact Assessment:</b> Considering time in life cycle inventories: dynamic characterization factors for greenhouse gases. Goal: Get familiar with the global warming potential of greenhouse gases and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). Apply dynamic GHG accounting to different test cases.<b> Prerequisites:</b> Calculus, global warming potential (see IEooc_Background2_Exercise2). <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise11_dynLCA.pdf" target="new">IEooc_Methods4_Exercise11</a>.
@@ -844,20 +848,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods4_Exercise11_dynLCA_Sample_Solution.xlsx" target="new">IEooc_Methods4_Exercise11_Solution (xlsx)</a>
                         <br>
                         <br>
-                        <b>Advanced tutorials and LCA exercises with Brightway2LCA. An ecoinvent license is required:</b>
-                        <br>
-                        <br>
-                        A <b>list of Brightway2LCA tutorials</b> and more info on this versatile and highly computationally efficient modular and open-source LCA software in Python can be found on the Brightway2LCA <a href=" https://2.docs.brightwaylca.org/notebooks.html#example-notebook" target="new">homepage</a>. Brightway2LCA is developed by Chris Mutel from PSI and other contributors.
-                        <br>
-                        <br>
-                        <b>Brightway2LCA tutorial 1:</b> A basic tutorial for learning Brightway2LCA is available from a 2017 seminar. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://github.com/PoutineandRosti/Brightway-Seminar-2017" target="new">Brightway2LCA seminar</a>. 
-                        <br>
-                        <br>
-                        <b>Brightway2LCA tutorial 2:</b> A comprehensive introductory tutorial for learning Brightway2LCA was developed by Maximilian Koslowski from Uni Freiburg. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb" download target="new">New Brightway2 tutorial</a> | <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb">Run externally in nbviewer</a>. 
-                        <br>
-                        <br>
+
                         <br>
                     </td>
                 </tr>
