@@ -145,7 +145,7 @@
 
 		<b>A new introductory textbook for our field, "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, was published in 2023.</b> Details: 512 pages, ISBN-13: 9789811277603, Publisher: World Scientific Publishing Company. The book is available both as hardcover and as e-book. It can be ordered online via Amazon, Barnes and Noble, etc.
 			<br><br>
-        <b>Another new book, "Advanced Introduction to Industrial Ecology", by Christopher Kennedy, Professor of Industrial Ecology, University of Victoria, Canada, was published in 2025.</b> Details: ISBN: 978-1-03532-055-4. Extent: 194 pp, link: https://www.e-elgar.com/shop/gbp/advanced-introduction-to-industrial-ecology-9781035320554.html
+        <b>Another new book, "Advanced Introduction to Industrial Ecology", by Christopher Kennedy, Professor of Industrial Ecology, University of Victoria, Canada, was published in 2025.</b> Details and link: <a href="https://www.e-elgar.com/shop/gbp/advanced-introduction-to-industrial-ecology-9781035320554.html" target="new">ISBN: 978-1-03532-055-4. Extent: 194 pp</a>.
 			<br>
             <br>
         </div>
@@ -248,14 +248,6 @@
                         <br>
                         <a href="https://youtu.be/HJmNxi3nNh0" target="new">IEooc_Background2_Lecture4</a><br>
 						Link to the <a href="/Content/IEooc_Background2_Lecture4_updated_public.zip">slide deck for IEooc_Background2_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
-                        <br>
-                        <br>
-
-                        <b>Link to methodology video lecture on the basic principles of industrial ecology data modelling and accounting: material and energy flow analysis: </b>
-                        <br>
-                        <a href="https://youtu.be/wK_02bGTh1E" target="new">IEooc_Methods1_Lecture1</a>
-                        <br>
-                        In this lecture, the practicalities of quantitative systems analysis are explained: Definitions and basic methodology for material and energy flow accounting are presented, including the basic elements of the quantitative system definition, the process balancing equations, indicator elements, units of measurement, multi-layer system descriptions, and a number of examples. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b>
                         <br>
                         <br>
 
@@ -705,6 +697,9 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         To help you get started with openLCA, GreenDelta provides free resources, including case studies, for modeling your own LCA study on their <a href="https://www.openlca.org/learning/" target="new">homepage</a>.
                         <br>
                         <br>
+                        <b>Introductory material to LCA, no LCA software and database required:</b>
+                        <br>
+                        <br>
                         <b>Video on the thinking behind LCA:</b> <b>Prerequisites:</b> None. <b>Level of difficulty: (+)</b><br>
                         <a href="https://www.youtube.com/watch?v=zFaG4QZpzIs" target="new">IEooc_Methods4_Video1</a>
                         <br>
@@ -713,27 +708,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="https://www.youtube.com/watch?v=tyZBfgIcacQ" target="new">IEooc_Methods4_Video2</a>
                         <br>
                         <br>
-                        <b>Exercise (from application section): "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment).<b> Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
-                        <a href="/Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
-                        <br>
-                        <br>
-                        <b>Video lecture from the application section:</b> Bioenergy and Biomaterials from a Life Cycle Perspective.
-                        <br>
-                        <a href="https://youtu.be/rhUVfkq_S8o" target="new">IEooc_Application4_Lecture9</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture9_updated_public.zip"> slide deck for IEooc_Application4_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
-                        <br>
-                        <br>
-                        <b>Video lecture on the computational structure of LCA:</b> In this lecture the maths of LCA are explained, following the Leontief input-output model. First, the processes and flows that are modeled and calculated are defined and located in the system. Then, the different calculation steps are explained step by step. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://youtu.be/3GDfNksiY0s" target="new">IEooc_Methods4_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Methods4_Lecture1.zip"> slide deck for IEooc_Methods4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
-                        <br>
-                        <br>
-                        <b>Basic LCA exercises, no LCA software and database required:</b>
-                        <br>
-                        <br>
-                        LCA basics: <b>Simple comparative LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to electric vehicles and electric transportation. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
+                        <b>Exercise: Simple comparative LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to electric vehicles and electric transportation. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise1_ElectricVehicles.pdf" target="new">IEooc_Methods4_Exercise1</a>.
                         <br>
@@ -741,7 +716,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise1_ElectricVehicles_Solution.pdf" target="new">IEooc_Methods4_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
-                        LCA basics: <b>Process-based LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to  solar power by conducting a quick process-based LCA of PV module production. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
+                        <b>Exercise: Process-based LCA:</b> Practice systems thinking and quantitative systems analysis, work with system definitions, apply life cycle thinking to solar power by conducting a quick process-based LCA of PV module production. <b>Prerequisites:</b> No advanced math required. <b>Level of difficulty: (+)</b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise2_LifeCycle.pdf" target="new">IEooc_Methods4_Exercise2</a>.
                         <br>
@@ -750,7 +725,25 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise2_LifeCycle_Solution.xlsx" target="new">IEooc_Methods4_Exercise2_Solution (xlsx)</a>
                         <br>
                         <br>
-                        LCA basics: <b>Matrix algebra and the LCA master equation:</b> Apply the life cycle perspective, understand the computational structure of LCA, understand and implement basic matrix algebra operations on paper. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b>
+                        <b>Video on the methodology of LCIA:</b> <b>Prerequisites:</b> Introductory material as above. <b>Level of difficulty: (+)</b><br>
+                        <a href="https://www.youtube.com/watch?v=cR4k7ONILV0" target="new">IEooc_Methods4_Video3</a>
+                        <br>
+                        <br>
+                        <b>Training material on calculating the water footprint with the LCA framework</b> <b>Prerequisites:</b> Introductory material as above. <b>Level of difficulty: (+)</b><br>
+                        <a href="https://www.lifecycleinitiative.org/download/4492/?tmstv=1774691220" target="new">IEooc_Methods4_Reading1</a><br>
+						The website <a href="https://www.lifecycleinitiative.org/resources/training/" target="new">https://www.lifecycleinitiative.org/resources/training/</a> contains more training material on the water footprint and on other topics as well.
+                        <br>
+                        <br>
+
+                        <b>Intermediate level LCA material and exercises, no LCA software and database required:</b>
+                        <br>
+                        <br>
+                        <b>Video lecture on the computational structure of LCA:</b> In this lecture the maths of LCA are explained, following the Leontief input-output model. First, the processes and flows that are modeled and calculated are defined and located in the system. Then, the different calculation steps are explained step by step. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (+++)</b><br>
+                        <a href="https://youtu.be/3GDfNksiY0s" target="new">IEooc_Methods4_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Methods4_Lecture1.zip"> slide deck for IEooc_Methods4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+						<b>Exercise: Matrix algebra and the LCA master equation:</b> Apply the life cycle perspective, understand the computational structure of LCA, understand and implement basic matrix algebra operations on paper. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise3_Matrices_Paper.pdf" target="new">IEooc_Methods4_Exercise3</a>.
                         <br>
@@ -758,7 +751,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise3_Matrices_Paper_Solution.xlsx" target="new">IEooc_Methods4_Exercise3_Solution (xlsx)</a>
                         <br>
                         <br>
-                        LCA basics: <b>LCA with matrix algebra in Excel:</b> Understand the computational structure of LCA, understand and implement basic matrix algebra operations in Excel. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++) </b>
+                        <b>Exercise: LCA with matrix algebra in Excel:</b> Understand the computational structure of LCA, understand and implement basic matrix algebra operations in Excel. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++) </b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise4_LCA_Excel.pdf" target="new">IEooc_Methods4_Exercise4</a>.
                         <br>
@@ -767,7 +760,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise4_LCA_Excel_Solution.xlsx" target="new">IEooc_Methods4_Exercise4_Solution (xlsx)</a>
                         <br>
                         <br>
-                        LCA basics: <b>Life Cycle Impact Assessment:</b> Practice life cycle thinking, work with the LCIA method LC impact, calculate regional endpoint indicators, understand and implement basic matrix algebra operations. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b><br>
+                        <b>Exercise: Life Cycle Impact Assessment:</b> Practice life cycle thinking, work with the LCIA method LC impact, calculate regional endpoint indicators, understand and implement basic matrix algebra operations. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise5_LCIA.pdf" target="new">IEooc_Methods4_Exercise5</a>.
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise5_LCIA.xlsx" target="new">IEooc_Methods4_Exercise5 (data and workbook)</a><br>
@@ -776,32 +769,19 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise5_LCIA_Solution.xlsx" target="new">IEooc_Methods4_Exercise5_Solution (xlsx)</a>
                         <br>
                         <br>
-                        <b>Exercise from the application section on the concept of payback time in life cycle thinking and on how to take into account the timing of emissions and sequestration of carbon in the calculation of the global warming potential (GWP) </b>Goal: Get familiar with the carbon intensity of different energy carriers (orders of magnitude), understand the concept of distributing upfront emissions on the subsequently produced output, break-even emissions, and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). This exercise only considers GHG. Biodiversity and economic aspects of land conversion are highly relevant but are not studied here. <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials.pdf" target="new">IEooc_Application4_Exercise6 (pdf)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
-                        <br>
-                        <br>
                         <b>Exercise on extracting data from the literature and using them in your own LCA in openLCA </b> Goal: Learn about the standard procedure for extracting data from the literature and using them in your own LCA in openLCA. This exercise follows four steps: (1) Convert raw data to a material and energy flow analysis diagram. (2) Scale down stocks down to represent them as consumption of fixed capital flows. (3) Convert process descriptions to unit process inventories. (4) Add unit process inventories as foreground processes to the ecoinvent database. Prerequisites: Basic MEFA and handling of ecoinvent in openLCA. <b> Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise6a_Process_Inventory_Compilation.pdf" target="new">IEooc_Methods4_Exercise6a (pdf)</a><br>
                         For this exercise, a journal article with data and a sample solution are available:<br>
-			<a href="https://doi.org/10.1016/j.apenergy.2019.01.001" target="new">IEooc_Application4_Exercise6a Input data (open access journal publication)</a><br>
-                        <a href="/Content/IEooc_Methods4_Exercise6a_SampleSolution.pdf" target="new">IEooc_Application4_Exercise6a Sample Solution (pdf)</a>
+						<a href="https://doi.org/10.1016/j.apenergy.2019.01.001" target="new">IEooc_Methods4_Exercise6a Input data (open access journal publication)</a><br>
+                        <a href="/Content/IEooc_Methods4_Exercise6a_SampleSolution.pdf" target="new">IEooc_Methods4_Exercise6a Sample Solution (pdf)</a>
                         <br>
                         <br>
-                        <b>Exercise from the application section on on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
-			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Workbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
-                        <br>
-                        <br>
-                        <b>Advanced LCA exercises with openLCA. An ecoinvent license is required:</b>
+
+                        <b>Advanced LCA exercises with openLCA. For these exercises, an ecoinvent license is required (if not indicated otherwise):</b>
                         <br>
                         <br>
                         A <b>list of openLCA tutorials</b> and info videos can be found on GreenDelta's
-                        <br>
-                        <a href="https://www.youtube.com/channel/UCGiahq1YZWK4pRXDVXuIi6w" target="new">Youtube channel</a>. 
+                        <br> <a href="https://www.youtube.com/channel/UCGiahq1YZWK4pRXDVXuIi6w" target="new">Youtube channel</a>. 
                         <br>
                         <br>
                         <b>Getting started with openLCA:</b> The goal of this tutorial is to install and learn how to use the openLCA software for life cycle assessments using ecoinvent v3.2 
@@ -823,6 +803,22 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods4_Exercise8_Recycling_Allocation_Solution.pdf" target="new">IEooc_Methods4_Exercise8_Solution (pdf)</a>
                         <br>
                         <br>
+
+                        <b>Advanced tutorials and LCA exercises with Brightway2LCA. An ecoinvent license is required:</b>
+                        <br>
+                        <br>
+                        A <b>list of Brightway2LCA tutorials</b> and more info on this versatile and highly computationally efficient modular and open-source LCA software in Python can be found on the Brightway2LCA <a href=" https://2.docs.brightwaylca.org/notebooks.html#example-notebook" target="new">homepage</a>. Brightway2LCA is developed by Chris Mutel from PSI and other contributors.
+                        <br>
+                        <br>
+                        <b>Brightway2LCA tutorial 1:</b> A basic tutorial for learning Brightway2LCA is available from a 2017 seminar. <b>Level of difficulty: (+++)</b><br>
+                        <a href="https://github.com/PoutineandRosti/Brightway-Seminar-2017" target="new">Brightway2LCA seminar</a>. 
+                        <br>
+                        <br>
+                        <b>Brightway2LCA tutorial 2:</b> A comprehensive introductory tutorial for learning Brightway2LCA was developed by Maximilian Koslowski from Uni Freiburg. <b>Level of difficulty: (+++)</b><br>
+                        <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb" download target="new">New Brightway2 tutorial</a> | <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb">Run externally in nbviewer</a>. 
+                        <br>
+                        <br>
+
                         <b>Other advanced LCA exercises:</b>
                         <br>
                         <br>
@@ -840,9 +836,9 @@ and several impact assessment methods. The use of parameters, choice of electric
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.pdf" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (pdf)</a><br>
                         <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (xlsx)</a><br>
-			<b> Related journal paper on the topic by Heijungs et al. (2022):</b> "A or I-A? Unifying the computational structures of process- and IO-based LCA for clarity and consistency.<br>
-			<a href="https://doi.org/10.1111/jiec.13323" target="new">Link to paper (open access).</a>
-			<br>
+						<b> Related journal paper on the topic by Heijungs et al. (2022):</b> "A or I-A? Unifying the computational structures of process- and IO-based LCA for clarity and consistency.<br>
+						<a href="https://doi.org/10.1111/jiec.13323" target="new">Link to paper (open access).</a>
+						<br>
                         <br>
                         <b>Advanced Life Cycle Impact Assessment:</b> Considering time in life cycle inventories: dynamic characterization factors for greenhouse gases. Goal: Get familiar with the global warming potential of greenhouse gases and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). Apply dynamic GHG accounting to different test cases.<b> Prerequisites:</b> Calculus, global warming potential (see IEooc_Background2_Exercise2). <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise11_dynLCA.pdf" target="new">IEooc_Methods4_Exercise11</a>.
@@ -852,20 +848,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods4_Exercise11_dynLCA_Sample_Solution.xlsx" target="new">IEooc_Methods4_Exercise11_Solution (xlsx)</a>
                         <br>
                         <br>
-                        <b>Advanced tutorials and LCA exercises with Brightway2LCA. An ecoinvent license is required:</b>
-                        <br>
-                        <br>
-                        A <b>list of Brightway2LCA tutorials</b> and more info on this versatile and highly computationally efficient modular and open-source LCA software in Python can be found on the Brightway2LCA <a href=" https://2.docs.brightwaylca.org/notebooks.html#example-notebook" target="new">homepage</a>. Brightway2LCA is developed by Chris Mutel from PSI and other contributors.
-                        <br>
-                        <br>
-                        <b>Brightway2LCA tutorial 1:</b> A basic tutorial for learning Brightway2LCA is available from a 2017 seminar. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://github.com/PoutineandRosti/Brightway-Seminar-2017" target="new">Brightway2LCA seminar</a>. 
-                        <br>
-                        <br>
-                        <b>Brightway2LCA tutorial 2:</b> A comprehensive introductory tutorial for learning Brightway2LCA was developed by Maximilian Koslowski from Uni Freiburg. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb" download target="new">New Brightway2 tutorial</a> | <a href="https://github.com/maxkoslowski/Brightway2_Intro/blob/master/BW2_tutorial.ipynb">Run externally in nbviewer</a>. 
-                        <br>
-                        <br>
+
                         <br>
                     </td>
                 </tr>
@@ -932,7 +915,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <b>Software tutorial from the application section: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
                         <script>jupyterLink("/Content/IEooc_Application3_Software1.ipynb", "IEooc_Application3_Software1");</script><br>
-                        <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.zip" target="new">IEooc_Application3_Software1 (data file)</a><br>
+                        <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.zip" target="new">IEooc_Application3_Software1 (data file)</a>
                         <br>
                         <br>
                         <b>Exercise: "Determining Sector Impact in IO Models With the Hypothetical Extraction Method – Hypothetical Extraction Method with Projection Matrices"</b> This exercise shows how to determine the impact or contribution of individual industrial sectors to the total enviromental footprint, an analysis that is increasingly applied in the literature. Topics covered: Understand the power series expansion of the L-matrix. Understand how the contribution of an individual industrial sector to the supply chain of a good or service can be identified by filtering out certain paths in the A matrix power series. Understand how the impact of several industrial sectors in the supply chain of a good or service can be determined without double-counting contribution, using projection matrices.<b> Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (++)</b><br>
@@ -942,14 +925,6 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO_SampleSolution.xlsx" target="new">IEooc_Methods5_Exercise3_Solution (xlsx)</a>
                         <br>
                         <br>		
-                        <b>From the application section: Exercise on the structural decomposition of the IPAT equation: How much do individual factors contribute to change?</b> Learn about how to determine how the change in different factors contributes to the overall change in a product of these factors and apply the method of structural decomposition analysis to the IPAT equation. Prerequisites: Basic algebra.  <b>Level of difficulty: (++)</b><br>
-                        <a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.pdf" target="new">IEooc_Application1_Exercise2a</a>.
-                        <br>
-                        For this exercise, a dataset and a sample solution are available:<br>
-			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.xlsx" target="new">IEooc_Application1_Exercise2a_IPAT_SDA (data file, xlsx)</a><br>                        
-			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA_SampleSolution.xlsx" target="new">IEooc_Application1_Exercise2a, Sample solution (xlsx)</a>
-                        <br>
-			<br>
                         <b>Exercise: "Calculating income specific footprints for Germany"</b> Learn how to use pymrio with a new final demand matrix to calculate footprints for that final demand. Learn how to analyze and plot the results.<b> Prerequisites:</b> Basic knowledge of Input-Output Analysis (completed part Methodology 5: Input-output analysis of the IEooc). Basic knowledge on Python, and the Python MRIO package pmrio, in particular. <b>Level of difficulty: (++ to +++)</b><br>
                         <a href="/Content/IEooc_Methods5_Exercise4a_income_specific_footprints_germany.pdf" target="new">IEooc_Methods5_Exercise4a_income_specific_footprints_germany (pdf)</a><br>
 			<a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
@@ -1021,14 +996,6 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2022/10/30/material-footprint-implications-of-low-carbon-technologies/" target="new">IEooc_Methods6_Reading5</a>
                         <br>
                         <br>			    
-                        <b>from the LCA section: Advanced Life Cycle Impact Assessment:</b> Considering time in life cycle inventories: dynamic characterization factors for greenhouse gases. Goal: Get familiar with the global warming potential of greenhouse gases and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). Apply dynamic GHG accounting to different test cases. <b>Prerequisites:</b> Calculus, global warming potential (see IEooc_Background2_Exercise2). <b>Level of difficulty: (+++)</b><br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA.pdf" target="new">IEooc_Methods4_Exercise11</a>.
-                        <br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA_Workbook.xlsx" target="new">IEooc_Methods4_Exercise11 (data and workbook)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods4_Exercise11_dynLCA_Sample_Solution.xlsx" target="new">IEooc_Methods4_Exercise11_Solution (xlsx)</a>
-                        <br>
-                        <br>
                     </td>
                 </tr>
 
@@ -1119,11 +1086,6 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             <b>Another new book, "An Introduction to Waste Management and Circular Economy", by Stijn van Ewijk and Julia Stegemann, was published in 2023.</b> Details: DOI: 10.14324/111.9781800084650. Extent: 96 illustrations, link: https://uclpress.co.uk/book/an-introduction-to-waste-management-and-circular-economy/
                         <br>
                         <br>
-                        <b>Classical reading: "Design Through the 12 Principles of Green Engineering"</b>, by By Paul T. Anastas and Julie B. Zimmerman (2003, DOI: 10.1021/es032373g):
-                        <br>
-                        <a href="https://pubs.acs.org/doi/pdf/10.1021/es032373g" target="new">IEooc_Background1_Reading5</a> Alternative link with no access restrictions: <a href="http://www.precaution.org/lib/08/prn_green_engineering.htm" target="new">IEooc_Background1_Reading5</a>
-                        <br>
-                        <br>
                         <b>Introductory blog entry: Circular economy: Breakthrough or distraction?</b>
                         <br>
                         <a href="http://www.blog.industrialecology.uni-freiburg.de/index.php/2017/12/15/the-circular-economy-breakthrough-or-distraction/" target="new">IEooc_Application2_Reading1</a>
@@ -1158,14 +1120,6 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <b>Blog entry about circular economy and in-use stocks:</b> In this piece the role played by in-use stocks of products, buildings, and infrastructure in closing material cycles (or the 'circular economy transition') is highlighted.
                         <br>
                         <a href="http://www.blog.industrialecology.uni-freiburg.de/index.php/2017/11/13/growth-of-in-use-stocks-central-obstacle-to-closing-material-cycles/" target="new">IEooc_Application2_Reading3</a>
-                        <br>
-                        <br>
-                        <b>Exercise on estimating the number of life cycles of metals (from methods section):</b> Goal of this exercise is to develop and solve a basic model of the recycling loop, to define and calculate the lifetime of a material in the technosphere and the average number of life cycles. <b>Prerequisites:</b> Analytical solution of MFA systems, geometric series. <b>Level of difficulty: (++)</b>
-                        <br>
-                        <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime.pdf" target="new">IEooc_Methods3_Exercise2</a>.
-                        <br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods3_Exercise2_Technical_Lifetime_Solution.pdf" target="new">IEooc_Methods3_Exercise2_Solution (pdf)</a>
                         <br>
                         <br>
                         <b>Exercise on a basic circular economy scenario for buildings.</b> The goal of this exercise is to understand the legal CE definitions and indicator frameworks. Work with salient CE indicators and develop a simple CE scenario with material stocks and flows. Interpret the CE as part of the energy service cascade. <b>Prerequisites:</b> Stocks and flows, working with the system definition, energy service cascade. <b>Level of difficulty: (++)</b><br>
@@ -1273,26 +1227,6 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <br>
 
-			<b>Exercise on energy and power definitions from the methods section M1</b> It covers salient measures/indicators in the energy supply chain. Learn about the different energy and power definitions, units, and measures/indicators,
-			as well as the definitions of primary, final, and useful energy. Define and calculate energy measures based on the system definition. <b>Prerequisites:</b> Concepts of energy and power in physics. No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
-			<a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain.pdf" target="new">IEooc_Methods1_Exercise1a</a>.
-                        <br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain_Solution.pdf" target="new">IEooc_Methods1_Exercise1a_Solution (pdf)</a>
-                        <br>
-                        <br>
-
-                        <b>Exercise from the background sections: Systems thinking for renewable energy.</b> Learn about the main types of renewable energy, the main barriers for their implementation, and the system linkages that determine their future contribution to climate change mitigation by reading the relevant chapter of the IPCC 5th Assessment Report. <b>Prerequisites:</b> None. <b>Level of difficulty: (+)</b><br>
-                        <a href="/Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC.pdf" target="new">IEooc_Background2_Exercise1</a>.
-                        <br>
-                        Chapter 7 of part III of the IPCC 4th Assessment report is the reading material for this exercise:<br>
-                        <a href="http://www.ipcc.ch/pdf/assessment-report/ar5/wg3/ipcc_wg3_ar5_chapter7.pdf" target="new">Reading material: Chapter 7 of part III of the IPCC 4th assessment report (pdf)</a>
-                        <br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Background2_Exercise1_RenewableEnergy_IPCC_Solution.pdf" target="new">IEooc_Background2_Exercise1_Solution (pdf)</a>
-                        <br>
-                        <br>
-
                         <b>Exercise on energy sufficiency </b>Objective: Understand energy sufficiency as a concept and compare it with energy efficiency; think about ideas to introduce energy sufficiency in households; work with numbers to calculate energy savings potential; think about how energy sufficiency can be implemented on a larger scale. <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
                         <a href="/Content/IEooc_Application4_Exercise1_EnergySufficiency.pdf" target="new">IEooc_Application4_Exercise1 (pdf)</a><br>
                         For this exercise a sample solution is available:<br>
@@ -1303,28 +1237,6 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <b>Lecture: Energy history, energy supply, and energy indicators.</b> <b>Level of difficulty: (++)</b><br>
                         <a href="https://youtu.be/QOdFQH-iHE8" target="new">IEooc_Application4_Lecture2</a><br>
 						Link to the <a href="/Content/IEooc_Application4_Lecture2_updated_public.zip"> slide deck for IEooc_Application4_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
-                        <br>
-                        <br>
-
-                        <b>Link to methodology video lecture on the basic principles of industrial ecology data modelling and accounting: material and energy flow analysis: </b>
-                        <br>
-                        <a href="https://youtu.be/wK_02bGTh1E" target="new">IEooc_Methods1_Lecture1</a>
-                        <br>
-                        In this lecture, the practicalities of quantitative systems analysis are explained: Definitions and basic methodology for material and energy flow accounting are presented, including the basic elements of the quantitative system definition, the process balancing equations, indicator elements, units of measurement, multi-layer system descriptions, and a number of examples. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b>
-                        <br>
-                        <br>
-
-                        <b>Video lecture:</b> Measuring sustainability and sustainable development:
-                        <br>
-                        <a href="https://youtu.be/vSRyT7PJ7Z8" target="new">IEooc_Background2_Lecture5</a>
-                        <br>
-                        <br>
-
-                        <b>Link to methodology exercise on the practicalities of quantitative systems analysis: Locating data in a system definition and indicator development.</b> Learn how to establish a system definition to allocate quantitative information that is given as text. Define and calculate indicators based on the system definition. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
-                        <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition.pdf" target="new">IEooc_Methods1_Exercise1</a>.
-                        <br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
 
@@ -1352,13 +1264,6 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <a href="https://youtu.be/RNeqWkviWHY" target="new">IEooc_Application4_Lecture5</a><br>
 						Link to the <a href="/Content/IEooc_Application4_Lecture5_updated_public.zip"> slide deck for IEooc_Application4_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
-                        <br>
-                        <br>
-
-                        <b>Cross-link to exercise from the supply chain studies section: "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment). <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
-                        <a href="/Content/IEooc_Application3_Exercise1a.pdf" target="new">IEooc_Application3_Exercise1a (pdf)</a><br>
-                        For this exercise a sample solution is available:<br>
-                        <a href="/Content/IEooc_Application3_Exercise1a_SampleSolution.xlsx" target="new">IEooc_Application3_Exercise1a_SampleSolution (xlsx)</a>
                         <br>
                         <br>
 
@@ -1427,17 +1332,93 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
                         <br>
-                        <br>
-                        <b>Cross-link to reading material (blog entry) from the methods section on the material implications of low-carbon energy supply and use.</b> The text explains the relation between the transition to low-carbon energy and what it means for material consumption. It argues that all forms of energy supply have major downsides, and that the high material consumption of renewables is one potential problem. It quantifies the material footprint of different technologies for the energy transition and shows that while the fossil component of the material footprint declines, the metal ore component sharply rises, largely driven by the increased copper demand of electrification of end-use sectors. See IEooc_Methods2_Reading5 for the methodology of the material footprint applied here.
-                        <br>
-                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2022/10/30/material-footprint-implications-of-low-carbon-technologies/" target="new">IEooc_Methods6_Reading5</a>
-                        <br>
-                        <br>		
+                        <br>	
                         <b>Exercise on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
 			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Workbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
+                        <br>
+                        <br>
+                    </td>
+                </tr>
+
+                <tr colspan="2">
+                    <td><b>Application 5: Socio-metabolic research for a post-growth economy</b></td>
+                </tr>
+
+                <tr>
+                    <td width="30%"></td>
+                    <td width="70%">
+                        <b>Reading: Is Green Growth Possible?</b> by Jason Hickel & Giorgos Kallis: 
+                        <br>
+                        <a href="https://doi.org/10.1080/13563467.2019.1598964" target="new">IEooc_Application5_Reading1</a>
+                        <br>
+                        <br>
+                        <b>Reading: Is Green Growth Happening?</b> A systematic review of the evidence on decoupling of GDP, resource use and GHG emissions, by Helmut Haberl and team: 
+                        <br>
+                        <a href="https://doi.org/10.1088/1748-9326/ab842a" target="new">IEooc_Application5_Reading2</a>
+                        <br>
+                        <br>
+                        <b>Reading: Scientists’ warning on affluence</b> by Tommy Wiedmann and team: 
+                        <br>
+                        <a href="https://doi.org/10.1038/s41467-020-16941-y" target="new">IEooc_Application5_Reading3</a>
+                        <br>
+                        <br>
+                        <b>Reading: Living Well Within Limits In Ten Stylised Facts.</b> by Julia Steinberger and team: 
+                        <br>
+                        <a href="https://dx.doi.org/10.2139/ssrn.5687193" target="new">IEooc_Application5_Reading4</a>
+                        <br>
+                        <br>
+                        <b>Reading: Socio-metabolic research and industrial ecology in a post-growth world.</b> by Stefan Pauliuk: 
+                        <br>
+                        <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2026/03/27/socio-metabolic-research-and-industrial-ecology-in-a-post-growth-world/" target="new">IEooc_Application5_Reading5</a>
+                        <br>
+                        <br>
+                        <b>Reading: Post-growth: the science of wellbeing within planetary boundaries.</b> by Giorgos Kallis and team: 
+                        <br>
+                        <a href="https://doi.org/10.1016/S2542-5196(24)00310-3" target="new">IEooc_Application5_Reading6</a>
+                        <br>
+                        <br>
+                        <b>Reading: A low energy demand scenario</b> for meeting the 1.5 °C target and sustainable development goals without negative emission technologies. by Arnulf Grubler and team, published under https://doi.org/10.1038/s41560-018-0172-6 
+                        <br>
+                        <a href="https://pure.iiasa.ac.at/id/eprint/15301/" target="new">IEooc_Application5_Reading7 (open access verion of the paper)</a>
+                        <br>
+                        <br>
+                    </td>
+                </tr>
+
+                <tr colspan="2">
+                    <td><b>Application 6: Consumption corridors, decent living standards and socio-metabolic inequality</b></td>
+                </tr>
+
+                <tr>
+                    <td width="30%"></td>
+                    <td width="70%">
+                        <b>Reading: A corridors and power-oriented perspective on energy-service demand and needs satisfaction. </b> by Doris Fuchs and team: 
+                        <br>
+                        <a href="https://doi.org/10.1080/15487733.2021.1912907" target="new">IEooc_Application6_Reading1</a>
+                        <br>
+                        <br>
+                        <b>Reading: A review on decent living standards. </b> by N.N. (unpublished work, still under review!)
+                        <br>
+                        <a href="https://doi.org/abc123" target="new">IEooc_Application6_Reading2</a>
+                        <br>
+                        <br>
+                        <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
+                        <br>
+                        <a href="https://youtu.be/NiJi-7uQKPg" target="new">IEooc_Application6_Lecture1</a><br>
+						Link to the <a href="/Content/IEooc_Application6_Lecture1.zip">slide deck for IEooc_Application6_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <br>
+                        <br>
+                        <b>Reading: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
+                        <br>
+                        <a href="https://doi.org/10.1016/j.ecolecon.2024.108161" target="new">IEooc_Application6_Reading3</a>
+                        <br>
+                        <br>
+                        <b>Reading: Reducing global inequality to secure human wellbeing and climate safety: a modelling study. </b> by Joel Millward-Hopkins and team: 
+                        <br>
+                        <a href="https://doi.org/10.1016/S2542-5196(23)00004-9" target="new">IEooc_Application6_Reading4</a>
                         <br>
                         <br>
                     </td>
@@ -1486,6 +1467,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.<br>
 		<b>Simon Schulte and Johan Vélez, </b>for preparing the MRIO-based exercises to calculate income-specific footprint and their uncertainty: IEooc_Methods5_Exercise4a+b.<br>
  		<b>Türkü Açar, </b>for providing feedback and a correction for IEooc_Background1_Exercise1_Stock_Flow_Service_Nexus.<br>
+		<b>H Scott Matthews and Bo Weidema, </b>for providing very detailed feedback on the LCA, IO, cross-methods, and related application sections.<br>
                 <br>
                 <br>
                 <br>
@@ -1565,7 +1547,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             The Introduction to Life Cycle Assessment <a href="https://ciraig.org/index.php/mooc-acv/" target="new">online course [link] </a>is designed for students and professionals who want to learn about life cycle thinking, embrace a systems view, and calculate and interpret the environmental footprint of a product, service or technology.
             <br>
             <br>
-
+            + EPFLx MOOC on Sustainability Assessment of Cities, released in 2026. Cities are key to achieving sustainability. Learn how to assess, design policies, and monitor progress towards sustainability <a href="https://www.edx.org/learn/environmental-studies/ecole-polytechnique-federale-de-lausanne-sustainable-assessment-of-cities" target="new">via direct access to the course</a>.
+            <br>
+            <br>
 
             <br>
             <br>
