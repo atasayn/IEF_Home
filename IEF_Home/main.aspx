@@ -446,6 +446,14 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h3 style="text-align: center"><b>+++ News +++</b></h3>
                 <br>
 
+                <h4><b>Major update of the Industrial Ecology open online course (IEooc)</b></h4>
+                <p>
+                    [Spring 2026] The IEooc now contains two new application sections: “A5: Socio-metabolic research for a post-growth economy” and “A6: Consumption corridors, decent living standards and socio-metabolic inequality”. For most of the lectures, the pptx slide decks are now available for download and adaptation into own teaching material. In total, 1500 slides in 40 lecture slide decks are now publicly available.
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="IEooc logo" src="resources/webP/IEooc_logo.webp" />
+                    Direct access to the IEooc and its different sections: <a href="https://www.industrialecology.uni-freiburg.de/teaching" target="_blank">https://www.industrialecology.uni-freiburg.de/teaching </a>
+                </p>
+                <hr>
+
                 <h4><b>IEDC Critical Mass Sprint completed</b></h4>
                 <p>
                     [Winter 2026] During the 2025 critical mass sprint, in total 180 datasets were collected, formatted, and uploaded to the IEDC. These datasets cover service provision, in-use stocks, product material composition, energy intensity, and lifetimes of products, focussing on products and commodities including appliances, buildings, vehicles, infrastructure, industrial assets, and energy system technologies. They are now part of one of the largest openly available compilations of material stock and flow and product group data, and can be found via the IEDC’s multiple search functions.
