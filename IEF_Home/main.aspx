@@ -449,7 +449,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h4><b>Major update of the Industrial Ecology open online course (IEooc)</b></h4>
                 <p>
                     [Spring 2026] The IEooc now contains two new application sections: “A5: Socio-metabolic research for a post-growth economy” and “A6: Consumption corridors, decent living standards and socio-metabolic inequality”. For most of the lectures, the pptx slide decks are now available for download and adaptation into own teaching material. In total, 1500 slides in 40 lecture slide decks are now publicly available.
-                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="IEooc logo" src="resources/webP/IEooc_logo.webp" />
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="IEooc logo" src="Content/webP/IEooc_logo.webp" />
                     Direct access to the IEooc and its different sections: <a href="https://www.industrialecology.uni-freiburg.de/teaching" target="_blank">https://www.industrialecology.uni-freiburg.de/teaching </a>
                 </p>
                 <hr>

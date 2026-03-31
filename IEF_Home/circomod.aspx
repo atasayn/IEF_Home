@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+
         html {
             margin: 0px;
             height: 100%;
@@ -38,13 +39,13 @@
         #DataMenu-Recc-GraphType {
             grid-template-columns: 25% 1fr 1fr 1fr;
             grid-template-areas:
-                'info          info                  info                   info'
-                'map           line-graph           line-graph-pop          StackedArea '
-                'country-info  sankeyBaseline       sankeyBaseline          GHG'
-                'control-panel sankeyFullCE         sankeyFullCE            line-graph-bar'
-                'control-panel ECD_Decoupling       ECD_Decoupling          chinaTeaser'
-                '.             energyServiceCascade energyServiceCascade    chinaTeaser'
-                'infoBottom    infoBottom           infoBottom              infoBottom';
+                               'info          info                  info                   info'
+                               'map           line-graph           line-graph-pop          StackedArea '
+                               'country-info  sankeyBaseline       sankeyBaseline          GHG'
+                               'control-panel sankeyFullCE         sankeyFullCE            line-graph-bar'
+                               'control-panel ECD_Decoupling       ECD_Decoupling          chinaTeaser'
+                               '.             energyServiceCascade energyServiceCascade    chinaTeaser'
+                               'infoBottom    infoBottom           infoBottom              infoBottom';
             display: grid;
             grid-row-gap: 10px;
             grid-column-gap: 5px;
@@ -171,10 +172,10 @@
             width: auto
         }
 
-            #ChinaTeaser img {
-                border-radius: 5px;
-                width: auto
-            }
+        #ChinaTeaser img {
+            border-radius: 5px;
+            width: auto
+        }
 
         #controlPanel {
             grid-area: control-panel;
@@ -285,6 +286,7 @@
             fill: cornflowerblue;
             border-radius: 5px;
             height: 250px
+
         }
 
         .svgMap-country {
@@ -395,18 +397,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/svgMap.min.css" rel="stylesheet">
-    <script src="js/jquery.min.js"></script>
+<%--    <script src="js/jquery.min.js"></script>--%>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/svg-pan-zoom.min.js"></script>
-    <script src="js/jspdf.min.js"></script>
+    <script type="text/javascript" src="js/jspdf.min.js"></script>
     <script type="text/javascript" src="js/svgMap/svgmap.min.js"></script>
-<%--    <script src="js/PDFmaker/jspdf.es.min.js"></script>--%>
-    <script src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
+    <script type="text/javascript" src="js/PDFmaker/jspdf.es.min.js"></script>
+    <script type="text/javascript" src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
     <script type="text/javascript" src="js/svgMap/main.min.js"></script>
     <script type="text/javascript" src="js/mapConfig.js"></script>
     <script type="text/javascript" src="js/dropdownMenu.js"></script>
-    <script type="module" src="js/chart.min.js"></script>
+    <script src="js/chart.min.js"></script>
     <script type="text/javascript" src="js/circular_sankey_script.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.min.js"></script>
     <script src="https://www.visualisation.industrialecology.uni-freiburg.de/scripts/lib/d3.v3.min.js"></script>
