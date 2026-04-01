@@ -10,6 +10,10 @@
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+        #app { zoom: 0.9; }
+        @supports not (zoom: 1) {
+            #app { transform: scale(0.9); transform-origin: 0 0; width: 125%; }
+        }
 
         html {
             margin: 0px;
@@ -441,7 +445,8 @@
 
 </head>
 <body>
-    <form method="post" action="./circomod.aspx" id="form1" runat="server">
+<div id="app">
+        <form method="post" action="./circomod.aspx" id="form1" runat="server">
     <header>
             <div class="jumbotron">
                 <div class="container-fluid">
@@ -846,7 +851,7 @@
 
 
 
-                function barChart(data, canvasID, region,sector,material) {
+                function barChart(data, canvasID, region, sector, material) {
                     var canvasElement = document.getElementById("NoData" + canvasID);
                     var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
                     var values = [...new Set(Array.from(res.values()))];
@@ -857,7 +862,7 @@
                         canvasElement.style.display = "flex";
                     } else {
                         canvasElement.style.display = "none";
-                        barGraph =  new Chart(document.getElementById(canvasID), {
+                        barGraph = new Chart(document.getElementById(canvasID), {
                             type: 'bar',
                             data: {
                                 labels: ["SSP2 Baseline", "Slow+Close", "Narrow + Slow + Close"],
@@ -953,7 +958,7 @@
                                     title: {
                                         display: true,
                                         text: `Annual GHG 2020-2060 by process, [${region}], [${sector}], SSP2 Baseline`
-                    },
+                                    },
                                 },
                                 scales: {
                                     x: {
@@ -1009,5 +1014,7 @@
             </div>
         </footer>
     </form>
+</div>
+
 </body>
 </html>

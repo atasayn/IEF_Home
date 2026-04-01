@@ -1,4 +1,14 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
+    const desired = 0.9; // your target scale
+    const current = window.devicePixelRatio || 1; // rough proxy for zoom/DPI
+    const scale = desired / current;
+
+    const app = document.getElementById('app');
+    app.style.transform = `scale(${scale})`;
+    app.style.transformOrigin = '0 0';
+    app.style.width = `${100 / scale}%`;
+});
+document.addEventListener('DOMContentLoaded', () => {
     if (/firefox/i.test(navigator.userAgent)) return;
 
     const overlay = document.createElement('div');
