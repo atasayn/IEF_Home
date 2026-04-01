@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     box.innerHTML = `
     <p style="margin:0 0 10px;font-size:16px;">
-      For the best experience, we recommend using Firefox.
+      Due to ongoing compatibility issues,we recommend to view this application with firefox.
     </p>
     <button id="browserWarningContinue" style="padding:8px 12px;">Continue</button>
   `;
