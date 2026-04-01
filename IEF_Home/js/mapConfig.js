@@ -1,1146 +1,638 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
-    var idValue = "svgMap-map-country-DE";
-    var url = [];
-    new svgMap({
-        targetElementID: 'svgMap',
-        noDataText: "",
-        initialZoom: 1.1,
-        initialPan: { x: 400, y: 0 },
-        data: {
-            values: {
-            }
-        },
-        onGetTooltip: function (tooltipDiv, countryID, countryValues) {
-            
-            // Get Id's of graph divs
-            var flagContainer = document.getElementById("countryFlag");
-            var imgElement = document.getElementById("singleCountryImg");
-            var countryName = document.getElementById("countryFlagSpan");
-            var energyServicePNG = document.getElementById("energyServiceCascadePNG");
-            var decouplingService = document.getElementById("ecdDecouplingPNG");
-           
-            // Lower  Sankey
-            var imgElementLower = document.getElementById("singleCountryImgLower");
-            var countryNameLower = document.getElementById("countryFlagSpanLower");
-            $(document).on('click', '.svgMap-country', function (e) {
-               console.log("CLICKED:" + e.target);
-               var proxyWarning = document.getElementById("proxyWarning");
-                proxyWarning.innerHTML = ""
-                // Upper Sankey Reset Div
-                // Find the <p> element by its id
-                var steelSpanUpperContainer = document.getElementById("steelUpperValue");
-                var ghgSpanUpperContainer = document.getElementById("GhGUpperValue");
-                var steelSpanLowerContainer = document.getElementById("steelLowerValue");
-                var ghgSpanLowerContainer = document.getElementById("GhGLowerValue");
+﻿document.addEventListener('DOMContentLoaded', () => {
+    if (/firefox/i.test(navigator.userAgent)) return;
 
-                // Function to remove <b> tags within a container
-                function removeBoldTags(container) {
-                    var boldTags = container.getElementsByTagName("b");
-                    while (boldTags.length > 0) {
-                        boldTags[0].parentNode.removeChild(boldTags[0]);
+    const overlay = document.createElement('div');
+    overlay.id = 'browserWarning';
+    Object.assign(overlay.style, {
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(0,0,0,0.6)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999
+    });
+
+    const box = document.createElement('div');
+    Object.assign(box.style, {
+        background: '#fff',
+        padding: '20px',
+        borderRadius: '6px',
+        textAlign: 'center'
+    });
+    box.innerHTML = `
+    <p style="margin:0 0 10px;font-size:16px;">
+      For the best experience, we recommend using Firefox.
+    </p>
+    <button id="browserWarningContinue" style="padding:8px 12px;">Continue</button>
+  `;
+
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+
+    document.getElementById('browserWarningContinue').addEventListener('click', () => {
+        document.body.removeChild(overlay);
+        // or: location.reload();
+    });
+});
+
+(() => {
+    "use strict";
+
+    const removeBoldTags = (container) => {
+        if (!container) return;
+        const boldTags = container.getElementsByTagName("b");
+        while (boldTags.length > 0) {
+            boldTags[0].parentNode.removeChild(boldTags[0]);
+        }
+    };
+
+    const fetchJSON = (url) =>
+        fetch(url).then((r) => {
+            if (!r.ok) throw new Error("Network response was not ok");
+            return r.json();
+        });
+
+    const fetchCountryData = (url, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3) => {
+        $.ajax({
+            url,
+            type: "GET",
+            dataType: "json",
+            success: (data) => {
+                let n = 0;
+                while (data) {
+                    const entry = data?.[1]?.[n];
+                    if (!entry) break;
+                    if (entry.value != null && url === url1) {
+                        const val = entry.value, date = entry.date;
+                        popSpan.innerHTML = ` ${val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} (${date})`;
+                        break;
+                    } else if (entry.value != null && url === url2) {
+                        const val = entry.value, date = entry.date;
+                        gdpSpan.innerHTML = ` ${Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} (${date})`;
+                        break;
+                    } else if (entry.value != null && url === url3) {
+                        const val = entry.value, date = entry.date;
+                        populationDensitySpan.innerHTML = ` ${Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} (${date})`;
+                        break;
                     }
+                    n++;
                 }
-
-                // Remove <b> tags from upper containers
-                removeBoldTags(steelSpanUpperContainer);
-                removeBoldTags(ghgSpanUpperContainer);
-
-                // Remove <b> tags from lower containers
-                removeBoldTags(steelSpanLowerContainer);
-                removeBoldTags(ghgSpanLowerContainer);
-                // Map blue fill over country selection
-                document.getElementById(idValue).setAttribute('fill', null)
-                idValue = e.target.id;
-                document.getElementById(idValue).setAttribute('fill', 'blue');
-
-                ////Fetch json for ISO codes --> Get CountryName,Dataname for missing country,Flag,EnergyCascade png names
-                //const filePath = "json/countryProxy.json";
-                //fetch(filePath)
-                //    .then(response => response.json())
-                //    .then(function (response) {
-                //        var countryInfoCountryName = document.getElementById("countryInfoCountryName");
-                //        var warningDisplay = document.getElementById("warningDisplay");
-                //        var proxyName = document.getElementById("proxyName");
-                //        const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase());
-                //        var name = svgMap.prototype.countries[countryID]
-                //        if (findFlagAndData.Flag == true) {
-                //            countryName.innerHTML = name + " (" + findFlagAndData.Data + ")";
-                //            countryNameLower.innerHTML = countryName.innerHTML
-                //            var region = findFlagAndData.Data;
-                //            proxyWarning.innerHTML = "Sorry, no data for <span style='color:#ba1a1a'>" + name + "</span>, here, the data for the proxy region<span style='color:green'> " + findFlagAndData.Data + "</span> are shown"
-                //            countryInfoCountryName.innerHTML = name;
-                //            proxyName.innerHTML = "Proxy name: " + findFlagAndData.Data
-                //            var findFlagAndDataPNG = findFlagAndData.Png
-                //            warningDisplay.style.display = "block";
-                //            return { region: region, findFlagAndDataPNG: findFlagAndDataPNG };
-                //        } else {
-                //            countryName.innerHTML = name;
-                //            countryInfoCountryName.innerHTML = name;
-                //            countryNameLower.innerHTML = countryName.innerHTML
-                //            proxyName.innerHTML = ""
-                //            var findFlagAndDataPNG = findFlagAndData.Png
-                //            warningDisplay.style.display = "none";
-                //            return { region: findFlagAndData.Data, findFlagAndDataPNG: findFlagAndDataPNG };
-                //        }
-                //    })
-                //    .then(function (regionObj) {
-                //        var mapArea = document.getElementById("mapArea");
-                //        mapArea.style.filter = "blur(8px)";
-                //        mapArea.style.pointerEvents = "none";
-                //        // Reset Divs
-                //        var region = regionObj.region;
-                //        var findFlagAndDataPNG = regionObj.findFlagAndDataPNG;
-                //        // Bind Flag to "Sankey Configuration"
-                //        imgElement.src = "resources/countryFlags/" + countryID.toLowerCase() + ".png";
-                //        imgElementLower.src = imgElement.src
-                //        // Get Fetch API for "Country Info" div
-                //        const url1 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/SP.POP.TOTL?format=json"; //Population
-                //        const url2 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/NY.GDP.PCAP.CD?format=json"; //GDP
-                //        const url3 = "https://api.worldbank.org/v2/country/" + countryID.toLowerCase() + "/indicators/EN.POP.DNST?format=json"; //PopulationDensity
-                //        url.push(url1, url2, url3)
-                //        var gdpSpan = document.getElementById("gdp");
-                //        var popSpan = document.getElementById("population");
-                //        var populationDensitySpan = document.getElementById("populationDensity");
-                //        url.forEach((element) =>
-                //            fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
-                //        )
-                //        // Set Parameters
-                //        var scenario = "SSP2";
-                //        var startYear = 2020;
-                //        var endYear = 2060;
-                //        var sectorTemp = $('#DropDownListSector').val();
-                //        var material = $('#DropDownListMaterial').val();
-                //        // Sankey Sector Parameter
-
-                //        // China Teaser
-                //        if (region == "R32CHN" && sectorTemp == "Residential building") {
-                //            $('#ChinaTeaser').css('display', 'grid');
-                //        } else {
-                //            $('#ChinaTeaser').css('display', 'none');
-                //        }
-
-                //        // Energy Cascade and Decoupling PNG
-                //        if (sectorTemp == "Residential building") {
-                //            energyServicePNG.src = "Content/ReccPlots/" + findFlagAndDataPNG
-                //            decouplingService.src = "Content/ReccPlots/ECD_Decoupling_Overview.png"
-                //        } else {
-                //            energyServicePNG.src = ""
-                //            decouplingService.src = ""
-                //        }
-                //        $('.loader2').css("display", "block");
-                //        fetch("circomodService.svc/Classification_ResultItemPopulation", {
-                //            method: "POST",
-                //            headers: {
-                //                "Content-Type": "application/json; charset=utf-8",
-                //            },
-                //            body: JSON.stringify({ SELECTedRegion: region }),
-                //        })
-                //            .then(response => {
-                //                if (!response.ok) {
-                //                    throw new Error('Network response was not ok');
-                //                }
-                //                return response.json();
-                //            })
-                //            .then(result => {
-                //                $('.loader2').hide();
-                //                if (region !== "") {
-                //                    displayGraph(result.d, "line-plot2", "Total Population by scenario (million)", "Total Population");
-                //                }
-                //            })
-                //            .catch(error => {
-                //                console.error('There was a problem with the fetch operation:', error);
-                //            });
-
-
-                //        $('.loader4').css("display", "block");
-                //        fetch("circomodService.svc/Classification_ResultAreaStacked", {
-                //            method: "POST",
-                //            headers: {
-                //                "Content-Type": "application/json; charset=utf-8",
-                //            },
-                //            body: JSON.stringify({ selectedRegion: region, selectedSector: sectorTemp }),
-                //        })
-                //            .then(response => {
-                //                if (!response.ok) {
-                //                    throw new Error('Network response was not ok');
-                //                }
-                //                return response.json();
-                //            })
-                //            .then(result => {
-                //                $('.loader4').hide();
-                //                if (region !== "") {
-                //                    stackedAreaChart(result, "line-plot4", region, sector);
-                //                }
-                //            })
-                //            .catch(error => {
-                //                console.error('There was a problem with the fetch operation:', error);
-                //            });
-
-
-                //        $('.loader3').css("display", "block");
-                //        fetch("circomodService.svc/Classification_Result1stAnd2ndProd", {
-                //            method: "POST",
-                //            headers: {
-                //                "Content-Type": "application/json; charset=utf-8",
-                //            },
-                //            body: JSON.stringify({
-                //                selectedRegion: region,
-                //                selectedSector: sectorTemp,
-                //                selectedMaterial: material
-                //            }),
-                //        })
-                //            .then(response => {
-                //                if (!response.ok) {
-                //                    throw new Error('Network response was not ok');
-                //                }
-                //                return response.json();
-                //            })
-                //            .then(result => {
-                //                $('.loader3').hide();
-                //                if (region !== "") {
-                //                    barChart(result, "line-plot3", region, sector, material);
-                //                    mapArea.style.filter = "none";
-                //                    mapArea.style.pointerEvents = "auto";
-                //                }
-                //            })
-                //            .catch(error => {
-                //                console.error('There was a problem with the fetch operation:', error);
-                //            });
-
-
-                //        $('.loader5').css("display", "block");
-                //        fetch("circomodService.svc/Classification_ResultGHG", {
-                //            method: "POST",
-                //            headers: {
-                //                "Content-Type": "application/json; charset=utf-8",
-                //            },
-                //            body: JSON.stringify({
-                //                selectedRegion: region,
-                //                selectedSector: sectorTemp
-                //            }),
-                //        })
-                //            .then(response => {
-                //                if (!response.ok) {
-                //                    throw new Error('Network response was not ok');
-                //                }
-                //                return response.json();
-                //            })
-                //            .then(result => {
-                //                $('.loader5').hide();
-                //                if (region !== "") {
-                //                    ghgChart(result, "line-plot5", region, sectorTemp);
-                                    
-                //                }
-                //            })
-                //            .catch(error => {
-                //                console.error('There was a problem with the fetch operation:', error);
-                //            });
-
-                //        var canvasElement = document.getElementById("NoData" + "line-plot1");
-                //        // AJAX call for Line Graph for "Per Capita Service Level SECTOR:Passenger Vehicle, REGION:Choose"
-                //        countriesAvailable = ["France", "Germany", "Italy", "Spain", "UK", "Poland", "Oth_R32EU15", "Oth_R32EU12-H", "R32EU12-M"];
-                //        if (sectorTemp == "Residential building" && countriesAvailable.includes(region)) {
-                //            var sector = sectorTemp;
-                //            canvasElement.style.display = "none";
-                //            $('.loader1').css("display", "block");
-                //            fetch("circomodService.svc/Classification_ResultItemBuildingRes", {
-                //                method: "POST",
-                //                headers: {
-                //                    "Content-Type": "application/json; charset=utf-8",
-                //                },
-                //                body: JSON.stringify({ selectedRegion: region }),
-                //            })
-                //                .then(response => {
-                //                    if (!response.ok) {
-                //                        throw new Error('Network response was not ok');
-                //                    }
-                //                    return response.json();
-                //                })
-                //                .then(result => {
-                //                    $('.loader1').hide();
-                //                    if (region !== "") {
-                //                        displayGraph(result.d, "line-plot1", "Per Capita Service Level", "m2/cap");
-                //                    }
-                //                })
-                //                .catch(error => {
-                //                    console.error('There was a problem with the fetch operation:', error);
-                //                });
-
-                //        } else if (sectorTemp == "Passenger vehicles") {
-                //            $('.loader1').css("display", "block");
-                //            fetch("circomodService.svc/Classification_ResultItem", {
-                //                method: "POST",
-                //                headers: {
-                //                    "Content-Type": "application/json; charset=utf-8",
-                //                },
-                //                body: JSON.stringify({ SELECTedRegion: region }),
-                //            })
-                //                .then(response => response.json())
-                //                .then(result => {
-                //                    document.querySelector('.loader1').style.display = 'none';
-                //                    if (region !== "") {
-                //                        displayGraph(result.d, "line-plot1", "Per Capita Service Level", "Annual pkm by passenger cars");
-                //                    }
-                //                })
-                //                .catch(error => {
-                //                    console.error('Error:', error);
-                //                });
-
-                //        } else {
-                //            const existingChart = Chart.getChart("line-plot1");
-                //            if (existingChart) {
-                //                existingChart.destroy();
-                //            }
-                //            canvasElement.style.display = "flex";
-                //        }
-
-                //        // UPPER Parameters
-                //        var startYear = 2020;
-                //        var endYear = 2060;
-                //        // var material = "Steel";
-                //        var strategy = "Baseline";
-                //        document.getElementById('sankeyDivsAll').innerHTML = "";
-                //        document.getElementById('sankeyDivsAllFullCE').innerHTML = "";
-                //        document.getElementById("scenerioSpan").innerHTML = scenario
-                //        document.getElementById("sectorSpan").innerHTML = "Steel";
-                //        document.getElementById("yearSpan").innerHTML = startYear + "-" + endYear
-                //        document.getElementById("strategySpan").innerHTML = strategy
-                //        document.getElementById("materialSpan").innerHTML = material
-                //        var graphElement = document.getElementById("sankeyDivsAll").style.display;
-
-                //        if (graphElement === "") {
-                //            document.getElementById("sankeyDivsAll").style.display = 'block';
-                //        }
-                //        var sankeyDiv = document.getElementById("sankeyDivsAll");
-                //        var buttonDiv = document.createElement("div");
-                //        buttonDiv.style.position = "absolute";
-                //        // Create Buttons
-                //        var previousLink = document.createElement("button");
-                //        previousLink.className = "button ";
-                //        previousLink.type = "button";
-                //        previousLink.textContent = ">>";
-                //        previousLink.setAttribute("onclick", "navigateFront()");
-                //        var nextLink = document.createElement("button");
-                //        nextLink.className = "button ";
-                //        nextLink.type = "button";
-                //        nextLink.textContent = "<<";
-                //        nextLink.setAttribute("onclick", "navigateBack()");
-                //        // Append buttons elements to the "sankey" div
-                //        buttonDiv.appendChild(previousLink);
-                //        buttonDiv.appendChild(nextLink);
-                //        for (let year = startYear; year <= endYear; year += 10) {
-                //            // LOWER SANKEY
-                //            var scenario = "SSP2";
-                //            var strategy = "Baseline";
-                //            var newDiv = document.createElement("div");
-                //            newDiv.id = "div_svg" + year;
-                //            newDiv.style.position = 'absolute';
-                //            // Create and append <p id="chart"> element within each div
-                //            var chartParagraph = document.createElement("p");
-                //            chartParagraph.id = "chart" + year;
-                //            newDiv.appendChild(chartParagraph);
-                //            // Append the dynamically created div to the parent div
-                //            sankeyDiv.appendChild(newDiv);
-                //            //Create Div for Span and Span for the year text
-                //            var spanDiv = document.createElement("div");
-                //            var newSpan = document.createElement("span");
-                //            newSpan.id = "span_svg" + year;
-                //            newSpan.innerHTML = "SSP2-" + year;
-                //            newSpan.style.position = "absolute";
-                //            newSpan.style.bottom = 0;
-                //            spanDiv.appendChild(newSpan);
-                //            sankeyDiv.appendChild(spanDiv);
-                //            if (newDiv.id == "div_svg" + startYear && newSpan.id == "span_svg" + startYear) {
-                //                newDiv.style.visibility = "visible"
-                //                newSpan.style.visibility = "visible"
-                //            } else {
-                //                newDiv.style.visibility = "hidden"
-                //                newSpan.style.visibility = "hidden"
-                //            }
-                //            // Get the chartContainer directly from chartParagraph
-                //            var chartContainer = chartParagraph;
-
-                //            const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                //            svgElement.setAttribute("id", "target_svg" + year); // Using underscores instead of spaces
-                //            // Append the SVG to the chartContainer
-                //            chartContainer.appendChild(svgElement);
-                //            let divId = "target_svg" + year
-                //            let divSvg = newDiv.id
-                //            let divChart = chartParagraph.id;
-                //            $('.loader').css("display", "block");
-                //            // Sankey Upper AJAX call
-                //            fetch("circomodService.svc/Classification_SankeyItem", {
-                //                method: "POST",
-                //                headers: {
-                //                    "Content-Type": "application/json; charset=utf-8"
-                //                },
-                //                body: JSON.stringify({
-                //                    "SELECTedRegion": region,
-                //                    "SELECTedScenario": scenario,
-                //                    "SELECTedSector": sectorTemp,
-                //                    "SELECTedYear": year,
-                //                    "SELECTedStrategy": strategy,
-                //                    "SELECTedMaterial": "steel"
-                //                })
-                //            })
-                //                .then(response => response.json())
-                //                .then(data => {
-                //                    $('.loader').hide();
-                //                    var res = new Map(data["d"].map(obj => [obj.Key, obj.Value.replace(",", ".")]));
-                //                    var flowarea = $("#input_flow_data").val();
-                //                    var text = flowarea;
-                //                    text = text.replace("F_a", res.get("query_Fa"));
-                //                    text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
-                //                    // Reference flow for final consumption of steel (blue): Mt/yr
-                //                    var container = document.getElementById('steelUpperValue');
-                //                    var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
-                //                    spans = "<b><span id='" + "steelUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
-                //                    if (year == startYear) {
-                //                        spans = spans.replace("display:none", "display:block");
-                //                    }
-                //                    container.innerHTML += spans;
-                //                    text = text.replace("F_c", res.get("query_Fc"));
-                //                    text = text.replace("F_d", res.get("query_Fc"));
-                //                    text = text.replace("F_e", res.get("query_Fc"));
-                //                    text = text.replace("F_f", res.get("query_Ff"));
-                //                    text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
-                //                    text = text.replace("F_h", res.get("query_Fh"));
-                //                    text = text.replace("F_i", res.get("query_Fh"));
-                //                    text = text.replace("F_j", res.get("query_Fh"));
-                //                    text = text.replace("F_k", res.get("query_Fk") / 50);
-                //                    text = text.replace("F_l", res.get("query_Fl") / 50);
-                //                    text = text.replace("F_m", res.get("query_Fm") / 50);
-                //                    // Reference flow for GHG emissions (green): Mt/yr
-                //                    var container = document.getElementById('GhGUpperValue');
-                //                    var Fm = res.get("query_Fm") / 50;
-                //                    spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
-                //                    if (year == startYear) {
-                //                        spans = spans.replace("display:none", "display:block");
-                //                    }
-                //                    container.innerHTML += spans;
-                //                    text = text.replace("F_n", res.get("query_Fn"));
-                //                    text = text.replace("F_o", res.get("query_Fn"));
-                //                    text = text.replace("F_p", res.get("query_Fn"));
-                //                    $("#input_flow_data").val(text);
-                //                    process_sankey(divId, divSvg, divChart);
-                //                    $("#input_flow_data").val(flowarea);
-                //                })
-                //                .catch(error => {
-                //                    console.error('Error:', error);
-                //                });
-
-
-
-                //            sankeyDiv.appendChild(buttonDiv);
-                //            // LOWER SANKEY
-                //            var scenario = "LED";
-                //            var strategy = "Full CE";
-                //            // Lower Sankey Config
-
-                //            document.getElementById("scenerioSpanLower").innerHTML = scenario;
-                //            document.getElementById("sectorSpanLower").innerHTML = $("#DropDownListMaterial");
-                //            document.getElementById("yearSpanLower").innerHTML = startYear + "-" + endYear
-                //            document.getElementById("strategySpanLower").innerHTML = strategy;
-                //            document.getElementById("materialSpanLower").innerHTML = material;
-                //            var graphElementLower = document.getElementById("sankeyDivsAllFullCE").style.display;
-                //            // Lower Sanykey
-                //            if (graphElementLower === "") {
-                //                document.getElementById("sankeyDivsAllFullCE").style.display = 'block';
-                //            }
-                //            var sankeyDivLower = document.getElementById("sankeyDivsAllFullCE");
-                //            var buttonDivLower = document.createElement("div");
-                //            buttonDivLower.style.position = "absolute";
-                //            // Create <a> elements
-                //            var previousLinkLower = document.createElement("button");
-                //            previousLinkLower.className = "button ";
-                //            previousLinkLower.type = "button";
-                //            previousLinkLower.textContent = ">>";
-                //            previousLinkLower.setAttribute("onclick", "navigateFrontLower()");
-
-                //            var nextLinkLower = document.createElement("button");
-                //            nextLinkLower.className = "button ";
-                //            nextLinkLower.type = "button";
-                //            nextLinkLower.textContent = "<<";
-                //            nextLinkLower.setAttribute("onclick", "navigateBackLower()");
-                //            // Append <a> elements to the "sankey" div
-                //            buttonDivLower.appendChild(previousLinkLower);
-                //            buttonDivLower.appendChild(nextLinkLower);
-                //            var newDivLower = document.createElement("div");
-                //            newDivLower.id = "Lowerdiv_svg" + year;
-                //            newDivLower.style.position = 'absolute';
-                //            // Create and append <p id="chart"> element within each div
-                //            var chartParagraphLower = document.createElement("p");
-                //            chartParagraphLower.id = "Lowerchart" + year;
-                //            newDivLower.appendChild(chartParagraphLower);
-                //            // Append the dynamically created div to the parent div
-                //            sankeyDivLower.appendChild(newDivLower);
-                //            //Create Div for Span and Span for the year text
-                //            var spanDivLower = document.createElement("div");
-                //            var newSpanLower = document.createElement("span");
-                //            newSpanLower.id = "Lowerspan_svg" + year;
-                //            newSpanLower.innerHTML = "LED-" + year;
-                //            newSpanLower.style.position = "absolute";
-                //            newSpanLower.style.bottom = 0;
-                //            spanDivLower.appendChild(newSpanLower);
-                //            sankeyDivLower.appendChild(spanDivLower);
-                //            if (newDivLower.id == "Lowerdiv_svg" + startYear && newSpanLower.id == "Lowerspan_svg" + startYear) {
-                //                newDivLower.style.visibility = "visible"
-                //                newSpanLower.style.visibility = "visible"
-                //            } else {
-                //                newDivLower.style.visibility = "hidden"
-                //                newSpanLower.style.visibility = "hidden"
-                //            }
-                //            // Get the chartContainer directly from chartParagraph
-                //            var chartContainerLower = chartParagraphLower;
-                //            const svgElementLower = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                //            svgElementLower.setAttribute("id", "Lowertarget_svg" + year); // Using underscores instead of spaces
-                //            // Append the SVG to the chartContainer
-                //            chartContainerLower.appendChild(svgElementLower);
-                //            let divIdLower = "Lowertarget_svg" + year
-                //            let divSvgLower = newDivLower.id
-                //            let divChartLower = chartParagraphLower.id;
-                //            var spans = "";
-                //            $('.loader6').css("display", "block");
-
-                //            fetch("circomodService.svc/Classification_SankeyItem", {
-                //                method: "POST",
-                //                headers: {
-                //                    "Content-Type": "application/json; charset=utf-8",
-                //                },
-                //                body: JSON.stringify({
-                //                    SELECTedRegion: region,
-                //                    SELECTedScenario: scenario,
-                //                    SELECTedSector: sectorTemp,
-                //                    SELECTedYear: year,
-                //                    SELECTedStrategy: strategy,
-                //                    SELECTedMaterial: "steel"
-                //                }),
-                //            })
-                //                .then(response => {
-                //                    if (!response.ok) {
-                //                        throw new Error('Network response was not ok');
-                //                    }
-                //                    return response.json();
-                //                })
-                //                .then(data => {
-                //                    $('.loader6').hide();
-                //                    var res = new Map(data.d.map(obj => [obj.Key, obj.Value.replace(",", ".")]));
-                //                    var flowarea = $("#input_flow_data").val();
-                //                    var text = flowarea;
-                //                    text = text.replace("F_a", res.get("query_Fa"));
-                //                    text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
-                //                    // Reference flow for final consumption of steel (blue): Mt/yr
-                //                    var container = document.getElementById('steelLowerValue');
-                //                    var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
-                //                    var spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
-                //                    if (year == startYear) {
-                //                        spans = spans.replace("display:none", "display:block");
-                //                    }
-                //                    container.innerHTML += spans;
-                //                    text = text.replace("F_c", res.get("query_Fc"));
-                //                    text = text.replace("F_d", res.get("query_Fc"));
-                //                    text = text.replace("F_e", res.get("query_Fc"));
-                //                    text = text.replace("F_f", res.get("query_Ff"));
-                //                    text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
-                //                    text = text.replace("F_h", res.get("query_Fh"));
-                //                    text = text.replace("F_i", res.get("query_Fh"));
-                //                    text = text.replace("F_j", res.get("query_Fh"));
-                //                    text = text.replace("F_k", res.get("query_Fk") / 50);
-                //                    text = text.replace("F_l", res.get("query_Fl") / 50);
-                //                    text = text.replace("F_m", res.get("query_Fm") / 50);
-                //                    // Reference flow for GHG emissions (green): Mt/yr
-                //                    container = document.getElementById('GhGLowerValue');
-                //                    var Fm = res.get("query_Fm") / 50;
-                //                    spans = "<b><span id='" + "ghgLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
-                //                    if (year == startYear) {
-                //                        spans = spans.replace("display:none", "display:block");
-                //                    }
-                //                    container.innerHTML += spans;
-                //                    text = text.replace("F_n", res.get("query_Fn"));
-                //                    text = text.replace("F_o", res.get("query_Fn"));
-                //                    text = text.replace("F_p", res.get("query_Fn"));
-                //                    $("#input_flow_data").val(text);
-                //                    process_sankey(divIdLower, divSvgLower, divChartLower);
-                //                    $("#input_flow_data").val(flowarea);
-                //                })
-                //                .catch(error => {
-                //                    console.error('There was a problem with the fetch operation:', error);
-                //                });
-
-                //            sankeyDivLower.appendChild(buttonDivLower);
-
-                //        }
-
-
-                //    });
-
-            });
-            
-        }
-        
-    });
-    
-});
-
-function fetchCountryData(url, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3) {
-    $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            // Handle the data here
-            let n = 0;
-            while (data) {
-                if (data[1][n]["value"] != null && url == url1) {
-                    var value = data[1][n]["value"]
-                    var date = data[1][n]["date"]
-                    popSpan.innerHTML = " " + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " (" + date + ")"
-                    break
-                } else if (data[1][n]["value"] != null && url == url2) {
-                    var value = data[1][n]["value"]
-                    var date = data[1][n]["date"]
-                    gdpSpan.innerHTML = " " + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " (" + date + ")"
-                    break
-
-                } else if (data[1][n]["value"] != null && url == url3) {
-                    var value = data[1][n]["value"]
-                    var date = data[1][n]["date"]
-                    populationDensitySpan.innerHTML = " " + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " (" + date + ")"
-                    break
-                }
-                n++
-            }
-        },
-
-    });
-}
-$(window).on('load', function () {
-
-    var countryInfoCountryName = document.getElementById("countryInfoCountryName");
-    // Fetch Json
-    const filePath = "json/countryProxy.json";
-    fetch(filePath)
-        .then(response => response.json())
-        .then(function (response) {
-            countryID = "DE"
-            const findFlagAndData = response.find(obj => obj.ISO === countryID.toUpperCase());
-            var energyServicePNG = document.getElementById("energyServiceCascadePNG");
-            var decouplingService = document.getElementById("ecdDecouplingPNG")
-            energyServicePNG.src = "Content/ReccPlots/" + findFlagAndData.Png
-            decouplingService.src = "Content/ReccPlots/ECD_Decoupling_Overview.png"
-
-        });
-
-    var region = "Germany";
-    var scenario = "SSP2";
-    var sector = "Residential building";
-    var startYear = 2020;
-    var endYear = 2030;
-    var strategy = "Baseline";
-    var material = "steel";
-    countryInfoCountryName.innerHTML = region
-    $('.loader2').css("display", "block");
-    fetch("circomodService.svc/Classification_ResultItemPopulation", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-        },
-        body: JSON.stringify({ SELECTedRegion: region }),
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(result => {
-            $('.loader2').hide();
-            if (region !== "") {
-                displayGraph(result.d, "line-plot2", "Total Population by scenario (million)", "Total Population");
-            }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-
-    // Ajax call for Per Capita Service Level, SECTOR:Passenger Vehicle, REGION:Choose
-    $('.loader1').css("display", "block");
-    fetch("circomodService.svc/Classification_ResultItemBuildingRes", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-        },
-        body: JSON.stringify({ selectedRegion: region }),
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(result => {
-            $('.loader1').hide();
-            if (region !== "") {
-                displayGraph(result.d, "line-plot1", "Per Capita Service Level", "m2/cap");
-            }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-
-
-    $('.loader3').css("display", "block");
-    fetch("circomodService.svc/Classification_Result1stAnd2ndProd", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-        },
-        body: JSON.stringify({
-            selectedRegion: region,
-            selectedSector: sector,
-            selectedMaterial: material
-        }),
-    }).then(response => response.json()).then(result => {
-        document.querySelector('.loader3').style.display = 'none';
-        if (region !== "") {
-            barChart(result, "line-plot3", region, sector, material);
-        }
-    })
-
-
-    $('.loader4').css("display", "block");
-    fetch("circomodService.svc/Classification_ResultAreaStacked", {
-        method: "POST",
-        headers: { "Content-Type": "application/json; charset=utf-8" },
-        body: JSON.stringify({
-            selectedRegion: region,
-            selectedSector: sector
-        })
-    }).then(response => response.json()).then(result => {
-        document.querySelector('.loader4').style.display = 'none';
-        if (region !== "") {
-            stackedAreaChart(result, "line-plot4", region, sector);
-        }
-    })
-
-
-    $('.loader5').css("display", "block");
-    fetch("circomodService.svc/Classification_ResultGHG", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-        },
-        body: JSON.stringify({ selectedRegion: region, selectedSector: sector }),
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(result => {
-            $('.loader5').hide();
-            if (region !== "") {
-                ghgChart(result, 'line-plot5', region, sector);
-            }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-
-    document.getElementById("scenerioSpan").innerHTML = scenario
-    document.getElementById("sectorSpan").innerHTML = sector
-    document.getElementById("yearSpan").innerHTML = startYear + "-" + endYear
-    document.getElementById("strategySpan").innerHTML = strategy
-    document.getElementById("materialSpan").innerHTML = material
-    var graphElement = document.getElementById("sankeyDivsAll").style.display;
-
-
-    // Upper Sanyke
-    if (graphElement === "") {
-        document.getElementById("sankeyDivsAll").style.display = 'block';
-    }
-    var sankeyDiv = document.getElementById("sankeyDivsAll");
-    var buttonDiv = document.createElement("div");
-    buttonDiv.style.position = "absolute";
-    // Create <a> elements
-    var previousLink = document.createElement("button");
-    previousLink.className = "button ";
-    previousLink.type = "button";
-    previousLink.textContent = ">>";
-    previousLink.setAttribute("onclick", "navigateFront()");
-
-    var nextLink = document.createElement("button");
-    nextLink.className = "button ";
-    nextLink.type = "button";
-    nextLink.textContent = "<<";
-    nextLink.setAttribute("onclick", "navigateBack()");
-    // Append <a> elements to the "sankey" div
-    buttonDiv.appendChild(previousLink);
-    buttonDiv.appendChild(nextLink);
-
-
-
-    for (let year = startYear; year <= endYear; year += 10) {
-
-        var newDiv = document.createElement("div");
-        newDiv.id = "div_svg" + year;
-        newDiv.style.position = 'absolute';
-        // Create and append <p id="chart"> element within each div
-        var chartParagraph = document.createElement("p");
-        chartParagraph.id = "chart" + year;
-        newDiv.appendChild(chartParagraph);
-        // Append the dynamically created div to the parent div
-        sankeyDiv.appendChild(newDiv);
-        //Create Div for Span and Span for the year text
-        var spanDiv = document.createElement("div");
-        var newSpan = document.createElement("span");
-        newSpan.id = "span_svg" + year;
-        newSpan.innerHTML = "SSP2-" + year;
-        newSpan.style.position = "absolute";
-        newSpan.style.bottom = 0;
-        spanDiv.appendChild(newSpan);
-        sankeyDiv.appendChild(spanDiv);
-        if (newDiv.id == "div_svg" + startYear && newSpan.id == "span_svg" + startYear) {
-            newDiv.style.visibility = "visible"
-            newSpan.style.visibility = "visible"
-        } else {
-            newDiv.style.visibility = "hidden"
-            newSpan.style.visibility = "hidden"
-        }
-        // Get the chartContainer directly from chartParagraph
-        var chartContainer = chartParagraph;
-        const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svgElement.setAttribute("id", "target_svg" + year); // Using underscores instead of spaces
-        // Append the SVG to the chartContainer
-        chartContainer.appendChild(svgElement);
-        let divId = "target_svg" + year
-        let divSvg = newDiv.id
-        let divChart = chartParagraph.id;
-        var spans = "";
-
-        $('.loader').css("display", "block");
-        fetch("circomodService.svc/Classification_SankeyItem", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
             },
-            body: JSON.stringify({
-                SELECTedRegion: region,
-                SELECTedScenario: scenario,
-                SELECTedSector: sector,
-                SELECTedYear: year,
-                SELECTedStrategy: strategy,
-                SELECTedMaterial: material
-            }),
+        });
+    };
+
+    const chartImageURL = {};
+    function ghgChart(data, canvasID, region, sector) {
+        const res = new Map(data.d.map((obj) => [obj.Key, obj.Value]));
+        const values = [...new Set(Array.from(res.values()))];
+        try {
+            const chart = new CanvasJS.Chart("waterfall", {
+                theme: "light2",
+                backgroundColor: "rgba(225,150,150,0)",
+                title: {
+                    text: `Cumulative GHG 2020-2060, [${region}], [${sector}]`,
+                    fontSize: 12,
+                    fontColor: "#666",
+                },
+                axisY: {
+                    title: "Mt CO2-eq / year",
+                    valueFormatString: "#.###",
+                    titleFontSize: 12,
+                },
+                data: [
+                    {
+                        type: "waterfall",
+                        yValueFormatString: "#.###",
+                        risingColor: "#96a6a6",
+                        fallingColor: "#ef6c00",
+                        dataPoints: [
+                            { label: "SSP2 Baseline", y: parseInt(Number(values[0].toString().replace(",", ".")).toFixed(1)) },
+                            { label: ".", y: parseInt((Number(values[1].toString().replace(",", ".")) - Number(values[0].toString().replace(",", "."))).toFixed(1)) },
+                            { label: "Slow+Close", isIntermediateSum: true },
+                            { label: ".", y: parseInt((Number(values[2].toString().replace(",", ".")) - Number(values[1].toString().replace(",", "."))).toFixed()) },
+                            { label: "Narrow+Slow+Close", isCumulativeSum: true },
+                        ],
+                    },
+                ],
+            });
+            chart.render();
+            const canvas = $("#waterfall .canvasjs-chart-canvas").get(0);
+            chartImageURL.waterfall = canvas.toDataURL("image/png", 1);
+        } catch (e) {
+            console.error("Error disposing previous chart:", e);
+        }
+        return chartImageURL;
+    }
+
+    const fillMapCountry = (newId) => {
+        document.querySelectorAll(".svgMap-country").forEach((el) => el.removeAttribute("fill"));
+        const current = document.getElementById(newId);
+        if (current) current.setAttribute("fill", "blue");
+    };
+
+    const buildSankey = ({ region, scenario, sector, startYear, endYear, strategy, material, upper = true }) => {
+        const sankeyWrapperId = upper ? "sankeyDivsAll" : "sankeyDivsAllFullCE";
+        const sankeyDiv = document.getElementById(sankeyWrapperId);
+        if (!sankeyDiv) return;
+
+        if (sankeyDiv.style.display === "") sankeyDiv.style.display = "block";
+
+        const buttonDiv = document.createElement("div");
+        buttonDiv.style.position = "absolute";
+
+        const previousBtn = document.createElement("button");
+        previousBtn.className = "button";
+        previousBtn.type = "button";
+        previousBtn.textContent = ">>";
+        previousBtn.setAttribute("onclick", upper ? "navigateFront()" : "navigateFrontLower()");
+
+        const nextBtn = document.createElement("button");
+        nextBtn.className = "button";
+        nextBtn.type = "button";
+        nextBtn.textContent = "<<";
+        nextBtn.setAttribute("onclick", upper ? "navigateBack()" : "navigateBackLower()");
+
+        buttonDiv.appendChild(previousBtn);
+        buttonDiv.appendChild(nextBtn);
+
+        const loaderClass = upper ? ".loader" : ".loader6";
+        const steelContainerId = upper ? "steelUpperValue" : "steelLowerValue";
+        const ghgContainerId = upper ? "GhGUpperValue" : "GhGLowerValue";
+        const scenarioSpanId = upper ? "scenerioSpan" : "scenerioSpanLower";
+        const sectorSpanId = upper ? "sectorSpan" : "sectorSpanLower";
+        const yearSpanId = upper ? "yearSpan" : "yearSpanLower";
+        const strategySpanId = upper ? "strategySpan" : "strategySpanLower";
+        const materialSpanId = upper ? "materialSpan" : "materialSpanLower";
+        const svgIdPrefix = upper ? "target_svg" : "Lowertarget_svg";
+        const divIdPrefix = upper ? "div_svg" : "Lowerdiv_svg";
+        const chartIdPrefix = upper ? "chart" : "Lowerchart";
+        const spanIdPrefix = upper ? "span_svg" : "Lowerspan_svg";
+
+        document.getElementById(scenarioSpanId).innerHTML = scenario;
+        document.getElementById(sectorSpanId).innerHTML = sector;
+        document.getElementById(yearSpanId).innerHTML = `${startYear}-${endYear}`;
+        document.getElementById(strategySpanId).innerHTML = strategy;
+        document.getElementById(materialSpanId).innerHTML = material;
+
+        for (let year = startYear; year <= endYear; year += 10) {
+            const newDiv = document.createElement("div");
+            newDiv.id = `${divIdPrefix}${year}`;
+            newDiv.style.position = "absolute";
+
+            const chartParagraph = document.createElement("p");
+            chartParagraph.id = `${chartIdPrefix}${year}`;
+            newDiv.appendChild(chartParagraph);
+
+            const spanDiv = document.createElement("div");
+            const newSpan = document.createElement("span");
+            newSpan.id = `${spanIdPrefix}${year}`;
+            newSpan.innerHTML = `${scenario}-${year}`;
+            newSpan.style.position = "absolute";
+            newSpan.style.bottom = 0;
+            spanDiv.appendChild(newSpan);
+
+            sankeyDiv.appendChild(newDiv);
+            sankeyDiv.appendChild(spanDiv);
+
+            if (year === startYear) {
+                newDiv.style.visibility = "visible";
+                newSpan.style.visibility = "visible";
+            } else {
+                newDiv.style.visibility = "hidden";
+                newSpan.style.visibility = "hidden";
+            }
+
+            const chartContainer = chartParagraph;
+            const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svgElement.setAttribute("id", `${svgIdPrefix}${year}`);
+            chartContainer.appendChild(svgElement);
+
+            const divId = `${svgIdPrefix}${year}`;
+            const divSvg = newDiv.id;
+            const divChart = chartParagraph.id;
+
+            $(loaderClass).css("display", "block");
+
+            fetch("circomodService.svc/Classification_SankeyItem", {
+                method: "POST",
+                headers: { "Content-Type": "application/json; charset=utf-8" },
+                body: JSON.stringify({
+                    SELECTedRegion: region,
+                    SELECTedScenario: scenario,
+                    SELECTedSector: sector,
+                    SELECTedYear: year,
+                    SELECTedStrategy: strategy,
+                    SELECTedMaterial: material,
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    $(loaderClass).hide();
+                    const res = new Map(data.d.map((obj) => [obj.Key, obj.Value.replace(",", ".")]));
+                    const flowarea = $("#input_flow_data").val();
+                    let text = flowarea;
+
+                    text = text.replace("F_a", res.get("query_Fa"));
+                    text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
+
+                    const steelContainer = document.getElementById(steelContainerId);
+                    const Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
+                    let spanSteel = `<b><span id='${upper ? "steelUpper_span" : "steelLower_span"}${year}' style='display:none'>${parseFloat(Fb.toFixed(1))} Mt/yr</span></b>`;
+                    if (year === startYear) spanSteel = spanSteel.replace("display:none", "display:block");
+                    steelContainer.innerHTML += spanSteel;
+
+                    text = text.replace("F_c", res.get("query_Fc"));
+                    text = text.replace("F_d", res.get("query_Fc"));
+                    text = text.replace("F_e", res.get("query_Fc"));
+                    text = text.replace("F_f", res.get("query_Ff"));
+                    text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
+                    text = text.replace("F_h", res.get("query_Fh"));
+                    text = text.replace("F_i", res.get("query_Fh"));
+                    text = text.replace("F_j", res.get("query_Fh"));
+                    text = text.replace("F_k", res.get("query_Fk") / 50);
+                    text = text.replace("F_l", res.get("query_Fl") / 50);
+                    text = text.replace("F_m", res.get("query_Fm") / 50);
+
+                    const ghgContainer = document.getElementById(ghgContainerId);
+                    const Fm = res.get("query_Fm") / 50;
+                    let spanGhg = `<b><span id='${upper ? "ghgUpper_span" : "ghgLower_span"}${year}' style='display:none'>${parseFloat(Fm.toFixed(1))} Mt/yr</span></b>`;
+                    if (year === startYear) spanGhg = spanGhg.replace("display:none", "display:block");
+                    ghgContainer.innerHTML += spanGhg;
+
+                    text = text.replace("F_n", res.get("query_Fn"));
+                    text = text.replace("F_o", res.get("query_Fn"));
+                    text = text.replace("F_p", res.get("query_Fn"));
+                    $("#input_flow_data").val(text);
+                    process_sankey(divId, divSvg, divChart);
+                    $("#input_flow_data").val(flowarea);
+                })
+                .catch((err) => console.error(err));
+
+            sankeyDiv.appendChild(buttonDiv);
+        }
+    };
+
+    const loadCharts = ({ region, sector, material, scenario, startYear, endYear, strategy, countryID, countryName, proxyData }) => {
+        const mapArea = document.getElementById("mapArea");
+        mapArea.style.filter = "blur(8px)";
+        mapArea.style.pointerEvents = "none";
+
+        const countryInfoCountryName = document.getElementById("countryInfoCountryName");
+        countryInfoCountryName.innerHTML = countryName;
+
+        const imgElement = document.getElementById("singleCountryImg");
+        const countryNameSpan = document.getElementById("countryFlagSpan");
+        const imgElementLower = document.getElementById("singleCountryImgLower");
+        const countryNameLower = document.getElementById("countryFlagSpanLower");
+
+        imgElement.src = `resources/countryFlags/${countryID.toLowerCase()}.png`;
+        imgElementLower.src = imgElement.src;
+        countryNameSpan.innerHTML = countryName;
+        countryNameLower.innerHTML = countryName;
+
+        const url1 = `https://api.worldbank.org/v2/country/${countryID.toLowerCase()}/indicators/SP.POP.TOTL?format=json`;
+        const url2 = `https://api.worldbank.org/v2/country/${countryID.toLowerCase()}/indicators/NY.GDP.PCAP.CD?format=json`;
+        const url3 = `https://api.worldbank.org/v2/country/${countryID.toLowerCase()}/indicators/EN.POP.DNST?format=json`;
+
+        const gdpSpan = document.getElementById("gdp");
+        const popSpan = document.getElementById("population");
+        const populationDensitySpan = document.getElementById("populationDensity");
+        [url1, url2, url3].forEach((u) => fetchCountryData(u, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3));
+
+        if (region === "R32CHN" && sector === "Residential building") {
+            $("#ChinaTeaser").css("display", "grid");
+        } else {
+            $("#ChinaTeaser").css("display", "none");
+        }
+
+        const energyServicePNG = document.getElementById("energyServiceCascadePNG");
+        const decouplingService = document.getElementById("ecdDecouplingPNG");
+        if (sector === "Residential building") {
+            energyServicePNG.src = `Content/ReccPlots/${proxyData.findFlagAndDataPNG}`;
+            decouplingService.src = "Content/ReccPlots/ECD_Decoupling_Overview.png";
+        } else {
+            energyServicePNG.src = "";
+            decouplingService.src = "";
+        }
+
+        $(".loader2").css("display", "block");
+        fetch("circomodService.svc/Classification_ResultItemPopulation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ SELECTedRegion: region }),
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader2").hide();
+                if (region !== "") {
+                    displayGraph(result.d, "line-plot2", "Total Population by scenario (million)", "Total Population");
                 }
-                return response.json();
             })
-            .then(data => {
-                $('.loader').hide();
-                var res = new Map(data.d.map(obj => [obj.Key, obj.Value.replace(",", ".")]));
-                var flowarea = $("#input_flow_data").val();
-                var text = flowarea;
-                text = text.replace("F_a", res.get("query_Fa"));
-                text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
-                // Reference flow for final consumption of steel (blue): Mt/yr
-                var container = document.getElementById('steelUpperValue');
-                var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
-                var spans = "<b><span id='" + "steelUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
-                if (year == startYear) {
-                    spans = spans.replace("display:none", "display:block");
+            .catch(console.error);
+
+        $(".loader4").css("display", "block");
+        fetch("circomodService.svc/Classification_ResultAreaStacked", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ selectedRegion: region, selectedSector: sector }),
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader4").hide();
+                if (region !== "") {
+                    stackedAreaChart(result, "line-plot4", region, sector);
                 }
-                container.innerHTML += spans;
-                text = text.replace("F_c", res.get("query_Fc"));
-                text = text.replace("F_d", res.get("query_Fc"));
-                text = text.replace("F_e", res.get("query_Fc"));
-                text = text.replace("F_f", res.get("query_Ff"));
-                text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
-                text = text.replace("F_h", res.get("query_Fh"));
-                text = text.replace("F_i", res.get("query_Fh"));
-                text = text.replace("F_j", res.get("query_Fh"));
-                text = text.replace("F_k", res.get("query_Fk") / 50);
-                text = text.replace("F_l", res.get("query_Fl") / 50);
-                text = text.replace("F_m", res.get("query_Fm") / 50);
-                // Reference flow for GHG emissions (green): Mt/yr
-                container = document.getElementById('GhGUpperValue');
-                var Fm = res.get("query_Fm") / 50;
-                spans = "<b><span id='" + "ghgUpper_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
-                if (year == startYear) {
-                    spans = spans.replace("display:none", "display:block");
-                }
-                container.innerHTML += spans;
-                text = text.replace("F_n", res.get("query_Fn"));
-                text = text.replace("F_o", res.get("query_Fn"));
-                text = text.replace("F_p", res.get("query_Fn"));
-                $("#input_flow_data").val(text);
-                process_sankey(divId, divSvg, divChart);
-                $("#input_flow_data").val(flowarea);
             })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
+            .catch(console.error);
+
+        $(".loader3").css("display", "block");
+        fetch("circomodService.svc/Classification_Result1stAnd2ndProd", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ selectedRegion: region, selectedSector: sector, selectedMaterial: material }),
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader3").hide();
+                if (region !== "") {
+                    barChart(result, "line-plot3", region, sector, material);
+                }
+            })
+            .catch(console.error)
+            .finally(() => {
+                mapArea.style.filter = "none";
+                mapArea.style.pointerEvents = "auto";
             });
 
-        sankeyDiv.appendChild(buttonDiv)
+        $(".loader5").css("display", "block");
+        fetch("circomodService.svc/Classification_ResultGHG", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ selectedRegion: region, selectedSector: sector }),
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader5").hide();
+                if (region !== "") {
+                    ghgChart(result, "line-plot5", region, sector);
+                }
+            })
+            .catch(console.error);
 
-        // Upper  Sankey
-        var flagContainer = document.getElementById("countryFlag");
-        var imgElement = document.getElementById("singleCountryImg");
-        var countryName = document.getElementById("countryFlagSpan");
-        flagContainer.children.innerHTML = ""
-        var countryCode = "de";
-        // Set the src attribute of the img tag
-        imgElement.src = "resources/countryFlags/" + "de" + ".png";
-        imgElement.setAttribute("height", 30)
+        const canvasElement = document.getElementById("NoData" + "line-plot1");
+        const countriesAvailable = ["France", "Germany", "Italy", "Spain", "UK", "Poland", "Oth_R32EU15", "Oth_R32EU12-H", "R32EU12-M"];
+        if (sector === "Residential building" && countriesAvailable.includes(region)) {
+            canvasElement.style.display = "none";
+            $(".loader1").css("display", "block");
+            fetch("circomodService.svc/Classification_ResultItemBuildingRes", {
+                method: "POST",
+                headers: { "Content-Type": "application/json; charset=utf-8" },
+                body: JSON.stringify({ selectedRegion: region }),
+            })
+                .then((r) => r.json())
+                .then((result) => {
+                    $(".loader1").hide();
+                    if (region !== "") {
+                        displayGraph(result.d, "line-plot1", "Per Capita Service Level", "m2/cap");
+                    }
+                })
+                .catch(console.error);
+        } else if (sector === "Passenger vehicles") {
+            $(".loader1").css("display", "block");
+            fetch("circomodService.svc/Classification_ResultItem", {
+                method: "POST",
+                headers: { "Content-Type": "application/json; charset=utf-8" },
+                body: JSON.stringify({ SELECTedRegion: region }),
+            })
+                .then((r) => r.json())
+                .then((result) => {
+                    $(".loader1").hide();
+                    if (region !== "") {
+                        displayGraph(result.d, "line-plot1", "Per Capita Service Level", "Annual pkm by passenger cars");
+                    }
+                })
+                .catch(console.error);
+        } else {
+            const existingChart = Chart.getChart("line-plot1");
+            if (existingChart) existingChart.destroy();
+            canvasElement.style.display = "flex";
+        }
+
+        buildSankey({ region, scenario, sector, startYear, endYear, strategy: "Baseline", material: "steel", upper: true });
+        buildSankey({ region, scenario: "LED", sector, startYear, endYear, strategy: "Full CE", material: "steel", upper: false });
+    };
+
+    const handleCountryClick = (evt) => {
+        const target = evt.currentTarget;
+        const isoMatch = target.id.match(/country-([A-Za-z0-9]+)/i);
+        const countryID = isoMatch ? isoMatch[1].toUpperCase() : "";
+        if (!countryID) return;
+        const countryName = svgMap.prototype.countries[countryID] || countryID;
+
+        const proxyWarning = document.getElementById("proxyWarning");
+        proxyWarning.innerHTML = "";
+
+        [document.getElementById("steelUpperValue"),
+        document.getElementById("GhGUpperValue"),
+        document.getElementById("steelLowerValue"),
+        document.getElementById("GhGLowerValue")].forEach(removeBoldTags);
+
+        fillMapCountry(target.id);
+
+        fetchJSON("json/countryProxy.json")
+            .then((response) => {
+                const findFlagAndData = response.find((obj) => obj.ISO === countryID);
+                const regionInfo = { region: findFlagAndData.Data, findFlagAndDataPNG: findFlagAndData.Png };
+                const warningDisplay = document.getElementById("warningDisplay");
+                const proxyName = document.getElementById("proxyName");
+                const countryInfoCountryName = document.getElementById("countryInfoCountryName");
+
+                if (findFlagAndData.Flag === true) {
+                    proxyWarning.innerHTML = `Sorry, no data for <span style='color:#ba1a1a'>${countryName}</span>, here, the data for the proxy region<span style='color:green'> ${findFlagAndData.Data}</span> are shown`;
+                    countryInfoCountryName.innerHTML = countryName;
+                    proxyName.innerHTML = `Proxy name: ${findFlagAndData.Data}`;
+                    warningDisplay.style.display = "block";
+                    regionInfo.region = findFlagAndData.Data;
+                } else {
+                    countryInfoCountryName.innerHTML = countryName;
+                    proxyName.innerHTML = "";
+                    warningDisplay.style.display = "none";
+                }
+                return regionInfo;
+            })
+            .then((regionObj) => {
+                loadCharts({
+                    region: regionObj.region,
+                    sector: $("#DropDownListSector").val(),
+                    material: $("#DropDownListMaterial").val(),
+                    scenario: "SSP2",
+                    startYear: 2020,
+                    endYear: 2060,
+                    strategy: "Baseline",
+                    countryID,
+                    countryName,
+                    proxyData: regionObj,
+                });
+            })
+            .catch(console.error);
+    };
+
+    const initSvgMap = () => {
+        new svgMap({
+            targetElementID: "svgMap",
+            noDataText: "",
+            initialZoom: 1.1,
+            initialPan: { x: 400, y: 0 },
+            data: {
+                data: { dummy: { name: "", format: "" } },
+                applyData: "dummy",
+                values: {},
+            },
+        });
+
+        // bind clicks once countries are in the DOM
+        const container = document.getElementById("svgMap");
+        const observer = new MutationObserver(() => {
+            container.querySelectorAll(".svgMap-country").forEach((el) => {
+                el.removeEventListener("click", handleCountryClick);
+                el.addEventListener("click", handleCountryClick);
+            });
+        });
+        observer.observe(container, { childList: true, subtree: true });
+    };
+
+    const initMaterialDropdown = () => {
+        $("#DropDownListSector").on("change", function () {
+            const sectorTemp = $(this).val();
+            const dropdown = $("#DropDownListMaterial");
+            dropdown.empty();
+            dropdown.append("<option value='' disabled selected>Please select sector</option>");
+            const arrayBuilding = ["Steel", "Cement", "Wood"];
+            const arrayVehicle = ["Steel", "Aluminium", "Copper"];
+            if (sectorTemp === "Residential building") {
+                arrayBuilding.forEach((el) => dropdown.append($("<option>").val(el).text(el)));
+            } else if (sectorTemp === "Passenger vehicles") {
+                arrayVehicle.forEach((el) => dropdown.append($("<option>").val(el).text(el)));
+            }
+        });
+    };
+
+    const initOnLoadCharts = () => {
+        const region = "Germany";
+        const scenario = "SSP2";
+        const sector = "Residential building";
+        const startYear = 2020;
+        const endYear = 2030;
+        const strategy = "Baseline";
+        const material = "steel";
+
+        fetchJSON("json/countryProxy.json").then((response) => {
+            const findFlagAndData = response.find((obj) => obj.ISO === "DE");
+            document.getElementById("energyServiceCascadePNG").src = `Content/ReccPlots/${findFlagAndData.Png}`;
+            document.getElementById("ecdDecouplingPNG").src = "Content/ReccPlots/ECD_Decoupling_Overview.png";
+        });
+
+        document.getElementById("countryInfoCountryName").innerHTML = region;
+
+        $(".loader2").css("display", "block");
+        fetch("circomodService.svc/Classification_ResultItemPopulation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ SELECTedRegion: region }),
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader2").hide();
+                if (region !== "") displayGraph(result.d, "line-plot2", "Total Population by scenario (million)", "Total Population");
+            })
+            .catch(console.error);
+
+        $(".loader1").css("display", "block");
+        fetch("circomodService.svc/Classification_ResultItemBuildingRes", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ selectedRegion: region }),
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader1").hide();
+                if (region !== "") displayGraph(result.d, "line-plot1", "Per Capita Service Level", "m2/cap");
+            })
+            .catch(console.error);
+
+        $(".loader3").css("display", "block");
+        fetch("circomodService.svc/Classification_Result1stAnd2ndProd", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ selectedRegion: region, selectedSector: sector, selectedMaterial: material }),
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader3").hide();
+                if (region !== "") barChart(result, "line-plot3", region, sector, material);
+            });
+
+        $(".loader4").css("display", "block");
+        fetch("circomodService.svc/Classification_ResultAreaStacked", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ selectedRegion: region, selectedSector: sector }),
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader4").hide();
+                if (region !== "") stackedAreaChart(result, "line-plot4", region, sector);
+            });
+
+        $(".loader5").css("display", "block");
+        fetch("circomodService.svc/Classification_ResultGHG", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({ selectedRegion: region, selectedSector: sector }),
+        })
+            .then((r) => r.json())
+            .then((result) => {
+                $(".loader5").hide();
+                if (region !== "") ghgChart(result, "line-plot5", region, sector);
+            })
+            .catch(console.error);
+
+        buildSankey({ region, scenario, sector, startYear, endYear, strategy, material, upper: true });
+        buildSankey({ region, scenario: "LED", sector, startYear, endYear, strategy: "Full CE", material, upper: false });
+
+        fillMapCountry("svgMap-map-country-DE");
+
+        const imgElement = document.getElementById("singleCountryImg");
+        const countryNameSpan = document.getElementById("countryFlagSpan");
+        imgElement.src = "resources/countryFlags/de.png";
+        imgElement.setAttribute("height", 30);
         imgElement.style.border = "outset";
-        var name = "Germany"
-        countryName.innerText = name;
-        countryName.id = "countryFlagSpan"
+        countryNameSpan.innerText = "Germany";
 
-        // LOWER SANKEY
-        var scenario = "LED";
-        var strategy = "Full CE";
-        // Lower Sankey Config
-        document.getElementById("scenerioSpanLower").innerHTML = scenario
-        document.getElementById("sectorSpanLower").innerHTML = sector
-        document.getElementById("yearSpanLower").innerHTML = startYear + "-" + endYear
-        document.getElementById("strategySpanLower").innerHTML = strategy
-        document.getElementById("materialSpanLower").innerHTML = material
-        var graphElementLower = document.getElementById("sankeyDivsAllFullCE").style.display;
-        // Lower Sanykey
-        if (graphElementLower === "") {
-            document.getElementById("sankeyDivsAllFullCE").style.display = 'block';
-        }
-        var sankeyDivLower = document.getElementById("sankeyDivsAllFullCE");
-        var buttonDivLower = document.createElement("div");
-        buttonDivLower.style.position = "absolute";
-        // Create <a> elements
-        var previousLinkLower = document.createElement("button");
-        previousLinkLower.className = "button ";
-        previousLinkLower.type = "button";
-        previousLinkLower.textContent = ">>";
-        previousLinkLower.setAttribute("onclick", "navigateFrontLower()");
+        const imgElementLower = document.getElementById("singleCountryImgLower");
+        const countryNameLower = document.getElementById("countryFlagSpanLower");
+        imgElementLower.src = "resources/countryFlags/de.png";
+        imgElementLower.setAttribute("height", 30);
+        imgElementLower.style.border = "outset";
+        countryNameLower.innerText = "Germany";
 
-        var nextLinkLower = document.createElement("button");
-        nextLinkLower.className = "button ";
-        nextLinkLower.type = "button";
-        nextLinkLower.textContent = "<<";
-        nextLinkLower.setAttribute("onclick", "navigateBackLower()");
-        // Append <a> elements to the "sankey" div
-        buttonDivLower.appendChild(previousLinkLower);
-        buttonDivLower.appendChild(nextLinkLower);
-        var newDivLower = document.createElement("div");
-        newDivLower.id = "Lowerdiv_svg" + year;
-        newDivLower.style.position = 'absolute';
-        // Create and append <p id="chart"> element within each div
-        var chartParagraphLower = document.createElement("p");
-        chartParagraphLower.id = "Lowerchart" + year;
-        newDivLower.appendChild(chartParagraphLower);
-        // Append the dynamically created div to the parent div
-        sankeyDivLower.appendChild(newDivLower);
-        //Create Div for Span and Span for the year text
-        var spanDivLower = document.createElement("div");
-        var newSpanLower = document.createElement("span");
-        newSpanLower.id = "Lowerspan_svg" + year;
-        newSpanLower.innerHTML = "LED-" + year;
-        newSpanLower.style.position = "absolute";
-        newSpanLower.style.bottom = 0;
-        spanDivLower.appendChild(newSpanLower);
-        sankeyDivLower.appendChild(spanDivLower);
-        if (newDivLower.id == "Lowerdiv_svg" + startYear && newSpanLower.id == "Lowerspan_svg" + startYear) {
-            newDivLower.style.visibility = "visible"
-            newSpanLower.style.visibility = "visible"
-        } else {
-            newDivLower.style.visibility = "hidden"
-            newSpanLower.style.visibility = "hidden"
-        }
-        // Get the chartContainer directly from chartParagraph
-        var chartContainerLower = chartParagraphLower;
-        const svgElementLower = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svgElementLower.setAttribute("id", "Lowertarget_svg" + year); // Using underscores instead of spaces
-        // Append the SVG to the chartContainer
-        chartContainerLower.appendChild(svgElementLower);
-        let divIdLower = "Lowertarget_svg" + year
-        let divSvgLower = newDivLower.id
-        let divChartLower = chartParagraphLower.id;
-        var spans = "";
-        $('.loader6').css("display", "block");
-        fetch("circomodService.svc/Classification_SankeyItem", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-            body: JSON.stringify({
-                SELECTedRegion: region,
-                SELECTedScenario: scenario,
-                SELECTedSector: sector,
-                SELECTedYear: year,
-                SELECTedStrategy: strategy,
-                SELECTedMaterial: material
-            }),
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                $('.loader6').hide();
-                var res = new Map(data.d.map(obj => [obj.Key, obj.Value.replace(",", ".")]));
-                var flowarea = $("#input_flow_data").val();
-                var text = flowarea;
-                text = text.replace("F_a", res.get("query_Fa"));
-                text = text.replace("F_b", Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh"))));
-                // Reference flow for final consumption of steel (blue): Mt/yr
-                var container = document.getElementById('steelLowerValue');
-                var Fb = Math.abs(parseFloat(res.get("query_Fa")) + parseFloat(res.get("query_Fh")));
-                var spans = "<b><span id='" + "steelLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fb.toFixed(1)) + " Mt/yr</span></b>";
-                if (year == startYear) {
-                    spans = spans.replace("display:none", "display:block");
-                }
-                container.innerHTML += spans;
-                text = text.replace("F_c", res.get("query_Fc"));
-                text = text.replace("F_d", res.get("query_Fc"));
-                text = text.replace("F_e", res.get("query_Fc"));
-                text = text.replace("F_f", res.get("query_Ff"));
-                text = text.replace("F_g", Math.abs(parseFloat(res.get("query_Ff")) - parseFloat(res.get("query_Fh"))));
-                text = text.replace("F_h", res.get("query_Fh"));
-                text = text.replace("F_i", res.get("query_Fh"));
-                text = text.replace("F_j", res.get("query_Fh"));
-                text = text.replace("F_k", res.get("query_Fk") / 50);
-                text = text.replace("F_l", res.get("query_Fl") / 50);
-                text = text.replace("F_m", res.get("query_Fm") / 50);
-                // Reference flow for GHG emissions (green): Mt/yr
-                container = document.getElementById('GhGLowerValue');
-                var Fm = res.get("query_Fm") / 50;
-                spans = "<b><span id='" + "ghgLower_span" + year + "'" + "style='display:none'>" + parseFloat(Fm.toFixed(1)) + " Mt/yr</span></b>";
-                if (year == startYear) {
-                    spans = spans.replace("display:none", "display:block");
-                }
-                container.innerHTML += spans;
-                text = text.replace("F_n", res.get("query_Fn"));
-                text = text.replace("F_o", res.get("query_Fn"));
-                text = text.replace("F_p", res.get("query_Fn"));
-                $("#input_flow_data").val(text);
-                process_sankey(divIdLower, divSvgLower, divChartLower);
-                $("#input_flow_data").val(flowarea);
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
+        const url1 = `https://api.worldbank.org/v2/country/de/indicators/SP.POP.TOTL?format=json`;
+        const url2 = `https://api.worldbank.org/v2/country/de/indicators/NY.GDP.PCAP.CD?format=json`;
+        const url3 = `https://api.worldbank.org/v2/country/de/indicators/EN.POP.DNST?format=json`;
 
-        sankeyDivLower.appendChild(buttonDivLower);
-    }
+        const popSpan = document.getElementById("population");
+        const gdpSpan = document.getElementById("gdp");
+        const populationDensitySpan = document.getElementById("populationDensity");
+        [url1, url2, url3].forEach((u) => fetchCountryData(u, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3));
+    };
 
-    // Lower  Sankey
-    var flagContainerLower = document.getElementById("countryFlagLower");
-    var imgElementLower = document.getElementById("singleCountryImgLower");
-    var countryNameLower = document.getElementById("countryFlagSpanLower");
-    flagContainerLower.children.innerHTML = ""
-    // Set the src attribute of the img tag
-    imgElementLower.src = "resources/countryFlags/" + "de" + ".png";
-    imgElementLower.setAttribute("height", 30)
-    imgElementLower.style.border = "outset";
-    var name = "Germany"
-    countryNameLower.innerText = name;
-    countryNameLower.id = "countryFlagSpanLower"
-
-
-    // Country info API
-    document.getElementById("svgMap-map-country-DE").setAttribute('fill', 'blue');
-    var url = [];
-    const url1 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/SP.POP.TOTL?format=json"; //GDP
-    const url2 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/NY.GDP.PCAP.CD?format=json"; //Population
-    const url3 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/EN.POP.DNST?format=json"; //PopulationDensity
-    url.push(url1, url2, url3)
-    var popSpan = document.getElementById("population");
-    var gdpSpan = document.getElementById("gdp");
-    var populationDensitySpan = document.getElementById("populationDensity");
-    url.forEach((element) =>
-        fetchCountryData(element, popSpan, gdpSpan, populationDensitySpan, url1, url2, url3)
-    )
-});
-
-$(document).ready(function () {
-    $("#DropDownListSector").on("change", function () {
-        var sectorTemp = $(this).val();
-        var dropdown = $("#DropDownListMaterial"); // Using jQuery to get dropdown element
-        // Residential building  materials
-        const arrayBuilding = ["Steel", "Cement", "Wood"];
-        // Passenger vehicle materials
-        const arrayVehicle = ["Steel", "Aluminium", "Copper"];
-        dropdown.empty(); // Clear previous options before appending new ones
-        dropdown.append("<option value='' disabled selected>Please select sector</option>")
-        if (sectorTemp == "Residential building") {
-            arrayBuilding.forEach((element) => {
-                var opt = $("<option>").val(element).text(element);
-                dropdown.append(opt);
-            });
-        } else if (sectorTemp == "Passenger vehicles") {
-            console.log(sectorTemp);
-            arrayVehicle.forEach((element) => {
-                var opt = $("<option>").val(element).text(element);
-                dropdown.append(opt);
-            });
-        }
+    document.addEventListener("DOMContentLoaded", () => {
+        initSvgMap();
+        initMaterialDropdown();
     });
-});
 
-const chartImageURL = {};
-function ghgChart(data, canvasID,region,sector) {
-    var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
-    var values = [...new Set(Array.from(res.values()))];
-  
-    try {
-
-        // create a waterfall chart with the data
-        var chart = new CanvasJS.Chart("waterfall", {
-            theme: "light2",
-            backgroundColor: "rgba(225,150,150,0)",
-            title: {
-                text: `Cumulative GHG 2020-2060, [${region}], [${sector}]`,
-                fontSize: 12,
-                fontColor: "#666",
-            },
-            axisY: {
-                title: "Mt CO2-eq / year",
-                valueFormatString: "#.###",
-                titleFontSize: 12,
-            },
-            data: [{
-                type: "waterfall",
-                yValueFormatString: "#.###",
-                risingColor: "#96a6a6",
-                fallingColor: "#ef6c00",
-                dataPoints: [
-                    { label: "SSP2 Baseline", y: parseInt(Number(values[0].toString().replace(",", ".")).toFixed(1)) },
-                    { label: ".", y: parseInt((Number(values[1].toString().replace(",", ".")) - Number(values[0].toString().replace(",", "."))).toFixed(1)) },
-                    { label: "Slow+Close", isIntermediateSum: true },
-                    { label: ".", y: parseInt((Number(values[2].toString().replace(",", ".")) - Number(values[1].toString().replace(",", "."))).toFixed()) },
-                    { label: "Narrow+Slow+Close", isCumulativeSum: true }
-                ]
-            }]
-        });
-     
-        
-        chart.render();
-        // Get canvas element
-        var canvas = $("#waterfall .canvasjs-chart-canvas").get(0);
-
-        // Convert canvas to data URL
-        chartImage = canvas.toDataURL('image/png', 1);
-        chartImageURL.waterfall = chartImage 
-        
-    } catch (e) {
-        
-    
-        console.error("Error disposing previous chart:", e);
-    }
-    return chartImageURL
-}
-
+    $(window).on("load", () => {
+        initOnLoadCharts();
+    });
+})();
