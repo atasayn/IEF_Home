@@ -8,9 +8,21 @@
     <script src="js/FileSaver.min.js" defer></script>
     <script>
         function openDataFilter() {
-            const datasetId = document.getElementById('<%= hdnVal.ClientID %>').value;
+            var el = document.getElementById('<%= hdnVal.ClientID %>');
+
+            if (!el) {
+                console.warn('Hidden field not found');
+                return;
+            }
+
+            var datasetId = el.value;
             console.log(datasetId);
-            window.open('https://www.database.industrialecology.uni-freiburg.de/dataFilter.aspx?value=' + encodeURIComponent(datasetId), '_blank');
+
+            window.open(
+                'https://www.database.industrialecology.uni-freiburg.de/dataFilter.aspx?value='
+                + encodeURIComponent(datasetId),
+                '_blank'
+            );
         }
     </script>
     <style>
