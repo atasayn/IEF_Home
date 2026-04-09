@@ -430,17 +430,30 @@
     <!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
+
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
+
         (function () {
             var u = "//www.blog.industrialecology.uni-freiburg.de/matomo/";
             _paq.push(['setTrackerUrl', u + 'matomo.php']);
             _paq.push(['setSiteId', '5']);
-            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+
+            var d = document;
+            var g = d.createElement('script');
+            var s = d.getElementsByTagName('script')[0];
+
+            g.async = true;
+            g.src = u + 'matomo.js';
+
+            // Fix for VS 2026 null warning
+            if (s && s.parentNode) {
+                s.parentNode.insertBefore(g, s);
+            }
         })();
     </script>
+    <!-- End Matomo Code -->
     <!-- End Matomo Code -->
 
 </head>
@@ -732,268 +745,183 @@
                     <p>The EU-funded project CIRCOMOD (circular economy modelling for climate change mitigation) is the main funding source and research platform for our current circular economy modelling activities. In CIRCOMOD, we develop a new generation of advanced models and scenarios that will assess how CE can reduce future GHGs and material use. The project brings together a unique consortium of leading research teams from different disciplines, including industrial ecology and material flow modelling, process-oriented integrated assessment modelling, and macro-economic modelling. It aims for a breakthrough in integrating CE and GHG mitigation assessments and will provide input to international assessments such as the Intergovernmental Panel on Climate Change (IPCC) and the International Resource Panel (IRP). See the project’s homepage <a href="https://circomod.eu/" target="_blank">&#128279</a> for details!</p>
                 </div>
             </div>
-            <script>
+        <script>
+            // Use let/const to avoid global scope pollution
+            function findVisibleDivId() {
+                const divs = document.querySelectorAll('[id^="div_svg"]');
+                for (let div of divs) {
+                    if (div.style.visibility === 'visible') {
+                        return div.id;
+                    }
+                }
+                return null;
+            }
 
+            function findVisibleDivIdLower() {
+                const divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
+                for (let div of divs) {
+                    if (div.style.visibility === 'visible') {
+                        return div.id;
+                    }
+                }
+                return null;
+            }
 
-                function findVisibleDivId() {
-                    var divs = document.querySelectorAll('[id^="div_svg"]');
-                    for (var i = 0; i < divs.length; i++) {
-                        // Check if the div is visible
-                        if (divs[i].style.visibility === 'visible') {
-                            // Return the id of the visible div
-                            divsVis = divs[i].id;
-                            return divsVis;
+            function navigateFront() {
+                const divsVis = findVisibleDivId();
+                if (!divsVis) return;
+
+                const divs = document.querySelectorAll('[id^="div_svg"]');
+                const divsStart = parseInt(divs[0].id.slice(-4));
+                const divsEnd = parseInt(divs[divs.length - 1].id.slice(-4));
+                const divsCurrent = parseInt(divsVis.slice(-4));
+
+                if (divsCurrent < divsEnd) {
+                    const nextId = divsCurrent + 10;
+                    ["div_svg", "span_svg", "steelUpper_span", "ghgUpper_span"].forEach(prefix => {
+                        const el = document.getElementById(prefix + nextId);
+                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'visible' : el.style.display = 'block';
+                    });
+                    ["div_svg", "span_svg", "steelUpper_span", "ghgUpper_span"].forEach(prefix => {
+                        const el = document.getElementById(prefix + divsCurrent);
+                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'hidden' : el.style.display = 'none';
+                    });
+                }
+            }
+
+            function navigateBack() {
+                const divsVis = findVisibleDivId();
+                if (!divsVis) return;
+
+                const divs = document.querySelectorAll('[id^="div_svg"]');
+                const divsStart = parseInt(divs[0].id.slice(-4));
+                const divsCurrent = parseInt(divsVis.slice(-4));
+
+                if (divsCurrent > divsStart) {
+                    const prevId = divsCurrent - 10;
+                    ["div_svg", "span_svg", "steelUpper_span", "ghgUpper_span"].forEach(prefix => {
+                        const el = document.getElementById(prefix + prevId);
+                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'visible' : el.style.display = 'block';
+                    });
+                    ["div_svg", "span_svg", "steelUpper_span", "ghgUpper_span"].forEach(prefix => {
+                        const el = document.getElementById(prefix + divsCurrent);
+                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'hidden' : el.style.display = 'none';
+                    });
+                }
+            }
+
+            function navigateFrontLower() {
+                const divsVis = findVisibleDivIdLower();
+                if (!divsVis) return;
+
+                const divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
+                const divsStart = parseInt(divs[0].id.slice(-4));
+                const divsEnd = parseInt(divs[divs.length - 1].id.slice(-4));
+                const divsCurrent = parseInt(divsVis.slice(-4));
+
+                if (divsCurrent < divsEnd) {
+                    const nextId = divsCurrent + 10;
+                    ["Lowerdiv_svg", "Lowerspan_svg", "steelLower_span", "ghgLower_span"].forEach(prefix => {
+                        const el = document.getElementById(prefix + nextId);
+                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'visible' : el.style.display = 'block';
+                    });
+                    ["Lowerdiv_svg", "Lowerspan_svg", "steelLower_span", "ghgLower_span"].forEach(prefix => {
+                        const el = document.getElementById(prefix + divsCurrent);
+                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'hidden' : el.style.display = 'none';
+                    });
+                }
+            }
+
+            function navigateBackLower() {
+                const divsVis = findVisibleDivIdLower();
+                if (!divsVis) return;
+
+                const divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
+                const divsStart = parseInt(divs[0].id.slice(-4));
+                const divsCurrent = parseInt(divsVis.slice(-4));
+
+                if (divsCurrent > divsStart) {
+                    const prevId = divsCurrent - 10;
+                    ["Lowerdiv_svg", "Lowerspan_svg", "steelLower_span", "ghgLower_span"].forEach(prefix => {
+                        const el = document.getElementById(prefix + prevId);
+                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'visible' : el.style.display = 'block';
+                    });
+                    ["Lowerdiv_svg", "Lowerspan_svg", "steelLower_span", "ghgLower_span"].forEach(prefix => {
+                        const el = document.getElementById(prefix + divsCurrent);
+                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'hidden' : el.style.display = 'none';
+                    });
+                }
+            }
+
+            // CHART FUNCTIONS
+            function barChart(data, canvasID, region, sector, material) {
+                const canvasElement = document.getElementById("NoData" + canvasID);
+                const res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
+                const values = [...new Set(Array.from(res.values()))];
+
+                try { Chart.getChart(canvasID)?.destroy(); } catch (e) { }
+
+                if (values.length === 0) {
+                    canvasElement.style.display = "flex";
+                    return null;
+                } else {
+                    canvasElement.style.display = "none";
+                    return new Chart(document.getElementById(canvasID), {
+                        type: 'bar',
+                        data: {
+                            labels: ["SSP2 Baseline", "Slow+Close", "Narrow + Slow + Close"],
+                            datasets: [
+                                { label: 'Primary Production', backgroundColor: "#a6cee3", data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)] },
+                                { label: 'Secondary Production', backgroundColor: "#1f78b4", data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)] },
+                            ],
+                        },
+                        options: {
+                            devicePixelRatio: 2,
+                            locale: "fr-CA",
+                            plugins: { title: { display: true, text: `Cumulative material production 2020-2060,  [${region}], [${sector}], [${material}]` } },
+                            scales: { x: { stacked: true }, y: { stacked: true, title: { display: true, text: 'Mt' } } }
                         }
-                    }
-
+                    });
                 }
+            }
 
-                function findVisibleDivIdLower() {
-                    var divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
-                    for (var i = 0; i < divs.length; i++) {
-                        // Check if the div is visible
-                        if (divs[i].style.visibility === 'visible') {
-                            // Return the id of the visible div
-                            divsVis = divs[i].id
-                            return divsVis;
-                        }
-                    }
+            function stackedAreaChart(data, canvasID, region, sector) {
+                const canvasElement = document.getElementById("NoData" + canvasID);
+                const res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
+                const values = [...new Set(Array.from(res.values()))];
 
-                }
+                try { Chart.getChart(canvasID)?.destroy(); } catch (e) { }
 
-                function navigateFront() {
-                    findVisibleDivId();
-                    // Get all div elements with id starting with "div_svg"
-                    var divs = document.querySelectorAll('[id^="div_svg"]');
-                    divsStart = divs[0].id.slice(-4);
-                    divsEnd = divs[divs.length - 1].id.slice(-4);
-                    divsCurrent = divsVis.slice(-4);
-                    if (divsVis && divsCurrent < divsEnd) {
-                        // Visible
-                        document.getElementById("div_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
-                        document.getElementById("span_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
-                        document.getElementById("steelUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block'
-                        document.getElementById("ghgUpper_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block'
-                        // Hidden
-                        document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                        document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                        document.getElementById("steelUpper_span" + divsVis.slice(-4)).style.display = 'none';
-                        document.getElementById("ghgUpper_span" + divsVis.slice(-4)).style.display = 'none';
-
-                    }
-                }
-
-                function navigateBack() {
-                    findVisibleDivId();
-                    // Get all div elements with id starting with "div_svg"
-                    var divs = document.querySelectorAll('[id^="div_svg"]');
-                    divsStart = divs[0].id.slice(-4);
-                    divsEnd = divs[divs.length - 1].id.slice(-4);
-                    divsCurrent = divsVis.slice(-4);
-                    if (divsVis && divsCurrent > divsStart) {
-
-                        // Visible
-                        document.getElementById("div_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
-                        document.getElementById("span_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
-                        document.getElementById("steelUpper_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
-                        document.getElementById("ghgUpper_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
-
-                        // Hidden
-                        document.getElementById("div_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                        document.getElementById("span_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                        document.getElementById("steelUpper_span" + divsVis.slice(-4)).style.display = 'none';
-                        document.getElementById("ghgUpper_span" + divsVis.slice(-4)).style.display = 'none';
-                    }
-                }
-
-                function navigateFrontLower() {
-                    findVisibleDivIdLower();
-                    // Get all div elements with id starting with "div_svg"
-                    var divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
-                    divsStart = divs[0].id.slice(-4);
-                    divsEnd = divs[divs.length - 1].id.slice(-4);
-                    divsCurrent = divsVis.slice(-4);
-                    if (divsVis && divsCurrent < divsEnd) {
-                        // Visible
-                        document.getElementById("Lowerdiv_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
-                        document.getElementById("Lowerspan_svg" + (parseInt(divsVis.slice(-4)) + 10)).style.visibility = 'visible';
-                        document.getElementById("steelLower_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block';
-                        document.getElementById("ghgLower_span" + (parseInt(divsVis.slice(-4)) + 10)).style.display = 'block';
-                        // Hidden
-                        document.getElementById("Lowerdiv_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                        document.getElementById("Lowerspan_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                        document.getElementById("steelLower_span" + divsVis.slice(-4)).style.display = 'none';
-                        document.getElementById("ghgLower_span" + divsVis.slice(-4)).style.display = 'none';
-                    }
-                }
-
-                function navigateBackLower() {
-                    findVisibleDivIdLower();
-                    // Get all div elements with id starting with "div_svg"
-                    var divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
-                    divsStart = divs[0].id.slice(-4);
-                    divsEnd = divs[divs.length - 1].id.slice(-4);
-                    divsCurrent = divsVis.slice(-4);
-                    if (divsVis && divsCurrent > divsStart) {
-                        // Visible
-                        document.getElementById("Lowerdiv_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
-                        document.getElementById("Lowerspan_svg" + (divsVis.slice(-4) - 10)).style.visibility = 'visible';
-                        document.getElementById("steelLower_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
-                        document.getElementById("ghgLower_span" + (divsVis.slice(-4) - 10)).style.display = 'block';
-
-                        // Hidden
-                        document.getElementById("Lowerdiv_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                        document.getElementById("Lowerspan_svg" + divsVis.slice(-4)).style.visibility = 'hidden';
-                        document.getElementById("steelLower_span" + divsVis.slice(-4)).style.display = 'none';
-                        document.getElementById("ghgLower_span" + divsVis.slice(-4)).style.display = 'none';
-                    }
-                }
-
-
-
-                function barChart(data, canvasID, region, sector, material) {
-                    var canvasElement = document.getElementById("NoData" + canvasID);
-                    var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
-                    var values = [...new Set(Array.from(res.values()))];
-                    try {
-                        Chart.getChart(canvasID).destroy();
-                    } catch (e) { }
-                    if (values.length === 0) {
-                        canvasElement.style.display = "flex";
-                    } else {
-                        canvasElement.style.display = "none";
-                        barGraph = new Chart(document.getElementById(canvasID), {
-                            type: 'bar',
-                            data: {
-                                labels: ["SSP2 Baseline", "Slow+Close", "Narrow + Slow + Close"],
-                                datasets: [{
-                                    label: 'Primary Production',
-                                    backgroundColor: "#a6cee3",
-                                    data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)]
-                                }, {
-                                    label: 'Secondary Production',
-                                    backgroundColor: "#1f78b4",
-                                    data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)]
-                                }],
-                            },
-                            options: {
-                                devicePixelRatio: 2,
-                                locale: "fr-CA",
-                                plugins: {
-                                    title: {
-                                        display: true,
-                                        text: `Cumulative material production 2020-2060,  [${region}], [${sector}], [${material}]`
-                                    },
-                                },
-                                scales: {
-                                    x: {
-                                        stacked: true,
-                                    },
-                                    y: {
-                                        stacked: true,
-                                        title: {
-                                            display: true,
-                                            text: 'Mt',
-                                        },
-                                    }
-                                }
+                if (values.length === 0) {
+                    canvasElement.style.display = "flex";
+                    return null;
+                } else {
+                    canvasElement.style.display = "none";
+                    const dataLength = values[0].length;
+                    return new Chart(document.getElementById(canvasID), {
+                        type: 'line',
+                        data: {
+                            labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
+                            datasets: [
+                                { label: 'Use Phase', borderColor: "#a6611a", backgroundColor: "rgba(166, 97, 26, 0.9)", data: values[0], fill: true },
+                                { label: 'Waste Management', borderColor: "#018571", backgroundColor: "rgba(1, 133, 113, 0.9)", data: values[1], fill: true },
+                                { label: 'Material Production', borderColor: "#80cdc1", backgroundColor: "rgba(128, 205, 193, 0.9)", data: values[2], fill: true },
+                                { label: 'Energy Supply', borderColor: "#dfc27d", backgroundColor: "rgba(223, 194, 125, 0.9)", data: values[3], fill: true },
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            devicePixelRatio: 2,
+                            plugins: { title: { display: true, text: `Annual GHG 2020-2060 by process, [${region}], [${sector}], SSP2 Baseline` } },
+                            scales: {
+                                x: { title: { display: true, text: 'Year' }, grid: { color: "#f2f2f2", lineWidth: 2 } },
+                                y: { stacked: true, title: { display: true, text: 'Mt/yr' }, grid: { color: "#f2f2f2" } }
                             }
-                        });
-                        return barGraph;
-                    }
-                };
-
-                function stackedAreaChart(data, canvasID, region, sector) {
-                    var canvasElement = document.getElementById("NoData" + canvasID);
-                    var res = new Map(data["d"].map(obj => [obj.Key, obj.Value]));
-                    var values = [...new Set(Array.from(res.values()))];
-                    try {
-                        Chart.getChart(canvasID).destroy();
-                    } catch (e) { }
-                    if (values.length === 0) {
-                        console.log(canvasElement)
-                        canvasElement.style.display = "flex";
-                    } else {
-                        canvasElement.style.display = "none";
-                        var dataLength = values[0].length;
-                        areaGraph = new Chart(document.getElementById(canvasID), {
-                            type: 'line',
-                            data: {
-                                labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
-                                datasets: [
-                                    {
-                                        label: 'Use Phase',
-                                        borderColor: "#a6611a",
-                                        backgroundColor: "rgba(166, 97, 26, 0.9)",
-                                        data: Array.from({ length: dataLength }, (_, i) => values[0][i]),
-                                        fill: true,
-                                    },
-                                    {
-                                        label: 'Waste Management',
-                                        borderColor: "#018571",
-                                        backgroundColor: "rgba(1, 133, 113, 0.9)",
-                                        data: Array.from({ length: dataLength }, (_, i) => values[1][i]),
-                                        fill: true
-                                    },
-                                    {
-                                        label: 'Material Production',
-                                        borderColor: "#80cdc1",
-                                        backgroundColor: "rgba(128, 205, 193, 0.9)",
-                                        data: Array.from({ length: dataLength }, (_, i) => values[2][i]),
-                                        fill: true
-                                    },
-                                    {
-                                        label: 'Energy Supply',
-                                        borderColor: "#dfc27d",
-                                        backgroundColor: "rgba(223, 194, 125, 0.9)",
-                                        data: Array.from({ length: dataLength }, (_, i) => values[3][i]),
-                                        fill: true
-                                    }
-                                ],
-                            },
-                            options: {
-                                responsive: true,
-                                devicePixelRatio: 2,
-                                plugins: {
-                                    title: {
-                                        display: true,
-                                        text: `Annual GHG 2020-2060 by process, [${region}], [${sector}], SSP2 Baseline`
-                                    },
-                                },
-                                scales: {
-                                    x: {
-                                        title: {
-                                            display: true,
-                                            text: 'Year',
-
-                                        },
-                                        grid: {
-                                            display: true,
-                                            color: "#f2f2f2",
-                                            lineWidth: 2
-                                        }
-                                    },
-                                    y: {
-                                        stacked: true
-                                        , title: {
-                                            display: true,
-                                            text: 'Mt/yr',
-
-                                        },
-                                        grid: {
-                                            display: true,
-                                            color: "#f2f2f2"
-                                        }
-                                    }
-                                }//end scales                            
-                            }//end options 
-
-                        });
-                        return areaGraph;
-                    }
-                };
-
-            </script>
+                        }
+                    });
+                }
+            }
+        </script>
         </main>
         <footer>
             <div>
