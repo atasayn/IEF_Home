@@ -445,6 +445,13 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
             <div class="not-show-twitter">
                 <h3 style="text-align: center"><b>+++ News +++</b></h3>
                 <br>
+                <h4><b>We migrated our server to Windows Server 2025.</b></h4>
+                <p>
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="windows server 2025" src="resources/webP/windowsServer2025.webp" />
+                    The Freiburg Open Science Portal for Industrial Ecology and Socio-Metabolic Research now runs on a Windows Server 2025 virtual machine. 
+                    A big thanks to our software engineer Nildem Atasayar for mastering the smooth transition! With this new setup, the Portal is fit for the future, and we are excited to deliver improved performance, security, and reliability to our global user community.
+                </p>
+                <hr>
 
                 <h4><b>Major update of the Industrial Ecology open online course (IEooc)</b></h4>
                 <p>
