@@ -675,6 +675,7 @@
     <Content Include="resources\webP\IEDC_CMS_Checked.webp" />
     <Content Include="resources\webP\SMI_Project_Gini.webp" />
     <Content Include="resources\webP\windowsServer2025.webp" />
+    <Content Include="resources\webP\LLMSearchAI.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
