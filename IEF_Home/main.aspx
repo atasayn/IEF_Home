@@ -450,7 +450,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                     The IEDC LLM Search Tool allows data providers to quickly find matching labels from the IEDC's main classifications using natural-language search. It uses an LLM to identify the most relevant classification items quickly and accurately. For example, an incoming label "BEV" could be matched to something related to 'beverages' if only string similarity was taken into account. With the semantics embedded in the LLM, the matching algorithm points to "passenger car, battery electric", 
                     which is the intended outcome of the label matching.
                     <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="windows server 2025" src="resources/webP/LLMSearchAI.webp" />
-                    Direct access to the IEooc and its different sections: <a href="https://www.database.industrialecology.uni-freiburg.de/labelMatching.aspx" target="_blank">LLM Search Tool </a>
+                    Direct access to our searching tool: <a href="https://www.database.industrialecology.uni-freiburg.de/labelMatching.aspx" target="_blank">LLM Search Tool </a>
                 </p>
                 <hr>
                 <h4><b>We migrated our server to Windows Server 2025.</b></h4>
