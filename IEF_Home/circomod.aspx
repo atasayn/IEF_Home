@@ -437,7 +437,7 @@
 
         (function () {
             var u = "//www.blog.industrialecology.uni-freiburg.de/matomo/";
-            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setTrackerUrl', u + 'collect.php']);
             _paq.push(['setSiteId', '5']);
 
             var d = document;
@@ -445,7 +445,7 @@
             var s = d.getElementsByTagName('script')[0];
 
             g.async = true;
-            g.src = u + 'matomo.js';
+            g.src = u + 'app-info-v2.js';
 
             // Fix for VS 2026 null warning
             if (s && s.parentNode) {
