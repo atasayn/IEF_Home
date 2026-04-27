@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Teaching"  Language="C#" MasterPageFile="~/Site1.Master" EnableViewState="false" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <!-- Matomo -->
+<%--    <!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -14,7 +14,7 @@
             g.async = true; g.src = u + 'app-info-v2.js'; s.parentNode.insertBefore(g, s);
         })();
     </script>
-    <!-- End Matomo Code -->
+    <!-- End Matomo Code -->--%>
     <script>
 
         function jupyterLink(path, text) {
