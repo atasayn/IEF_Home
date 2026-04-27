@@ -24,6 +24,9 @@
     </script>
 
     <!-- Matomo -->
+    <!-- Matomo Image Tracker-->
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/matomo/matomo.php?idsite=7&amp;rec=1" style="border:0" alt="" />
+    <!-- End Matomo -->
     <style>
         a {
             text-decoration: underline;
