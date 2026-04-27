@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Industrial Ecology Freiburg" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="IEF_Home.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <!-- Matomo -->
+<%--    <!-- Matomo -->
     <script type="text/javascript">
         var _paq = window._paq = window._paq || [];
         _paq.push(['setCookieDomain', '*.industrialecology.uni-freiburg.de']);
@@ -16,7 +16,7 @@
             g.async = true; g.src = u + 'app-info-v2.js'; s.parentNode.insertBefore(g, s);
         })();
     </script>
-    <!-- End Matomo Code -->
+    <!-- End Matomo Code -->--%>
 
 
     <script src="js/jquery-1.7.1.min.js" type="text/javascript" defer></script>
