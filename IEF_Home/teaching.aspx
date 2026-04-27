@@ -7,11 +7,11 @@
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function () {
-            var u = "//www.blog.industrialecology.uni-freiburg.de/matomo/";
-            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            var u = "//www.blog.industrialecology.uni-freiburg.de/stats/";
+            _paq.push(['setTrackerUrl', u + 'collect.php']);
             _paq.push(['setSiteId', '7']);
             var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+            g.async = true; g.src = u + 'app-info-v2.js'; s.parentNode.insertBefore(g, s);
         })();
     </script>
     <!-- End Matomo Code -->
@@ -25,7 +25,7 @@
 
     <!-- Matomo -->
     <!-- Matomo Image Tracker-->
-    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/matomo/matomo.php?idsite=7&amp;rec=1" style="border:0" alt="" />
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=7&amp;rec=1" style="border:0" alt="" />
     <!-- End Matomo -->
     <style>
         a {

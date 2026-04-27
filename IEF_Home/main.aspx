@@ -9,7 +9,7 @@
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function () {
-            var u = "https://www.blog.industrialecology.uni-freiburg.de/matomo/";
+            var u = "https://www.blog.industrialecology.uni-freiburg.de/stats/";
             _paq.push(['setTrackerUrl', u + 'collect.php']);
             _paq.push(['setSiteId', '1']);
             var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
@@ -282,7 +282,7 @@
         }
     </script>
 <!-- Matomo Image Tracker-->
-<img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/matomo/collect.php?idsite=2&amp;rec=1" style="border:0" alt="" />
+<img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=2&amp;rec=1" style="border:0" alt="" />
 <!-- End Matomo -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
