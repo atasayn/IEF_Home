@@ -59,7 +59,20 @@
     </div>
 
    <div class="row">
+        <div class="column">
+            <img src="Content/workingPaperPngs/IEF_WP_2_2026.png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 2 (2026)</p>
+            <p>
+                <b>Towards an uncertainty-aware BONSAI database: Bayesian balancing of hybrid Supply-Use Tables. </b>
+                Simon Schulte, Stefano Merciai, Fan Yang, Maik Budzinski, Bo Weidema (2026). Industrial Ecology Freiburg (IEF) Working Paper 2(2026), Universität Freiburg im Breisgau.
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/279579" target="_blank">https://doi.org/10.6094/UNIFR/279579 </a>
+        </div>
+    </div>
 
+   <div class="row">
         <div class="column">
             <img src="Content/workingPaperPngs/IEF_WP_1_2026.png" width="300">
         </div>
