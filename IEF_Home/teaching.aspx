@@ -1403,9 +1403,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://doi.org/10.1080/15487733.2021.1912907" target="new">IEooc_Application6_Reading1</a>
                         <br>
                         <br>
-                        <b>Reading: A review on decent living standards. </b> by N.N. (unpublished work, still under review!)
+                        <b>Reading: A review on "Future Energy and Material Scenarios based on Decent Living Standards", </b> by Johan Vélez-Henao and co-authors. Learn about the different studies that have applied the concept of decent living standards at national, regional and global scales to quantify multidimensional poverty, infrastructure and service requirements to eradicate poverty. Learn about the importance of better understanding future transport needs and about the crucial role of reducing inequality when simultaneously meeting future poverty eradication and climate stabilization goals. 
                         <br>
-                        <a href="https://doi.org/abc123" target="new">IEooc_Application6_Reading2</a>
+                        <a href="https://dx.doi.org/10.2139/ssrn.6635059" target="new">IEooc_Application6_Reading2</a>
                         <br>
                         <br>
                         <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
