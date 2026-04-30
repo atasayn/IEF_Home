@@ -1404,7 +1404,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
-                        <b>Reading: A corridors and power-oriented perspective on energy-service demand and needs satisfaction. </b> by Doris Fuchs and team: 
+                        <b>Reading: A corridors and power-oriented perspective on energy-service demand and needs satisfaction. </b> In this introductory article, Doris Fuchs and team explore the concept of consumption corridors as it might apply to energy use, with specific attention to both wellbeing and power relations.
                         <br>
                         <a href="https://doi.org/10.1080/15487733.2021.1912907" target="new">IEooc_Application6_Reading1</a>
                         <br>
@@ -1414,18 +1414,18 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://dx.doi.org/10.2139/ssrn.6635059" target="new">IEooc_Application6_Reading2</a>
                         <br>
                         <br>
-                        <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
+                        <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk. Based on the insight that decent living standards constrain the slope of the Lorenz curve for the lowest decile, a simple model can be derived that determines total consumption from only three factors: per capita decent living standards, the Gini coefficient of inequality, and population. With a constraint on maximum living standards, overall consumption splits into three components: basic needs satisfaction, prosperous consumption, and excessive consumption. 
                         <br>
                         <a href="https://youtu.be/NiJi-7uQKPg" target="new">IEooc_Application6_Lecture1</a><br>
 						Link to the <a href="/Content/IEooc_Application6_Lecture1.zip">slide deck for IEooc_Application6_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
-                        <b>Reading: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
+                        <b>Reading: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk. This is the journal article which the video lecture above is based upon. 
                         <br>
                         <a href="https://doi.org/10.1016/j.ecolecon.2024.108161" target="new">IEooc_Application6_Reading3</a>
                         <br>
                         <br>
-                        <b>Reading: Reducing global inequality to secure human wellbeing and climate safety: a modelling study. </b> by Joel Millward-Hopkins and team: 
+                        <b>Reading: Reducing global inequality to secure human wellbeing and climate safety: a modelling study. </b> by Joel Millward-Hopkins and team. The authors explore how a climate-safe, low energy demand future, and universal decent living could be achieved simultaneously, given the magnitude of current global inequalities in energy consumption and technological access. 
                         <br>
                         <a href="https://doi.org/10.1016/S2542-5196(23)00004-9" target="new">IEooc_Application6_Reading4</a>
                         <br>
