@@ -413,6 +413,12 @@ The following topics are covered:
                         <a href="/Content/IEooc_Methods_Good_Scientific_Practice.pdf" target="new">IEooc_Methods_Good_Scientific_Practice</a>
                         <br>
                         <br>
+						<b>Reading:</b> Responsible use of machine learning tools in industrial ecology research. In their "call to ensure reproducibility of machine learning applications in industrial ecology", Keagan Rankin and co-authors audited 50 recent IE studies against a ML reproducibility ontology. 
+						Based on their findings, they provide a number of detailed suggestions, such as reproducibility checklists, to safeguard the field and maximize the reproducibility of future ML-driven IE research.
+						<br>
+                        <a href="https://doi.org/10.21203/rs.3.rs-9270723/v1" target="new">IEooc_Methods_Resonsible_Use_Marchine_Learning</a>
+                        <br>
+                        <br>
                     </td>
                 </tr>
 
@@ -1353,7 +1359,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
-                        <b>Reading: Is Green Growth Possible?</b> by Jason Hickel & Giorgos Kallis: 
+                        <b>Reading: Is Green Growth Possible?</b> by Jason Hickel & Giorgos Kallis. The green growth claim is now assumed in national and international policy, including in the Sustainable Development Goals. But empirical evidence on resource use and carbon emissions does not support green growth theory. Read the full analysis here:  
                         <br>
                         <a href="https://doi.org/10.1080/13563467.2019.1598964" target="new">IEooc_Application5_Reading1</a>
                         <br>
@@ -1363,7 +1369,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://doi.org/10.1088/1748-9326/ab842a" target="new">IEooc_Application5_Reading2</a>
                         <br>
                         <br>
-                        <b>Reading: Scientists’ warning on affluence</b> by Tommy Wiedmann and team: 
+                        <b>Reading: Scientists’ warning on affluence:</b> Tommy Wiedmann and team argue that any transition towards sustainability can only be effective if far-reaching lifestyle changes complement technological advancements. However, existing societies, economies and cultures incite consumption expansion and the structural imperative for growth in competitive market economies inhibits necessary societal change. Read their full statement here:
                         <br>
                         <a href="https://doi.org/10.1038/s41467-020-16941-y" target="new">IEooc_Application5_Reading3</a>
                         <br>
