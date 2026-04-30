@@ -1374,17 +1374,17 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://doi.org/10.1038/s41467-020-16941-y" target="new">IEooc_Application5_Reading3</a>
                         <br>
                         <br>
-                        <b>Reading: Living Well Within Limits In Ten Stylised Facts.</b> by Julia Steinberger and team: 
+                        <b>Reading: Living Well Within Limits In Ten Stylised Facts.</b> In this piece, Julia Steinberger and team synthesize the findings of the “Living Well Within Limits (LiLi)” research project in the form of ten stylized facts. These describe how our social, economic, technical and political systems are currently misaligned with living well within limits, and how they could be transformed to support this goal. One core insight is that it is theoretically possible to satisfy the needs of all people while dramatically reducing global energy demand.  
                         <br>
                         <a href="https://dx.doi.org/10.2139/ssrn.5687193" target="new">IEooc_Application5_Reading4</a>
                         <br>
                         <br>
-                        <b>Reading: Socio-metabolic research and industrial ecology in a post-growth world.</b> by Stefan Pauliuk: 
+                        <b>Reading: Socio-metabolic research and industrial ecology in a post-growth world.</b> by Stefan Pauliuk. A post-growth perspective opens up important new research directions, some of which are briefly described here. In general, when everything grows, many systemic effects can be neglected, as in the end, there will simply be more of everything. For example, an ever-growing material throughput can better absorb and dilute low-quality recycled material than a closed-loop system with high recycled content. 
                         <br>
                         <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2026/03/27/socio-metabolic-research-and-industrial-ecology-in-a-post-growth-world/" target="new">IEooc_Application5_Reading5</a>
                         <br>
                         <br>
-                        <b>Reading: Post-growth: the science of wellbeing within planetary boundaries.</b> by Giorgos Kallis and team: 
+                        <b>Reading: Post-growth: the science of wellbeing within planetary boundaries.</b> by Giorgos Kallis and team. The central idea of post-growth is to replace the goal of increasing GDP with the goal of improving human wellbeing within planetary boundaries. This review article discusses a number of recent key advances in post-growth research:
                         <br>
                         <a href="https://doi.org/10.1016/S2542-5196(24)00310-3" target="new">IEooc_Application5_Reading6</a>
                         <br>
