@@ -1,20 +1,20 @@
 ﻿<%@ Page Title="Teaching"  Language="C#" MasterPageFile="~/Site1.Master" EnableViewState="false" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-    <!-- Matomo -->
+<%--    <!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function () {
-            var u = "//www.blog.industrialecology.uni-freiburg.de/matomo/";
-            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            var u = "//www.blog.industrialecology.uni-freiburg.de/stats/";
+            _paq.push(['setTrackerUrl', u + 'collect.php']);
             _paq.push(['setSiteId', '7']);
             var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+            g.async = true; g.src = u + 'app-info-v2.js'; s.parentNode.insertBefore(g, s);
         })();
     </script>
-    <!-- End Matomo Code -->
+    <!-- End Matomo Code -->--%>
     <script>
 
         function jupyterLink(path, text) {
@@ -24,6 +24,9 @@
     </script>
 
     <!-- Matomo -->
+    <!-- Matomo Image Tracker-->
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=7&amp;rec=1" style="border:0" alt="" />
+    <!-- End Matomo -->
     <style>
         a {
             text-decoration: underline;
@@ -408,6 +411,12 @@ The following topics are covered:
                         2) Best practice for carrying out, documenting, and publishing research: including recommendations for report structure and scientific writing as well as reproducible research.<br>
                         3) Some state-of-the art tools and infrastructure for IE research.<br>
                         <a href="/Content/IEooc_Methods_Good_Scientific_Practice.pdf" target="new">IEooc_Methods_Good_Scientific_Practice</a>
+                        <br>
+                        <br>
+						<b>Reading:</b> Responsible use of machine learning tools in industrial ecology research. In their "call to ensure reproducibility of machine learning applications in industrial ecology", Keagan Rankin and co-authors audited 50 recent IE studies against a ML reproducibility ontology. 
+						Based on their findings, they provide a number of detailed suggestions, such as reproducibility checklists, to safeguard the field and maximize the reproducibility of future ML-driven IE research.
+						<br>
+                        <a href="https://doi.org/10.21203/rs.3.rs-9270723/v1" target="new">IEooc_Methods_Resonsible_Use_Marchine_Learning</a>
                         <br>
                         <br>
                     </td>
@@ -1350,7 +1359,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
-                        <b>Reading: Is Green Growth Possible?</b> by Jason Hickel & Giorgos Kallis: 
+                        <b>Reading: Is Green Growth Possible?</b> by Jason Hickel & Giorgos Kallis. The green growth claim is now assumed in national and international policy, including in the Sustainable Development Goals. But empirical evidence on resource use and carbon emissions does not support green growth theory. Read the full analysis here:  
                         <br>
                         <a href="https://doi.org/10.1080/13563467.2019.1598964" target="new">IEooc_Application5_Reading1</a>
                         <br>
@@ -1360,22 +1369,22 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="https://doi.org/10.1088/1748-9326/ab842a" target="new">IEooc_Application5_Reading2</a>
                         <br>
                         <br>
-                        <b>Reading: Scientists’ warning on affluence</b> by Tommy Wiedmann and team: 
+                        <b>Reading: Scientists’ warning on affluence:</b> Tommy Wiedmann and team argue that any transition towards sustainability can only be effective if far-reaching lifestyle changes complement technological advancements. However, existing societies, economies and cultures incite consumption expansion and the structural imperative for growth in competitive market economies inhibits necessary societal change. Read their full statement here:
                         <br>
                         <a href="https://doi.org/10.1038/s41467-020-16941-y" target="new">IEooc_Application5_Reading3</a>
                         <br>
                         <br>
-                        <b>Reading: Living Well Within Limits In Ten Stylised Facts.</b> by Julia Steinberger and team: 
+                        <b>Reading: Living Well Within Limits In Ten Stylised Facts.</b> In this piece, Julia Steinberger and team synthesize the findings of the “Living Well Within Limits (LiLi)” research project in the form of ten stylized facts. These describe how our social, economic, technical and political systems are currently misaligned with living well within limits, and how they could be transformed to support this goal. One core insight is that it is theoretically possible to satisfy the needs of all people while dramatically reducing global energy demand.  
                         <br>
                         <a href="https://dx.doi.org/10.2139/ssrn.5687193" target="new">IEooc_Application5_Reading4</a>
                         <br>
                         <br>
-                        <b>Reading: Socio-metabolic research and industrial ecology in a post-growth world.</b> by Stefan Pauliuk: 
+                        <b>Reading: Socio-metabolic research and industrial ecology in a post-growth world.</b> by Stefan Pauliuk. A post-growth perspective opens up important new research directions, some of which are briefly described here. In general, when everything grows, many systemic effects can be neglected, as in the end, there will simply be more of everything. For example, an ever-growing material throughput can better absorb and dilute low-quality recycled material than a closed-loop system with high recycled content. 
                         <br>
                         <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2026/03/27/socio-metabolic-research-and-industrial-ecology-in-a-post-growth-world/" target="new">IEooc_Application5_Reading5</a>
                         <br>
                         <br>
-                        <b>Reading: Post-growth: the science of wellbeing within planetary boundaries.</b> by Giorgos Kallis and team: 
+                        <b>Reading: Post-growth: the science of wellbeing within planetary boundaries.</b> by Giorgos Kallis and team. The central idea of post-growth is to replace the goal of increasing GDP with the goal of improving human wellbeing within planetary boundaries. This review article discusses a number of recent key advances in post-growth research:
                         <br>
                         <a href="https://doi.org/10.1016/S2542-5196(24)00310-3" target="new">IEooc_Application5_Reading6</a>
                         <br>
@@ -1395,28 +1404,28 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
-                        <b>Reading: A corridors and power-oriented perspective on energy-service demand and needs satisfaction. </b> by Doris Fuchs and team: 
+                        <b>Reading: A corridors and power-oriented perspective on energy-service demand and needs satisfaction. </b> In this introductory article, Doris Fuchs and team explore the concept of consumption corridors as it might apply to energy use, with specific attention to both wellbeing and power relations.
                         <br>
                         <a href="https://doi.org/10.1080/15487733.2021.1912907" target="new">IEooc_Application6_Reading1</a>
                         <br>
                         <br>
-                        <b>Reading: A review on decent living standards. </b> by N.N. (unpublished work, still under review!)
+                        <b>Reading: A review on "Future Energy and Material Scenarios based on Decent Living Standards", </b> by Johan Vélez-Henao and co-authors. Learn about the different studies that have applied the concept of decent living standards at national, regional and global scales to quantify multidimensional poverty, infrastructure and service requirements to eradicate poverty. Learn about the importance of better understanding future transport needs and about the crucial role of reducing inequality when simultaneously meeting future poverty eradication and climate stabilization goals. 
                         <br>
-                        <a href="https://doi.org/abc123" target="new">IEooc_Application6_Reading2</a>
+                        <a href="https://dx.doi.org/10.2139/ssrn.6635059" target="new">IEooc_Application6_Reading2</a>
                         <br>
                         <br>
-                        <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
+                        <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk. Based on the insight that decent living standards constrain the slope of the Lorenz curve for the lowest decile, a simple model can be derived that determines total consumption from only three factors: per capita decent living standards, the Gini coefficient of inequality, and population. With a constraint on maximum living standards, overall consumption splits into three components: basic needs satisfaction, prosperous consumption, and excessive consumption. 
                         <br>
                         <a href="https://youtu.be/NiJi-7uQKPg" target="new">IEooc_Application6_Lecture1</a><br>
 						Link to the <a href="/Content/IEooc_Application6_Lecture1.zip">slide deck for IEooc_Application6_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
-                        <b>Reading: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk: 
+                        <b>Reading: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk. This is the journal article which the video lecture above is based upon. 
                         <br>
                         <a href="https://doi.org/10.1016/j.ecolecon.2024.108161" target="new">IEooc_Application6_Reading3</a>
                         <br>
                         <br>
-                        <b>Reading: Reducing global inequality to secure human wellbeing and climate safety: a modelling study. </b> by Joel Millward-Hopkins and team: 
+                        <b>Reading: Reducing global inequality to secure human wellbeing and climate safety: a modelling study. </b> by Joel Millward-Hopkins and team. The authors explore how a climate-safe, low energy demand future, and universal decent living could be achieved simultaneously, given the magnitude of current global inequalities in energy consumption and technological access. 
                         <br>
                         <a href="https://doi.org/10.1016/S2542-5196(23)00004-9" target="new">IEooc_Application6_Reading4</a>
                         <br>

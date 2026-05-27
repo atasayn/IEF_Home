@@ -427,7 +427,7 @@
     <script type="text/javascript" src="js/pdfMaker.js"></script>
     <script type="text/javascript" src="js/canvasjs.min.js"></script>
     <script type="text/javascript" src="js/html2canvas.min.js"></script>
-    <!-- Matomo -->
+<%--    <!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
 
@@ -436,7 +436,7 @@
         _paq.push(['enableLinkTracking']);
 
         (function () {
-            var u = "//www.blog.industrialecology.uni-freiburg.de/matomo/";
+            var u = "//www.blog.industrialecology.uni-freiburg.de/stats/";
             _paq.push(['setTrackerUrl', u + 'collect.php']);
             _paq.push(['setSiteId', '5']);
 
@@ -453,9 +453,10 @@
             }
         })();
     </script>
-    <!-- End Matomo Code -->
-    <!-- End Matomo Code -->
-
+    <!-- End Matomo Code -->--%>
+    <!-- Matomo Image Tracker-->
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=5&amp;rec=1" style="border:0" alt="" />
+    <!-- End Matomo -->
 </head>
 <body>
 <div id="app">
