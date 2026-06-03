@@ -1,26 +1,8 @@
 ﻿<%@ Page Title="Industrial Ecology Freiburg" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="IEF_Home.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-<%--    <!-- Matomo -->
-    <script type="text/javascript">
-        var _paq = window._paq = window._paq || [];
-        _paq.push(['setCookieDomain', '*.industrialecology.uni-freiburg.de']);
-        _paq.push(['enableCrossDomainLinking']);
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function () {
-            var u = "https://www.blog.industrialecology.uni-freiburg.de/stats/";
-            _paq.push(['setTrackerUrl', u + 'collect.php']);
-            _paq.push(['setSiteId', '1']);
-            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.async = true; g.src = u + 'app-info-v2.js'; s.parentNode.insertBefore(g, s);
-        })();
-    </script>
-    <!-- End Matomo Code -->--%>
-
 
     <script src="js/jquery-1.7.1.min.js" type="text/javascript" defer></script>
-
     <style>
         h1 {
             font-size: 30px;
@@ -281,9 +263,6 @@
          }
         }
     </script>
-<!-- Matomo Image Tracker-->
-<img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=1&amp;rec=1" style="border:0" alt="" />
-<!-- End Matomo -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="grid-container">
@@ -309,7 +288,9 @@
             </section>
 
         </div>
-
+            <!-- Matomo Image Tracker-->
+<img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=1&amp;rec=1" style="border:0" alt="" />
+<!-- End Matomo -->
         <div class="grid-photo">
             <img loading="lazy" class="img-responsive center-block" src="resources/webP/FOSP_Homepage_1.webp" height="800" width="800" alt="illustration of the content of this portal">
             <div class="caption">

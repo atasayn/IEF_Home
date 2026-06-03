@@ -1,20 +1,6 @@
 ﻿<%@ Page Title="Teaching"  Language="C#" MasterPageFile="~/Site1.Master" EnableViewState="false" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
-<%--    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function () {
-            var u = "//www.blog.industrialecology.uni-freiburg.de/stats/";
-            _paq.push(['setTrackerUrl', u + 'collect.php']);
-            _paq.push(['setSiteId', '7']);
-            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.async = true; g.src = u + 'app-info-v2.js'; s.parentNode.insertBefore(g, s);
-        })();
-    </script>
-    <!-- End Matomo Code -->--%>
+
     <script>
 
         function jupyterLink(path, text) {
@@ -24,11 +10,10 @@
     </script>
 
     <!-- Matomo -->
-    <!-- Matomo Image Tracker-->
-    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=7&amp;rec=1" style="border:0" alt="" />
-    <!-- End Matomo -->
+
     <style>
-        a {
+        /* Scope underlines to page content links only, avoid affecting navbar */
+        .content a {
             text-decoration: underline;
             padding: 0 2px;
             display: inline-block;
@@ -36,7 +21,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-    <div class="row">
+    <div class="row content">
 
         <div class="col-md-12">
             <center>
@@ -1566,5 +1551,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             <b>PS:</b> The IEooc is not to be confused with the Idaho-Eastern Oregon Onion Committee (IEOOC).<br>
         </div>
     </div>
+        <!-- Matomo Image Tracker-->
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=7&amp;rec=1" style="border:0" alt="" />
+    <!-- End Matomo -->
 </asp:Content>
 

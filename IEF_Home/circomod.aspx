@@ -10,11 +10,10 @@
     <link rel="icon" type="image/png" href="/resources/IEF_LogoV_23_3-Tab7.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        #app { zoom: 0.9; }
-        @supports not (zoom: 1) {
-            #app { transform: scale(0.9); transform-origin: 0 0; width: 125%; }
-        }
 
+        #app {
+    zoom: 0.9;
+}
         html {
             margin: 0px;
             height: 100%;
@@ -294,7 +293,8 @@
         }
 
         .svgMap-country {
-            cursor: pointer
+            cursor: pointer;
+                pointer-events: all !important;
         }
 
         .svgMap-map-wrapper .svgMap-country:hover {
@@ -366,6 +366,14 @@
             position: absolute;
             right: 0
         }
+        #line-plot1,
+        #line-plot2,
+        #line-plot3,
+        #line-plot4,
+        #line-plot5 {
+            pointer-events: none;
+        }
+
 
         #GHG > div > div {
             border-radius: 50%;
@@ -462,20 +470,35 @@
 <div id="app">
         <form method="post" action="./circomod.aspx" id="form1" runat="server">
     <header>
-            <div class="jumbotron">
-                <div class="container-fluid">
+            <div class="jumbotron" style="background: #14967A; padding: 0; margin-bottom: 0; border-radius: 0;">
+                <div class="container-fluid" style="display: flex; align-items: stretch; min-height: clamp(80px, 12vw, 160px); padding: 0;">
 
-                    <div class="col-md-2">
-                        <img src="/resources/IEF_LogoV_23_3.png" style="padding-left: 0;" width="241" height="111" alt="IEF logo">
+                    <!-- IEF Logo panel -->
+                    <div style="background: #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 2vw, 24px); min-width: clamp(120px, 15vw, 220px); flex-shrink: 0;">
+                        <img src="resources/IEF_LogoV_23_3.png" style="height: clamp(60px, 8vw, 110px); width: auto; display: block;">
                     </div>
 
-                    <div class="col-md-8" style=" height: 0px;">
-                        <h2>Freiburg Open Science Portal for Industrial Ecology and Socio-Metabolic Research</h2>
+                    <!-- Accent stripe -->
+                    <div style="width: clamp(3px, 0.4vw, 5px); background: #0F6E56; flex-shrink: 0;">
                     </div>
 
-                    <div class="logo" style="padding-top: 20px">
-                        <img src="/resources/uniFreiburg.png" width="300" alt="Uni Freiburg logo">
+                    <!-- Title text -->
+                    <div style="flex: 1; display: flex; align-items: center; padding: clamp(12px, 2vw, 36px); min-width: 0;">
+                        <div>
+                            <p style="margin: 0 0 4px 0; font-size: clamp(13px, 1.6vw, 30px); font-weight: 600; color: #ffffff; line-height: 1.3;">
+                                Freiburg Open Science Portal for Industrial Ecology
+                            </p>
+                            <p style="margin: 0; font-size: clamp(11px, 1.2vw, 25px); color: #B3E3D4; line-height: 1.3;">
+                                and Socio-Metabolic Research
+                            </p>
+                        </div>
                     </div>
+
+                    <!-- Uni Freiburg logo panel -->
+                    <div style="background: #ffffff; border-left: clamp(2px, 0.3vw, 4px) solid #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 2vw, 32px); min-width: clamp(120px, 16vw, 260px); flex-shrink: 0;">
+                        <img src="resources/uniFreiburg.png" style="height: clamp(36px, 5vw, 72px); width: auto; display: block;">
+                    </div>
+
                 </div>
             </div>
             <nav class="navbar navbar-default navbar-custom navbar">
@@ -540,7 +563,7 @@
                     </div>
                     <span id="RegionName4" class="label label-danger" style="background-color: #b6dbff; line-height: 2; font-weight: 500; color: black"></span>
                 </div>
-                <div style="background-color: #ffffff; ;display:none">
+                <div style="background-color: #ffffff; display:none">
                     <img id="textScreenshot" src="" />
                 </div>
                 <div id="countryInfo">
@@ -934,12 +957,12 @@
                 <a href="/teaching">TEACHING: IEooc</a>
                 <a href="/circomod">CIRCULAR ECONOMY PROFILES</a><br />
                 <a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a>
-                <li><a href="/iefWorkingPaper">IEF Working Papers</a></li>    
+                <a href="/iefWorkingPaper">IEF Working Papers</a>
                 <a href="/internal">Internal</a>
                 <a href="/legal">Legal Notes & Privacy</a>
             </div>
             <div>
-                <h3>Industrial Ecology <span>Freiburg 2023</span></h3>
+                <h3>Industrial Ecology <span>Freiburg 2026</span></h3>
             </div>
         </footer>
     </form>
