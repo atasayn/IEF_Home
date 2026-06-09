@@ -429,9 +429,16 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
             <div class="not-show-twitter">
                 <h3 style="text-align: center"><b>+++ News +++</b></h3>
                 <br>
+                <h4><b>Integration of interactive floweaver Sankey diagrams into the IEDC</b></h4>
+                <p>
+                    [Summer 2026] The IEDC now contains datasets for which a floweaver Sankey can be displayed and downloaded via the web app! This new feature is a result of a collaboration between Rick Lupton (Uni Bath, UK), creator of floweaver, and the IEDC team. A special 1_F data template with eight aspects is used to format the flow data, and a precompiled Sankey specification is created using floweaver.
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Sankey example" src="resources/webP/sankey_example.png" />
+                    Direct access to the floweaver Sankeys on the <a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">IEDC</a> (search for 'Sankey' to filter the Sankey datasets).
+                </p>
+                <hr>
                 <h4><b>Check out our new LLM based Label Matching tool!</b></h4>
                 <p>
-                    The IEDC LLM Search Tool allows data providers to quickly find matching labels from the IEDC's main classifications using natural-language search. It uses an LLM to identify the most relevant classification items quickly and accurately. For example, an incoming label "BEV" could be matched to something related to 'beverages' if only string similarity was taken into account. With the semantics embedded in the LLM, the matching algorithm points to "passenger car, battery electric", 
+                    [Spring 2026] The IEDC LLM Search Tool allows data providers to quickly find matching labels from the IEDC's main classifications using natural-language search. It uses an LLM to identify the most relevant classification items quickly and accurately. For example, an incoming label "BEV" could be matched to something related to 'beverages' if only string similarity was taken into account. With the semantics embedded in the LLM, the matching algorithm points to "passenger car, battery electric", 
                     which is the intended outcome of the label matching.
                     <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="windows server 2025" src="resources/webP/LLMSearchAI.webp" />
                     Direct access to our searching tool: <a href="https://www.database.industrialecology.uni-freiburg.de/labelMatching.aspx" target="_blank">LLM Search Tool </a>
@@ -439,7 +446,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <hr>
                 <h4><b>We migrated our server to Windows Server 2025.</b></h4>
                 <p>
-                    The Freiburg Open Science Portal for Industrial Ecology and Socio-Metabolic Research now runs on a Windows Server 2025 virtual machine. 
+                    [Spring 2026] The Freiburg Open Science Portal for Industrial Ecology and Socio-Metabolic Research now runs on a Windows Server 2025 virtual machine. 
                     A big thanks to our software engineer Nildem Atasayar for mastering the smooth transition! With this new setup, the Portal is fit for the future, and we are excited to deliver improved performance, security, and reliability to our global user community.
                     <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="windows server 2025" src="resources/webP/windowsServer2025.webp" />
                 </p>
