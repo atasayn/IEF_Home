@@ -676,6 +676,7 @@
     <Content Include="resources\webP\SMI_Project_Gini.webp" />
     <Content Include="resources\webP\windowsServer2025.webp" />
     <Content Include="resources\webP\LLMSearchAI.webp" />
+    <Content Include="resources\webP\sankey_example.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
