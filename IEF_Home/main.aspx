@@ -432,7 +432,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h4><b>Integration of interactive floweaver Sankey diagrams into the IEDC</b></h4>
                 <p>
                     [Summer 2026] The IEDC now contains datasets for which a floweaver Sankey can be displayed and downloaded via the web app! This new feature is a result of a collaboration between Rick Lupton (Uni Bath, UK), creator of floweaver, and the IEDC team. A special 1_F data template with eight aspects is used to format the flow data, and a precompiled Sankey specification is created using floweaver.
-                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Sankey example" src="resources/webP/sankey_example.png" />
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Sankey example" src="resources/webP/sankey_example.webP" />
                     Direct access to the floweaver Sankeys on the <a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">IEDC</a> (search for 'Sankey' to filter the Sankey datasets).
                 </p>
                 <hr>
