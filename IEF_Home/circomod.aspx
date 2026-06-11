@@ -11,9 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
 
-        #app {
-    zoom: 0.9;
-}
         html {
             margin: 0px;
             height: 100%;
@@ -366,13 +363,7 @@
             position: absolute;
             right: 0
         }
-        #line-plot1,
-        #line-plot2,
-        #line-plot3,
-        #line-plot4,
-        #line-plot5 {
-            pointer-events: none;
-        }
+
 
 
         #GHG > div > div {
@@ -405,6 +396,22 @@
                 display: block;
             }
         }
+
+
+        .navbar-custom .navbar-nav > .active > a {
+            color: #ffffff;
+            background-color: #E3AF39;
+        }
+
+            .navbar-custom .navbar-nav > li > a:hover,
+            .navbar-custom .navbar-nav > li > a:focus,
+            .navbar-custom .navbar-nav > .active > a:hover,
+            .navbar-custom .navbar-nav > .active > a:focus,
+            .navbar-custom .navbar-nav > .open > a {
+                text-decoration: none;
+                background-color: #E3AF39;
+                color: #ffffff;
+            }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
@@ -469,58 +476,63 @@
 <body>
 <div id="app">
         <form method="post" action="./circomod.aspx" id="form1" runat="server">
-    <header>
-            <div class="jumbotron" style="background: #14967A; padding: 0; margin-bottom: 0; border-radius: 0;">
-                <div class="container-fluid" style="display: flex; align-items: stretch; min-height: clamp(80px, 12vw, 160px); padding: 0;">
+            <header>
+                  <div class="jumbotron" style="background: #34499a; padding: 0; margin-bottom: 0; border-radius: 0;">
+            <div class="container-fluid" style="display: flex; align-items: stretch; min-height: clamp(80px, 12vw, 160px); padding: 0;">
 
-                    <!-- IEF Logo panel -->
-                    <div style="background: #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 2vw, 24px); min-width: clamp(120px, 15vw, 220px); flex-shrink: 0;">
-                        <img src="resources/IEF_LogoV_23_3.png" style="height: clamp(60px, 8vw, 110px); width: auto; display: block;">
-                    </div>
-
-                    <!-- Accent stripe -->
-                    <div style="width: clamp(3px, 0.4vw, 5px); background: #0F6E56; flex-shrink: 0;">
-                    </div>
-
-                    <!-- Title text -->
-                    <div style="flex: 1; display: flex; align-items: center; padding: clamp(12px, 2vw, 36px); min-width: 0;">
-                        <div>
-                            <p style="margin: 0 0 4px 0; font-size: clamp(13px, 1.6vw, 30px); font-weight: 600; color: #ffffff; line-height: 1.3;">
-                                Freiburg Open Science Portal for Industrial Ecology
-                            </p>
-                            <p style="margin: 0; font-size: clamp(11px, 1.2vw, 25px); color: #B3E3D4; line-height: 1.3;">
-                                and Socio-Metabolic Research
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Uni Freiburg logo panel -->
-                    <div style="background: #ffffff; border-left: clamp(2px, 0.3vw, 4px) solid #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 2vw, 32px); min-width: clamp(120px, 16vw, 260px); flex-shrink: 0;">
-                        <img src="resources/uniFreiburg.png" style="height: clamp(36px, 5vw, 72px); width: auto; display: block;">
-                    </div>
-
+                <!-- IEF Logo panel -->
+                <div style="background: #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 2vw, 24px); min-width: clamp(120px, 15vw, 220px); flex-shrink: 0;">
+                    <img src="resources/IEF_LogoV_23_3.png" style="height: clamp(42px, 5.6vw, 77px); width: auto; display: block;">
                 </div>
+
+                <!-- Accent stripe -->
+                <div style="width: clamp(3px, 0.4vw, 5px); background: #1e3070; flex-shrink: 0;">
+                </div>
+
+                <!-- Title text -->
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 36px); min-width: 0;">
+                    <div style="text-align: center;">
+                        <p style="margin: 0 0 4px 0; font-size: clamp(16px, 2.2vw, 38px); font-weight: 600; color: #ffffff; line-height: 1.3;">
+                            Freiburg Open Science Portal for Industrial Ecology
+       
+                        </p>
+                        <p style="margin: 0; font-size: clamp(16px, 2.2vw, 38px); font-weight: 600; color: #ffffff; line-height: 1.3;">
+                            and Socio-Metabolic Research
+       
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Uni Freiburg logo panel -->
+                <div style="background: #34499a; border-left: clamp(2px, 0.3vw, 4px) solid #1e3070; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 2vw, 32px); min-width: clamp(100px, 12vw, 180px); flex-shrink: 0;">
+                    <div style="background: #ffffff; padding: 5px 10px; border-radius: 4px;">
+                        <img src="resources/uniFreiburg.png" style="height: clamp(20px, 2.5vw, 38px); width: auto; display: block;">
+                    </div>
+                </div>
+
             </div>
+        </div>
+
             <nav class="navbar navbar-default navbar-custom navbar">
                 <div class="container-fluid">
                     <label for="collapsible" class="lbl-toggle">&equiv;</label>
                     <input id="collapsible" class="toggle" type="checkbox">
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
-                            <li><a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">iedc Database</a></li>
-                            <li><a href="/odym-recc">Our Models</a></li>
-                            <li><a href="/teaching">TEACHING: IEooc</a></li>
-                            <li><a href="/circomod">CIRCULAR ECONOMY PROFILES</a></li>
-                            <li><a href="https://www.visualisation.industrialecology.uni-freiburg.de" target="_blank">CIRCULAR SANKEY APP</a></li>
-                            <li><a href="/iefWorkingPaper">IEF Working Papers</a></li>    
-                            <li><a href="/internal">Internal</a></li>
-                            <li style="display: none"><a href="/circomodVisualization">circomodVisualization</a></li>
+                            <li id="liHome" runat="server"><a href="/main.aspx">Home</a></li>
+                            <li id="liBlog" runat="server"><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
+                            <li id="liDatabase" runat="server"><a href="https://www.database.industrialecology.uni-freiburg.de">IEDC Database</a></li>
+                            <li id="liModels" runat="server"><a href="/odym-recc">Our Models</a></li>
+                            <li id="liTeaching" runat="server"><a href="/teaching">TEACHING: IEooc</a></li>
+                            <li id="liCircomod" runat="server"><a href="/circomod">CIRCULAR ECONOMY PROFILES</a></li>
+                            <li id="liSankey" runat="server"><a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a></li>
+                            <li id="liPapers" runat="server"><a href="/iefWorkingPaper">IEF Working Papers</a></li>
+                            <li id="liInternal" runat="server"><a href="/internal">Internal</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
+
         </header>
         <main>
             <div id="DataMenu-Recc-GraphType">
@@ -962,7 +974,7 @@
                 <a href="/legal">Legal Notes & Privacy</a>
             </div>
             <div>
-                <h3>Industrial Ecology <span>Freiburg 2026</span></h3>
+                <h3>Industrial Ecology <span style="color:#E3AF39">Freiburg 2026</span></h3>
             </div>
         </footer>
     </form>

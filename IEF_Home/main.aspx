@@ -267,7 +267,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="grid-container">
         <div class="grid-main">
-            <h1 class="main-title">Welcome to the open science portal of the industrial ecology research group (IEF), University of Freiburg</h1>
+            <h2 class="main-title">Welcome to the open science portal of the industrial ecology research group (IEF), University of Freiburg</h2>
             <section aria-labelledby="intro-title">
                 <div class="grid-intro">
                     <p>

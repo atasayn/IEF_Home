@@ -16,18 +16,6 @@ namespace IEF_Home
         {
 
         }
-        //public static byte[] PdfSharpConvert(object sender, EventArgs e)
-        //{
-        //    byte[] res = null;
-        //    using (MemoryStream ms = new MemoryStream())
-        //    {
-        //        var pdf = TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerator.GeneratePdf(Code("https://www.industrialecology.uni-freiburg.de/circomod"), PdfSharp.PageSize.A4);
-        //        pdf.Save(ms);
-        //        res = ms.ToArray();
-        //    }
-        //    return res;
-        //}
-
 
     }
 }
