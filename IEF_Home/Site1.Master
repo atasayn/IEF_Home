@@ -257,7 +257,7 @@
 </head>
 
 <body class="site-main">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="background:white">
         <asp:ScriptManager
             ID="ScriptManager"
             runat="server"

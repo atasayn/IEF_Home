@@ -110,7 +110,11 @@
             height: fit-content;
             border-radius: 10px;
             grid-area: map;
-            width: auto
+            width: auto;
+            position: relative;  /* add this */
+            z-index: 1;          /* add this - keeps map above sankey */
+            overflow: hidden;    /* add this */
+
         }
 
         #Graph1Line {
@@ -256,8 +260,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            pointer-events: none
-        }
+/*            pointer-events: none
+*/        }
 
         #sankeyFullCE {
             grid-area: sankeyFullCE;
@@ -269,8 +273,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            pointer-events: none
-        }
+/*            pointer-events: none
+*/        }
 
         #energyServiceCascade {
             grid-area: energyServiceCascade
@@ -290,13 +294,17 @@
         }
 
         .svgMap-country {
+            fill: #4a90d9 !important;
             cursor: pointer;
-                pointer-events: all !important;
+            pointer-events: all !important;
+            stroke: #ffffff;
+            stroke-width: 0.5px;
+            transition: stroke-width 0.1s, stroke 0.1s;
         }
 
-        .svgMap-map-wrapper .svgMap-country:hover {
-            -webkit-tap-highlight-color: #333;
-            stroke-width: 1;
+        .svgMap-country:hover {
+            stroke: #000000 !important;
+            stroke-width: 2px !important;
         }
 
 
@@ -421,7 +429,6 @@
     <script type="text/javascript" src="js/svg-pan-zoom.min.js"></script>
     <script type="text/javascript" src="js/jspdf.min.js"></script>
     <script type="text/javascript" src="js/svgMap/svgmap.min.js"></script>
-<%--    <script type="text/javascript" src="js/PDFmaker/jspdf.es.min.js"></script>--%>
     <script type="text/javascript" src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
     <script type="text/javascript" src="js/svgMap/main.min.js"></script>
@@ -442,33 +449,6 @@
     <script type="text/javascript" src="js/pdfMaker.js"></script>
     <script type="text/javascript" src="js/canvasjs.min.js"></script>
     <script type="text/javascript" src="js/html2canvas.min.js"></script>
-<%--    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-
-        (function () {
-            var u = "//www.blog.industrialecology.uni-freiburg.de/stats/";
-            _paq.push(['setTrackerUrl', u + 'collect.php']);
-            _paq.push(['setSiteId', '5']);
-
-            var d = document;
-            var g = d.createElement('script');
-            var s = d.getElementsByTagName('script')[0];
-
-            g.async = true;
-            g.src = u + 'app-info-v2.js';
-
-            // Fix for VS 2026 null warning
-            if (s && s.parentNode) {
-                s.parentNode.insertBefore(g, s);
-            }
-        })();
-    </script>
-    <!-- End Matomo Code -->--%>
     <!-- Matomo Image Tracker-->
     <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=5&amp;rec=1" style="border:0" alt="" />
     <!-- End Matomo -->
@@ -808,20 +788,27 @@
                 if (!divsVis) return;
 
                 const divs = document.querySelectorAll('[id^="div_svg"]');
-                const divsStart = parseInt(divs[0].id.slice(-4));
                 const divsEnd = parseInt(divs[divs.length - 1].id.slice(-4));
                 const divsCurrent = parseInt(divsVis.slice(-4));
 
                 if (divsCurrent < divsEnd) {
                     const nextId = divsCurrent + 10;
-                    ["div_svg", "span_svg", "steelUpper_span", "ghgUpper_span"].forEach(prefix => {
-                        const el = document.getElementById(prefix + nextId);
-                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'visible' : el.style.display = 'block';
-                    });
-                    ["div_svg", "span_svg", "steelUpper_span", "ghgUpper_span"].forEach(prefix => {
-                        const el = document.getElementById(prefix + divsCurrent);
-                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'hidden' : el.style.display = 'none';
-                    });
+
+                    // Show next — divs/spans use visibility, value spans use display
+                    document.getElementById("div_svg" + nextId).style.visibility = 'visible';
+                    document.getElementById("span_svg" + nextId).style.visibility = 'visible';
+                    var steelNext = document.getElementById("steelUpper_span" + nextId);
+                    var ghgNext = document.getElementById("ghgUpper_span" + nextId);
+                    if (steelNext) steelNext.style.display = 'block';
+                    if (ghgNext) ghgNext.style.display = 'block';
+
+                    // Hide current
+                    document.getElementById("div_svg" + divsCurrent).style.visibility = 'hidden';
+                    document.getElementById("span_svg" + divsCurrent).style.visibility = 'hidden';
+                    var steelCur = document.getElementById("steelUpper_span" + divsCurrent);
+                    var ghgCur = document.getElementById("ghgUpper_span" + divsCurrent);
+                    if (steelCur) steelCur.style.display = 'none';
+                    if (ghgCur) ghgCur.style.display = 'none';
                 }
             }
 
@@ -835,14 +822,20 @@
 
                 if (divsCurrent > divsStart) {
                     const prevId = divsCurrent - 10;
-                    ["div_svg", "span_svg", "steelUpper_span", "ghgUpper_span"].forEach(prefix => {
-                        const el = document.getElementById(prefix + prevId);
-                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'visible' : el.style.display = 'block';
-                    });
-                    ["div_svg", "span_svg", "steelUpper_span", "ghgUpper_span"].forEach(prefix => {
-                        const el = document.getElementById(prefix + divsCurrent);
-                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'hidden' : el.style.display = 'none';
-                    });
+
+                    document.getElementById("div_svg" + prevId).style.visibility = 'visible';
+                    document.getElementById("span_svg" + prevId).style.visibility = 'visible';
+                    var steelPrev = document.getElementById("steelUpper_span" + prevId);
+                    var ghgPrev = document.getElementById("ghgUpper_span" + prevId);
+                    if (steelPrev) steelPrev.style.display = 'block';
+                    if (ghgPrev) ghgPrev.style.display = 'block';
+
+                    document.getElementById("div_svg" + divsCurrent).style.visibility = 'hidden';
+                    document.getElementById("span_svg" + divsCurrent).style.visibility = 'hidden';
+                    var steelCur = document.getElementById("steelUpper_span" + divsCurrent);
+                    var ghgCur = document.getElementById("ghgUpper_span" + divsCurrent);
+                    if (steelCur) steelCur.style.display = 'none';
+                    if (ghgCur) ghgCur.style.display = 'none';
                 }
             }
 
@@ -851,20 +844,25 @@
                 if (!divsVis) return;
 
                 const divs = document.querySelectorAll('[id^="Lowerdiv_svg"]');
-                const divsStart = parseInt(divs[0].id.slice(-4));
                 const divsEnd = parseInt(divs[divs.length - 1].id.slice(-4));
                 const divsCurrent = parseInt(divsVis.slice(-4));
 
                 if (divsCurrent < divsEnd) {
                     const nextId = divsCurrent + 10;
-                    ["Lowerdiv_svg", "Lowerspan_svg", "steelLower_span", "ghgLower_span"].forEach(prefix => {
-                        const el = document.getElementById(prefix + nextId);
-                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'visible' : el.style.display = 'block';
-                    });
-                    ["Lowerdiv_svg", "Lowerspan_svg", "steelLower_span", "ghgLower_span"].forEach(prefix => {
-                        const el = document.getElementById(prefix + divsCurrent);
-                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'hidden' : el.style.display = 'none';
-                    });
+
+                    document.getElementById("Lowerdiv_svg" + nextId).style.visibility = 'visible';
+                    document.getElementById("Lowerspan_svg" + nextId).style.visibility = 'visible';
+                    var steelNext = document.getElementById("steelLower_span" + nextId);
+                    var ghgNext = document.getElementById("ghgLower_span" + nextId);
+                    if (steelNext) steelNext.style.display = 'block';
+                    if (ghgNext) ghgNext.style.display = 'block';
+
+                    document.getElementById("Lowerdiv_svg" + divsCurrent).style.visibility = 'hidden';
+                    document.getElementById("Lowerspan_svg" + divsCurrent).style.visibility = 'hidden';
+                    var steelCur = document.getElementById("steelLower_span" + divsCurrent);
+                    var ghgCur = document.getElementById("ghgLower_span" + divsCurrent);
+                    if (steelCur) steelCur.style.display = 'none';
+                    if (ghgCur) ghgCur.style.display = 'none';
                 }
             }
 
@@ -878,14 +876,20 @@
 
                 if (divsCurrent > divsStart) {
                     const prevId = divsCurrent - 10;
-                    ["Lowerdiv_svg", "Lowerspan_svg", "steelLower_span", "ghgLower_span"].forEach(prefix => {
-                        const el = document.getElementById(prefix + prevId);
-                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'visible' : el.style.display = 'block';
-                    });
-                    ["Lowerdiv_svg", "Lowerspan_svg", "steelLower_span", "ghgLower_span"].forEach(prefix => {
-                        const el = document.getElementById(prefix + divsCurrent);
-                        if (el) el.style.visibility !== undefined ? el.style.visibility = 'hidden' : el.style.display = 'none';
-                    });
+
+                    document.getElementById("Lowerdiv_svg" + prevId).style.visibility = 'visible';
+                    document.getElementById("Lowerspan_svg" + prevId).style.visibility = 'visible';
+                    var steelPrev = document.getElementById("steelLower_span" + prevId);
+                    var ghgPrev = document.getElementById("ghgLower_span" + prevId);
+                    if (steelPrev) steelPrev.style.display = 'block';
+                    if (ghgPrev) ghgPrev.style.display = 'block';
+
+                    document.getElementById("Lowerdiv_svg" + divsCurrent).style.visibility = 'hidden';
+                    document.getElementById("Lowerspan_svg" + divsCurrent).style.visibility = 'hidden';
+                    var steelCur = document.getElementById("steelLower_span" + divsCurrent);
+                    var ghgCur = document.getElementById("ghgLower_span" + divsCurrent);
+                    if (steelCur) steelCur.style.display = 'none';
+                    if (ghgCur) ghgCur.style.display = 'none';
                 }
             }
 
