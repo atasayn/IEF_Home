@@ -465,10 +465,6 @@
                     <img src="resources/IEF_LogoV_23_3.png" style="height: clamp(42px, 5.6vw, 77px); width: auto; display: block;">
                 </div>
 
-                <!-- Accent stripe -->
-                <div style="width: clamp(3px, 0.4vw, 5px); background: #1e3070; flex-shrink: 0;">
-                </div>
-
                 <!-- Title text -->
                 <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 36px); min-width: 0;">
                     <div style="text-align: center;">
@@ -484,8 +480,8 @@
                 </div>
 
                 <!-- Uni Freiburg logo panel -->
-                <div style="background: #34499a; border-left: clamp(2px, 0.3vw, 4px) solid #1e3070; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 2vw, 32px); min-width: clamp(100px, 12vw, 180px); flex-shrink: 0;">
-                    <div style="background: #ffffff; padding: 5px 10px; border-radius: 4px;">
+                <div style="background: #34499a;  display: flex; align-items: center; justify-content: center; padding: clamp(10px, 2vw, 32px); min-width: clamp(100px, 12vw, 180px); flex-shrink: 0;">
+                    <div style="background: #ffffff; padding: 5px 10px; ">
                         <img src="resources/uniFreiburg.png" style="height: clamp(20px, 2.5vw, 38px); width: auto; display: block;">
                     </div>
                 </div>
