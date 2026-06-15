@@ -84,6 +84,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Card is now a div, not an <a> */
         .ief-link-card {
             display: flex;
             align-items: flex-start;
@@ -92,17 +93,18 @@
             border: 1px solid #c0d0ea;
             border-radius: 8px;
             padding: 0.9rem 1.1rem;
-            text-decoration: none;
             color: inherit;
             transition: border-color 0.15s, box-shadow 0.15s;
+            cursor: default;
+            position: relative;
         }
 
         .ief-link-card:hover {
             border-color: #2d4a9e;
             box-shadow: 0 2px 10px rgba(45,74,158,0.10);
-            text-decoration: none;
         }
 
+        /* The icon acts as the clickable link */
         .ief-link-card-icon {
             width: 34px;
             height: 34px;
@@ -113,6 +115,13 @@
             justify-content: center;
             flex-shrink: 0;
             margin-top: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+
+        .ief-link-card-icon:hover {
+            background: #c8d9f5;
         }
 
         .ief-link-card-icon svg {
@@ -123,8 +132,10 @@
             stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
+            pointer-events: none;
         }
 
+        /* All text in cards is selectable */
         .ief-link-card-meta {
             font-size: 1.4rem;
             color: #6a88b8;
@@ -132,6 +143,8 @@
             font-family: 'Space Grotesk', sans-serif;
             display: block;
             letter-spacing: 0.02em;
+            user-select: text;
+            -webkit-user-select: text;
         }
 
         .ief-link-card-url {
@@ -140,6 +153,16 @@
             color: #1e3a88;
             word-break: break-word;
             display: block;
+            user-select: text;
+            -webkit-user-select: text;
+            /* Also make the URL itself a link */
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .ief-link-card-url:hover {
+            color: #0f2260;
         }
 
         .ief-link-card-desc {
@@ -148,6 +171,8 @@
             margin-top: 3px;
             line-height: 1.45;
             display: block;
+            user-select: text;
+            -webkit-user-select: text;
         }
 
         /* ── Figure ── */
@@ -180,6 +205,7 @@
             gap: 8px;
         }
 
+        /* Tutorial item is also a div now */
         .ief-tut-item {
             display: flex;
             align-items: flex-start;
@@ -188,14 +214,13 @@
             border: 1px solid #c0d0ea;
             border-radius: 8px;
             padding: 0.85rem 1.1rem;
-            text-decoration: none;
             color: inherit;
             transition: border-color 0.15s;
+            cursor: default;
         }
 
         .ief-tut-item:hover {
             border-color: #2d4a9e;
-            text-decoration: none;
         }
 
         .ief-tut-icon {
@@ -208,6 +233,13 @@
             justify-content: center;
             flex-shrink: 0;
             margin-top: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+
+        .ief-tut-icon:hover {
+            background: #c8d9f5;
         }
 
         .ief-tut-icon svg {
@@ -218,6 +250,7 @@
             stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
+            pointer-events: none;
         }
 
         .ief-tut-title {
@@ -225,6 +258,15 @@
             font-weight: 500;
             color: #1e3a88;
             display: block;
+            user-select: text;
+            -webkit-user-select: text;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .ief-tut-title:hover {
+            color: #0f2260;
         }
 
         .ief-tut-desc {
@@ -233,6 +275,8 @@
             margin-top: 2px;
             display: block;
             line-height: 1.5;
+            user-select: text;
+            -webkit-user-select: text;
         }
 
         /* ── Version blocks ── */
@@ -276,6 +320,8 @@
             border-radius: 3px;
             font-size: 1.1em;
             color: #1e3a88;
+            user-select: text;
+            -webkit-user-select: text;
         }
 
         /* ── Inline links ── */
@@ -315,44 +361,49 @@
 
                     <p class="ief-res-label">ODYM resources</p>
                     <div class="ief-links">
-                        <a class="ief-link-card" href="https://doi.org/10.1111/jiec.12952" target="_blank">
-                            <span class="ief-link-card-icon">
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://doi.org/10.1111/jiec.12952" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Journal paper · open access</span>
-                                <span class="ief-link-card-url">doi.org/10.1111/jiec.12952</span>
+                                <a class="ief-link-card-url" href="https://doi.org/10.1111/jiec.12952" target="_blank">doi.org/10.1111/jiec.12952</a>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="https://github.com/IndEcol/ODYM" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://github.com/IndEcol/ODYM" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Python code on GitHub</span>
-                                <span class="ief-link-card-url">github.com/IndEcol/ODYM</span>
+                                <a class="ief-link-card-url" href="https://github.com/IndEcol/ODYM" target="_blank">github.com/IndEcol/ODYM</a>
                                 <span class="ief-link-card-desc">Documentation of ODYM classes and functions</span>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="https://github.com/IndEcol/ODYM/wiki" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://github.com/IndEcol/ODYM/wiki" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Wiki</span>
-                                <span class="ief-link-card-url">github.com/IndEcol/ODYM/wiki</span>
+                                <a class="ief-link-card-url" href="https://github.com/IndEcol/ODYM/wiki" target="_blank">github.com/IndEcol/ODYM/wiki</a>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="https://www.industrialecology.uni-freiburg.de/teaching.aspx" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://www.industrialecology.uni-freiburg.de/teaching.aspx" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Tutorials &amp; exercises · IEooc</span>
-                                <span class="ief-link-card-url">industrialecology.uni-freiburg.de</span>
+                                <a class="ief-link-card-url" href="https://www.industrialecology.uni-freiburg.de/teaching.aspx" target="_blank">industrialecology.uni-freiburg.de</a>
                                 <span class="ief-link-card-desc">Scroll to IEooc_Methods3_Software3–8</span>
                             </span>
-                        </a>
+                        </div>
+
                     </div>
 
                     <p class="ief-body" style="margin-top:1.5rem;">
@@ -385,128 +436,143 @@
                     </p>
 
                     <div class="ief-links">
-                        <a class="ief-link-card" href="research/Documents/RECC_Model_Brief_Nov23.pdf" target="_blank">
-                            <span class="ief-link-card-icon">
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="research/Documents/RECC_Model_Brief_Nov23.pdf" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Model brief</span>
-                                <span class="ief-link-card-url">RECC_Model_Brief_Nov23.pdf</span>
+                                <a class="ief-link-card-url" href="research/Documents/RECC_Model_Brief_Nov23.pdf" target="_blank">RECC_Model_Brief_Nov23.pdf</a>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="/research/Documents/RECC_Model_Overview_July_2023.pdf" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="/research/Documents/RECC_Model_Overview_July_2023.pdf" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Overview presentation</span>
-                                <span class="ief-link-card-url">RECC_Model_Overview_July_2023.pdf</span>
+                                <a class="ief-link-card-url" href="/research/Documents/RECC_Model_Overview_July_2023.pdf" target="_blank">RECC_Model_Overview_July_2023.pdf</a>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="https://zenodo.org/records/14194614" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://zenodo.org/records/14194614" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Zenodo overview</span>
-                                <span class="ief-link-card-url">zenodo.org/records/14194614</span>
+                                <a class="ief-link-card-url" href="https://zenodo.org/records/14194614" target="_blank">zenodo.org/records/14194614</a>
                                 <span class="ief-link-card-desc">Reports and publications list</span>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="https://www.resourcepanel.org/reports/resource-efficiency-and-climate-change" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://www.resourcepanel.org/reports/resource-efficiency-and-climate-change" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">First RECC results · IRP report</span>
-                                <span class="ief-link-card-url">resourcepanel.org</span>
+                                <a class="ief-link-card-url" href="https://www.resourcepanel.org/reports/resource-efficiency-and-climate-change" target="_blank">resourcepanel.org</a>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Framework paper · open access</span>
-                                <span class="ief-link-card-url">doi.org/10.1111/jiec.13023</span>
+                                <a class="ief-link-card-url" href="https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13023" target="_blank">doi.org/10.1111/jiec.13023</a>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="https://github.com/IndEcol/RECC-ODYM" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://github.com/IndEcol/RECC-ODYM" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">Python code on GitHub</span>
-                                <span class="ief-link-card-url">github.com/IndEcol/RECC-ODYM</span>
+                                <a class="ief-link-card-url" href="https://github.com/IndEcol/RECC-ODYM" target="_blank">github.com/IndEcol/RECC-ODYM</a>
                             </span>
-                        </a>
-                        <a class="ief-link-card" href="https://docs.google.com/presentation/d/1Iw8LkWveC-BWy69ULVZdp5Wj2Q1udouwYPtFw2ixsQc/edit?usp=sharing" target="_blank">
-                            <span class="ief-link-card-icon">
+                        </div>
+
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://docs.google.com/presentation/d/1Iw8LkWveC-BWy69ULVZdp5Wj2Q1udouwYPtFw2ixsQc/edit?usp=sharing" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                            </span>
+                            </a>
                             <span>
                                 <span class="ief-link-card-meta">JRECC model development canvas</span>
-                                <span class="ief-link-card-url">Google Slides</span>
+                                <a class="ief-link-card-url" href="https://docs.google.com/presentation/d/1Iw8LkWveC-BWy69ULVZdp5Wj2Q1udouwYPtFw2ixsQc/edit?usp=sharing" target="_blank">Google Slides</a>
                             </span>
-                        </a>
+                        </div>
+
                     </div>
 
                     <p class="ief-res-label" style="margin-top:2rem;">RECC tutorials</p>
                     <div class="ief-tut-list">
-                        <a class="ief-tut-item" href="https://www.youtube.com/watch?v=zOfo1WTk7d8" target="_blank">
-                            <span class="ief-tut-icon">
+
+                        <div class="ief-tut-item">
+                            <a class="ief-tut-icon" href="https://www.youtube.com/watch?v=zOfo1WTk7d8" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                            </span>
+                            </a>
                             <span>
-                                <span class="ief-tut-title">RECC model tutorial video</span>
+                                <a class="ief-tut-title" href="https://www.youtube.com/watch?v=zOfo1WTk7d8" target="_blank">RECC model tutorial video</a>
                                 <span class="ief-tut-desc">Run ODYM-RECC on your own machine. Explains config files and how the model scripts work together for single and multiple scenarios.</span>
                             </span>
-                        </a>
-                        <a class="ief-tut-item" href="research/Documents/RECC_Multiple_Scenarios_HowTo.mp4" target="_blank">
-                            <span class="ief-tut-icon">
+                        </div>
+
+                        <div class="ief-tut-item">
+                            <a class="ief-tut-icon" href="research/Documents/RECC_Multiple_Scenarios_HowTo.mp4" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                            </span>
+                            </a>
                             <span>
-                                <span class="ief-tut-title">Multi-scenario generation tutorial</span>
+                                <a class="ief-tut-title" href="research/Documents/RECC_Multiple_Scenarios_HowTo.mp4" target="_blank">Multi-scenario generation tutorial</a>
                                 <span class="ief-tut-desc">RECC_Multiple_Scenarios_HowTo.mp4</span>
                             </span>
-                        </a>
-                        <a class="ief-tut-item" href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank">
-                            <span class="ief-tut-icon">
+                        </div>
+
+                        <div class="ief-tut-item">
+                            <a class="ief-tut-icon" href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                            </span>
+                            </a>
                             <span>
-                                <span class="ief-tut-title">Results evaluation tutorial</span>
+                                <a class="ief-tut-title" href="research/Documents/RECC_Aggregation_Visualisation_HowTo.mp4" target="_blank">Results evaluation tutorial</a>
                                 <span class="ief-tut-desc">RECC_Aggregation_Visualisation_HowTo.mp4</span>
                             </span>
-                        </a>
-                        <a class="ief-tut-item" href="research/Documents/RECC_City_Level_HowTo.mp4" target="_blank">
-                            <span class="ief-tut-icon">
+                        </div>
+
+                        <div class="ief-tut-item">
+                            <a class="ief-tut-icon" href="research/Documents/RECC_City_Level_HowTo.mp4" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                            </span>
+                            </a>
                             <span>
-                                <span class="ief-tut-title">Using RECC at the city level</span>
+                                <a class="ief-tut-title" href="research/Documents/RECC_City_Level_HowTo.mp4" target="_blank">Using RECC at the city level</a>
                                 <span class="ief-tut-desc">RECC_City_Level_HowTo.mp4</span>
                             </span>
-                        </a>
-                        <a class="ief-tut-item" href="research/Documents/ODYM_Data_Processes_ODP_Manual.pdf" target="_blank">
-                            <span class="ief-tut-icon">
+                        </div>
+
+                        <div class="ief-tut-item">
+                            <a class="ief-tut-icon" href="research/Documents/ODYM_Data_Processes_ODP_Manual.pdf" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                            </span>
+                            </a>
                             <span>
-                                <span class="ief-tut-title">Data documentation routine — ODYM data process manual</span>
+                                <a class="ief-tut-title" href="research/Documents/ODYM_Data_Processes_ODP_Manual.pdf" target="_blank">Data documentation routine — ODYM data process manual</a>
                                 <span class="ief-tut-desc">ODYM_Data_Processes_ODP_Manual.pdf · sample parameter file: 2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx</span>
                             </span>
-                        </a>
-                        <a class="ief-tut-item" href="research/Documents/2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" target="_blank">
-                            <span class="ief-tut-icon">
+                        </div>
+
+                        <div class="ief-tut-item">
+                            <a class="ief-tut-icon" href="research/Documents/2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                            </span>
+                            </a>
                             <span>
-                                <span class="ief-tut-title">Sample parameter file</span>
+                                <a class="ief-tut-title" href="research/Documents/2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx" target="_blank">Sample parameter file</a>
                                 <span class="ief-tut-desc">2_S_RECC_FinalProducts_2015_nonresbuildings_V2.2.xlsx</span>
                             </span>
-                        </a>
+                        </div>
+
                     </div>
 
                     <p class="ief-res-label" style="margin-top:2rem;">Version history</p>
@@ -514,85 +580,95 @@
                     <div class="ief-version-block">
                         <p class="ief-version-heading">v2.5 <span class="ief-current-badge">current</span></p>
                         <div class="ief-links">
-                            <a class="ief-link-card" href="https://github.com/IndEcol/RECC-ODYM" target="_blank">
-                                <span class="ief-link-card-icon">
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://github.com/IndEcol/RECC-ODYM" target="_blank" title="Open link">
                                     <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                                </span>
+                                </a>
                                 <span>
                                     <span class="ief-link-card-meta">Python code</span>
-                                    <span class="ief-link-card-url">github.com/IndEcol/RECC-ODYM</span>
+                                    <a class="ief-link-card-url" href="https://github.com/IndEcol/RECC-ODYM" target="_blank">github.com/IndEcol/RECC-ODYM</a>
                                 </span>
-                            </a>
-                            <a class="ief-link-card" href="https://doi.org/10.6094/UNIFR/242061" target="_blank">
-                                <span class="ief-link-card-icon">
+                            </div>
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://doi.org/10.6094/UNIFR/242061" target="_blank" title="Open link">
                                     <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                </span>
+                                </a>
                                 <span>
                                     <span class="ief-link-card-meta">Model documentation</span>
-                                    <span class="ief-link-card-url">doi.org/10.6094/UNIFR/242061</span>
+                                    <a class="ief-link-card-url" href="https://doi.org/10.6094/UNIFR/242061" target="_blank">doi.org/10.6094/UNIFR/242061</a>
                                 </span>
-                            </a>
-                            <a class="ief-link-card" href="https://zenodo.org/records/12752350" target="_blank">
-                                <span class="ief-link-card-icon">
+                            </div>
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://zenodo.org/records/12752350" target="_blank" title="Open link">
                                     <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                                </span>
+                                </a>
                                 <span>
                                     <span class="ief-link-card-meta">Global building stock database</span>
-                                    <span class="ief-link-card-url">zenodo.org/records/12752350</span>
+                                    <a class="ief-link-card-url" href="https://zenodo.org/records/12752350" target="_blank">zenodo.org/records/12752350</a>
                                     <span class="ief-link-card-desc">Input data and results for building stock transformation scenarios</span>
                                 </span>
-                            </a>
+                            </div>
+
                         </div>
                     </div>
 
                     <div class="ief-version-block">
                         <p class="ief-version-heading">v2.4</p>
                         <div class="ief-links">
-                            <a class="ief-link-card" href="https://doi.org/10.1038/s41467-021-25300-4" target="_blank">
-                                <span class="ief-link-card-icon">
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://doi.org/10.1038/s41467-021-25300-4" target="_blank" title="Open link">
                                     <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                </span>
+                                </a>
                                 <span>
                                     <span class="ief-link-card-meta">Global vehicles &amp; buildings paper · open access</span>
-                                    <span class="ief-link-card-url">doi.org/10.1038/s41467-021-25300-4</span>
+                                    <a class="ief-link-card-url" href="https://doi.org/10.1038/s41467-021-25300-4" target="_blank">doi.org/10.1038/s41467-021-25300-4</a>
                                 </span>
-                            </a>
-                            <a class="ief-link-card" href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-25300-4/MediaObjects/41467_2021_25300_MOESM1_ESM.pdf" target="_blank">
-                                <span class="ief-link-card-icon">
+                            </div>
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-25300-4/MediaObjects/41467_2021_25300_MOESM1_ESM.pdf" target="_blank" title="Open link">
                                     <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                </span>
+                                </a>
                                 <span>
                                     <span class="ief-link-card-meta">Complete model documentation + supplementary</span>
-                                    <span class="ief-link-card-url">springer.com (ESM PDF)</span>
+                                    <a class="ief-link-card-url" href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-25300-4/MediaObjects/41467_2021_25300_MOESM1_ESM.pdf" target="_blank">springer.com (ESM PDF)</a>
                                 </span>
-                            </a>
-                            <a class="ief-link-card" href="https://github.com/IndEcol/RECC-ODYM" target="_blank">
-                                <span class="ief-link-card-icon">
+                            </div>
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://github.com/IndEcol/RECC-ODYM" target="_blank" title="Open link">
                                     <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                                </span>
+                                </a>
                                 <span>
                                     <span class="ief-link-card-meta">Python code on GitHub</span>
-                                    <span class="ief-link-card-url">github.com/IndEcol/RECC-ODYM</span>
+                                    <a class="ief-link-card-url" href="https://github.com/IndEcol/RECC-ODYM" target="_blank">github.com/IndEcol/RECC-ODYM</a>
                                 </span>
-                            </a>
-                            <a class="ief-link-card" href="https://zenodo.org/record/4671644#.YtezrN9CRhE" target="_blank">
-                                <span class="ief-link-card-icon">
+                            </div>
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://zenodo.org/record/4671644#.YtezrN9CRhE" target="_blank" title="Open link">
                                     <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                                </span>
+                                </a>
                                 <span>
                                     <span class="ief-link-card-meta">Input database</span>
-                                    <span class="ief-link-card-url">zenodo.org/record/4671644</span>
+                                    <a class="ief-link-card-url" href="https://zenodo.org/record/4671644#.YtezrN9CRhE" target="_blank">zenodo.org/record/4671644</a>
                                 </span>
-                            </a>
-                            <a class="ief-link-card" href="https://zenodo.org/record/4698619#.Yte09t9CRhE" target="_blank">
-                                <span class="ief-link-card-icon">
+                            </div>
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://zenodo.org/record/4698619#.Yte09t9CRhE" target="_blank" title="Open link">
                                     <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                                </span>
+                                </a>
                                 <span>
                                     <span class="ief-link-card-meta">Model result database</span>
-                                    <span class="ief-link-card-url">zenodo.org/record/4698619</span>
+                                    <a class="ief-link-card-url" href="https://zenodo.org/record/4698619#.Yte09t9CRhE" target="_blank">zenodo.org/record/4698619</a>
                                 </span>
-                            </a>
+                            </div>
+
                         </div>
                         <p class="ief-commit">
                             Final commit (global paper): <code>9c93d9b</code> &nbsp;·&nbsp; Final commit (Germany): <code>cb3a388</code>
