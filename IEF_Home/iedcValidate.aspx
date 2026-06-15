@@ -184,7 +184,7 @@
         </p>
         <p>
             This page provides a web-based tool to validate datasets formatted as spreadsheets against the IEDC data model, data formatting, and classifications. 
-            Detailed info on the data model can be found on the <a href="IEDC homepage" target="_blank">https://www.database.industrialecology.uni-freiburg.de/</a>.
+            Detailed info on the data model can be found on the <a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">IEDC homepage</a>.
         </p>
         <p>
             The following material is available: a working example for list-shaped data <a href="resources/3_LT_Vehicles_LIST_Sample.xlsx" >3_LT_Vehicles_LIST_Sample.xlsx</a>, 
@@ -195,7 +195,7 @@
         <p>A tutorial video <a href="https://youtu.be/XcUBUaWhKUc" target="_blank">https://youtu.be/XcUBUaWhKUc</a> shows how to format the data according to the IEDC specifications and how to use the data template validator.</p>
         <p>
             Note: When formatting your data to the IEDC format, please make an effort to use labels for materials, products, regions, etc. that are already defined in one of the IEDC classifications 
-            listed on the <a href="classification page" target="_blank">https://www.database.industrialecology.uni-freiburg.de/classifications.aspx</a>. 
+            listed on the <a href="https://www.database.industrialecology.uni-freiburg.de/classifications.aspx" target="_blank">https://www.database.industrialecology.uni-freiburg.de/classifications.aspx</a>. 
             In particular, wherever possible with reasonable effort, please use the following classifications: 1 (chemical_elements) for chemical elements, 2 (regions_iso_iedc) for countries, 
             3 (time (list of years)), 14 (time_ranges (list of different time ranges)) for time, 4 (generic_materials_waste) for materials, 6 (broad_industry_groups) for processes, 
             7 (general_product_categories) for commodities and products, 10 (general_energy_carries) for different types of energy, 
