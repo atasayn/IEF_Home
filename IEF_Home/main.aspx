@@ -39,7 +39,8 @@
         .grid-container {
             display: grid;
             grid-template-areas: 'main  twitter'
-                'photo twitter';
+                'photo twitter'
+                'info info';
             grid-template-rows: auto;
             grid-auto-columns: auto 500px;
             gap: 10px;
@@ -103,7 +104,7 @@
             text-align: justify;
             font-size: 15px;
             line-height: 1.6;
-            max-width: 800px; /* keep same width as .grid-main layout if needed */
+            grid-area: info;
             margin-left: auto;
             margin-right: auto;
         }
@@ -183,9 +184,9 @@
         @media screen and (max-width: 768px) {
             .grid-container {
                 grid-template-areas:
-                                   "main"
-                                   "photo"
-                                   "twitter";
+                    "main"
+                    "photo"
+                    "twitter";
                 grid-auto-columns: 1fr;
             }
         }
@@ -288,9 +289,9 @@
             </section>
 
         </div>
-            <!-- Matomo Image Tracker-->
-<img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=1&amp;rec=1" style="border:0" alt="" />
-<!-- End Matomo -->
+        <!-- Matomo Image Tracker-->
+        <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=1&amp;rec=1" style="border: 0" alt="" />
+        <!-- End Matomo -->
         <div class="grid-photo">
             <img loading="lazy" class="img-responsive center-block" src="resources/webP/FOSP_Homepage_1.webp" height="800" width="800" alt="illustration of the content of this portal">
             <div class="caption">
@@ -420,7 +421,7 @@ a good life for all within planetary limits.
                 <strong>Source:</strong> This text is part of an overview on socio-economic metabolism research written 
 by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <a href="https://is4ie.org/sections/metabolism/pages/40" target="_blank">https://is4ie.org/sections/metabolism/pages/40
-</a>
+                </a>
             </p>
         </div>
 
@@ -471,11 +472,11 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <h4><b>First datasets on socio-metabolic inequality – New tool to browse IEDC datasets by project</b></h4>
                 <p>
                     [Winter 2026] Inequality is a major issue of our time, but data on inequality are still scarce. The new IEDC project “Socio_metabolic_inequality_SMI” offers to the community a compilation of around 20 datasets on Lorenz curves, Gini coefficients, and other inequality indicators from more than 50 literature sources. The data cover non-monetary socio-metabolic indicators (service provision, stocks, flows, energy, material, water, GHG/emissions, and land). The datasets can be found by using a new search tool that allows users to quickly find all IEDC datasets linked to a certain project. Submission of own datasets to the IEDC to this and other projects is welcome!
-                    <img src="resources/webP/SMI_Project_Gini.webp" style="padding-top: 10px;padding-bottom: 10px;"
-                         width="444"
-                         height="269"
-                         fetchpriority="high"
-                         alt="Gini illustration">
+                    <img src="resources/webP/SMI_Project_Gini.webp" style="padding-top: 10px; padding-bottom: 10px;"
+                        width="444"
+                        height="269"
+                        fetchpriority="high"
+                        alt="Gini illustration">
                     See all datasets in this and other projects:   <a href="https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI" target="_blank">https://www.database.industrialecology.uni-freiburg.de/projects.aspx?project=Socio_metabolic_inequality_SMI </a>
                 </p>
                 <hr>
@@ -506,13 +507,19 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
 
             </div>
 
+            <h4 style="color: #FBBE01">Links:</h4>
 
+            <a href="https://uni-freiburg.de/enr-indecol" target="_blank" style="color: #FBBE01;text-decoration: underline;">
+                <span class="grid-link">Our research group's official</span>
+            </a>
 
+            <a href="https://uni-freiburg.de/unr/" target="_blank" style="color: #FBBE01;text-decoration: underline;">
+                <span class="grid-link">Faculty of Environment and Natural Resources</span>
+            </a>
 
-            <h4 style="color: white">Links:</h4>
-             <a href="https://uni-freiburg.de/enr-indecol" target="_blank"><span class="grid-link" style="color: white">Our research group's official</span></a>
-             <a href="https://uni-freiburg.de/unr/" target="_blank"><span class="grid-link" style="color: white">Faculty of Environment and Natural Resources</span></a>
-             <a href="http://www.is4ie.org/" target="_blank"><span class="grid-link" style="color: white">International Society for Industrial Ecology</span></a>
+            <a href="http://www.is4ie.org/" target="_blank" style="color: #FBBE01;text-decoration: underline;">
+                <span class="grid-link" >International Society for Industrial Ecology</span>
+            </a>
 
         </div>
     </div>
