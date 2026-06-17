@@ -1,23 +1,24 @@
-﻿using IEF_Home.cls;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using IEF_Home.cls;
 using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using OfficeOpenXml;
 using Org.BouncyCastle.Asn1.Pkcs;
 using PdfSharp.Drawing;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq.Expressions;
+using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.Caching;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Font = iTextSharp.text.Font;
-using System.Text.RegularExpressions;
-using System.Web;
-using iTextSharp.text.html.simpleparser;
 using Paragraph = iTextSharp.text.Paragraph;
-using System.Web.Caching;
-using System.Diagnostics;
-using System.Linq.Expressions;
 
 
 namespace IEF_Home
@@ -56,7 +57,6 @@ namespace IEF_Home
             // Show loader
             ScriptManager.RegisterStartupScript(this, GetType(), "showLoader",
                 "document.getElementById('loaderControl').style.display='block';", true);
-
             string filePath = null;
 
             try
@@ -115,7 +115,7 @@ namespace IEF_Home
                 section2Row.Style["display"] = "block";
                 section2DataCheck.Style["display"] = "block";
                 missingCellTableSec.Style["display"] = "block";
-
+                sectionDiv.Style["display"] = "block";
                 // ✅ Display upload info
                 string dateTime = DateTime.Now.ToString();
                 validatingDateAndTime.Text =
