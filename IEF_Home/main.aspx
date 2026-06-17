@@ -297,7 +297,7 @@
             <div class="caption">
             </div>
             <div class="w3-bar section-header grid-intro" style="background-color: #ffc000; margin-top: 10px" onclick="toggleSection()">
-                <div class="w3-bar" style="margin-left: 10px; padding-right: 10px;"><b>Toggle section to know more about Industrial Ecology </b></div>
+                <div class="w3-bar" style="margin-left: 10px; padding-right: 10px;"><b>Toggle section to learn more about industrial ecology </b></div>
                 <span id="arrow" class="toggle-arrow">▼</span>
 
             </div>
@@ -507,17 +507,17 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
 
             </div>
 
-            <h4 style="color: #FBBE01">Links:</h4>
+            <h4 style="color: white">Links:</h4>
 
-            <a href="https://uni-freiburg.de/enr-indecol" target="_blank" style="color: #FBBE01;text-decoration: underline;">
+            <a href="https://uni-freiburg.de/enr-indecol" target="_blank" style="color: white;text-decoration: underline;">
                 <span class="grid-link">Our research group's official</span>
             </a>
 
-            <a href="https://uni-freiburg.de/unr/" target="_blank" style="color: #FBBE01;text-decoration: underline;">
+            <a href="https://uni-freiburg.de/unr/" target="_blank" style="color: white;text-decoration: underline;">
                 <span class="grid-link">Faculty of Environment and Natural Resources</span>
             </a>
 
-            <a href="http://www.is4ie.org/" target="_blank" style="color: #FBBE01;text-decoration: underline;">
+            <a href="http://www.is4ie.org/" target="_blank" style="color: white;text-decoration: underline;">
                 <span class="grid-link" >International Society for Industrial Ecology</span>
             </a>
 
