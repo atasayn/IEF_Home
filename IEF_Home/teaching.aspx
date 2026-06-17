@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Teaching"  Language="C#" MasterPageFile="~/Site1.Master" EnableViewState="false" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
+﻿<%@ Page Title="Teaching" Language="C#" MasterPageFile="~/Site1.Master" EnableViewState="false" AutoEventWireup="true" CodeBehind="teaching.aspx.cs" Inherits="IEF_Home.teaching" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
 
     <script>
@@ -27,7 +28,7 @@
             <center>
                 <br>
                 <br>
-                <img 
+                <img
                     src="/Content/webP/IEooc_Logo_438.webp"
                     srcset="
     /Content/webP/IEooc_Logo_438.webp 438w,
@@ -88,26 +89,24 @@
                 </tr>
                 <tr>
                     <td>
-                    <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp"
-                         width="250"
-                         alt="Global Educational Resources">
+                        <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp"
+                            width="190"
+                            alt="Global Educational Resources">
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
-                    <img 
-                        src="/Content/webP/OER_438.webp"
-                        srcset="
-    /Content/webP/OER_438.webp 438w,
-    /Content/webP/OER_876.webp 876w,
-    /Content/webP/OER_1314.webp 1314w"
-                        sizes="(max-width: 600px) 200px, 438px"
-                        width="438"
-                        height="263"
-                        alt="open resource logo">
-
-       
-                    </tr>
+                        <img
+                            src="/Content/webP/OER_438.webp"
+                            srcset="
+/Content/webP/OER_438.webp 438w,
+/Content/webP/OER_876.webp 876w,
+/Content/webP/OER_1314.webp 1314w"
+                            sizes="190px"
+                            width="190"
+                            height="114"
+                            alt="open resource logo">
+                </tr>
             </table>
         </div>
     </div>
@@ -131,9 +130,10 @@
     <div class="row">
         <div class="col-md-12">
 
-		<b>A new introductory textbook for our field, "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, was published in 2023.</b> Details: 512 pages, ISBN-13: 9789811277603, Publisher: World Scientific Publishing Company. The book is available both as hardcover and as e-book. It can be ordered online via Amazon, Barnes and Noble, etc.
-			<br><br>
-        <b>Another new book, "Advanced Introduction to Industrial Ecology", by Christopher Kennedy, Professor of Industrial Ecology, University of Victoria, Canada, was published in 2025.</b> Details and link: <a href="https://www.e-elgar.com/shop/gbp/advanced-introduction-to-industrial-ecology-9781035320554.html" target="new">ISBN: 978-1-03532-055-4. Extent: 194 pp</a>.
+            <b>A new introductory textbook for our field, "Industrial Ecology and Sustainability", by T.E. Graedel and M.J. Eckelman, was published in 2023.</b> Details: 512 pages, ISBN-13: 9789811277603, Publisher: World Scientific Publishing Company. The book is available both as hardcover and as e-book. It can be ordered online via Amazon, Barnes and Noble, etc.
+			<br>
+            <br>
+            <b>Another new book, "Advanced Introduction to Industrial Ecology", by Christopher Kennedy, Professor of Industrial Ecology, University of Victoria, Canada, was published in 2025.</b> Details and link: <a href="https://www.e-elgar.com/shop/gbp/advanced-introduction-to-industrial-ecology-9781035320554.html" target="new">ISBN: 978-1-03532-055-4. Extent: 194 pp</a>.
 			<br>
             <br>
         </div>
@@ -183,13 +183,13 @@
                         <b>Theory lecture: </b>24 min video lecture on industrial ecology as systems science, metabolism of socio-ecological systems, the central system linkages studied by industrial ecology, and the relation between industrial ecology and its neighbouring disciplines:
                         <br>
                         <a href="https://youtu.be/g3qa6zmSmGU" target="new">IEooc_Background1_Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Background1_Lecture2_public.zip">slide deck for IEooc_Background1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background1_Lecture2_public.zip">slide deck for IEooc_Background1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Method overview lecture: </b>16 min video lecture on the five core industrial ecology methods, their main research questions and history. Overview of industrial ecology research infrastructure:
                         <br>
                         <a href="https://youtu.be/atDWS9KnE_U" target="new">IEooc_Background1_Lecture3</a><br>
-						Link to the <a href="/Content/IEooc_Background1_Lecture3_public.zip">slide deck for IEooc_Background1_Lecture3</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background1_Lecture3_public.zip">slide deck for IEooc_Background1_Lecture3</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Blog entry: "Why a Two-Pillar Model is a Better Choice for Conceptualizing Sustainability</b>  than the Common Three-Pillar Conceptualisation:
@@ -222,7 +222,7 @@
                         <b>Video lecture</b> on the big picture: Sustainability and sustainable development:
                         <br>
                         <a href="https://youtu.be/p6nvQYJFsDY" target="new">IEooc_Background2_Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture2_updated_public.zip">slide deck for IEooc_Background2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture2_updated_public.zip">slide deck for IEooc_Background2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -235,14 +235,14 @@
                         <b>Video lecture:</b> Systems thinking for sustainability:
                         <br>
                         <a href="https://youtu.be/HJmNxi3nNh0" target="new">IEooc_Background2_Lecture4</a><br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture4_updated_public.zip">slide deck for IEooc_Background2_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture4_updated_public.zip">slide deck for IEooc_Background2_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
                         <b>Video lecture:</b> Measuring sustainability and sustainable development:
                         <br>
                         <a href="https://youtu.be/vSRyT7PJ7Z8" target="new">IEooc_Background2_Lecture5</a><br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture5_updated_public.zip">slide deck for IEooc_Background2_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture5_updated_public.zip">slide deck for IEooc_Background2_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -281,51 +281,51 @@
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Sustainability challenges of the building sector, IEooc_Background2_Lecture7:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture7.zip">slide deck for IEooc_Background2_Lecture7</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture7.zip">slide deck for IEooc_Background2_Lecture7</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Sustainability Challenges of Transport, IEooc_Background2_Lecture8:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture8.zip">slide deck for IEooc_Background2_Lecture8</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture8.zip">slide deck for IEooc_Background2_Lecture8</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>The roles of material and energy in sustainable development, IEooc_Background2_Lecture9:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture9.zip">slide deck for IEooc_Background2_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture9.zip">slide deck for IEooc_Background2_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Agriculture, forestry, and land use (AFOLU), IEooc_Background2_Lecture10:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture10.zip">slide deck for IEooc_Background2_Lecture10</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture10.zip">slide deck for IEooc_Background2_Lecture10</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Mining, energy supply, and energy futures, IEooc_Background2_Lecture11:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture11.zip">slide deck for IEooc_Background2_Lecture11</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture11.zip">slide deck for IEooc_Background2_Lecture11</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Material Cycles, Circular Economy, and Material Futures, IEooc_Background2_Lecture12:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture12.zip">slide deck for IEooc_Background2_Lecture12</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture12.zip">slide deck for IEooc_Background2_Lecture12</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture:</b> Towards a Corridor for the Sustainable Use of Materials – Insights from Industrial Ecology Research:
                         <br>
                         <a href="https://youtu.be/MuZjsj4_TjE" target="new">IEooc_Background2_Lecture13</a><br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture13.zip">slide deck for IEooc_Background2_Lecture13</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture13.zip">slide deck for IEooc_Background2_Lecture13</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Material and Energy in Emerging Economies, IEooc_Background2_Lecture14:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture14.zip">slide deck for IEooc_Background2_Lecture14</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture14.zip">slide deck for IEooc_Background2_Lecture14</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Technology materials and criticality, IEooc_Background2_Lecture15:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture15.zip">slide deck for IEooc_Background2_Lecture15</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture15.zip">slide deck for IEooc_Background2_Lecture15</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Policy and industry applications, IEooc_Background2_Lecture16:<br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture16.zip">slide deck for IEooc_Background2_Lecture16</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture16.zip">slide deck for IEooc_Background2_Lecture16</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
-						<b>Video lecture:</b> Steel:
+                        <b>Video lecture:</b> Steel:
                         <br>
                         <a href="https://youtu.be/JaI5_YtkAwA" target="new">IEooc_Background2_Lecture17</a><br>
-						Link to the <a href="/Content/IEooc_Background2_Lecture17.zip">slide deck for IEooc_Background2_Lecture17</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Background2_Lecture17.zip">slide deck for IEooc_Background2_Lecture17</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                     </td>
@@ -398,7 +398,7 @@ The following topics are covered:
                         <a href="/Content/IEooc_Methods_Good_Scientific_Practice.pdf" target="new">IEooc_Methods_Good_Scientific_Practice</a>
                         <br>
                         <br>
-						<b>Reading:</b> Responsible use of machine learning tools in industrial ecology research. In their "call to ensure reproducibility of machine learning applications in industrial ecology", Keagan Rankin and co-authors audited 50 recent IE studies against a ML reproducibility ontology. 
+                        <b>Reading:</b> Responsible use of machine learning tools in industrial ecology research. In their "call to ensure reproducibility of machine learning applications in industrial ecology", Keagan Rankin and co-authors audited 50 recent IE studies against a ML reproducibility ontology. 
 						Based on their findings, they provide a number of detailed suggestions, such as reproducibility checklists, to safeguard the field and maximize the reproducibility of future ML-driven IE research.
 						<br>
                         <a href="https://doi.org/10.21203/rs.3.rs-9270723/v1" target="new">IEooc_Methods_Resonsible_Use_Marchine_Learning</a>
@@ -418,7 +418,7 @@ The following topics are covered:
                         <br>
                         <a href="https://youtu.be/wK_02bGTh1E" target="new">IEooc_Methods1_Lecture1</a><br>
                         In this lecture, the definitions and basic methodology for material and energy flow accounting are presented, including the basic elements of the quantitative system definition, the process balancing equations, indicator elements, units of measurement, multi-layer system descriptions, and a number of examples. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
-						Link to the <a href="/Content/IEooc_Methods1_Lecture1_Updated_public.zip">slide deck for IEooc_Methods1_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods1_Lecture1_Updated_public.zip">slide deck for IEooc_Methods1_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise: Locating data in a system definition and indicator development.</b> Learn how to establish a system definition to allocate quantitative information that is given as text. Define and calculate indicators based on the system definition. <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
@@ -428,15 +428,15 @@ The following topics are covered:
                         <a href="/Content/IEooc_Methods1_Exercise1_Indicator_Definition_Solution.pdf" target="new">IEooc_Methods1_Exercise1_Solution (pdf)</a>
                         <br>
                         <br>
-			<b>Exercise on energy and power definitions,</b> salient measures/indicators, and the energy supply chain. Learn about the different energy and power definitions, units, and measures/indicators,
+                        <b>Exercise on energy and power definitions,</b> salient measures/indicators, and the energy supply chain. Learn about the different energy and power definitions, units, and measures/indicators,
 			as well as the definitions of primary, final, and useful energy. Define and calculate energy measures based on the system definition. <b>Prerequisites:</b> Concepts of energy and power in physics. No advanced math is required at this stage. <b>Level of difficulty: (+)</b><br>
-			<a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain.pdf" target="new">IEooc_Methods1_Exercise1a</a>.
+                        <a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain.pdf" target="new">IEooc_Methods1_Exercise1a</a>.
                         <br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods1_Exercise1a_Energy_Conversion_Chain_Solution.pdf" target="new">IEooc_Methods1_Exercise1a_Solution (pdf)</a>
                         <br>
                         <br>
-		        <b>Reading:</b> Data Organization in Spreadsheets, by Karl W. Broman & Kara H. Woo. Spreadsheets are widely used software tools for data entry, storage, analysis, and visualization. This article offers practical recommendations for organizing spreadsheet data to reduce errors and ease later analyses. <b> Highly recommended! Level of difficulty: (+)</b><br>
+                        <b>Reading:</b> Data Organization in Spreadsheets, by Karl W. Broman & Kara H. Woo. Spreadsheets are widely used software tools for data entry, storage, analysis, and visualization. This article offers practical recommendations for organizing spreadsheet data to reduce errors and ease later analyses. <b>Highly recommended! Level of difficulty: (+)</b><br>
                         <a href="/Content/IEooc_Methods1_Reading0.pdf" target="new">IEooc_Methods1_Reading0</a>
                         <br>
                         <br>
@@ -462,7 +462,7 @@ difficulty: (++)</b><br>
                         <br>
                         <a href="https://youtu.be/1aCynUvSVRY" target="new">IEooc_Methods1_Lecture2</a><br>
                         In this lecture, a general data model for locating data in the systems context is presented. It allows researchers to format data describing stocks, flows, material composition of products, lifetimes, prices, life cycle inventories, IO tables, etc. in a common structure. The data model can be used to build databases that combine data that are commonly associated with specific methods, but which are of use to many researchers. It can also be used to develop data sharing infrastructure for research groups, institutions, and the entire community.<br>
-						Link to the <a href="/Content/IEooc_Methods1_Lecture2_Updated_public.zip">slide deck for IEooc_Methods1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.<br>
+                        Link to the <a href="/Content/IEooc_Methods1_Lecture2_Updated_public.zip">slide deck for IEooc_Methods1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.<br>
                         <a href="/Content/IEooc_Methods1_Reading4_SEM_DataModel.pdf" target="new">IEooc_Methods1_Reading4 (related journal article)</a>
                         <br>
                         <b>Prerequisites:</b> No advanced math is required at this stage. <b>Level of difficulty: (++)</b>
@@ -480,10 +480,10 @@ difficulty: (++)</b><br>
                         <b>Reading:</b> A dialogue with ChatGPT on stocks and flows. Read what one of the world's most advanced chat bots has to say on how we should model phenomena in the industrial system. Helps to clarify the own understanding of stocks vs. flows. <b>Level of 
 difficulty: (+)</b><br>
                         <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2023/04/07/a-dialogue-with-chatgpt-on-stocks-and-flows/
-" target="new">IEooc_Methods1_Reading5</a>
+"
+                            target="new">IEooc_Methods1_Reading5</a>
                         <br>
                         <br>
-			    
                     </td>
                 </tr>
 
@@ -502,13 +502,13 @@ difficulty: (+)</b><br>
                         <b>Video lecture</b> on MFA system models and their analytical and numerical solution. <b>Prerequisites:</b> Matrix algebra and its implementation in Excel. <b>Level of difficulty: (++)</b>
                         <br>
                         <a href="https://youtu.be/562-lBuoF1Q" target="new">IEooc_Methods2_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Methods2_Lecture1_public.zip">slide deck for IEooc_Methods2_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods2_Lecture1_public.zip">slide deck for IEooc_Methods2_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture </b>on data uncertainty and sensitivity of results in MFA system models. <b>Prerequisites:</b> Calculus. Random variables, discrete and continuous probability distributions. <b>Level of difficulty: (+++)</b>
                         <br>
                         <a href="https://youtu.be/VpK2NgY5FlQ" target="new">IEooc_Methods2_Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Methods2_Lecture2_updated_public.zip">slide deck for IEooc_Methods2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods2_Lecture2_updated_public.zip">slide deck for IEooc_Methods2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Reading material:</b><b> "Guidelines for Data Modeling and Data Integration for Material Flow Analysis and Socio-Metabolic Research"</b>, document with basic standards and best practice on data formats, system definition, indicator definition, use of common classifications, uncertainty treatment and sensitivity analysis, and data traceability and provenance. These guidelines were issued by the Board of the ISIE Section on Socioeconomic Metabolism (ISIE-SEM), and are a standard reference for all who are in the process of publishing, documenting, or archiving MFA research, either within a software such as STAN or in a custom modelling environment. <b>Level of difficulty: (++)</b>
@@ -540,7 +540,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         For this exercise a workbook with data is available:<br>
                         <a href="/Content/IEooc_Methods2_Exercise3_Buildings_Energy_Workbook.xlsx" target="new">IEooc_Methods2_Exercise3_Buildings_Energy_Workbook (xlsx)</a>
-						<br>
+                        <br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods2_Exercise3_Buildings_Energy_Sample_Solution.xlsx" target="new">IEooc_Methods2_Exercise3_Buildings_Energy_Sample_Solution (xlsx)</a>
                         <br>
@@ -576,11 +576,11 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>Process inventories, product systems, life cycle indicators,footprints, and emissions scopes, IEooc_Methods2_Lecture4:<br>
-						Link to the <a href="/Content/IEooc_Methods2_Lecture4.zip">slide deck for IEooc_Methods2_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods2_Lecture4.zip">slide deck for IEooc_Methods2_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Slide deck (without video recording): </b>PCarbon accounting and indicators, IEooc_Methods2_Lecture5:<br>
-						Link to the <a href="/Content/IEooc_Methods2_Lecture5.zip">slide deck for IEooc_Methods2_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods2_Lecture5.zip">slide deck for IEooc_Methods2_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                     </td>
@@ -596,22 +596,22 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                     <td width="70%">
                         <b>Video lecture introducing the basic principles of dynamic material flow analysis,</b> the main data sources for dynamic MFA models, some examples of dynamic MFA, and the most important approaches to solving mathematical models of dynamic MFA systems:  <b>Prerequisites:</b> Calculus. Linear difference equations, simple differential equations. <b>Level of difficulty: (+++)</b><br>
                         <a href="https://youtu.be/ba7ykRIrih0" target="new">IEooc_Methods3_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip"> combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip">combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture on dynamic stock models.</b> The following concepts are introduced and explained: Population balance models, the leaching model, impulse response functions, age-cohorts, and the lifetime model. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b>
                         <br>
                         <a href="https://youtu.be/PfRCTW5U7dk" target="new">IEooc_Methods3_Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip"> combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip">combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture on inflow-driven and stock-driven modelling:</b> With inflow-driven modelling stocks can be determined from historic inflows using a convolution operation. With stock-driven modelling the inflow can be determined from a given stock scenario using inverse convolution. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b><br>
                         <a href="https://youtu.be/dZamxAXDOtY" target="new">IEooc_Methods3_Lecture3</a><br>
-						Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip"> combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip">combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
-						<b>Slide deck (without video recording): </b>Dynamic MFA - Multi-layer MEFA for modelling the stock-flow service nexus and its implementation in Python, IEooc_Methods3_Lecture4:<br>
-						Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip"> combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        <b>Slide deck (without video recording): </b>Dynamic MFA - Multi-layer MEFA for modelling the stock-flow service nexus and its implementation in Python, IEooc_Methods3_Lecture4:<br>
+                        Link to the <a href="/Content/IEooc_Methods3_Lectures_1_2_3_4_Updated_public.zip">combined slide deck for IEooc_Methods3_Lecture1 -...4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise: "Dynamic model of the German steel cycle, 1800-2008."</b> The goals of this exercise are twofold: first, to develop a systems understanding  regarding  the  development  of  flows  and  stocks  in  material cycles, using the example of the steel cycle in Germany. Second, to estimate steel stocks using dynamic stock modelling. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. <b>Level of difficulty: (+++)</b><br>
@@ -635,35 +635,48 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         <b>Jupyter notebooks for basic dynamic MFA in Python</b> This series of five Jupyter notebooks covers all core steps of building your own scenario models for the stock-flow-service nexus and link it to energy, materials, and emissions. The data handling and calculation steps are explained step by step. <b>Level of difficulty: (++)</b><br>
-						This Jupyter notebook series uses the European passenger vehicle fleet as example. It contains explanations on how to use the Python programming language for building a scenario model for the stock-flow-service nexus for passenger cars and for calculating energy use and emissions of the vehicle fleet for a future scenario.<br> 
-						<b>IEooc_Methods3_Software001 (ipynb):</b> Tutorial on basic data handling: Reading and inspecting data, performing basic time series calculations, plotting and saving results. <br>
-						<b>IEooc_Methods3_Software002 (ipynb):</b> Tutorial and exercise on implementing a simple inflow-driven model to estimate the fleet by age-cohort from the time series of new vehicle registration.<br>
-						<b>IEooc_Methods3_Software003 (ipynb):</b> Tutorial and exercise on implementing a simple stock-driven model to estimate the future fleet, new registration, and scrapping of passenger vehicles based on a given scenario for population and service (passenger-km) demand.<br>
-						<b>IEooc_Methods3_Software004 (ipynb):</b> Tutorial and exercise on linking the vehicle flows and stocks to material flows and stocks. A simple material cycle model is programmed to estimate the recycled content of future vehicles.<br>
-						<b>IEooc_Methods3_Software005 (ipynb):</b> Tutorial and exercise on linkink the vehicle fleet and material cycle model to energy demand and then to scope 1, 2, and 3 GHG.<br>
+                        This Jupyter notebook series uses the European passenger vehicle fleet as example. It contains explanations on how to use the Python programming language for building a scenario model for the stock-flow-service nexus for passenger cars and for calculating energy use and emissions of the vehicle fleet for a future scenario.<br>
+                        <b>IEooc_Methods3_Software001 (ipynb):</b> Tutorial on basic data handling: Reading and inspecting data, performing basic time series calculations, plotting and saving results.
+                        <br>
+                        <b>IEooc_Methods3_Software002 (ipynb):</b> Tutorial and exercise on implementing a simple inflow-driven model to estimate the fleet by age-cohort from the time series of new vehicle registration.<br>
+                        <b>IEooc_Methods3_Software003 (ipynb):</b> Tutorial and exercise on implementing a simple stock-driven model to estimate the future fleet, new registration, and scrapping of passenger vehicles based on a given scenario for population and service (passenger-km) demand.<br>
+                        <b>IEooc_Methods3_Software004 (ipynb):</b> Tutorial and exercise on linking the vehicle flows and stocks to material flows and stocks. A simple material cycle model is programmed to estimate the recycled content of future vehicles.<br>
+                        <b>IEooc_Methods3_Software005 (ipynb):</b> Tutorial and exercise on linkink the vehicle fleet and material cycle model to energy demand and then to scope 1, 2, and 3 GHG.<br>
                         This exercise series (as Jupyter notebooks in .ipynb files), the required input data, and the sample solutions are available as zipped folder:<br>
-						<a href="/Content/M3_Software_001_to_005.zip">IEooc_Methods3_Software_001 to _005, complete package (workbooks, data, solutions) as zip folder</a>
+                        <a href="/Content/M3_Software_001_to_005.zip">IEooc_Methods3_Software_001 to _005, complete package (workbooks, data, solutions) as zip folder</a>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
-			    For this notebook, two versions exist: <br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software1_ODYM.ipynb", "IEooc_Methods3_Software1 (ODYM)");</script> for use together with the dynamic MFA library of the <a href="https://github.com/IndEcol/ODYM" target="new">ODYM MFA</a> software. <br/>
-			<script>jupyterLink("/Content/IEooc_Methods3_Software1_old_dMFA_class.ipynb", "IEooc_Methods3_Software1 (old dynamic MFA class)");</script> for use together with the <a href="https://github.com/stefanpauliuk/dynamic_stock_model" target="new">stand-alone dynamic MFA library</a> that is no longer maintained. <br/>
+                        For this notebook, two versions exist:
+                        <br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software1_ODYM.ipynb", "IEooc_Methods3_Software1 (ODYM)");</script>
+                        for use together with the dynamic MFA library of the <a href="https://github.com/IndEcol/ODYM" target="new">ODYM MFA</a> software.
+                        <br />
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software1_old_dMFA_class.ipynb", "IEooc_Methods3_Software1 (old dynamic MFA class)");</script>
+                        for use together with the <a href="https://github.com/stefanpauliuk/dynamic_stock_model" target="new">stand-alone dynamic MFA library</a> that is no longer maintained.
+                        <br />
                         <a href="/Content/IEooc_Methods3_Software1_Data.xlsx" target="new">IEooc_Methods3_Software1 (data file for both versions of the notebook)</a>
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial on stock-driven modelling for material stocks in products, using the dynamic_stock_model class in Python and the global passenger vehicle fleet as an example:</b> In this workbook it is shown how stock-driven modelling can be implemented in Python using the dynamic_stock_model class and applied to calculate the material flows and stocks in the products that we use. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software2.ipynb", "IEooc_Methods3_Software2");</script><br/>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software2.ipynb", "IEooc_Methods3_Software2");</script>
+                        <br />
                         <a href="/Content/IEooc_Methods3_Software2_GlobalCarFleetData.xlsx" target="new">IEooc_Methods3_Software2 (data file)</a>
                         <br>
                         <br>
                         <b>Jupyter notebooks containting tutorials and examples for conducting material flow analysis research with ODYM (Open Dynamic Material Systems Model),</b> which is an open software library for dynamic material flow analysis (MFA) that contains a framework for modeling biophysical stock-flow relations in socioeconomic metabolism. ODYM is available and documented in a <a href="https://github.com/IndEcol/ODYM" target="new">GitHub repo</a>. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Good programming and data visualisation skills in Python. Note that in order to run some of the tutorials, you need to download and extract the zip archive IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip linked below. <b>Level of difficulty: (+++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software3_ODYM_Tutorial_1.ipynb", "IEooc_Methods3_Software3");</script> System with two processes, two parameters, one material.<br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software4_ODYM_Tutorial_2.ipynb", "IEooc_Methods3_Software4");</script> Alloying elements in recycling.<br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software5_ODYM_Tutorial_3.ipynb", "IEooc_Methods3_Software5");</script> Dynamic stock modelling intro.<br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software6_ODYM_Tutorial_4.ipynb", "IEooc_Methods3_Software6");</script> ODYM classification and database<br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software7_ODYM_Tutorial_5.ipynb", "IEooc_Methods3_Software7");</script> Estimating the material content of the global vehicle fleet<br>
-                        <script>jupyterLink("/Content/IEooc_Methods3_Software8_ODYM_Tutorial_6.ipynb", "IEooc_Methods3_Software8");</script> MaTrace - Tracing material flows through different product lifecycles<br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software3_ODYM_Tutorial_1.ipynb", "IEooc_Methods3_Software3");</script>
+                        System with two processes, two parameters, one material.<br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software4_ODYM_Tutorial_2.ipynb", "IEooc_Methods3_Software4");</script>
+                        Alloying elements in recycling.<br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software5_ODYM_Tutorial_3.ipynb", "IEooc_Methods3_Software5");</script>
+                        Dynamic stock modelling intro.<br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software6_ODYM_Tutorial_4.ipynb", "IEooc_Methods3_Software6");</script>
+                        ODYM classification and database<br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software7_ODYM_Tutorial_5.ipynb", "IEooc_Methods3_Software7");</script>
+                        Estimating the material content of the global vehicle fleet<br>
+                        <script>jupyterLink("/Content/IEooc_Methods3_Software8_ODYM_Tutorial_6.ipynb", "IEooc_Methods3_Software8");</script>
+                        MaTrace - Tracing material flows through different product lifecycles<br>
                         <a href="/Content/IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip" target="new">IEooc_Methods3_Software3-8 (data file)</a>
                         <br>
                         <br>
@@ -725,7 +738,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <b>Training material on calculating the water footprint with the LCA framework</b> <b>Prerequisites:</b> Introductory material as above. <b>Level of difficulty: (+)</b><br>
                         <a href="https://www.lifecycleinitiative.org/download/4492/?tmstv=1774691220" target="new">IEooc_Methods4_Reading1</a><br>
-						The website <a href="https://www.lifecycleinitiative.org/resources/training/" target="new">https://www.lifecycleinitiative.org/resources/training/</a> contains more training material on the water footprint and on other topics as well.
+                        The website <a href="https://www.lifecycleinitiative.org/resources/training/" target="new">https://www.lifecycleinitiative.org/resources/training/</a> contains more training material on the water footprint and on other topics as well.
                         <br>
                         <br>
 
@@ -734,10 +747,10 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <b>Video lecture on the computational structure of LCA:</b> In this lecture the maths of LCA are explained, following the Leontief input-output model. First, the processes and flows that are modeled and calculated are defined and located in the system. Then, the different calculation steps are explained step by step. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (+++)</b><br>
                         <a href="https://youtu.be/3GDfNksiY0s" target="new">IEooc_Methods4_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Methods4_Lecture1.zip"> slide deck for IEooc_Methods4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods4_Lecture1.zip">slide deck for IEooc_Methods4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
-						<b>Exercise: Matrix algebra and the LCA master equation:</b> Apply the life cycle perspective, understand the computational structure of LCA, understand and implement basic matrix algebra operations on paper. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b>
+                        <b>Exercise: Matrix algebra and the LCA master equation:</b> Apply the life cycle perspective, understand the computational structure of LCA, understand and implement basic matrix algebra operations on paper. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b>
                         <br>
                         <a href="/Content/IEooc_Methods4_Exercise3_Matrices_Paper.pdf" target="new">IEooc_Methods4_Exercise3</a>.
                         <br>
@@ -763,10 +776,10 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/IEooc_Methods4_Exercise5_LCIA_Solution.xlsx" target="new">IEooc_Methods4_Exercise5_Solution (xlsx)</a>
                         <br>
                         <br>
-                        <b>Exercise on extracting data from the literature and using them in your own LCA in openLCA </b> Goal: Learn about the standard procedure for extracting data from the literature and using them in your own LCA in openLCA. This exercise follows four steps: (1) Convert raw data to a material and energy flow analysis diagram. (2) Scale down stocks down to represent them as consumption of fixed capital flows. (3) Convert process descriptions to unit process inventories. (4) Add unit process inventories as foreground processes to the ecoinvent database. Prerequisites: Basic MEFA and handling of ecoinvent in openLCA. <b> Level of difficulty: (++)</b><br>
+                        <b>Exercise on extracting data from the literature and using them in your own LCA in openLCA </b>Goal: Learn about the standard procedure for extracting data from the literature and using them in your own LCA in openLCA. This exercise follows four steps: (1) Convert raw data to a material and energy flow analysis diagram. (2) Scale down stocks down to represent them as consumption of fixed capital flows. (3) Convert process descriptions to unit process inventories. (4) Add unit process inventories as foreground processes to the ecoinvent database. Prerequisites: Basic MEFA and handling of ecoinvent in openLCA. <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise6a_Process_Inventory_Compilation.pdf" target="new">IEooc_Methods4_Exercise6a (pdf)</a><br>
                         For this exercise, a journal article with data and a sample solution are available:<br>
-						<a href="https://doi.org/10.1016/j.apenergy.2019.01.001" target="new">IEooc_Methods4_Exercise6a Input data (open access journal publication)</a><br>
+                        <a href="https://doi.org/10.1016/j.apenergy.2019.01.001" target="new">IEooc_Methods4_Exercise6a Input data (open access journal publication)</a><br>
                         <a href="/Content/IEooc_Methods4_Exercise6a_SampleSolution.pdf" target="new">IEooc_Methods4_Exercise6a Sample Solution (pdf)</a>
                         <br>
                         <br>
@@ -775,7 +788,8 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         A <b>list of openLCA tutorials</b> and info videos can be found on GreenDelta's
-                        <br> <a href="https://www.youtube.com/channel/UCGiahq1YZWK4pRXDVXuIi6w" target="new">Youtube channel</a>. 
+                        <br>
+                        <a href="https://www.youtube.com/channel/UCGiahq1YZWK4pRXDVXuIi6w" target="new">Youtube channel</a>. 
                         <br>
                         <br>
                         <b>Getting started with openLCA:</b> The goal of this tutorial is to install and learn how to use the openLCA software for life cycle assessments using ecoinvent v3.2 
@@ -830,9 +844,9 @@ and several impact assessment methods. The use of parameters, choice of electric
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.pdf" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (pdf)</a><br>
                         <a href="/Content/IEooc_Methods4_Exercise10_MatrixMethods_Solution.xlsx" target="new">IEooc_Methods4_Exercise10_MatrixMethods_Solution (xlsx)</a><br>
-						<b> Related journal paper on the topic by Heijungs et al. (2022):</b> "A or I-A? Unifying the computational structures of process- and IO-based LCA for clarity and consistency.<br>
-						<a href="https://doi.org/10.1111/jiec.13323" target="new">Link to paper (open access).</a>
-						<br>
+                        <b>Related journal paper on the topic by Heijungs et al. (2022):</b> "A or I-A? Unifying the computational structures of process- and IO-based LCA for clarity and consistency.<br>
+                        <a href="https://doi.org/10.1111/jiec.13323" target="new">Link to paper (open access).</a>
+                        <br>
                         <br>
                         <b>Advanced Life Cycle Impact Assessment:</b> Considering time in life cycle inventories: dynamic characterization factors for greenhouse gases. Goal: Get familiar with the global warming potential of greenhouse gases and the computation of global warming impacts of emissions from a system at different times. (‘dynamic GHG accounting’). Apply dynamic GHG accounting to different test cases.<b> Prerequisites:</b> Calculus, global warming potential (see IEooc_Background2_Exercise2). <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Methods4_Exercise11_dynLCA.pdf" target="new">IEooc_Methods4_Exercise11</a>.
@@ -872,7 +886,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Lecture (no video recording available) on the foundations of input-output analysis (IOA)</b>, covering (1) the industrial network or "Why nobody knows how a pencil is made.“ (2) Input-output tables and models (IO models), (3) IO models with environmental extension, (4) Relationship between IOA and other economic theories. <b>Prerequisites:</b> Matrix algebra. <b>Level of difficulty: (++)</b><br>
-                        Link to the <a href="/Content/IEooc_Methods5_Lecture1a.zip"> slide deck for IEooc_Methods5_Lecture1a</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods5_Lecture1a.zip">slide deck for IEooc_Methods5_Lecture1a</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise on IO basics:</b> This is an introductory exercise to IO analysis, covering the mathematical basics of IO modelling and the system structure of IO models. <b>Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
@@ -886,7 +900,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <b>Lecture on multiregional input-output analysis.</b>  <b>Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
                         <a href="https://youtu.be/0-2GCs8ifOs" target="new">IEooc_Methods5_Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Methods5_Lecture2.zip"> slide deck for IEooc_Methods5_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Methods5_Lecture2.zip">slide deck for IEooc_Methods5_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise: "Multiregional input-output analysis (Excel-based)."</b> This exercise contains a simple application of the MRIO analysis: construction of supply chains, carbon footprint calculations of final consumers in the EU, investigation of fine particulate matter and mercury emissions along the supply chain.<b> Prerequisites:</b> Matrix algebra on paper and Excel. <b>Level of difficulty: (+++)</b><br>
@@ -899,16 +913,19 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <br>
                         <b>Jupyter notebook with a tutorial for calculating consumption-based emissions </b>and breaking them down into products, region, and industry. <b>Prerequisites:</b> Matrix algebra, basic Python programming. <b>Level of difficulty: (+++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Methods5_Software1.ipynb", "IEooc_Methods5_Software1");</script><br>
+                        <script>jupyterLink("/Content/IEooc_Methods5_Software1.ipynb", "IEooc_Methods5_Software1");</script>
+                        <br>
                         <a href="/Content/IEooc_Methods5_Software1_Data_EXIOBASEv3_3R_11P_ITC.mat" target="new">IEooc_Methods5_Software1 (data file)</a><br>
                         <br>
                         <b>Jupyter notebook with functions and a tutorial for aggregating MRIO results </b>along the products, region, and industry dimensions. A 163 products x 48 regions x 163 industries footprint result is aggregated to 11 product groups, six regions, and five industrial sectors. <b>Prerequisites:</b> Matrix algebra, Python programming. <b>Level of difficulty: (+++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Methods5_Software2.ipynb", "IEooc_Methods5_Software2");</script><br>
+                        <script>jupyterLink("/Content/IEooc_Methods5_Software2.ipynb", "IEooc_Methods5_Software2");</script>
+                        <br>
                         <a href="/Content/IEooc_Methods5_Software2_MRIO_Results.zip" target="new">IEooc_Methods5_Software2 (data file (.mat) and aggregation table (.xlsx))</a>
                         <br>
                         <br>
                         <b>Software tutorial from the application section: Efficient calculation of consumption-based environmental accounts with MRIO. </b>This software tutorial has three goals: 1) Learn how to break down environmental footprints into subcategories: category of consumption, region where emissions occur, industries where emissions occur, etc. 2) Learn how to extract territorial and consumption-based emissions from footprint account, and 3) Learn how to use two of the most versatile Python functions for working with table data: numpy.reshape and numpy.einsum. This tutorial contains all the steps needed to extract footprint accounts from the EXIOBASE MRIO tables and produce overview graphs such as the ones shown in the related reading material IEooc_Application3_Reading5. <b>Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. <b>Level of difficulty: (+++)</b><br>
-                        <script>jupyterLink("/Content/IEooc_Application3_Software1.ipynb", "IEooc_Application3_Software1");</script><br>
+                        <script>jupyterLink("/Content/IEooc_Application3_Software1.ipynb", "IEooc_Application3_Software1");</script>
+                        <br>
                         <a href="/Content/IEooc_Application3_Software1_EXIOBASE3.4_2011_ITC_Agg_10x10.zip" target="new">IEooc_Application3_Software1 (data file)</a>
                         <br>
                         <br>
@@ -918,26 +935,30 @@ and several impact assessment methods. The use of parameters, choice of electric
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Methods5_Exercise3_HEM_IO_SampleSolution.xlsx" target="new">IEooc_Methods5_Exercise3_Solution (xlsx)</a>
                         <br>
-                        <br>		
+                        <br>
                         <b>Exercise: "Calculating income specific footprints for Germany"</b> Learn how to use pymrio with a new final demand matrix to calculate footprints for that final demand. Learn how to analyze and plot the results.<b> Prerequisites:</b> Basic knowledge of Input-Output Analysis (completed part Methodology 5: Input-output analysis of the IEooc). Basic knowledge on Python, and the Python MRIO package pmrio, in particular. <b>Level of difficulty: (++ to +++)</b><br>
                         <a href="/Content/IEooc_Methods5_Exercise4a_income_specific_footprints_germany.pdf" target="new">IEooc_Methods5_Exercise4a_income_specific_footprints_germany (pdf)</a><br>
-			<a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
-			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg (data file, xlsx)</a><br>
+                        <a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
+                        <a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg (data file, xlsx)</a><br>
                         For this exercise a sample solution is available:<br>
-			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Intermediate level sample solution");</script><br>
-			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_SOLUTION.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Basic level sample solution");</script><br>
+                        <script>jupyterLink("/Content/IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Intermediate level sample solution");</script>
                         <br>
-                        <br>	
-			<b>Exercise: "Uncertainty Analysis of the income-specific footprints"</b> Learn how to use Monte-Carlo simulations to estimate the uncertainty of income specific footprints for Germany. Learn how to visualize uncertainties. .<b> Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. Completed “IEooc_Methods5_Exercise4a: Calculating income specific footprints for Germany” Basic knowledge on error propagation and sensitivity analysis. <b>Level of difficulty: (+++)</b><br>
+                        <script>jupyterLink("/Content/IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_SOLUTION.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Basic level sample solution");</script>
+                        <br>
+                        <br>
+                        <br>
+                        <b>Exercise: "Uncertainty Analysis of the income-specific footprints"</b> Learn how to use Monte-Carlo simulations to estimate the uncertainty of income specific footprints for Germany. Learn how to visualize uncertainties. .<b> Prerequisites:</b> Good understanding of MRIO, sufficient experience in working with Python. Completed “IEooc_Methods5_Exercise4a: Calculating income specific footprints for Germany” Basic knowledge on error propagation and sensitivity analysis. <b>Level of difficulty: (+++)</b><br>
                         <a href="/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis.pdf" target="new">IEooc_Methods5_Exercise4b_uncertainty_analysis (pdf)</a><br>
-			<a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
-			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg (data file, xlsx)</a><br>
-			<a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_std.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_std (data file, xlsx)</a><br>
-			For this exercise a sample solution is available:<br>
-			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis_TODO.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Intermediate level sample solution");</script><br>
-			<script>jupyterLink("/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis_SOLUTION.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Basic level sample solution");</script><br>
+                        <a href="https://zenodo.org/records/5589597" target="new">EXIOBASE for the year 2013 in the product by product variant (pxp)</a><br>
+                        <a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_avg (data file, xlsx)</a><br>
+                        <a href="/Content/IEooc_Methods5_Exercise4ab_Final_demand_by_income_std.xlsx" target="new">IEooc_Methods5_Exercise4ab_Final_demand_by_income_std (data file, xlsx)</a><br>
+                        For this exercise a sample solution is available:<br>
+                        <script>jupyterLink("/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis_TODO.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Intermediate level sample solution");</script>
                         <br>
-                        <br>	
+                        <script>jupyterLink("/Content/IEooc_Methods5_Exercise4b_uncertainty_analysis_SOLUTION.ipynb", "IEooc_Methods5_Exercise4a_calculate_income_specific_footprints_TODO, Basic level sample solution");</script>
+                        <br>
+                        <br>
+                        <br>
                         <br>
                     </td>
                 </tr>
@@ -972,8 +993,9 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <a href="/Content/IEooc_Methods6_Exercise1_CoupledSectors_Solution.xlsx" target="new">IEooc_Methods6_Exercise1_Solution (xlsx)</a>
                         <br>
                         <br>
-			<b>Reading material: Resource tracing with input output (IO) models – an overview.</b> This reading material explains how to trace resources through input-output tables. First, the differences between Leontief input-output (IO), Leontief price, Ghosh IO and absorbing Markov Chain models are explained. Then, it is shown how they all can be used to determine the distribution of natural resource or value added input into different final demand sectors (so-called end-use shares). This reading material is the supplement of a review, conceptual work, and empirical analysis on estimating end-use shares for material flows (how many % of total steel production go into vehicles, etc.) with monetary input-output tables. 
-		  	 This material is taken from a <a href="https://doi.org/10.1111/jiec.13380" target="new">2023 publication in the Journal of Industrial Ecology by Streeck et al</a>.  <br>
+                        <b>Reading material: Resource tracing with input output (IO) models – an overview.</b> This reading material explains how to trace resources through input-output tables. First, the differences between Leontief input-output (IO), Leontief price, Ghosh IO and absorbing Markov Chain models are explained. Then, it is shown how they all can be used to determine the distribution of natural resource or value added input into different final demand sectors (so-called end-use shares). This reading material is the supplement of a review, conceptual work, and empirical analysis on estimating end-use shares for material flows (how many % of total steel production go into vehicles, etc.) with monetary input-output tables. 
+		  	 This material is taken from a <a href="https://doi.org/10.1111/jiec.13380" target="new">2023 publication in the Journal of Industrial Ecology by Streeck et al</a>. 
+                        <br>
                         <a href="/Content/IEooc_Methods6_Reading4_Resource_Tracing_IO.pdf" target="new">IEooc_Methods6_Reading4_Resource_Tracing_IO</a>.
                         <br>
                         <br>
@@ -989,7 +1011,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <a href="https://www.blog.industrialecology.uni-freiburg.de/index.php/2022/10/30/material-footprint-implications-of-low-carbon-technologies/" target="new">IEooc_Methods6_Reading5</a>
                         <br>
-                        <br>			    
+                        <br>
                     </td>
                 </tr>
 
@@ -1025,7 +1047,7 @@ and several impact assessment methods. The use of parameters, choice of electric
                         <br>
                         <b>Video lecture "People-centered sustainability transition",</b> covering demand-side solutions and socio-metabolic inequality: Concept - Evidence - Policy<br>
                         <a href="https://youtu.be/DVXgAOWnyec" target="new">IEooc_Application1_Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Application1_Lecture2.zip"> slide deck for IEooc_Application1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application1_Lecture2.zip">slide deck for IEooc_Application1_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise on land constraints in agricultural societies:</b> Develop a simple engineering model, learn about the physical distance and population constraints 
@@ -1052,10 +1074,10 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.pdf" target="new">IEooc_Application1_Exercise2a</a>.
                         <br>
                         For this exercise, a dataset and a sample solution are available:<br>
-			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.xlsx" target="new">IEooc_Application1_Exercise2a_IPAT_SDA (data file, xlsx)</a><br>                        
-			<a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA_SampleSolution.xlsx" target="new">IEooc_Application1_Exercise2a, Sample solution (xlsx)</a>
+                        <a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA.xlsx" target="new">IEooc_Application1_Exercise2a_IPAT_SDA (data file, xlsx)</a><br>
+                        <a href="/Content/IEooc_Application1_Exercise2a_IPAT_SDA_SampleSolution.xlsx" target="new">IEooc_Application1_Exercise2a, Sample solution (xlsx)</a>
                         <br>
-			<br>
+                        <br>
                         <b>Exercise on current levels of energy taxation and the impact of a tax on CO2 emissions from combustion and material production on prices of energy carriers and bulk materials:</b> A tax on greenhouse gas emissions can establish a price signal for more efficient use and substitution of carbon-intensive energy carriers and materials. Some energy carriers, in particular, gasoline and diesel for road vehicles, have high tax levels already. The tasks here are to find out i) how different fuel types are currently taxed, ii) how current taxation levels translate to carbon prices, and iii) how an additional carbon tax would affect the prices of different energy carriers and bulk materials. <b>Prerequisites:</b> Basic math, working with Excel. <b>Level of difficulty: (+)</b><br>
                         <a href="/Content/IEooc_Application1_Exercise3_CO2_Tax.pdf" target="new">IEooc_Application1_Exercise3</a>.
                         <br>
@@ -1075,9 +1097,10 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
-			<b>Introductory book: Sustainable Materials - with both eyes open</b>, by Julian M Allwood and Jonathan M Cullen. Available <a href="https://www.uselessgroup.org/publications/book/chapters" target="_blank">here</a> for download.
-                        <br><br>
-            <b>Another new book, "An Introduction to Waste Management and Circular Economy", by Stijn van Ewijk and Julia Stegemann, was published in 2023.</b> Details: DOI: 10.14324/111.9781800084650. Extent: 96 illustrations, link: https://uclpress.co.uk/book/an-introduction-to-waste-management-and-circular-economy/
+                        <b>Introductory book: Sustainable Materials - with both eyes open</b>, by Julian M Allwood and Jonathan M Cullen. Available <a href="https://www.uselessgroup.org/publications/book/chapters" target="_blank">here</a> for download.
+                        <br>
+                        <br>
+                        <b>Another new book, "An Introduction to Waste Management and Circular Economy", by Stijn van Ewijk and Julia Stegemann, was published in 2023.</b> Details: DOI: 10.14324/111.9781800084650. Extent: 96 illustrations, link: https://uclpress.co.uk/book/an-introduction-to-waste-management-and-circular-economy/
                         <br>
                         <br>
                         <b>Introductory blog entry: Circular economy: Breakthrough or distraction?</b>
@@ -1097,7 +1120,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <br>
                         <b>Lecture on a comprehensive resource efficiency-climate change mitigation assessment:</b> Presentation of the methods and results of a systematic industrial ecology assessment of the link between resource efficiency and climate change mitigation in the passenger vehicle and residential building sectors. <b>Prerequisites:</b> Dynamic Material Flow Analysis.  <b>Level of difficulty: (++)</b><br>
                         <a href="https://youtu.be/Wkf72dUScV4" target="new">IEooc_Application2_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Application2_Lecture1.zip"> slide deck for IEooc_Application2_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application2_Lecture1.zip">slide deck for IEooc_Application2_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Core reading:</b> "Critical appraisal of the circular economy standard BS 8001:2017 and a dashboard of quantitative system indicators for its implementation in organizations":
@@ -1108,7 +1131,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <b>Lecture: Sustainability in the steel cycle </b>The steel industry is responsible for 7-9% of global CO2 emissions. Reducing these emissions is not the only sustainability challenge in the steel sector but the dominant one. Four different system analysis perspectives are introduced (process/process cluster/material cycle/entire system) and it is shown how future steel demand can be estimated and the entire steel cycle be modelled to describe different sustainable futures for the steel industry. An introduction to material efficiency in the steel cycle is also given.
                         <b>Prerequisites:</b> Dynamic Material Flow Analysis.  <b>Level of difficulty: (++)</b><br>
                         <a href="https://youtu.be/UcWF8UrjwEM" target="new">IEooc_Application2_Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Application2_Lecture2.zip"> slide deck for IEooc_Application2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application2_Lecture2.zip">slide deck for IEooc_Application2_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Blog entry about circular economy and in-use stocks:</b> In this piece the role played by in-use stocks of products, buildings, and infrastructure in closing material cycles (or the 'circular economy transition') is highlighted.
@@ -1137,12 +1160,12 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Lecture on the current applications of Life Cycle Assessment.</b> This video gives a brief overview of the major current applications of LCA as well as some of the main research frontiers in that field. <b>Prerequisites:</b> Basic understanding of life cycle thinking and life cycle assessment.  <b>Level of difficulty: (++)</b><br>
                         <a href="https://youtu.be/ur4Uwtl2a8U" target="new">IEooc_Application3_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Application3_Lecture1.zip"> slide deck for IEooc_Application3_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application3_Lecture1.zip">slide deck for IEooc_Application3_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Lecture on sustainable production and consumption.</b> The following topics are covered: i) Production-based and consumption-based accounting of environmental impacts and their applications ii) The difference between the environmental and the ecological footprint iii) System change for sustainable production and consumption. <b>Prerequisites:</b> life cycle thinking. <b>Level of difficulty: (++)</b><br>
                         <a href="https://youtu.be/JYeyj_5T228" target="new">IEooc Application3 Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Application3_Lecture2_updated_public.zip"> slide deck for IEooc_Application3_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application3_Lecture2_updated_public.zip">slide deck for IEooc_Application3_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Exercise: "Transport vs. cooling of apples: a simple life cycle perspective" </b>Objective: To quantify the energy requirements for transport and storage/cooling. Calculate greenhouse gas emissions from these processes. Comparative calculation of the CO_2 footprints of different value chains (simple comparative life cycle assessment). <b>Prerequisites:</b> Quantitative systems analysis. <b>Level of difficulty: (+)</b><br>
@@ -1212,12 +1235,12 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                     <td width="30%"></td>
                     <td width="70%">
 
-			<b>Introductory book: Sustainable Energy - without the hot air</b>, by David MacKay. Available <a href="https://www.withouthotair.com/download.html" target="_blank">here</a> for download.
+                        <b>Introductory book: Sustainable Energy - without the hot air</b>, by David MacKay. Available <a href="https://www.withouthotair.com/download.html" target="_blank">here</a> for download.
                         <br>
                         <br>
                         <b>Lecture: Energy and Sustainability - an introduction.</b> <b>Level of difficulty: (++)</b><br>
                         <a href="https://youtu.be/BCeJto4cLCA" target="new">IEooc_Application4_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture1_updated_public.zip"> slide deck for IEooc_Application4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application4_Lecture1_updated_public.zip">slide deck for IEooc_Application4_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1230,14 +1253,14 @@ in the agricultural society, and estimate the area yield of modern renewable ene
 
                         <b>Lecture: Energy history, energy supply, and energy indicators.</b> <b>Level of difficulty: (++)</b><br>
                         <a href="https://youtu.be/QOdFQH-iHE8" target="new">IEooc_Application4_Lecture2</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture2_updated_public.zip"> slide deck for IEooc_Application4_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application4_Lecture2_updated_public.zip">slide deck for IEooc_Application4_Lecture2</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
                         <b>Video lecture:</b> Energy conversion.
                         <br>
                         <a href="https://youtu.be/RwORxAh6bNI" target="new">IEooc_Application4_Lecture3</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture3_updated_public.zip"> slide deck for IEooc_Application4_Lecture3</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application4_Lecture3_updated_public.zip">slide deck for IEooc_Application4_Lecture3</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1251,20 +1274,20 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <b>Video lecture:</b> Energy indicators.
                         <br>
                         <a href="https://youtu.be/Iolnw2UUCms" target="new">IEooc_Application4_Lecture4</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture4_updated_public.zip"> slide deck for IEooc_Application4_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application4_Lecture4_updated_public.zip">slide deck for IEooc_Application4_Lecture4</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
                         <b>Video lecture:</b> Environmental impacts of energy supply.
                         <br>
                         <a href="https://youtu.be/RNeqWkviWHY" target="new">IEooc_Application4_Lecture5</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture5_updated_public.zip"> slide deck for IEooc_Application4_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application4_Lecture5_updated_public.zip">slide deck for IEooc_Application4_Lecture5</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
                         <b>Video lecture:</b> Energy Efficiency.
                         <br>
                         <a href="https://youtu.be/HmLzaN2C8GI" target="new">IEooc_Application4_Lecture6</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture6_updated_public.zip"> slide deck for IEooc_Application4_Lecture6</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application4_Lecture6_updated_public.zip">slide deck for IEooc_Application4_Lecture6</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1288,7 +1311,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <b>Video lecture:</b> Energy Technology Revolution.
                         <br>
                         <a href="https://youtu.be/U4PyLIhn9ZM" target="new">IEooc_Application4_Lecture7</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture7_updated_public.zip"> slide deck for IEooc_Application4_Lecture7</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application4_Lecture7_updated_public.zip">slide deck for IEooc_Application4_Lecture7</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1317,7 +1340,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         <b>Video lecture:</b> Bioenergy and Biomaterials from a Life Cycle Perspective.
                         <br>
                         <a href="https://youtu.be/rhUVfkq_S8o" target="new">IEooc_Application4_Lecture9</a><br>
-						Link to the <a href="/Content/IEooc_Application4_Lecture9.zip"> slide deck for IEooc_Application4_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application4_Lecture9.zip">slide deck for IEooc_Application4_Lecture9</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
 
@@ -1326,10 +1349,10 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise6_LifeCycle_BioFuels_BioMaterials_SampleSolution.xlsx" target="new">IEooc_Application4_Exercise6 Sample Solution (xlsx)</a>
                         <br>
-                        <br>	
+                        <br>
                         <b>Exercise on applying material and energy flow analysis (MEFA) to wood use as material and as energy carrier.</b> Goal: Define and quantify climate-relevant metrics for wood use. Learn how to properly distinguish between actual carbon flows and counter-factual flows (avoided emissions). <b>Level of difficulty: (++)</b><br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse.pdf" target="new">IEooc_Application4_Exercise7 (pdf)</a><br>
-			<a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Workbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
+                        <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Workbook.xlsx" target="new">IEooc_Application4_Exercise7 (Excel workbook)</a><br>
                         For this exercise a sample solution is available:<br>
                         <a href="/Content/IEooc_Application4_Exercise7_CarbonAccounting_WoodUse_Sample_Solution.xlsx" target="new">IEooc_Application4_Exercise7 Sample Solution (xlsx)</a>
                         <br>
@@ -1389,28 +1412,28 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <tr>
                     <td width="30%"></td>
                     <td width="70%">
-                        <b>Reading: A corridors and power-oriented perspective on energy-service demand and needs satisfaction. </b> In this introductory article, Doris Fuchs and team explore the concept of consumption corridors as it might apply to energy use, with specific attention to both wellbeing and power relations.
+                        <b>Reading: A corridors and power-oriented perspective on energy-service demand and needs satisfaction. </b>In this introductory article, Doris Fuchs and team explore the concept of consumption corridors as it might apply to energy use, with specific attention to both wellbeing and power relations.
                         <br>
                         <a href="https://doi.org/10.1080/15487733.2021.1912907" target="new">IEooc_Application6_Reading1</a>
                         <br>
                         <br>
-                        <b>Reading: A review on "Future Energy and Material Scenarios based on Decent Living Standards", </b> by Johan Vélez-Henao and co-authors. Learn about the different studies that have applied the concept of decent living standards at national, regional and global scales to quantify multidimensional poverty, infrastructure and service requirements to eradicate poverty. Learn about the importance of better understanding future transport needs and about the crucial role of reducing inequality when simultaneously meeting future poverty eradication and climate stabilization goals. 
+                        <b>Reading: A review on "Future Energy and Material Scenarios based on Decent Living Standards", </b>by Johan Vélez-Henao and co-authors. Learn about the different studies that have applied the concept of decent living standards at national, regional and global scales to quantify multidimensional poverty, infrastructure and service requirements to eradicate poverty. Learn about the importance of better understanding future transport needs and about the crucial role of reducing inequality when simultaneously meeting future poverty eradication and climate stabilization goals. 
                         <br>
                         <a href="https://dx.doi.org/10.2139/ssrn.6635059" target="new">IEooc_Application6_Reading2</a>
                         <br>
                         <br>
-                        <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk. Based on the insight that decent living standards constrain the slope of the Lorenz curve for the lowest decile, a simple model can be derived that determines total consumption from only three factors: per capita decent living standards, the Gini coefficient of inequality, and population. With a constraint on maximum living standards, overall consumption splits into three components: basic needs satisfaction, prosperous consumption, and excessive consumption. 
+                        <b>Lecture: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b>by Stefan Pauliuk. Based on the insight that decent living standards constrain the slope of the Lorenz curve for the lowest decile, a simple model can be derived that determines total consumption from only three factors: per capita decent living standards, the Gini coefficient of inequality, and population. With a constraint on maximum living standards, overall consumption splits into three components: basic needs satisfaction, prosperous consumption, and excessive consumption. 
                         <br>
                         <a href="https://youtu.be/NiJi-7uQKPg" target="new">IEooc_Application6_Lecture1</a><br>
-						Link to the <a href="/Content/IEooc_Application6_Lecture1.zip">slide deck for IEooc_Application6_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
+                        Link to the <a href="/Content/IEooc_Application6_Lecture1.zip">slide deck for IEooc_Application6_Lecture1</a> (unzip to get the .pptx). The material can be freely used for all kinds of teaching purposes. Please acknowledge the IEooc when using this material. External copyrighted or CC-BY material in the slide decks (photos, figures, and tables) needs proper referencing in any derivatives.
                         <br>
                         <br>
-                        <b>Reading: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b> by Stefan Pauliuk. This is the journal article which the video lecture above is based upon. 
+                        <b>Reading: Decent living standards, prosperity, and excessive consumption in the Lorenz curve. </b>by Stefan Pauliuk. This is the journal article which the video lecture above is based upon. 
                         <br>
                         <a href="https://doi.org/10.1016/j.ecolecon.2024.108161" target="new">IEooc_Application6_Reading3</a>
                         <br>
                         <br>
-                        <b>Reading: Reducing global inequality to secure human wellbeing and climate safety: a modelling study. </b> by Joel Millward-Hopkins and team. The authors explore how a climate-safe, low energy demand future, and universal decent living could be achieved simultaneously, given the magnitude of current global inequalities in energy consumption and technological access. 
+                        <b>Reading: Reducing global inequality to secure human wellbeing and climate safety: a modelling study. </b>by Joel Millward-Hopkins and team. The authors explore how a climate-safe, low energy demand future, and universal decent living could be achieved simultaneously, given the magnitude of current global inequalities in energy consumption and technological access. 
                         <br>
                         <a href="https://doi.org/10.1016/S2542-5196(23)00004-9" target="new">IEooc_Application6_Reading4</a>
                         <br>
@@ -1429,7 +1452,7 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <br>
                 <br>
                 <br>
-                <img 
+                <img
                     src="/Content/webP/IEooc_Logo_438.webp"
                     srcset="
     /Content/webP/IEooc_Logo_438.webp 438w,
@@ -1439,7 +1462,6 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                     width="438"
                     height="179"
                     alt="IEooc Logo">
-
             </center>
 
             <br>
@@ -1449,19 +1471,20 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 <b>International Society for Industrial Ecology:</b> <a href="https://is4ie.org" target="new">https://is4ie.org</a><br>
                 <br>
                 <b>Acknowledgements:</b><br>
-		<b>Adakole Daniel Okwa</b>, for helping with the completion of the 200-year matrix version of the workbook for IEooc_Methods3_Software9.<br>
+                <b>Adakole Daniel Okwa</b>, for helping with the completion of the 200-year matrix version of the workbook for IEooc_Methods3_Software9.<br>
                 <b>Oliver Cencic</b>, TU Vienna, provided detailed bug reports on the different lectures on dynamic MFA and the LCA exercises.<br>
-		<b>Christina Madrid López </b>, Universitat Autònoma de Barcelona, provided feedback and corrections for the IO exercises.<br>
+                <b>Christina Madrid López </b>, Universitat Autònoma de Barcelona, provided feedback and corrections for the IO exercises.<br>
                 <b>Niko Heeren</b>, ETH Zürich, provided detailed feedback on the SEM data model and related software routines.<br>
                 <b>Tomer Fishman</b>, IDC Herzliya, provided detailed feedback and improvement options for dynamic stock model software, which is the basis of the dyn. MFA exercises.<br>
                 <b>Steve Allen</b>, U Bath, provided feedback on IEooc_Methods4_Exercise6.<br>
-                <b>Oskar Wood Hansen, </b> helped debug and update the IO-related exercises and workbooks.<br>
-		<b>Martin Hillenbrand, </b> University of Bayreuth, Germany, helped debug and update the dynamic MFA-related exercises and workbooks. <br>
-		<b>Julius Noah Jandl, </b>for spotting and correcting errors in IEooc_Methods3_Software1.<br>
-		<b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.<br>
-		<b>Simon Schulte and Johan Vélez, </b>for preparing the MRIO-based exercises to calculate income-specific footprint and their uncertainty: IEooc_Methods5_Exercise4a+b.<br>
- 		<b>Türkü Açar, </b>for providing feedback and a correction for IEooc_Background1_Exercise1_Stock_Flow_Service_Nexus.<br>
-		<b>H Scott Matthews and Bo Weidema, </b>for providing very detailed feedback on the LCA, IO, cross-methods, and related application sections.<br>
+                <b>Oskar Wood Hansen, </b>helped debug and update the IO-related exercises and workbooks.<br>
+                <b>Martin Hillenbrand, </b>University of Bayreuth, Germany, helped debug and update the dynamic MFA-related exercises and workbooks.
+                <br>
+                <b>Julius Noah Jandl, </b>for spotting and correcting errors in IEooc_Methods3_Software1.<br>
+                <b>Ofir Eriksen, </b>for helping improve the sample solution of IEooc_Application3_Exercise1a.<br>
+                <b>Simon Schulte and Johan Vélez, </b>for preparing the MRIO-based exercises to calculate income-specific footprint and their uncertainty: IEooc_Methods5_Exercise4a+b.<br>
+                <b>Türkü Açar, </b>for providing feedback and a correction for IEooc_Background1_Exercise1_Stock_Flow_Service_Nexus.<br>
+                <b>H Scott Matthews and Bo Weidema, </b>for providing very detailed feedback on the LCA, IO, cross-methods, and related application sections.<br>
                 <br>
                 <br>
                 <br>
@@ -1478,22 +1501,22 @@ in the agricultural society, and estimate the area yield of modern renewable ene
                 </tr>
                 <tr>
                     <td>
-                        <img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp" alt="Global Educational Resource" width="200"></td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<img src="/Content/webP/440px-Global_Open_Educational_Resources_Logo.webp"
+     width="190"
+     alt="Global Educational Resources">                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>The IEooc is an open educational resource (OER), which is a publicly accessible collection of teaching and study materials for any user to use, re-mix, improve, and redistribute. It is designed to reduce knowledge accessibility barriers, to implement best practices in teaching, and to be adapted to local contexts. </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>
-                    <img 
-                        src="/Content/webP/OER_438.webp"
-                        srcset="
-    /Content/webP/OER_438.webp 438w,
-    /Content/webP/OER_876.webp 876w,
-    /Content/webP/OER_1314.webp 1314w"
-                        sizes="(max-width: 600px) 200px, 438px"
-                        width="438"
-                        height="263"
-                        alt="open resource logo">
-
+                        <img
+                            src="/Content/webP/OER_438.webp"
+                            srcset="
+/Content/webP/OER_438.webp 438w,
+/Content/webP/OER_876.webp 876w,
+/Content/webP/OER_1314.webp 1314w"
+                            sizes="190px"
+                            width="190"
+                            height="114"
+                            alt="open resource logo">
                 </tr>
             </table>
 
@@ -1518,14 +1541,14 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             + <a href="https://ilca.es/teaching-materials/open-teaching-material/" target="new">Open teaching material</a> of the International Life Cycle Academy (ILCA). 
             <br>
             <br>
-	    + Introduction to Life Cycle Assessment (LCA) by Jeroen Guinée, Bernhard Steubing, Reinout Heijungs, and other CML-LCA experts: <a href="https://rise.articulate.com/share/Gx0ZK3GHgAYU-BSaboqXRHN0f6SjC4de#/" target="new">The course (clicke here for access) </a> is based on the theoretical part of the LCA course that is taught in the joint TU Delft - Leiden University Master Programme on Industrial Ecology.
+            + Introduction to Life Cycle Assessment (LCA) by Jeroen Guinée, Bernhard Steubing, Reinout Heijungs, and other CML-LCA experts: <a href="https://rise.articulate.com/share/Gx0ZK3GHgAYU-BSaboqXRHN0f6SjC4de#/" target="new">The course (clicke here for access) </a>is based on the theoretical part of the LCA course that is taught in the joint TU Delft - Leiden University Master Programme on Industrial Ecology.
             <br>
             <br>
-	    + Series of video-lectures on 'Consequential modelling in Life Cycle Inventory analysis' by LCA-NET.com, freely available via their  
+            + Series of video-lectures on 'Consequential modelling in Life Cycle Inventory analysis' by LCA-NET.com, freely available via their  
 		<a href="https://youtube.com/playlist?list=PLdeMRDEdKW1uf9sr83G9vweym_q7dg44q" target="_blank">Youtube channel</a>.
             <br>
             <br>
-	    + Fundamentals of the ecoinvent Database: <a href="https://support.ecoinvent.org/e-learning-fundamentals-database" target="new">An e-learning course</a> that will help you understand how to use the database and to assess the environmental impacts of human activities. The course consists of four modules.
+            + Fundamentals of the ecoinvent Database: <a href="https://support.ecoinvent.org/e-learning-fundamentals-database" target="new">An e-learning course</a> that will help you understand how to use the database and to assess the environmental impacts of human activities. The course consists of four modules.
             <br>
             <br>
             + To help you get started with openLCA, GreenDelta provides <a href="https://www.openlca.org/learning/" target="new">free resources, including case studies</a>, for modeling your own LCA study.
@@ -1551,8 +1574,8 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             <b>PS:</b> The IEooc is not to be confused with the Idaho-Eastern Oregon Onion Committee (IEOOC).<br>
         </div>
     </div>
-        <!-- Matomo Image Tracker-->
-    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=7&amp;rec=1" style="border:0" alt="" />
+    <!-- Matomo Image Tracker-->
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=7&amp;rec=1" style="border: 0" alt="" />
     <!-- End Matomo -->
 </asp:Content>
 
