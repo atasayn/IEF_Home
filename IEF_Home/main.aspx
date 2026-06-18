@@ -281,7 +281,13 @@
 
                     <p>
                         <strong>You can find out more about our group, our research approach, and our teaching on our
-                            <a href="https://uni-freiburg.de/enr-indecol" target="_blank" rel="noopener noreferrer">official homepage
+                            <a href="https://uni-freiburg.de/enr-indecol" target="_blank" rel="noopener noreferrer"> official homepage
+                            </a>
+                        </strong>
+                    </p>
+                    <p>
+                        <strong>The development of this open science portal is supported by the
+                            <a href="https://uni-freiburg.de/enr/" target="_blank" rel="noopener noreferrer"> Faculty of Environment and Natural Resources
                             </a>
                         </strong>
                     </p>
@@ -510,7 +516,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
             <h4 style="color: white">Links:</h4>
 
             <a href="https://uni-freiburg.de/enr-indecol" target="_blank" style="color: white;text-decoration: underline;">
-                <span class="grid-link">Our research group's official</span>
+                <span class="grid-link">Our research group's official homepage</span>
             </a>
 
             <a href="https://uni-freiburg.de/unr/" target="_blank" style="color: white;text-decoration: underline;">
