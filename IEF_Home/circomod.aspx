@@ -482,7 +482,7 @@
                     <div style="background: #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 32px) clamp(20px, 3.5vw, 48px); min-width: clamp(160px, 20vw, 260px); flex-shrink: 0;">
                         <div style="background: #ffffff; padding: 8px 16px;">
                             <img src="resources/uniFreiburg.png"
-                                style="height: clamp(36px, 4.5vw, 66px); width: auto; display: block;">
+                                style="height: clamp(40px, 4.95vw, 73px); width: auto; display: block;">
                         </div>
                     </div>
 
