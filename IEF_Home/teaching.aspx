@@ -686,7 +686,7 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <br>
                         <br>
                         <b>Tutorials and software workbooks for the flodym (Flexibe Open Dynamic Material Systems Model) library, which provides key functionality for building material flow analysis models in a professional Python package,</b> including system definition, systematic coding of model equations, parameter formatting, dynamic stock models, and visualisation. <b>Level of difficulty: (+++)</b><br>
-                        <a href="https://flodym.readthedocs.io/en/latest/examples.html" target="new">The flodym version of the tutorials and software workbooks for ODYM MFA linked above/a>
+                        <a href="https://flodym.readthedocs.io/en/latest/examples.html" target="new">The flodym version of the tutorials and software workbooks for ODYM MFA linked above</a>
 						<a href="https://github.com/jerrysong0128/ISIE-SEM_Summer_School_2026/tree/main/2_focus_groups/23_flodym_deepdive_Stefan_Pauliuk" target="new">more tutorials and software workbooks</a>, covering dynamic stock modelling for the vehicle fleet (inflow- and stock-driven), material cycle modelling, and linking to energy and environmental extensions, developed for the 2026 Bath summer school.
                         <br>
                         <br>
