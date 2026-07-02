@@ -40,7 +40,7 @@
                     alt="IEooc Logo">
 
                 <h2>Industrial Ecology Open Online Course </h2>
-                <h4>Online since 2018 - Last update: March 2026</h4>
+                <h4>Online since 2018 - Last update: July 2026</h4>
                 <br>
                 <br>
             </center>
@@ -118,7 +118,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: March 2026.</h4>
+                <h4>Last update: July 2026.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>
@@ -646,6 +646,11 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <a href="/Content/M3_Software_001_to_005.zip">IEooc_Methods3_Software_001 to _005, complete package (workbooks, data, solutions) as zip folder</a>
                         <br>
                         <br>
+                        <b>Jupyter notebooks by Rick Lupton, covering the basics of Monte-Carlo simulation of dynamic MFA systems in Python, </b> including visualisation, pedigree-to-uncertainty calculations following David Laner et al. (2016), model vs. data uncertainty, and more. <b>Level of difficulty: (++)</b><br>
+                        Also covered: Uncertainty in the future projection, dependence between parameters (over time), and sensitivity analysis:<br>
+                        <a href="https://github.com/jerrysong0128/ISIE-SEM_Summer_School_2026/tree/main/2_focus_groups/21_Monte-Carlo_Rick_Lupton/full" target="new">Tutorials and software workbooks covering the basics of Monte-Carlo simulation of dynamic MFA systems in Python</a>, developed for the 2026 Bath summer school
+                        <br>
+                        <br>
                         <b>Jupyter notebook with a tutorial on inflow-driven and stock-driven modelling, using the dynamic_stock_model class in Python and the Chinese steel stock as an example:</b> In this workbook it is shown how inflow-driven and stock-driven modelling can be implemented in Python using the dynamic_stock_model class. <b>Prerequisites:</b> Calculus. Simple differential equations. Discrete and continuous random variables. Convolution. Basic programming and data visualisation in Python. <b>Level of difficulty: (+++)</b><br>
                         For this notebook, two versions exist:
                         <br>
@@ -678,6 +683,11 @@ elasticities. <b>Prerequisites:</b> Calculus. Random variables and analytical er
                         <script>jupyterLink("/Content/IEooc_Methods3_Software8_ODYM_Tutorial_6.ipynb", "IEooc_Methods3_Software8");</script>
                         MaTrace - Tracing material flows through different product lifecycles<br>
                         <a href="/Content/IEooc_Methods3_Software3-8_ODYM_Tutorial_1-6_Material.zip" target="new">IEooc_Methods3_Software3-8 (data file)</a>
+                        <br>
+                        <br>
+                        <b>Tutorials and software workbooks for the flodym (Flexibe Open Dynamic Material Systems Model) library, which provides key functionality for building material flow analysis models in a professional Python package,</b> including system definition, systematic coding of model equations, parameter formatting, dynamic stock models, and visualisation. <b>Level of difficulty: (+++)</b><br>
+                        <a href="https://flodym.readthedocs.io/en/latest/examples.html" target="new">The flodym version of the tutorials and software workbooks for ODYM MFA linked above/a>
+						<a href="https://github.com/jerrysong0128/ISIE-SEM_Summer_School_2026/tree/main/2_focus_groups/23_flodym_deepdive_Stefan_Pauliuk" target="new">more tutorials and software workbooks</a>, covering dynamic stock modelling for the vehicle fleet (inflow- and stock-driven), material cycle modelling, and linking to energy and environmental extensions, developed for the 2026 Bath summer school.
                         <br>
                         <br>
                         <b>Journal article: "A general framework for stock dynamics of populations and built and natural environments"</b> that introduces a general mathematical framework for dynamic stock models based on balance, intrinsic, and model-approach equations. The framework is used to classify a variety of stock models from different disciplines and discuss their applicability. The paper also introduces a matrix equation for solving stock-lifetime-driven models to determine inflows given the lifetime matrix and the evolution of the stock. <b>Level of difficulty: (++) </b>
@@ -1565,6 +1575,9 @@ in the agricultural society, and estimate the area yield of modern renewable ene
             <br>
             <br>
             + EPFLx MOOC on Sustainability Assessment of Cities, released in 2026. Cities are key to achieving sustainability. Learn how to assess, design policies, and monitor progress towards sustainability <a href="https://www.edx.org/learn/environmental-studies/ecole-polytechnique-federale-de-lausanne-sustainable-assessment-of-cities" target="new">via direct access to the course</a>.
+            <br>
+            <br>
+            + Tutorials and software workbooks for dynamic_material flow analysis in Python, developed for the 2026 Bath summer school. The comprehensive material covers a general introduction as well as three deep dives: flodym MFA system programming, Monte-Carlo simulations, and linking material cycle modelling to energy system models, using the example of the GloBus-Temoa interface. <a href="https://github.com/jerrysong0128/ISIE-SEM_Summer_School_2026" target="new">Access the material via GitHub</a>.
             <br>
             <br>
 
