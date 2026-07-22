@@ -33,13 +33,15 @@
     document.getElementById('svgMap').addEventListener('mousemove', function (e) {
         var el = document.elementFromPoint(e.clientX, e.clientY);
         var target = el;
+        var hoveredCountry = null;
         while (target) {
             if (target.id && target.id.startsWith('svgMap-map-country-')) {
-                lastHoveredCountry = target.id.replace('svgMap-map-country-', '').toLowerCase();
+                hoveredCountry = target.id.replace('svgMap-map-country-', '').toLowerCase();
                 break;
             }
             target = target.parentElement;
         }
+        lastHoveredCountry = hoveredCountry;
     }, true);
 
     // ---------------------------------------------------------------
@@ -58,13 +60,13 @@
 
         var url = [];
 
-        // Blue fill on selected country
+        // Highlight the selected country
         var newIdValue = "svgMap-map-country-" + countryID.toUpperCase();
         var prevEl = document.getElementById(idValue);
-        if (prevEl) prevEl.setAttribute('fill', null);
+        if (prevEl) prevEl.classList.remove('svgMap-selected');
         idValue = newIdValue;
         var newEl = document.getElementById(idValue);
-        if (newEl) newEl.setAttribute('fill', 'blue');
+        if (newEl) newEl.classList.add('svgMap-selected');
 
         // Reset steel/GHG value spans
         function removeBoldTags(container) {
@@ -722,7 +724,7 @@ $(window).on('load', function () {
     imgElementLower.style.border = "outset";
     countryNameLower.innerText = "Germany";
 
-    document.getElementById("svgMap-map-country-DE").setAttribute('fill', 'blue');
+    document.getElementById("svgMap-map-country-DE").classList.add('svgMap-selected');
 
     var url = [];
     const url1 = "https://api.worldbank.org/v2/country/" + countryCode + "/indicators/SP.POP.TOTL?format=json";

@@ -302,6 +302,10 @@
             transition: stroke-width 0.1s, stroke 0.1s;
         }
 
+        .svgMap-country.svgMap-selected {
+            fill: #34499a !important;
+        }
+
         .svgMap-country:hover {
             stroke: #000000 !important;
             stroke-width: 2px !important;
