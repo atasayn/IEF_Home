@@ -310,7 +310,7 @@
                     <input id="collapsible" class="toggle" type="checkbox">
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                            <li id="liHome" runat="server"><a href="/main.aspx">Home</a></li>
+                            <li id="liHome" runat="server"><a href="/main">Home</a></li>
                             <li id="liBlog" runat="server"><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
                             <li id="liDatabase" runat="server"><a href="https://www.database.industrialecology.uni-freiburg.de">IEDC Database</a></li>
                             <li id="liModels" runat="server"><a href="/odym-recc">Our Models</a></li>

@@ -2195,6 +2195,167 @@ namespace IEF_Home
             cn.CloseConnection();
             return dataMatch;
         }
+
+        /*
+         *****************************************************************************************
+         * Section: IEDC 3-aspect search (2026, stepwise version)
+         * See iedc_3_aspect_search_2026.py for the reference logic these endpoints implement.
+         *****************************************************************************************
+         */
+
+        // Parses a comma-separated list of ids into validated integers; invalid/blank entries are dropped.
+        // Only validated integers are ever inlined into SQL text below, never raw client strings.
+        private List<int> Aspect3ParseIntList(string csv)
+        {
+            var list = new List<int>();
+            if (string.IsNullOrWhiteSpace(csv)) return list;
+            foreach (var part in csv.Split(','))
+            {
+                if (int.TryParse(part.Trim(), out int value))
+                {
+                    list.Add(value);
+                }
+            }
+
+            return list;
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        public Dictionary<string, string> iedc3AspectGetAspects(string dataType, string candidateIdsCsv,
+            string excludeAspectIdsCsv)
+        {
+            var result = new Dictionary<string, string>();
+            var candidateIds = Aspect3ParseIntList(candidateIdsCsv);
+            var excludeIds = Aspect3ParseIntList(excludeAspectIdsCsv);
+
+            var candidateFilter = candidateIds.Count > 0
+                ? " AND id IN (" + string.Join(",", candidateIds) + ")"
+                : "";
+            var excludeFilter = excludeIds.Count > 0
+                ? " AND a.id NOT IN (" + string.Join(",", excludeIds) + ")"
+                : "";
+
+            var unionParts = Enumerable.Range(1, 12)
+                .Select(i => $"SELECT aspect_{i} FROM iedc.datasets WHERE data_type = @dataType{candidateFilter}");
+
+            var query = "SELECT DISTINCT a.id, a.aspect FROM iedc.aspects a WHERE a.id IN (" +
+                        string.Join(" UNION ", unionParts) + ")" + excludeFilter + " ORDER BY a.aspect";
+
+            if (!cn.OpenConnection()) return result;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@dataType", dataType);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                if (!reader.IsDBNull(0) && !reader.IsDBNull(1))
+                {
+                    result[reader.GetInt32(0).ToString()] = reader.GetString(1);
+                }
+            }
+
+            reader.Close();
+            cn.CloseConnection();
+            return result;
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        public Dictionary<string, string> iedc3AspectGetLabels(string dataType, string aspectId,
+            string candidateIdsCsv)
+        {
+            var result = new Dictionary<string, string>();
+            if (!int.TryParse(aspectId, out int aspectIdInt)) return result;
+
+            var candidateIds = Aspect3ParseIntList(candidateIdsCsv);
+            var candidateFilter = candidateIds.Count > 0
+                ? " AND ds.id IN (" + string.Join(",", candidateIds) + ")"
+                : "";
+
+            var aspectMatchClause = string.Join(" OR ", Enumerable.Range(1, 12).Select(i => $"ds.aspect_{i} = @aspectId"));
+            var classItemCase = "CASE " +
+                                 string.Join(" ", Enumerable.Range(1, 12).Select(i => $"WHEN ds.aspect_{i} = @aspectId THEN d.aspect{i}")) +
+                                 " END";
+            var classIdCase = "CASE " +
+                               string.Join(" ", Enumerable.Range(1, 12).Select(i => $"WHEN ds.aspect_{i} = @aspectId THEN ds.aspect_{i}_classification")) +
+                               " END";
+
+            var query = "SELECT DISTINCT ci.attribute1_oto AS label, " + classIdCase + " AS classification_id " +
+                        "FROM iedc.datasets ds " +
+                        "INNER JOIN iedc.data d ON d.dataset_id = ds.id " +
+                        "INNER JOIN iedc.classification_items ci ON ci.id = " + classItemCase + " " +
+                        "WHERE ds.data_type = @dataType AND (" + aspectMatchClause + ")" + candidateFilter + " " +
+                        "ORDER BY label";
+
+            if (!cn.OpenConnection()) return result;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@dataType", dataType);
+            cmd.Parameters.AddWithValue("@aspectId", aspectIdInt);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var label = reader["label"] == DBNull.Value ? null : reader["label"].ToString();
+                var classificationId = reader["classification_id"] == DBNull.Value ? "" : reader["classification_id"].ToString();
+                if (!string.IsNullOrEmpty(label) && !result.ContainsKey(label))
+                {
+                    result[label] = classificationId;
+                }
+            }
+
+            reader.Close();
+            cn.CloseConnection();
+            return result;
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        public Dictionary<string, string> iedc3AspectGetDatasets(string dataType, string aspectId, string label,
+            string candidateIdsCsv)
+        {
+            var result = new Dictionary<string, string>();
+            if (!int.TryParse(aspectId, out int aspectIdInt)) return result;
+
+            var candidateIds = Aspect3ParseIntList(candidateIdsCsv);
+            var candidateFilter = candidateIds.Count > 0
+                ? " AND ds.id IN (" + string.Join(",", candidateIds) + ")"
+                : "";
+
+            var aspectMatchClause = string.Join(" OR ", Enumerable.Range(1, 12).Select(i => $"ds.aspect_{i} = @aspectId"));
+            var classItemCase = "CASE " +
+                                 string.Join(" ", Enumerable.Range(1, 12).Select(i => $"WHEN ds.aspect_{i} = @aspectId THEN d.aspect{i}")) +
+                                 " END";
+
+            var query = "SELECT DISTINCT ds.id, ds.dataset_name " +
+                        "FROM iedc.datasets ds " +
+                        "INNER JOIN iedc.data d ON d.dataset_id = ds.id " +
+                        "INNER JOIN iedc.classification_items ci ON ci.id = " + classItemCase + " " +
+                        "WHERE ds.data_type = @dataType AND (" + aspectMatchClause + ")" + candidateFilter + " " +
+                        "AND ci.attribute1_oto = @label " +
+                        "ORDER BY ds.dataset_name";
+
+            if (!cn.OpenConnection()) return result;
+            var cmd = new MySqlCommand(query, cn.Connection);
+            cmd.Parameters.AddWithValue("@dataType", dataType);
+            cmd.Parameters.AddWithValue("@aspectId", aspectIdInt);
+            cmd.Parameters.AddWithValue("@label", label);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var id = reader["id"] == DBNull.Value ? null : reader["id"].ToString();
+                var name = reader["dataset_name"] == DBNull.Value ? null : reader["dataset_name"].ToString();
+                if (!string.IsNullOrEmpty(id) && !result.ContainsKey(id))
+                {
+                    result[id] = name;
+                }
+            }
+
+            reader.Close();
+            cn.CloseConnection();
+            return result;
+        }
     }
 }
 

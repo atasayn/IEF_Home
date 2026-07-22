@@ -394,12 +394,12 @@
                         </div>
 
                         <div class="ief-link-card">
-                            <a class="ief-link-card-icon" href="https://www.industrialecology.uni-freiburg.de/teaching.aspx" target="_blank" title="Open link">
+                            <a class="ief-link-card-icon" href="https://www.industrialecology.uni-freiburg.de/teaching" target="_blank" title="Open link">
                                 <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                             </a>
                             <span>
                                 <span class="ief-link-card-meta">Tutorials &amp; exercises · IEooc</span>
-                                <a class="ief-link-card-url" href="https://www.industrialecology.uni-freiburg.de/teaching.aspx" target="_blank">industrialecology.uni-freiburg.de</a>
+                                <a class="ief-link-card-url" href="https://www.industrialecology.uni-freiburg.de/teaching" target="_blank">industrialecology.uni-freiburg.de</a>
                                 <span class="ief-link-card-desc">Scroll to IEooc_Methods3_Software3–8</span>
                             </span>
                         </div>

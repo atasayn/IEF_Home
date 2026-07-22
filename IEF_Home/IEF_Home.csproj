@@ -315,6 +315,7 @@
     <Content Include="css\svgMap.min.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
     <Content Include="iedc.aspx" />
+    <Content Include="iedc_3_aspect_search.aspx" />
     <Content Include="iedcQuickSearch.aspx" />
     <Content Include="iedcValidate.aspx" />
     <Content Include="iefWorkingPaper.aspx" />
@@ -331,6 +332,7 @@
     <Content Include="js\highlight.pack.min.js" />
     <Content Include="js\html2canvas.min.js" />
     <Content Include="js\iedcAdvancedData.js" />
+    <Content Include="js\iedc3AspectSearch2026.js" />
     <Content Include="js\circular_sankey_script.js" />
     <Content Include="js\iedcQuickSearch.js" />
     <Content Include="js\jquery-1.11.3.min.js" />
@@ -749,6 +751,13 @@
     </Compile>
     <Compile Include="iedc.aspx.designer.cs">
       <DependentUpon>iedc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iedc_3_aspect_search.aspx.cs">
+      <DependentUpon>iedc_3_aspect_search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iedc_3_aspect_search.aspx.designer.cs">
+      <DependentUpon>iedc_3_aspect_search.aspx</DependentUpon>
     </Compile>
     <Compile Include="iedcQuickSearch.aspx.cs">
       <DependentUpon>iedcQuickSearch.aspx</DependentUpon>
