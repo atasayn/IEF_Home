@@ -115,6 +115,14 @@
                     color: #ffffff;
                 }
 
+                /* Blog opens an external site and is never the "active" tab here,
+                   so it shouldn't light up like the active-page highlight on hover. */
+                .navbar-custom .navbar-nav > li#liBlog > a:hover,
+                .navbar-custom .navbar-nav > li#liBlog > a:focus {
+                    background-color: transparent;
+                    color: #ffffff;
+                }
+
             .navbar-custom .navbar-brAND {
                 color: #eeeeee;
             }

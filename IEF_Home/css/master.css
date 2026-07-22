@@ -130,6 +130,16 @@ footer a {
     color: #ffffff !important;
 }
 
+/* Blog opens an external site and is never the "active" tab here,
+   so it shouldn't light up like the active-page highlight on hover. */
+.navbar .navbar-nav > li#liBlog > a:hover,
+.navbar .navbar-nav > li#liBlog > a:focus,
+.navbar-custom .navbar-nav > li#liBlog > a:hover,
+.navbar-custom .navbar-nav > li#liBlog > a:focus {
+    background-color: transparent !important;
+    color: #ffffff !important;
+}
+
 /* Ensure navbar links never show underlines even when pages set anchors to underline */
 .navbar .navbar-nav > li > a,
 .navbar-custom .navbar-nav > li > a {

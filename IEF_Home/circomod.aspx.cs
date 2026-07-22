@@ -14,7 +14,16 @@ namespace IEF_Home
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            liHome.Attributes["class"] = "";
+            liDatabase.Attributes["class"] = "";
+            liModels.Attributes["class"] = "";
+            liTeaching.Attributes["class"] = "";
+            liCircomod.Attributes["class"] = "";
+            liSankey.Attributes["class"] = "";
+            liPapers.Attributes["class"] = "";
+            liInternal.Attributes["class"] = "";
 
+            liCircomod.Attributes["class"] = "active";
         }
 
     }
