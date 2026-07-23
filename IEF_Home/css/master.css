@@ -221,6 +221,12 @@ label.lbl-toggle, input#collapsible {
     display: none;
 }
 
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 thead td {
     font-weight: bold;
 }
@@ -261,17 +267,54 @@ header div div div {
 @media screen AND (max-width: 768px) {
     label.lbl-toggle {
         line-height: 20px;
-        padding: 10px 0;
+        padding: 10px 12px;
         margin: 0;
         display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 28px;
     }
 
-    #collapsible:checked + div {
+    .navbar .container-fluid {
+        justify-content: space-between;
+    }
+
+    .navbar-collapse {
+        display: none;
+        width: 100%;
+    }
+
+    #collapsible:checked ~ .navbar-collapse {
         display: block;
     }
 
+    .navbar-custom .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+        .navbar-custom .navbar-nav > li {
+            width: 100%;
+        }
+
+        .navbar-custom .navbar-nav > li > a {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 16px;
+        }
+
     footer {
         margin-top: 0;
+    }
+
+    footer div a {
+        display: block;
+        padding-left: 0;
+        text-align: center;
     }
 }
 
@@ -283,9 +326,24 @@ header div div div {
     .navbar {
         margin-bottom: 0;
     }
+}
 
-    header div div:nth-child(3) {
-        /*display: none;*/
+/* Header: logo / title / logo row collapses to a stacked layout on narrow screens */
+@media screen AND (max-width: 700px) {
+    .header-row {
+        flex-direction: column;
+    }
+
+    .header-logo-panel {
+        min-width: 0 !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header-title-panel {
+        order: 2;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 

@@ -462,16 +462,16 @@
         <form method="post" action="./circomod.aspx" id="form1" runat="server">
             <header>
             <div class="jumbotron" style="background: #34499a; padding: 0; margin-bottom: 0; border-radius: 0;">
-                <div class="container-fluid" style="display: flex; align-items: stretch; min-height: clamp(80px, 12vw, 160px); padding: 0;">
+                <div class="container-fluid header-row" style="display: flex; align-items: stretch; min-height: clamp(80px, 12vw, 160px); padding: 0;">
 
                     <!-- IEF Logo panel -->
-                    <div style="background: #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 28px) clamp(20px, 3.5vw, 48px); min-width: clamp(160px, 20vw, 260px); flex-shrink: 0;">
+                    <div class="header-logo-panel" style="background: #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 28px) clamp(20px, 3.5vw, 48px); min-width: clamp(160px, 20vw, 260px); flex-shrink: 0;">
                         <img src="resources/IEF_Logo.png"
                             style="height: clamp(54px, 7.2vw, 99px); width: auto; display: block;">
                     </div>
 
                     <!-- Title text -->
-                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 36px); min-width: 0;">
+                    <div class="header-title-panel" style="flex: 1; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 36px); min-width: 0;">
                         <div style="text-align: center;">
                             <p style="margin: 0 0 4px 0; font-size: clamp(16px, 2.2vw, 38px); font-weight: 600; color: #ffffff; line-height: 1.3;">
                                 Freiburg Open Science Portal
@@ -483,7 +483,7 @@
                     </div>
 
                     <!-- Uni Freiburg logo panel -->
-                    <div style="background: #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 32px) clamp(20px, 3.5vw, 48px); min-width: clamp(160px, 20vw, 260px); flex-shrink: 0;">
+                    <div class="header-logo-panel" style="background: #34499a; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 2vw, 32px) clamp(20px, 3.5vw, 48px); min-width: clamp(160px, 20vw, 260px); flex-shrink: 0;">
                         <div style="background: #ffffff; padding: 8px 16px;">
                             <img src="resources/uniFreiburg.png"
                                 style="height: clamp(40px, 4.95vw, 73px); width: auto; display: block;">
