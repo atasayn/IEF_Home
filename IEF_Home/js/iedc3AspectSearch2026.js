@@ -33,7 +33,7 @@ function updateRowColors(table) {
 function buildSelectableTable($table, headerText, entries, onSelect) {
     $table.empty();
     $table.append('<thead><tr><th>' + headerText + '</th></tr>' +
-        '<tr><th><input type="text" class="search-box" placeholder="Type to search"></th></tr></thead><tbody></tbody>');
+        '<tr><th style="display: flex; gap: 10px; align-items: center;"><input type="text" class="search-box" placeholder="Type to search"><div class="selected-label" style="display: none; white-space: nowrap; font-size: 12px; color: #0f8ca7;"><b></b></div></th></tr></thead><tbody></tbody>');
     var $tbody = $table.find('tbody');
 
     entries.forEach(function (entry) {
@@ -190,8 +190,6 @@ function renderAspectStep(i) {
 function renderLabelStep(i, aspectId, aspectName, candidateIds) {
     var $container = $('<div class="wizard-step" id="label-step-' + i + '"></div>');
     $container.append('<div class="wizard-step-label">Choose a label for &ldquo;' + aspectName + '&rdquo;</div>');
-    var $selected = $('<div class="selected-label" id="selected-label-' + i + '"></div>');
-    $container.append($selected);
     var $table = $('<table id="label-table-' + i + '"></table>');
     $container.append($table);
     $('#wizard-steps').append($container);
@@ -219,8 +217,10 @@ function renderLabelStep(i, aspectId, aspectName, candidateIds) {
                 $table.find('td').removeClass('active');
                 $row.addClass('active');
                 removeStepsAfter(i);
-                $selected.html('Selected: <b></b>').find('b').text(label);
-                $selected.addClass('is-set');
+                // Show selected label in table header
+                var $selectedLabel = $table.find('thead .selected-label');
+                $selectedLabel.find('b').text(label);
+                $selectedLabel.show();
                 chooseLabel(i, aspectId, aspectName, label, candidateIds);
             });
         }
@@ -251,6 +251,23 @@ function chooseLabel(i, aspectId, aspectName, label, candidateIds) {
             };
 
             renderDatasetList(entries);
+
+            // Add instructional message below label step (after both aspect and label tables)
+            if (i < 2) {
+                var messages = [
+                    "Please scroll to the bottom of the page to see all matching datasets. Continue with selecting a second aspect to refine the selection.",
+                    "Please scroll to the bottom of the page to see all matching datasets. Continue with selecting a third aspect to refine the selection."
+                ];
+
+                var $labelStep = $('#label-step-' + i);
+                var $existingMsg = $labelStep.next('.instruction-message');
+                if ($existingMsg.length > 0) {
+                    $existingMsg.remove();
+                }
+
+                var $message = $('<div class="instruction-message" style="grid-column: 1 / -1; margin-top: 10px; padding: 12px; background: #f0f3f4; border-left: 4px solid #0f8ca7; color: #253238; font-size: 13px; line-height: 1.5;">' + messages[i] + '</div>');
+                $labelStep.after($message);
+            }
 
             if (entries.length > 0 && i < 2) {
                 renderAspectStep(i + 1);
