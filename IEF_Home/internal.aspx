@@ -741,6 +741,54 @@ For some of the works there is more research material available than what is ava
                     <tbody>
                         <tr>
                             <td><b>MSc</b></td>
+                            <td>UmWi</td>
+                            <td>Carlotta Gertsen</td>
+                            <td><b>Linking Energy Efficiency, Life Cycle Costs, and Environmental Impacts of Household Appliances for Enhanced Customer Decision Support - A Case Study on Washing Machines on the German Market</b></td>
+                            <td>17.07.2026</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/MA_Carlotta_Gertsen.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>REM</td>
+                            <td>Anastasia Ivannikova</td>
+                            <td><b>Household GHG Emissions In Russia: An Income-Age-Based EEIO Assessment</b></td>
+                            <td>10.07.2026</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/Thesis_Master_Ivannikova_Anastasia_07_2026.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>SSE</td>
+                            <td>Tolga Kayabaşı</td>
+                            <td><b>Material Flow Analysis of Critical Metals in Water Electrolysers in Europe under different Deployment and Circular Economy Scenarios</b></td>
+                            <td>04.05.2026</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/MScThesis_TolgaKayabasi.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
+                            <td>MEG</td>
+                            <td>Rinna Yamaguchi</td>
+                            <td><b>Life Cycle Assessment of Polymer coated controlled release fertilizers: Environmental impacts in Japanese rice cultivation</b></td>
+                            <td>09.03.2026</td>
+                            <td>Archived</td>
+                            <td>
+                                <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                                <input type="button" onclick="download('data_indecol_205939343242/MasterThesis_RinnaYamaguchi_5776332.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>MSc</b></td>
                             <td>REM</td>
                             <td>Towfiq Al-Dhaheri</td>
                             <td><b>Material Trade-off of Low Carbon Energy Services</b></td>
@@ -1755,6 +1803,18 @@ Case Study of a Solar Photovoltaic Power Plant</b></td>
                             <td></td>
                             <td></td>
                         </tr>
+                         <tr>    
+                                <td> <b>BSc</b></td>
+                                <td> UNW</td>
+                                <td> Nils Meyer</td>
+                                <td> <b>Lebenszyklusanalyse von Wohngebäuden in Deutschland: Einfluss von Energieversorgung, Materialdesign und Gebäudetyp auf das Treibhauspotenzial und weitere Umweltwirkungen</b></td>
+                                <td> 30.04.2026</td>
+                                <td> Archived</td>
+                                <td>
+                                    <%--<a href="\xxx\Theses\xxx.pdf">Download thesis</a>--%>
+                        <input type="button" onclick="download('data_indecol_205939343242/Bachelorarbeit_Nils_Meyer_5140552.pdf', 'This is the content of my file :')" value="Download Thesis" />
+                                </td>
+                            </tr> 
                          <tr>    
                                 <td> <b>BSc</b></td>
                                 <td> LAS</td>
