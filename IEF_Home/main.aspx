@@ -436,6 +436,20 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
             <div class="not-show-twitter">
                 <h3 style="text-align: center"><b>+++ News +++</b></h3>
                 <br>
+                <h4><b>IEDC Handbook published</b></h4>
+                <p>
+                    [Fall 2026] The comprehensive technical handbook of the Industrial Ecology Data Commons (IEDC) is now published! In this 95 page technical report, you find all the nerdy detail on this new database and the web interface.
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="IEDC handbook thumbnail" src="resources/webP/IEDC_Handbook_thumbnail.webP" />
+                    Download the IEDC handbook <a href="https://doi.org/10.6094/UNIFR/286224" target="_blank">here</a>.
+                </p>
+                <hr>
+                <h4><b>IEDC 3-aspect search rebuilt</b></h4>
+                <p>
+                    [Summer 2026] The IEDC 3-aspect search finds datasets that contain data for up to three specifiers. It allows you to answer questions like “Are there data on the material composition of residential buildings erected in China in the year 2000?”, “Do you have data on copper flows in Brazil in 2023?”
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="search example" src="resources/webP/IEDC_3aspect_thumbnail.webP" />
+                    Direct access to the 3-aspect search option via the <a href="https://www.industrialecology.uni-freiburg.de/iedc_3_aspect_search" target="_blank">IEDC search page</a>.
+                </p>
+                <hr>
                 <h4><b>Integration of interactive floweaver Sankey diagrams into the IEDC</b></h4>
                 <p>
                     [Summer 2026] The IEDC now contains datasets for which a floweaver Sankey can be displayed and downloaded via the web app! This new feature is a result of a collaboration between Rick Lupton (Uni Bath, UK), creator of floweaver, and the IEDC team. A special 1_F data template with eight aspects is used to format the flow data, and a precompiled Sankey specification is created using floweaver.
