@@ -404,6 +404,17 @@
                             </span>
                         </div>
 
+                        <div class="ief-link-card">
+                            <a class="ief-link-card-icon" href="https://github.com/pik-piam/flodym" target="_blank" title="Open link">
+                                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            </a>
+                            <span>
+                                <span class="ief-link-card-meta">New version: flodym(!) on GitHub</span>
+                                <a class="ief-link-card-url" href="https://github.com/pik-piam/flodym" target="_blank">github.com/pik-piam/flodym</a>
+                                <span class="ief-link-card-desc">check out the new flodym library (ODYM-based)</span>
+                            </span>
+                        </div>
+
                     </div>
 
                     <p class="ief-body" style="margin-top:1.5rem;">
@@ -503,7 +514,7 @@
                                 <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                             </a>
                             <span>
-                                <span class="ief-link-card-meta">JRECC model development canvas</span>
+                                <span class="ief-link-card-meta">RECC model development canvas</span>
                                 <a class="ief-link-card-url" href="https://docs.google.com/presentation/d/1Iw8LkWveC-BWy69ULVZdp5Wj2Q1udouwYPtFw2ixsQc/edit?usp=sharing" target="_blank">Google Slides</a>
                             </span>
                         </div>
@@ -609,6 +620,17 @@
                                     <span class="ief-link-card-meta">Global building stock database</span>
                                     <a class="ief-link-card-url" href="https://zenodo.org/records/12752350" target="_blank">zenodo.org/records/12752350</a>
                                     <span class="ief-link-card-desc">Input data and results for building stock transformation scenarios</span>
+                                </span>
+                            </div>
+
+                            <div class="ief-link-card">
+                                <a class="ief-link-card-icon" href="https://doi.org/10.1111/jiec.13557" target="_blank" title="Open link">
+                                    <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                                </a>
+                                <span>
+                                    <span class="ief-link-card-meta">Global building stock paper</span>
+                                    <a class="ief-link-card-url" href="https://doi.org/10.1111/jiec.13557" target="_blank">doi.org/10.1111/jiec.13557</a>
+                                    <span class="ief-link-card-desc">Paper on CE and GHG reduction in the global building sector</span>
                                 </span>
                             </div>
 
