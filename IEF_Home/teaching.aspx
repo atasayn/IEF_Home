@@ -40,7 +40,7 @@
                     alt="IEooc Logo">
 
                 <h2>Industrial Ecology Open Online Course </h2>
-                <h4>Online since 2018 - Last update: July 2026</h4>
+                <h4>Online since 2018 - Last update: September 2026</h4>
                 <br>
                 <br>
             </center>
@@ -51,10 +51,10 @@
     <div class="row">
 
         <div class="col-md-12">
-            The <i>Industrial Ecology Open Online Course (IEooc) </i>is a collection of online material that documents and explains the core industrial ecology concepts, methods, data, and applications. It serves as guide to new industrial ecology researchers by enabling them to conduct state-of-the-art science for sustainability.
+            <b>The <i>Industrial Ecology Open Online Course (IEooc) </i>is a collection of online material that documents and explains the core industrial ecology concepts, methods, data, and applications. It serves as guide to new industrial ecology researchers by enabling them to conduct state-of-the-art science for sustainability.</b>
             <br>
             <br>
-            The course was developed for university students at all levels. It features lectures (screencasts and webinars of 15-60 minutes), slide decks, exercises with sample solutions, code samples or notebooks, and reading material (papers, essays, reports, blog entries). There are now more than 50 exercises and tutorials, and these form the core of this course. All material is freely available for educational use and can be adapted to own teaching formats.
+            <b>The course was developed for university students at all levels. It features lectures (screencasts and webinars of 15-60 minutes), slide decks, exercises with sample solutions, code samples or notebooks, and reading material (papers, essays, reports, blog entries). There are now more than 50 exercises and tutorials, and these form the core of this course. All material is freely available for educational use and can be adapted to own teaching formats.</b>
             <br>
             <br>
             The course is divided into three broad sections: background, methods, and applications. In the background section a general introduction to the topic is given and the theoretical foundations of interdisciplinary systems science in general, and industrial ecology in particular, are laid. In the methods section the core industrial ecology methods material flow analysis, life cycle assessment, and input-output analysis are introduced. In the application section a number of selected case studies and other examples are presented. Readers can choose their preferred level of exposure to conceptual foundations, and can jump to the methods section, which also contains most of the exercises, at any point. For fully appreciating the origin, structure, and interrelation of the different industrial ecology methods, however, some extra work with the background material will be helpful. To grasp the content of the application section some familiarity with the industrial ecology methods is necessary. For each course item a quick summary of the content is provided, the prerequisites are stated, and the level of difficulty is indicated on a scale reaching from (+) (little previous knowledge required) to (+++) (expert-level material).
@@ -66,7 +66,7 @@
             The course consists of a combination of own and external material. I linked to content created by other scholars of the industrial ecology and other communities where appropriate. If you would like to have a link added or removed, let me know. If you would like to see your own content added, drop a line to in4mation[at]indecol.uni-freiburg.de, and I will check whether it fits into the course. The course material is continuously improved and expanded, and the syllabus grows bit by bit. 
             <br>
             <br>
-            Most of the material is made available under a Creative Commons Licence. It can be used in own teaching, modified and expanded. Since 2026, the slide decks for the lectures are available, too, amounting to more than 1500 slides in total.
+            <b>Most of the material is made available under a Creative Commons Licence. It can be used in own teaching, modified and expanded. Since 2026, the slide decks for the lectures are available, too, amounting to more than 1500 slides in total.</b>
             <br>
             <br>
             The course and its parts are designed for self-study. I don't have the capacity for individual supervision and guidance and will decline such requests unless they are related to mistakes in the material or parts of it that are confusing. There is no exam for this course and no certificate of participation.
@@ -118,7 +118,7 @@
         <div class="col-md-12">
             <center>
                 <h2>IEooc Syllabus</h2>
-                <h4>Last update: July 2026.</h4>
+                <h4>Last update: September 2026.</h4>
             </center>
             <br>
             <h3>Part I: Background </h3>

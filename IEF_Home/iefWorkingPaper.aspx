@@ -79,7 +79,7 @@
                <b>Industrial Ecology Data Commons Handbook. </b>
                Stefan Pauliuk and Nildem Atasayar (2026). Industrial Ecology Freiburg (IEF) Working Paper 1(2026), Universität Freiburg im Breisgau.
            </p>
-           <a href="https://doi.org/10.6094/UNIFR/xxx" target="_blank">To be published soon! </a>
+           <a href="https://doi.org/10.6094/UNIFR/286224" target="_blank">https://doi.org/10.6094/UNIFR/286224</a>
        </div>
     </div>
 
