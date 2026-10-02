@@ -142,6 +142,17 @@
        
         
         <div class="column">
+            <img src="Content/workingPaperPngs/IEF_WP_2_2024 (002).png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 2 (2024)</p>
+            <p>
+                <b>Klimaschutz im Transportsektor – Eine Szenarioanalyse für Freiburg. </b>
+                Tim Weber und Stefan Pauliuk. Industrial Ecology Freiburg (IEF) Working Paper 2 (2024), University of Freiburg, Germany.
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/257136" target="_blank">https://doi.org/10.6094/UNIFR/257136</a>
+        </div>
+        <div class="column">
             <img src="Content/workingPaperPngs/guidelinesAndGoodPractice.png" width="300">
         </div>        
         <div class="column">
@@ -153,17 +164,6 @@
                 Industrial Ecology Freiburg (IEF) Working Paper 1(2024), University of Freiburg, Germany. 
             </p>
             <a href="https://doi.org/10.6094/UNIFR/255618" target="_blank">https://doi.org/10.6094/UNIFR/255618</a>
-        </div>
-        <div class="column">
-            <img src="Content/workingPaperPngs/IEF_WP_2_2024 (002).png" width="300">
-        </div>
-        <div class="column">
-            <p>IEF Working paper 2 (2024)</p>
-            <p>
-                <b>Klimaschutz im Transportsektor – Eine Szenarioanalyse für Freiburg. </b>
-                Tim Weber und Stefan Pauliuk. Industrial Ecology Freiburg (IEF) Working Paper 2 (2024), University of Freiburg, Germany.
-            </p>
-            <a href="https://doi.org/10.6094/UNIFR/257136" target="_blank">https://doi.org/10.6094/UNIFR/257136</a>
         </div>
     </div>
 
@@ -220,17 +220,6 @@
     <div class="row">
 
         <div class="column">
-            <img src="Content/workingPaperPngs/treibhausgasbilanzDerUniversitat.png" width="300">
-        </div>
-        <div class="column">
-            <p>IEF Working paper 1 (2021)</p>
-            <p>
-                <b>Treibhausgasbilanz der Universität Freiburg im Breisgau 2017. </b>
-                Stefan Pauliuk, Marcel Eichler, Benjamín Elizalde Durán, Andrew Bonneau, Arthur Jakobs, Jürgen Steck und Heiner Schanz (2021). Industrial Ecology Freiburg (IEF) Working Paper 1(2021), Universität Freiburg im Breisgau.
-            </p>
-            <a href="https://doi.org/10.6094/UNIFR/176419" target="_blank">https://doi.org/10.6094/UNIFR/176419 </a>
-        </div>
-        <div class="column">
             <img src="Content/workingPaperPngs/guidelinesForDataModeling.png" width="300">
         </div>
         <div class="column">
@@ -241,6 +230,17 @@
                 Industrial Ecology Freiburg (IEF) Working Paper 2(2021), University of Freiburg, Germany
             </p>
             <a href="https://doi.org/10.6094/UNIFR/217970" target="_blank">https://doi.org/10.6094/UNIFR/217970</a>
+        </div>
+        <div class="column">
+            <img src="Content/workingPaperPngs/treibhausgasbilanzDerUniversitat.png" width="300">
+        </div>
+        <div class="column">
+            <p>IEF Working paper 1 (2021)</p>
+            <p>
+                <b>Treibhausgasbilanz der Universität Freiburg im Breisgau 2017. </b>
+                Stefan Pauliuk, Marcel Eichler, Benjamín Elizalde Durán, Andrew Bonneau, Arthur Jakobs, Jürgen Steck und Heiner Schanz (2021). Industrial Ecology Freiburg (IEF) Working Paper 1(2021), Universität Freiburg im Breisgau.
+            </p>
+            <a href="https://doi.org/10.6094/UNIFR/176419" target="_blank">https://doi.org/10.6094/UNIFR/176419 </a>
         </div>
     </div>
     <div class="row">
