@@ -2,4 +2,4 @@ AppSettingsSecrets.config
 *.local.config
 
 # Temporary generated/uploaded files
-IEF_Home/Temp
+/Temp/
