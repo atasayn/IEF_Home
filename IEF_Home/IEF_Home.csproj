@@ -669,6 +669,7 @@
     <Content Include="resources\IEDC_advanced_search_lookupvalues_vMarch2025 %28002%29.xlsx" />
     <Content Include="resources\IEDC_advanced_search_lookupvalues_vMay2025.xlsx" />
     <Content Include="resources\IEDC_advanced_search_lookupvalues_vJanuary2026.xlsx" />
+    <Content Include="resources\IEDC_main_aspect_search_lookupvalues_v_Oct_2026.xlsx" />
     <Content Include="resources\webP\CIMO_1.webp" />
     <Content Include="resources\webP\doi-1.webp" />
     <Content Include="resources\webP\FOSP_Homepage_1.webp" />

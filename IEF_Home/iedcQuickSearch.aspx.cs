@@ -10,6 +10,8 @@ namespace IEF_Home
 {
     public partial class iedcQuickSearch : System.Web.UI.Page
     {
+        private const string LookupValuesPath = "resources/IEDC_main_aspect_search_lookupvalues_v_Oct_2026.xlsx";
+
         private circomodService circo = new circomodService();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,26 +29,21 @@ namespace IEF_Home
             DataTable dt = new DataTable();
             dt.Columns.Add("Data Type");
 
-            dt.Rows.Add("Flow (1_F_) by material (1581093 data points)");
-            dt.Rows.Add("Flow (1_F_) by product/commodity (1804511 data points)");
-            dt.Rows.Add("In-use stock (2_IUS_) by material (11354 data points)");
-            dt.Rows.Add("In-use stock (2_IUS_) by product/commodity (215564 data points)");
-            dt.Rows.Add("Population (2_P_) by country/region (62856 data points)");
-            dt.Rows.Add("Lifetime (3_LT_) by product/commodity (2752 daa points)");
-            dt.Rows.Add("Material composition (3_MC_) by material (103588 data points)");
-            dt.Rows.Add("Material composition (3_MC_) by product/commodity (96205 data points)");
-            dt.Rows.Add("Material composition (3_MC_) by type of building and other products (37741 data points)");
-            dt.Rows.Add("Specific energy consumption of products (3_EI_) by product/commodity (3311 data points)");
-            dt.Rows.Add("Specific energy consumption of products (3_EI_) by type of building and other products (6090 data points)");
-            dt.Rows.Add("Sector splits and other shares (3_SHA_) by chemical element (2834 data points)");
-            dt.Rows.Add("Sector splits and other shares (3_SHA_) by material (64134 data points)");
-            dt.Rows.Add("Market shares and other process shares (4_SHR) by material (272 data points)");
-            dt.Rows.Add("Yield coefficient (4_PY_) by product/manufacturing process (7564 data points)");
-            dt.Rows.Add("Yield coefficient (4_PY_) by material (1530 data points)");
-            dt.Rows.Add("Process extension (4_PE_) by process (112 data points)");
-            dt.Rows.Add("Unit process inventory (4_UPI_) by process (939 data points)");
-            dt.Rows.Add("Criticality indicators (6_CR) by chemical element (496 data points)");
-            dt.Rows.Add("Criticality indicators (6_CR) by material (4434 data points)");
+            var file = new FileInfo(Server.MapPath(LookupValuesPath));
+
+            using (var package = new ExcelPackage(file))
+            {
+                var sheetName = package.Workbook.Worksheets[0];
+
+                for (int row = 2; row <= sheetName.Dimension.End.Row; row++)
+                {
+                    var label = sheetName.Cells[row, 1].Text;
+                    if (string.IsNullOrWhiteSpace(label))
+                        break;
+
+                    dt.Rows.Add(label.Trim());
+                }
+            }
 
             return dt;
         }
@@ -148,7 +145,7 @@ namespace IEF_Home
             var index = gvDataType.SelectedIndex;
             var value = gvAspects.SelectedValue?.ToString();
 
-            string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vJanuary2026.xlsx");
+            string sheet = Server.MapPath(LookupValuesPath);
             var file = new FileInfo(sheet);
 
             using (var package = new ExcelPackage(file))
@@ -192,7 +189,7 @@ namespace IEF_Home
             DataTable dataAspectTable = new DataTable();
             dataAspectTable.Columns.Add("Aspect List", typeof(string));
 
-            string sheet = Server.MapPath(@"resources/IEDC_advanced_search_lookupvalues_vJanuary2026.xlsx");
+            string sheet = Server.MapPath(LookupValuesPath);
             var file = new FileInfo(sheet);
 
             using (var package = new ExcelPackage(file))
