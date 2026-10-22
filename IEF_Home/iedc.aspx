@@ -181,7 +181,28 @@
             background-color: #dddddd; /* Change this color to the desired shade of gray */
         }
 
-        input {margin-bottom: 5px; padding: 2px 3px; width: 209px;}
+        input {margin-bottom: 5px; padding: 2px 3px; width: 209px; max-width: 100%;}
+
+        @media (max-width: 720px) {
+            .grid-container {
+                padding: 10px;
+            }
+
+            .grid-intro {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .grid-intro-logo img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .grid-item-data, .grid-item-dataset, .grid-item-dataframe {
+                min-width: 0;
+                max-width: 100%;
+                overflow-x: auto;
+            }
+        }
     </style>
 
     <script>

@@ -140,6 +140,12 @@
             padding: 15px;
         }
 
+        /* Images with fixed width/height attributes must never be wider than the page */
+        main img {
+            max-width: 100%;
+            height: auto;
+        }
+
 
 
         footer {

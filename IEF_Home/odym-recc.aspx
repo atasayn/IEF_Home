@@ -338,6 +338,9 @@
             .ief-main { padding: 1.5rem 1.1rem 3rem; font-size: 15px; }
             .ief-links { grid-template-columns: 1fr; }
             .ief-section-title { font-size: 1.4rem; }
+            .ief-tut-item > span { min-width: 0; overflow-wrap: anywhere; }
+            .ief-tut-title { font-size: 1.1rem; }
+            .ief-tut-desc { font-size: 1rem; }
         }
     </style>
 </asp:Content>

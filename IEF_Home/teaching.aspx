@@ -19,6 +19,35 @@
             padding: 0 2px;
             display: inline-block;
         }
+
+        /* Long file names (e.g. IEooc_Background1_...) have no break opportunities */
+        .col-md-12 {
+            overflow-wrap: anywhere;
+        }
+
+        /* The syllabus is laid out in tables with an empty 30% spacer column;
+           on narrow screens stack the cells so long file names/links can wrap. */
+        @media (max-width: 768px) {
+            .content table, .col-md-12 table {
+                display: block;
+                width: 100%;
+            }
+
+            .col-md-12 tbody, .col-md-12 tr, .col-md-12 td {
+                display: block;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+
+            .col-md-12 td:empty {
+                display: none;
+            }
+
+            .col-md-12 td img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">

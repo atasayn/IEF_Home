@@ -407,6 +407,50 @@
             .grid-container {
                 display: block;
             }
+
+            /* Dashboard: collapse the 4-column grid into one column */
+            #DataMenu-Recc-GraphType {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-areas:
+                    'info'
+                    'map'
+                    'control-panel'
+                    'country-info'
+                    'line-graph'
+                    'line-graph-pop'
+                    'StackedArea'
+                    'line-graph-bar'
+                    'sankeyBaseline'
+                    'sankeyFullCE'
+                    'GHG'
+                    'ECD_Decoupling'
+                    'energyServiceCascade'
+                    'chinaTeaser'
+                    'infoBottom';
+            }
+
+            /* Charts are absolutely positioned inside their cell, so the cell needs its own height */
+            #Graph1Line, #GraphPopulationLine, #GraphPopulationBar, #GraphStackedArea, #GHG {
+                min-height: 300px;
+            }
+
+            #controlPanel p[style*="margin-left"] {
+                margin-left: 10px !important;
+            }
+
+            #DropDownListSector, #DropDownListMaterial {
+                margin-left: 10px;
+                max-width: calc(100% - 20px);
+            }
+
+            #sankeyConfig, #sankeyConfigLower {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            #energyServiceCascade img, #ecdDecoupling img, #ChinaTeaser img {
+                max-width: 100%;
+                height: auto !important;
+            }
         }
 
 

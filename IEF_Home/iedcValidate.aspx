@@ -142,6 +142,11 @@
             animation: spin 2s linear infinite;
         }
 
+        /* Long sample file names must wrap on narrow screens */
+        main a {
+            overflow-wrap: anywhere;
+        }
+
         @media only screen and (min-width: 600px) {
             /* For tablets: */
             .column {

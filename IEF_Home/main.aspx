@@ -186,8 +186,29 @@
                 grid-template-areas:
                     "main"
                     "photo"
+                    "info"
                     "twitter";
+                grid-template-columns: minmax(0, 1fr);
                 grid-auto-columns: 1fr;
+            }
+
+            .not-show-twitter {
+                width: auto;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .grid-intro {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .grid-main, .grid-intro {
+                text-align: left;
+            }
+
+            h2.main-title {
+                font-size: 22px;
             }
         }
     </style>
