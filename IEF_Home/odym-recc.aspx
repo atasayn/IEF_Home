@@ -8,7 +8,7 @@
 
         .ief-main {
             font-family: 'Inter', sans-serif;
-            color: #1a2533;
+            color: #253238;
             line-height: 1.75;
             width: 100%;
             padding: 2.5rem 2.5rem 5rem;
@@ -17,13 +17,13 @@
 
         /* ── Intro banner ── */
         .ief-intro {
-            background: #eef3fa;
-            border-left: 4px solid #2d4a9e;
+            background: #eaf6f8;
+            border-left: 4px solid #0f8ca7;
             border-radius: 0 6px 6px 0;
             padding: 1.1rem 1.5rem;
             margin-bottom: 3rem;
             font-size: 1.3rem;
-            color: #1e3060;
+            color: #08505f;
             line-height: 1.75;
         }
 
@@ -36,10 +36,10 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2.7rem;
             font-weight: 600;
-            color: #1a2533;
+            color: #253238;
             margin: 0 0 1.4rem;
             padding-bottom: 0.65rem;
-            border-bottom: 2px solid #2d4a9e;
+            border-bottom: 2px solid #0f8ca7;
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -52,8 +52,8 @@
             font-weight: 500;
             letter-spacing: 0.07em;
             text-transform: uppercase;
-            background: #dce6f7;
-            color: #1e3a88;
+            background: #cdeaef;
+            color: #0b6d84;
             padding: 3px 10px;
             border-radius: 4px;
         }
@@ -61,7 +61,7 @@
         .ief-body {
             font-size: 1.5rem;
             line-height: 1.85;
-            color: #243040;
+            color: #253238;
             margin-bottom: 1.4rem;
         }
 
@@ -72,7 +72,7 @@
             font-weight: 600;
             letter-spacing: 0.09em;
             text-transform: uppercase;
-            color: #2d4a9e;
+            color: #0f8ca7;
             margin: 2rem 0 0.85rem;
         }
 
@@ -90,7 +90,7 @@
             align-items: flex-start;
             gap: 12px;
             background: #fff;
-            border: 1px solid #c0d0ea;
+            border: 1px solid #cdeaef;
             border-radius: 8px;
             padding: 0.9rem 1.1rem;
             color: inherit;
@@ -100,8 +100,8 @@
         }
 
         .ief-link-card:hover {
-            border-color: #2d4a9e;
-            box-shadow: 0 2px 10px rgba(45,74,158,0.10);
+            border-color: #0f8ca7;
+            box-shadow: 0 2px 10px rgba(15,140,167,0.10);
         }
 
         /* The icon acts as the clickable link */
@@ -109,7 +109,7 @@
             width: 34px;
             height: 34px;
             border-radius: 7px;
-            background: #e4ecf8;
+            background: #eaf6f8;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -121,13 +121,13 @@
         }
 
         .ief-link-card-icon:hover {
-            background: #c8d9f5;
+            background: #cdeaef;
         }
 
         .ief-link-card-icon svg {
             width: 17px;
             height: 17px;
-            stroke: #2d4a9e;
+            stroke: #0f8ca7;
             fill: none;
             stroke-width: 2;
             stroke-linecap: round;
@@ -138,7 +138,7 @@
         /* All text in cards is selectable */
         .ief-link-card-meta {
             font-size: 1.4rem;
-            color: #6a88b8;
+            color: #6b7a80;
             margin-bottom: 3px;
             font-family: 'Space Grotesk', sans-serif;
             display: block;
@@ -150,7 +150,7 @@
         .ief-link-card-url {
             font-size: 1.2rem;
             font-weight: 500;
-            color: #1e3a88;
+            color: #0b6d84;
             word-break: break-word;
             display: block;
             user-select: text;
@@ -162,12 +162,12 @@
         }
 
         .ief-link-card-url:hover {
-            color: #0f2260;
+            color: #08505f;
         }
 
         .ief-link-card-desc {
             font-size: 1.1rem;
-            color: #4a6080;
+            color: #5a6b72;
             margin-top: 3px;
             line-height: 1.45;
             display: block;
@@ -177,8 +177,8 @@
 
         /* ── Figure ── */
         .ief-figure {
-            background: #f0f5fc;
-            border: 1px solid #c0d0ea;
+            background: #f7fbfc;
+            border: 1px solid #cdeaef;
             border-radius: 8px;
             padding: 1.5rem;
             text-align: center;
@@ -193,7 +193,7 @@
 
         .ief-figure figcaption {
             font-size: 0.875rem;
-            color: #5a7090;
+            color: #5a6b72;
             margin-top: 0.75rem;
             font-style: italic;
         }
@@ -211,7 +211,7 @@
             align-items: flex-start;
             gap: 12px;
             background: #fff;
-            border: 1px solid #c0d0ea;
+            border: 1px solid #cdeaef;
             border-radius: 8px;
             padding: 0.85rem 1.1rem;
             color: inherit;
@@ -220,14 +220,14 @@
         }
 
         .ief-tut-item:hover {
-            border-color: #2d4a9e;
+            border-color: #0f8ca7;
         }
 
         .ief-tut-icon {
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: #e4ecf8;
+            background: #eaf6f8;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -239,13 +239,13 @@
         }
 
         .ief-tut-icon:hover {
-            background: #c8d9f5;
+            background: #cdeaef;
         }
 
         .ief-tut-icon svg {
             width: 14px;
             height: 14px;
-            stroke: #2d4a9e;
+            stroke: #0f8ca7;
             fill: none;
             stroke-width: 2;
             stroke-linecap: round;
@@ -256,7 +256,7 @@
         .ief-tut-title {
             font-size: 1.4rem;
             font-weight: 500;
-            color: #1e3a88;
+            color: #0b6d84;
             display: block;
             user-select: text;
             -webkit-user-select: text;
@@ -266,12 +266,12 @@
         }
 
         .ief-tut-title:hover {
-            color: #0f2260;
+            color: #08505f;
         }
 
         .ief-tut-desc {
             font-size: 1.2rem;
-            color: #4a6080;
+            color: #5a6b72;
             margin-top: 2px;
             display: block;
             line-height: 1.5;
@@ -281,7 +281,7 @@
 
         /* ── Version blocks ── */
         .ief-version-block {
-            border-left: 3px solid #b0c4e4;
+            border-left: 3px solid #7cc3d3;
             padding-left: 1.4rem;
             margin-bottom: 2.25rem;
         }
@@ -292,12 +292,12 @@
             font-weight: 600;
             letter-spacing: 0.07em;
             text-transform: uppercase;
-            color: #2d4a9e;
+            color: #0f8ca7;
             margin-bottom: 0.75rem;
         }
 
         .ief-current-badge {
-            background: #2d4a9e;
+            background: #0f8ca7;
             color: #fff;
             font-size: 0.8rem;
             padding: 2px 7px;
@@ -309,29 +309,29 @@
 
         .ief-commit {
             font-size: 1rem;
-            color: #5a7090;
+            color: #5a6b72;
             margin-top: 0.65rem;
         }
 
         .ief-commit code {
             font-family: 'Courier New', monospace;
-            background: #e4ecf8;
+            background: #eaf6f8;
             padding: 1px 6px;
             border-radius: 3px;
             font-size: 1.1em;
-            color: #1e3a88;
+            color: #0b6d84;
             user-select: text;
             -webkit-user-select: text;
         }
 
         /* ── Inline links ── */
         .ief-main a {
-            color: #1e3a88;
+            color: #0b6d84;
             text-decoration: underline;
             text-underline-offset: 2px;
         }
 
-        .ief-main a:hover { color: #0f2260; }
+        .ief-main a:hover { color: #08505f; }
 
         /* ── Responsive ── */
         @media (max-width: 700px) {
