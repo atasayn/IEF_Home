@@ -319,6 +319,13 @@
     <Content Include="iedcQuickSearch.aspx" />
     <Content Include="iedcValidate.aspx" />
     <Content Include="iefWorkingPaper.aspx" />
+    <Content Include="emsc_framework.aspx" />
+    <Content Include="resources\emsc\doughnut.jpg" />
+    <Content Include="resources\emsc\economy-environment.png" />
+    <Content Include="resources\emsc\ecosystem-service-cascade.png" />
+    <Content Include="resources\emsc\mefa-spheres.png" />
+    <Content Include="resources\emsc\social-metabolism.png" />
+    <Content Include="resources\emsc\two-pillar-sustainability.png" />
     <Content Include="internal.aspx" />
     <Content Include="internal_login.aspx" />
     <Content Include="js\anychart-core.min.js" />
@@ -780,6 +787,13 @@
     </Compile>
     <Compile Include="iefWorkingPaper.aspx.designer.cs">
       <DependentUpon>iefWorkingPaper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="emsc_framework.aspx.cs">
+      <DependentUpon>emsc_framework.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="emsc_framework.aspx.designer.cs">
+      <DependentUpon>emsc_framework.aspx</DependentUpon>
     </Compile>
     <Compile Include="internal.aspx.cs">
       <DependentUpon>internal.aspx</DependentUpon>
