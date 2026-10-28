@@ -468,7 +468,260 @@
                 background-color: #E3AF39;
                 color: #ffffff;
             }
+
+        /* ── Modern IEDC theme for the dashboard ── */
+        main {
+            font-family: 'Inter', sans-serif;
+            color: #253238;
+            background: #f2f9fa;
+            margin: 0;
+            padding: 16px;
+        }
+
+        main a {
+            color: #0b6d84;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        main a:hover { color: #08505f; }
+
+        main p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        #DataMenu-Recc-GraphType {
+            grid-row-gap: 16px;
+            grid-column-gap: 16px;
+        }
+
+        #pageInfo, #pageInfoBottom, #mapArea, #countryInfo, #controlPanel,
+        #Graph1Line, #GraphPopulationLine, #GraphPopulationBar, #GraphStackedArea, #GHG,
+        #sankey, #sankeyFullCE, #energyServiceCascade, #ecdDecoupling, #ChinaTeaser {
+            background: #ffffff !important;
+            border: 1px solid #cdeaef;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(15,140,167,0.08);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        #mapArea:hover, #Graph1Line:hover, #GraphPopulationLine:hover, #GraphPopulationBar:hover,
+        #GraphStackedArea:hover, #GHG:hover, #sankey:hover, #sankeyFullCE:hover {
+            border-color: #7cc3d3;
+            box-shadow: 0 4px 16px rgba(15,140,167,0.14);
+        }
+
+        #energyServiceCascade img, #ecdDecoupling img, #ChinaTeaser img {
+            border-radius: 10px !important;
+        }
+
+        /* Intro banner */
+        #pageInfo {
+            background: #eaf6f8 !important;
+            border: 0;
+            border-left: 4px solid #0f8ca7;
+            border-radius: 0 10px 10px 0;
+            box-shadow: none;
+            padding: 14px 20px;
+        }
+
+        #pageInfo p {
+            font-size: 15px;
+            color: #08505f;
+            margin: 0;
+        }
+
+        /* Background section */
+        #pageInfoBottom {
+            padding: 24px 32px;
+        }
+
+        #pageInfoBottom h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            color: #08505f;
+            padding-bottom: 12px;
+            margin: 0 0 16px;
+            border-bottom: 2px solid #0f8ca7;
+        }
+
+        #pageInfoBottom p {
+            font-size: 15px;
+            line-height: 1.75;
+            text-align: justify;
+        }
+
+        #pageInfoBottom br { display: none; }
+        #pageInfoBottom p + br + p { margin-top: 14px; }
+
+        /* Side panels */
+        #countryInfo, #controlPanel {
+            padding: 8px 6px;
+        }
+
+        #countryInfo p b, #controlPanel p b, #controlPanel label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            color: #08505f;
+        }
+
+        #countryInfo > span {
+            display: block;
+            font-weight: 500;
+            color: #0b6d84;
+        }
+
+        .country-info-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 4px 10px 4px 50px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #08505f;
+        }
+
+        #countryInfoFlag {
+            height: 24px;
+            width: auto;
+            border: 1px solid #cdeaef;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(15,140,167,0.15);
+        }
+
+        #countryInfo > p:not(:first-child) {
+            margin-bottom: 0 !important;
+            font-size: 12px;
+            color: #5a6b72;
+        }
+
+        #warningDisplay {
+            background: #fff3d1 !important;
+            color: #6b4f00 !important;
+            border-left: 4px solid #ffc000;
+            border-radius: 0 6px 6px 0;
+            padding: 8px 12px;
+        }
+
+        .ce-highlight {
+            color: #08505f;
+            font-weight: 600;
+        }
+
+        /* Dropdowns */
+        #DropDownListSector, #DropDownListMaterial {
+            background: #f7fbfc;
+            border: 1px solid #cdeaef;
+            border-radius: 6px;
+            padding: 6px 10px;
+            color: #253238;
+            font-size: 14px;
+            cursor: pointer;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        #DropDownListSector:hover, #DropDownListMaterial:hover { border-color: #7cc3d3; }
+
+        #DropDownListSector:focus, #DropDownListMaterial:focus {
+            outline: none;
+            border-color: #0f8ca7;
+            box-shadow: 0 0 0 3px rgba(15,140,167,0.18);
+        }
+
+        /* Sankey config tiles */
+        #countryFlag, #scenerioSelect, #sectorSelect, #yearSelect, #strategySelect, #materialSelect,
+        #countryFlagLower, #scenerioSelectLower, #sectorSelectLower, #yearSelectLower, #strategySelectLower, #materialSelectLower {
+            background: #f7fbfc;
+            border: 1px solid #cdeaef;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #253238;
+        }
+
+        #sankeyConfig > div > span:first-child, #sankeyConfigLower > div > span:first-child {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #5a6b72;
+        }
+
+        #singleCountryImg, #singleCountryImgLower {
+            border: 1px solid #cdeaef;
+            border-radius: 3px;
+        }
+
+        /* Buttons */
+        .button {
+            background-color: #0f8ca7;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover, .button:focus {
+            background-color: #0b6d84;
+            transition: background-color 0.2s;
+        }
+
+        #pdfButton {
+            width: auto;
+            height: auto;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            border-radius: 6px;
+        }
+
+        /* Loaders */
+        .loader, .loader1, .loader2, .loader3, .loader4, .loader5, .loader6 {
+            border-color: #eaf6f8;
+            border-top-color: #0f8ca7;
+        }
+
+        /* Region label & empty states */
+        #RegionName4 {
+            background-color: #cdeaef !important;
+            color: #08505f !important;
+            border-radius: 4px;
+        }
+
+        .no-data-label {
+            line-height: 2;
+            font-weight: 500;
+            color: #6b7a80;
+            font-size: 20px;
+            margin: auto;
+        }
+
+        /* Map */
+        .svgMap-map-wrapper {
+            background: #f7fbfc;
+            border-radius: 10px;
+        }
+
+        .svgMap-country {
+            fill: #7cc3d3 !important;
+        }
+
+        .svgMap-country.svgMap-selected {
+            fill: #0b6d84 !important;
+        }
+
+        .svgMap-country:hover {
+            stroke: #08505f !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            main { padding: 10px; }
+            #DataMenu-Recc-GraphType { grid-row-gap: 12px; }
+            #pageInfoBottom { padding: 16px; }
+        }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/svgMap.min.css" rel="stylesheet">
@@ -480,7 +733,7 @@
     <script type="text/javascript" src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
     <script type="text/javascript" src="js/svgMap/main.min.js"></script>
-    <script type="text/javascript" src="js/mapConfig.js"></script>
+    <script type="text/javascript" src="js/mapConfig.js?v=2"></script>
     <script type="text/javascript" src="js/dropdownMenu.js"></script>
     <script src="js/chart.min.js"></script>
     <script type="text/javascript" src="js/circular_sankey_script.js"></script>
@@ -574,37 +827,40 @@
                     <div class="loader1" style="display: none"></div>
                     <canvas id="line-plot1" style="position: absolute"></canvas>
                     <div id="NoDataline-plot1" style="margin:auto; display: none; width: 100%; height: 100%;">
-                        <span style="line-height: 2; font-weight: 500; color: black; font-size: 25px; margin: auto">No Data</span>
+                        <span class="no-data-label">No Data</span>
                     </div>
                 </div>
                 <div id="GraphPopulationLine" style="background-color: #ffffff">
                     <div class="loader2" style="display: none"></div>
                     <canvas id="line-plot2" style="position: absolute"></canvas>
                     <div id="NoDataline-plot2" style="margin:auto; display: none; width: 100%; height: 100%;">
-                        <span style="line-height: 2; font-weight: 500; color: black; font-size: 25px; margin: auto">No Data</span>
+                        <span class="no-data-label">No Data</span>
                     </div>
                 </div>
                 <div id="GraphPopulationBar" style="background-color: #ffffff">
                     <div class="loader3" style="display: none"></div>
                     <canvas id="line-plot3" style="position: absolute"></canvas>
                     <div id="NoDataline-plot3" style="margin:auto; display: none; width: 100%; height: 100%;">
-                        <span style="line-height: 2; font-weight: 500; color: black; font-size: 25px; margin: auto">No Data</span>
+                        <span class="no-data-label">No Data</span>
                     </div>
                 </div>
                 <div id="GraphStackedArea" style="background-color: #ffffff">
                     <div class="loader4" style="display: none"></div>
                     <canvas id="line-plot4" style="position: absolute"></canvas>
                     <div id="NoDataline-plot4" style="margin:auto; display: none; width: 100%; height: 100%;">
-                        <span style="line-height: 2; font-weight: 500; color: black; font-size: 25px; margin: auto">No Data</span>
+                        <span class="no-data-label">No Data</span>
                     </div>
-                    <span id="RegionName4" class="label label-danger" style="background-color: #b6dbff; line-height: 2; font-weight: 500; color: black"></span>
+                    <span id="RegionName4" class="label label-danger" style="line-height: 2; font-weight: 500"></span>
                 </div>
                 <div style="background-color: #ffffff; display:none">
                     <img id="textScreenshot" src="" />
                 </div>
                 <div id="countryInfo">
                     <p style="margin: 10px"><b>Country Info:</b></p>
-                    <span id='countryInfoCountryName' style="margin-left: 50px"></span>
+                    <div class="country-info-name">
+                        <img id="countryInfoFlag" alt="" src="resources/countryFlags/de.png">
+                        <span id='countryInfoCountryName'></span>
+                    </div>
                     <span id='proxyName' style="margin-left: 50px"></span>
                     <p style="margin: 10px">Population:</p>
                     <span id='population' style="margin-left: 50px"></span>
@@ -672,7 +928,7 @@
                     <p style="margin-left: 50px"><b>Lower Sankey Diagram:</b></p>
                     <p style="margin-left: 50px">
                         &#8226 Sankey diagram for steel flows in [selected sector], [selected region], [selected year]
-                        <text style="color: #ba1a1a">LED scenario, full circular economy.</text>
+                        <span class="ce-highlight">LED scenario, full circular economy.</span>
                     </p>
                     <p id="steelLowerValue" style="margin-left: 50px">&#8226 Reference flow for final consumption of steel (blue): </p>
                     <p id="GhGLowerValue" style="margin-left: 50px">&#8226 Reference flow for GHG emissions (green):</p>
@@ -955,8 +1211,8 @@
                         data: {
                             labels: ["SSP2 Baseline", "Slow+Close", "Narrow + Slow + Close"],
                             datasets: [
-                                { label: 'Primary Production', backgroundColor: "#a6cee3", data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)] },
-                                { label: 'Secondary Production', backgroundColor: "#1f78b4", data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)] },
+                                { label: 'Primary Production', backgroundColor: "#7cc3d3", data: [values[0].slice(-1), values[1].slice(-1), values[2].slice(-1)] },
+                                { label: 'Secondary Production', backgroundColor: "#0b6d84", data: [values[3].slice(-1), values[4].slice(-1), values[5].slice(-1)] },
                             ],
                         },
                         options: {
@@ -987,10 +1243,10 @@
                         data: {
                             labels: Array.from({ length: dataLength }, (_, i) => values[4][i]),
                             datasets: [
-                                { label: 'Use Phase', borderColor: "#a6611a", backgroundColor: "rgba(166, 97, 26, 0.9)", data: values[0], fill: true },
-                                { label: 'Waste Management', borderColor: "#018571", backgroundColor: "rgba(1, 133, 113, 0.9)", data: values[1], fill: true },
-                                { label: 'Material Production', borderColor: "#80cdc1", backgroundColor: "rgba(128, 205, 193, 0.9)", data: values[2], fill: true },
-                                { label: 'Energy Supply', borderColor: "#dfc27d", backgroundColor: "rgba(223, 194, 125, 0.9)", data: values[3], fill: true },
+                                { label: 'Use Phase', borderColor: "#08505f", backgroundColor: "rgba(8, 80, 95, 0.9)", data: values[0], fill: true },
+                                { label: 'Waste Management', borderColor: "#0f8ca7", backgroundColor: "rgba(15, 140, 167, 0.9)", data: values[1], fill: true },
+                                { label: 'Material Production', borderColor: "#7cc3d3", backgroundColor: "rgba(124, 195, 211, 0.9)", data: values[2], fill: true },
+                                { label: 'Energy Supply', borderColor: "#ffc000", backgroundColor: "rgba(255, 192, 0, 0.9)", data: values[3], fill: true },
                             ]
                         },
                         options: {
@@ -998,8 +1254,8 @@
                             devicePixelRatio: 2,
                             plugins: { title: { display: true, text: `Annual GHG 2020-2060 by process, [${region}], [${sector}], SSP2 Baseline` } },
                             scales: {
-                                x: { title: { display: true, text: 'Year' }, grid: { color: "#f2f2f2", lineWidth: 2 } },
-                                y: { stacked: true, title: { display: true, text: 'Mt/yr' }, grid: { color: "#f2f2f2" } }
+                                x: { title: { display: true, text: 'Year' }, grid: { color: "#eaf6f8", lineWidth: 2 } },
+                                y: { stacked: true, title: { display: true, text: 'Mt/yr' }, grid: { color: "#eaf6f8" } }
                             }
                         }
                     });

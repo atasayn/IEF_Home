@@ -128,6 +128,7 @@
 
                 imgElement.src = "resources/countryFlags/" + countryID + ".png";
                 imgElementLower.src = imgElement.src;
+                document.getElementById("countryInfoFlag").src = imgElement.src;
 
                 const url1 = "https://api.worldbank.org/v2/country/" + countryID + "/indicators/SP.POP.TOTL?format=json";
                 const url2 = "https://api.worldbank.org/v2/country/" + countryID + "/indicators/NY.GDP.PCAP.CD?format=json";
