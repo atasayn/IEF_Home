@@ -11,6 +11,7 @@ namespace IEF_Home.privacy
             // Tüm li classlarını temizle
             liHome.Attributes["class"] = "";
             liDatabase.Attributes["class"] = "";
+            liFramework.Attributes["class"] = "";
             liModels.Attributes["class"] = "";
             liTeaching.Attributes["class"] = "";
             liCircomod.Attributes["class"] = "";
@@ -21,6 +22,8 @@ namespace IEF_Home.privacy
             // Aktif sayfayı seç
             if (path == "/main.aspx")
                 liHome.Attributes["class"] = "active";
+            else if (path.Contains("/emsc_framework"))
+                liFramework.Attributes["class"] = "active";
             else if (path.Contains("/odym-recc"))
                 liModels.Attributes["class"] = "active";
             else if (path.Contains("/teaching"))

@@ -368,6 +368,7 @@
                             <li id="liHome" runat="server"><a href="/main">Home</a></li>
                             <li id="liBlog" runat="server"><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
                             <li id="liDatabase" runat="server"><a href="https://www.database.industrialecology.uni-freiburg.de">IEDC Database</a></li>
+                            <li id="liFramework" runat="server"><a href="/emsc_framework">Our Research Framework</a></li>
                             <li id="liModels" runat="server"><a href="/odym-recc">Our Models</a></li>
                             <li id="liTeaching" runat="server"><a href="/teaching">TEACHING: IEooc</a></li>
                             <li id="liCircomod" runat="server"><a href="/circomod">CIRCULAR ECONOMY PROFILES</a></li>
@@ -394,6 +395,7 @@
                 <a href="https://www.blog.industrialecology.uni-freiburg.de">BLOG</a>
                 <!--<a href="research/research">Research</a> &#9679; -->
                 <a href="https://www.database.industrialecology.uni-freiburg.de">IEDC DATABASE</a>
+                <a href="emsc_framework">OUR RESEARCH FRAMEWORK</a>
                 <a href="odym-recc">OUR MODELS</a>
                 <a href="teaching">TEACHING: IEOOC</a>
                 <a href="circomod">CIRCILAR ECONOMY PROFILES</a><br />

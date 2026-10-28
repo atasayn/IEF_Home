@@ -60,6 +60,15 @@ namespace IEF_Home.privacy
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liBlog;
 
         /// <summary>
+        /// liFramework control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liFramework;
+
+        /// <summary>
         /// liDatabase control.
         /// </summary>
         /// <remarks>
