@@ -53,6 +53,11 @@
         }
     }, true);
 
+    // Re-run the selected country when sector/material dropdowns change
+    window.refreshSelectedCountry = function () {
+        handleCountryClick(idValue.replace('svgMap-map-country-', '').toLowerCase());
+    };
+
     // ---------------------------------------------------------------
     // ALL COUNTRY CLICK LOGIC
     // ---------------------------------------------------------------
@@ -144,6 +149,7 @@
                 var endYear = 2060;
                 var sectorTemp = $('#DropDownListSector').val();
                 var material = $('#DropDownListMaterial').val();
+                $('.sankey-material').text(material.toLowerCase());
 
                 if (region == "R32CHN" && sectorTemp == "Residential building") {
                     $('#ChinaTeaser').css('display', 'grid');
@@ -241,7 +247,7 @@
                 document.getElementById('sankeyDivsAll').innerHTML = "";
                 document.getElementById('sankeyDivsAllFullCE').innerHTML = "";
                 document.getElementById("scenerioSpan").innerHTML = scenario;
-                document.getElementById("sectorSpan").innerHTML = "Steel";
+                document.getElementById("sectorSpan").innerHTML = sectorTemp;
                 document.getElementById("yearSpan").innerHTML = startYear + "-" + endYear;
                 document.getElementById("strategySpan").innerHTML = "Baseline";
                 document.getElementById("materialSpan").innerHTML = material;
@@ -296,7 +302,7 @@
                         body: JSON.stringify({
                             SELECTedRegion: region, SELECTedScenario: "SSP2",
                             SELECTedSector: sectorTemp, SELECTedYear: year,
-                            SELECTedStrategy: "Baseline", SELECTedMaterial: "steel"
+                            SELECTedStrategy: "Baseline", SELECTedMaterial: material
                         }),
                     })
                         .then(r => r.json())
@@ -340,7 +346,7 @@
                     sankeyDiv.appendChild(buttonDiv);
 
                     document.getElementById("scenerioSpanLower").innerHTML = "LED";
-                    document.getElementById("sectorSpanLower").innerHTML = "Steel";
+                    document.getElementById("sectorSpanLower").innerHTML = sectorTemp;
                     document.getElementById("yearSpanLower").innerHTML = startYear + "-" + endYear;
                     document.getElementById("strategySpanLower").innerHTML = "Full CE";
                     document.getElementById("materialSpanLower").innerHTML = material;
@@ -393,7 +399,7 @@
                         body: JSON.stringify({
                             SELECTedRegion: region, SELECTedScenario: "LED",
                             SELECTedSector: sectorTemp, SELECTedYear: year,
-                            SELECTedStrategy: "Full CE", SELECTedMaterial: "steel"
+                            SELECTedStrategy: "Full CE", SELECTedMaterial: material
                         }),
                     })
                         .then(r => { if (!r.ok) throw new Error('Network error'); return r.json(); })
@@ -746,12 +752,17 @@ $(document).ready(function () {
         var sectorTemp = $(this).val();
         var dropdown = $("#DropDownListMaterial");
         dropdown.empty();
-        dropdown.append("<option value='' disabled selected>Please select sector</option>");
         if (sectorTemp == "Residential building") {
             ["Steel", "Cement", "Wood"].forEach(el => dropdown.append($("<option>").val(el).text(el)));
         } else if (sectorTemp == "Passenger vehicles") {
             ["Steel", "Aluminium", "Copper"].forEach(el => dropdown.append($("<option>").val(el).text(el)));
         }
+        dropdown.val("Steel");
+        if (window.refreshSelectedCountry) window.refreshSelectedCountry();
+    });
+
+    $("#DropDownListMaterial").on("change", function () {
+        if (window.refreshSelectedCountry) window.refreshSelectedCountry();
     });
 });
 

@@ -733,7 +733,7 @@
     <script type="text/javascript" src="js/PDFmaker/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="js/svgMap/svgMap.js"></script>
     <script type="text/javascript" src="js/svgMap/main.min.js"></script>
-    <script type="text/javascript" src="js/mapConfig.js?v=2"></script>
+    <script type="text/javascript" src="js/mapConfig.js?v=4"></script>
     <script type="text/javascript" src="js/dropdownMenu.js"></script>
     <script src="js/chart.min.js"></script>
     <script type="text/javascript" src="js/circular_sankey_script.js"></script>
@@ -893,8 +893,8 @@
                     </select>
                     <p style="margin: 10px"><b>Sankey:</b></p>
                     <p style="margin-left: 50px"><b>Upper Sankey Diagram:</b></p>
-                    <p style="margin-left: 50px">&#8226 Sankey diagram for steel flows in [selected sector], [selected region], [selected year], SSP2 scenario, standard recycling</p>
-                    <p id="steelUpperValue" style="margin-left: 50px">&#8226 Reference flow for final consumption of steel (blue): </p>
+                    <p style="margin-left: 50px">&#8226 Sankey diagram for <span class="sankey-material">steel</span> flows in [selected sector], [selected region], [selected year], SSP2 scenario, standard recycling</p>
+                    <p id="steelUpperValue" style="margin-left: 50px">&#8226 Reference flow for final consumption of <span class="sankey-material">steel</span> (blue): </p>
                     <p id="GhGUpperValue" style="margin-left: 50px">&#8226 Reference flow for GHG emissions (green):</p>
                     <div id="sankeyConfig">
                         <div id="countryFlag">
@@ -927,10 +927,10 @@
                     </div>
                     <p style="margin-left: 50px"><b>Lower Sankey Diagram:</b></p>
                     <p style="margin-left: 50px">
-                        &#8226 Sankey diagram for steel flows in [selected sector], [selected region], [selected year]
+                        &#8226 Sankey diagram for <span class="sankey-material">steel</span> flows in [selected sector], [selected region], [selected year]
                         <span class="ce-highlight">LED scenario, full circular economy.</span>
                     </p>
-                    <p id="steelLowerValue" style="margin-left: 50px">&#8226 Reference flow for final consumption of steel (blue): </p>
+                    <p id="steelLowerValue" style="margin-left: 50px">&#8226 Reference flow for final consumption of <span class="sankey-material">steel</span> (blue): </p>
                     <p id="GhGLowerValue" style="margin-left: 50px">&#8226 Reference flow for GHG emissions (green):</p>
                     <div id="sankeyConfigLower">
                         <div id="countryFlagLower">
