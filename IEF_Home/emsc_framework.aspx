@@ -250,8 +250,9 @@
             transition: fill 0.15s;
         }
 
-        .emsc-node .emsc-box.society { fill: #fdeee3; }
-        .emsc-node .emsc-box.nature { fill: #e5f3e1; }
+        .emsc-node .emsc-box.society { fill: #f19a92; }
+        .emsc-node .emsc-box.nature { fill: #93cf8a; }
+        .emsc-node .emsc-box.core { fill: #8cc4dc; }
         .emsc-node .emsc-box.chip { fill: #eaf6f8; stroke: #7cc3d3; }
 
         .emsc-node:hover .emsc-box,
@@ -260,7 +261,7 @@
             stroke-width: 3;
         }
 
-        .emsc-node:hover .emsc-box:not(.society):not(.nature) { fill: #fff3d1; }
+        .emsc-node:hover .emsc-box:not(.society):not(.nature):not(.core) { fill: #fff3d1; }
 
         .emsc-node text { font-size: 15px; fill: #253238; pointer-events: none; }
         .emsc-node text.small { font-size: 13px; }
@@ -528,7 +529,7 @@
                 <h2>Our Research Framework: the Energy and Material Service Cascade</h2>
 
                 <p class="emsc-intro">
-                    This page offers a systematic and interactive introduction to the overarching sustainability research framework used by the Industrial Ecology Freiburg research group: the energy and material service cascade (EMSC). The sections below guide you through this framework, its origin, its elements, its applications, and its links to other scientific disciplines.
+                    This page offers a systematic and interactive introduction to the overarching sustainability research framework used by the Industrial Ecology Freiburg research group: the energy and material service cascade (EMSC). Originally proposed by <a href="https://doi.org/10.1016/j.erss.2019.02.026" target="_blank" rel="noopener">Kalt et al. (2019)</a> as Energy Service Cascade, this framework is under continuous development and application. The sections below guide you through the EMSC framework, its origin, its elements, its applications, and its links to other scientific disciplines.
                 </p>
 
                 <div class="emsc-toolbar">
@@ -666,7 +667,7 @@
 
                                 <!-- 04 Services -->
                                 <g class="emsc-node" data-pop="c04" tabindex="0" role="button" aria-label="04 Services, activities">
-                                    <rect class="emsc-box" x="244" y="267" width="142" height="70" rx="6" />
+                                    <rect class="emsc-box core" x="244" y="267" width="142" height="70" rx="6" />
                                     <text x="315" y="297" text-anchor="middle">Services,</text>
                                     <text x="315" y="317" text-anchor="middle">activities</text>
                                     <g class="emsc-pin"><circle cx="244" cy="267" r="12" /><text x="244" y="271" text-anchor="middle">04</text></g>
@@ -681,7 +682,7 @@
 
                                 <!-- 06 Stocks -->
                                 <g class="emsc-node" data-pop="c06" tabindex="0" role="button" aria-label="06 Products and stocks">
-                                    <rect class="emsc-box" x="417" y="267" width="142" height="70" rx="6" />
+                                    <rect class="emsc-box core" x="417" y="267" width="142" height="70" rx="6" />
                                     <text x="488" y="297" text-anchor="middle">Products /</text>
                                     <text x="488" y="317" text-anchor="middle">stocks</text>
                                     <g class="emsc-pin"><circle cx="417" cy="267" r="12" /><text x="417" y="271" text-anchor="middle">06</text></g>
@@ -689,11 +690,11 @@
 
                                 <!-- 07 Flows -->
                                 <g class="emsc-node" data-pop="c07" tabindex="0" role="button" aria-label="07 Flows: build-up and operational energy and material">
-                                    <rect class="emsc-box" x="590" y="206" width="142" height="84" rx="6" />
+                                    <rect class="emsc-box core" x="590" y="206" width="142" height="84" rx="6" />
                                     <text class="small" x="661" y="234" text-anchor="middle">Build-up</text>
                                     <text class="small" x="661" y="252" text-anchor="middle">energy and</text>
                                     <text class="small" x="661" y="270" text-anchor="middle">material</text>
-                                    <rect class="emsc-box" x="590" y="318" width="142" height="84" rx="6" />
+                                    <rect class="emsc-box core" x="590" y="318" width="142" height="84" rx="6" />
                                     <text class="small" x="661" y="346" text-anchor="middle">Operational</text>
                                     <text class="small" x="661" y="364" text-anchor="middle">energy and</text>
                                     <text class="small" x="661" y="382" text-anchor="middle">material</text>
@@ -710,10 +711,10 @@
 
                                 <!-- 09 Supply -->
                                 <g class="emsc-node" data-pop="c09" tabindex="0" role="button" aria-label="09 Energy and material supply">
-                                    <rect class="emsc-box" x="764" y="245" width="142" height="121" rx="6" />
+                                    <rect class="emsc-box core" x="764" y="245" width="142" height="121" rx="6" />
                                     <text class="small" x="835" y="290" text-anchor="middle">Energy carriers,</text>
                                     <text class="small" x="835" y="310" text-anchor="middle">raw materials</text>
-                                    <rect class="emsc-box" x="937" y="262" width="162" height="93" rx="6" />
+                                    <rect class="emsc-box core" x="937" y="262" width="162" height="93" rx="6" />
                                     <text class="small" x="1018" y="292" text-anchor="middle">Extraction &amp;</text>
                                     <text class="small" x="1018" y="310" text-anchor="middle">conversion</text>
                                     <text class="small" x="1018" y="328" text-anchor="middle">technologies</text>
