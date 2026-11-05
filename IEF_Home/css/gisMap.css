@@ -200,6 +200,14 @@
     margin-top: 6px;
 }
 
+    #theme-opacity .layer__label {
+        margin-top: 6px;
+    }
+
+        #theme-opacity .layer__label input {
+            width: auto;
+        }
+
 .layer__opacity input {
     width: 100%;
     accent-color: var(--accent);

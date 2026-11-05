@@ -59,6 +59,24 @@
         g.Layer.every((c) => !c.Layer && c.Name && c.Name.startsWith(g.Name + '_'));
     const isThemeCollection = (g) => g.Layer && g.Layer.length && g.Layer.every(isTheme);
 
+    // ---------- Projection ----------
+    // The map uses ETRS89-LAEA (EPSG:3035), the projection of the census grid (like atlas.zensus2022.de):
+    // grid cells are exact squares and their outlines are straight lines.
+    // Axis order is north-east, as WMS 1.3.0 expects for this projection.
+    proj4.defs('EPSG:3035', '+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 ' +
+        '+towgs84=0,0,0,0,0,0,0 +units=m +no_defs');
+    const PROJECTION = new ol.proj.Projection({
+        code: 'EPSG:3035', units: 'm', axisOrientation: 'neu',
+        extent: [1507846.05, 1896628.62, 6829874.45, 4662111.45]
+    });
+    ol.proj.addProjection(PROJECTION);
+    ol.proj.proj4.register(proj4);
+    const VIEW_EXTENT = [3700000, 2400000, 5000000, 3800000];   // Germany + neighbours (= basemap data area)
+
+    // Web-map zoom level for a resolution at German latitudes; the Natural Earth zoom levels (z) use this scale
+    const WEB_RES_ZOOM0 = 156543.03 * Math.cos(51 * Math.PI / 180);
+    const webZoom = (resolution) => Math.log2(WEB_RES_ZOOM0 / resolution);
+
     // ---------- Map ----------
     // Light background drawn by ourselves (no tile service): country borders and coastline below the data,
     // rivers, lakes and city names on top. Data: Natural Earth 10m, clipped to Germany (json/gisBasemap.json).
@@ -75,7 +93,7 @@
     const S = ol.style;
     const stroke = (color, width, lineDash) => new S.Stroke({ color, width, lineDash });
     const BASE_STYLES = {
-        border: new S.Style({ stroke: stroke('#333333', 1.6) }),
+        border: new S.Style({ stroke: stroke('#9a9a9a', 0.8) }),
         coast: new S.Style({ stroke: stroke('#7f8c96', 1) }),
         lake: new S.Style({ fill: new S.Fill({ color: '#a8d8f0' }), stroke: stroke('#5aa0d0', 0.8) }),
         river: new S.Style({ stroke: stroke('#4a7fd8', 1.3) })
@@ -84,7 +102,6 @@
         stroke: stroke('#ffffff', 3),
         ...opts
     });
-    const zoomOf = (resolution) => map.getView().getZoomForResolution(resolution);
 
     // Below the indicator: borders and coast (the NUTS borders from QGIS take over inside Germany)
     const backgroundLayer = new ol.layer.Vector({
@@ -102,7 +119,7 @@
         style: (f, res) => {
             const k = f.get('k');
             if (k !== 'river' && k !== 'lake') return null;
-            const zoom = zoomOf(res);
+            const zoom = webZoom(res);
             if (f.get('z') != null && zoom < f.get('z')) return null;
             if (k === 'lake' || !f.get('n') || zoom < (f.get('lz') || 99)) return BASE_STYLES[k];
             return [BASE_STYLES.river, new S.Style({
@@ -123,7 +140,7 @@
         zIndex: 1000,
         declutter: 'labels',
         style: (f, res) => {
-            if (f.get('k') !== 'city' || zoomOf(res) < f.get('z') - CITY_ZOOM_BIAS) return null;
+            if (f.get('k') !== 'city' || webZoom(res) < f.get('z') - CITY_ZOOM_BIAS) return null;
             return new S.Style({
                 image: cityDot,
                 text: haloText({
@@ -138,7 +155,12 @@
     const map = new ol.Map({
         target: 'map',
         layers: [backgroundLayer, waterLayer, labelsLayer],
-        view: new ol.View({ center: ol.proj.fromLonLat([10.4, 51.1]), zoom: 6 })
+        view: new ol.View({
+            projection: PROJECTION,
+            center: ol.proj.fromLonLat([10.4, 51.1], PROJECTION),
+            resolution: 1500,
+            extent: VIEW_EXTENT
+        })
     });
     $('labels-toggle').addEventListener('change', (e) => labelsLayer.setVisible(e.target.checked));
     $('water-toggle').addEventListener('change', (e) => waterLayer.setVisible(e.target.checked));
@@ -152,9 +174,46 @@
         }),
         opacity: THEME_OPACITY,
         visible: false,
-        zIndex: 1
+        zIndex: 1,
+        className: 'theme-layer'     // own canvas, so the grid below is drawn only on this layer's cells
     });
     map.addLayer(themeLayer);
+
+    // ---------- Grid cell outlines (like atlas.zensus2022.de) ----------
+    // Thin lines on the census grid (multiples of 10 km / 1 km / 100 m in EPSG:3035), drawn onto the indicator
+    // layer with "source-atop", so they appear only on cells that have data. The cell size follows the
+    // resolution QGIS currently shows (layer name ends in _10km, _1km, _100m).
+    const GRID_MIN_CELL_PX = 4;              // cells smaller than this on screen: no outlines (would be a grey blur)
+    const GRID_COLOR = 'rgba(0, 0, 0, 0.5)';
+    const cellSizeOf = (child) => {
+        const m = /_(\d+)(km|m)$/.exec(child.Name);
+        return m ? Number(m[1]) * (m[2] === 'km' ? 1000 : 1) : null;
+    };
+
+    themeLayer.on('postrender', (event) => {
+        const child = $('grid-toggle').checked && activeChild(activeTheme);
+        const cell = child && cellSizeOf(child);
+        if (!cell || cell / event.frameState.viewState.resolution < GRID_MIN_CELL_PX) return;
+
+        const [minX, minY, maxX, maxY] = event.frameState.extent;
+        const px = (x, y) => ol.render.getRenderPixel(event, map.getPixelFromCoordinate([x, y]))
+            .map((v) => Math.round(v) + 0.5);    // on pixel centres -> crisp 1 px lines
+        const ctx = event.context;
+        ctx.save();
+        ctx.globalCompositeOperation = 'source-atop';
+        ctx.strokeStyle = GRID_COLOR;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        for (let x = Math.ceil(minX / cell) * cell; x <= maxX; x += cell) {
+            ctx.moveTo(...px(x, minY)); ctx.lineTo(...px(x, maxY));
+        }
+        for (let y = Math.ceil(minY / cell) * cell; y <= maxY; y += cell) {
+            ctx.moveTo(...px(minX, y)); ctx.lineTo(...px(maxX, y));
+        }
+        ctx.stroke();
+        ctx.restore();
+    });
+    $('grid-toggle').addEventListener('change', () => map.render());
 
     const popup = new ol.Overlay({
         element: $('popup'),

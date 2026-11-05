@@ -11,6 +11,8 @@
     <!-- OpenLayers (map library) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@10.2.1/ol.css" />
     <script src="https://cdn.jsdelivr.net/npm/ol@10.2.1/dist/ol.js"></script>
+    <!-- proj4: lets OpenLayers use the census grid projection EPSG:3035 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.12.1/proj4.js"></script>
 
     <!-- Our map code (?v= changes when the file changes, so browsers never use an old cached copy) -->
     <link rel="stylesheet" href="<%= Versioned("~/css/gisMap.css") %>" />
@@ -30,6 +32,9 @@
                 <ul id="theme-list" class="tree"></ul>
                 <div id="theme-opacity" class="layer__opacity" hidden>
                     <input id="theme-opacity-input" type="range" min="0" max="100" aria-label="Indicator opacity" />
+                    <label class="layer__label">
+                        <input type="checkbox" id="grid-toggle" checked /><span>Grid cell outlines</span>
+                    </label>
                 </div>
             </section>
 
