@@ -21,6 +21,17 @@ namespace IEF_Home.cls
             // Later: only logged-in users may see the map
             // if (!ctx.User.Identity.IsAuthenticated) { ctx.Response.StatusCode = 401; return; }
 
+            // 0) Settings check: QgisServerUrl must be a full address like http://localhost/qgis/qgis_mapserv.fcgi.exe
+            Uri upstreamUri;
+            if (!Uri.TryCreate(Upstream, UriKind.Absolute, out upstreamUri) ||
+                (upstreamUri.Scheme != Uri.UriSchemeHttp && upstreamUri.Scheme != Uri.UriSchemeHttps))
+            {
+                ctx.Response.StatusCode = 500;
+                ctx.Response.ContentType = "text/plain";
+                ctx.Response.Write("Map service is not configured: appSetting 'QgisServerUrl' must be a full http(s) address.");
+                return;
+            }
+
             // 1) Copy the query string; never let the browser choose the project file
             var query = HttpUtility.ParseQueryString(ctx.Request.Url.Query);
             query.Remove("MAP");                       // case-insensitive
@@ -55,7 +66,14 @@ namespace IEF_Home.cls
             catch (HttpRequestException)
             {
                 ctx.Response.StatusCode = 502;
+                ctx.Response.ContentType = "text/plain";
                 ctx.Response.Write("QGIS Server is not reachable.");
+            }
+            catch (TaskCanceledException)                // HttpClient timeout
+            {
+                ctx.Response.StatusCode = 504;
+                ctx.Response.ContentType = "text/plain";
+                ctx.Response.Write("QGIS Server did not answer in time.");
             }
         }
     }

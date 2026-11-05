@@ -181,7 +181,11 @@
         setStatus('Loading layers…');
         try {
             const res = await fetch(wmsUrl({ REQUEST: 'GetCapabilities' }));
-            if (!res.ok) throw new Error('HTTP ' + res.status);
+            if (!res.ok) {
+                // our proxy (gis.ashx) explains configuration problems in plain text
+                const isText = (res.headers.get('content-type') || '').startsWith('text/plain');
+                throw new Error('HTTP ' + res.status + (isText ? ': ' + (await res.text()).slice(0, 200) : ''));
+            }
             const caps = new ol.format.WMSCapabilities().read(await res.text());
             buildFromCapabilities(caps);
             setStatus('');
