@@ -308,18 +308,22 @@
     <Content Include="css\all.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\bracket.css" />
+    <Content Include="css\gisMap.css" />
     <Content Include="css\jqvmap.min.css" />
     <Content Include="css\master.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\style.css" />
     <Content Include="css\svgMap.min.css" />
     <Content Include="data_indecol_205939343242\ei3.4Filenames.txt" />
+    <Content Include="gisMap.aspx" />
     <Content Include="iedc.aspx" />
     <Content Include="iedc_3_aspect_search.aspx" />
     <Content Include="iedcQuickSearch.aspx" />
     <Content Include="iedcValidate.aspx" />
     <Content Include="iefWorkingPaper.aspx" />
     <Content Include="emsc_framework.aspx" />
+    <Content Include="js\gisMap.js" />
+    <Content Include="json\gisBasemap.json" />
     <Content Include="resources\emsc\doughnut.jpg" />
     <Content Include="resources\emsc\economy-environment.png" />
     <Content Include="resources\emsc\ecosystem-service-cascade.png" />
@@ -667,6 +671,7 @@
     <Content Include="Content\webP\OER_876.webp" />
     <Content Include="Content\webP\OER_1314.webp" />
     <Content Include="Content\webP\IEooc_Logo.webp" />
+    <Content Include="gis.ashx" />
     <None Include="packages.config" />
     <Content Include="resources\Homepage_News_2.webp" />
     <Content Include="resources\3_LT_Vehicles_LIST_Sample.xlsx" />
@@ -753,6 +758,7 @@
     <Compile Include="cls\ExcelToPDF.cs" />
     <Compile Include="cls\FooterPageEvent.cs" />
     <Compile Include="cls\Hash.cs" />
+    <Compile Include="handlers\GisProxyHandler.cs" />
     <Compile Include="iedc.aspx.cs">
       <DependentUpon>iedc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

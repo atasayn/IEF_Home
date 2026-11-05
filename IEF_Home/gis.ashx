@@ -1,0 +1,1 @@
+﻿<%@ WebHandler Language="C#" Class="IEF_Home.cls.GisProxyHandler" %>
