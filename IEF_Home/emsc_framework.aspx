@@ -1200,4 +1200,7 @@
             openFromHash();
         })();
     </script>
+    <!-- Matomo Image Tracker-->
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://www.blog.industrialecology.uni-freiburg.de/stats/collect.php?idsite=9&amp;rec=1" style="border:0" alt="" />
+    <!-- End Matomo -->
 </asp:Content>
