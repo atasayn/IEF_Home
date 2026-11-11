@@ -457,6 +457,27 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
             <div class="not-show-twitter">
                 <h3 style="text-align: center"><b>+++ News +++</b></h3>
                 <br>
+                <h4><b>Visualisation of our research framework</b></h4>
+                <p>
+                    [Winter 2026] This portal now provides a systematic and interactive introduction to the overarching sustainability research framework used by the Industrial Ecology Freiburg research group: the energy and material service cascade (EMSC). The interactive page guides you through the EMSC framework, its origin, its elements, its applications, and its links to other scientific disciplines.
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="SEM thumbnail" src="resources/webP/SEM.webP" />
+                    Access the visualisation <a href="https://www.industrialecology.uni-freiburg.de/emsc_framework" target="_blank">here</a>.
+                </p>
+                <hr>
+                <h4><b>New datasets on material properties and alloy composition</b></h4>
+                <p>
+                    [Fall 2026] The Industrial Ecology Data Commons (IEDC) now contains datasets on alloy composition, calorific value of energy carriers, EROI data, and other general material and energy carrier properties and constants that are often needed but can be hard to find.
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="alloy thumbnail" src="resources/webP/alloys_1.webP" />
+                    See this <a href="https://www.database.industrialecology.uni-freiburg.de/projects?project=No%20Project&datagroup=Material_properties_constants" target="_blank">overview</a> for a complete list of available datasets.
+                </p>
+                <hr>
+                <h4><b>floweaver Sankeys now fully annotated</b></h4>
+                <p>
+                    [Fall 2026] The floweaver Sankey drawings generated from IEDC datasets are now fully annotated and traceable. When exporting them to svg or png, the region, year, material, layer, and scenario aspects are shown on the canvas, as well as the unit, a scale, and a traceability statement.
+                    <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="sankey traceable" src="resources/webP/IEDC_floweaver_end_result_traceable.webP" />
+                    Direct access to the floweaver Sankeys on the <a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">IEDC</a> (toggle 'Display floweaver Sankey datasets only' to filter the Sankey datasets).
+                </p>
+                <hr>
                 <h4><b>IEDC Handbook published</b></h4>
                 <p>
                     [Fall 2026] The comprehensive technical handbook of the Industrial Ecology Data Commons (IEDC) is now published! In this 95 page technical report, you find all the nerdy detail on this new database and the web interface.
@@ -475,7 +496,7 @@ by Stefan Pauliuk in his role as ISIE-SEM board section chair and published at:
                 <p>
                     [Summer 2026] The IEDC now contains datasets for which a floweaver Sankey can be displayed and downloaded via the web app! This new feature is a result of a collaboration between Rick Lupton (Uni Bath, UK), creator of floweaver, and the IEDC team. A special 1_F data template with eight aspects is used to format the flow data, and a precompiled Sankey specification is created using floweaver.
                     <img fetchpriority="high" style="padding-top: 10px; padding-bottom: 10px" class="img-responsive center-block" alt="Sankey example" src="resources/webP/sankey_example.webP" />
-                    Direct access to the floweaver Sankeys on the <a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">IEDC</a> (search for 'Sankey' to filter the Sankey datasets).
+                    Direct access to the floweaver Sankeys on the <a href="https://www.database.industrialecology.uni-freiburg.de" target="_blank">IEDC</a> (toggle 'Display floweaver Sankey datasets only' to filter the Sankey datasets).
                 </p>
                 <hr>
                 <h4><b>Check out our new LLM based Label Matching tool!</b></h4>
