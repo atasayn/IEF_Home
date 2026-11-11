@@ -15,6 +15,7 @@ namespace IEF_Home.privacy
             liModels.Attributes["class"] = "";
             liTeaching.Attributes["class"] = "";
             liCircomod.Attributes["class"] = "";
+            liGis.Attributes["class"] = "";
             liSankey.Attributes["class"] = "";
             liPapers.Attributes["class"] = "";
             liInternal.Attributes["class"] = "";
@@ -30,6 +31,8 @@ namespace IEF_Home.privacy
                 liTeaching.Attributes["class"] = "active";
             else if (path.Contains("/circomod"))
                 liCircomod.Attributes["class"] = "active";
+            else if (path.Contains("/gismap"))
+                liGis.Attributes["class"] = "active";
             else if (path.Contains("/iefworkingpaper"))
                 liPapers.Attributes["class"] = "active";
             else if (path.Contains("/internal"))

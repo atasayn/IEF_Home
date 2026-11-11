@@ -799,9 +799,11 @@
                             <li id="liHome" runat="server"><a href="/main">Home</a></li>
                             <li id="liBlog" runat="server"><a href="https://www.blog.industrialecology.uni-freiburg.de" target="_blank">Blog</a></li>
                             <li id="liDatabase" runat="server"><a href="https://www.database.industrialecology.uni-freiburg.de">IEDC Database</a></li>
+                            <li><a href="/emsc_framework">Our Research Framework</a></li>
                             <li id="liModels" runat="server"><a href="/odym-recc">Our Models</a></li>
                             <li id="liTeaching" runat="server"><a href="/teaching">TEACHING: IEooc</a></li>
                             <li id="liCircomod" runat="server"><a href="/circomod">CIRCULAR ECONOMY PROFILES</a></li>
+                            <li><a href="/gisMap">GIS Data Explorer</a></li>
                             <li id="liSankey" runat="server"><a href="https://www.visualisation.industrialecology.uni-freiburg.de">CIRCULAR SANKEY APP</a></li>
                             <li id="liPapers" runat="server"><a href="/iefWorkingPaper">IEF Working Papers</a></li>
                             <li id="liInternal" runat="server"><a href="/internal">Internal</a></li>
