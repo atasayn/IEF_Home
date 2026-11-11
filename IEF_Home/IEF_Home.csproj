@@ -692,6 +692,9 @@
     <Content Include="resources\webP\windowsServer2025.webp" />
     <Content Include="resources\webP\LLMSearchAI.webp" />
     <Content Include="resources\webP\sankey_example.webp" />
+    <Content Include="resources\webP\SEM.webp" />
+    <Content Include="resources\webP\alloys_1.webp" />
+    <Content Include="resources\webP\IEDC_floweaver_end_result_traceable.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
