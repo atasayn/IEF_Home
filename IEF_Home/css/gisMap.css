@@ -367,6 +367,17 @@
         display: inline;
     }
 
+    .dialog__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+        .dialog__actions .btn[hidden] {
+            display: none;
+        }
+
 .btn {
     border: 0;
     border-radius: var(--radius);

@@ -226,6 +226,12 @@
     map.addOverlay(popup);
     $('popup-close').addEventListener('click', () => popup.setPosition(undefined));
     $('meta-close').addEventListener('click', () => $('meta-dialog').close());
+    // Extent of the layer shown in the card, used by its "Zoom to layer" button
+    let metaBbox = null;
+    $('meta-zoom').addEventListener('click', () => {
+        if (metaBbox) zoomTo(metaBbox);
+        $('meta-dialog').close();
+    });
 
     // Panel toggle (starts closed on small screens)
     const app = $('app');
@@ -476,14 +482,8 @@
         details.appendChild(dl);
         box.appendChild(details);
 
-        if (bbox) {
-            const btn = el('button', 'Zoom to layer');
-            btn.type = 'button';
-            btn.className = 'btn';
-            btn.style.marginRight = '8px';
-            btn.addEventListener('click', () => { zoomTo(bbox); $('meta-dialog').close(); });
-            box.appendChild(btn);
-        }
+        metaBbox = bbox || null;
+        $('meta-zoom').hidden = !metaBbox;
         $('meta-dialog').showModal();
     }
 

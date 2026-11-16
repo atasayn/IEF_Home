@@ -50,7 +50,7 @@
                 <h2>Data</h2>
                 <ul id="theme-list" class="tree"></ul>
                 <div id="theme-opacity" class="layer__opacity" hidden>
-                    <button type="button" id="theme-about" class="btn btn--ghost btn--block">
+                    <button type="button" id="theme-about" class="btn btn--block">
                         About this dataset: description, source &amp; license
                     </button>
                     <input id="theme-opacity-input" type="range" min="0" max="100" aria-label="Indicator opacity" />
@@ -98,7 +98,10 @@
     <!-- Metadata card -->
     <dialog id="meta-dialog" class="dialog">
         <div id="meta-content"></div>
-        <button type="button" id="meta-close" class="btn btn--ghost">Close</button>
+        <div class="dialog__actions">
+            <button type="button" id="meta-zoom" class="btn" hidden>Zoom to layer</button>
+            <button type="button" id="meta-close" class="btn btn--ghost">Close</button>
+        </div>
     </dialog>
 
 </asp:Content>
