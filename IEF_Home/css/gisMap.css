@@ -77,6 +77,20 @@
     margin-top: 20px;
 }
 
+.sidebar__intro {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.sidebar__intro p {
+    margin: 0 0 8px;
+}
+
+.sidebar__intro p:last-child {
+    margin-bottom: 0;
+}
+
     .sidebar__section h2 {
         font-size: 12px;
         text-transform: uppercase;

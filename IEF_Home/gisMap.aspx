@@ -27,6 +27,25 @@
                 <p id="service-abstract" class="muted"></p>
             </header>
 
+            <!-- Page introduction -->
+            <section class="sidebar__intro">
+                <p>
+                    This page allows you to inspect spatial data on socio-economic metabolism (SEM) in Germany.
+                    SEM data describe people&rsquo;s access to services like healthcare or public transport,
+                    in-use stocks such as living space or private cars, and flows such as energy or food consumption.
+                    Many of these features vary a lot across the country, which is why we show them on a map.
+                </p>
+                <p>
+                    This SEM data explorer combines a number of publicly available SEM datasets, plus datasets that
+                    we compiled as part of our own research. Some datasets come on a 10&nbsp;km, 1&nbsp;km, and
+                    100&nbsp;m grid, and some are given for administrative regions and areas.
+                </p>
+                <p>
+                    Select the individual datasets below to inspect them on the map and to show a short description
+                    of the dataset, its source, and its license.
+                </p>
+            </section>
+
             <section class="sidebar__section">
                 <h2>Data</h2>
                 <ul id="theme-list" class="tree"></ul>
