@@ -378,6 +378,42 @@
     font-weight: bold;
 }
 
+.btn--block {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.meta__section {
+    margin: 0 0 12px;
+}
+
+    .meta__section h4 {
+        margin: 0 0 2px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        color: var(--muted);
+    }
+
+    .meta__section a {
+        color: var(--accent);
+        overflow-wrap: anywhere;
+    }
+
+.meta__details {
+    margin: 0 0 16px;
+}
+
+    .meta__details summary {
+        cursor: pointer;
+        color: var(--muted);
+        margin-bottom: 8px;
+    }
+
 .btn--ghost {
     background: transparent;
     color: var(--text);

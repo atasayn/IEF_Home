@@ -50,6 +50,9 @@
                 <h2>Data</h2>
                 <ul id="theme-list" class="tree"></ul>
                 <div id="theme-opacity" class="layer__opacity" hidden>
+                    <button type="button" id="theme-about" class="btn btn--ghost btn--block">
+                        About this dataset: description, source &amp; license
+                    </button>
                     <input id="theme-opacity-input" type="range" min="0" max="100" aria-label="Indicator opacity" />
                     <label class="layer__label">
                         <input type="checkbox" id="grid-toggle" checked /><span>Grid cell outlines</span>

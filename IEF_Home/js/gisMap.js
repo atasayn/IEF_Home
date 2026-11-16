@@ -53,6 +53,8 @@
     // Indicators: name -> { info, children, li }
     const themes = new Map();
     let activeTheme = null;
+    // License for the whole service (QGIS: Project Properties > QGIS Server > Access constraints)
+    let serviceLicense = '';
 
     // A "theme" is a group whose layers are named <group>_<resolution>, e.g. population_1km
     const isTheme = (g) => g.Layer && g.Layer.length &&
@@ -258,6 +260,7 @@
         const root = caps.Capability.Layer;
         $('service-title').textContent = caps.Service.Title || root.Title || 'Map';
         $('service-abstract').textContent = caps.Service.Abstract || '';
+        serviceLicense = caps.Service.AccessConstraints || '';
 
         (root.Layer || []).forEach((node) => {
             if (isThemeCollection(node)) renderThemeCollection(node);
@@ -319,6 +322,10 @@
         updateScaleState();
         updateLegend();
     }
+
+    $('theme-about').addEventListener('click', () => {
+        if (activeTheme) showMetadata(activeTheme.info, activeTheme.children);
+    });
 
     $('theme-opacity-input').value = THEME_OPACITY * 100;
     $('theme-opacity-input').addEventListener('input', (e) => themeLayer.setOpacity(e.target.value / 100));
@@ -443,20 +450,31 @@
         const box = $('meta-content');
         box.replaceChildren(el('h3', info.Title || info.Name));
 
+        // The three things people ask first: what is it, where does it come from, may I use it
+        const first = (key) => info[key] || (children && (children.find((c) => c[key]) || {})[key]);
+        box.append(
+            metaSection('Description', info.Abstract || first('Abstract') || 'No description available yet.'),
+            metaSection('Source', sourceNode(first('Attribution'), first('MetadataURL'), first('DataURL'))),
+            metaSection('License', serviceLicense && !/^none$/i.test(serviceLicense)
+                ? linkify(serviceLicense) : 'Not specified yet.')
+        );
+
         const bbox = info.EX_GeographicBoundingBox || (children && children[0].EX_GeographicBoundingBox);
         const rows = [
-            ['Description', info.Abstract],
             ['Keywords', (info.KeywordList || []).join(', ')],
             ['Resolutions', children && children.map(resolutionLabel).join(', ')],
             ['Layer name', info.Name],
             ['Extent (lon/lat)', bbox && bbox.map((v) => v.toFixed(2)).join(', ')],
-            ['Visible from', !children && info.MaxScaleDenominator && '1:' + Math.round(info.MaxScaleDenominator).toLocaleString()],
-            ['Attribution', info.Attribution && info.Attribution.Title]
+            ['Visible from', !children && info.MaxScaleDenominator && '1:' + Math.round(info.MaxScaleDenominator).toLocaleString()]
         ].filter(([, value]) => value);
 
+        const details = el('details');
+        details.className = 'meta__details';
+        details.appendChild(el('summary', 'Technical details'));
         const dl = el('dl');
         rows.forEach(([key, value]) => dl.append(el('dt', key), el('dd', value)));
-        box.appendChild(dl);
+        details.appendChild(dl);
+        box.appendChild(details);
 
         if (bbox) {
             const btn = el('button', 'Zoom to layer');
@@ -467,6 +485,50 @@
             box.appendChild(btn);
         }
         $('meta-dialog').showModal();
+    }
+
+    function metaSection(title, content) {
+        const section = el('section');
+        section.className = 'meta__section';
+        const body = el('div');
+        if (typeof content === 'string') body.textContent = content; else body.appendChild(content);
+        section.append(el('h4', title), body);
+        return section;
+    }
+
+    function link(href, text) {
+        const a = el('a', text || href);
+        a.href = href;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        return a;
+    }
+
+    // Plain text with any http(s) addresses turned into links (no HTML from the server is trusted)
+    function linkify(text) {
+        const frag = document.createDocumentFragment();
+        text.split(/(https?:\/\/[^\s<>"]+)/).forEach((part, i) =>
+            frag.append(i % 2 ? link(part) : document.createTextNode(part)));
+        return frag;
+    }
+
+    // QGIS: Layer Properties > QGIS Server > Attribution / Metadata URL / Data URL
+    // (OpenLayers reads MetadataURL and DataURL as lists)
+    function sourceNode(attribution, metadataUrls, dataUrls) {
+        const frag = document.createDocumentFragment();
+        const attrUrl = attribution && attribution.OnlineResource;
+        if (attribution && attribution.Title) {
+            frag.append(attrUrl ? link(attrUrl, attribution.Title) : document.createTextNode(attribution.Title));
+        } else if (attrUrl) {
+            frag.append(link(attrUrl));
+        }
+        const extra = [
+            ...(metadataUrls || []).map((m) => m.OnlineResource && link(m.OnlineResource, 'Metadata')),
+            ...(dataUrls || []).map((d) => d.OnlineResource && link(d.OnlineResource, 'Data download'))
+        ].filter(Boolean);
+        extra.forEach((a) => frag.append(frag.childNodes.length ? ' · ' : '', a));
+        if (!frag.childNodes.length) frag.append('Not specified yet.');
+        return frag;
     }
 
     function zoomTo(lonLatBbox, duration = 300) {
